@@ -1,0 +1,112 @@
+{
+  "Meta": {
+    "title": "Domteknika — Ingénierie produit de précision",
+    "description": "Domteknika conçoit, prototypé et industrialise des produits d'exception. Partenaire d'innovation suisse, du concept à la production."
+  },
+  "Nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "values": "Valeurs",
+    "process": "Process",
+    "contact": "Contact",
+    "cta": "Démarrer un projet"
+  },
+  "Hero": {
+    "eyebrow": "Ingénierie produit • Suisse",
+    "title": "L'ingénierie produit suisse au service de vos idées",
+    "subtitle": "Du premier croquis à la production en série, Domteknika transforme des visions ambitieuses en produits d'exception. Précision, agilité et qualité helvétique.",
+    "ctaPrimary": "Découvrir nos projets",
+    "ctaSecondary": "Nous contacter"
+  },
+  "TrustedBy": {
+    "label": "Ils nous font confiance"
+  },
+  "Projects": {
+    "eyebrow": "Nos réalisations",
+    "title": "Des produits qui repoussent les limites",
+    "subtitle": "Une sélection de projets menés de A à Z, du dessin technique à l'industrialisation.",
+    "items": {
+      "1": { "title": "Produit 01", "category": "Design & Prototypage" },
+      "2": { "title": "Produit 02", "category": "Industrialisation" },
+      "3": { "title": "Produit 03", "category": "Ingénierie mécanique" },
+      "4": { "title": "Produit 04", "category": "Fabrication sur mesure" }
+    },
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "Values": {
+    "eyebrow": "Pourquoi Domteknika",
+    "title": "Un partenaire d'innovation de bout en bout",
+    "subtitle": "Quatre engagements qui définissent notre manière de travailler.",
+    "items": {
+      "agile": {
+        "title": "Agile",
+        "description": "Des cycles de développement courts et itératifs pour s'adapter en permanence à vos besoins."
+      },
+      "endToEnd": {
+        "title": "End-to-end",
+        "description": "De l'idéation à la production série, un seul interlocuteur pour toute la chaîne de valeur."
+      },
+      "swissQuality": {
+        "title": "Qualité suisse",
+        "description": "La rigueur et la précision helvétique appliquées à chaque détail de vos produits."
+      },
+      "confidential": {
+        "title": "Confidentialité",
+        "description": "Vos données, vos idées et votre propriété intellectuelle sont protégées en toute circonstance."
+      }
+    }
+  },
+  "Process": {
+    "eyebrow": "Notre méthode",
+    "title": "Un process maîtrisé, du concept au produit fini",
+    "subtitle": "Chaque étape est pensée pour réduire les risques et accélérer la mise sur le marché."
+  },
+  "Cta": {
+    "eyebrow": "Prêt à innover ?",
+    "title": "Donnons vie à votre prochain produit",
+    "subtitle": "Parlons de votre projet. Nos équipes vous répondent sous 48 heures.",
+    "cta": "Démarrer un projet"
+  },
+  "Footer": {
+    "tagline": "Ingénierie produit de précision, made in Switzerland.",
+    "columns": {
+      "company": {
+        "title": "Entreprise",
+        "links": {
+          "about": "À propos",
+          "projects": "Projets",
+          "careers": "Carrières",
+          "contact": "Contact"
+        }
+      },
+      "services": {
+        "title": "Expertises",
+        "links": {
+          "design": "Design",
+          "engineering": "Ingénierie",
+          "prototyping": "Prototypage",
+          "production": "Production"
+        }
+      },
+      "legal": {
+        "title": "Légal",
+        "links": {
+          "privacy": "Confidentialité",
+          "terms": "Conditions",
+          "cookies": "Cookies"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "rights": "Tous droits réservés.",
+    "madeIn": "Fait en Suisse"
+  },
+  "Language": {
+    "switch": "Changer de langue",
+    "fr": "Français",
+    "en": "English"
+  }
+}
