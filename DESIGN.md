@@ -56,7 +56,7 @@ Ordre de la homepage:
 
 1. Navbar fixed glass.
 2. Hero avec dessin technique haut, flèches rouges, titre et deux CTA.
-3. Projets avec carousel shadcn/Embla, cartes 372 x 362, image sur fond gris.
+3. Projets avec carousel shadcn/Embla, cartes compactes 336 x 326, image sur fond gris.
 4. Expertise triptyque: `The idea`, panneau rouge `The process`, `The product` avec stats.
 5. `Trusted by`, ruban de logos en scroll horizontal infini.
 6. Bannière Suisse/Chasseral.
@@ -65,7 +65,7 @@ Ordre de la homepage:
 
 ## Navbar
 
-La navbar est fixed en haut, hauteur 104px desktop, glass transparent, rayon 50 en bas et dropshadow léger.
+La navbar est fixed en haut, hauteur 92px desktop, glass liquide transparent, rayon 50 en bas et dropshadow léger. L'effet doit rester visible: blur élevé, saturation forte, reflets internes, légère aberration rouge/bleu et vraie réfraction des éléments qui passent dessous.
 
 Règles:
 

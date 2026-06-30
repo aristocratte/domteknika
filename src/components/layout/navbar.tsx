@@ -33,22 +33,22 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="nav-glass mx-auto h-[82px] max-w-[1920px] rounded-b-[34px] border-b border-white/45 shadow-[0_5px_12px_rgba(0,0,0,0.22)] md:h-[104px] md:rounded-b-[50px]"
+        className="nav-liquid mx-auto h-[74px] max-w-[1920px] rounded-b-[34px] border-b border-white/50 shadow-[0_8px_28px_rgba(0,0,0,0.18)] backdrop-blur-[34px] backdrop-brightness-[1.05] backdrop-contrast-[1.18] backdrop-saturate-[240%] md:h-[92px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
         <Container
           size="wide"
-          className="grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[170px_1fr_210px] 2xl:grid-cols-[220px_1fr_260px]"
+          className="grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
         >
           <Link
             href="/"
             className="inline-flex w-fit rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             aria-label="DOMTEKNIKA home"
           >
-            <Logo className="w-[132px] md:w-[150px] 2xl:w-[176px]" />
+            <Logo className="w-[120px] md:w-[132px] 2xl:w-[158px]" />
           </Link>
 
-          <ul className="hidden items-center justify-center gap-8 2xl:gap-[54px] md:flex">
+          <ul className="hidden items-center justify-center gap-6 2xl:gap-10 md:flex">
             {NAV_ITEMS.map((item, index) => (
               <li key={item.key}>
                 <NavLink
@@ -62,11 +62,11 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="flex items-center justify-end gap-9">
+          <div className="flex items-center justify-end gap-7">
             <Button
               nativeButton={false}
               size="lg"
-              className="hidden h-12 rounded-[7px] px-[16px] text-[14px] font-bold shadow-[0_3px_7px_rgba(227,6,19,0.28)] transition-transform hover:-translate-y-0.5 md:inline-flex 2xl:px-[18px] 2xl:text-[15px]"
+              className="hidden h-10 rounded-[7px] px-[14px] text-[13px] font-bold shadow-[0_3px_7px_rgba(227,6,19,0.28)] transition-transform hover:-translate-y-0.5 md:inline-flex 2xl:px-4 2xl:text-[14px]"
               render={<Link href="/#contact" />}
             >
               {t("cta")}
@@ -89,7 +89,7 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
-            <div className="nav-glass flex flex-col gap-1 rounded-[24px] border border-white/45 p-4 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
+            <div className="nav-liquid flex flex-col gap-1 rounded-[24px] border border-white/45 p-4 shadow-[0_12px_28px_rgba(0,0,0,0.16)] backdrop-blur-[30px] backdrop-brightness-[1.05] backdrop-contrast-[1.16] backdrop-saturate-[230%]">
               {NAV_ITEMS.map((item) => (
                 <NavLink
                   key={item.key}
@@ -136,7 +136,7 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   const className = cn(
-    "relative inline-flex text-[16px] font-bold text-foreground transition-colors hover:text-brand 2xl:text-[18px]",
+    "relative inline-flex text-[14px] font-bold text-foreground transition-colors hover:text-brand 2xl:text-[16px]",
     active &&
       "after:absolute after:-bottom-[8px] after:left-0 after:h-px after:w-full after:bg-brand",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",

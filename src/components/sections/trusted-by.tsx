@@ -19,14 +19,14 @@ export function TrustedBy() {
   const logos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-background pt-[72px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-8">
-        <h2 className="text-[24px] font-normal uppercase leading-none tracking-normal text-foreground">
+    <section className="bg-background pt-[56px]" aria-label={t("label")}>
+      <Container size="wide" className="mb-7">
+        <h2 className="text-[21px] font-normal uppercase leading-none tracking-normal text-foreground">
           {t("label")}
         </h2>
       </Container>
 
-      <div className="marquee-pause overflow-hidden bg-muted py-[21px]">
+      <div className="marquee-pause overflow-hidden bg-muted py-[18px]">
         <div
           className="flex w-max animate-marquee items-center gap-[88px] pr-[88px]"
           style={{ ["--marquee-duration" as string]: "38s" }}

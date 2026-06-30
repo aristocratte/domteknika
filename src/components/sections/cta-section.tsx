@@ -15,7 +15,7 @@ export function CtaSection() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-28 overflow-hidden border-b border-brand/35 bg-white py-[58px] md:min-h-[345px]"
+      className="relative scroll-mt-24 overflow-hidden border-b border-brand/35 bg-white py-12 md:min-h-[304px]"
       aria-labelledby="cta-title"
     >
       <Image
@@ -42,20 +42,20 @@ export function CtaSection() {
 
           <h2
             id="cta-title"
-            className="domtek-text-shadow mt-7 text-[42px] font-extrabold leading-[1.08] text-foreground sm:text-[56px] lg:text-[65px]"
+            className="domtek-text-shadow mt-6 text-[36px] font-extrabold leading-[1.08] text-foreground sm:text-[48px] lg:text-[56px]"
           >
             <span className="text-brand">.</span>
             {t("title")}
             <span className="text-brand"> ?</span>
           </h2>
 
-          <p className="mt-6 max-w-[590px] text-[18px] font-medium leading-[1.28] text-muted-foreground">
+          <p className="mt-5 max-w-[540px] text-[16px] font-medium leading-[1.3] text-muted-foreground">
             {t("subtitle")}
           </p>
 
           <Button
             nativeButton={false}
-            className="mt-8 h-12 rounded-[7px] px-[27px] text-[15px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.32)] transition-transform hover:-translate-y-0.5"
+            className="mt-7 h-10 rounded-[7px] px-6 text-[14px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.32)] transition-transform hover:-translate-y-0.5"
             render={<Link href="/#contact" />}
           >
             {t("cta")}

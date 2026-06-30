@@ -31,7 +31,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative min-h-[760px] overflow-hidden bg-background pt-[150px] md:min-h-[870px] md:pt-[168px]"
+      className="relative min-h-[700px] overflow-hidden bg-background pt-[126px] md:min-h-[760px] md:pt-[138px]"
       aria-labelledby="hero-title"
     >
       <Image
@@ -49,11 +49,11 @@ export function HeroSection() {
           variants={group}
           initial={false}
           animate="visible"
-          className="max-w-[920px]"
+          className="max-w-[760px]"
         >
           <motion.div
             variants={rise}
-            className="mb-[64px] flex items-start gap-2 text-[17px] font-normal text-muted-foreground md:mb-[82px] md:items-center md:text-[21px]"
+            className="mb-[52px] flex items-start gap-2 text-[16px] font-normal text-muted-foreground md:mb-[60px] md:items-center md:text-[18px]"
           >
             <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
             <span className="min-w-0 max-w-[230px] leading-[1.2] md:max-w-none">
@@ -63,28 +63,28 @@ export function HeroSection() {
 
           <div className="relative">
             <Image
-              src="/assets/arrow-right.png"
-              alt=""
-              width={197}
-              height={197}
-              priority
-              className="pointer-events-none absolute left-[315px] top-[-14px] hidden w-[150px] md:block"
-              aria-hidden
-            />
-            <Image
               src="/assets/arrow-left.png"
               alt=""
               width={250}
               height={250}
               priority
-              className="pointer-events-none absolute -left-[78px] top-[202px] hidden w-[150px] md:block"
+              className="pointer-events-none absolute left-[260px] top-[-8px] hidden w-[108px] md:block"
+              aria-hidden
+            />
+            <Image
+              src="/assets/arrow-right.png"
+              alt=""
+              width={197}
+              height={197}
+              priority
+              className="pointer-events-none absolute -left-[60px] top-[154px] hidden w-[108px] md:block"
               aria-hidden
             />
 
             <motion.h1
               id="hero-title"
               variants={rise}
-              className="domtek-text-shadow max-w-full text-[41px] font-medium leading-[1.12] tracking-normal text-foreground sm:text-[60px] lg:text-[68px] 2xl:text-[76px]"
+              className="domtek-text-shadow max-w-full text-[32px] font-medium leading-[1.12] tracking-normal text-foreground sm:text-[48px] lg:text-[54px] 2xl:text-[58px]"
             >
               <span className="block">
                 {t("engineering")}
@@ -98,7 +98,7 @@ export function HeroSection() {
                 {t("producing")}
                 <span className="text-brand">.</span>
               </span>
-              <span className="mt-7 block pl-0 text-[32px] font-extrabold leading-none sm:text-[62px] lg:mt-8 lg:pl-[90px] lg:text-[74px] 2xl:pl-[106px] 2xl:text-[82px]">
+              <span className="mt-6 block pl-0 text-[24px] font-extrabold leading-none sm:text-[50px] lg:mt-7 lg:pl-[66px] lg:text-[58px] 2xl:pl-[78px] 2xl:text-[62px]">
                 <span className="text-brand">.</span>
                 {t("shape")}
                 <span className="text-brand">.</span>
@@ -108,7 +108,7 @@ export function HeroSection() {
 
           <motion.p
             variants={rise}
-            className="mt-[78px] max-w-[520px] text-[20px] font-medium leading-[1.26] text-muted-foreground"
+            className="mt-10 max-w-[450px] text-[16px] font-medium leading-[1.3] text-muted-foreground"
           >
             {t.rich("lead", {
               strong: (chunks) => (
@@ -121,12 +121,12 @@ export function HeroSection() {
 
           <motion.div
             variants={rise}
-            className="mt-[64px] flex flex-wrap items-center gap-[54px]"
+            className="mt-[44px] flex flex-wrap items-center gap-9"
           >
             <Button
               nativeButton={false}
               size="lg"
-              className="h-12 rounded-[7px] px-[27px] text-[18px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.36)] transition-transform hover:-translate-y-0.5"
+              className="h-10 rounded-[7px] px-6 text-[16px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.36)] transition-transform hover:-translate-y-0.5"
               render={<Link href="/#contact" />}
             >
               {t("ctaPrimary")}
@@ -135,7 +135,7 @@ export function HeroSection() {
 
             <Link
               href="/#expertise"
-              className="inline-flex items-center gap-9 text-[18px] font-extrabold text-foreground transition-colors hover:text-brand"
+              className="inline-flex items-center gap-7 text-[16px] font-extrabold text-foreground transition-colors hover:text-brand"
             >
               {t("ctaSecondary")}
               <ArrowRight className="size-5 text-brand" aria-hidden />

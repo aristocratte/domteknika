@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 const sizes = {
   default: "max-w-[1200px]",
-  wide: "max-w-[1536px]",
+  wide: "max-w-[1440px]",
   narrow: "max-w-[960px]",
 } as const;
 

@@ -14,12 +14,12 @@ export function ProcessSection() {
     >
       <Container size="wide" className="py-0">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.34fr_1.16fr] lg:items-stretch">
-          <article className="flex min-h-[370px] flex-col justify-center py-10 lg:pr-8">
+          <article className="flex min-h-[330px] flex-col justify-center py-8 lg:pr-8">
             <AccentLine />
-            <h2 className="mt-5 text-[28px] font-extrabold leading-tight text-foreground">
+            <h2 className="mt-4 text-[25px] font-extrabold leading-tight text-foreground">
               {t("ideaTitle")}
             </h2>
-            <div className="mt-4 max-w-[410px] text-[21px] font-medium leading-[1.18] text-foreground">
+            <div className="mt-4 max-w-[380px] text-[18px] font-medium leading-[1.2] text-foreground">
               <p>{t("ideaIntro")}</p>
               <p className="mt-7">
                 {t.rich("ideaBody", {
@@ -31,22 +31,22 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="relative z-10 my-0 min-h-[370px] rounded-[7px] bg-brand px-6 py-8 text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] md:px-9 lg:-my-px">
-            <div className="grid h-full gap-8 md:grid-cols-[0.82fr_1fr] md:items-center">
+          <article className="relative z-10 my-0 min-h-[330px] rounded-[7px] bg-brand px-6 py-7 text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] md:px-8 lg:-my-px">
+            <div className="grid h-full gap-7 md:grid-cols-[0.82fr_1fr] md:items-center">
               <div>
                 <AccentLine light />
                 <h2
                   id="process-title"
-                  className="mt-5 text-[30px] font-extrabold leading-tight"
+                  className="mt-4 text-[27px] font-extrabold leading-tight"
                 >
                   {t("processTitle")}
                 </h2>
-                <p className="mt-4 text-[22px] font-medium leading-[1.16]">
+                <p className="mt-4 text-[19px] font-medium leading-[1.18]">
                   {t("processBody")}
                 </p>
               </div>
 
-              <div className="relative h-full min-h-[270px] border-white/70 md:border-l">
+              <div className="relative h-full min-h-[240px] border-white/70 md:border-l">
                 <Image
                   src="/assets/schema-process.png"
                   alt=""
@@ -58,13 +58,13 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="flex min-h-[370px] flex-col justify-between py-10 lg:pl-4">
+          <article className="flex min-h-[330px] flex-col justify-between py-8 lg:pl-4">
             <div>
               <AccentLine />
-              <h2 className="mt-5 text-[28px] font-extrabold leading-tight text-foreground">
+              <h2 className="mt-4 text-[25px] font-extrabold leading-tight text-foreground">
                 {t("productTitle")}
               </h2>
-              <p className="mt-3 max-w-[720px] text-[21px] font-medium leading-[1.17] text-foreground">
+              <p className="mt-3 max-w-[620px] text-[18px] font-medium leading-[1.2] text-foreground">
                 {t("productBody")}
               </p>
             </div>

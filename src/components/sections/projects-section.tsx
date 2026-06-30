@@ -29,14 +29,14 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-28 bg-background pb-[118px] pt-[34px]"
+      className="relative scroll-mt-24 bg-background pb-[88px] pt-[24px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
         <div className="mb-[31px] flex items-center justify-between">
           <h2
             id="projects-title"
-            className="text-[24px] font-extrabold leading-none text-foreground"
+            className="text-[22px] font-extrabold leading-none text-foreground"
           >
             {t("title")}
           </h2>
@@ -44,7 +44,7 @@ export function ProjectsSection() {
             href="#"
             aria-disabled="true"
             onClick={(event) => event.preventDefault()}
-            className="inline-flex items-center gap-9 text-[21px] font-extrabold text-foreground transition-colors hover:text-brand"
+            className="inline-flex items-center gap-7 text-[18px] font-extrabold text-foreground transition-colors hover:text-brand"
           >
             {t("viewAll")}
             <ArrowRight className="size-5 text-brand" aria-hidden />
@@ -64,7 +64,7 @@ export function ProjectsSection() {
             {PROJECTS.map((project) => (
               <CarouselItem
                 key={project.id}
-                className="basis-[min(372px,82vw)] pl-4"
+                className="basis-[min(336px,82vw)] pl-4"
               >
                 <ProjectCard
                   image={`/assets/${project.src}.png`}
@@ -110,8 +110,8 @@ function ProjectCard({
   tag: string;
 }) {
   return (
-    <article className="group h-[362px] overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
-      <div className="relative h-[210px] bg-muted">
+    <article className="group h-[326px] overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
+      <div className="relative h-[185px] bg-muted">
         <Image
           src={image}
           alt=""
@@ -120,14 +120,14 @@ function ProjectCard({
           className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
         />
       </div>
-      <div className="flex h-[150px] flex-col px-5 pb-6 pt-[18px]">
-        <h3 className="text-[16px] font-extrabold leading-tight text-foreground">
+      <div className="flex h-[141px] flex-col px-5 pb-5 pt-4">
+        <h3 className="text-[15px] font-extrabold leading-tight text-foreground">
           {title}
         </h3>
-        <p className="mt-[10px] text-[15px] font-medium leading-tight text-muted-foreground">
+        <p className="mt-2 text-[14px] font-medium leading-tight text-muted-foreground">
           {description}
         </p>
-        <p className="mt-auto text-[14px] font-extrabold leading-none text-brand">
+        <p className="mt-auto text-[13px] font-extrabold leading-none text-brand">
           #{tag}
         </p>
       </div>
