@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -22,9 +23,20 @@ const PROJECTS = [
   { id: 5, src: "product-4", tag: "Tag5" },
 ] as const;
 
+const CAROUSEL_PROJECTS = [...PROJECTS, ...PROJECTS];
+
 export function ProjectsSection() {
   const t = useTranslations("Projects");
   const [api, setApi] = useState<CarouselApi>();
+  const autoplay = useMemo(
+    () =>
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    [],
+  );
 
   return (
     <section
@@ -58,12 +70,15 @@ export function ProjectsSection() {
             loop: true,
             dragFree: false,
           }}
+          plugins={[autoplay]}
           className="w-full"
+          onFocus={() => autoplay.stop()}
+          onBlur={() => autoplay.reset()}
         >
           <CarouselContent className="-ml-4">
-            {PROJECTS.map((project) => (
+            {CAROUSEL_PROJECTS.map((project, index) => (
               <CarouselItem
-                key={project.id}
+                key={`${project.id}-${index}`}
                 className="basis-[min(336px,82vw)] pl-4"
               >
                 <ProjectCard

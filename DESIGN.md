@@ -75,18 +75,23 @@ Règles:
 - Le CTA pointe vers l'ancre `#contact`.
 - Le rendu ne change pas au scroll.
 - Le liquid glass de la navbar est rendu dans `Navbar` par styles inline typés + couches absolues pour éviter la purge/cache Tailwind v4 des classes custom.
+- Le glass doit garder une aberration chromatique lisible: halo rouge côté gauche, halo bleu côté droit, blur élevé, saturation forte et reflets internes.
+- L'indicateur rouge des liens de navigation est un élément animé réel. Il reste sous `Home` au repos et circule vers le lien survolé ou focusé.
 
 ## Hero
 
 - `technical-drawing-top.png` doit rester plus petit que le hero et aligné vers la droite; ne pas utiliser `object-cover` plein écran sur desktop.
 - Les flèches rouges restent visibles et légèrement plus grandes que la première passe, autour de 126px sur desktop.
 - Le dessin technique sert de contexte discret: il ne doit pas dominer le titre.
+- Dans le paragraphe d'introduction, `DOMTEKNIKA` est souligné en rouge. Les autres strong restent en gras sans soulignement.
 
 ## Expertise Et Logos
 
 - Dans `The product`, les stats ne doivent passer en 3 colonnes qu'à largeur suffisante (`min-[1500px]` aujourd'hui). En dessous, elles s'empilent pour éviter tout chevauchement texte/drapeau.
 - Les logos `Trusted by` doivent être lisibles dans le marquee, pas réduits à des pictogrammes. Garder une amplification visuelle modérée et un bandeau respirant.
 - Le bouton CTA final utilise une shadow noire, pas une shadow rouge.
+- Les projets utilisent le carousel shadcn/Embla avec `loop`, slides dupliquées et Autoplay Embla. Le rendu doit se lire comme un carousel infini, pas comme une rangée statique.
+- Les boutons rouges principaux (`Contact Us`, `Start your project`) utilisent une ombre noire douce, aucun contour blanc visible, et gardent seulement un focus ring rouge accessible.
 
 ## Bannière Suisse
 
@@ -116,6 +121,7 @@ Assets principaux dans `public/assets`:
 - `swiss-quality.png`, `end-to-end.png`, `agile.png`, `confidential.png`
 
 Utiliser `next/image` pour tous les visuels bitmap.
+Pour `technical-drawing-bottom.png`, conserver l'asset original via `unoptimized` et `quality={100}` afin d'éviter une sensation de compression ou de flou sur le line-art.
 
 ## Motion
 

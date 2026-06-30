@@ -21,31 +21,43 @@ const NAV_ITEMS = [
 
 const LIQUID_SURFACE_STYLE = {
   background:
-    "radial-gradient(ellipse at 18% 0%, rgb(255 255 255 / 0.92), transparent 34%), radial-gradient(ellipse at 76% 110%, rgb(255 255 255 / 0.46), transparent 42%), linear-gradient(90deg, rgb(227 6 19 / 0.13), transparent 13%, transparent 84%, rgb(0 70 145 / 0.15)), linear-gradient(102deg, rgb(255 255 255 / 0.68), rgb(255 255 255 / 0.18) 45%, rgb(255 255 255 / 0.50)), rgb(255 255 255 / 0.30)",
+    "radial-gradient(ellipse at 16% -12%, rgb(255 255 255 / 0.82), transparent 33%), radial-gradient(ellipse at 82% 118%, rgb(255 255 255 / 0.34), transparent 46%), linear-gradient(92deg, rgb(227 6 19 / 0.18), transparent 16%, transparent 80%, rgb(0 151 255 / 0.24)), linear-gradient(104deg, rgb(255 255 255 / 0.46), rgb(255 255 255 / 0.12) 46%, rgb(255 255 255 / 0.38)), rgb(255 255 255 / 0.16)",
   boxShadow:
-    "inset 0 1px 0 rgb(255 255 255 / 0.92), inset 0 -18px 38px rgb(0 70 145 / 0.10), inset 0 18px 28px rgb(255 255 255 / 0.36), inset 2px 0 0 rgb(227 6 19 / 0.16), inset -2px 0 0 rgb(0 70 145 / 0.18)",
+    "inset 0 1px 0 rgb(255 255 255 / 0.92), inset 0 -20px 42px rgb(0 70 145 / 0.10), inset 0 18px 28px rgb(255 255 255 / 0.38), inset 2px 0 0 rgb(227 6 19 / 0.18), inset -2px 0 0 rgb(0 151 255 / 0.20), 0 16px 42px rgb(0 39 61 / 0.18)",
+} satisfies CSSProperties;
+
+const LIQUID_CHROMA_STYLE = {
+  borderRadius: "inherit",
+  background:
+    "linear-gradient(90deg, rgb(227 6 19 / 0.35), transparent 18%, transparent 78%, rgb(0 151 255 / 0.38)), radial-gradient(circle at 18% 4%, rgb(227 6 19 / 0.26), transparent 28%), radial-gradient(circle at 84% 8%, rgb(0 151 255 / 0.30), transparent 28%)",
+  filter: "blur(18px)",
+  opacity: 0.78,
+  mixBlendMode: "multiply",
 } satisfies CSSProperties;
 
 const LIQUID_SHEEN_STYLE = {
   borderRadius: "inherit",
   background:
-    "linear-gradient(100deg, transparent 4%, rgb(255 255 255 / 0.62) 17%, transparent 32%, rgb(255 255 255 / 0.34) 64%, transparent 86%), radial-gradient(circle at 80% 18%, rgb(0 70 145 / 0.18), transparent 24%), radial-gradient(circle at 10% 92%, rgb(227 6 19 / 0.17), transparent 30%)",
-  filter: "blur(0.4px)",
+    "linear-gradient(104deg, transparent 3%, rgb(255 255 255 / 0.72) 16%, transparent 31%, rgb(255 255 255 / 0.36) 64%, transparent 86%), radial-gradient(ellipse at 50% -18%, rgb(255 255 255 / 0.68), transparent 42%)",
+  filter: "blur(0.5px)",
   mixBlendMode: "screen",
 } satisfies CSSProperties;
 
 const LIQUID_RIM_STYLE = {
   borderRadius: "inherit",
-  border: "1px solid rgb(255 255 255 / 0.48)",
+  border: "1px solid rgb(255 255 255 / 0.54)",
   background:
-    "linear-gradient(180deg, rgb(255 255 255 / 0.48), transparent 28%, transparent 66%, rgb(255 255 255 / 0.26)), linear-gradient(90deg, rgb(227 6 19 / 0.20), transparent 8%, transparent 92%, rgb(0 70 145 / 0.22))",
+    "linear-gradient(180deg, rgb(255 255 255 / 0.50), transparent 28%, transparent 66%, rgb(255 255 255 / 0.28))",
   boxShadow:
-    "inset 0 -1px 0 rgb(255 255 255 / 0.42), inset 0 0 34px rgb(255 255 255 / 0.32), 0 1px 0 rgb(255 255 255 / 0.36)",
+    "inset 0 -1px 0 rgb(255 255 255 / 0.44), inset 0 0 36px rgb(255 255 255 / 0.34), 0 1px 0 rgb(255 255 255 / 0.38)",
 } satisfies CSSProperties;
 
 export function Navbar() {
   const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredNavKey, setHoveredNavKey] = useState<
+    (typeof NAV_ITEMS)[number]["key"] | null
+  >(null);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -57,7 +69,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/60 shadow-[0_16px_42px_rgba(0,39,61,0.20)] backdrop-blur-[46px] backdrop-brightness-[1.08] backdrop-contrast-[1.28] backdrop-saturate-[320%] md:h-[92px] md:rounded-b-[50px]"
+        className="relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/45 backdrop-blur-[52px] backdrop-brightness-[1.08] backdrop-contrast-[1.24] backdrop-saturate-[320%] md:h-[92px] md:rounded-b-[50px]"
         style={LIQUID_SURFACE_STYLE}
         aria-label="Primary"
       >
@@ -74,18 +86,34 @@ export function Navbar() {
             <Logo className="w-[120px] md:w-[132px] 2xl:w-[158px]" />
           </Link>
 
-          <ul className="hidden items-center justify-center gap-6 2xl:gap-10 md:flex">
-            {NAV_ITEMS.map((item, index) => (
-              <li key={item.key}>
-                <NavLink
-                  href={item.href}
-                  disabled={"disabled" in item && item.disabled}
-                  active={index === 0}
+          <ul
+            className="hidden items-center justify-center gap-6 2xl:gap-10 md:flex"
+            onMouseLeave={() => setHoveredNavKey(null)}
+          >
+            {NAV_ITEMS.map((item) => {
+              const disabled = "disabled" in item && item.disabled;
+              const activeNavKey = hoveredNavKey ?? NAV_ITEMS[0].key;
+
+              return (
+                <li
+                  key={item.key}
+                  onFocus={() => {
+                    if (!disabled) setHoveredNavKey(item.key);
+                  }}
+                  onMouseEnter={() => {
+                    if (!disabled) setHoveredNavKey(item.key);
+                  }}
                 >
-                  {t(item.key)}
-                </NavLink>
-              </li>
-            ))}
+                  <NavLink
+                    href={item.href}
+                    disabled={disabled}
+                    active={!disabled && activeNavKey === item.key}
+                  >
+                    {t(item.key)}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="flex items-center justify-end gap-7">
@@ -116,7 +144,7 @@ export function Navbar() {
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
             <div
-              className="relative isolate overflow-hidden rounded-[24px] border border-white/55 p-4 shadow-[0_18px_34px_rgba(0,39,61,0.18)] backdrop-blur-[40px] backdrop-brightness-[1.08] backdrop-contrast-[1.22] backdrop-saturate-[280%]"
+              className="relative isolate overflow-hidden rounded-[24px] border border-white/45 p-4 shadow-[0_18px_34px_rgba(0,39,61,0.18)] backdrop-blur-[44px] backdrop-brightness-[1.08] backdrop-contrast-[1.22] backdrop-saturate-[280%]"
               style={LIQUID_SURFACE_STYLE}
             >
               <LiquidGlassLayers />
@@ -156,6 +184,11 @@ function LiquidGlassLayers() {
   return (
     <>
       <span
+        className="pointer-events-none absolute inset-x-0 top-[-20%] z-0 h-[140%]"
+        style={LIQUID_CHROMA_STYLE}
+        aria-hidden
+      />
+      <span
         className="pointer-events-none absolute inset-0 z-0"
         style={LIQUID_SHEEN_STYLE}
         aria-hidden
@@ -185,11 +218,18 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   const className = cn(
-    "relative inline-flex text-[14px] font-bold text-foreground transition-colors hover:text-brand 2xl:text-[16px]",
-    active &&
-      "after:absolute after:-bottom-[8px] after:left-0 after:h-px after:w-full after:bg-brand",
+    "relative inline-flex text-[14px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand 2xl:text-[16px]",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
     mobile && "w-full rounded-[7px] px-3 py-3 text-[16px] hover:bg-white/50",
+  );
+  const indicator = !disabled && !mobile && (
+    <span
+      className={cn(
+        "pointer-events-none absolute -bottom-[8px] left-0 h-px w-full origin-left bg-brand transition-transform duration-300 ease-smooth",
+        active ? "scale-x-100" : "scale-x-0",
+      )}
+      aria-hidden
+    />
   );
 
   if (disabled) {
@@ -201,6 +241,7 @@ function NavLink({
         onClick={(event) => event.preventDefault()}
       >
         {children}
+        {indicator}
       </a>
     );
   }
@@ -208,6 +249,7 @@ function NavLink({
   return (
     <Link href={href as never} className={className} onClick={onNavigate}>
       {children}
+      {indicator}
     </Link>
   );
 }

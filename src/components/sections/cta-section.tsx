@@ -23,8 +23,10 @@ export function CtaSection() {
         alt=""
         width={1123}
         height={301}
+        quality={100}
         sizes="(max-width: 1024px) 100vw, 1123px"
-        className="pointer-events-none absolute right-0 top-6 hidden w-[58vw] max-w-[1123px] opacity-60 md:block"
+        unoptimized
+        className="pointer-events-none absolute right-0 top-6 hidden w-[58vw] max-w-[1123px] opacity-70 md:block"
       />
 
       <Container size="wide" className="relative z-10">
@@ -33,7 +35,7 @@ export function CtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-[740px]"
+          className="max-w-[860px]"
         >
           <div className="flex items-center gap-3 text-[18px] font-medium text-muted-foreground">
             <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
@@ -46,7 +48,7 @@ export function CtaSection() {
           >
             <span className="text-brand">.</span>
             {t("title")}
-            <span className="text-brand"> ?</span>
+            <span className="whitespace-nowrap text-brand">&nbsp;?</span>
           </h2>
 
           <p className="mt-5 max-w-[540px] text-[16px] font-medium leading-[1.3] text-muted-foreground">
@@ -55,7 +57,7 @@ export function CtaSection() {
 
           <Button
             nativeButton={false}
-            className="mt-7 h-10 rounded-[7px] px-6 text-[14px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform hover:-translate-y-0.5"
+            className="mt-7 h-10 rounded-[7px] border-0 px-6 text-[14px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
             render={<Link href="/#contact" />}
           >
             {t("cta")}

@@ -112,6 +112,11 @@ export function HeroSection() {
             className="mt-10 max-w-[450px] text-[16px] font-medium leading-[1.3] text-muted-foreground"
           >
             {t.rich("lead", {
+              brand: (chunks) => (
+                <strong className="font-extrabold text-foreground underline decoration-brand decoration-[2px] underline-offset-[3px]">
+                  {chunks}
+                </strong>
+              ),
               strong: (chunks) => (
                 <strong className="font-extrabold text-foreground">
                   {chunks}
@@ -127,7 +132,7 @@ export function HeroSection() {
             <Button
               nativeButton={false}
               size="lg"
-              className="h-10 rounded-[7px] px-6 text-[16px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.36)] transition-transform hover:-translate-y-0.5"
+              className="h-10 rounded-[7px] border-0 px-6 text-[16px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
               render={<Link href="/#contact" />}
             >
               {t("ctaPrimary")}
