@@ -21,18 +21,9 @@ const NAV_ITEMS = [
 
 const LIQUID_SURFACE_STYLE = {
   background:
-    "radial-gradient(ellipse at 16% -12%, rgb(255 255 255 / 0.82), transparent 33%), radial-gradient(ellipse at 82% 118%, rgb(255 255 255 / 0.34), transparent 46%), linear-gradient(92deg, rgb(227 6 19 / 0.18), transparent 16%, transparent 80%, rgb(0 151 255 / 0.24)), linear-gradient(104deg, rgb(255 255 255 / 0.46), rgb(255 255 255 / 0.12) 46%, rgb(255 255 255 / 0.38)), rgb(255 255 255 / 0.16)",
+    "radial-gradient(ellipse at 18% -14%, rgb(255 255 255 / 0.72), transparent 34%), radial-gradient(ellipse at 82% 116%, rgb(255 255 255 / 0.26), transparent 44%), linear-gradient(104deg, rgb(255 255 255 / 0.36), rgb(255 255 255 / 0.10) 48%, rgb(255 255 255 / 0.28)), rgb(255 255 255 / 0.12)",
   boxShadow:
-    "inset 0 1px 0 rgb(255 255 255 / 0.92), inset 0 -20px 42px rgb(0 70 145 / 0.10), inset 0 18px 28px rgb(255 255 255 / 0.38), inset 2px 0 0 rgb(227 6 19 / 0.18), inset -2px 0 0 rgb(0 151 255 / 0.20), 0 16px 42px rgb(0 39 61 / 0.18)",
-} satisfies CSSProperties;
-
-const LIQUID_CHROMA_STYLE = {
-  borderRadius: "inherit",
-  background:
-    "linear-gradient(90deg, rgb(227 6 19 / 0.35), transparent 18%, transparent 78%, rgb(0 151 255 / 0.38)), radial-gradient(circle at 18% 4%, rgb(227 6 19 / 0.26), transparent 28%), radial-gradient(circle at 84% 8%, rgb(0 151 255 / 0.30), transparent 28%)",
-  filter: "blur(18px)",
-  opacity: 0.78,
-  mixBlendMode: "multiply",
+    "inset 0 1px 0 rgb(255 255 255 / 0.86), inset 0 -18px 38px rgb(255 255 255 / 0.16), inset 0 18px 28px rgb(255 255 255 / 0.34), 0 16px 42px rgb(0 0 0 / 0.12)",
 } satisfies CSSProperties;
 
 const LIQUID_SHEEN_STYLE = {
@@ -183,11 +174,6 @@ export function Navbar() {
 function LiquidGlassLayers() {
   return (
     <>
-      <span
-        className="pointer-events-none absolute inset-x-0 top-[-20%] z-0 h-[140%]"
-        style={LIQUID_CHROMA_STYLE}
-        aria-hidden
-      />
       <span
         className="pointer-events-none absolute inset-0 z-0"
         style={LIQUID_SHEEN_STYLE}

@@ -65,7 +65,7 @@ Ordre de la homepage:
 
 ## Navbar
 
-La navbar est fixed en haut, hauteur 92px desktop, glass liquide transparent, rayon 50 en bas et dropshadow léger. L'effet doit rester visible: blur élevé, saturation forte, reflets internes, légère aberration rouge/bleu et vraie réfraction des éléments qui passent dessous.
+La navbar est fixed en haut, hauteur 92px desktop, glass liquide transparent, rayon 50 en bas et dropshadow léger. L'effet doit rester visible: blur élevé, saturation forte, reflets internes blancs et vraie réfraction des éléments qui passent dessous.
 
 Règles:
 
@@ -75,7 +75,7 @@ Règles:
 - Le CTA pointe vers l'ancre `#contact`.
 - Le rendu ne change pas au scroll.
 - Le liquid glass de la navbar est rendu dans `Navbar` par styles inline typés + couches absolues pour éviter la purge/cache Tailwind v4 des classes custom.
-- Le glass doit garder une aberration chromatique lisible: halo rouge côté gauche, halo bleu côté droit, blur élevé, saturation forte et reflets internes.
+- Le glass de la navbar reste neutre et translucide: aucun halo rouge ou bleu sur les bords, seulement des reflets blancs, une rim claire et une ombre neutre.
 - L'indicateur rouge des liens de navigation est un élément animé réel. Il reste sous `Home` au repos et circule vers le lien survolé ou focusé.
 
 ## Hero
