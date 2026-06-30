@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 100],
   },
   turbopack: {
     // Explicit root so Next.js doesn't misdetect the workspace root

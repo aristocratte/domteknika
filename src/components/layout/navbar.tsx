@@ -1,7 +1,8 @@
 "use client";
 
-import { type CSSProperties, useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
@@ -11,6 +12,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+const LiquidGlass = dynamic(() => import("liquid-glass-react"), {
+  ssr: false,
+});
+
 const NAV_ITEMS = [
   { key: "home", href: "/" },
   { key: "projects", href: "/#projects" },
@@ -18,30 +23,6 @@ const NAV_ITEMS = [
   { key: "patent", href: "#", disabled: true },
   { key: "story", href: "#", disabled: true },
 ] as const;
-
-const LIQUID_SURFACE_STYLE = {
-  background:
-    "radial-gradient(ellipse at 18% -14%, rgb(255 255 255 / 0.72), transparent 34%), radial-gradient(ellipse at 82% 116%, rgb(255 255 255 / 0.26), transparent 44%), linear-gradient(104deg, rgb(255 255 255 / 0.36), rgb(255 255 255 / 0.10) 48%, rgb(255 255 255 / 0.28)), rgb(255 255 255 / 0.12)",
-  boxShadow:
-    "inset 0 1px 0 rgb(255 255 255 / 0.86), inset 0 -18px 38px rgb(255 255 255 / 0.16), inset 0 18px 28px rgb(255 255 255 / 0.34), 0 16px 42px rgb(0 0 0 / 0.12)",
-} satisfies CSSProperties;
-
-const LIQUID_SHEEN_STYLE = {
-  borderRadius: "inherit",
-  background:
-    "linear-gradient(104deg, transparent 3%, rgb(255 255 255 / 0.72) 16%, transparent 31%, rgb(255 255 255 / 0.36) 64%, transparent 86%), radial-gradient(ellipse at 50% -18%, rgb(255 255 255 / 0.68), transparent 42%)",
-  filter: "blur(0.5px)",
-  mixBlendMode: "screen",
-} satisfies CSSProperties;
-
-const LIQUID_RIM_STYLE = {
-  borderRadius: "inherit",
-  border: "1px solid rgb(255 255 255 / 0.54)",
-  background:
-    "linear-gradient(180deg, rgb(255 255 255 / 0.50), transparent 28%, transparent 66%, rgb(255 255 255 / 0.28))",
-  boxShadow:
-    "inset 0 -1px 0 rgb(255 255 255 / 0.44), inset 0 0 36px rgb(255 255 255 / 0.34), 0 1px 0 rgb(255 255 255 / 0.38)",
-} satisfies CSSProperties;
 
 export function Navbar() {
   const t = useTranslations("Nav");
@@ -60,11 +41,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/45 backdrop-blur-[52px] backdrop-brightness-[1.08] backdrop-contrast-[1.24] backdrop-saturate-[320%] md:h-[92px] md:rounded-b-[50px]"
-        style={LIQUID_SURFACE_STYLE}
+        className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/45 bg-white/[0.12] shadow-[0_16px_42px_rgba(0,0,0,0.12)] backdrop-blur-[52px] backdrop-brightness-[1.08] backdrop-contrast-[1.24] backdrop-saturate-[320%] md:h-[92px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
-        <LiquidGlassLayers />
+        <NavbarLiquidGlass cornerRadius={50} />
         <Container
           size="wide"
           className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
@@ -134,11 +114,8 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
-            <div
-              className="relative isolate overflow-hidden rounded-[24px] border border-white/45 p-4 shadow-[0_18px_34px_rgba(0,39,61,0.18)] backdrop-blur-[44px] backdrop-brightness-[1.08] backdrop-contrast-[1.22] backdrop-saturate-[280%]"
-              style={LIQUID_SURFACE_STYLE}
-            >
-              <LiquidGlassLayers />
+            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] border border-white/45 bg-white/[0.12] p-4 shadow-[0_18px_34px_rgba(0,39,61,0.18)] backdrop-blur-[44px] backdrop-brightness-[1.08] backdrop-contrast-[1.22] backdrop-saturate-[280%]">
+              <NavbarLiquidGlass cornerRadius={24} displacementScale={28} />
               <div className="relative z-10 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
                   <NavLink
@@ -171,20 +148,36 @@ export function Navbar() {
   );
 }
 
-function LiquidGlassLayers() {
+function NavbarLiquidGlass({
+  cornerRadius,
+  displacementScale = 44,
+}: {
+  cornerRadius: number;
+  displacementScale?: number;
+}) {
   return (
-    <>
-      <span
-        className="pointer-events-none absolute inset-0 z-0"
-        style={LIQUID_SHEEN_STYLE}
-        aria-hidden
-      />
-      <span
-        className="pointer-events-none absolute inset-px z-0"
-        style={LIQUID_RIM_STYLE}
-        aria-hidden
-      />
-    </>
+    <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+      <LiquidGlass
+        aberrationIntensity={0}
+        blurAmount={0.14}
+        className="domtek-liquid-glass h-full w-full"
+        cornerRadius={cornerRadius}
+        displacementScale={displacementScale}
+        elasticity={0.06}
+        mode="standard"
+        padding="0"
+        saturation={168}
+        style={{
+          height: "100%",
+          left: "50%",
+          position: "absolute",
+          top: "50%",
+          width: "100%",
+        }}
+      >
+        <span className="block h-full w-full" />
+      </LiquidGlass>
+    </div>
   );
 }
 
