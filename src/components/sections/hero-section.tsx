@@ -37,10 +37,11 @@ export function HeroSection() {
       <Image
         src="/assets/technical-drawing-top.png"
         alt=""
-        fill
+        width={1200}
+        height={768}
         priority
-        sizes="100vw"
-        className="pointer-events-none z-0 object-cover object-[64%_0%]"
+        sizes="(max-width: 768px) 118vw, 62vw"
+        className="pointer-events-none absolute right-[-32vw] top-[88px] z-0 h-auto w-[118vw] max-w-none opacity-95 sm:right-[-18vw] md:right-0 md:top-[88px] md:w-[62vw] md:max-w-[980px]"
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/80 to-white/24" />
 
@@ -68,7 +69,7 @@ export function HeroSection() {
               width={250}
               height={250}
               priority
-              className="pointer-events-none absolute left-[260px] top-[-8px] hidden w-[108px] md:block"
+              className="pointer-events-none absolute left-[266px] top-[-11px] hidden w-[126px] md:block"
               aria-hidden
             />
             <Image
@@ -77,7 +78,7 @@ export function HeroSection() {
               width={197}
               height={197}
               priority
-              className="pointer-events-none absolute -left-[60px] top-[154px] hidden w-[108px] md:block"
+              className="pointer-events-none absolute -left-[66px] top-[150px] hidden w-[126px] md:block"
               aria-hidden
             />
 

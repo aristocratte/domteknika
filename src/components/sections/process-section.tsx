@@ -69,7 +69,7 @@ export function ProcessSection() {
               </p>
             </div>
 
-            <div className="mt-8 grid overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_8px_25px_rgba(0,0,0,0.04)] sm:grid-cols-3">
+            <div className="mt-6 grid overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_8px_25px_rgba(0,0,0,0.04)] min-[1500px]:grid-cols-3">
               <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
               <Stat
                 label={t("stats.sectors.label")}
@@ -107,11 +107,11 @@ function Stat({
   withFlag?: boolean;
 }) {
   return (
-    <div className="relative min-h-[112px] border-border px-4 py-6 sm:border-l sm:first:border-l-0 xl:px-5 min-[1800px]:px-7">
-      <strong className="block max-w-[108px] text-[26px] font-extrabold leading-none text-brand xl:text-[28px] min-[1800px]:max-w-none min-[1800px]:text-[34px]">
+    <div className="relative min-h-[74px] border-t border-border px-4 py-3 first:border-t-0 min-[1500px]:min-h-[112px] min-[1500px]:border-l min-[1500px]:border-t-0 min-[1500px]:py-6 min-[1500px]:first:border-l-0 xl:px-5 min-[1800px]:px-7">
+      <strong className="block max-w-[180px] pr-10 text-[24px] font-extrabold leading-[1.08] text-brand min-[1500px]:max-w-[108px] min-[1500px]:pr-0 min-[1500px]:text-[28px] min-[1800px]:max-w-none min-[1800px]:text-[34px]">
         {value}
       </strong>
-      <span className="mt-2 block text-[18px] font-normal leading-[1.03] text-brand xl:text-[20px] min-[1800px]:text-[29px]">
+      <span className="mt-1 block pr-10 text-[17px] font-normal leading-[1.12] text-brand min-[1500px]:mt-2 min-[1500px]:pr-0 min-[1500px]:text-[20px] min-[1800px]:text-[29px]">
         {label}
       </span>
       {withFlag && (
@@ -120,7 +120,7 @@ function Stat({
           alt=""
           width={37}
           height={37}
-          className="absolute right-3 top-5 size-7 xl:size-8 min-[1800px]:right-5 min-[1800px]:size-[37px]"
+          className="absolute right-4 top-1/2 size-7 -translate-y-1/2 min-[1500px]:right-3 min-[1500px]:top-5 min-[1500px]:size-8 min-[1500px]:translate-y-0 min-[1800px]:right-5 min-[1800px]:size-[37px]"
         />
       )}
     </div>

@@ -74,6 +74,19 @@ Règles:
 - `Patent` et `Our Story` restent désactivés tant que les pages ne sont pas créées.
 - Le CTA pointe vers l'ancre `#contact`.
 - Le rendu ne change pas au scroll.
+- Le liquid glass de la navbar est rendu dans `Navbar` par styles inline typés + couches absolues pour éviter la purge/cache Tailwind v4 des classes custom.
+
+## Hero
+
+- `technical-drawing-top.png` doit rester plus petit que le hero et aligné vers la droite; ne pas utiliser `object-cover` plein écran sur desktop.
+- Les flèches rouges restent visibles et légèrement plus grandes que la première passe, autour de 126px sur desktop.
+- Le dessin technique sert de contexte discret: il ne doit pas dominer le titre.
+
+## Expertise Et Logos
+
+- Dans `The product`, les stats ne doivent passer en 3 colonnes qu'à largeur suffisante (`min-[1500px]` aujourd'hui). En dessous, elles s'empilent pour éviter tout chevauchement texte/drapeau.
+- Les logos `Trusted by` doivent être lisibles dans le marquee, pas réduits à des pictogrammes. Garder une amplification visuelle modérée et un bandeau respirant.
+- Le bouton CTA final utilise une shadow noire, pas une shadow rouge.
 
 ## Bannière Suisse
 

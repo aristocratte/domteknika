@@ -55,7 +55,7 @@ export function CtaSection() {
 
           <Button
             nativeButton={false}
-            className="mt-7 h-10 rounded-[7px] px-6 text-[14px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.32)] transition-transform hover:-translate-y-0.5"
+            className="mt-7 h-10 rounded-[7px] px-6 text-[14px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform hover:-translate-y-0.5"
             render={<Link href="/#contact" />}
           >
             {t("cta")}

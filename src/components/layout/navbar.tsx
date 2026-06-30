@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -19,6 +19,30 @@ const NAV_ITEMS = [
   { key: "story", href: "#", disabled: true },
 ] as const;
 
+const LIQUID_SURFACE_STYLE = {
+  background:
+    "radial-gradient(ellipse at 18% 0%, rgb(255 255 255 / 0.92), transparent 34%), radial-gradient(ellipse at 76% 110%, rgb(255 255 255 / 0.46), transparent 42%), linear-gradient(90deg, rgb(227 6 19 / 0.13), transparent 13%, transparent 84%, rgb(0 70 145 / 0.15)), linear-gradient(102deg, rgb(255 255 255 / 0.68), rgb(255 255 255 / 0.18) 45%, rgb(255 255 255 / 0.50)), rgb(255 255 255 / 0.30)",
+  boxShadow:
+    "inset 0 1px 0 rgb(255 255 255 / 0.92), inset 0 -18px 38px rgb(0 70 145 / 0.10), inset 0 18px 28px rgb(255 255 255 / 0.36), inset 2px 0 0 rgb(227 6 19 / 0.16), inset -2px 0 0 rgb(0 70 145 / 0.18)",
+} satisfies CSSProperties;
+
+const LIQUID_SHEEN_STYLE = {
+  borderRadius: "inherit",
+  background:
+    "linear-gradient(100deg, transparent 4%, rgb(255 255 255 / 0.62) 17%, transparent 32%, rgb(255 255 255 / 0.34) 64%, transparent 86%), radial-gradient(circle at 80% 18%, rgb(0 70 145 / 0.18), transparent 24%), radial-gradient(circle at 10% 92%, rgb(227 6 19 / 0.17), transparent 30%)",
+  filter: "blur(0.4px)",
+  mixBlendMode: "screen",
+} satisfies CSSProperties;
+
+const LIQUID_RIM_STYLE = {
+  borderRadius: "inherit",
+  border: "1px solid rgb(255 255 255 / 0.48)",
+  background:
+    "linear-gradient(180deg, rgb(255 255 255 / 0.48), transparent 28%, transparent 66%, rgb(255 255 255 / 0.26)), linear-gradient(90deg, rgb(227 6 19 / 0.20), transparent 8%, transparent 92%, rgb(0 70 145 / 0.22))",
+  boxShadow:
+    "inset 0 -1px 0 rgb(255 255 255 / 0.42), inset 0 0 34px rgb(255 255 255 / 0.32), 0 1px 0 rgb(255 255 255 / 0.36)",
+} satisfies CSSProperties;
+
 export function Navbar() {
   const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -33,12 +57,14 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="nav-liquid mx-auto h-[74px] max-w-[1920px] rounded-b-[34px] border-b border-white/50 shadow-[0_8px_28px_rgba(0,0,0,0.18)] backdrop-blur-[34px] backdrop-brightness-[1.05] backdrop-contrast-[1.18] backdrop-saturate-[240%] md:h-[92px] md:rounded-b-[50px]"
+        className="relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/60 shadow-[0_16px_42px_rgba(0,39,61,0.20)] backdrop-blur-[46px] backdrop-brightness-[1.08] backdrop-contrast-[1.28] backdrop-saturate-[320%] md:h-[92px] md:rounded-b-[50px]"
+        style={LIQUID_SURFACE_STYLE}
         aria-label="Primary"
       >
+        <LiquidGlassLayers />
         <Container
           size="wide"
-          className="grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
+          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
         >
           <Link
             href="/"
@@ -89,34 +115,57 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
-            <div className="nav-liquid flex flex-col gap-1 rounded-[24px] border border-white/45 p-4 shadow-[0_12px_28px_rgba(0,0,0,0.16)] backdrop-blur-[30px] backdrop-brightness-[1.05] backdrop-contrast-[1.16] backdrop-saturate-[230%]">
-              {NAV_ITEMS.map((item) => (
-                <NavLink
-                  key={item.key}
-                  href={item.href}
-                  disabled={"disabled" in item && item.disabled}
-                  mobile
-                  onNavigate={() => setMobileOpen(false)}
-                >
-                  {t(item.key)}
-                </NavLink>
-              ))}
-              <div className="mt-3 flex items-center justify-between border-t border-border/70 pt-4">
-                <LanguageSwitcher />
-                <Button
-                  nativeButton={false}
-                  className="h-11 rounded-[7px] px-5 font-bold"
-                  render={<Link href="/#contact" />}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t("cta")}
-                </Button>
+            <div
+              className="relative isolate overflow-hidden rounded-[24px] border border-white/55 p-4 shadow-[0_18px_34px_rgba(0,39,61,0.18)] backdrop-blur-[40px] backdrop-brightness-[1.08] backdrop-contrast-[1.22] backdrop-saturate-[280%]"
+              style={LIQUID_SURFACE_STYLE}
+            >
+              <LiquidGlassLayers />
+              <div className="relative z-10 flex flex-col gap-1">
+                {NAV_ITEMS.map((item) => (
+                  <NavLink
+                    key={item.key}
+                    href={item.href}
+                    disabled={"disabled" in item && item.disabled}
+                    mobile
+                    onNavigate={() => setMobileOpen(false)}
+                  >
+                    {t(item.key)}
+                  </NavLink>
+                ))}
+                <div className="mt-3 flex items-center justify-between border-t border-border/70 pt-4">
+                  <LanguageSwitcher />
+                  <Button
+                    nativeButton={false}
+                    className="h-11 rounded-[7px] px-5 font-bold"
+                    render={<Link href="/#contact" />}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {t("cta")}
+                  </Button>
+                </div>
               </div>
             </div>
           </Container>
         </div>
       )}
     </header>
+  );
+}
+
+function LiquidGlassLayers() {
+  return (
+    <>
+      <span
+        className="pointer-events-none absolute inset-0 z-0"
+        style={LIQUID_SHEEN_STYLE}
+        aria-hidden
+      />
+      <span
+        className="pointer-events-none absolute inset-px z-0"
+        style={LIQUID_RIM_STYLE}
+        aria-hidden
+      />
+    </>
   );
 }
 

@@ -26,23 +26,23 @@ export function TrustedBy() {
         </h2>
       </Container>
 
-      <div className="marquee-pause overflow-hidden bg-muted py-[18px]">
+      <div className="marquee-pause overflow-hidden bg-muted py-[22px]">
         <div
-          className="flex w-max animate-marquee items-center gap-[88px] pr-[88px]"
-          style={{ ["--marquee-duration" as string]: "38s" }}
+          className="flex w-max animate-marquee items-center gap-[120px] pr-[120px]"
+          style={{ ["--marquee-duration" as string]: "44s" }}
         >
           {logos.map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex h-[108px] w-[210px] shrink-0 items-center justify-center"
+              className="flex h-[142px] w-[300px] shrink-0 items-center justify-center"
             >
               <Image
                 src={`/assets/${logo.src}.png`}
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                sizes="210px"
-                className="max-h-[108px] w-auto max-w-[210px] object-contain"
+                sizes="260px"
+                className="h-auto max-h-[142px] w-auto max-w-[300px] origin-center scale-[1.22] object-contain"
               />
             </div>
           ))}
