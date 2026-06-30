@@ -1,27 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-const container = {
+const group = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.08 },
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 28 },
+const rise = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -30,100 +30,119 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative overflow-hidden pt-36 pb-24 sm:pt-44 lg:pt-52 lg:pb-32"
+      id="top"
+      className="relative min-h-[760px] overflow-hidden bg-background pt-[150px] md:min-h-[870px] md:pt-[168px]"
       aria-labelledby="hero-title"
     >
-      {/* Technical drawing background — subtle, low opacity */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <Image
-          src="/assets/technical-drawing-top.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-[0.06]"
-        />
-        {/* Radial fade to keep text legible */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(255,255,255,0.7)_55%,white_100%)]" />
-      </div>
+      <Image
+        src="/assets/technical-drawing-top.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none z-0 object-cover object-[64%_0%]"
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/80 to-white/24" />
 
-      <Container size="wide">
+      <Container size="wide" className="relative z-10">
         <motion.div
-          variants={container}
-          initial="hidden"
+          variants={group}
+          initial={false}
           animate="visible"
-          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+          className="max-w-[920px]"
         >
-          {/* Eyebrow */}
-          <motion.div variants={item}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground backdrop-blur">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-brand" />
-              </span>
+          <motion.div
+            variants={rise}
+            className="mb-[64px] flex items-start gap-2 text-[17px] font-normal text-muted-foreground md:mb-[82px] md:items-center md:text-[21px]"
+          >
+            <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+            <span className="min-w-0 max-w-[230px] leading-[1.2] md:max-w-none">
               {t("eyebrow")}
             </span>
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            id="hero-title"
-            variants={item}
-            className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]"
-          >
-            {t("title")}
-          </motion.h1>
+          <div className="relative">
+            <Image
+              src="/assets/arrow-right.png"
+              alt=""
+              width={197}
+              height={197}
+              priority
+              className="pointer-events-none absolute left-[315px] top-[-14px] hidden w-[150px] md:block"
+              aria-hidden
+            />
+            <Image
+              src="/assets/arrow-left.png"
+              alt=""
+              width={250}
+              height={250}
+              priority
+              className="pointer-events-none absolute -left-[78px] top-[202px] hidden w-[150px] md:block"
+              aria-hidden
+            />
 
-          {/* Subtitle */}
+            <motion.h1
+              id="hero-title"
+              variants={rise}
+              className="domtek-text-shadow max-w-full text-[41px] font-medium leading-[1.12] tracking-normal text-foreground sm:text-[60px] lg:text-[68px] 2xl:text-[76px]"
+            >
+              <span className="block">
+                {t("engineering")}
+                <span className="text-brand">.</span>
+              </span>
+              <span className="block">
+                {t("prototyping")}
+                <span className="text-brand">.</span>
+              </span>
+              <span className="block">
+                {t("producing")}
+                <span className="text-brand">.</span>
+              </span>
+              <span className="mt-7 block pl-0 text-[32px] font-extrabold leading-none sm:text-[62px] lg:mt-8 lg:pl-[90px] lg:text-[74px] 2xl:pl-[106px] 2xl:text-[82px]">
+                <span className="text-brand">.</span>
+                {t("shape")}
+                <span className="text-brand">.</span>
+              </span>
+            </motion.h1>
+          </div>
+
           <motion.p
-            variants={item}
-            className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg"
+            variants={rise}
+            className="mt-[78px] max-w-[520px] text-[20px] font-medium leading-[1.26] text-muted-foreground"
           >
-            {t("subtitle")}
+            {t.rich("lead", {
+              strong: (chunks) => (
+                <strong className="font-extrabold text-foreground">
+                  {chunks}
+                </strong>
+              ),
+            })}
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
-            variants={item}
-            className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+            variants={rise}
+            className="mt-[64px] flex flex-wrap items-center gap-[54px]"
           >
             <Button
+              nativeButton={false}
               size="lg"
-              className="h-12 rounded-full px-7 text-sm font-semibold shadow-[0_10px_30px_rgba(227,6,19,0.3)] transition-transform hover:-translate-y-0.5"
-              render={<Link href="/#projects" />}
+              className="h-12 rounded-[7px] px-[27px] text-[18px] font-bold shadow-[0_3px_8px_rgba(227,6,19,0.36)] transition-transform hover:-translate-y-0.5"
+              render={<Link href="/#contact" />}
             >
               {t("ctaPrimary")}
               <ArrowRight data-icon="inline-end" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-full border-border bg-background/60 px-7 text-sm font-semibold backdrop-blur transition-colors hover:bg-muted"
-              render={<Link href="/contact" />}
+
+            <Link
+              href="/#expertise"
+              className="inline-flex items-center gap-9 text-[18px] font-extrabold text-foreground transition-colors hover:text-brand"
             >
               {t("ctaSecondary")}
-              <ArrowUpRight data-icon="inline-end" />
-            </Button>
+              <ArrowRight className="size-5 text-brand" aria-hidden />
+            </Link>
           </motion.div>
         </motion.div>
       </Container>
-
-      {/* Decorative scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="mt-16 hidden justify-center lg:flex"
-        aria-hidden
-      >
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-muted-foreground/30 p-1.5">
-          <motion.span
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            className="size-1.5 rounded-full bg-muted-foreground/50"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

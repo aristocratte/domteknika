@@ -1,43 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
 
-import { Logo } from "./logo";
-import { LanguageSwitcher } from "./language-switcher";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { Logo } from "@/components/layout/logo";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-/**
- * Navbar — fixed at the top, glass effect + very light drop shadow, pill shape
- * (radius 50). Stays visually identical while scrolling, with a subtle density
- * change (slightly stronger glass) once the user scrolls past the hero fold.
- *
- * Reusable across all pages.
- */
 const NAV_ITEMS = [
+  { key: "home", href: "/" },
   { key: "projects", href: "/#projects" },
-  { key: "values", href: "/#values" },
-  { key: "process", href: "/#process" },
+  { key: "expertise", href: "/#expertise" },
+  { key: "patent", href: "#", disabled: true },
+  { key: "story", href: "#", disabled: true },
 ] as const;
 
 export function Navbar() {
   const t = useTranslations("Nav");
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -46,97 +31,91 @@ export function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-4 sm:top-5">
-      <Container size="wide">
-        <nav
-          className={cn(
-            "flex items-center justify-between gap-4 rounded-[var(--radius-pill)] px-4 py-2.5 transition-all duration-500 ease-smooth",
-            "glass border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)]",
-            scrolled && "shadow-[0_10px_40px_rgba(0,0,0,0.10)]",
-          )}
-          aria-label="Primary"
+    <header className="fixed inset-x-0 top-0 z-50">
+      <nav
+        className="nav-glass mx-auto h-[82px] max-w-[1920px] rounded-b-[34px] border-b border-white/45 shadow-[0_5px_12px_rgba(0,0,0,0.22)] md:h-[104px] md:rounded-b-[50px]"
+        aria-label="Primary"
+      >
+        <Container
+          size="wide"
+          className="grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[170px_1fr_210px] 2xl:grid-cols-[220px_1fr_260px]"
         >
-          {/* Logo */}
           <Link
             href="/"
-            className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex w-fit rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+            aria-label="DOMTEKNIKA home"
           >
-            <Logo />
+            <Logo className="w-[132px] md:w-[150px] 2xl:w-[176px]" />
           </Link>
 
-          {/* Desktop nav */}
-          <ul className="hidden items-center gap-1 md:flex">
-            {NAV_ITEMS.map((item) => (
+          <ul className="hidden items-center justify-center gap-8 2xl:gap-[54px] md:flex">
+            {NAV_ITEMS.map((item, index) => (
               <li key={item.key}>
-                <NavLink href={item.href}>{t(item.key)}</NavLink>
+                <NavLink
+                  href={item.href}
+                  disabled={"disabled" in item && item.disabled}
+                  active={index === 0}
+                >
+                  {t(item.key)}
+                </NavLink>
               </li>
             ))}
           </ul>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher className="hidden sm:inline-flex" />
+          <div className="flex items-center justify-end gap-9">
             <Button
-              size="sm"
-              className="hidden h-9 rounded-full px-4 text-sm font-semibold sm:inline-flex"
-              render={<Link href="/contact" />}
+              nativeButton={false}
+              size="lg"
+              className="hidden h-12 rounded-[7px] px-[16px] text-[14px] font-bold shadow-[0_3px_7px_rgba(227,6,19,0.28)] transition-transform hover:-translate-y-0.5 md:inline-flex 2xl:px-[18px] 2xl:text-[15px]"
+              render={<Link href="/#contact" />}
             >
               {t("cta")}
               <ArrowRight data-icon="inline-end" />
             </Button>
-
-            {/* Mobile toggle */}
+            <LanguageSwitcher className="hidden md:inline-flex" />
             <button
               type="button"
-              className="grid size-9 place-items-center rounded-full text-foreground transition-colors hover:bg-muted md:hidden"
-              aria-label="Menu"
+              className="grid size-11 place-items-center rounded-[7px] border border-border bg-white/55 text-foreground backdrop-blur-xl md:hidden"
+              aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen((v) => !v)}
+              onClick={() => setMobileOpen((value) => !value)}
             >
               {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
-        </nav>
-      </Container>
+        </Container>
+      </nav>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden"
-          >
-            <Container size="wide" className="mt-2">
-              <div className="glass flex flex-col gap-1 rounded-3xl border border-white/40 p-4 shadow-[0_10px_40px_rgba(0,0,0,0.10)]">
-                {NAV_ITEMS.map((item) => (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="rounded-xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
-                  >
-                    {t(item.key)}
-                  </Link>
-                ))}
-                <div className="mt-2 flex items-center justify-between gap-3 border-t border-border pt-3">
-                  <LanguageSwitcher />
-                  <Button
-                    size="sm"
-                    className="h-10 rounded-full px-5"
-                    render={<Link href="/contact" />}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {t("cta")}
-                  </Button>
-                </div>
+      {mobileOpen && (
+        <div className="md:hidden">
+          <Container size="wide" className="pt-2">
+            <div className="nav-glass flex flex-col gap-1 rounded-[24px] border border-white/45 p-4 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
+              {NAV_ITEMS.map((item) => (
+                <NavLink
+                  key={item.key}
+                  href={item.href}
+                  disabled={"disabled" in item && item.disabled}
+                  mobile
+                  onNavigate={() => setMobileOpen(false)}
+                >
+                  {t(item.key)}
+                </NavLink>
+              ))}
+              <div className="mt-3 flex items-center justify-between border-t border-border/70 pt-4">
+                <LanguageSwitcher />
+                <Button
+                  nativeButton={false}
+                  className="h-11 rounded-[7px] px-5 font-bold"
+                  render={<Link href="/#contact" />}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t("cta")}
+                </Button>
               </div>
-            </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </Container>
+        </div>
+      )}
     </header>
   );
 }
@@ -144,17 +123,42 @@ export function Navbar() {
 function NavLink({
   href,
   children,
+  disabled,
+  active,
+  mobile,
+  onNavigate,
 }: {
   href: string;
   children: React.ReactNode;
+  disabled?: boolean;
+  active?: boolean;
+  mobile?: boolean;
+  onNavigate?: () => void;
 }) {
+  const className = cn(
+    "relative inline-flex text-[16px] font-bold text-foreground transition-colors hover:text-brand 2xl:text-[18px]",
+    active &&
+      "after:absolute after:-bottom-[8px] after:left-0 after:h-px after:w-full after:bg-brand",
+    disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
+    mobile && "w-full rounded-[7px] px-3 py-3 text-[16px] hover:bg-white/50",
+  );
+
+  if (disabled) {
+    return (
+      <a
+        href="#"
+        className={className}
+        aria-disabled="true"
+        onClick={(event) => event.preventDefault()}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href as never}
-      className="group relative inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-    >
-      <span className="relative z-10">{children}</span>
-      <span className="absolute inset-0 scale-90 rounded-full bg-muted opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100" />
+    <Link href={href as never} className={className} onClick={onNavigate}>
+      {children}
     </Link>
   );
 }

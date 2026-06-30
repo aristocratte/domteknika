@@ -1,16 +1,9 @@
 import { type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/**
- * Container — centers content and adds the lateral margins missing from the
- * Figma (which is full-bleed). This keeps the layout readable on large screens
- * and provides a single source of truth for the content max-width.
- *
- * Max width ~1200px keeps the design centered rather than stretched to edges.
- */
 const sizes = {
   default: "max-w-[1200px]",
-  wide: "max-w-[1400px]",
+  wide: "max-w-[1536px]",
   narrow: "max-w-[960px]",
 } as const;
 
@@ -30,7 +23,7 @@ export function Container({
   return (
     <Component
       className={cn(
-        "mx-auto w-full px-6 sm:px-8 lg:px-10",
+        "mx-auto w-full px-5 sm:px-8 xl:px-10 2xl:px-0",
         sizes[size],
         className,
       )}
