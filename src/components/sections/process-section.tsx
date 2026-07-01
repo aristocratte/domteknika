@@ -14,15 +14,15 @@ export function ProcessSection() {
     >
       <Container
         size="wide"
-        className="max-w-[1320px] px-6 py-0 sm:px-8 lg:px-10 xl:px-12"
+        className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-6"
       >
-        <div className="grid gap-5 lg:grid-cols-[1.12fr_1.34fr_1.12fr] lg:items-stretch lg:gap-0">
-          <article className="flex min-h-[304px] transform-gpu flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] motion-safe:hover:-translate-y-1.5">
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_1.38fr_1.58fr] lg:items-stretch">
+          <article className="group flex min-h-[304px] transform-gpu flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] motion-safe:hover:-translate-y-1.5">
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
               {t("ideaTitle")}
             </h2>
-            <div className="mt-4 max-w-[340px] text-[16px] font-medium leading-[1.24] text-foreground">
+            <div className="mt-4 max-w-[390px] text-[16px] font-medium leading-[1.24] text-foreground">
               <p>{t("ideaIntro")}</p>
               <p className="mt-7">
                 {t.rich("ideaBody", {
@@ -34,8 +34,8 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="relative z-20 my-0 min-h-[304px] transform-gpu rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-[box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7 lg:-mx-3 motion-safe:hover:-translate-y-1.5">
-            <div className="grid h-full gap-5 md:grid-cols-[0.72fr_1.16fr] md:items-center">
+          <article className="group relative z-20 my-0 min-h-[304px] transform-gpu rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-[box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7 motion-safe:hover:-translate-y-1.5">
+            <div className="grid h-full gap-5 md:grid-cols-[0.95fr_1.15fr] md:items-center">
               <div>
                 <AccentLine light />
                 <h2
@@ -61,13 +61,13 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="flex min-h-[304px] transform-gpu flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] lg:translate-x-4 motion-safe:hover:-translate-y-1.5">
+          <article className="group flex min-h-[304px] transform-gpu flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] motion-safe:hover:-translate-y-1.5">
             <div className="p-6 pb-0">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
                 {t("productTitle")}
               </h2>
-              <p className="mt-3 max-w-[540px] text-[16px] font-medium leading-[1.24] text-foreground">
+              <p className="mt-3 max-w-[620px] text-[16px] font-medium leading-[1.24] text-foreground">
                 {t("productBody")}
               </p>
             </div>
@@ -94,8 +94,10 @@ export function ProcessSection() {
 function AccentLine({ light }: { light?: boolean }) {
   return (
     <span
-      className={light ? "block h-[3px] w-8 bg-white" : "block h-[3px] w-8 bg-brand"}
       aria-hidden
+      className={`origin-left scale-x-100 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-x-[2.4] ${
+        light ? "block h-[3px] w-8 bg-white" : "block h-[3px] w-8 bg-brand"
+      }`}
     />
   );
 }

@@ -98,8 +98,8 @@ Règles:
 
 ## Expertise Et Logos
 
-- Le triptyque expertise utilise trois cartes collées en desktop et peut dépasser le conteneur `wide` standard (`max-w-[1320px]`) pour allonger les cartes. Les cartes blanches prennent plus de largeur horizontale pour respirer, tandis que la carte rouge `The process` reste au premier plan (`z-index` supérieur), avec une drop shadow noire visible et un très léger chevauchement sur les côtés.
-- La carte `The product` peut être légèrement décalée vers la droite en desktop si la carte rouge chevauche trop son bord gauche.
+- Le triptyque expertise utilise un conteneur plus large que le `wide` standard (`max-w-[1560px]`) et un vrai espacement entre les cartes (`gap` desktop autour de 24px). Éviter les chevauchements latéraux: la carte rouge `The process` reste au premier plan par sa shadow noire et son `z-index`, pas en mordant sur les cartes blanches.
+- La carte `The product` est la plus longue horizontalement afin que son texte respire et wrap le moins possible. Rééquilibrer les ratios de colonnes avant de réduire la typographie.
 - Les cartes expertise ont un hover discret: élévation lente et lisible, bordure rouge très pâle sur les cartes blanches, et shadow noire renforcée sur la carte rouge. L'effet doit rester premium, pas ludique, avec une transition douce autour de `900ms`, une courbe `cubic-bezier(0.19, 1, 0.22, 1)` et sans effet de grossissement visible.
 - Le schéma `schema-process.png` dans la carte rouge doit être généreux et lisible; privilégier une colonne image plus large avant de réduire le texte.
 - Dans `The product`, les stats sont compactes et peuvent rester en 3 colonnes desktop, mais le drapeau suisse ne doit pas être positionné en absolu au-dessus du texte. Utiliser un petit layout flex pour garder `100%` et le drapeau séparés sans chevauchement.
