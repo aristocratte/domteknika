@@ -175,10 +175,6 @@
   .animate-marquee {
     animation: marquee var(--marquee-duration, 40s) linear infinite;
   }
-  .marquee-pause:hover .animate-marquee {
-    animation-play-state: paused;
-  }
-
   /* Glass surface */
   .glass {
     background-color: rgb(255 255 255 / 0.72);

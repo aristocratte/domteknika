@@ -26,7 +26,7 @@ export function TrustedBy() {
         </h2>
       </Container>
 
-      <div className="marquee-pause overflow-hidden bg-muted py-2">
+      <div data-marquee-rail className="relative overflow-hidden bg-muted py-2">
         <div
           className="flex w-max animate-marquee items-center gap-11 pr-11"
           style={{ ["--marquee-duration" as string]: "36s" }}
@@ -59,6 +59,14 @@ export function TrustedBy() {
             );
           })}
         </div>
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(11vw,140px)] bg-gradient-to-r from-muted via-muted/80 to-transparent backdrop-blur-[8px]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(11vw,140px)] bg-gradient-to-l from-muted via-muted/80 to-transparent backdrop-blur-[8px]"
+          aria-hidden
+        />
       </div>
     </section>
   );

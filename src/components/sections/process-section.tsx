@@ -14,7 +14,7 @@ export function ProcessSection() {
     >
       <Container size="wide" className="py-0">
         <div className="grid gap-8 lg:grid-cols-[0.88fr_1.22fr_1.02fr] lg:items-stretch">
-          <article className="flex min-h-[292px] flex-col justify-center py-6 lg:pr-6">
+          <article className="flex min-h-[292px] flex-col justify-center rounded-[7px] border border-border bg-white p-6">
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
               {t("ideaTitle")}
