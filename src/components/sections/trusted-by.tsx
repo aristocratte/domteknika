@@ -60,7 +60,7 @@ export function TrustedBy() {
           })}
         </div>
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(18vw,230px)]"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(15vw,190px)]"
           style={{
             background:
               "linear-gradient(90deg, var(--muted) 0%, rgb(247 247 247 / 0.92) 30%, rgb(247 247 247 / 0.54) 64%, rgb(247 247 247 / 0) 100%)",
@@ -74,7 +74,7 @@ export function TrustedBy() {
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(18vw,230px)]"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(15vw,190px)]"
           style={{
             background:
               "linear-gradient(270deg, var(--muted) 0%, rgb(247 247 247 / 0.92) 30%, rgb(247 247 247 / 0.54) 64%, rgb(247 247 247 / 0) 100%)",
