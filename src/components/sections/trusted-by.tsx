@@ -19,33 +19,45 @@ export function TrustedBy() {
   const logos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-background py-[96px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-10">
+    <section className="bg-background py-[72px]" aria-label={t("label")}>
+      <Container size="wide" className="mb-8">
         <h2 className="text-[18px] font-normal uppercase leading-none tracking-normal text-foreground">
           {t("label")}
         </h2>
       </Container>
 
-      <div className="marquee-pause overflow-hidden bg-muted py-6">
+      <div className="marquee-pause overflow-hidden bg-muted py-2">
         <div
-          className="flex w-max animate-marquee items-center gap-[112px] pr-[112px]"
-          style={{ ["--marquee-duration" as string]: "44s" }}
+          className="flex w-max animate-marquee items-center gap-11 pr-11"
+          style={{ ["--marquee-duration" as string]: "36s" }}
         >
-          {logos.map((logo, index) => (
-            <div
-              key={`${logo.name}-${index}`}
-              className="flex h-[142px] w-[300px] shrink-0 items-center justify-center"
-            >
-              <Image
-                src={`/assets/${logo.src}.png`}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-                sizes="300px"
-                className="h-auto max-h-[142px] w-auto max-w-[300px] origin-center scale-[1.32] object-contain"
-              />
-            </div>
-          ))}
+          {logos.map((logo, index) => {
+            const logoBoxWidth = Math.min(Math.round(logo.width * 1.08), 230);
+            const logoBoxHeight = Math.min(Math.round(logo.height * 1.08), 86);
+
+            return (
+              <div
+                key={`${logo.name}-${index}`}
+                className="flex h-[100px] w-[230px] shrink-0 items-center justify-center"
+              >
+                <div
+                  className="relative"
+                  style={{
+                    width: `${logoBoxWidth}px`,
+                    height: `${logoBoxHeight}px`,
+                  }}
+                >
+                  <Image
+                    src={`/assets/${logo.src}.png`}
+                    alt={logo.name}
+                    fill
+                    sizes={`${logoBoxWidth}px`}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
