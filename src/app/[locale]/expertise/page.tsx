@@ -2,15 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowRight,
-  BadgeCheck,
   Box,
   Cpu,
   Factory,
-  Globe2,
   Hourglass,
   Lightbulb,
   Monitor,
-  Target,
 } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
@@ -30,17 +27,17 @@ const EXPERTISE_ITEMS = [
 ] as const;
 
 const VALUE_ITEMS = [
-  { key: "partner", icon: "end-to-end" },
-  { key: "agile", icon: "agile" },
-  { key: "confidential", icon: "confidential" },
-  { key: "quality", icon: "swiss-quality" },
+  { key: "partner", icon: "expertise-value-partner", width: 67, height: 52 },
+  { key: "agile", icon: "expertise-value-agile", width: 54, height: 57 },
+  { key: "confidential", icon: "expertise-value-confidential", width: 45, height: 56 },
+  { key: "quality", icon: "expertise-value-quality", width: 55, height: 56 },
 ] as const;
 
 const STATS = [
-  { key: "projects", icon: Box },
-  { key: "years", icon: BadgeCheck },
-  { key: "worldwide", icon: Globe2 },
-  { key: "industries", icon: Target },
+  { key: "projects", icon: "expertise-stat-projects", width: 53, height: 60 },
+  { key: "years", icon: "expertise-stat-years", width: 53, height: 70 },
+  { key: "worldwide", icon: "expertise-stat-worldwide", width: 59, height: 60 },
+  { key: "industries", icon: "expertise-stat-industries", width: 60, height: 59 },
 ] as const;
 
 export async function generateMetadata({
@@ -182,46 +179,62 @@ function ExpertiseGrid() {
 
 function ExpertiseSwissBanner() {
   const t = useTranslations("ExpertisePage.Swiss");
+  const titleParts = t("title").split(". ");
 
   return (
-    <section className="relative h-[clamp(164px,12.3vw,236px)] overflow-hidden bg-alps">
+    <section className="relative h-[190px] overflow-hidden bg-alps md:h-[236px]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
           src="/assets/expertise-alps-cows.png"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[center_80%]"
+          className="object-cover object-[center_64%]"
         />
       </div>
       <div
-        className="absolute left-[57.72%] top-[-8.97%] h-[102.24%] w-[56.41%] backdrop-blur-[5.05px]"
+        className="absolute inset-y-0 right-0 w-1/2"
         style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(4, 91, 39, 0.49) 0%, rgba(0, 39, 61, 0) 100%)",
-          WebkitBackdropFilter: "blur(5.05px)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 18%, black 100%)",
+            "linear-gradient(to left, black 0%, black 42%, transparent 100%)",
           maskImage:
-            "linear-gradient(to right, transparent 0%, black 18%, black 100%)",
+            "linear-gradient(to left, black 0%, black 42%, transparent 100%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-y-0 right-0 w-1/2"
+        style={{
+          background:
+            "linear-gradient(to left, rgba(4,91,39,0.49) 0%, rgba(4,91,39,0.32) 42%, rgba(4,91,39,0) 100%)",
         }}
         aria-hidden
       />
 
       <Container
         size="wide"
-        className="relative z-10 flex h-full items-center justify-end px-5 sm:px-10 lg:px-14 xl:px-16"
+        className="relative z-10 flex h-full max-w-none items-center justify-end px-5 sm:px-8 lg:px-10 xl:px-11"
       >
         <div className="flex items-center gap-4 md:gap-6">
-          <p className="max-w-[245px] text-right text-[14px] font-extrabold uppercase leading-[1.04] text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)] sm:text-[16px] md:max-w-[310px] md:text-[20px] lg:text-[22px]">
-            {t("title")}
-          </p>
+          <h2
+            className="max-w-[500px] text-[24px] font-extrabold uppercase leading-[1.16] tracking-wide text-white md:text-[26px]"
+            aria-label={t("title")}
+          >
+            {titleParts.map((part, index) => (
+              <span key={`${part}-${index}`} className="block" aria-hidden>
+                {part}
+                {index === 0 && titleParts.length > 1 ? "." : ""}
+              </span>
+            ))}
+          </h2>
           <Image
             src="/assets/flag-switzerland.webp"
             alt=""
             width={88}
             height={88}
-            className="size-[48px] shrink-0 object-contain sm:size-[58px] md:size-[74px] lg:size-[88px]"
+            className="size-[42px] shrink-0 object-contain sm:size-[46px] md:size-[52px] lg:size-[58px]"
           />
         </div>
       </Container>
@@ -252,9 +265,9 @@ function AddedValueSection() {
                     <Image
                       src={`/assets/${item.icon}.png`}
                       alt=""
-                      width={46}
-                      height={46}
-                      className="size-8 object-contain"
+                      width={item.width}
+                      height={item.height}
+                      className="h-9 w-9 object-contain"
                     />
                     <h3 className="mt-4 text-[13px] font-extrabold leading-tight text-foreground">
                       {t(`values.${item.key}.title` as never)}
@@ -271,14 +284,18 @@ function AddedValueSection() {
           <div className="rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] md:px-7 md:py-7">
             <div className="grid h-full gap-5 sm:grid-cols-2">
               {STATS.map((stat) => {
-                const Icon = stat.icon;
-
                 return (
                   <div
                     key={stat.key}
                     className="flex min-h-[82px] items-start gap-4 border-white/25 sm:border-t sm:pt-5 sm:nth-[1]:border-t-0 sm:nth-[2]:border-t-0 sm:nth-[1]:pt-0 sm:nth-[2]:pt-0"
                   >
-                    <Icon className="mt-1 size-9 shrink-0 stroke-[1.7]" aria-hidden />
+                    <Image
+                      src={`/assets/${stat.icon}.png`}
+                      alt=""
+                      width={stat.width}
+                      height={stat.height}
+                      className="mt-0.5 size-11 shrink-0 object-contain"
+                    />
                     <div>
                       <strong className="block text-[23px] font-extrabold leading-none">
                         {t(`stats.${stat.key}.value` as never)}
