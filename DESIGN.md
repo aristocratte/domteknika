@@ -75,7 +75,7 @@ Règles:
 - Le CTA pointe vers l'ancre `#contact`.
 - Le rendu ne change pas au scroll.
 - Le liquid glass de la navbar est rendu avec `liquid-glass-react`, chargé en client-only dans `Navbar` pour éviter les accès navigateur pendant le rendu serveur.
-- Le glass de la navbar reste neutre et translucide: aucun halo rouge ou bleu sur les bords (`aberrationIntensity={0}`), seulement des reflets blancs, une rim claire, une ombre neutre et la réfraction SVG du package.
+- Le glass de la navbar reste neutre, clair et translucide: aucun halo rouge ou bleu sur les bords (`aberrationIntensity={0}`), pas de voile gris opaque, seulement une réfraction SVG visible, des reflets blancs fins, une rim claire et une ombre neutre légère.
 - L'indicateur rouge des liens de navigation est un élément animé réel. Il reste sous `Home` au repos et circule vers le lien survolé ou focusé.
 
 ## Hero
