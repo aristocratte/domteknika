@@ -77,7 +77,7 @@ La navbar est fixed en haut, hauteur 92px desktop, glass liquide transparent, ra
 
 Règles:
 
-- Le logo est l'image réelle `public/assets/domteknika-logo.png`.
+- Le logo est l'image réelle haute définition `public/assets/logo_DOMTEKNIKA_2023-alpha.png`.
 - Les items sont centrés: Home, Projects, Expertise, Patent, Our Story.
 - `Patent` et `Our Story` restent désactivés tant que les pages ne sont pas créées.
 - Le CTA pointe vers l'ancre `#contact`.
@@ -126,7 +126,7 @@ Le contenu de la bannière est plus proche du bord gauche que les autres section
 
 Assets principaux dans `public/assets`:
 
-- `domteknika-logo.png`
+- `logo_DOMTEKNIKA_2023-alpha.png`
 - `technical-drawing-top.png`
 - `technical-drawing-bottom.png`
 - `product-1.png` à `product-4.png`

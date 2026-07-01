@@ -7,20 +7,15 @@ interface LogoProps {
 }
 
 export function Logo({ className, variant = "nav" }: LogoProps) {
-  const size =
-    variant === "footer"
-      ? { width: 150, height: 57 }
-      : { width: 176, height: 67 };
-
   return (
     <Image
-      src="/assets/domteknika-logo.png"
+      src="/assets/logo_DOMTEKNIKA_2023-alpha.png"
       alt="DOMTEKNIKA"
-      width={size.width}
-      height={size.height}
+      width={246}
+      height={99}
       priority={variant === "nav"}
       className={cn("h-auto w-auto shrink-0", className)}
-      sizes={variant === "footer" ? "150px" : "176px"}
+      sizes={variant === "footer" ? "132px" : "158px"}
     />
   );
 }
