@@ -189,11 +189,11 @@ function ExpertiseSwissBanner() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[center_64%]"
+          className="object-cover object-[center_68%]"
         />
       </div>
       <div
-        className="absolute inset-y-0 right-0 w-1/2"
+        className="absolute inset-y-0 right-0 w-[60%]"
         style={{
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
@@ -205,7 +205,7 @@ function ExpertiseSwissBanner() {
         aria-hidden
       />
       <div
-        className="absolute inset-y-0 right-0 w-1/2"
+        className="absolute inset-y-0 right-0 w-[60%]"
         style={{
           background:
             "linear-gradient(to left, rgba(4,91,39,0.49) 0%, rgba(4,91,39,0.32) 42%, rgba(4,91,39,0) 100%)",
@@ -247,32 +247,35 @@ function AddedValueSection() {
 
   return (
     <section className="bg-background py-[78px] md:py-[92px]">
-      <Container size="wide">
-        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.95fr] lg:items-stretch">
-          <div className="rounded-[7px] border border-border bg-white px-5 py-6 md:px-7 md:py-7">
-            <div className="flex items-center gap-3 text-[14px] font-extrabold leading-none text-foreground">
+      <Container
+        size="wide"
+        className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6"
+      >
+        <div className="grid gap-7 lg:grid-cols-[1.55fr_0.95fr] lg:items-stretch">
+          <div className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
+            <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
               {t("eyebrow")}
             </div>
 
-            <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+            <div className="mt-9 grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
               {VALUE_ITEMS.map((item) => {
                 return (
                   <article
                     key={item.key}
-                    className="lg:border-l lg:border-border lg:px-5 first:lg:border-l-0 first:lg:pl-0"
+                    className="group transform-gpu rounded-[7px] px-0 py-1 transition-transform duration-300 hover:-translate-y-1 sm:px-2 lg:border-l lg:border-border lg:px-7 first:lg:border-l-0 first:lg:pl-0"
                   >
                     <Image
                       src={`/assets/${item.icon}.png`}
                       alt=""
                       width={item.width}
                       height={item.height}
-                      className="h-9 w-9 object-contain"
+                      className="h-11 w-11 object-contain transition-transform duration-300 group-hover:-translate-y-1"
                     />
-                    <h3 className="mt-4 text-[13px] font-extrabold leading-tight text-foreground">
+                    <h3 className="mt-5 text-[15px] font-extrabold leading-tight text-foreground lg:text-[16px]">
                       {t(`values.${item.key}.title` as never)}
                     </h3>
-                    <p className="mt-3 text-[12px] font-medium leading-[1.35] text-muted-foreground">
+                    <p className="mt-4 text-[14px] font-medium leading-[1.38] text-muted-foreground">
                       {t(`values.${item.key}.description` as never)}
                     </p>
                   </article>
@@ -281,20 +284,20 @@ function AddedValueSection() {
             </div>
           </div>
 
-          <div className="rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] md:px-7 md:py-7">
+          <div className="transform-gpu rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1">
             <div className="grid h-full gap-5 sm:grid-cols-2">
               {STATS.map((stat) => {
                 return (
                   <div
                     key={stat.key}
-                    className="flex min-h-[82px] items-start gap-4 border-white/25 sm:border-t sm:pt-5 sm:nth-[1]:border-t-0 sm:nth-[2]:border-t-0 sm:nth-[1]:pt-0 sm:nth-[2]:pt-0"
+                    className="group flex min-h-[82px] items-start gap-4 border-white/25 sm:border-t sm:pt-5 sm:nth-[1]:border-t-0 sm:nth-[2]:border-t-0 sm:nth-[1]:pt-0 sm:nth-[2]:pt-0"
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="mt-0.5 size-11 shrink-0 object-contain"
+                      className="mt-0.5 size-11 shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1"
                     />
                     <div>
                       <strong className="block text-[23px] font-extrabold leading-none">

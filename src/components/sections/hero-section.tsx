@@ -40,10 +40,29 @@ export function HeroSection() {
         width={1200}
         height={768}
         priority
-        sizes="(max-width: 768px) 108vw, 54vw"
-        className="pointer-events-none absolute right-[-30vw] top-[106px] z-0 h-auto w-[108vw] max-w-none opacity-95 sm:right-[-18vw] md:right-0 md:top-[112px] md:w-[54vw] md:max-w-[820px]"
+        sizes="(max-width: 768px) 108vw, 66vw"
+        className="pointer-events-none absolute right-[-30vw] top-[106px] z-0 h-auto w-[108vw] max-w-none opacity-75 sm:right-[-18vw] md:right-0 md:top-[86px] md:w-[66vw] md:max-w-[1040px]"
       />
-      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/80 to-white/24" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
+      <div
+        className="pointer-events-none absolute bottom-[28px] right-[-25vw] z-[1] hidden h-[520px] w-[74vw] max-w-[1040px] md:block lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 0%, black 84%, rgb(0 0 0 / 0.38) 92%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, black 0%, black 84%, rgb(0 0 0 / 0.38) 92%, transparent 100%)",
+        }}
+        aria-hidden
+      >
+        <Image
+          src="/assets/rv01-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 1024px) 82vw, 1040px"
+          className="object-contain object-bottom"
+        />
+      </div>
 
       <Container size="wide" className="relative z-10">
         <motion.div

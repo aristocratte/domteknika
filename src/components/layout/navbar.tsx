@@ -39,22 +39,28 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="domtek-glass-surface relative isolate mx-auto h-[68px] max-w-[1180px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[80px] md:rounded-b-[50px]"
+        className="relative isolate mx-auto h-[68px] max-w-[1180px] rounded-b-[34px] md:h-[80px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-          <GlassSurface
-            width="100%"
-            height="100%"
-            borderRadius={0}
-            backgroundOpacity={0.018}
-            saturation={1.8}
-            distortionScale={0}
-            redOffset={0}
-            greenOffset={0}
-            blueOffset={0}
-            className="[&>div:last-child]:p-0"
-          />
+        <div
+          className="absolute inset-0 rounded-b-[34px] bg-white/75 shadow-[0_2px_10px_rgba(0,0,0,0.12)] md:rounded-b-[50px]"
+          aria-hidden
+        />
+        <div className="domtek-glass-surface absolute inset-x-px top-0 bottom-px z-0 overflow-hidden rounded-b-[33px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:rounded-b-[49px]">
+          <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+            <GlassSurface
+              width="100%"
+              height="100%"
+              borderRadius={0}
+              backgroundOpacity={0.018}
+              saturation={1.8}
+              distortionScale={0}
+              redOffset={0}
+              greenOffset={0}
+              blueOffset={0}
+              className="[&>div:last-child]:p-0"
+            />
+          </div>
         </div>
         <Container
           size="wide"
