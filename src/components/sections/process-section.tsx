@@ -97,8 +97,8 @@ function AccentLine({ light }: { light?: boolean }) {
   return (
     <span
       aria-hidden
-      className={`transition-transform duration-300 group-hover:-translate-y-1 ${
-        light ? "block h-[3px] w-8 bg-white" : "block h-[3px] w-8 bg-brand"
+      className={`block h-[3px] w-8 transition-[width] duration-300 group-hover:w-16 ${
+        light ? "bg-white" : "bg-brand"
       }`}
     />
   );
