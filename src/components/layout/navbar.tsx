@@ -2,7 +2,7 @@
 
 import { ArrowRight, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
@@ -24,6 +24,14 @@ const NAV_ITEMS = [
   { key: "story", href: "#", disabled: true },
 ] as const;
 
+const LIQUID_GLASS_INSET_SHADOW =
+  "inset 0 1px 0 rgb(255 255 255 / 0.88), " +
+  "inset 0 -1px 0 rgb(255 255 255 / 0.22), " +
+  "inset 0 0 0 1px rgb(255 255 255 / 0.30)";
+const LIQUID_GLASS_RIM_SHADOW =
+  "inset 0 0 0 0.5px rgb(255 255 255 / 0.50), " +
+  "inset 0 1px 3px rgb(255 255 255 / 0.25)";
+
 export function Navbar() {
   const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,10 +49,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.92] shadow-[0_10px_24px_rgba(0,0,0,0.055)] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[92px] md:rounded-b-[50px]"
+        className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[92px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
-        <NavbarLiquidGlass cornerRadius={0} />
+        <NavbarLiquidGlass cornerRadius={50} removeDropShadow />
         <Container
           size="wide"
           className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
@@ -151,16 +159,48 @@ export function Navbar() {
 function NavbarLiquidGlass({
   cornerRadius,
   displacementScale = 30,
+  removeDropShadow = false,
 }: {
   cornerRadius: number;
   displacementScale?: number;
+  removeDropShadow?: boolean;
 }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!removeDropShadow) return;
+
+    const root = rootRef.current;
+    if (!root) return;
+
+    const applyShadowReset = () => {
+      root
+        .querySelector<HTMLElement>(".glass")
+        ?.style.setProperty("box-shadow", LIQUID_GLASS_INSET_SHADOW, "important");
+
+      root.querySelectorAll<HTMLElement>("span[style]").forEach((layer) => {
+        if (layer.style.boxShadow.includes("rgba(0, 0, 0")) {
+          layer.style.setProperty("box-shadow", LIQUID_GLASS_RIM_SHADOW, "important");
+        }
+      });
+    };
+
+    applyShadowReset();
+    const frameId = requestAnimationFrame(applyShadowReset);
+    const timeoutId = window.setTimeout(applyShadowReset, 250);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [removeDropShadow]);
+
   return (
-    <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+    <div ref={rootRef} className="pointer-events-none absolute inset-0 z-0" aria-hidden>
       <LiquidGlass
         aberrationIntensity={0}
         blurAmount={0.025}
-        className="domtek-liquid-glass h-full w-full"
+        className="domtek-liquid-glass domtek-navbar-liquid-glass h-full w-full"
         cornerRadius={cornerRadius}
         displacementScale={displacementScale}
         elasticity={0.06}
