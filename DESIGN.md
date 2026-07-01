@@ -86,6 +86,7 @@ Règles:
 - Sur la navbar desktop, le `cornerRadius` interne de `liquid-glass-react` reste à `0`; le rayon vient uniquement du conteneur `rounded-b-[50px]`, pour éviter tout congé sur les coins supérieurs.
 - Le glass de la navbar reste neutre, clair et translucide: aucun halo rouge ou bleu sur les bords (`aberrationIntensity={0}`), pas de voile gris opaque, seulement une réfraction SVG visible, des reflets blancs fins et une rim claire, sans ombre portée.
 - L'indicateur rouge des liens de navigation est un élément animé réel. Il reste sous `Home` au repos et circule vers le lien survolé ou focusé.
+- Le switch langue est un bouton glass plus visible que le fond navbar, avec un dropdown FR/EN en overlay afin de ne pas être coupé par le masque de la navbar.
 
 ## Hero
 
@@ -96,13 +97,15 @@ Règles:
 
 ## Expertise Et Logos
 
-- Le triptyque expertise utilise trois cartes collées en desktop et peut dépasser légèrement le conteneur `wide` standard (`max-w-[1200px]`) pour allonger les cartes. Les cartes blanches prennent un peu plus de largeur horizontale pour respirer, tandis que la carte rouge `The process` reste au premier plan (`z-index` supérieur), avec une drop shadow noire visible et un très léger chevauchement sur les côtés.
-- Au scroll desktop, la section expertise se comporte comme une séquence sticky: le contenu reste en place pendant une portion du scroll, `The idea` est la seule carte visible au départ, puis `The process` et `The product` apparaissent dans cet ordre en glissant depuis la gauche jusqu'à leur position finale collée. L'effet est scroll-linked via `framer-motion` et doit être désactivé/adouci en `prefers-reduced-motion`.
+- Le triptyque expertise utilise trois cartes collées en desktop et peut dépasser le conteneur `wide` standard (`max-w-[1320px]`) pour allonger les cartes. Les cartes blanches prennent plus de largeur horizontale pour respirer, tandis que la carte rouge `The process` reste au premier plan (`z-index` supérieur), avec une drop shadow noire visible et un très léger chevauchement sur les côtés.
+- Les cartes expertise ont un hover discret: légère élévation, bordure rouge très pâle sur les cartes blanches, et shadow noire renforcée sur la carte rouge. L'effet doit rester premium, pas ludique, avec une transition douce autour de `500ms` et une courbe `cubic-bezier(0.16, 1, 0.3, 1)` pour éviter tout mouvement sec.
+- Le schéma `schema-process.png` dans la carte rouge doit être généreux et lisible; privilégier une colonne image plus large avant de réduire le texte.
 - Dans `The product`, les stats sont compactes et peuvent rester en 3 colonnes desktop, mais le drapeau suisse ne doit pas être positionné en absolu au-dessus du texte. Utiliser un petit layout flex pour garder `100%` et le drapeau séparés sans chevauchement.
 - Les logos `Trusted by` doivent être lisibles dans le marquee, pas réduits à des pictogrammes. Le bandeau gris reste compact, avec des logos visuellement plus grands et rapprochés sans chevauchement. Le défilement ne s'arrête pas au hover et les bords gauche/droite utilisent un fondu flouté modéré avec `mask-image`, afin que le blur disparaisse progressivement sans bord visible ni apparition trop précoce.
 - Le bloc `The idea` reste discret mais doit avoir un contour gris clair pour équilibrer les trois colonnes de la section expertise.
 - Le bouton CTA final utilise une shadow noire, pas une shadow rouge.
 - Les projets utilisent le carousel shadcn/Embla avec `loop`, slides dupliquées et Autoplay Embla. Le rendu doit se lire comme un carousel infini, pas comme une rangée statique.
+- Les cartes projets gardent un gutter visible entre elles; éviter l'effet de grille serrée.
 - Les boutons rouges principaux (`Contact Us`, `Start your project`) utilisent une ombre noire douce, aucun contour blanc visible, et gardent seulement un focus ring rouge accessible.
 
 ## Bannière Suisse
@@ -117,6 +120,7 @@ Effets obligatoires:
 - Gradient par-dessus: `rgba(0,70,145,0.49) 0%` vers `rgba(0,39,61,0) 100%`.
 
 Le texte et les icônes restent dans la zone gauche lisible. La partie droite de la photo doit rester nette.
+Le contenu de la bannière est plus proche du bord gauche que les autres sections afin de renforcer l'effet drapeau/label suisse.
 
 ## Assets
 

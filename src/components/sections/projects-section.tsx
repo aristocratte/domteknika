@@ -75,11 +75,11 @@ export function ProjectsSection() {
           onFocus={() => autoplay.stop()}
           onBlur={() => autoplay.reset()}
         >
-          <CarouselContent className="-ml-5">
+          <CarouselContent className="-ml-7">
             {CAROUSEL_PROJECTS.map((project, index) => (
               <CarouselItem
                 key={`${project.id}-${index}`}
-                className="basis-[min(274px,78vw)] pl-5"
+                className="basis-[min(274px,78vw)] pl-7"
               >
                 <ProjectCard
                   image={`/assets/${project.src}.png`}

@@ -46,7 +46,7 @@ export function SwissBannerSection() {
 
       <Container
         size="wide"
-        className="relative z-10 flex min-h-[236px] items-center py-8"
+        className="relative z-10 flex min-h-[236px] max-w-none items-center py-8"
       >
         <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-9">
           <Image
