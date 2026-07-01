@@ -41,7 +41,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 bg-background pb-[116px] pt-[84px]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-[116px] pt-[84px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
@@ -63,34 +63,47 @@ export function ProjectsSection() {
           </Link>
         </div>
 
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "start",
-            loop: true,
-            dragFree: false,
-          }}
-          plugins={[autoplay]}
-          className="w-full"
-          onFocus={() => autoplay.stop()}
-          onBlur={() => autoplay.reset()}
+        <div
+          data-projects-fade
+          className="relative -mx-4 overflow-hidden px-4 sm:-mx-8 sm:px-8 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
         >
-          <CarouselContent className="-ml-7">
-            {CAROUSEL_PROJECTS.map((project, index) => (
-              <CarouselItem
-                key={`${project.id}-${index}`}
-                className="basis-[min(274px,78vw)] pl-7"
-              >
-                <ProjectCard
-                  image={`/assets/${project.src}.png`}
-                  title={t(`items.${project.id}.title` as never)}
-                  description={t(`items.${project.id}.description` as never)}
-                  tag={project.tag}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_right,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_left,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+          />
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+              dragFree: false,
+            }}
+            plugins={[autoplay]}
+            className="w-full"
+            onFocus={() => autoplay.stop()}
+            onBlur={() => autoplay.reset()}
+          >
+            <CarouselContent className="-ml-7">
+              {CAROUSEL_PROJECTS.map((project, index) => (
+                <CarouselItem
+                  key={`${project.id}-${index}`}
+                  className="basis-[min(274px,78vw)] pl-7"
+                >
+                  <ProjectCard
+                    image={`/assets/${project.src}.png`}
+                    title={t(`items.${project.id}.title` as never)}
+                    description={t(`items.${project.id}.description` as never)}
+                    tag={project.tag}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </Container>
 
       <ProjectArrow

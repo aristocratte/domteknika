@@ -108,6 +108,7 @@ Règles:
 - Le bouton CTA final utilise une shadow noire, pas une shadow rouge.
 - Les projets utilisent le carousel shadcn/Embla avec `loop`, slides dupliquées et Autoplay Embla. Le rendu doit se lire comme un carousel infini, pas comme une rangée statique.
 - Les cartes projets gardent un gutter visible entre elles; éviter l'effet de grille serrée.
+- Le rail projets peut dépasser légèrement le conteneur de contenu: la largeur ajoutée sert de zone de fondu/flou progressif sur les bords afin que les cartes entrent et sortent sans apparition brusque.
 - Les boutons rouges principaux (`Contact Us`, `Start your project`) utilisent une ombre noire douce, aucun contour blanc visible, et gardent seulement un focus ring rouge accessible.
 
 ## Bannière Suisse
