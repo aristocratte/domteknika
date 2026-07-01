@@ -41,7 +41,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="domtek-glass-surface relative isolate mx-auto h-[82px] max-w-[1920px] overflow-hidden rounded-b-[34px] bg-white/[0.82] shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-[104px] md:rounded-b-[50px]"
+        className="domtek-glass-surface relative isolate mx-auto h-[82px] max-w-[1920px] overflow-hidden rounded-b-[34px] bg-white/[0.88] shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-[104px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
         <NavbarLiquidGlass cornerRadius={50} />
@@ -114,8 +114,8 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
-            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] bg-white/[0.82] p-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-              <NavbarLiquidGlass cornerRadius={24} displacementScale={60} />
+            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] bg-white/[0.88] p-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+              <NavbarLiquidGlass cornerRadius={24} displacementScale={72} />
               <div className="relative z-10 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
                   <NavLink
@@ -150,7 +150,7 @@ export function Navbar() {
 
 function NavbarLiquidGlass({
   cornerRadius,
-  displacementScale = 80,
+  displacementScale = 96,
 }: {
   cornerRadius: number;
   displacementScale?: number;
@@ -158,7 +158,7 @@ function NavbarLiquidGlass({
   return (
     <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
       <LiquidGlass
-        aberrationIntensity={1.2}
+        aberrationIntensity={1.8}
         blurAmount={0}
         className="domtek-liquid-glass h-full w-full"
         cornerRadius={cornerRadius}
