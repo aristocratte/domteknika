@@ -13,7 +13,7 @@ export function ProcessSection() {
   return (
     <section
       id="expertise"
-      className="scroll-mt-28 border-y border-border bg-white py-[96px] md:py-[112px] lg:py-0"
+      className="scroll-mt-28 overflow-x-clip border-y border-border bg-white py-[96px] md:py-[112px] lg:py-0"
       aria-labelledby="process-title"
     >
       <ProcessScrollScene>

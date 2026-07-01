@@ -21,7 +21,33 @@ import { cn } from "@/lib/utils";
 
 const ProcessScrollContext = createContext<MotionValue<number> | null>(null);
 
-const CARD_START_X = [-420, -315, -210] as const;
+type CardReveal = {
+  opacityInput: number[];
+  opacityOutput: number[];
+  xInput: number[];
+  xOutput: number[];
+};
+
+const CARD_REVEALS: CardReveal[] = [
+  {
+    opacityInput: [0, 1],
+    opacityOutput: [1, 1],
+    xInput: [0, 1],
+    xOutput: [0, 0],
+  },
+  {
+    opacityInput: [0.3, 0.48, 1],
+    opacityOutput: [0, 1, 1],
+    xInput: [0.18, 0.48, 1],
+    xOutput: [-520, 0, 0],
+  },
+  {
+    opacityInput: [0.66, 0.8, 1],
+    opacityOutput: [0, 1, 1],
+    xInput: [0.5, 0.8, 1],
+    xOutput: [-560, 0, 0],
+  },
+];
 
 interface ProcessScrollSceneProps {
   children: ReactNode;
@@ -38,7 +64,7 @@ export function ProcessScrollScene({ children }: ProcessScrollSceneProps) {
     <ProcessScrollContext.Provider value={scrollYProgress}>
       <div
         ref={targetRef}
-        className="relative lg:min-h-[185vh] motion-reduce:lg:min-h-0"
+        className="relative lg:min-h-[220vh] motion-reduce:lg:min-h-0"
       >
         <div className="lg:sticky lg:top-[104px] lg:flex lg:min-h-[calc(100vh-104px)] lg:items-center lg:py-[112px] motion-reduce:lg:static motion-reduce:lg:min-h-0">
           {children}
@@ -64,13 +90,20 @@ export function ProcessScrollCard({
   const desktopMotion = useDesktopMotion();
   const fallbackProgress = useMotionValue(1);
   const progress = scrollYProgress ?? fallbackProgress;
-  const x = useTransform(progress, [0.08, 0.82], [CARD_START_X[index], 0]);
+  const reveal = CARD_REVEALS[index];
+  const x = useTransform(progress, reveal.xInput, reveal.xOutput);
+  const opacity = useTransform(
+    progress,
+    reveal.opacityInput,
+    reveal.opacityOutput,
+  );
   const enabled = desktopMotion && !prefersReducedMotion;
 
   return (
     <motion.div
       className={cn("h-full lg:will-change-transform", className)}
-      style={enabled ? { x } : undefined}
+      data-process-card={index}
+      style={enabled ? { opacity, x } : undefined}
     >
       {children}
     </motion.div>
