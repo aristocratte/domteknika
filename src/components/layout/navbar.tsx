@@ -41,10 +41,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="domtek-glass-surface relative isolate mx-auto h-[82px] max-w-[1920px] overflow-hidden rounded-b-[34px] bg-white/[0.88] shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-[104px] md:rounded-b-[50px]"
+        className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.92] shadow-[0_10px_24px_rgba(0,0,0,0.055)] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[92px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
-        <NavbarLiquidGlass cornerRadius={50} />
+        <NavbarLiquidGlass cornerRadius={0} />
         <Container
           size="wide"
           className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
@@ -114,8 +114,8 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden">
           <Container size="wide" className="pt-2">
-            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] bg-white/[0.88] p-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-              <NavbarLiquidGlass cornerRadius={24} displacementScale={72} />
+            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] border border-white/55 bg-white/[0.025] p-4 shadow-[0_12px_22px_rgba(0,39,61,0.08)] backdrop-blur-[12px] backdrop-saturate-[180%]">
+              <NavbarLiquidGlass cornerRadius={24} displacementScale={20} />
               <div className="relative z-10 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
                   <NavLink
@@ -150,7 +150,7 @@ export function Navbar() {
 
 function NavbarLiquidGlass({
   cornerRadius,
-  displacementScale = 96,
+  displacementScale = 30,
 }: {
   cornerRadius: number;
   displacementScale?: number;
@@ -158,15 +158,15 @@ function NavbarLiquidGlass({
   return (
     <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
       <LiquidGlass
-        aberrationIntensity={1.8}
-        blurAmount={0}
+        aberrationIntensity={0}
+        blurAmount={0.025}
         className="domtek-liquid-glass h-full w-full"
         cornerRadius={cornerRadius}
         displacementScale={displacementScale}
-        elasticity={0.04}
+        elasticity={0.06}
         mode="standard"
         padding="0"
-        saturation={180}
+        saturation={170}
         style={{
           height: "100%",
           left: "50%",
