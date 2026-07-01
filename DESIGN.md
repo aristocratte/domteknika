@@ -97,6 +97,7 @@ Règles:
 ## Expertise Et Logos
 
 - Le triptyque expertise utilise trois cartes collées en desktop et peut dépasser légèrement le conteneur `wide` standard (`max-w-[1200px]`) pour allonger les cartes. Les cartes blanches prennent un peu plus de largeur horizontale pour respirer, tandis que la carte rouge `The process` reste au premier plan (`z-index` supérieur), avec une drop shadow noire visible et un très léger chevauchement sur les côtés.
+- Au scroll desktop, la section expertise se comporte comme une séquence sticky: le contenu reste en place pendant une portion du scroll, et les trois cartes glissent depuis la gauche jusqu'à leur position finale collée. L'effet est scroll-linked via `framer-motion` et doit être désactivé/adouci en `prefers-reduced-motion`.
 - Dans `The product`, les stats sont compactes et peuvent rester en 3 colonnes desktop, mais le drapeau suisse ne doit pas être positionné en absolu au-dessus du texte. Utiliser un petit layout flex pour garder `100%` et le drapeau séparés sans chevauchement.
 - Les logos `Trusted by` doivent être lisibles dans le marquee, pas réduits à des pictogrammes. Le bandeau gris reste compact, avec des logos visuellement plus grands et rapprochés sans chevauchement. Le défilement ne s'arrête pas au hover et les bords gauche/droite utilisent un fondu flouté modéré avec `mask-image`, afin que le blur disparaisse progressivement sans bord visible ni apparition trop précoce.
 - Le bloc `The idea` reste discret mais doit avoir un contour gris clair pour équilibrer les trois colonnes de la section expertise.
