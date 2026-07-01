@@ -12,8 +12,8 @@ export function ProcessSection() {
       className="scroll-mt-28 border-y border-border bg-white py-[96px] md:py-[112px]"
       aria-labelledby="process-title"
     >
-      <Container size="wide" className="py-0">
-        <div className="grid gap-4 lg:grid-cols-[0.88fr_1.22fr_1.02fr] lg:items-stretch lg:gap-3">
+      <Container size="wide" className="max-w-[1200px] py-0">
+        <div className="grid gap-4 lg:grid-cols-[1.05fr_1.12fr_1.05fr] lg:items-stretch lg:gap-0">
           <article className="flex min-h-[292px] flex-col justify-center rounded-[15px] border border-border bg-white p-6">
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
@@ -31,7 +31,7 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="relative z-20 my-0 min-h-[292px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] md:px-7">
+          <article className="relative z-20 my-0 min-h-[292px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] md:px-7 lg:-mx-2">
             <div className="grid h-full gap-6 md:grid-cols-[0.82fr_1fr] md:items-center">
               <div>
                 <AccentLine light />
