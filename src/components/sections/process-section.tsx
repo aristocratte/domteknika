@@ -14,9 +14,9 @@ export function ProcessSection() {
     >
       <Container
         size="wide"
-        className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-6"
+        className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-4"
       >
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_1.38fr_1.58fr] lg:items-stretch">
+        <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch">
           <article className="group flex min-h-[304px] flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]">
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
@@ -35,7 +35,7 @@ export function ProcessSection() {
           </article>
 
           <article className="group relative z-20 my-0 min-h-[304px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7">
-            <div className="grid h-full gap-5 md:grid-cols-[0.95fr_1.15fr] md:items-center">
+            <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-center">
               <div>
                 <AccentLine light />
                 <h2
@@ -50,7 +50,7 @@ export function ProcessSection() {
               </div>
 
               <div className="relative h-full min-h-[236px] border-white/70 md:min-h-[250px] md:border-l">
-                <div className="absolute inset-y-0 left-8 right-0 md:left-10">
+                <div className="absolute inset-y-0 left-7 right-0 md:left-8">
                   <Image
                     src="/assets/schema-process.png"
                     alt=""
