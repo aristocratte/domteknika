@@ -13,8 +13,8 @@ export function ProcessSection() {
       aria-labelledby="process-title"
     >
       <Container size="wide" className="py-0">
-        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.22fr_1.02fr] lg:items-stretch">
-          <article className="flex min-h-[292px] flex-col justify-center rounded-[7px] border border-border bg-white p-6">
+        <div className="grid gap-4 lg:grid-cols-[0.88fr_1.22fr_1.02fr] lg:items-stretch lg:gap-3">
+          <article className="flex min-h-[292px] flex-col justify-center rounded-[15px] border border-border bg-white p-6">
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
               {t("ideaTitle")}
@@ -31,7 +31,7 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="relative z-10 my-0 min-h-[292px] rounded-[7px] bg-brand px-6 py-7 text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] md:px-7">
+          <article className="relative z-20 my-0 min-h-[292px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] md:px-7">
             <div className="grid h-full gap-6 md:grid-cols-[0.82fr_1fr] md:items-center">
               <div>
                 <AccentLine light />
@@ -58,8 +58,8 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="flex min-h-[292px] flex-col justify-between py-6 lg:pl-2">
-            <div>
+          <article className="flex min-h-[292px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white">
+            <div className="p-6 pb-0">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
                 {t("productTitle")}
@@ -69,7 +69,7 @@ export function ProcessSection() {
               </p>
             </div>
 
-            <div className="mt-6 grid overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_8px_25px_rgba(0,0,0,0.04)] min-[1500px]:grid-cols-3">
+            <div className="mt-6 grid border-t border-border bg-white lg:grid-cols-3">
               <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
               <Stat
                 label={t("stats.sectors.label")}
@@ -107,22 +107,24 @@ function Stat({
   withFlag?: boolean;
 }) {
   return (
-    <div className="relative min-h-[66px] border-t border-border px-4 py-3 first:border-t-0 min-[1500px]:min-h-[96px] min-[1500px]:border-l min-[1500px]:border-t-0 min-[1500px]:py-5 min-[1500px]:first:border-l-0 xl:px-5 min-[1800px]:px-6">
-      <strong className="block max-w-[180px] pr-10 text-[22px] font-extrabold leading-[1.08] text-brand min-[1500px]:max-w-[108px] min-[1500px]:pr-0 min-[1500px]:text-[24px] min-[1800px]:max-w-none min-[1800px]:text-[28px]">
-        {value}
-      </strong>
-      <span className="mt-1 block pr-10 text-[15px] font-normal leading-[1.12] text-brand min-[1500px]:mt-2 min-[1500px]:pr-0 min-[1500px]:text-[17px] min-[1800px]:text-[22px]">
+    <div className="min-h-[66px] border-t border-border px-4 py-3 first:border-t-0 lg:min-h-[92px] lg:border-l lg:border-t-0 lg:px-3 lg:py-4 lg:first:border-l-0 xl:px-4">
+      <div className={withFlag ? "flex items-start justify-between gap-2" : undefined}>
+        <strong className="block text-[22px] font-extrabold leading-[1.08] text-brand lg:text-[20px] xl:text-[21px]">
+          {value}
+        </strong>
+        {withFlag && (
+          <Image
+            src="/assets/swiss-flag.png"
+            alt=""
+            width={37}
+            height={37}
+            className="size-6 shrink-0 lg:size-[26px]"
+          />
+        )}
+      </div>
+      <span className="mt-1 block text-[15px] font-normal leading-[1.12] text-brand lg:text-[14px] xl:text-[15px]">
         {label}
       </span>
-      {withFlag && (
-        <Image
-          src="/assets/swiss-flag.png"
-          alt=""
-          width={37}
-          height={37}
-          className="absolute right-4 top-1/2 size-6 -translate-y-1/2 min-[1500px]:right-3 min-[1500px]:top-5 min-[1500px]:size-7 min-[1500px]:translate-y-0 min-[1800px]:right-5 min-[1800px]:size-8"
-        />
-      )}
     </div>
   );
 }

@@ -46,7 +46,8 @@ Ombre typographique de référence: `.domtek-text-shadow`.
 ## Rayons
 
 - Rayon de base Figma: `7px`.
-- Cartes, boutons et stats: `rounded-[7px]`.
+- Cartes expertise et stats du triptyque: `rounded-[15px]`.
+- Boutons et petites cartes répétées: `rounded-[7px]`.
 - Navbar: `50px` sur les coins bas, via `rounded-b-[50px]` en desktop.
 - Aucun grand radius décoratif hors navbar.
 
@@ -95,7 +96,8 @@ Règles:
 
 ## Expertise Et Logos
 
-- Dans `The product`, les stats ne doivent passer en 3 colonnes qu'à largeur suffisante (`min-[1500px]` aujourd'hui). En dessous, elles s'empilent pour éviter tout chevauchement texte/drapeau.
+- Le triptyque expertise utilise trois cartes rapprochées. La carte rouge `The process` est au premier plan (`z-index` supérieur) avec une drop shadow noire visible; les deux cartes blanches restent plus calmes avec un contour gris.
+- Dans `The product`, les stats sont compactes et peuvent rester en 3 colonnes desktop, mais le drapeau suisse ne doit pas être positionné en absolu au-dessus du texte. Utiliser un petit layout flex pour garder `100%` et le drapeau séparés sans chevauchement.
 - Les logos `Trusted by` doivent être lisibles dans le marquee, pas réduits à des pictogrammes. Le bandeau gris reste compact, avec des logos visuellement plus grands et rapprochés sans chevauchement. Le défilement ne s'arrête pas au hover et les bords gauche/droite utilisent un fondu flouté modéré avec `mask-image`, afin que le blur disparaisse progressivement sans bord visible ni apparition trop précoce.
 - Le bloc `The idea` reste discret mais doit avoir un contour gris clair pour équilibrer les trois colonnes de la section expertise.
 - Le bouton CTA final utilise une shadow noire, pas une shadow rouge.
