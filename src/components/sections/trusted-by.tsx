@@ -60,11 +60,31 @@ export function TrustedBy() {
           })}
         </div>
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(11vw,140px)] bg-gradient-to-r from-muted via-muted/80 to-transparent backdrop-blur-[8px]"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(18vw,230px)]"
+          style={{
+            background:
+              "linear-gradient(90deg, var(--muted) 0%, rgb(247 247 247 / 0.92) 30%, rgb(247 247 247 / 0.54) 64%, rgb(247 247 247 / 0) 100%)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            maskImage:
+              "linear-gradient(90deg, black 0%, black 34%, rgb(0 0 0 / 0.72) 58%, rgb(0 0 0 / 0.24) 82%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(90deg, black 0%, black 34%, rgb(0 0 0 / 0.72) 58%, rgb(0 0 0 / 0.24) 82%, transparent 100%)",
+          }}
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(11vw,140px)] bg-gradient-to-l from-muted via-muted/80 to-transparent backdrop-blur-[8px]"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(18vw,230px)]"
+          style={{
+            background:
+              "linear-gradient(270deg, var(--muted) 0%, rgb(247 247 247 / 0.92) 30%, rgb(247 247 247 / 0.54) 64%, rgb(247 247 247 / 0) 100%)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            maskImage:
+              "linear-gradient(270deg, black 0%, black 34%, rgb(0 0 0 / 0.72) 58%, rgb(0 0 0 / 0.24) 82%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(270deg, black 0%, black 34%, rgb(0 0 0 / 0.72) 58%, rgb(0 0 0 / 0.24) 82%, transparent 100%)",
+          }}
           aria-hidden
         />
       </div>
