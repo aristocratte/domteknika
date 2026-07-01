@@ -74,7 +74,7 @@ Ordre de la homepage:
 
 ## Navbar
 
-La navbar est fixed en haut, hauteur 92px desktop, glass liquide transparent, rayon 50 en bas et sans ombre portée. L'effet doit rester visible: blur élevé, saturation forte, reflets internes blancs et vraie réfraction des éléments qui passent dessous.
+La navbar est fixed en haut, hauteur 80px desktop, largeur maximale 1180px, glass liquide transparent, rayon 50 en bas et sans ombre portée. L'effet doit rester visible: blur élevé, saturation forte, reflets internes blancs et vraie réfraction des éléments qui passent dessous.
 
 Règles:
 

@@ -39,7 +39,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[92px] md:rounded-b-[50px]"
+        className="domtek-glass-surface relative isolate mx-auto h-[68px] max-w-[1180px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[80px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
@@ -58,7 +58,7 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
+          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_230px] 2xl:grid-cols-[190px_1fr_230px]"
         >
           <Link
             href="/"
