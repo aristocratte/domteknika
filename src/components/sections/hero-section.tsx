@@ -48,20 +48,38 @@ export function HeroSection() {
         className="pointer-events-none absolute bottom-[28px] right-[-25vw] z-[1] hidden h-[520px] w-[74vw] max-w-[1040px] md:block lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 84%, rgb(0 0 0 / 0.38) 92%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
           maskImage:
-            "linear-gradient(to bottom, black 0%, black 84%, rgb(0 0 0 / 0.38) 92%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
         }}
         aria-hidden
       >
-        <Image
-          src="/assets/rv01-hero.png"
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 1024px) 82vw, 1040px"
-          className="object-contain object-bottom"
-        />
+        <div
+          className="absolute inset-0"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 0%, black 82%, rgb(0 0 0 / 0.42) 92%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, black 0%, black 82%, rgb(0 0 0 / 0.42) 92%, transparent 100%)",
+          }}
+        >
+          <Image
+            src="/assets/rv01-hero.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1024px) 82vw, 1040px"
+            className="object-contain object-bottom"
+          />
+          <div
+            className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-white via-white/80 to-transparent"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-white via-white/75 to-transparent"
+            aria-hidden
+          />
+        </div>
       </div>
 
       <Container size="wide" className="relative z-10">
