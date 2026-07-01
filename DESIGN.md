@@ -70,6 +70,7 @@ Ordre de la homepage:
 - La page doit se lire plus petite et plus premium sans être compactée: réduire les grandes typographies, cartes et assets, puis préserver ou augmenter l'espacement vertical entre sections.
 - Ne pas utiliser de `transform: scale()` global pour réduire l'interface; ajuster les tokens de layout, les tailles de composants et les paddings section par section.
 - Les sections peuvent rendre la page plus longue verticalement si cela améliore la respiration et la hiérarchie.
+- Éviter les traits de séparation horizontaux entre sections; conserver uniquement le trait final du footer.
 
 ## Navbar
 
@@ -98,6 +99,7 @@ Règles:
 ## Expertise Et Logos
 
 - Le triptyque expertise utilise trois cartes collées en desktop et peut dépasser le conteneur `wide` standard (`max-w-[1320px]`) pour allonger les cartes. Les cartes blanches prennent plus de largeur horizontale pour respirer, tandis que la carte rouge `The process` reste au premier plan (`z-index` supérieur), avec une drop shadow noire visible et un très léger chevauchement sur les côtés.
+- La carte `The product` peut être légèrement décalée vers la droite en desktop si la carte rouge chevauche trop son bord gauche.
 - Les cartes expertise ont un hover discret: élévation lente et lisible, bordure rouge très pâle sur les cartes blanches, et shadow noire renforcée sur la carte rouge. L'effet doit rester premium, pas ludique, avec une transition douce autour de `900ms`, une courbe `cubic-bezier(0.19, 1, 0.22, 1)` et sans effet de grossissement visible.
 - Le schéma `schema-process.png` dans la carte rouge doit être généreux et lisible; privilégier une colonne image plus large avant de réduire le texte.
 - Dans `The product`, les stats sont compactes et peuvent rester en 3 colonnes desktop, mais le drapeau suisse ne doit pas être positionné en absolu au-dessus du texte. Utiliser un petit layout flex pour garder `100%` et le drapeau séparés sans chevauchement.

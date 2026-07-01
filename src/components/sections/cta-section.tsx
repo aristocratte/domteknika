@@ -15,7 +15,7 @@ export function CtaSection() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden border-b border-brand/35 bg-white py-20 md:min-h-[320px] md:py-24"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-20 md:min-h-[320px] md:py-24"
       aria-labelledby="cta-title"
     >
       <Image

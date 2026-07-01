@@ -9,7 +9,7 @@ export function ProcessSection() {
   return (
     <section
       id="expertise"
-      className="scroll-mt-28 border-y border-border bg-white py-[96px] md:py-[112px]"
+      className="scroll-mt-28 bg-white py-[96px] md:py-[112px]"
       aria-labelledby="process-title"
     >
       <Container
@@ -61,7 +61,7 @@ export function ProcessSection() {
             </div>
           </article>
 
-          <article className="flex min-h-[304px] transform-gpu flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] motion-safe:hover:-translate-y-1.5">
+          <article className="flex min-h-[304px] transform-gpu flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-[border-color,box-shadow,transform] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform hover:border-brand/20 hover:shadow-[0_22px_48px_rgba(0,0,0,0.075)] lg:translate-x-4 motion-safe:hover:-translate-y-1.5">
             <div className="p-6 pb-0">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
