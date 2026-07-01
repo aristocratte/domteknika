@@ -52,7 +52,7 @@ export function Navbar() {
         className="domtek-glass-surface relative isolate mx-auto h-[74px] max-w-[1920px] overflow-hidden rounded-b-[34px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:h-[92px] md:rounded-b-[50px]"
         aria-label="Primary"
       >
-        <NavbarLiquidGlass cornerRadius={50} removeDropShadow />
+        <NavbarLiquidGlass cornerRadius={0} removeDropShadow />
         <Container
           size="wide"
           className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_190px] 2xl:grid-cols-[190px_1fr_230px]"
