@@ -9,23 +9,25 @@ import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import GlassSurface from "@/components/ui/glass-surface";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { key: "home", href: "/" },
   { key: "projects", href: "/#projects" },
-  { key: "expertise", href: "/#expertise" },
+  { key: "expertise", href: "/expertise" },
   { key: "patent", href: "#", disabled: true },
   { key: "story", href: "#", disabled: true },
 ] as const;
 
 export function Navbar() {
   const t = useTranslations("Nav");
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNavKey, setHoveredNavKey] = useState<
     (typeof NAV_ITEMS)[number]["key"] | null
   >(null);
+  const currentNavKey = pathname === "/expertise" ? "expertise" : "home";
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -72,7 +74,7 @@ export function Navbar() {
           >
             {NAV_ITEMS.map((item) => {
               const disabled = "disabled" in item && item.disabled;
-              const activeNavKey = hoveredNavKey ?? NAV_ITEMS[0].key;
+              const activeNavKey = hoveredNavKey ?? currentNavKey;
 
               return (
                 <li
@@ -100,7 +102,7 @@ export function Navbar() {
             <Button
               nativeButton={false}
               size="lg"
-              className="hidden h-10 rounded-[7px] px-[14px] text-[13px] font-bold shadow-[0_3px_7px_rgba(227,6,19,0.28)] transition-transform hover:-translate-y-0.5 md:inline-flex 2xl:px-4 2xl:text-[14px]"
+              className="hidden h-10 rounded-[7px] border-0 px-[14px] text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex 2xl:px-4 2xl:text-[14px]"
               render={<Link href="/#contact" />}
             >
               {t("cta")}
@@ -154,7 +156,7 @@ export function Navbar() {
                   <LanguageSwitcher />
                   <Button
                     nativeButton={false}
-                    className="h-11 rounded-[7px] px-5 font-bold"
+                    className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
                     render={<Link href="/#contact" />}
                     onClick={() => setMobileOpen(false)}
                   >

@@ -135,7 +135,7 @@ Assets principaux dans `public/assets`:
 - `schema-process.png`
 - `logo-aventor.png`, `logo-logitech.png`, `logo-nestle.png`, `logo-nespresso.png`, `logo-softcar.png`, `logo-total.png`, `logo-stagvelo.png`, `logo-gin.png`
 - `alps-background.png`
-- `swiss-flag.png`
+- `flag-switzerland.webp`
 - `swiss-quality.png`, `end-to-end.png`, `agile.png`, `confidential.png`
 
 Utiliser `next/image` pour tous les visuels bitmap.

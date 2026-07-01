@@ -140,7 +140,7 @@ export function HeroSection() {
             </Button>
 
             <Link
-              href="/#expertise"
+              href="/expertise"
               className="inline-flex items-center gap-6 text-[15px] font-extrabold text-foreground transition-colors hover:text-brand"
             >
               {t("ctaSecondary")}

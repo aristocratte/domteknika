@@ -117,7 +117,7 @@ function Stat({
         </strong>
         {withFlag && (
           <Image
-            src="/assets/swiss-flag.png"
+            src="/assets/flag-switzerland.webp"
             alt=""
             width={37}
             height={37}

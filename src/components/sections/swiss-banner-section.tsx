@@ -50,7 +50,7 @@ export function SwissBannerSection() {
       >
         <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-9">
           <Image
-            src="/assets/swiss-flag.png"
+            src="/assets/flag-switzerland.webp"
             alt=""
             width={88}
             height={88}

@@ -70,6 +70,96 @@
       }
     }
   },
+  "ExpertisePage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Expertise industrielle",
+      "description": "Découvrez l'expertise DOMTEKNIKA: innovation, design produit, prototypage, simulation, polymères et intégration électronique depuis la Suisse."
+    },
+    "Hero": {
+      "eyebrow": "Transformer les idées en solutions réelles",
+      "team": "Notre équipe",
+      "title": "Expertise"
+    },
+    "Services": {
+      "eyebrow": "Ce que nous faisons",
+      "title": "Une expertise de bout en bout à chaque étape",
+      "intro": "Du prototype unique à la production industrielle, nous aidons les entreprises et les inventeurs à concevoir, valider et produire leurs idées.",
+      "items": {
+        "creativity": {
+          "title": "Créativité & Innovation",
+          "description": "Nous transformons les concepts bruts en opportunités neuves grâce à l'idéation stratégique et aux solutions de premier principe."
+        },
+        "design": {
+          "title": "Design produit",
+          "description": "Design industriel, mécanique, électrique et systèmes pensés pour la performance et la fabricabilité."
+        },
+        "prototyping": {
+          "title": "Prototypage",
+          "description": "Prototypage rapide et techniques avancées pour valider les idées et réduire les risques."
+        },
+        "simulation": {
+          "title": "Simulation & Analyse",
+          "description": "Simulation et analyse avancées pour prédire les performances, optimiser les designs et fiabiliser."
+        },
+        "polymer": {
+          "title": "Polymères & Injection",
+          "description": "Expertise matériaux polymères, injection et optimisation des procédés pour composants de précision."
+        },
+        "electronics": {
+          "title": "Intégration électronique",
+          "description": "Conception et intégration électronique intelligente pour des produits connectés, fiables et intelligents."
+        }
+      }
+    },
+    "Swiss": {
+      "title": "Depuis nos racines suisses. Nous façonnons vos idées."
+    },
+    "AddedValue": {
+      "eyebrow": "Notre valeur ajoutée",
+      "values": {
+        "partner": {
+          "title": "Partenaire end-to-end",
+          "description": "Du concept à l'industrialisation, nous gérons tout."
+        },
+        "agile": {
+          "title": "Agile & réactif",
+          "description": "Nous avançons vite, nous adaptons vite et restons proches de vous."
+        },
+        "confidential": {
+          "title": "Confidentiel",
+          "description": "Vos idées sont en sécurité chez nous. Toujours."
+        },
+        "quality": {
+          "title": "Qualité suisse",
+          "description": "Ingénierie précise et qualité premium selon les standards suisses."
+        }
+      },
+      "stats": {
+        "projects": {
+          "value": "+60",
+          "label": "Projets livrés"
+        },
+        "years": {
+          "value": "+25 ans",
+          "label": "D'expérience"
+        },
+        "worldwide": {
+          "value": "Worldwide",
+          "label": "Pays servis"
+        },
+        "industries": {
+          "value": "6+",
+          "label": "Industries clés"
+        }
+      }
+    },
+    "Cta": {
+      "eyebrow": "Construisons ensemble",
+      "title": "Vous avez un défi que nous pouvons résoudre",
+      "subtitle": "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions intelligentes et fabricables.",
+      "button": "Start your project"
+    }
+  },
   "TrustedBy": {
     "label": "Trusted by"
   },
