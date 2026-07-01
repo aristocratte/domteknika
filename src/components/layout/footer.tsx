@@ -8,12 +8,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-brand/35 bg-background py-14 md:py-20">
+    <footer className="border-t border-brand/35 bg-background py-12 md:py-16">
       <Container
         size="wide"
-        className="grid items-start gap-10 md:grid-cols-[220px_1fr_1fr]"
+        className="grid items-start gap-10 md:grid-cols-[190px_1fr_1fr]"
       >
-        <Logo variant="footer" className="w-[150px]" />
+        <Logo variant="footer" className="w-[132px]" />
 
         <address className="not-italic text-[13px] font-medium leading-[1.55] text-muted-foreground">
           Chem. de Saint-Joux 16B

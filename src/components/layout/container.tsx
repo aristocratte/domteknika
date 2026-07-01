@@ -2,9 +2,9 @@ import { type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const sizes = {
-  default: "max-w-[1200px]",
-  wide: "max-w-[1440px]",
-  narrow: "max-w-[960px]",
+  default: "max-w-[1040px]",
+  wide: "max-w-[1160px]",
+  narrow: "max-w-[820px]",
 } as const;
 
 interface ContainerProps {
@@ -23,7 +23,7 @@ export function Container({
   return (
     <Component
       className={cn(
-        "mx-auto w-full px-5 sm:px-8 xl:px-10 2xl:px-0",
+        "mx-auto w-full px-7 sm:px-10 lg:px-14 xl:px-16",
         sizes[size],
         className,
       )}

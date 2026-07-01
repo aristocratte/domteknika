@@ -19,30 +19,30 @@ export function TrustedBy() {
   const logos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-background pt-[56px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-7">
-        <h2 className="text-[21px] font-normal uppercase leading-none tracking-normal text-foreground">
+    <section className="bg-background py-[96px]" aria-label={t("label")}>
+      <Container size="wide" className="mb-10">
+        <h2 className="text-[18px] font-normal uppercase leading-none tracking-normal text-foreground">
           {t("label")}
         </h2>
       </Container>
 
-      <div className="marquee-pause overflow-hidden bg-muted py-[26px]">
+      <div className="marquee-pause overflow-hidden bg-muted py-6">
         <div
-          className="flex w-max animate-marquee items-center gap-[132px] pr-[132px]"
+          className="flex w-max animate-marquee items-center gap-[112px] pr-[112px]"
           style={{ ["--marquee-duration" as string]: "44s" }}
         >
           {logos.map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex h-[158px] w-[330px] shrink-0 items-center justify-center"
+              className="flex h-[142px] w-[300px] shrink-0 items-center justify-center"
             >
               <Image
                 src={`/assets/${logo.src}.png`}
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                sizes="330px"
-                className="h-auto max-h-[158px] w-auto max-w-[330px] origin-center scale-[1.42] object-contain"
+                sizes="300px"
+                className="h-auto max-h-[142px] w-auto max-w-[300px] origin-center scale-[1.32] object-contain"
               />
             </div>
           ))}

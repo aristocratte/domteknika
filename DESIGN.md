@@ -56,12 +56,19 @@ Ordre de la homepage:
 
 1. Navbar fixed glass.
 2. Hero avec dessin technique haut, flèches rouges, titre et deux CTA.
-3. Projets avec carousel shadcn/Embla, cartes compactes 336 x 326, image sur fond gris.
+3. Projets avec carousel shadcn/Embla, cartes compactes autour de 274 x 286, image sur fond gris.
 4. Expertise triptyque: `The idea`, panneau rouge `The process`, `The product` avec stats.
 5. `Trusted by`, ruban de logos en scroll horizontal infini.
 6. Bannière Suisse/Chasseral.
 7. CTA final sur dessin technique bas.
 8. Footer minimal: logo, adresse, copyright.
+
+## Rythme Et Marges
+
+- Les contenus principaux sont centrés dans un conteneur `wide` de 1160px maximum avec des gutters latéraux généreux.
+- La page doit se lire plus petite et plus premium sans être compactée: réduire les grandes typographies, cartes et assets, puis préserver ou augmenter l'espacement vertical entre sections.
+- Ne pas utiliser de `transform: scale()` global pour réduire l'interface; ajuster les tokens de layout, les tailles de composants et les paddings section par section.
+- Les sections peuvent rendre la page plus longue verticalement si cela améliore la respiration et la hiérarchie.
 
 ## Navbar
 

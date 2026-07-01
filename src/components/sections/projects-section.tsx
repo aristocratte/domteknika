@@ -41,14 +41,14 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 bg-background pb-[88px] pt-[24px]"
+      className="relative scroll-mt-24 bg-background pb-[116px] pt-[84px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
-        <div className="mb-[31px] flex items-center justify-between">
+        <div className="mb-[38px] flex items-center justify-between">
           <h2
             id="projects-title"
-            className="text-[22px] font-extrabold leading-none text-foreground"
+            className="text-[20px] font-extrabold leading-none text-foreground"
           >
             {t("title")}
           </h2>
@@ -56,7 +56,7 @@ export function ProjectsSection() {
             href="#"
             aria-disabled="true"
             onClick={(event) => event.preventDefault()}
-            className="inline-flex items-center gap-7 text-[18px] font-extrabold text-foreground transition-colors hover:text-brand"
+            className="inline-flex items-center gap-6 text-[15px] font-extrabold text-foreground transition-colors hover:text-brand"
           >
             {t("viewAll")}
             <ArrowRight className="size-5 text-brand" aria-hidden />
@@ -75,11 +75,11 @@ export function ProjectsSection() {
           onFocus={() => autoplay.stop()}
           onBlur={() => autoplay.reset()}
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-5">
             {CAROUSEL_PROJECTS.map((project, index) => (
               <CarouselItem
                 key={`${project.id}-${index}`}
-                className="basis-[min(336px,82vw)] pl-4"
+                className="basis-[min(274px,78vw)] pl-5"
               >
                 <ProjectCard
                   image={`/assets/${project.src}.png`}
@@ -95,19 +95,19 @@ export function ProjectsSection() {
 
       <ProjectArrow
         label={t("previous")}
-        className="left-[clamp(22px,5vw,96px)]"
+        className="left-[clamp(20px,3vw,72px)]"
         disabled={!api}
         onClick={() => api?.scrollPrev()}
       >
-        <ChevronLeft className="size-10" aria-hidden />
+        <ChevronLeft className="size-8" aria-hidden />
       </ProjectArrow>
       <ProjectArrow
         label={t("next")}
-        className="right-[clamp(22px,5vw,96px)]"
+        className="right-[clamp(20px,3vw,72px)]"
         disabled={!api}
         onClick={() => api?.scrollNext()}
       >
-        <ChevronRight className="size-10" aria-hidden />
+        <ChevronRight className="size-8" aria-hidden />
       </ProjectArrow>
     </section>
   );
@@ -125,24 +125,24 @@ function ProjectCard({
   tag: string;
 }) {
   return (
-    <article className="group h-[326px] overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
-      <div className="relative h-[185px] bg-muted">
+    <article className="group h-[286px] overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
+      <div className="relative h-[160px] bg-muted">
         <Image
           src={image}
           alt=""
           fill
-          sizes="372px"
+          sizes="274px"
           className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
         />
       </div>
-      <div className="flex h-[141px] flex-col px-5 pb-5 pt-4">
-        <h3 className="text-[15px] font-extrabold leading-tight text-foreground">
+      <div className="flex h-[126px] flex-col px-4 pb-4 pt-4">
+        <h3 className="text-[14px] font-extrabold leading-tight text-foreground">
           {title}
         </h3>
-        <p className="mt-2 text-[14px] font-medium leading-tight text-muted-foreground">
+        <p className="mt-2 text-[13px] font-medium leading-tight text-muted-foreground">
           {description}
         </p>
-        <p className="mt-auto text-[13px] font-extrabold leading-none text-brand">
+        <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
           #{tag}
         </p>
       </div>
@@ -170,7 +170,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute top-[232px] grid size-14 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40",
+        "absolute top-[262px] grid size-12 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40",
         className,
       )}
     >

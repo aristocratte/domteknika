@@ -14,7 +14,7 @@ export function SwissBannerSection() {
   const t = useTranslations("SwissBanner");
 
   return (
-    <section className="relative min-h-[264px] overflow-hidden bg-alps">
+    <section className="relative min-h-[236px] overflow-hidden bg-alps">
       <Image
         src="/assets/alps-background.png"
         alt=""
@@ -46,38 +46,38 @@ export function SwissBannerSection() {
 
       <Container
         size="wide"
-        className="relative z-10 flex min-h-[264px] items-center py-8"
+        className="relative z-10 flex min-h-[236px] items-center py-8"
       >
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
+        <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-9">
           <Image
             src="/assets/swiss-flag.png"
             alt=""
             width={88}
             height={88}
-            className="size-[76px] object-contain md:size-[88px]"
+            className="size-[68px] object-contain md:size-[76px]"
           />
 
           <div>
-            <h2 className="max-w-[530px] text-[27px] font-extrabold uppercase leading-[1.16] tracking-wide text-white md:text-[29px]">
+            <h2 className="max-w-[500px] text-[24px] font-extrabold uppercase leading-[1.16] tracking-wide text-white md:text-[26px]">
               {t("titleLineOne")}
               <br />
               {t("titleLineTwo")}
             </h2>
 
-            <div className="mt-8 flex flex-col gap-5 md:flex-row md:items-center md:gap-0">
+            <div className="mt-7 flex flex-col gap-5 md:flex-row md:items-center md:gap-0">
               {VALUES.map((value, index) => (
                 <div
                   key={value.key}
-                  className="flex items-center gap-3 md:min-w-[230px] md:border-l md:border-white/80 md:px-6 first:md:border-l-0 first:md:pl-0"
+                  className="flex items-center gap-3 md:min-w-[205px] md:border-l md:border-white/80 md:px-5 first:md:border-l-0 first:md:pl-0"
                 >
                   <Image
                     src={`/assets/${value.icon}.png`}
                     alt=""
                     width={46}
                     height={46}
-                    className="size-[32px] object-contain md:size-[38px]"
+                    className="size-[30px] object-contain md:size-[34px]"
                   />
-                  <strong className="text-[16px] font-extrabold leading-none text-white md:text-[18px]">
+                  <strong className="text-[15px] font-extrabold leading-none text-white md:text-[16px]">
                     {t(`values.${value.key}` as never)}
                   </strong>
                   {index === VALUES.length - 1 && (
