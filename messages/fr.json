@@ -47,6 +47,12 @@
     "previous": "Projet précédent",
     "next": "Projet suivant"
   },
+  "ProjectsPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Projets",
+      "description": "Découvrez une sélection de projets DOMTEKNIKA en ingénierie de précision, prototypage et production."
+    }
+  },
   "Process": {
     "ideaTitle": "The idea",
     "ideaIntro": "Every great product starts with an idea, a sketch, a problem to solve, or a system to improve.",

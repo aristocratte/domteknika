@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { key: "home", href: "/" },
-  { key: "projects", href: "/#projects" },
+  { key: "projects", href: "/projects" },
   { key: "expertise", href: "/expertise" },
   { key: "patent", href: "#", disabled: true },
   { key: "story", href: "#", disabled: true },
@@ -27,7 +27,12 @@ export function Navbar() {
   const [hoveredNavKey, setHoveredNavKey] = useState<
     (typeof NAV_ITEMS)[number]["key"] | null
   >(null);
-  const currentNavKey = pathname === "/expertise" ? "expertise" : "home";
+  const currentNavKey =
+    pathname === "/projects"
+      ? "projects"
+      : pathname === "/expertise"
+        ? "expertise"
+        : "home";
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -152,6 +157,10 @@ export function Navbar() {
                     key={item.key}
                     href={item.href}
                     disabled={"disabled" in item && item.disabled}
+                    active={
+                      !("disabled" in item && item.disabled) &&
+                      currentNavKey === item.key
+                    }
                     mobile
                     onNavigate={() => setMobileOpen(false)}
                   >
@@ -197,6 +206,7 @@ function NavLink({
     "relative inline-flex text-[14px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand 2xl:text-[16px]",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
     mobile && "w-full rounded-[7px] px-3 py-3 text-[16px] hover:bg-white/50",
+    mobile && active && "bg-white/60 text-brand",
   );
   const indicator = !disabled && !mobile && (
     <span

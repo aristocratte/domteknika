@@ -47,6 +47,12 @@
     "previous": "Previous project",
     "next": "Next project"
   },
+  "ProjectsPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Projects",
+      "description": "Explore selected DOMTEKNIKA projects in Swiss precision engineering, prototyping and production."
+    }
+  },
   "Process": {
     "ideaTitle": "The idea",
     "ideaIntro": "Every great product starts with an idea, a sketch, a problem to solve, or a system to improve.",
