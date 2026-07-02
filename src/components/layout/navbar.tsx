@@ -32,7 +32,9 @@ export function Navbar() {
       ? "projects"
       : pathname === "/expertise"
         ? "expertise"
-        : "home";
+        : pathname === "/"
+          ? "home"
+          : null;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -114,7 +116,7 @@ export function Navbar() {
               nativeButton={false}
               size="lg"
               className="hidden h-10 rounded-[7px] border-0 px-[14px] text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex 2xl:px-4 2xl:text-[14px]"
-              render={<Link href="/#contact" />}
+              render={<Link href="/contact" />}
             >
               {t("cta")}
               <ArrowRight data-icon="inline-end" />
@@ -172,7 +174,7 @@ export function Navbar() {
                   <Button
                     nativeButton={false}
                     className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
-                    render={<Link href="/#contact" />}
+                    render={<Link href="/contact" />}
                     onClick={() => setMobileOpen(false)}
                   >
                     {t("cta")}

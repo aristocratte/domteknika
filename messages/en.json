@@ -53,6 +53,52 @@
       "description": "Explore selected DOMTEKNIKA projects in Swiss precision engineering, prototyping and production."
     }
   },
+  "ContactPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Get in touch",
+      "description": "Contact DOMTEKNIKA in La Neuveville, Switzerland to discuss engineering, prototyping and production projects."
+    },
+    "Hero": {
+      "eyebrow": "Let's connect",
+      "title": "Get in touch",
+      "lead": "Have a question, a project in mind, or just want to explore how we can work together? We're here to help."
+    },
+    "Cards": {
+      "location": {
+        "title": "Our location",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSwitzerland",
+        "action": "Open in Google Maps"
+      },
+      "email": {
+        "title": "Email us",
+        "body": "info@domteknika.ch",
+        "action": "Write us an email"
+      },
+      "phone": {
+        "title": "Call us",
+        "body": "+41 32 751 71 46",
+        "action": "Call DOMTEKNIKA"
+      }
+    },
+    "Form": {
+      "title": "Send us a message",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "message": "Your message...",
+      "submit": "Send message",
+      "secure": "Your information is secure and will never be shared.",
+      "success": "Message ready. We'll connect this form to your inbox next."
+    },
+    "Map": {
+      "eyebrow": "Find us",
+      "title": "Visit our workshop",
+      "body": "Our office and workshop are located in La Neuveville, between Lake Biel and the Jura foothills.",
+      "marker": "DOMTEKNIKA SA"
+    }
+  },
   "Process": {
     "ideaTitle": "The idea",
     "ideaIntro": "Every great product starts with an idea, a sketch, a problem to solve, or a system to improve.",

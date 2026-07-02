@@ -53,6 +53,52 @@
       "description": "Découvrez une sélection de projets DOMTEKNIKA en ingénierie de précision, prototypage et production."
     }
   },
+  "ContactPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Contact",
+      "description": "Contactez DOMTEKNIKA à La Neuveville, en Suisse, pour discuter de vos projets d'ingénierie, de prototypage et de production."
+    },
+    "Hero": {
+      "eyebrow": "Restons en contact",
+      "title": "Contact",
+      "lead": "Vous avez une question, un projet en tête, ou vous souhaitez simplement explorer comment nous pouvons travailler ensemble ? Nous sommes là pour vous aider."
+    },
+    "Cards": {
+      "location": {
+        "title": "Notre adresse",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSuisse",
+        "action": "Ouvrir dans Google Maps"
+      },
+      "email": {
+        "title": "Nous écrire",
+        "body": "info@domteknika.ch",
+        "action": "Ecrire un email"
+      },
+      "phone": {
+        "title": "Nous appeler",
+        "body": "+41 32 751 71 46",
+        "action": "Appeler DOMTEKNIKA"
+      }
+    },
+    "Form": {
+      "title": "Envoyez-nous un message",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "company": "Entreprise",
+      "email": "Email",
+      "phone": "Téléphone (optionnel)",
+      "message": "Votre message...",
+      "submit": "Envoyer le message",
+      "secure": "Vos informations sont sécurisées et ne seront jamais partagées.",
+      "success": "Message prêt. Nous connecterons ensuite ce formulaire à votre boîte mail."
+    },
+    "Map": {
+      "eyebrow": "Nous trouver",
+      "title": "Visitez notre atelier",
+      "body": "Notre bureau et atelier se trouvent à La Neuveville, entre le lac de Bienne et les contreforts du Jura.",
+      "marker": "DOMTEKNIKA SA"
+    }
+  },
   "Process": {
     "ideaTitle": "The idea",
     "ideaIntro": "Every great product starts with an idea, a sketch, a problem to solve, or a system to improve.",
