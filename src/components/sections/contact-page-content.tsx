@@ -65,7 +65,7 @@ export function ContactPageContent() {
           quality={100}
           sizes="(max-width: 1024px) 70vw, 660px"
           unoptimized
-          className="pointer-events-none absolute right-[-34vw] top-[260px] z-0 h-auto w-[78vw] max-w-[680px] opacity-[0.17] sm:right-[-24vw] md:right-[-8vw] md:top-[278px] md:w-[45vw] lg:right-[-3vw] xl:right-[1vw] xl:w-[33vw]"
+          className="pointer-events-none absolute right-[-30vw] top-[244px] z-0 h-auto w-[88vw] max-w-[700px] opacity-[0.68] sm:right-[-20vw] md:right-[-9vw] md:top-[236px] md:w-[52vw] lg:right-[-5vw] xl:right-[1vw] xl:w-[38vw]"
         />
 
         <Container size="wide" className="relative z-10">
