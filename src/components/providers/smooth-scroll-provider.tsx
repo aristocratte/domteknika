@@ -24,6 +24,19 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       smoothWheel: true,
       touchMultiplier: 1.5,
     });
+    const handleScrollLock = (event: Event) => {
+      const { locked, scrollY } =
+        (event as CustomEvent<{ locked?: boolean; scrollY?: number }>).detail ??
+        {};
+      if (locked) {
+        lenis.stop();
+      } else {
+        if (typeof scrollY === "number") {
+          lenis.scrollTo(scrollY, { immediate: true, force: true });
+        }
+        lenis.start();
+      }
+    };
 
     let frameId = 0;
     function raf(time: number) {
@@ -31,8 +44,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       frameId = window.requestAnimationFrame(raf);
     }
     frameId = window.requestAnimationFrame(raf);
+    window.addEventListener("domtek:scroll-lock", handleScrollLock);
 
     return () => {
+      window.removeEventListener("domtek:scroll-lock", handleScrollLock);
       window.cancelAnimationFrame(frameId);
       lenis.destroy();
     };

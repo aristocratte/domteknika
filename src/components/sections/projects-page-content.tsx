@@ -199,6 +199,7 @@ export function ProjectsPageContent() {
   const originRef = useRef<HTMLElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
+  const dialogStateRef = useRef(dialogState);
   const filterTrackRef = useRef<HTMLDivElement | null>(null);
   const filterButtonRefs = useRef<Record<FilterKey, HTMLButtonElement | null>>({
     all: null,
@@ -310,13 +311,97 @@ export function ProjectsPageContent() {
   }, [clearCloseTimer, dialogState, selectedProject]);
 
   useEffect(() => {
+    dialogStateRef.current = dialogState;
+  }, [dialogState]);
+
+  useEffect(() => {
     if (!selectedProject) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    const { body, documentElement } = document;
+    const previousBodyStyles = {
+      overflow: body.style.overflow,
+      overscrollBehavior: body.style.overscrollBehavior,
+    };
+    const previousDocumentStyles = {
+      overflow: documentElement.style.overflow,
+      overscrollBehavior: documentElement.style.overscrollBehavior,
+    };
+    const scrollEventOptions = {
+      capture: true,
+      passive: false,
+    } satisfies AddEventListenerOptions;
+    let touchStartY = 0;
+    const canScrollWithin = (container: HTMLElement, deltaY: number) => {
+      const maxScrollTop = container.scrollHeight - container.clientHeight;
+      if (maxScrollTop <= 0) return false;
+      if (deltaY < 0) return container.scrollTop > 0;
+      if (deltaY > 0) return container.scrollTop < maxScrollTop - 1;
+      return true;
+    };
+    const onTouchStart = (event: TouchEvent) => {
+      touchStartY = event.touches[0]?.clientY ?? 0;
+    };
+    const preventPageScroll = (event: Event) => {
+      const scrollContainer =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("[data-project-dialog-scroll]")
+          : null;
+
+      const deltaY =
+        event instanceof WheelEvent
+          ? event.deltaY
+          : event instanceof TouchEvent
+            ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
+            : 0;
+
+      if (
+        dialogStateRef.current === "open" &&
+        scrollContainer &&
+        canScrollWithin(scrollContainer, deltaY)
+      ) {
+        event.stopPropagation();
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+    };
+
+    window.dispatchEvent(
+      new CustomEvent("domtek:scroll-lock", { detail: { locked: true } }),
+    );
+    body.style.overflow = "hidden";
+    body.style.overscrollBehavior = "none";
+    documentElement.style.overflow = "hidden";
+    documentElement.style.overscrollBehavior = "none";
+    window.addEventListener("touchstart", onTouchStart, {
+      capture: true,
+      passive: true,
+    });
+    window.addEventListener("wheel", preventPageScroll, scrollEventOptions);
+    window.addEventListener("touchmove", preventPageScroll, scrollEventOptions);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("touchstart", onTouchStart, {
+        capture: true,
+      });
+      window.removeEventListener("wheel", preventPageScroll, scrollEventOptions);
+      window.removeEventListener(
+        "touchmove",
+        preventPageScroll,
+        scrollEventOptions,
+      );
+      body.style.overflow = previousBodyStyles.overflow;
+      body.style.overscrollBehavior = previousBodyStyles.overscrollBehavior;
+      documentElement.style.overflow = previousDocumentStyles.overflow;
+      documentElement.style.overscrollBehavior =
+        previousDocumentStyles.overscrollBehavior;
+      window.dispatchEvent(
+        new CustomEvent("domtek:scroll-lock", {
+          detail: { locked: false, scrollY },
+        }),
+      );
     };
   }, [selectedProject]);
 
@@ -398,6 +483,7 @@ export function ProjectsPageContent() {
     : undefined;
 
   const contentVisible = dialogState === "open";
+  const returnPreviewVisible = dialogState === "closing";
   const backdropVisible = dialogState === "opening" || dialogState === "open";
 
   return (
@@ -407,14 +493,14 @@ export function ProjectsPageContent() {
         aria-labelledby="projects-page-title"
       >
         <Image
-          src="/assets/project-page/hero-sketch.png"
+          src="/assets/project-page/image-fond-top.png"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="pointer-events-none absolute inset-0 z-0 object-cover object-right-top opacity-[0.18]"
+          className="pointer-events-none absolute inset-0 z-0 object-contain object-right-top opacity-[0.82]"
         />
-        <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/90 to-white/35" />
+        <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white/55 via-white/15 to-transparent" />
 
         <Container
           size="wide"
@@ -632,6 +718,11 @@ export function ProjectsPageContent() {
               <X className="size-4" aria-hidden />
             </button>
 
+            <ProjectReturnPreview
+              project={selectedProject}
+              visible={returnPreviewVisible}
+            />
+
             <div
               className={cn(
                 "grid h-full opacity-0 transition-opacity duration-200 md:grid-cols-[46%_54%]",
@@ -657,7 +748,10 @@ export function ProjectsPageContent() {
                 </div>
               </div>
 
-              <div className="min-h-0 overflow-y-auto px-5 py-7 md:px-9 md:py-10">
+              <div
+                data-project-dialog-scroll
+                className="min-h-0 overflow-y-auto px-5 py-7 md:px-9 md:py-10"
+              >
                 <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
                   {selectedProject.category}
                 </span>
@@ -726,6 +820,59 @@ export function ProjectsPageContent() {
         </div>
       )}
     </>
+  );
+}
+
+function ProjectReturnPreview({
+  project,
+  visible,
+}: {
+  project: Project;
+  visible: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "pointer-events-none absolute inset-0 z-10 flex h-full min-h-0 flex-col overflow-hidden bg-white opacity-0 transition-opacity duration-150",
+        visible && "opacity-100",
+      )}
+      aria-hidden
+    >
+      <span className="relative block min-h-[160px] flex-1 overflow-hidden bg-muted">
+        <Image
+          src={project.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 560px"
+          className="object-contain"
+        />
+        <span className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white">
+          <ArrowUpRight className="size-4" />
+        </span>
+      </span>
+
+      <span className="flex min-h-[150px] flex-col px-5 pb-5 pt-5">
+        <span className="text-[11px] font-extrabold text-brand">
+          {project.category}
+        </span>
+        <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground">
+          {project.title}
+        </strong>
+        <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground">
+          {project.description}
+        </span>
+
+        <span className="mt-auto flex items-end justify-between gap-4 pt-6">
+          <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground">
+            View case study
+            <ArrowRight className="size-4 text-brand" />
+          </span>
+          <span className="text-right text-[10px] font-medium text-muted-foreground">
+            {project.tags.join(" ")}
+          </span>
+        </span>
+      </span>
+    </div>
   );
 }
 

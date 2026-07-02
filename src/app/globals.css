@@ -150,6 +150,7 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     scroll-padding-top: 112px;
   }
   html {
