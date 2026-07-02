@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Search, X } from "lucide-react";
 import {
   type CSSProperties,
-  type MouseEvent,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -159,17 +158,8 @@ const STATS = [
   },
 ] as const;
 
-const MODAL_TRANSITION_MS = 570;
-
-function toPanelRect(rect: DOMRect, radius: string): PanelRect {
-  return {
-    left: rect.left,
-    top: rect.top,
-    width: rect.width,
-    height: rect.height,
-    radius,
-  };
-}
+const MODAL_TRANSITION_MS = 320;
+const MODAL_CLOSE_FALLBACK_MS = 360;
 
 function centeredPanelRect(): PanelRect {
   const isMobile = window.innerWidth <= 640;
@@ -197,10 +187,10 @@ export function ProjectsPageContent() {
   const [filterIndicatorStyle, setFilterIndicatorStyle] =
     useState<CSSProperties>({ left: 0, width: 0 });
   const panelRef = useRef<HTMLElement | null>(null);
-  const originRef = useRef<HTMLElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const dialogStateRef = useRef(dialogState);
+  const lockedScrollYRef = useRef(0);
   const filterTrackRef = useRef<HTMLDivElement | null>(null);
   const filterButtonRefs = useRef<Record<FilterKey, HTMLButtonElement | null>>({
     all: null,
@@ -255,25 +245,26 @@ export function ProjectsPageContent() {
     }
   }, []);
 
-  const openProject = useCallback(
-    (project: Project, event: MouseEvent<HTMLElement>) => {
-      clearCloseTimer();
-      const trigger = event.currentTarget;
-      const origin =
-        (trigger.closest("[data-project-origin]") as HTMLElement | null) ??
-        trigger;
-      const originRect = origin.getBoundingClientRect();
-      const radius = window.getComputedStyle(origin).borderRadius || "7px";
+  const finishClose = useCallback(() => {
+    clearCloseTimer();
+    setSelectedProject(null);
+    setPanelRect(null);
+    setDialogState("closed");
+    previousFocusRef.current?.focus?.({ preventScroll: true });
+    previousFocusRef.current = null;
+  }, [clearCloseTimer]);
 
-      originRef.current = origin;
+  const openProject = useCallback(
+    (project: Project) => {
+      clearCloseTimer();
+      lockedScrollYRef.current = window.scrollY;
       previousFocusRef.current = document.activeElement as HTMLElement | null;
       setSelectedProject(project);
-      setPanelRect(toPanelRect(originRect, radius));
+      setPanelRect(centeredPanelRect());
       setDialogState("opening");
 
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
-          setPanelRect(centeredPanelRect());
           setDialogState("open");
         });
       });
@@ -287,29 +278,11 @@ export function ProjectsPageContent() {
     clearCloseTimer();
     setDialogState("closing");
 
-    const origin = originRef.current;
-    if (origin?.isConnected) {
-      const radius = window.getComputedStyle(origin).borderRadius || "7px";
-      setPanelRect(toPanelRect(origin.getBoundingClientRect(), radius));
-    } else {
-      setPanelRect({
-        left: window.innerWidth / 2,
-        top: window.innerHeight / 2,
-        width: 1,
-        height: 1,
-        radius: "7px",
-      });
-    }
-
-    closeTimerRef.current = window.setTimeout(() => {
-      setSelectedProject(null);
-      setPanelRect(null);
-      setDialogState("closed");
-      originRef.current = null;
-      previousFocusRef.current?.focus?.({ preventScroll: true });
-      previousFocusRef.current = null;
-    }, MODAL_TRANSITION_MS);
-  }, [clearCloseTimer, dialogState, selectedProject]);
+    closeTimerRef.current = window.setTimeout(
+      finishClose,
+      MODAL_CLOSE_FALLBACK_MS,
+    );
+  }, [clearCloseTimer, dialogState, finishClose, selectedProject]);
 
   useEffect(() => {
     dialogStateRef.current = dialogState;
@@ -318,14 +291,12 @@ export function ProjectsPageContent() {
   useEffect(() => {
     if (!selectedProject) return;
 
-    const scrollY = window.scrollY;
     const { body, documentElement } = document;
     const previousBodyStyles = {
-      overflow: body.style.overflow,
       overscrollBehavior: body.style.overscrollBehavior,
     };
     const previousDocumentStyles = {
-      overflow: documentElement.style.overflow,
+      overflowY: documentElement.style.overflowY,
       overscrollBehavior: documentElement.style.overscrollBehavior,
     };
     const scrollEventOptions = {
@@ -333,6 +304,7 @@ export function ProjectsPageContent() {
       passive: false,
     } satisfies AddEventListenerOptions;
     let touchStartY = 0;
+
     const canScrollWithin = (container: HTMLElement, deltaY: number) => {
       const maxScrollTop = container.scrollHeight - container.clientHeight;
       if (maxScrollTop <= 0) return false;
@@ -340,15 +312,16 @@ export function ProjectsPageContent() {
       if (deltaY > 0) return container.scrollTop < maxScrollTop - 1;
       return true;
     };
+
     const onTouchStart = (event: TouchEvent) => {
       touchStartY = event.touches[0]?.clientY ?? 0;
     };
-    const preventPageScroll = (event: Event) => {
+
+    const preventBackgroundScroll = (event: Event) => {
       const scrollContainer =
         event.target instanceof Element
           ? event.target.closest<HTMLElement>("[data-project-dialog-scroll]")
           : null;
-
       const deltaY =
         event instanceof WheelEvent
           ? event.deltaY
@@ -356,11 +329,7 @@ export function ProjectsPageContent() {
             ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
             : 0;
 
-      if (
-        dialogStateRef.current === "open" &&
-        scrollContainer &&
-        canScrollWithin(scrollContainer, deltaY)
-      ) {
+      if (scrollContainer && canScrollWithin(scrollContainer, deltaY)) {
         event.stopPropagation();
         return;
       }
@@ -372,35 +341,43 @@ export function ProjectsPageContent() {
     window.dispatchEvent(
       new CustomEvent("domtek:scroll-lock", { detail: { locked: true } }),
     );
-    body.style.overflow = "hidden";
     body.style.overscrollBehavior = "none";
-    documentElement.style.overflow = "hidden";
+    documentElement.style.overflowY = "scroll";
     documentElement.style.overscrollBehavior = "none";
     window.addEventListener("touchstart", onTouchStart, {
       capture: true,
       passive: true,
     });
-    window.addEventListener("wheel", preventPageScroll, scrollEventOptions);
-    window.addEventListener("touchmove", preventPageScroll, scrollEventOptions);
+    window.addEventListener("wheel", preventBackgroundScroll, scrollEventOptions);
+    window.addEventListener(
+      "touchmove",
+      preventBackgroundScroll,
+      scrollEventOptions,
+    );
 
     return () => {
       window.removeEventListener("touchstart", onTouchStart, {
         capture: true,
       });
-      window.removeEventListener("wheel", preventPageScroll, scrollEventOptions);
       window.removeEventListener(
-        "touchmove",
-        preventPageScroll,
+        "wheel",
+        preventBackgroundScroll,
         scrollEventOptions,
       );
-      body.style.overflow = previousBodyStyles.overflow;
+      window.removeEventListener(
+        "touchmove",
+        preventBackgroundScroll,
+        scrollEventOptions,
+      );
       body.style.overscrollBehavior = previousBodyStyles.overscrollBehavior;
-      documentElement.style.overflow = previousDocumentStyles.overflow;
+      documentElement.style.overflowY = previousDocumentStyles.overflowY;
       documentElement.style.overscrollBehavior =
         previousDocumentStyles.overscrollBehavior;
+      const restoreScrollY = window.scrollY || lockedScrollYRef.current;
+      window.scrollTo(window.scrollX, restoreScrollY);
       window.dispatchEvent(
         new CustomEvent("domtek:scroll-lock", {
-          detail: { locked: false, scrollY },
+          detail: { locked: false, scrollY: restoreScrollY },
         }),
       );
     };
@@ -475,17 +452,18 @@ export function ProjectsPageContent() {
 
   const panelStyle = panelRect
     ? ({
-        left: `${panelRect.left}px`,
-        top: `${panelRect.top}px`,
-        width: `${Math.max(panelRect.width, 1)}px`,
-        height: `${Math.max(panelRect.height, 1)}px`,
+        left: panelRect.left,
+        top: panelRect.top,
+        width: Math.max(panelRect.width, 1),
+        height: Math.max(panelRect.height, 1),
         borderRadius: panelRect.radius,
+        transformOrigin: "50% 50%",
       } satisfies CSSProperties)
     : undefined;
 
-  const contentVisible = dialogState === "open";
-  const returnPreviewVisible = dialogState === "closing";
-  const backdropVisible = dialogState === "opening" || dialogState === "open";
+  const contentVisible = dialogState !== "closing";
+  const backdropVisible = dialogState === "open";
+  const panelVisible = dialogState === "open";
 
   return (
     <>
@@ -536,7 +514,7 @@ export function ProjectsPageContent() {
               data-project-origin
               className="absolute bottom-0 right-4 z-20 grid w-[250px] gap-2 rounded-[7px] border border-border/80 bg-white/80 px-5 py-5 text-left shadow-[0_16px_34px_rgba(0,0,0,0.12)] backdrop-blur-sm outline-none transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-white/95 hover:shadow-[0_18px_40px_rgba(0,0,0,0.14)] focus-visible:ring-2 focus-visible:ring-brand/30"
               aria-haspopup="dialog"
-              onClick={(event) => openProject(FEATURED_PROJECT, event)}
+              onClick={() => openProject(FEATURED_PROJECT)}
             >
               <span className="text-[10px] font-extrabold text-brand">
                 Featured project
@@ -659,11 +637,10 @@ export function ProjectsPageContent() {
         >
           <button
             type="button"
+            tabIndex={-1}
             className={cn(
-              "absolute inset-0 cursor-default bg-black/60 transition-[opacity,backdrop-filter] duration-[420ms]",
-              backdropVisible
-                ? "opacity-100 backdrop-blur-[7px]"
-                : "opacity-0 backdrop-blur-none",
+              "absolute inset-0 cursor-default bg-black/55 backdrop-blur-[7px] transition-opacity duration-200 ease-out",
+              backdropVisible ? "opacity-100" : "opacity-0",
             )}
             aria-label="Close project details"
             onClick={closeProject}
@@ -676,7 +653,12 @@ export function ProjectsPageContent() {
             aria-labelledby="project-dialog-title"
             tabIndex={-1}
             style={panelStyle}
-            className="fixed overflow-hidden bg-white shadow-[0_34px_110px_rgba(0,0,0,0.26)] outline-none transition-[left,top,width,height,border-radius,box-shadow] duration-[540ms] [transition-timing-function:var(--ease-smooth)]"
+            className={cn(
+              "fixed transform-gpu overflow-hidden bg-white shadow-[0_34px_110px_rgba(0,0,0,0.26)] outline-none transition-[opacity,transform] duration-300 ease-out will-change-transform",
+              panelVisible
+                ? "translate-y-0 scale-100 opacity-100"
+                : "translate-y-4 scale-[0.975] opacity-0",
+            )}
           >
             <button
               type="button"
@@ -690,15 +672,10 @@ export function ProjectsPageContent() {
               <X className="size-4" aria-hidden />
             </button>
 
-            <ProjectReturnPreview
-              project={selectedProject}
-              visible={returnPreviewVisible}
-            />
-
             <div
               className={cn(
-                "grid h-full opacity-0 transition-opacity duration-200 md:grid-cols-[46%_54%]",
-                contentVisible && "opacity-100 delay-200",
+                "grid h-full md:grid-cols-[46%_54%]",
+                !contentVisible && "pointer-events-none",
               )}
             >
               <div className="relative min-h-[210px] overflow-hidden bg-muted md:min-h-0">
@@ -722,7 +699,8 @@ export function ProjectsPageContent() {
 
               <div
                 data-project-dialog-scroll
-                className="min-h-0 overflow-y-auto px-5 py-7 md:px-9 md:py-10"
+                data-lenis-prevent
+                className="min-h-0 overflow-y-auto overscroll-contain px-5 py-7 md:px-9 md:py-10"
               >
                 <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
                   {selectedProject.category}
@@ -833,65 +811,12 @@ function ProjectsStatsSection() {
   );
 }
 
-function ProjectReturnPreview({
-  project,
-  visible,
-}: {
-  project: Project;
-  visible: boolean;
-}) {
-  return (
-    <div
-      className={cn(
-        "pointer-events-none absolute inset-0 z-10 flex h-full min-h-0 flex-col overflow-hidden bg-white opacity-0 transition-opacity duration-150",
-        visible && "opacity-100",
-      )}
-      aria-hidden
-    >
-      <span className="relative block min-h-[160px] flex-1 overflow-hidden bg-muted">
-        <Image
-          src={project.image}
-          alt=""
-          fill
-          sizes="(max-width: 768px) 100vw, 560px"
-          className="object-contain"
-        />
-        <span className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white">
-          <ArrowUpRight className="size-4" />
-        </span>
-      </span>
-
-      <span className="flex min-h-[150px] flex-col px-5 pb-5 pt-5">
-        <span className="text-[11px] font-extrabold text-brand">
-          {project.category}
-        </span>
-        <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground">
-          {project.title}
-        </strong>
-        <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground">
-          {project.description}
-        </span>
-
-        <span className="mt-auto flex items-end justify-between gap-4 pt-6">
-          <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground">
-            View case study
-            <ArrowRight className="size-4 text-brand" />
-          </span>
-          <span className="text-right text-[10px] font-medium text-muted-foreground">
-            {project.tags.join(" ")}
-          </span>
-        </span>
-      </span>
-    </div>
-  );
-}
-
 function ProjectCard({
   project,
   onOpen,
 }: {
   project: Project;
-  onOpen: (project: Project, event: MouseEvent<HTMLElement>) => void;
+  onOpen: (project: Project) => void;
 }) {
   return (
     <article
@@ -903,7 +828,7 @@ function ProjectCard({
         className="block w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
         aria-haspopup="dialog"
         aria-label={`Open ${project.title} details`}
-        onClick={(event) => onOpen(project, event)}
+        onClick={() => onOpen(project)}
       >
         <span className="relative block h-[220px] overflow-hidden bg-muted">
           <Image
