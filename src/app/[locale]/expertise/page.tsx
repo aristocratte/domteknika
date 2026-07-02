@@ -95,15 +95,15 @@ function ExpertiseHero() {
       aria-labelledby="expertise-hero-title"
     >
       <Image
-        src="/assets/technical-drawing-top.png"
+        src="/assets/expertise-page/image-fond-top.png"
         alt=""
-        width={1200}
-        height={768}
+        width={1351}
+        height={421}
         priority
-        sizes="(max-width: 768px) 118vw, 72vw"
-        className="pointer-events-none absolute right-[-42vw] top-[98px] z-0 h-auto w-[118vw] max-w-none opacity-[0.58] sm:right-[-30vw] md:right-[-6vw] md:top-[92px] md:w-[72vw] md:max-w-[1040px]"
+        sizes="100vw"
+        className="pointer-events-none absolute left-1/2 top-[112px] z-0 h-auto w-[58vw] max-w-[728px] -translate-x-1/2 opacity-100"
       />
-      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/90 to-white/40" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white/70 via-white/45 to-white/15" />
 
       <Container size="wide" className="relative z-10">
         <div className="relative grid gap-12 md:block">

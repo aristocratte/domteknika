@@ -560,6 +560,8 @@ export function ProjectsPageContent() {
         </Container>
       </section>
 
+      <ProjectsStatsSection />
+
       <section
         id="projects"
         className="bg-background py-[48px] md:py-[56px]"
@@ -647,40 +649,6 @@ export function ProjectsPageContent() {
               No projects match your search.
             </Reveal>
           )}
-        </Container>
-      </section>
-
-      <section className="bg-background py-[28px]" aria-label="Project statistics">
-        <Container size="wide">
-          <div className="grid border border-border bg-white sm:grid-cols-2 lg:grid-cols-4">
-            {STATS.map((stat, index) => (
-              <Reveal
-                as="article"
-                key={stat.label}
-                delay={index * 0.05}
-                className={cn(
-                  "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index < STATS.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
-                )}
-              >
-                <Image
-                  src={stat.icon}
-                  alt=""
-                  width={stat.width}
-                  height={stat.height}
-                  className="h-[42px] w-[46px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
-                />
-                <div>
-                  <strong className="block text-[25px] font-extrabold leading-none text-foreground">
-                    {stat.value}
-                  </strong>
-                  <span className="mt-1 block text-[11px] font-medium text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </Container>
       </section>
 
@@ -824,6 +792,44 @@ export function ProjectsPageContent() {
         </div>
       )}
     </>
+  );
+}
+
+function ProjectsStatsSection() {
+  return (
+    <section className="bg-background py-[28px]" aria-label="Project statistics">
+      <Container size="wide">
+        <div className="grid border border-border bg-white sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((stat, index) => (
+            <Reveal
+              as="article"
+              key={stat.label}
+              delay={index * 0.05}
+              className={cn(
+                "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                index < STATS.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
+              )}
+            >
+              <Image
+                src={stat.icon}
+                alt=""
+                width={stat.width}
+                height={stat.height}
+                className="h-[42px] w-[46px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+              />
+              <div>
+                <strong className="block text-[25px] font-extrabold leading-none text-foreground">
+                  {stat.value}
+                </strong>
+                <span className="mt-1 block text-[11px] font-medium text-muted-foreground">
+                  {stat.label}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
 
