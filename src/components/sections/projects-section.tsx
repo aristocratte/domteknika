@@ -13,6 +13,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +46,7 @@ export function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <Container size="wide">
-        <div className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <Reveal className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
           <h2
             id="projects-title"
             className="text-[20px] font-extrabold leading-none text-foreground"
@@ -53,71 +54,73 @@ export function ProjectsSection() {
             {t("title")}
           </h2>
           <Link
-            href="#projects"
+            href="/projects"
             className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px]"
           >
             {t("viewAll")}
             <ArrowRight className="size-5 text-brand" aria-hidden />
           </Link>
-        </div>
+        </Reveal>
 
-        <div
-          data-projects-fade
-          className="relative -mx-4 overflow-hidden px-4 sm:-mx-8 sm:px-8 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
-        >
+        <Reveal delay={0.1}>
           <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_right,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_left,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
-          />
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: false,
-            }}
-            plugins={[autoplay]}
-            className="w-full"
-            onFocus={() => autoplay.stop()}
-            onBlur={() => autoplay.reset()}
+            data-projects-fade
+            className="relative -mx-4 overflow-hidden px-4 sm:-mx-8 sm:px-8 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
           >
-            <CarouselContent className="-ml-7">
-              {CAROUSEL_PROJECTS.map((project, index) => (
-                <CarouselItem
-                  key={`${project.id}-${index}`}
-                  className="basis-[min(274px,78vw)] pl-7"
-                >
-                  <ProjectCard
-                    image={`/assets/${project.src}.png`}
-                    title={t(`items.${project.id}.title` as never)}
-                    description={t(`items.${project.id}.description` as never)}
-                    tag={project.tag}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-          <ProjectArrow
-            label={t("previous")}
-            className="left-2 sm:left-4 lg:left-8"
-            disabled={!api}
-            onClick={() => api?.scrollPrev()}
-          >
-            <ChevronLeft className="size-8" aria-hidden />
-          </ProjectArrow>
-          <ProjectArrow
-            label={t("next")}
-            className="right-14 sm:right-14 lg:right-8"
-            disabled={!api}
-            onClick={() => api?.scrollNext()}
-          >
-            <ChevronRight className="size-8" aria-hidden />
-          </ProjectArrow>
-        </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_right,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_left,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+            />
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: false,
+              }}
+              plugins={[autoplay]}
+              className="w-full"
+              onFocus={() => autoplay.stop()}
+              onBlur={() => autoplay.reset()}
+            >
+              <CarouselContent className="-ml-7">
+                {CAROUSEL_PROJECTS.map((project, index) => (
+                  <CarouselItem
+                    key={`${project.id}-${index}`}
+                    className="basis-[min(274px,78vw)] pl-7"
+                  >
+                    <ProjectCard
+                      image={`/assets/${project.src}.png`}
+                      title={t(`items.${project.id}.title` as never)}
+                      description={t(`items.${project.id}.description` as never)}
+                      tag={project.tag}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+            <ProjectArrow
+              label={t("previous")}
+              className="left-2 sm:left-4 lg:left-8"
+              disabled={!api}
+              onClick={() => api?.scrollPrev()}
+            >
+              <ChevronLeft className="size-8" aria-hidden />
+            </ProjectArrow>
+            <ProjectArrow
+              label={t("next")}
+              className="right-14 sm:right-14 lg:right-8"
+              disabled={!api}
+              onClick={() => api?.scrollNext()}
+            >
+              <ChevronRight className="size-8" aria-hidden />
+            </ProjectArrow>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

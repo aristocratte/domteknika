@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 
 export function ProcessSection() {
   const t = useTranslations("Process");
@@ -17,7 +18,10 @@ export function ProcessSection() {
         className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-4"
       >
         <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch">
-          <article className="group flex min-h-[304px] flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]">
+          <Reveal
+            as="article"
+            className="group flex min-h-[304px] flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+          >
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
               {t("ideaTitle")}
@@ -32,9 +36,13 @@ export function ProcessSection() {
                 })}
               </p>
             </div>
-          </article>
+          </Reveal>
 
-          <article className="group relative z-20 my-0 min-h-[304px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7">
+          <Reveal
+            as="article"
+            delay={0.08}
+            className="group relative z-20 my-0 min-h-[304px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7"
+          >
             <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-center">
               <div>
                 <AccentLine light />
@@ -61,9 +69,13 @@ export function ProcessSection() {
                 </div>
               </div>
             </div>
-          </article>
+          </Reveal>
 
-          <article className="group flex min-h-[304px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]">
+          <Reveal
+            as="article"
+            delay={0.16}
+            className="group flex min-h-[304px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+          >
             <div className="p-6 pb-0">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
@@ -86,7 +98,7 @@ export function ProcessSection() {
                 withFlag
               />
             </div>
-          </article>
+          </Reveal>
         </div>
       </Container>
     </section>

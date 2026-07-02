@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
@@ -30,13 +30,7 @@ export function CtaSection() {
       />
 
       <Container size="wide" className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-[760px]"
-        >
+        <Reveal className="max-w-[760px]">
           <div className="flex items-center gap-3 text-[16px] font-medium text-muted-foreground">
             <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
             {t("eyebrow")}
@@ -63,7 +57,7 @@ export function CtaSection() {
             {t("cta")}
             <ArrowRight data-icon="inline-end" />
           </Button>
-        </motion.div>
+        </Reveal>
       </Container>
     </section>
   );

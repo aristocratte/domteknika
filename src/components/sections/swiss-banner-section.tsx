@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 
 const VALUES = [
   { key: "swissQuality", icon: "swiss-quality" },
@@ -48,7 +49,7 @@ export function SwissBannerSection() {
         size="wide"
         className="relative z-10 flex min-h-[236px] max-w-none items-center py-8"
       >
-        <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-9">
+        <Reveal className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-9">
           <Image
             src="/assets/flag-switzerland.webp"
             alt=""
@@ -87,7 +88,7 @@ export function SwissBannerSection() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

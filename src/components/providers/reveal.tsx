@@ -19,7 +19,7 @@ interface RevealProps {
   /** Delay in seconds before the reveal animation starts. */
   delay?: number;
   /** Render as a different element. */
-  as?: "div" | "section" | "li" | "span";
+  as?: "article" | "div" | "section" | "li" | "span";
 }
 
 /**
@@ -36,10 +36,11 @@ export function Reveal({
   const MotionTag = motion[as];
   return (
     <MotionTag
+      data-reveal
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ delay }}
       className={cn(className)}
     >

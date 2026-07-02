@@ -13,6 +13,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 import { TrustedBy } from "@/components/sections/trusted-by";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -106,7 +107,7 @@ function ExpertiseHero() {
 
       <Container size="wide" className="relative z-10">
         <div className="relative grid gap-12 md:block">
-          <div>
+          <Reveal>
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
               {t("eyebrow")}
@@ -119,9 +120,12 @@ function ExpertiseHero() {
               {t("title")}
               <span className="text-brand">.</span>
             </h1>
-          </div>
+          </Reveal>
 
-          <div className="min-h-[260px] sm:min-h-[304px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]">
+          <Reveal
+            delay={0.1}
+            className="min-h-[260px] sm:min-h-[304px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]"
+          >
             <div className="relative mx-auto w-[min(100%,320px)] pt-1 sm:w-[min(100%,460px)] md:ml-auto md:mr-0 md:w-full md:max-w-[540px] lg:max-w-[640px]">
               <div className="mx-auto mb-3 flex w-fit flex-col items-center gap-1">
                 <p className="text-center text-[15px] font-medium leading-none text-muted-foreground">
@@ -158,7 +162,7 @@ function ExpertiseHero() {
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
@@ -199,30 +203,34 @@ function ExpertiseGrid() {
     <section className="bg-background pb-[118px]" aria-labelledby="expertise-services">
       <Container size="wide">
         <div className="mx-auto max-w-[900px]">
-          <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
-            <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
-            {t("eyebrow")}
-          </div>
+          <Reveal>
+            <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
+              <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+              {t("eyebrow")}
+            </div>
 
-          <h2
-            id="expertise-services"
-            className="domtek-text-shadow mt-8 max-w-[320px] text-[30px] font-extrabold leading-[1.06] text-foreground sm:max-w-[560px] sm:text-[44px] md:text-[52px]"
-          >
-            {t("title")}
-            <span className="text-brand">.</span>
-          </h2>
+            <h2
+              id="expertise-services"
+              className="domtek-text-shadow mt-8 max-w-[320px] text-[30px] font-extrabold leading-[1.06] text-foreground sm:max-w-[560px] sm:text-[44px] md:text-[52px]"
+            >
+              {t("title")}
+              <span className="text-brand">.</span>
+            </h2>
 
-          <p className="mt-7 max-w-[320px] text-[15px] font-medium leading-[1.42] text-muted-foreground sm:max-w-[610px]">
-            {t("intro")}
-          </p>
+            <p className="mt-7 max-w-[320px] text-[15px] font-medium leading-[1.42] text-muted-foreground sm:max-w-[610px]">
+              {t("intro")}
+            </p>
+          </Reveal>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {EXPERTISE_ITEMS.map((item) => {
+            {EXPERTISE_ITEMS.map((item, index) => {
               const Icon = item.icon;
 
               return (
-                <article
+                <Reveal
+                  as="article"
                   key={item.key}
+                  delay={index * 0.05}
                   className="group flex min-h-[246px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-6 py-8 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
                 >
                   <Icon
@@ -235,7 +243,7 @@ function ExpertiseGrid() {
                   <p className="mt-8 max-w-[250px] text-[14px] font-medium leading-[1.28] text-muted-foreground">
                     {t(`items.${item.key}.description` as never)}
                   </p>
-                </article>
+                </Reveal>
               );
             })}
           </div>
@@ -285,7 +293,7 @@ function ExpertiseSwissBanner() {
         size="wide"
         className="relative z-10 flex h-full max-w-none items-center justify-end px-5 sm:px-8 lg:px-10 xl:px-11"
       >
-        <div className="flex items-center gap-4 md:gap-6">
+        <Reveal className="flex items-center gap-4 md:gap-6">
           <h2
             className="max-w-[500px] text-[24px] font-extrabold uppercase leading-[1.16] tracking-wide text-white md:text-[26px]"
             aria-label={t("title")}
@@ -304,7 +312,7 @@ function ExpertiseSwissBanner() {
             height={88}
             className="size-[42px] shrink-0 object-contain sm:size-[46px] md:size-[52px] lg:size-[58px]"
           />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
@@ -320,17 +328,19 @@ function AddedValueSection() {
         className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6"
       >
         <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch">
-          <div className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
+          <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
             <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
               {t("eyebrow")}
             </div>
 
             <div className="mt-9 grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-              {VALUE_ITEMS.map((item) => {
+              {VALUE_ITEMS.map((item, index) => {
                 return (
-                  <article
+                  <Reveal
+                    as="article"
                     key={item.key}
+                    delay={index * 0.04}
                     className="group transform-gpu rounded-[7px] px-0 py-1 transition-transform duration-300 hover:-translate-y-1 sm:px-2 lg:border-l lg:border-border lg:px-7 first:lg:border-l-0 first:lg:pl-0"
                   >
                     <Image
@@ -346,13 +356,16 @@ function AddedValueSection() {
                     <p className="mt-4 text-[14px] font-medium leading-[1.38] text-muted-foreground">
                       {t(`values.${item.key}.description` as never)}
                     </p>
-                  </article>
+                  </Reveal>
                 );
               })}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative transform-gpu overflow-hidden rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1">
+          <Reveal
+            delay={0.1}
+            className="relative transform-gpu overflow-hidden rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
+          >
             <div
               className="pointer-events-none absolute left-7 right-7 top-1/2 hidden h-px -translate-y-1/2 bg-white/28 sm:block"
               aria-hidden
@@ -390,7 +403,7 @@ function AddedValueSection() {
                 );
               })}
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
@@ -418,7 +431,7 @@ function ExpertiseCta() {
       />
 
       <Container size="wide" className="relative z-10">
-        <div className="max-w-[560px]">
+        <Reveal className="max-w-[560px]">
           <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground">
             <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
             {t("eyebrow")}
@@ -446,7 +459,7 @@ function ExpertiseCta() {
             {t("button")}
             <ArrowRight data-icon="inline-end" />
           </Button>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

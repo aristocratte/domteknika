@@ -14,6 +14,7 @@ import {
 } from "react";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/providers/reveal";
 import { cn } from "@/lib/utils";
 
 type FilterKey = "all" | "area-1" | "area-2" | "area-3" | "area-4" | "area-5";
@@ -506,7 +507,7 @@ export function ProjectsPageContent() {
           size="wide"
           className="relative z-10 grid min-h-[390px] items-center gap-10 pb-10 md:grid-cols-[0.8fr_1fr]"
         >
-          <div className="pb-5 md:pb-0 md:pl-4">
+          <Reveal className="pb-5 md:pb-0 md:pl-4">
             <div className="flex items-center gap-3 text-[15px] font-normal text-foreground md:text-[16px]">
               <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
               Our work in action
@@ -527,9 +528,9 @@ export function ProjectsPageContent() {
               Explore a selection of projects where we turn complex challenges
               into high-performance products.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="relative z-20 hidden min-h-[340px] md:block">
+          <Reveal delay={0.1} className="relative z-20 hidden min-h-[340px] md:block">
             <button
               type="button"
               data-project-origin
@@ -555,7 +556,7 @@ export function ProjectsPageContent() {
                 aria-hidden
               />
             </button>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -565,7 +566,7 @@ export function ProjectsPageContent() {
         aria-labelledby="selected-projects"
       >
         <Container size="wide">
-          <div className="mb-4 flex min-w-0 flex-col items-stretch gap-5 md:flex-row md:items-end md:justify-between">
+          <Reveal className="mb-4 flex min-w-0 flex-col items-stretch gap-5 md:flex-row md:items-end md:justify-between">
             <div className="min-w-0">
               <h2
                 id="selected-projects"
@@ -628,22 +629,23 @@ export function ProjectsPageContent() {
                 className="h-9 w-full rounded-[4px] border border-transparent bg-muted pl-9 pr-4 text-[13px] font-medium text-foreground outline-none transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-muted-foreground focus:border-brand/40 focus:bg-white focus:shadow-[0_10px_26px_rgba(0,0,0,0.06)]"
               />
             </label>
-          </div>
+          </Reveal>
 
           {visibleProjects.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {visibleProjects.map((project) => (
-                <ProjectCard
+              {visibleProjects.map((project, index) => (
+                <Reveal
                   key={project.id}
-                  project={project}
-                  onOpen={openProject}
-                />
+                  delay={(index % 2) * 0.06}
+                >
+                  <ProjectCard project={project} onOpen={openProject} />
+                </Reveal>
               ))}
             </div>
           ) : (
-            <div className="rounded-[7px] border border-border bg-white px-5 py-12 text-center text-[14px] font-medium text-muted-foreground">
+            <Reveal className="rounded-[7px] border border-border bg-white px-5 py-12 text-center text-[14px] font-medium text-muted-foreground">
               No projects match your search.
-            </div>
+            </Reveal>
           )}
         </Container>
       </section>
@@ -652,8 +654,10 @@ export function ProjectsPageContent() {
         <Container size="wide">
           <div className="grid border border-border bg-white sm:grid-cols-2 lg:grid-cols-4">
             {STATS.map((stat, index) => (
-              <article
+              <Reveal
+                as="article"
                 key={stat.label}
+                delay={index * 0.05}
                 className={cn(
                   "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
                   index < STATS.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
@@ -674,7 +678,7 @@ export function ProjectsPageContent() {
                     {stat.label}
                   </span>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -959,7 +963,7 @@ export function ProjectsPageCta() {
       />
 
       <Container size="wide" className="relative z-10">
-        <div className="max-w-[590px]">
+        <Reveal className="max-w-[590px]">
           <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
             <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
             Let&apos;s build together
@@ -984,7 +988,7 @@ export function ProjectsPageCta() {
             Start a project
             <ArrowRight className="size-4" aria-hidden />
           </a>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
