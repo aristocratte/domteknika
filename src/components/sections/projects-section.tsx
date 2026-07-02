@@ -45,7 +45,7 @@ export function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <Container size="wide">
-        <div className="mb-[38px] flex items-center justify-between">
+        <div className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
           <h2
             id="projects-title"
             className="text-[20px] font-extrabold leading-none text-foreground"
@@ -53,10 +53,8 @@ export function ProjectsSection() {
             {t("title")}
           </h2>
           <Link
-            href="#"
-            aria-disabled="true"
-            onClick={(event) => event.preventDefault()}
-            className="inline-flex items-center gap-6 text-[15px] font-extrabold text-foreground transition-colors hover:text-brand"
+            href="#projects"
+            className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px]"
           >
             {t("viewAll")}
             <ArrowRight className="size-5 text-brand" aria-hidden />
@@ -103,25 +101,24 @@ export function ProjectsSection() {
               ))}
             </CarouselContent>
           </Carousel>
+          <ProjectArrow
+            label={t("previous")}
+            className="left-2 sm:left-4 lg:left-8"
+            disabled={!api}
+            onClick={() => api?.scrollPrev()}
+          >
+            <ChevronLeft className="size-8" aria-hidden />
+          </ProjectArrow>
+          <ProjectArrow
+            label={t("next")}
+            className="right-14 sm:right-14 lg:right-8"
+            disabled={!api}
+            onClick={() => api?.scrollNext()}
+          >
+            <ChevronRight className="size-8" aria-hidden />
+          </ProjectArrow>
         </div>
       </Container>
-
-      <ProjectArrow
-        label={t("previous")}
-        className="left-[clamp(20px,3vw,72px)]"
-        disabled={!api}
-        onClick={() => api?.scrollPrev()}
-      >
-        <ChevronLeft className="size-8" aria-hidden />
-      </ProjectArrow>
-      <ProjectArrow
-        label={t("next")}
-        className="right-[clamp(20px,3vw,72px)]"
-        disabled={!api}
-        onClick={() => api?.scrollNext()}
-      >
-        <ChevronRight className="size-8" aria-hidden />
-      </ProjectArrow>
     </section>
   );
 }
@@ -183,7 +180,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute top-[262px] grid size-12 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40",
+        "absolute top-1/2 z-50 grid size-12 -translate-y-1/2 place-items-center text-brand transition-transform hover:-translate-y-1/2 hover:scale-110 disabled:pointer-events-none disabled:opacity-40",
         className,
       )}
     >

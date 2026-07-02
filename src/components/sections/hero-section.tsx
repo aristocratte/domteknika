@@ -27,6 +27,9 @@ const rise = {
 
 export function HeroSection() {
   const t = useTranslations("Hero");
+  const shapeWords = t("shape").split(" ");
+  const shapeLastWord = shapeWords.pop();
+  const shapeFirstLine = shapeWords.join(" ");
 
   return (
     <section
@@ -45,7 +48,7 @@ export function HeroSection() {
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
       <div
-        className="pointer-events-none absolute bottom-[28px] right-[-25vw] z-[1] hidden h-[520px] w-[74vw] max-w-[1040px] md:block lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute bottom-[-22px] right-[-38px] z-[1] h-[238px] w-[360px] max-w-none opacity-[0.28] min-[390px]:right-[-36px] min-[390px]:h-[270px] min-[390px]:w-[430px] sm:bottom-[-34px] sm:right-[-70px] sm:h-[320px] sm:w-[520px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
@@ -81,13 +84,17 @@ export function HeroSection() {
           />
         </div>
       </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[170px] bg-gradient-to-t from-background via-background/90 to-transparent md:hidden"
+        aria-hidden
+      />
 
       <Container size="wide" className="relative z-10">
         <motion.div
           variants={group}
           initial={false}
           animate="visible"
-          className="max-w-[620px]"
+          className="w-full max-w-[620px]"
         >
           <motion.div
             variants={rise}
@@ -103,7 +110,7 @@ export function HeroSection() {
             <motion.h1
               id="hero-title"
               variants={rise}
-              className="domtek-text-shadow max-w-full text-[29px] font-medium leading-[1.12] tracking-normal text-foreground sm:text-[42px] lg:text-[46px] 2xl:text-[48px]"
+              className="domtek-text-shadow max-w-[calc(100vw-56px)] text-[clamp(26px,6.5vw,42px)] font-medium leading-[1.12] tracking-normal text-foreground sm:max-w-full lg:text-[46px] 2xl:text-[48px]"
             >
               <span className="relative block w-fit">
                 {t("engineering")}
@@ -114,7 +121,7 @@ export function HeroSection() {
                   width={62}
                   height={92}
                   priority
-                  className="pointer-events-none absolute left-[calc(100%+0.06em)] top-[-0.24em] hidden w-[1.28em] max-w-none md:block"
+                  className="pointer-events-none absolute left-[calc(100%+0.04em)] top-[-0.02em] block w-[0.78em] max-w-none rotate-[3deg] sm:w-[0.88em] md:top-[-0.08em] md:w-[0.98em] lg:left-[calc(100%+0.08em)] lg:top-[-0.16em] lg:w-[1.08em]"
                   aria-hidden
                 />
               </span>
@@ -126,26 +133,36 @@ export function HeroSection() {
                 {t("producing")}
                 <span className="text-brand">.</span>
               </span>
-              <span className="relative mt-6 block w-fit pl-0 text-[22px] font-extrabold leading-none sm:text-[42px] lg:mt-7 lg:pl-[52px] lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
+              <span className="relative mt-6 block w-full max-w-[calc(100vw-56px)] whitespace-normal pl-0 text-[clamp(26px,6.5vw,42px)] font-extrabold leading-[1.04] sm:max-w-full md:pl-[52px] lg:mt-7 lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
                 <Image
                   src="/assets/arrow-right-hero.png"
                   alt=""
                   width={61}
                   height={98}
                   priority
-                  className="pointer-events-none absolute left-[-0.76em] top-[-1.04em] hidden w-[1.28em] max-w-none md:block"
+                  className="pointer-events-none absolute left-[-0.64em] top-[-0.92em] block w-[0.82em] max-w-none rotate-[6deg] sm:w-[0.9em] md:left-[-0.72em] md:top-[-1.04em] md:w-[1.02em] lg:top-[calc(-0.84em-10px)] lg:w-[1.14em]"
                   aria-hidden
                 />
                 <span className="text-brand">.</span>
-                {t("shape")}
-                <span className="text-brand">.</span>
+                {shapeFirstLine}
+                {shapeLastWord ? (
+                  <>
+                    <span className="hidden md:inline"> </span>
+                    <span className="block md:inline">
+                      {shapeLastWord}
+                      <span className="text-brand">.</span>
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-brand">.</span>
+                )}
               </span>
             </motion.h1>
           </div>
 
           <motion.p
             variants={rise}
-            className="mt-9 max-w-[340px] text-[14px] font-medium leading-[1.34] text-muted-foreground sm:max-w-[390px]"
+            className="mt-9 max-w-[240px] text-[14px] font-medium leading-[1.34] text-muted-foreground min-[360px]:max-w-[300px] sm:max-w-[390px]"
           >
             {t.rich("lead", {
               brand: (chunks) => (

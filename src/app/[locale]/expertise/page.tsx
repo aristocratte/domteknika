@@ -16,6 +16,7 @@ import { Container } from "@/components/layout/container";
 import { TrustedBy } from "@/components/sections/trusted-by";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 const EXPERTISE_ITEMS = [
   { key: "creativity", icon: Lightbulb },
@@ -38,6 +39,16 @@ const STATS = [
   { key: "years", icon: "expertise-stat-years", width: 53, height: 70 },
   { key: "worldwide", icon: "expertise-stat-worldwide", width: 59, height: 60 },
   { key: "industries", icon: "expertise-stat-industries", width: 60, height: 59 },
+] as const;
+
+const TEAM_MEMBERS = [
+  { name: "Etienne", image: "/assets/team/etienne.png" },
+  { name: "Guillaume", image: "/assets/team/guillaume.png" },
+  { name: "Nicole", image: "/assets/team/nicole.png" },
+  { name: "Nicolas", image: "/assets/team/nicolas.png" },
+  { name: "Hector", image: "/assets/team/hector.png" },
+  { name: "Quentin", image: "/assets/team/quentin-c.png" },
+  { name: "Robin", image: "/assets/team/robin.png" },
 ] as const;
 
 export async function generateMetadata({
@@ -79,7 +90,7 @@ function ExpertiseHero() {
 
   return (
     <section
-      className="relative min-h-[360px] overflow-hidden bg-background pb-[54px] pt-[116px] md:min-h-[430px] md:pb-[70px] md:pt-[134px]"
+      className="relative overflow-visible bg-background pb-[42px] pt-[116px] md:min-h-[376px] md:pb-[46px] md:pt-[134px]"
       aria-labelledby="expertise-hero-title"
     >
       <Image
@@ -94,7 +105,7 @@ function ExpertiseHero() {
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/90 to-white/40" />
 
       <Container size="wide" className="relative z-10">
-        <div className="grid gap-12 md:grid-cols-[1fr_0.9fr] md:items-start">
+        <div className="relative grid gap-12 md:block">
           <div>
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
@@ -110,17 +121,74 @@ function ExpertiseHero() {
             </h1>
           </div>
 
-          <div className="hidden min-h-[250px] md:block">
-            <div className="mx-auto flex h-[250px] w-px flex-col items-center bg-brand/45">
-              <span className="mt-1 size-[6px] rounded-full bg-brand" aria-hidden />
+          <div className="min-h-[260px] sm:min-h-[304px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]">
+            <div className="relative mx-auto w-[min(100%,320px)] pt-1 sm:w-[min(100%,460px)] md:ml-auto md:mr-0 md:w-full md:max-w-[540px] lg:max-w-[640px]">
+              <div className="mx-auto mb-3 flex w-fit flex-col items-center gap-1">
+                <p className="text-center text-[15px] font-medium leading-none text-muted-foreground">
+                  {t("team")}
+                </p>
+                <span className="h-px w-16 bg-brand/55" aria-hidden />
+              </div>
+
+              <div
+                className="pointer-events-none absolute left-1/2 top-10 h-[218px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[250px] md:top-11 md:h-[238px] lg:h-[266px]"
+                aria-hidden
+              />
+              <div className="relative mx-auto flex max-w-[304px] items-start justify-center gap-2 sm:max-w-[460px] sm:gap-3 md:max-w-[500px] lg:max-w-[590px] lg:gap-4 xl:gap-5">
+                {TEAM_MEMBERS.slice(0, 4).map((member, index) => (
+                  <TeamPortrait
+                    key={member.name}
+                    member={member}
+                    className={cn(
+                      index === 0 && "mt-2",
+                      index === 1 && "mt-0",
+                      index === 2 && "mt-1",
+                      index === 3 && "mt-2",
+                    )}
+                  />
+                ))}
+              </div>
+              <div className="relative mx-auto mt-2 flex max-w-[240px] items-start justify-center gap-3 sm:max-w-[360px] md:max-w-[380px] lg:mt-3 lg:max-w-[440px] lg:gap-5">
+                {TEAM_MEMBERS.slice(4).map((member, index) => (
+                  <TeamPortrait
+                    key={member.name}
+                    member={member}
+                    className={cn(index === 1 && "mt-1")}
+                  />
+                ))}
+              </div>
             </div>
-            <p className="mt-[-244px] text-center text-[15px] font-medium text-muted-foreground">
-              {t("team")}
-            </p>
           </div>
         </div>
       </Container>
     </section>
+  );
+}
+
+function TeamPortrait({
+  member,
+  className,
+}: {
+  member: (typeof TEAM_MEMBERS)[number];
+  className?: string;
+}) {
+  return (
+    <figure
+      className={cn(
+        "group relative isolate aspect-[196/269] w-[64px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] sm:w-[88px] md:w-[96px] lg:w-[124px] xl:w-[136px]",
+        className,
+      )}
+    >
+      <div className="relative z-10 size-full overflow-hidden rounded-full bg-black">
+        <Image
+          src={member.image}
+          alt={member.name}
+          fill
+          sizes="(max-width: 640px) 76px, (max-width: 768px) 88px, (max-width: 1024px) 108px, (max-width: 1280px) 124px, 136px"
+          className="scale-[1.025] object-cover object-center opacity-[0.99] saturate-[0.98] transition duration-300 group-hover:scale-[1.055] group-hover:opacity-100 group-hover:saturate-100"
+        />
+      </div>
+    </figure>
   );
 }
 
@@ -138,13 +206,13 @@ function ExpertiseGrid() {
 
           <h2
             id="expertise-services"
-            className="domtek-text-shadow mt-8 max-w-[610px] text-[34px] font-extrabold leading-[1.06] text-foreground sm:text-[44px] md:text-[52px]"
+            className="domtek-text-shadow mt-8 max-w-[320px] text-[30px] font-extrabold leading-[1.06] text-foreground sm:max-w-[560px] sm:text-[44px] md:text-[52px]"
           >
             {t("title")}
             <span className="text-brand">.</span>
           </h2>
 
-          <p className="mt-7 max-w-[610px] text-[15px] font-medium leading-[1.42] text-muted-foreground">
+          <p className="mt-7 max-w-[320px] text-[15px] font-medium leading-[1.42] text-muted-foreground sm:max-w-[610px]">
             {t("intro")}
           </p>
 
@@ -272,7 +340,7 @@ function AddedValueSection() {
                       height={item.height}
                       className="h-11 w-11 object-contain transition-transform duration-300 group-hover:-translate-y-1"
                     />
-                    <h3 className="mt-5 text-[15px] font-extrabold leading-tight text-foreground lg:text-[16px]">
+                    <h3 className="mt-5 min-h-[2.5em] text-[15px] font-extrabold leading-tight text-foreground lg:text-[16px]">
                       {t(`values.${item.key}.title` as never)}
                     </h3>
                     <p className="mt-4 text-[14px] font-medium leading-[1.38] text-muted-foreground">
@@ -362,6 +430,7 @@ function ExpertiseCta() {
           >
             <span className="text-brand">.</span>
             {t("title")}
+            {" "}
             <span className="text-brand">?</span>
           </h2>
 
