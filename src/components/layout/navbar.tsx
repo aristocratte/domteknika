@@ -17,7 +17,7 @@ const NAV_ITEMS = [
   { key: "projects", href: "/projects" },
   { key: "expertise", href: "/expertise" },
   { key: "patent", href: "#", disabled: true },
-  { key: "story", href: "#", disabled: true },
+  { key: "story", href: "/our-story" },
 ] as const;
 
 export function Navbar() {
@@ -32,9 +32,11 @@ export function Navbar() {
       ? "projects"
       : pathname === "/expertise"
         ? "expertise"
-        : pathname === "/"
-          ? "home"
-          : null;
+        : pathname === "/our-story"
+          ? "story"
+          : pathname === "/"
+            ? "home"
+            : null;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
