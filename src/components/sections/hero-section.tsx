@@ -100,33 +100,23 @@ export function HeroSection() {
           </motion.div>
 
           <div className="relative">
-            <Image
-              src="/assets/arrow-left.png"
-              alt=""
-              width={250}
-              height={250}
-              priority
-              className="pointer-events-none absolute left-[218px] top-[-9px] hidden w-[108px] md:block"
-              aria-hidden
-            />
-            <Image
-              src="/assets/arrow-right.png"
-              alt=""
-              width={197}
-              height={197}
-              priority
-              className="pointer-events-none absolute -left-[58px] top-[124px] hidden w-[108px] md:block"
-              aria-hidden
-            />
-
             <motion.h1
               id="hero-title"
               variants={rise}
               className="domtek-text-shadow max-w-full text-[29px] font-medium leading-[1.12] tracking-normal text-foreground sm:text-[42px] lg:text-[46px] 2xl:text-[48px]"
             >
-              <span className="block">
+              <span className="relative block w-fit">
                 {t("engineering")}
                 <span className="text-brand">.</span>
+                <Image
+                  src="/assets/arrow-left-hero.png"
+                  alt=""
+                  width={62}
+                  height={92}
+                  priority
+                  className="pointer-events-none absolute left-[calc(100%+0.06em)] top-[-0.24em] hidden w-[1.28em] max-w-none md:block"
+                  aria-hidden
+                />
               </span>
               <span className="block">
                 {t("prototyping")}
@@ -136,7 +126,16 @@ export function HeroSection() {
                 {t("producing")}
                 <span className="text-brand">.</span>
               </span>
-              <span className="mt-6 block pl-0 text-[22px] font-extrabold leading-none sm:text-[42px] lg:mt-7 lg:pl-[52px] lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
+              <span className="relative mt-6 block w-fit pl-0 text-[22px] font-extrabold leading-none sm:text-[42px] lg:mt-7 lg:pl-[52px] lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
+                <Image
+                  src="/assets/arrow-right-hero.png"
+                  alt=""
+                  width={61}
+                  height={98}
+                  priority
+                  className="pointer-events-none absolute left-[-0.76em] top-[-1.04em] hidden w-[1.28em] max-w-none md:block"
+                  aria-hidden
+                />
                 <span className="text-brand">.</span>
                 {t("shape")}
                 <span className="text-brand">.</span>

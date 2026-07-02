@@ -251,7 +251,7 @@ function AddedValueSection() {
         size="wide"
         className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6"
       >
-        <div className="grid gap-7 lg:grid-cols-[1.55fr_0.95fr] lg:items-stretch">
+        <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch">
           <div className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
             <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
@@ -284,26 +284,37 @@ function AddedValueSection() {
             </div>
           </div>
 
-          <div className="transform-gpu rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1">
-            <div className="grid h-full gap-5 sm:grid-cols-2">
-              {STATS.map((stat) => {
+          <div className="relative transform-gpu overflow-hidden rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1">
+            <div
+              className="pointer-events-none absolute left-7 right-7 top-1/2 hidden h-px -translate-y-1/2 bg-white/28 sm:block"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute bottom-7 left-1/2 top-7 hidden w-px -translate-x-1/2 bg-white/28 sm:block"
+              aria-hidden
+            />
+
+            <div className="relative grid h-full gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-y-0">
+              {STATS.map((stat, index) => {
                 return (
                   <div
                     key={stat.key}
-                    className="group flex min-h-[82px] items-start gap-4 border-white/25 sm:border-t sm:pt-5 sm:nth-[1]:border-t-0 sm:nth-[2]:border-t-0 sm:nth-[1]:pt-0 sm:nth-[2]:pt-0"
+                    className={`group flex min-h-[96px] items-center gap-4 border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
+                      index > 0 ? "border-t pt-8 sm:pt-0" : ""
+                    } ${index % 2 === 0 ? "sm:pr-6" : "sm:pl-6"}`}
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="mt-0.5 size-11 shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1"
+                      className="size-[42px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 md:size-[48px]"
                     />
-                    <div>
-                      <strong className="block text-[23px] font-extrabold leading-none">
+                    <div className="min-w-0">
+                      <strong className="block whitespace-nowrap text-[24px] font-extrabold leading-none tracking-normal md:text-[28px] xl:text-[30px]">
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
-                      <span className="mt-2 block text-[12px] font-medium leading-tight text-white/88">
+                      <span className="mt-2 block text-[12px] font-medium leading-tight text-white/88 md:text-[13px]">
                         {t(`stats.${stat.key}.label` as never)}
                       </span>
                     </div>
