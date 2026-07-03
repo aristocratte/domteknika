@@ -53,6 +53,12 @@
       "description": "Découvrez une sélection de projets DOMTEKNIKA en ingénierie de précision, prototypage et production."
     }
   },
+  "PatentPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Brevets",
+      "description": "Découvrez les innovations protégées, les brevets et le portefeuille d'ingénierie DOMTEKNIKA dans les industries clés."
+    }
+  },
   "ContactPage": {
     "Meta": {
       "title": "DOMTEKNIKA - Contact",

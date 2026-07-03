@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   { key: "home", href: "/" },
   { key: "projects", href: "/projects" },
   { key: "expertise", href: "/expertise" },
-  { key: "patent", href: "#", disabled: true },
+  { key: "patent", href: "/patent" },
   { key: "story", href: "/our-story" },
 ] as const;
 
@@ -32,11 +32,13 @@ export function Navbar() {
       ? "projects"
       : pathname === "/expertise"
         ? "expertise"
-        : pathname === "/our-story"
-          ? "story"
-          : pathname === "/"
-            ? "home"
-            : null;
+        : pathname === "/patent"
+          ? "patent"
+          : pathname === "/our-story"
+            ? "story"
+            : pathname === "/"
+              ? "home"
+              : null;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -88,7 +90,7 @@ export function Navbar() {
             onMouseLeave={() => setHoveredNavKey(null)}
           >
             {NAV_ITEMS.map((item) => {
-              const disabled = "disabled" in item && item.disabled;
+              const disabled = "disabled" in item ? Boolean(item.disabled) : false;
               const activeNavKey = hoveredNavKey ?? currentNavKey;
 
               return (
@@ -160,9 +162,9 @@ export function Navbar() {
                   <NavLink
                     key={item.key}
                     href={item.href}
-                    disabled={"disabled" in item && item.disabled}
+                    disabled={"disabled" in item ? Boolean(item.disabled) : false}
                     active={
-                      !("disabled" in item && item.disabled) &&
+                      !("disabled" in item ? Boolean(item.disabled) : false) &&
                       currentNavKey === item.key
                     }
                     mobile

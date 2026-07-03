@@ -53,6 +53,12 @@
       "description": "Explore selected DOMTEKNIKA projects in Swiss precision engineering, prototyping and production."
     }
   },
+  "PatentPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Patents",
+      "description": "Explore DOMTEKNIKA's protected innovations, patents and engineering portfolio across core industries."
+    }
+  },
   "ContactPage": {
     "Meta": {
       "title": "DOMTEKNIKA - Get in touch",
