@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+.font-build/
 
 # debug
 npm-debug.log*
