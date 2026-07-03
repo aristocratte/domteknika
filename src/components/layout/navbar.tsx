@@ -75,18 +75,18 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[150px_1fr_230px] 2xl:grid-cols-[190px_1fr_230px]"
+          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[118px_minmax(0,1fr)_178px] md:gap-3 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)_230px]"
         >
           <Link
             href="/"
             className="inline-flex w-fit rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             aria-label="DOMTEKNIKA home"
           >
-            <Logo className="w-[120px] md:w-[132px] 2xl:w-[158px]" />
+            <Logo className="w-[120px] md:w-[118px] lg:w-[132px] 2xl:w-[158px]" />
           </Link>
 
           <ul
-            className="hidden items-center justify-center gap-6 2xl:gap-10 md:flex"
+            className="hidden min-w-0 items-center justify-center gap-2 md:flex lg:gap-4 xl:gap-6 2xl:gap-10"
             onMouseLeave={() => setHoveredNavKey(null)}
           >
             {NAV_ITEMS.map((item) => {
@@ -115,11 +115,11 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="flex items-center justify-end gap-7">
+          <div className="flex min-w-0 items-center justify-end gap-2 lg:gap-4 xl:gap-7">
             <Button
               nativeButton={false}
               size="lg"
-              className="hidden h-10 rounded-[7px] border-0 px-[14px] text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex 2xl:px-4 2xl:text-[14px]"
+              className="hidden h-10 rounded-[7px] border-0 px-3 text-[12px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform has-data-[icon=inline-end]:gap-2 hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex lg:px-[14px] lg:text-[13px] 2xl:px-4 2xl:text-[14px]"
               render={<Link href="/contact" />}
             >
               {t("cta")}
@@ -209,7 +209,7 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   const className = cn(
-    "relative inline-flex text-[14px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand 2xl:text-[16px]",
+    "relative inline-flex whitespace-nowrap text-[13px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand lg:text-[14px] 2xl:text-[16px]",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
     mobile && "w-full rounded-[7px] px-3 py-3 text-[16px] hover:bg-white/50",
     mobile && active && "bg-white/60 text-brand",

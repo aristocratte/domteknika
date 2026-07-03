@@ -99,7 +99,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           <div
             ref={menuRef}
             role="menu"
-            className="fixed z-[80] rounded-[10px] border border-white/80 bg-white/90 p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] backdrop-blur-2xl"
+            className="fixed z-[950] rounded-[10px] border border-white/80 bg-white/90 p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] backdrop-blur-2xl"
             style={{
               left: menuPosition.left,
               minWidth: menuPosition.minWidth,

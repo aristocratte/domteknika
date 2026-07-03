@@ -206,6 +206,23 @@ def patch_french_accents(font: TTFont) -> None:
                     )
                 )
             elif accent_kind == "circumflex":
+                # The source only ships the spacing ASCII caret, which is too
+                # large and too high when used directly as a French mark.
+                is_narrow = base_char.lower() == "i"
+                circumflex_mark = (
+                    (0.56, 0, 0, 0.56, 0, 0)
+                    if is_narrow
+                    else (0.78, 0, 0, 0.78, 0, 0)
+                )
+                circumflex_y = (
+                    390
+                    if is_upper and is_narrow
+                    else 350
+                    if is_upper
+                    else 320
+                    if is_narrow
+                    else 235
+                )
                 components.append(
                     (
                         "asciicircum",
@@ -213,7 +230,8 @@ def patch_french_accents(font: TTFont) -> None:
                             font,
                             base,
                             "asciicircum",
-                            y=300 if is_upper else 165,
+                            transform=circumflex_mark,
+                            y=circumflex_y,
                         ),
                     )
                 )

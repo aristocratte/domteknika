@@ -5,6 +5,7 @@ import { motion, useAnimationControls, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type RevealState = "hidden" | "visible";
+type ScrollDirection = "down" | "up";
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -41,13 +42,23 @@ export function Reveal({
   const currentStateRef = useRef<RevealState>("hidden");
   const targetStateRef = useRef<RevealState>("hidden");
   const isAnimatingRef = useRef(false);
-  const leaveTimerRef = useRef<number | null>(null);
+  const lastScrollYRef = useRef(0);
+  const scrollDirectionRef = useRef<ScrollDirection>("down");
 
-  const clearLeaveTimer = useCallback(() => {
-    if (leaveTimerRef.current) {
-      window.clearTimeout(leaveTimerRef.current);
-      leaveTimerRef.current = null;
-    }
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      if (Math.abs(scrollY - lastScrollYRef.current) > 1) {
+        scrollDirectionRef.current =
+          scrollY > lastScrollYRef.current ? "down" : "up";
+        lastScrollYRef.current = scrollY;
+      }
+    };
+
+    window.addEventListener("scroll", updateScrollDirection, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollDirection);
   }, []);
 
   const runAnimationQueue = useCallback(async () => {
@@ -67,47 +78,21 @@ export function Reveal({
 
   const requestState = useCallback(
     (state: RevealState) => {
-      clearLeaveTimer();
       targetStateRef.current = state;
       void runAnimationQueue();
     },
-    [clearLeaveTimer, runAnimationQueue],
+    [runAnimationQueue],
   );
 
-  const requestLeave = useCallback(() => {
-    clearLeaveTimer();
-
-    let checksLeft = 8;
-    const resetWhenSafelyBelow = () => {
-      const node = elementRef.current;
-      if (!node) {
-        leaveTimerRef.current = null;
-        return;
-      }
-
-      const rect = node.getBoundingClientRect();
-      const outsideBuffer = 120;
-      const safelyBelowViewport = rect.top > window.innerHeight + outsideBuffer;
-
-      if (safelyBelowViewport) {
-        targetStateRef.current = "hidden";
-        leaveTimerRef.current = null;
-        void runAnimationQueue();
-        return;
-      }
-
-      checksLeft -= 1;
-      if (checksLeft > 0) {
-        leaveTimerRef.current = window.setTimeout(resetWhenSafelyBelow, 120);
-      } else {
-        leaveTimerRef.current = null;
-      }
-    };
-
-    leaveTimerRef.current = window.setTimeout(resetWhenSafelyBelow, 120);
-  }, [clearLeaveTimer, runAnimationQueue]);
-
-  useEffect(() => clearLeaveTimer, [clearLeaveTimer]);
+  const setStateImmediately = useCallback(
+    (state: RevealState) => {
+      controls.stop();
+      targetStateRef.current = state;
+      currentStateRef.current = state;
+      controls.set(state);
+    },
+    [controls],
+  );
 
   return (
     <MotionTag
@@ -119,8 +104,19 @@ export function Reveal({
       initial="hidden"
       animate={controls}
       viewport={{ once: false, margin: "-80px" }}
-      onViewportEnter={() => requestState("visible")}
-      onViewportLeave={requestLeave}
+      onViewportEnter={() => {
+        if (scrollDirectionRef.current === "down") {
+          requestState("visible");
+          return;
+        }
+
+        setStateImmediately("visible");
+      }}
+      onViewportLeave={() => {
+        if (scrollDirectionRef.current === "up") {
+          requestState("hidden");
+        }
+      }}
       transition={{ delay }}
       className={cn(className)}
     >

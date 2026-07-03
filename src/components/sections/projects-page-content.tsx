@@ -365,7 +365,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     cta: {
       eyebrow: "Construisons ensemble",
-      title: "Construisons la suite",
+      title: "Let's build what's next",
       bodyStrong: "Vous avez un défi en tête ?",
       body: "Nous accompagnons les entreprises visionnaires pour concevoir, prototyper et livrer des solutions à impact réel.",
       button: "Démarrer un projet",
