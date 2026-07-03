@@ -7,12 +7,16 @@ import {
   ChevronRight,
   Download,
   ExternalLink,
+  RotateCw,
   Search,
   X,
+  ZoomIn,
+  ZoomOut,
 } from "lucide-react";
 import Image from "next/image";
 import {
   type CSSProperties,
+  type PointerEvent,
   type ReactNode,
   useCallback,
   useEffect,
@@ -107,7 +111,7 @@ const STATS: Record<PatentLocale, PatentStat[]> = {
       width: 49,
       height: 47,
       value: `Since ${PATENT_STATS.since}`,
-      label: "+50 Years of innovation",
+      label: "+25 Years of innovation",
     },
   ],
   fr: [
@@ -130,7 +134,7 @@ const STATS: Record<PatentLocale, PatentStat[]> = {
       width: 49,
       height: 47,
       value: `Depuis ${PATENT_STATS.since}`,
-      label: "+50 ans d'innovation",
+      label: "+25 ans d'innovation",
     },
   ],
 };
@@ -270,6 +274,10 @@ const COPY: Record<
       closeDrawing: string;
       previousDrawing: string;
       nextDrawing: string;
+      rotateDrawing: string;
+      zoomInDrawing: string;
+      zoomOutDrawing: string;
+      openImageViewer: string;
       vectorPdf: string;
       sourceLinks: string;
       downloadPdfs: string;
@@ -329,6 +337,10 @@ const COPY: Record<
       closeDrawing: "Close drawing",
       previousDrawing: "Previous drawing",
       nextDrawing: "Next drawing",
+      rotateDrawing: "Rotate drawing",
+      zoomInDrawing: "Zoom in drawing",
+      zoomOutDrawing: "Zoom out drawing",
+      openImageViewer: "Open image viewer",
       vectorPdf: "Vector PDF",
       sourceLinks: "Espacenet source",
       downloadPdfs: "Download PDFs",
@@ -387,6 +399,10 @@ const COPY: Record<
       closeDrawing: "Fermer le dessin",
       previousDrawing: "Dessin précédent",
       nextDrawing: "Dessin suivant",
+      rotateDrawing: "Tourner le dessin",
+      zoomInDrawing: "Agrandir le dessin",
+      zoomOutDrawing: "Réduire le dessin",
+      openImageViewer: "Ouvrir la loupe",
       vectorPdf: "PDF vectoriel",
       sourceLinks: "Source Espacenet",
       downloadPdfs: "Télécharger les PDF",
@@ -467,8 +483,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
   >("closed");
   const [panelRect, setPanelRect] = useState<PanelRect | null>(null);
   const [activeDrawingIndex, setActiveDrawingIndex] = useState<number | null>(null);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
+  const [modalImageOffset, setModalImageOffset] = useState({ x: 0, y: 0 });
+  const [modalImageRotation, setModalImageRotation] = useState(0);
+  const [modalImageZoom, setModalImageZoom] = useState(1);
   const modalRootRef = useRef<HTMLDivElement | null>(null);
   const panelRef = useRef<HTMLElement | null>(null);
+  const modalImagePanRef = useRef<{
+    pointerId: number;
+    x: number;
+    y: number;
+  } | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
@@ -497,6 +522,10 @@ export function PatentPageContent({ locale }: { locale: string }) {
     setSelectedPatent(null);
     setPanelRect(null);
     setActiveDrawingIndex(null);
+    setModalImageIndex(0);
+    setModalImageOffset({ x: 0, y: 0 });
+    setModalImageRotation(0);
+    setModalImageZoom(1);
     setDialogState("closed");
     previousFocusRef.current?.focus?.({ preventScroll: true });
     previousFocusRef.current = null;
@@ -511,6 +540,10 @@ export function PatentPageContent({ locale }: { locale: string }) {
       setSelectedPatentDetails(null);
       setDetailError(false);
       setActiveDrawingIndex(null);
+      setModalImageIndex(0);
+      setModalImageOffset({ x: 0, y: 0 });
+      setModalImageRotation(0);
+      setModalImageZoom(1);
       setPanelRect(centeredPatentPanelRect());
       setDialogState("opening");
 
@@ -528,6 +561,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
     clearCloseTimer();
     setActiveDrawingIndex(null);
+    setModalImageOffset({ x: 0, y: 0 });
+    setModalImageRotation(0);
+    setModalImageZoom(1);
     setDialogState("closing");
 
     closeTimerRef.current = window.setTimeout(
@@ -554,6 +590,85 @@ export function PatentPageContent({ locale }: { locale: string }) {
       });
     },
     [selectedPatent],
+  );
+
+  const cycleModalImage = useCallback(
+    (direction: -1 | 1) => {
+      setModalImageIndex((current) => {
+        const count = selectedPatent?.images.length ?? 0;
+        if (!count) return 0;
+        return (current + direction + count) % count;
+      });
+      setModalImageOffset({ x: 0, y: 0 });
+      setModalImageRotation(0);
+      setModalImageZoom(1);
+    },
+    [selectedPatent],
+  );
+
+  const rotateModalImage = useCallback(() => {
+    setModalImageRotation((current) => (current + 90) % 360);
+  }, []);
+
+  const zoomModalImage = useCallback((direction: -1 | 1) => {
+    setModalImageZoom((current) => {
+      const nextZoom = Math.min(
+        2.5,
+        Math.max(1, Number((current + direction * 0.25).toFixed(2))),
+      );
+      if (nextZoom === 1) {
+        setModalImageOffset({ x: 0, y: 0 });
+      }
+      return nextZoom;
+    });
+  }, []);
+
+  const handleModalImagePanStart = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      if (modalImageZoom <= 1) return;
+      if ((event.target as HTMLElement).closest("button, a")) return;
+      event.preventDefault();
+      modalImagePanRef.current = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      event.currentTarget.setPointerCapture(event.pointerId);
+    },
+    [modalImageZoom],
+  );
+
+  const handleModalImagePanMove = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      const pan = modalImagePanRef.current;
+      if (!pan || pan.pointerId !== event.pointerId) return;
+      event.preventDefault();
+
+      const deltaX = event.clientX - pan.x;
+      const deltaY = event.clientY - pan.y;
+      modalImagePanRef.current = {
+        ...pan,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      setModalImageOffset((current) => ({
+        x: current.x + deltaX,
+        y: current.y + deltaY,
+      }));
+    },
+    [],
+  );
+
+  const handleModalImagePanEnd = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      const pan = modalImagePanRef.current;
+      if (!pan || pan.pointerId !== event.pointerId) return;
+      modalImagePanRef.current = null;
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    },
+    [],
   );
 
   useEffect(() => {
@@ -711,6 +826,18 @@ export function PatentPageContent({ locale }: { locale: string }) {
         return;
       }
 
+      if (selectedPatent.images.length > 1 && event.key === "ArrowLeft") {
+        event.preventDefault();
+        cycleModalImage(-1);
+        return;
+      }
+
+      if (selectedPatent.images.length > 1 && event.key === "ArrowRight") {
+        event.preventDefault();
+        cycleModalImage(1);
+        return;
+      }
+
       const focusRoot = modalRootRef.current ?? panelRef.current;
       if (event.key !== "Tab" || !focusRoot) return;
 
@@ -739,7 +866,14 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeDrawingIndex, closeDrawing, closePatent, cycleDrawing, selectedPatent]);
+  }, [
+    activeDrawingIndex,
+    closeDrawing,
+    closePatent,
+    cycleDrawing,
+    cycleModalImage,
+    selectedPatent,
+  ]);
 
   useEffect(() => {
     if (!selectedPatent || dialogState !== "open") return;
@@ -768,6 +902,16 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const selectedPatentCategory = selectedPatent
     ? getPatentCategoryLabel(selectedPatent.filter, resolvedLocale)
     : "";
+  const selectedPatentImages = selectedPatent?.images ?? [];
+  const safeModalImageIndex = selectedPatentImages[modalImageIndex]
+    ? modalImageIndex
+    : 0;
+  const modalImage = selectedPatentImages[safeModalImageIndex] ?? null;
+  const modalImageHref = modalImage?.href ?? selectedPatent?.coverImage ?? "";
+  const hasMultipleModalImages = selectedPatentImages.length > 1;
+  const modalImageStyle = {
+    transform: `translate3d(${modalImageOffset.x}px, ${modalImageOffset.y}px, 0) rotate(${modalImageRotation}deg) scale(${modalImageZoom})`,
+  } satisfies CSSProperties;
   return (
     <>
       <section
@@ -979,16 +1123,29 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 !contentVisible && "pointer-events-none",
               )}
             >
-              <div className="relative min-h-[240px] overflow-hidden bg-[#f7f7f7] md:min-h-0">
-                {selectedPatent.coverImage ? (
+              <div
+                className={cn(
+                  "relative min-h-[240px] touch-none overflow-hidden bg-[#f7f7f7] md:min-h-0",
+                  modalImageZoom > 1
+                    ? "cursor-grab active:cursor-grabbing"
+                    : "cursor-default",
+                )}
+                onPointerDown={handleModalImagePanStart}
+                onPointerMove={handleModalImagePanMove}
+                onPointerUp={handleModalImagePanEnd}
+                onPointerCancel={handleModalImagePanEnd}
+              >
+                {modalImageHref ? (
                   <Image
-                    src={selectedPatent.coverImage}
+                    src={modalImageHref}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 520px"
                     quality={100}
                     unoptimized
-                    className="object-contain object-center p-5 md:p-8"
+                    draggable={false}
+                    className="pointer-events-none select-none object-contain object-center p-5 transition-transform duration-500 md:p-8 [transition-timing-function:var(--ease-smooth)]"
+                    style={modalImageStyle}
                   />
                 ) : (
                   <Image
@@ -1002,6 +1159,74 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/45 via-transparent to-black/50" />
+                {hasMultipleModalImages && (
+                  <>
+                    <button
+                      type="button"
+                      className="absolute left-4 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_26px_rgba(0,0,0,0.14)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+                      aria-label={copy.details.previousDrawing}
+                      onClick={() => cycleModalImage(-1)}
+                    >
+                      <ChevronLeft className="size-5" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      className="absolute right-4 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_26px_rgba(0,0,0,0.14)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+                      aria-label={copy.details.nextDrawing}
+                      onClick={() => cycleModalImage(1)}
+                    >
+                      <ChevronRight className="size-5" aria-hidden />
+                    </button>
+                  </>
+                )}
+                {selectedPatentImages.length > 0 && (
+                  <div className="absolute right-16 top-6 z-20 rounded-full bg-white/95 px-3 py-2 text-[11px] font-extrabold text-foreground shadow-[0_8px_20px_rgba(0,0,0,0.12)] md:right-6">
+                    {safeModalImageIndex + 1} / {selectedPatentImages.length}
+                  </div>
+                )}
+                {modalImageHref && (
+                  <div className="absolute bottom-[92px] left-6 z-20 flex items-center gap-2">
+                    <button
+                      type="button"
+                      className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color,opacity] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-45 [transition-timing-function:var(--ease-smooth)]"
+                      aria-label={copy.details.zoomOutDrawing}
+                      title={copy.details.zoomOutDrawing}
+                      disabled={modalImageZoom <= 1}
+                      onClick={() => zoomModalImage(-1)}
+                    >
+                      <ZoomOut className="size-4" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+                      aria-label={copy.details.zoomInDrawing}
+                      title={copy.details.zoomInDrawing}
+                      onClick={() => zoomModalImage(1)}
+                    >
+                      <ZoomIn className="size-4" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+                      aria-label={copy.details.rotateDrawing}
+                      title={copy.details.rotateDrawing}
+                      onClick={rotateModalImage}
+                    >
+                      <RotateCw className="size-4" aria-hidden />
+                    </button>
+                    {modalImage && (
+                      <button
+                        type="button"
+                        className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+                        aria-label={copy.details.openImageViewer}
+                        title={copy.details.openImageViewer}
+                        onClick={() => showDrawing(safeModalImageIndex)}
+                      >
+                        <Search className="size-4" aria-hidden />
+                      </button>
+                    )}
+                  </div>
+                )}
                 <div className="absolute left-6 top-6 grid size-12 place-items-center rounded-[6px] bg-white shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
                   <Image
                     src={CARD_ICON[selectedPatent.filter].src}
@@ -1646,6 +1871,101 @@ function PatentDrawingLightbox({
 }) {
   const image = images[activeIndex];
   const hasMultiple = images.length > 1;
+  const [viewerState, setViewerState] = useState({
+    activeIndex,
+    offsetX: 0,
+    offsetY: 0,
+    rotation: 0,
+    zoom: 1,
+  });
+  const panRef = useRef<{
+    pointerId: number;
+    x: number;
+    y: number;
+  } | null>(null);
+  const currentViewerState =
+    viewerState.activeIndex === activeIndex
+      ? viewerState
+      : {
+          activeIndex,
+          offsetX: 0,
+          offsetY: 0,
+          rotation: 0,
+          zoom: 1,
+        };
+  const { offsetX, offsetY, rotation, zoom } = currentViewerState;
+
+  const imageStyle = {
+    transform: `translate3d(${offsetX}px, ${offsetY}px, 0) rotate(${rotation}deg) scale(${zoom})`,
+  } satisfies CSSProperties;
+
+  const updateViewerState = useCallback(
+    (nextState: Omit<typeof viewerState, "activeIndex">) => {
+      setViewerState({
+        activeIndex,
+        ...nextState,
+      });
+    },
+    [activeIndex],
+  );
+
+  const handlePanStart = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      if (zoom <= 1) return;
+      event.preventDefault();
+      panRef.current = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      event.currentTarget.setPointerCapture(event.pointerId);
+    },
+    [zoom],
+  );
+
+  const handlePanMove = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      const pan = panRef.current;
+      if (!pan || pan.pointerId !== event.pointerId) return;
+      event.preventDefault();
+
+      const deltaX = event.clientX - pan.x;
+      const deltaY = event.clientY - pan.y;
+      panRef.current = {
+        ...pan,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      setViewerState((current) => {
+        const base =
+          current.activeIndex === activeIndex
+            ? current
+            : {
+                activeIndex,
+                offsetX: 0,
+                offsetY: 0,
+                rotation: 0,
+                zoom: 1,
+              };
+
+        return {
+          ...base,
+          offsetX: base.offsetX + deltaX,
+          offsetY: base.offsetY + deltaY,
+        };
+      });
+    },
+    [activeIndex],
+  );
+
+  const handlePanEnd = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    const pan = panRef.current;
+    if (!pan || pan.pointerId !== event.pointerId) return;
+    panRef.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }, []);
 
   if (!image) return null;
 
@@ -1665,7 +1985,75 @@ function PatentDrawingLightbox({
           {activeIndex + 1} / {images.length}
         </div>
 
-        <div className="relative h-full bg-[#f8f8f8]">
+        <div className="absolute left-[104px] top-5 z-20 flex items-center gap-2">
+          <button
+            type="button"
+            className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color,opacity] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-45 [transition-timing-function:var(--ease-smooth)]"
+            aria-label={copy.zoomOutDrawing}
+            title={copy.zoomOutDrawing}
+            disabled={zoom <= 1}
+            onClick={() => {
+              const nextZoom = Math.min(
+                2.8,
+                Math.max(1, Number((zoom - 0.25).toFixed(2))),
+              );
+              updateViewerState({
+                offsetX: nextZoom === 1 ? 0 : offsetX,
+                offsetY: nextZoom === 1 ? 0 : offsetY,
+                rotation,
+                zoom: nextZoom,
+              });
+            }}
+          >
+            <ZoomOut className="size-4" aria-hidden />
+          </button>
+          <button
+            type="button"
+            className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+            aria-label={copy.zoomInDrawing}
+            title={copy.zoomInDrawing}
+            onClick={() =>
+              updateViewerState({
+                offsetX,
+                offsetY,
+                rotation,
+                zoom: Math.min(
+                  2.8,
+                  Math.max(1, Number((zoom + 0.25).toFixed(2))),
+                ),
+              })
+            }
+          >
+            <ZoomIn className="size-4" aria-hidden />
+          </button>
+          <button
+            type="button"
+            className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 [transition-timing-function:var(--ease-smooth)]"
+            aria-label={copy.rotateDrawing}
+            title={copy.rotateDrawing}
+            onClick={() =>
+              updateViewerState({
+                offsetX,
+                offsetY,
+                rotation: (rotation + 90) % 360,
+                zoom,
+              })
+            }
+          >
+            <RotateCw className="size-4" aria-hidden />
+          </button>
+        </div>
+
+        <div
+          className={cn(
+            "relative h-full touch-none bg-[#f8f8f8]",
+            zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default",
+          )}
+          onPointerDown={handlePanStart}
+          onPointerMove={handlePanMove}
+          onPointerUp={handlePanEnd}
+          onPointerCancel={handlePanEnd}
+        >
           <Image
             src={image.href}
             alt=""
@@ -1673,7 +2061,9 @@ function PatentDrawingLightbox({
             sizes="(max-width: 768px) 100vw, 980px"
             quality={100}
             unoptimized
-            className="object-contain p-6 md:p-10"
+            draggable={false}
+            className="pointer-events-none select-none object-contain p-6 transition-transform duration-500 md:p-10 [transition-timing-function:var(--ease-smooth)]"
+            style={imageStyle}
           />
         </div>
 
@@ -1835,11 +2225,11 @@ function PatentCard({
         <span className="mt-auto block pt-5">
           <span className="mb-4 block border-t border-border" />
           <span className="flex items-end justify-between gap-5">
-            <span className="flex h-[20px] min-w-0 flex-wrap gap-x-6 gap-y-2 overflow-hidden">
+            <span className="flex h-[24px] min-w-0 flex-wrap gap-x-5 gap-y-2 overflow-hidden">
               {patent.tags.map((tag, index) => (
                 <span
                   key={tag}
-                  className="flex max-w-[96px] items-center gap-3 truncate text-[7px] font-extrabold leading-none text-muted-foreground"
+                  className="flex max-w-[116px] items-center gap-2.5 truncate text-[9px] font-extrabold leading-none text-muted-foreground"
                 >
                   {tag}
                   {index < patent.tags.length - 1 && (
@@ -1848,7 +2238,7 @@ function PatentCard({
                 </span>
               ))}
             </span>
-            <span className="shrink-0 text-[9px] font-medium leading-none text-muted-foreground">
+            <span className="shrink-0 text-[10px] font-medium leading-none text-muted-foreground">
               {depositedLabel} {patent.date}
             </span>
           </span>

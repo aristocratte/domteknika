@@ -1,6 +1,6 @@
-// Generated from assets/jean_luc_thuliez_brevets on 2026-07-03T12:22:30.229Z.
+// Generated from assets/jean_luc_thuliez_brevets on 2026-07-03T13:56:26.612Z.
 // JSON source of truth: brevets_jean_luc_thuliez_full.json and etienne_crozier_sans_jean_luc_full.json.
-// Public patent images are rendered from PDF files, not copied from source PNG files.
+// Public patent images are rendered and cropped from PDF files, not copied from source PNG files.
 // Do not edit patent records manually; regenerate with scripts/generate-patents.mjs.
 
 export type PatentFilterKey = "mobility" | "industrial" | "medical" | "energy" | "materials" | "digital";
@@ -96,7 +96,7 @@ export const PATENT_FILTER_LABELS: Record<PatentFilterKey, string> = {
 export const PATENT_STATS = {
   "total": 56,
   "categories": 6,
-  "since": 1976,
+  "since": 1998,
   "byCategory": {
     "mobility": 15,
     "industrial": 24,
@@ -135,18 +135,60 @@ export const PATENTS: PatentRecord[] = [
       "B60K35/65",
       "2026"
     ],
-    "coverImage": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026078588A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026078588A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -202,36 +244,162 @@ export const PATENTS: PatentRecord[] = [
       "F16B35/06",
       "2026"
     ],
-    "coverImage": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004.png",
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_003_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
-        "label": "mosaic page 004",
+        "label": "mosaic page 004 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_005.png",
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_004_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_005_drawing_01.png",
         "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_005.pdf",
-        "label": "mosaic page 005",
+        "label": "mosaic page 005 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2026042020A1/images/rendered_mosaic_page_005_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2026042020A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 02",
         "kind": "mosaic"
       }
     ],
@@ -302,24 +470,84 @@ export const PATENTS: PatentRecord[] = [
       "B29C41/04",
       "2025"
     ],
-    "coverImage": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4488027A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/EP4488027A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -380,18 +608,60 @@ export const PATENTS: PatentRecord[] = [
       "B60B5/02",
       "2026"
     ],
-    "coverImage": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4705115A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4705115A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -447,24 +717,90 @@ export const PATENTS: PatentRecord[] = [
       "B62D1/04",
       "2026"
     ],
-    "coverImage": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP4680511A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/EP4680511A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
         "kind": "mosaic"
       }
     ],
@@ -525,18 +861,60 @@ export const PATENTS: PatentRecord[] = [
       "B60G3/00",
       "2025"
     ],
-    "coverImage": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/MA68857A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/MA68857A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -592,12 +970,18 @@ export const PATENTS: PatentRecord[] = [
       "B60S5/00",
       "2025"
     ],
-    "coverImage": "/assets/patents/US2025129628A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2025129628A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2025129628A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2025129628A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2025129628A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2025129628A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2025129628A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
         "kind": "mosaic"
       }
     ],
@@ -648,48 +1032,228 @@ export const PATENTS: PatentRecord[] = [
       "B60J5/04",
       "2024"
     ],
-    "coverImage": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_003_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
-        "label": "mosaic page 004",
+        "label": "mosaic page 004 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_004_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
-        "label": "mosaic page 005",
+        "label": "mosaic page 005 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_005_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
-        "label": "mosaic page 006",
+        "label": "mosaic page 006 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_007.png",
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_02.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_03.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_04.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_05.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_006_drawing_06.png",
+        "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2024326565A1/images/rendered_mosaic_page_007_drawing_01.png",
         "pdfHref": "/assets/patents/US2024326565A1/pdfs/mosaic_page_007.pdf",
-        "label": "mosaic page 007",
+        "label": "mosaic page 007 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -770,18 +1334,72 @@ export const PATENTS: PatentRecord[] = [
       "H02K33/16",
       "2023"
     ],
-    "coverImage": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2023164492A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2023164492A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
         "kind": "mosaic"
       }
     ],
@@ -992,18 +1610,66 @@ export const PATENTS: PatentRecord[] = [
       "A45B25/02",
       "2021"
     ],
-    "coverImage": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2021043427A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2021043427A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -1059,36 +1725,156 @@ export const PATENTS: PatentRecord[] = [
       "B62D24/00",
       "2020"
     ],
-    "coverImage": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004.png",
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_003_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_01.png",
         "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
-        "label": "mosaic page 004",
+        "label": "mosaic page 004 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_005.png",
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_004_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3744622A1/images/rendered_mosaic_page_005_drawing_01.png",
         "pdfHref": "/assets/patents/EP3744622A1/pdfs/mosaic_page_005.pdf",
-        "label": "mosaic page 005",
+        "label": "mosaic page 005 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -1159,18 +1945,72 @@ export const PATENTS: PatentRecord[] = [
       "H04R1/02",
       "2022"
     ],
-    "coverImage": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2022141591A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2022141591A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
         "kind": "mosaic"
       }
     ],
@@ -1226,12 +2066,42 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/00",
       "2021"
     ],
-    "coverImage": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021127892A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2021127892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -1282,18 +2152,72 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/00",
       "2021"
     ],
-    "coverImage": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2021106167A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2021106167A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
         "kind": "mosaic"
       }
     ],
@@ -1349,12 +2273,42 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/00",
       "2020"
     ],
-    "coverImage": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2020154939A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2020154939A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -1405,12 +2359,24 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/34",
       "2019"
     ],
-    "coverImage": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2019223656A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2019223656A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019223656A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2019223656A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -1461,12 +2427,30 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/44",
       "2018"
     ],
-    "coverImage": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3399892A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3399892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3399892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399892A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3399892A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -1517,12 +2501,30 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/00",
       "2019"
     ],
-    "coverImage": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2019008312A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2019008312A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2019008312A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019008312A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2019008312A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -1573,12 +2575,30 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/44",
       "2018"
     ],
-    "coverImage": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3399891A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3399891A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3399891A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3399891A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3399891A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -1629,24 +2649,96 @@ export const PATENTS: PatentRecord[] = [
       "B62D21/16",
       "2018"
     ],
-    "coverImage": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3393889A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3393889A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -1707,12 +2799,24 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2019"
     ],
-    "coverImage": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2019059639A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2019059639A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019059639A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2019059639A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -1763,12 +2867,24 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/36",
       "2019"
     ],
-    "coverImage": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2019313839A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2019313839A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2019313839A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2019313839A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -1819,24 +2935,96 @@ export const PATENTS: PatentRecord[] = [
       "B60K1/04",
       "2018"
     ],
-    "coverImage": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3261867A2/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3261867A2/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -1897,12 +3085,42 @@ export const PATENTS: PatentRecord[] = [
       "A47G19/22",
       "2017"
     ],
-    "coverImage": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3215454A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3215454A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -1953,18 +3171,48 @@ export const PATENTS: PatentRecord[] = [
       "A61F2/46",
       "2017"
     ],
-    "coverImage": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP3185821A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP3185821A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -2020,12 +3268,30 @@ export const PATENTS: PatentRecord[] = [
       "G04B29/02",
       "2016"
     ],
-    "coverImage": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/WO2016004540A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2016004540A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2016004540A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2016004540A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/WO2016004540A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -2076,42 +3342,222 @@ export const PATENTS: PatentRecord[] = [
       "A45D34/00",
       "2015"
     ],
-    "coverImage": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_003_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
-        "label": "mosaic page 004",
+        "label": "mosaic page 004 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_004_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
-        "label": "mosaic page 005",
+        "label": "mosaic page 005 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006.png",
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_005_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_005.pdf",
+        "label": "mosaic page 005 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_01.png",
         "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
-        "label": "mosaic page 006",
+        "label": "mosaic page 006 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015360014A1/images/rendered_mosaic_page_006_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015360014A1/pdfs/mosaic_page_006.pdf",
+        "label": "mosaic page 006 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -2187,30 +3633,132 @@ export const PATENTS: PatentRecord[] = [
       "A61B17/58",
       "2015"
     ],
-    "coverImage": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_004.png",
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_04.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_05.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_003_drawing_06.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_004_drawing_01.png",
         "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_004.pdf",
-        "label": "mosaic page 004",
+        "label": "mosaic page 004 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_004_drawing_02.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2015342657A1/images/rendered_mosaic_page_004_drawing_03.png",
+        "pdfHref": "/assets/patents/US2015342657A1/pdfs/mosaic_page_004.pdf",
+        "label": "mosaic page 004 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -2276,18 +3824,78 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2015"
     ],
-    "coverImage": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/AU2014274521A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/AU2014274521A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -2343,24 +3951,96 @@ export const PATENTS: PatentRecord[] = [
       "A61F2/30",
       "2016"
     ],
-    "coverImage": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2016000570A1/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/US2016000570A1/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -2421,12 +4101,30 @@ export const PATENTS: PatentRecord[] = [
       "G04B29/02",
       "2014"
     ],
-    "coverImage": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/CH707437A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/CH707437A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/CH707437A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH707437A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/CH707437A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -2477,18 +4175,48 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/06",
       "2014"
     ],
-    "coverImage": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2745749A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP2745749A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -2544,18 +4272,48 @@ export const PATENTS: PatentRecord[] = [
       "A61H15/02",
       "2014"
     ],
-    "coverImage": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2999439A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/FR2999439A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -2611,18 +4369,60 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/44",
       "2010"
     ],
-    "coverImage": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH700288A2/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/CH700288A2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -2678,12 +4478,30 @@ export const PATENTS: PatentRecord[] = [
       "A23P30/40",
       "2011"
     ],
-    "coverImage": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2011081464A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2011081464A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2011081464A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011081464A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2011081464A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -2734,12 +4552,30 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2011"
     ],
-    "coverImage": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2011061534A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2011061534A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2011061534A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2011061534A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2011061534A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -2790,18 +4626,54 @@ export const PATENTS: PatentRecord[] = [
       "A61C3/025",
       "2010"
     ],
-    "coverImage": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH701083B1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/CH701083B1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
         "kind": "mosaic"
       }
     ],
@@ -2857,12 +4729,24 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2008"
     ],
-    "coverImage": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP2000065A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP2000065A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2000065A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP2000065A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -2913,18 +4797,66 @@ export const PATENTS: PatentRecord[] = [
       "B65B31/04",
       "2009"
     ],
-    "coverImage": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP2129582A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/EP2129582A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -2980,18 +4912,78 @@ export const PATENTS: PatentRecord[] = [
       "A23L1/00",
       "2010"
     ],
-    "coverImage": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2010173057A1/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US2010173057A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -3046,12 +5038,12 @@ export const PATENTS: PatentRecord[] = [
       "2008",
       "Industrial"
     ],
-    "coverImage": "/assets/patents/USD568097S/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/USD568097S/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/USD568097S/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/USD568097S/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/USD568097S/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -3102,18 +5094,48 @@ export const PATENTS: PatentRecord[] = [
       "B67D7/78",
       "2009"
     ],
-    "coverImage": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US2009320941A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US2009320941A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -3169,12 +5191,24 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/00",
       "2008"
     ],
-    "coverImage": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/WO2008017182A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/WO2008017182A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/WO2008017182A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/WO2008017182A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -3224,12 +5258,12 @@ export const PATENTS: PatentRecord[] = [
       "2008",
       "Industrial"
     ],
-    "coverImage": "/assets/patents/USD560092S/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/USD560092S/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/USD560092S/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/USD560092S/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/USD560092S/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -3280,12 +5314,42 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/06",
       "2007"
     ],
-    "coverImage": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/EP1744653A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/EP1744653A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -3336,18 +5400,66 @@ export const PATENTS: PatentRecord[] = [
       "F02D9/16",
       "2002"
     ],
-    "coverImage": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2814501A1/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/FR2814501A1/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -3403,12 +5515,36 @@ export const PATENTS: PatentRecord[] = [
       "B29C45/16",
       "2001"
     ],
-    "coverImage": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/CH690989A5/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/CH690989A5/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/CH690989A5/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/CH690989A5/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/CH690989A5/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/CH690989A5/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
         "kind": "mosaic"
       }
     ],
@@ -3459,12 +5595,18 @@ export const PATENTS: PatentRecord[] = [
       "F02D9/16",
       "1998"
     ],
-    "coverImage": "/assets/patents/FR2757569A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/FR2757569A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/FR2757569A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/FR2757569A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/FR2757569A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/FR2757569A1/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/FR2757569A1/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
         "kind": "mosaic"
       }
     ],
@@ -3515,18 +5657,78 @@ export const PATENTS: PatentRecord[] = [
       "B62D21/04",
       "2000"
     ],
-    "coverImage": "/assets/patents/US6015022A/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US6015022A/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US6015022A/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
         "kind": "mosaic"
       }
     ],
@@ -3582,12 +5784,30 @@ export const PATENTS: PatentRecord[] = [
       "B60K11/02",
       "1997"
     ],
-    "coverImage": "/assets/patents/US5667030A/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US5667030A/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US5667030A/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US5667030A/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US5667030A/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US5667030A/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US5667030A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US5667030A/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US5667030A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US5667030A/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US5667030A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
         "kind": "mosaic"
       }
     ],
@@ -3638,12 +5858,24 @@ export const PATENTS: PatentRecord[] = [
       "B62D21/02",
       "1996"
     ],
-    "coverImage": "/assets/patents/US5584510A/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US5584510A/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US5584510A/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US5584510A/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US5584510A/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US5584510A/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US5584510A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US5584510A/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US5584510A/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -3694,12 +5926,12 @@ export const PATENTS: PatentRecord[] = [
       "F16L53/38",
       "1976"
     ],
-    "coverImage": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/FR2288933A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -3750,12 +5982,12 @@ export const PATENTS: PatentRecord[] = [
       "H05B3/06",
       "1976"
     ],
-    "coverImage": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/FR2277489A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       }
     ],
@@ -3806,24 +6038,96 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2024"
     ],
-    "coverImage": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_003.png",
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_003_drawing_01.png",
         "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_003.pdf",
-        "label": "mosaic page 003",
+        "label": "mosaic page 003 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_003_drawing_02.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11857104B2/images/rendered_mosaic_page_003_drawing_03.png",
+        "pdfHref": "/assets/patents/US11857104B2/pdfs/mosaic_page_003.pdf",
+        "label": "mosaic page 003 drawing 03",
         "kind": "mosaic"
       }
     ],
@@ -3884,18 +6188,78 @@ export const PATENTS: PatentRecord[] = [
       "A47J31/40",
       "2024"
     ],
-    "coverImage": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001.png",
+    "coverImage": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_01.png",
     "images": [
       {
-        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001.png",
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_01.png",
         "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
+        "label": "mosaic page 001 drawing 01",
         "kind": "mosaic"
       },
       {
-        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002.png",
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_02.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_03.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_04.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_05.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_001_drawing_06.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_001.pdf",
+        "label": "mosaic page 001 drawing 06",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_01.png",
         "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
-        "label": "mosaic page 002",
+        "label": "mosaic page 002 drawing 01",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_02.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 02",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_03.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 03",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_04.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 04",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_05.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 05",
+        "kind": "mosaic"
+      },
+      {
+        "href": "/assets/patents/US11950725B2/images/rendered_mosaic_page_002_drawing_06.png",
+        "pdfHref": "/assets/patents/US11950725B2/pdfs/mosaic_page_002.pdf",
+        "label": "mosaic page 002 drawing 06",
         "kind": "mosaic"
       }
     ],

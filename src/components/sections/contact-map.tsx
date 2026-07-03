@@ -20,7 +20,7 @@ export function ContactMap({ label }: { label: string }) {
     <Map
       center={[DOMTEKNIKA_COORDS.longitude, DOMTEKNIKA_COORDS.latitude]}
       zoom={15.4}
-      minZoom={4}
+      minZoom={2}
       maxZoom={18}
       theme="light"
       scrollZoom={false}

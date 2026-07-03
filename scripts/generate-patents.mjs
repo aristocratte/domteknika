@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE_ROOT = path.join(ROOT, "assets/jean_luc_thuliez_brevets");
@@ -9,6 +10,7 @@ const PUBLIC_ROOT = path.join(ROOT, "public/assets/patents");
 const DATA_FILE = path.join(ROOT, "src/data/patents.ts");
 const PDFTOPPM = "/Users/aris/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/pdftoppm";
 const REUSE_IMAGES = process.argv.includes("--reuse-images");
+const CROP_PADDING = 4;
 
 const SOURCE_FILES = [
   {
@@ -337,6 +339,212 @@ function renderPdfToPng(pdfFile, outputFile) {
   });
 }
 
+function findProjectionGroups(values, threshold) {
+  const groups = [];
+  let start = -1;
+
+  for (let index = 0; index < values.length; index += 1) {
+    if (values[index] >= threshold) {
+      if (start < 0) start = index;
+    } else if (start >= 0) {
+      groups.push({ start, end: index - 1, center: Math.round((start + index - 1) / 2) });
+      start = -1;
+    }
+  }
+
+  if (start >= 0) {
+    groups.push({
+      start,
+      end: values.length - 1,
+      center: Math.round((start + values.length - 1) / 2),
+    });
+  }
+
+  return groups;
+}
+
+function rectIntersectionRatio(a, b) {
+  const left = Math.max(a.x1, b.x1);
+  const top = Math.max(a.y1, b.y1);
+  const right = Math.min(a.x2, b.x2);
+  const bottom = Math.min(a.y2, b.y2);
+  const width = Math.max(0, right - left);
+  const height = Math.max(0, bottom - top);
+  const intersection = width * height;
+  if (!intersection) return 0;
+
+  return intersection / Math.min(a.width * a.height, b.width * b.height);
+}
+
+function sortRectsByReadingOrder(rects) {
+  return [...rects].sort((a, b) => {
+    const rowTolerance = Math.min(a.height, b.height) * 0.35;
+    if (Math.abs(a.y1 - b.y1) > rowTolerance) return a.y1 - b.y1;
+    return a.x1 - b.x1;
+  });
+}
+
+async function detectMosaicDrawingRects(imageFile) {
+  const { data, info } = await sharp(imageFile)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const dark = new Uint8Array(info.width * info.height);
+  const columnCounts = new Uint32Array(info.width);
+  const rowCounts = new Uint32Array(info.height);
+
+  for (let index = 0, pixel = 0; index < dark.length; index += 1, pixel += 4) {
+    const red = data[pixel];
+    const green = data[pixel + 1];
+    const blue = data[pixel + 2];
+    const alpha = data[pixel + 3];
+    const isDark = alpha > 20 && red < 130 && green < 130 && blue < 130;
+    if (!isDark) continue;
+
+    dark[index] = 1;
+    const x = index % info.width;
+    const y = Math.floor(index / info.width);
+    columnCounts[x] += 1;
+    rowCounts[y] += 1;
+  }
+
+  const verticalLines = findProjectionGroups(columnCounts, info.height * 0.18)
+    .map((group) => group.center)
+    .filter((x) => x > info.width * 0.005 && x < info.width * 0.995);
+  const horizontalLines = findProjectionGroups(rowCounts, info.width * 0.16)
+    .map((group) => group.center)
+    .filter((y) => y > info.height * 0.005 && y < info.height * 0.995);
+
+  const hasVerticalLine = (x, y1, y2) => {
+    let count = 0;
+    for (let y = y1; y <= y2; y += 1) {
+      let found = false;
+      for (let dx = -4; dx <= 4; dx += 1) {
+        const xx = x + dx;
+        if (xx >= 0 && xx < info.width && dark[y * info.width + xx]) {
+          found = true;
+          break;
+        }
+      }
+      if (found) count += 1;
+    }
+    return count;
+  };
+
+  const hasHorizontalLine = (y, x1, x2) => {
+    let count = 0;
+    for (let x = x1; x <= x2; x += 1) {
+      let found = false;
+      for (let dy = -4; dy <= 4; dy += 1) {
+        const yy = y + dy;
+        if (yy >= 0 && yy < info.height && dark[yy * info.width + x]) {
+          found = true;
+          break;
+        }
+      }
+      if (found) count += 1;
+    }
+    return count;
+  };
+
+  const candidates = [];
+  for (let leftIndex = 0; leftIndex < verticalLines.length; leftIndex += 1) {
+    for (let rightIndex = leftIndex + 1; rightIndex < verticalLines.length; rightIndex += 1) {
+      const x1 = verticalLines[leftIndex];
+      const x2 = verticalLines[rightIndex];
+      const width = x2 - x1;
+      if (width < info.width * 0.18 || width > info.width * 0.42) continue;
+
+      for (let topIndex = 0; topIndex < horizontalLines.length; topIndex += 1) {
+        for (let bottomIndex = topIndex + 1; bottomIndex < horizontalLines.length; bottomIndex += 1) {
+          const y1 = horizontalLines[topIndex];
+          const y2 = horizontalLines[bottomIndex];
+          const height = y2 - y1;
+          if (height < info.height * 0.22 || height > info.height * 0.62) continue;
+
+          const aspect = width / height;
+          if (aspect < 0.45 || aspect > 0.95) continue;
+
+          const verticalRatio =
+            (hasVerticalLine(x1, y1, y2) + hasVerticalLine(x2, y1, y2)) /
+            (2 * height);
+          const horizontalRatio =
+            (hasHorizontalLine(y1, x1, x2) + hasHorizontalLine(y2, x1, x2)) /
+            (2 * width);
+
+          if (verticalRatio < 0.68 || horizontalRatio < 0.68) continue;
+
+          candidates.push({
+            x1,
+            y1,
+            x2,
+            y2,
+            width,
+            height,
+            area: width * height,
+            score: verticalRatio + horizontalRatio,
+          });
+        }
+      }
+    }
+  }
+
+  const selected = [];
+  for (const candidate of candidates.sort((a, b) => b.score - a.score || b.area - a.area)) {
+    if (selected.some((rect) => rectIntersectionRatio(candidate, rect) > 0.25)) continue;
+    selected.push(candidate);
+  }
+
+  return sortRectsByReadingOrder(selected);
+}
+
+async function splitMosaicImage({ imageFile, imageDir, basename, publicImageBase, publicPdfHref, kind }) {
+  const rects = await detectMosaicDrawingRects(imageFile);
+  if (!rects.length) {
+    return [
+      {
+        href: `${publicImageBase}/${path.basename(imageFile)}`,
+        pdfHref: publicPdfHref,
+        label: labelFor(imageFile),
+        kind,
+      },
+    ];
+  }
+
+  const metadata = await sharp(imageFile).metadata();
+  const imageWidth = metadata.width ?? 0;
+  const imageHeight = metadata.height ?? 0;
+
+  const croppedImages = [];
+  for (const [index, rect] of rects.entries()) {
+    const cropName = `rendered_${basename}_drawing_${String(index + 1).padStart(2, "0")}.png`;
+    const cropFile = path.join(imageDir, cropName);
+    const left = Math.max(0, rect.x1 - CROP_PADDING);
+    const top = Math.max(0, rect.y1 - CROP_PADDING);
+    const right = Math.min(imageWidth, rect.x2 + CROP_PADDING);
+    const bottom = Math.min(imageHeight, rect.y2 + CROP_PADDING);
+
+    await sharp(imageFile)
+      .extract({
+        left,
+        top,
+        width: Math.max(1, right - left),
+        height: Math.max(1, bottom - top),
+      })
+      .png()
+      .toFile(cropFile);
+
+    croppedImages.push({
+      href: `${publicImageBase}/${cropName}`,
+      pdfHref: publicPdfHref,
+      label: `${labelFor(basename)} drawing ${String(index + 1).padStart(2, "0")}`,
+      kind,
+    });
+  }
+
+  return croppedImages;
+}
+
 function copyPdf(pdfFile, outputFile) {
   ensureDir(path.dirname(outputFile));
   fs.copyFileSync(pdfFile, outputFile);
@@ -443,14 +651,9 @@ function writeDataFile(records) {
     return acc;
   }, {});
 
-  const years = records
-    .map((record) => record.date.match(/\b(19|20)\d{2}\b/)?.[0])
-    .filter(Boolean)
-    .map(Number);
-
   const content = `// Generated from assets/jean_luc_thuliez_brevets on ${new Date().toISOString()}.
 // JSON source of truth: brevets_jean_luc_thuliez_full.json and etienne_crozier_sans_jean_luc_full.json.
-// Public patent images are rendered from PDF files, not copied from source PNG files.
+// Public patent images are rendered and cropped from PDF files, not copied from source PNG files.
 // Do not edit patent records manually; regenerate with scripts/generate-patents.mjs.
 
 export type PatentFilterKey = "mobility" | "industrial" | "medical" | "energy" | "materials" | "digital";
@@ -540,7 +743,7 @@ export const PATENT_STATS = ${JSON.stringify(
     {
       total: records.length,
       categories: Object.keys(CATEGORY_LABELS).length,
-      since: Math.min(...years),
+      since: 1998,
       byCategory,
       corpus: {
         jeanLucThuliez: records.filter((record) => record.corpus === "jean-luc-thuliez").length,
@@ -557,7 +760,7 @@ export const PATENTS: PatentRecord[] = ${JSON.stringify(records, null, 2)};
   fs.writeFileSync(DATA_FILE, content);
 }
 
-function main() {
+async function main() {
   if (!fs.existsSync(PDFTOPPM)) {
     throw new Error(`Missing pdftoppm at ${PDFTOPPM}`);
   }
@@ -598,14 +801,30 @@ function main() {
           copyPdf(pdfFile, publicPdfFile);
         }
 
-        renderedImages.push({
-          href: `/assets/patents/${docId}/images/${renderedName}`,
-          pdfHref: `/assets/patents/${docId}/pdfs/${path.basename(pdfFile)}`,
-          label: labelFor(renderedName),
-          kind,
-        });
+        const publicImageBase = `/assets/patents/${docId}/images`;
+        const publicPdfHref = `/assets/patents/${docId}/pdfs/${path.basename(pdfFile)}`;
+        const splitImages =
+          kind === "mosaic"
+            ? await splitMosaicImage({
+                imageFile: publicImageFile,
+                imageDir,
+                basename,
+                publicImageBase,
+                publicPdfHref,
+                kind,
+              })
+            : [
+                {
+                  href: `${publicImageBase}/${renderedName}`,
+                  pdfHref: publicPdfHref,
+                  label: labelFor(renderedName),
+                  kind,
+                },
+              ];
+
+        renderedImages.push(...splitImages);
         pdfAssets.push({
-          href: `/assets/patents/${docId}/pdfs/${path.basename(pdfFile)}`,
+          href: publicPdfHref,
           label: labelFor(pdfFile),
           kind,
         });
@@ -618,7 +837,7 @@ function main() {
   }
 
   writeDataFile(records);
-  console.log(`Generated ${records.length} patents from PDF-rendered assets.`);
+  console.log(`Generated ${records.length} patents from PDF-rendered and cropped assets.`);
 }
 
-main();
+await main();
