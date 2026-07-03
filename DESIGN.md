@@ -32,7 +32,10 @@ Les composants doivent utiliser les tokens CSS de `src/app/globals.css` (`bg-bra
 
 ## Typographie
 
-Police: 42dot Sans, exposée via `Asta_Sans` dans `next/font/google`.
+Police: 42dot Sans DOMTEKNIKA, chargée localement via `next/font/local`.
+Les fichiers webfont sont générés depuis 42dot Sans et patchés avec les
+accents français manquants pour garder la même graisse et le même dessin sur
+les versions FR et EN.
 
 Règles:
 

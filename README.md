@@ -11,7 +11,7 @@ Smooth, aesthetic and professional, built with a modern React stack.
 
 - **Next.js 16** (App Router) + **TypeScript** — SSR/SSG, SEO, performance.
 - **Tailwind CSS v4** + **shadcn/ui** (base-nova) — design system tokens.
-- **Asta Sans** font (formerly 42dot Sans) self-hosted via `next/font` — 0 layout shift.
+- **42dot Sans DOMTEKNIKA** local webfont via `next/font/local` — patched French accents, 0 layout shift.
 - **next-intl** — bilingual **FR / EN** with `[locale]` routing.
 - **Lenis** — smooth, momentum-based scrolling.
 - **Framer Motion** — reveal-on-scroll, hover and stagger animations.
