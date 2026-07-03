@@ -42,7 +42,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-[116px] pt-[84px]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-[116px] pt-[clamp(96px,8.7vw,150px)]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">

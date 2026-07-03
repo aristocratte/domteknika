@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Asta_Sans } from "next/font/google";
+import { Asta_Sans, Inter } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -16,11 +16,20 @@ import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provi
 // full weight range is available via font-weight utilities.
 const astaSans = Asta_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-42dot-sans",
   display: "swap",
   // Asta Sans fallback metrics aren't shipped in @next/font yet; disable the
   // automatic fallback-size adjustment to avoid the build warning. The font is
   // self-hosted and served with font-display: swap, so impact is negligible.
+  adjustFontFallback: false,
+});
+
+// 42dot/Asta Sans has uneven or missing French accented glyphs. Inter provides
+// a complete accent-safe face for French copy while keeping 42dot available.
+const accentSans = Inter({
+  subsets: ["latin"],
+  variable: "--font-accent-sans",
+  display: "swap",
   adjustFontFallback: false,
 });
 
@@ -66,7 +75,10 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${astaSans.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${astaSans.variable} ${accentSans.variable} h-full antialiased`}
+    >
       <body className="min-h-full bg-background font-sans text-foreground">
         <NextIntlClientProvider>
           <SmoothScrollProvider>

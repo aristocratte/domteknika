@@ -905,10 +905,11 @@ export function ProjectsPageCta() {
           >
             <span className="text-brand">.</span>
             Let&apos;s build what&apos;s next
+            {" "}
             <span className="text-brand">?</span>
           </h2>
           <p className="mt-6 max-w-[560px] text-[16px] font-medium leading-[1.35] text-muted-foreground">
-            <strong className="font-extrabold">Have a challenge in mind?</strong>{" "}
+            <strong className="font-extrabold">Have a challenge in mind ?</strong>{" "}
             We partner with forward-thinking companies to design, prototype and
             deliver solutions that make a real impact.
           </p>
