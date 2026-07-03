@@ -1,0 +1,99 @@
+{
+  "id": "EP4705115A1",
+  "publication": "EP4705115 (A1)",
+  "corpus": "jean-luc-thuliez",
+  "metadataMarkdown": "",
+  "descriptionParagraphs": [],
+  "claims": [],
+  "legalEvents": [
+    "EPF 24730764 A (Patent of invention)\nDate: 2024/11/09\nCode: STAA\nNote: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: THE INTERNATIONAL PUBLICATION HAS BEEN MADE Event date : 2024/06/12 Event code : STAA Code Expl.: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: UNKNOWN Event date : 2026/02/06 Event code : PUAI Code Expl.: PUBLIC REFERENCE MADE UNDER ARTICLE 153(3) EPC TO A PUBLISHED INTERNATIONAL APPLICATION THAT HAS ENTERED THE EUROPEAN PHASE FURTHER INFORMATION : ORIGINAL CODE: 0009012 Event date : 2026/02/06 Event code : STAA Code Expl.: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: REQUEST FOR EXAMINATION WAS MADE Event date : 2026/03/11 Event code : 17P Code Expl.: + REQUEST FOR EXAMINATION FILED EFFECTIVE DATE : 20251120 Event date : 2026/03/11 Event code : AK Code Expl.: + DESIGNATED CONTRACTING STATES"
+  ],
+  "familyRows": [
+    {
+      "idx": "1",
+      "title": "DEFLECTOR FOR RIMS, E.G. CAR RIMS",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20260311&CC=EP&NR=4705115A1&KC=A1",
+      "sections": {
+        "Inventeur": "HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+3)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60B2310/614 B60B2310/656 B60B2900/571 (+12)",
+        "CIB": "B60B5/02 B60B7/00 B60B7/06 (+1)",
+        "Informations sur la publication": "EP4705115 (A1) 2026-03-11",
+        "Date de priorité": "2023-05-04"
+      }
+    },
+    {
+      "idx": "2",
+      "title": "Flow director for rim, such as automobile rim",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=1&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20251205&CC=CN&NR=121079210A&KC=A",
+      "sections": {
+        "Inventeur": "HESSEL GEORG ALEXANDER QUENTIN (+3)",
+        "Demandeur": "SOFTCAR AG",
+        "CPC": "B60B2310/614 B60B2310/656 B60B2900/571 (+12)",
+        "CIB": "B60B5/02 B60B7/00 B60B7/06 (+1)",
+        "Informations sur la publication": "CN121079210 (A) 2025-12-05",
+        "Date de priorité": "2023-05-04"
+      }
+    },
+    {
+      "idx": "3",
+      "title": "リム用、例えば自動車のリム用のデフレクタ",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=2&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20260514&CC=JP&NR=2026515139A&KC=A",
+      "sections": {
+        "Inventeur": "クロジエ， エティエンヌ エイゼル， ギヨーム (+3)",
+        "Demandeur": "ソフトカー エスエー",
+        "CPC": "B60B2310/614 B60B2310/656 B60B2900/571 (+12)",
+        "CIB": "B60B5/02 B60B7/00 B60B7/06",
+        "Informations sur la publication": "JP2026515139 (A) 2026-05-14",
+        "Date de priorité": "2023-05-04"
+      }
+    },
+    {
+      "idx": "4",
+      "title": "자동차 림 등의 림용 디플렉터",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=3&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20260107&CC=KR&NR=20260003772A&KC=A",
+      "sections": {
+        "Inventeur": "OBLIGER NICOLAS [FR] HEISEL GUILLAUME [FR] (+3)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60B2310/614 B60B2310/656 B60B2900/571 (+12)",
+        "CIB": "B60B7/00 B60B7/06 B60B7/08",
+        "Informations sur la publication": "KR20260003772 (A) 2026-01-07",
+        "Date de priorité": "2023-05-04"
+      }
+    },
+    {
+      "idx": "5",
+      "title": "DEFLECTOR FOR RIMS, E.G. CAR RIMS",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=4&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20241107&CC=WO&NR=2024228172A1&KC=A1",
+      "sections": {
+        "Inventeur": "HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+3)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60B2310/614 B60B2310/656 B60B2900/571 (+12)",
+        "CIB": "B60B5/02 B60B7/00 B60B7/06 (+1)",
+        "Citations": "DE102007042609 A1 20090312 DE102011006937 A1 20111201 DE102011107064 A1 20120308 DE102015218038 A1 20170323 US10773546 B2 20200915 (+6)",
+        "Informations sur la publication": "WO2024228172 (A1) 2024-11-07",
+        "Date de priorité": "2023-05-04"
+      }
+    }
+  ],
+  "citedRows": [],
+  "citingRows": [],
+  "descriptionText": "",
+  "claimsText": "",
+  "legalStatusText": "EPF 24730764 A (Patent of invention)\nDate: 2024/11/09\nCode: STAA\nNote: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: THE INTERNATIONAL PUBLICATION HAS BEEN MADE Event date : 2024/06/12 Event code : STAA Code Expl.: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: UNKNOWN Event date : 2026/02/06 Event code : PUAI Code Expl.: PUBLIC REFERENCE MADE UNDER ARTICLE 153(3) EPC TO A PUBLISHED INTERNATIONAL APPLICATION THAT HAS ENTERED THE EUROPEAN PHASE FURTHER INFORMATION : ORIGINAL CODE: 0009012 Event date : 2026/02/06 Event code : STAA Code Expl.: INFORMATION ON THE STATUS OF AN EP PATENT APPLICATION OR GRANTED EP PATENT FURTHER INFORMATION : STATUS: REQUEST FOR EXAMINATION WAS MADE Event date : 2026/03/11 Event code : 17P Code Expl.: + REQUEST FOR EXAMINATION FILED EFFECTIVE DATE : 20251120 Event date : 2026/03/11 Event code : AK Code Expl.: + DESIGNATED CONTRACTING STATES",
+  "patentFamilyText": "DEFLECTOR FOR RIMS, E.G. CAR RIMS\nInventeur: HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+3)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60B2310/614 B60B2310/656 B60B2900/571 (+12)\nCIB: B60B5/02 B60B7/00 B60B7/06 (+1)\nInformations sur la publication: EP4705115 (A1) 2026-03-11\nDate de priorité: 2023-05-04\n\nFlow director for rim, such as automobile rim\nInventeur: HESSEL GEORG ALEXANDER QUENTIN (+3)\nDemandeur: SOFTCAR AG\nCPC: B60B2310/614 B60B2310/656 B60B2900/571 (+12)\nCIB: B60B5/02 B60B7/00 B60B7/06 (+1)\nInformations sur la publication: CN121079210 (A) 2025-12-05\nDate de priorité: 2023-05-04\n\nリム用、例えば自動車のリム用のデフレクタ\nInventeur: クロジエ， エティエンヌ エイゼル， ギヨーム (+3)\nDemandeur: ソフトカー エスエー\nCPC: B60B2310/614 B60B2310/656 B60B2900/571 (+12)\nCIB: B60B5/02 B60B7/00 B60B7/06\nInformations sur la publication: JP2026515139 (A) 2026-05-14\nDate de priorité: 2023-05-04\n\n자동차 림 등의 림용 디플렉터\nInventeur: OBLIGER NICOLAS [FR] HEISEL GUILLAUME [FR] (+3)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60B2310/614 B60B2310/656 B60B2900/571 (+12)\nCIB: B60B7/00 B60B7/06 B60B7/08\nInformations sur la publication: KR20260003772 (A) 2026-01-07\nDate de priorité: 2023-05-04\n\nDEFLECTOR FOR RIMS, E.G. CAR RIMS\nInventeur: HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+3)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60B2310/614 B60B2310/656 B60B2900/571 (+12)\nCIB: B60B5/02 B60B7/00 B60B7/06 (+1)\nCitations: DE102007042609 A1 20090312 DE102011006937 A1 20111201 DE102011107064 A1 20120308 DE102015218038 A1 20170323 US10773546 B2 20200915 (+6)\nInformations sur la publication: WO2024228172 (A1) 2024-11-07\nDate de priorité: 2023-05-04",
+  "citedDocumentsText": "",
+  "citingDocumentsText": "",
+  "espacenetExtractedSections": [
+    "description",
+    "claims",
+    "mosaics",
+    "originalDocument",
+    "citedDocuments",
+    "citingDocuments",
+    "inpadoc",
+    "inpadocPatentFamily"
+  ],
+  "errors": [],
+  "manifestErrors": []
+}

@@ -1,0 +1,345 @@
+{
+  "id": "US2011081464A1",
+  "publication": "US2011081464 (A1)",
+  "corpus": "jean-luc-thuliez",
+  "metadataMarkdown": "",
+  "descriptionParagraphs": [
+    "[0001] The invention relates to a method for producing a whitened liquid with a stable top layer of froth in an hygienic and automatic manner. The invention also relates to a device for carrying out such method",
+    "[0002] There is a need for providing a simple method through a beverage producing device that enables to deliver in a term of a few seconds a whitened coffee base beverage with a stable foamy top such as a cappucino-type beverage. All the existing methods encounters important drawbacks. Usually, frothing of the whitening liquid, such as a milk-based liquid, requires the use mechanical rotating elements in the device. Such elements must be cleaned after use to avoid bacterial growth and degraded food odor and taste to develop in the system.",
+    "[0003] Therefore, it exists systems that remove the need for cleaning of whipping elements. For instance, WO 02/087400 relates to a method for the preparation of a foamed drink from a capsule comprising the operations of injecting liquid in the capsule to mix with the foamable food component and allowing the foamable food component mixed with the liquid to escape from the capsule into the receptacle followed by injecting a high-velocity jet of liquid into the receptacle.",
+    "[0004] GB 2 379 624 relates to a beverage making apparatus comprising a liquid injection low diameter nozzle with a tapered bore for reducing risk of blocking the bore with solid scale residue. U.S. Pat. No. 4,388,338 relates to a method for preparing beverages from powder food component in portions by first filling the container partially with water under slight overpressure and by adding cold pressure water to the container while immediately after the container is partially filled with water under slight pressure for effectively mixing the liquid.",
+    "[0005] There is a need for a simpler method than existing methods, in particular, that requires minimal intervention of the user for the preparation of a stable, frothed whitened beverage, in particular, a cappuccino-type beverage.",
+    "[0006] There is also a need for preparing a hot frothed beverage from a portion of refrigerated liquid food component poured in the receptacle while ensuring a reduction of gradient of temperature in the whole beverage, which is unpleasant for the drinker.",
+    "[0007] There is also a need for a device with a simple water feed circuit.",
+    "[0008] For that, the invention consists in a method for hygienically and automatically producing a frothed whitened beverage in a receptacle comprising upon the actuation of a command on a beverage dispensing device the following operations controlled by a control unit of said device: a- metering and delivering a pre-warming volume of heated water in a receptacle for prewarming a whitening food component already contained in the receptacle and forming a warmed liquid in said receptacle, b- metering and delivering a frothing volume of heated water in the form of at least a pressurized jet directed in the receptacle for frothing the warmed liquid, c- producing and delivering in the receptacle a liquid mixture made of a second food component and a metered mixing volume of water.",
+    "[0012] Preferably, the whitening food component is in a liquid form. It can be fresh milk or a liquid milk concentrate. The whitening food component is typically a liquid taken from a refrigerated storing place, e.g., a fridge, and poured in the receptacle by the user. Therefore, the food component is placed in the receptacle at a temperature below ambient, i.e., 4 to 12 degrees Celsius. According to the method of the invention, the prewarming water volume serves the purpose to rise the temperature of this food component, before frothing, in order to obtain a finally warmed froth layer on the top of the beverage having an elevated temperature.",
+    "[0013] In an alternative, the whitening food component can be a powdered food component, e.g., agglomerated milk powder.",
+    "[0014] According to a possible mode, the operations a- to c- are delivered successively. Therefore, this multi-step approach ensures that the temperature throughout the foamed part of the beverage is more homogeneous.",
+    "[0015] In particular, the prewarming water volume is preferably larger than the frothing water volume. The ratio of the frothing water volume to the prewarming water volumes can be comprised between 1:4 and 1:8. Preferably, the volume of prewarming water is at least 50 mL for a recipe using fresh refrigerated milk as the whitening food component. The volume of prewarming water can be more than 80 mL, for instance about 95 mL, for a recipe using evaporated milk.",
+    "[0016] In order to ensure a sufficiently high temperature of the foam, it is important that the prewarming water volume is heated in the device at a stabilized temperature of at least 85° C. The stabilized temperature that is measured is the temperature at the liquid outlet as dispensed from the device.",
+    "[0017] A relatively small water frothing volume can be sufficient to energically froth the warmed liquid in the receptacle provided it is in the form of a pressurized jet. For instance, water volumes of less than 20 mL, e.g., 17 mL can be sufficient to froth 130 mL of warmed liquid corresponding to 70 mL of fresh milk and 60 mL of hot water. Also, less than 20 mL, e.g., 17 mL of frothing water is sufficient to froth 130 mL of warmed liquid corresponding to 35 mL of condensed milk and 95 mL of hot water. Of course, larger volumes of the whitening food component will require proportionally larger prewarming water volumes and larger frothing water volumes. This frothing volume is also depending on the pressurized jet's diameter and the pump pressure.",
+    "[0018] Therefore, the frothing water volume is preferably delivered in the receptacle through a nozzle of a diameter comprised between 0.2 and 1 mm, preferably between 0.3 and 0.9 mm. In another embodiment, the frothing water can be delivered through several nozzles. In this latter case, preferably, the sum of the sections of the frothing nozzles outlets is the same presents the same value as the section of a unique frothing nozzle presenting a diameter comprised between 0.3 and 1 mm.",
+    "[0019] According to the method of the invention, the liquid mixture, made of the said second food component, is usually produced by dosing a dry powder dose of the second food component from a reservoir in a mixing chamber and feeding in said mixing chamber the mixing water volume in the mixing chamber and delivering the mixture through a chamber outlet of the mixing chamber. Preferably, the mixing chamber does not comprise any inside moving parts. In particular, the mixing chamber is carried out only by means of at least one pressurized jet of water entering the mixing chamber. A preferred mixing chamber is described in the co-pending European patent application number EP 06125772.1; the content of which is incorporated herein by reference. The pressurized jet in the mixing chamber is obtained by passing water through a nozzle of a diameter comprised between 0.3 and 0.8 mm. The flow conditions through the nozzle can be such that a linear velocity in the order of from 10 to 50 m/sec., more preferably 12-25 m/sec., is produced.",
+    "[0020] According to a preferred mode, the prewarming water volume is fed through the mixing chamber and via the chamber outlet into the receptacle.",
+    "[0021] The invention relates too to a second method for hygienically and automatically producing from a beverage dispensing device a frothed whitened beverage in a receptacle comprising upon the actuation of a command on the device the following operations controlled by a control unit of said device: a′. metering and delivering a frothing volume of water in the form of a pressurized jet directed toward a receptacle comprising a fresh milk already contained in the receptacle for frothing the warmed liquid, b′. producing and delivering in the receptacle a liquid mixture made of a second food component and a metered mixing volume of water.",
+    "[0024] It has been effectively observed that a simple jet of water, either cold or warm, enables an efficient frothing of fresh milk without the necessity of using steam or any complicated apparatus. The use of cold water for frothing milk is particularly interesting for the preparation of cold beverages like iced cappuccino or iced tea.",
+    "[0025] FIG. 1 illustrates the general principle of the device of the invention during the prewarming operation according to the method of the invention;",
+    "[0026] FIG. 2 illustrates the frothing operation by the device of the invention;",
+    "[0027] FIG. 3 illustrates the subsequent operation of dosing of the second component in the device of the invention;",
+    "[0028] FIG. 4 illustrates the next operation of mixing and delivery of the mixture of the second component in the receptacle.",
+    "[0029] Referring to FIG. 1, a beverage production apparatus 1 of the invention is represented that includes a mixing device 2 for producing a liquid mixture from ingredient and water entering the device.",
+    "[0030] The beverage production apparatus comprises a reservoir of soluble ingredient 3 placed above the mixing device which is coupled with a dosing system 4. The dosing system 4 has the primary function to meter upon request doses of ingredient into the mixing device 2. The reservoir 3 can be a hopper which is permanent or a disposable package containing the soluble ingredient. The dosing system 4 can be any suitable system such as a dosing screw or a reciprocating dosing piston. The dosing technology is also of course dependent on the nature of the soluble ingredient. The soluble ingredient is typically a dry food powder. However, it could also be a liquid concentrate. The device is fed upon request with ingredient automatically as prompted by a controller 11 and command 12.",
+    "[0031] A water feed circuit is provided in the apparatus to be able to feed the mixing device 2 with more particularly hot water. For that, a water reservoir 5 is provided that can be replenished with fresh water. A water pump 6 transports the water from the reservoir 5 to a water heating system 7 such as a thermoblock or a cartridge type heater and to eventually a non-return valve 8. The pump can be any type of pump such as a piston pump, diaphragm pump or a peristaltic pump. Finally water is fed into the device by a tube means 9.",
+    "[0032] As illustrated in FIG. 1, the mixing device 2 can be placed directly above a service tray 10 onto which is placed a receptacle 15, i.e., cup or glass, to receive the frothed liquid.",
+    "[0033] A controller 11 is further provided to coordinate the different operations of the method of the invention. In particular, the controller can control the pump 6 and the dosing system separately or simultaneously.",
+    "[0034] The water circuit further comprises a derived water line 13 which is directed to provide water directly into the receptacle 15. The derived water line 13 is designed to provide water in the form of a high-velocity jet inside the receptacle 15. For this purpose, it terminates by a nozzle 17 comprising a reduced diameter in the order of 0.2 to 1 mm. The derived water line 13 is connected to the main line by a valve 16 which is selectively controlled by the control unit 11. The valve can be any type of valve. In a preferred mode, the valve is described in co-pending patent application WO 2008/02563 and referring to a multiple-way valve device.",
+    "[0035] FIG. 1 shows a first operation of the method for preparation of a hot cappuccino-type beverage. For starting the method, a receptacle 15 is filled with a dose of a whitening food component by the user himself. The receptacle is placed under the mixing and frothing device 2 in the service area 10. The whitening component may be a refrigerated dairy based component such as fresh milk or condensed milk. Depending on the nature of the liquid filled in the receptacle, the user is prompted to select a specific command 12 to initiate the automatic start of the beverage preparation. Once, the command pressed, the sequences of successive operations runs automatically.",
+    "[0036] The first operation consists in prewarming the whitening component 18 contained in the receptacle 15 by adding a heated volume of water 14 via the main water line 9 at a relatively low velocity. For this, the valve 16 is controlled by the control unit 11 to open the main water line leading to the mixing system 2. The pump 6 is activated and so is the heater 7. The heater may require a prewarming period of several seconds before the pump 6 is actually run. The temperature may be controlled by a thermostat or any suitable sensor device known in the art. The whitening component 18 in the receptacle 15 being usually at most at ambient or refrigerated temperature, it is necessary to ensure during this operation to raise its temperature at least above 50° C. The heater 7 preferably heats water close to its boiling point to compensate for the heat loss of the water in contact with the surfaces of the device and so to be able to raise the temperature of the whitening component 18 in the receptacle 15 sufficiently. During this phase, it is preferable to avoid creating frothing of the whitening component 18 in the receptacle 15 because foam acts like a heat insulator and may reduce the final temperature of the liquid or creates gradients in the beverage. Therefore, it is an advantage that the velocity of water 14 is slowed down in the mixing chamber 2. The amount of water 14 dosed may depend on the nature of the whitening beverage. The water volume during this operation is comprised between 30 and 100 mL.",
+    "[0037] In the next operation illustrated in FIG. 2, the prewarmed whitening liquid 19 is then frothed by adding a smaller volume of heated water at high velocity through the nozzle 17 of the derived water line 13 directed to the receptacle 15. For this, the control unit 11 operates the valve 16 to close main water 9 and open derived water line 13. The pump 6 may be run at the same speed or lower or higher speed if necessary. The volume of water delivered through the nozzle is comprised between 10 and 50 mL. The temperature must remain sufficiently high to avoid any drop of temperature of the liquid and foam in the receptacle. For this, it is preferred that the heater 7 is maintained active during the two phases or at least re-started during this second phase sufficiently early in case it has been interrupted during the first phase. The water temperature must remain in the order of 92-96° C. at the outlet of the heater 7.",
+    "[0038] In the next operation illustrated in FIG. 3, the dosing system 4 meters a dose 20 of soluble ingredient from reservoir of soluble ingredient 3 inside the mixing device 2.",
+    "[0039] In the last operation illustrated in FIG. 4, a metered volume of heated water is added in the mixing device 2 via the main water line 9. For this, the valve 16 is controlled by the control unit 11 to open the main water line 9 leading to the mixing system 2. The pump 6 is activated and so is the heater 7. In the mixing device 2, the dose of soluble ingredient and the heated water mix so that the soluble ingredient dissolves in the water and the obtained liquid mixture 21 is delivered into the receptacle 15 through the mixing device outlet 22. When the chamber is empty, a very small amount of water can be injected into this chamber in order to clean the coffee foam which reminds at the bottom of the chamber. This provides a clean water for the prewarming phase of the next cappuccino."
+  ],
+  "claims": [],
+  "legalEvents": [
+    "USF 99453209 A (Patent of invention)\nDate: 2013/01/23\nCode: AS\nNote: ASSIGNMENT NEW OWNER : NESTEC S.A., SWITZERLAND FURTHER INFORMATION : ASSIGNMENT OF ASSIGNORS INTEREST;ASSIGNORS:GUGERLI, RAPHAEL;THULIEZ, JEAN-LUC;SIGNING DATES FROM 20080611 TO 20080721;REEL/FRAME:029676/0350 Event date : 2016/08/11 Event code : FPAY Code Expl.: + FEE PAYMENT PAYMENT YEAR : 4 Event date : 2013/02/06 Event code : STCF Code Expl.: INFORMATION ON STATUS: PATENT GRANT FURTHER INFORMATION : PATENTED CASE Event date : 2019/06/06 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : MERGER;ASSIGNOR:NESTEC S.A.;REEL/FRAME:049391/0756 Event date : 2019/06/13 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE ENGLISH TRANSLATION TO SHOW THE FULL AND CORRECT NEW NAME IN SECTION 51. PREVIOUSLY RECORDED AT REEL: 049391 FRAME: 0756. ASSIGNOR(S) HEREBY CONFIRMS THE MERGER;ASSIGNOR:NESTEC S.A.;REEL/FRAME:049853/0398 Event date : 2020/10/19 Event code : FEPP Code Expl.: FEE PAYMENT PROCEDURE FURTHER INFORMATION : MAINTENANCE FEE REMINDER MAILED (ORIGINAL EVENT CODE: REM.); ENTITY STATUS OF PATENT OWNER: LARGE ENTITY Event date : 2020/07/03 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE PATENT NUMBER 16062921 PREVIOUSLY RECORDED ON REEL 049391 FRAME 0756. ASSIGNOR(S) HEREBY CONFIRMS THE PATENT NUMBER SHOULD HAVE BEEN 16062912;ASSIGNOR:NESTEC S.A.;REEL/FRAME:054082/0001 Event date : 2020/07/03 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE PATENT NUMBER 16062921 PREVIOUSLY RECORDED ON REEL 049391 FRAME 0756. ASSIGNOR(S) HEREBY CONFIRMS THE PATENT NUMBER SHOULD HAVE BEEN 16062912;ASSIGNOR:NESTEC S.A.;REEL/FRAME:054082/0165 Event date : 2021/04/05 Event code : STCH Code Expl.: - INFORMATION ON STATUS: PATENT DISCONTINUATION FURTHER INFORMATION : PATENT EXPIRED DUE TO NONPAYMENT OF MAINTENANCE FEES UNDER 37 CFR 1.362 Event date : 2021/04/05 Event code : LAPS Code Expl.: - LAPSE FOR FAILURE TO PAY MAINTENANCE FEES FURTHER INFORMATION : PATENT EXPIRED FOR FAILURE TO PAY MAINTENANCE FEES (ORIGINAL EVENT CODE: EXP.); ENTITY STATUS OF PATENT OWNER: LARGE ENTITY Event date : 2021/04/27 Event code : FP Code Expl.: - LAPSED DUE TO FAILURE TO PAY MAINTENANCE FEE EFFECTIVE DATE : 20210226"
+  ],
+  "familyRows": [
+    {
+      "idx": "1",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20110407&CC=US&NR=2011081464A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]",
+        "Demandeur": "THULIEZ JEAN-LUC [CH] NESTEC SA [CH] (+1)",
+        "CPC": "A47J31/401",
+        "CIB": "A23P30/40 A47J31/00 A47J31/41",
+        "Citations": "EP1702544 A1 EP1932457 A1 US2004071841 A1 US2004241307 A1 US2005095341 A1 (+14)",
+        "Informations sur la publication": "US2011081464 (A1) 2011-04-07 US8383184 (B2) 2013-02-26",
+        "Date de priorité": "2008-05-28"
+      }
+    },
+    {
+      "idx": "2",
+      "title": "Device and method for producing a frothed whitened beverage",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=1&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20091202&CC=EP&NR=2127567A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A47J31/401",
+        "CIB": "A23P30/40 A47J31/00",
+        "Citations": "EP1702544 A1 20060920 EP1932457 A1 GB2379624 A US2004071841 A1 20040415 US2005095341 A1 20050505 (+4)",
+        "Informations sur la publication": "EP2127567 (A1) 2009-12-02",
+        "Date de priorité": "2008-05-28"
+      }
+    },
+    {
+      "idx": "3",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=2&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20110406&CC=EP&NR=2303076A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A47J31/401",
+        "CIB": "A23P30/40 A47J31/00",
+        "Informations sur la publication": "EP2303076 (A1) 2011-04-06 EP2303076 (B1) 2014-05-14",
+        "Date de priorité": "2008-05-28"
+      }
+    },
+    {
+      "idx": "4",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE.",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=3&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20101221&CC=MX&NR=2010012978A&KC=A",
+      "sections": {
+        "Inventeur": "GUGERLI RAFAEL [CH] THULIEZ JEAN LUC",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A47J31/401",
+        "CIB": "A23P30/40 A47J31/00",
+        "Informations sur la publication": "MX2010012978 (A) 2010-12-21",
+        "Date de priorité": "2008-05-28"
+      }
+    },
+    {
+      "idx": "5",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=4&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20091203&CC=WO&NR=2009144219A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]",
+        "Demandeur": "THULIEZ JEAN-LUC [CH] NESTEC SA [CH] (+1)",
+        "CPC": "A47J31/401",
+        "CIB": "A23P30/40 A47J31/00",
+        "Citations": "EP1702544 A1 20060920 US2004071841 A1 20040415 US2005095341 A1 20050505 US6405637 B1 20020618",
+        "Informations sur la publication": "WO2009144219 (A1) 2009-12-03",
+        "Date de priorité": "2008-05-28"
+      }
+    }
+  ],
+  "citedRows": [
+    {
+      "idx": "1",
+      "title": "Milk frothing and heating system",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=19960312&CC=US&NR=5498757A&KC=A",
+      "sections": {
+        "Inventeur": "JOHNSON MICHAEL W [US] ENGLER CHRISTOPHER J [US]",
+        "Demandeur": "BOYD COFFEE CO [US]",
+        "CPC": "A23C2210/30 A23C9/1524 A47J31/4485 (+3)",
+        "CIB": "A23C9/152 A47J31/44 A47J31/54 (+2)",
+        "Informations sur la publication": "US5498757 (A) 1996-03-12",
+        "Date de priorité": "1995-04-04"
+      }
+    },
+    {
+      "idx": "2",
+      "title": "Apparatus and Method for Preparing Milk under Various Temperature and Consistency Conditions in a Coffee Machine for Forming Various Types of Beverages",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=1&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20090409&CC=US&NR=2009092728A1&KC=A1",
+      "sections": {
+        "Inventeur": "COCCIA ANDREA [IT] SALA DARIO [IT]",
+        "Demandeur": "GRUPPO CIMBALI SPA [IT] COCCIA ANDREA [IT] (+1)",
+        "CPC": "A47J31/4485 A47J31/469",
+        "CIB": "A23F3/00 A23P30/40 A47J31/41 (+2)",
+        "Informations sur la publication": "US2009092728 (A1) 2009-04-09 US8356551 (B2) 2013-01-22",
+        "Date de priorité": "2007-10-08"
+      }
+    },
+    {
+      "idx": "3",
+      "title": "Method for preparing frothed milk or café crème",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=2&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20010206&CC=US&NR=6183800B1&KC=B1",
+      "sections": {
+        "Inventeur": "MELS WILLEM NANKO [NL] VAN STRATEN ADRIANUS PETRUS MA [NL] (+3)",
+        "Demandeur": "SARA LEE DE NV [US]",
+        "CPC": "A47J31/4485 Y10T137/87595 Y10T137/87652",
+        "CIB": "A47J31/44 (IPC1-7): A23F5/00",
+        "Informations sur la publication": "US6183800 (B1) 2001-02-06",
+        "Date de priorité": "1997-09-30"
+      }
+    },
+    {
+      "idx": "4",
+      "title": "Device For Frothing And Steaming Milk",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=3&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20090219&CC=US&NR=2009047402A1&KC=A1",
+      "sections": {
+        "Inventeur": "SCHOEDLER CLAUDIO [CH] SCHODLER CLAUDIO [CH]",
+        "Demandeur": "CAFINA AG [CH]",
+        "CPC": "A01J11/00 A47J31/00 A47J31/40 (+2)",
+        "CIB": "A23P30/40 A47J31/40 B01F3/04",
+        "Informations sur la publication": "US2009047402 (A1) 2009-02-19 US8003148 (B2) 2011-08-23",
+        "Date de priorité": "2007-08-16"
+      }
+    },
+    {
+      "idx": "5",
+      "title": "Froth showering",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=4&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20040415&CC=US&NR=2004071841A1&KC=A1",
+      "sections": {
+        "Inventeur": "CARHUFF PETER W [US] LAGO MICHAEL H [US] (+1)",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A47J31/002 A47J31/401 A47J31/41",
+        "CIB": "A47J31/00 A47J31/40 A47J31/41 (+4)",
+        "Informations sur la publication": "US2004071841 (A1) 2004-04-15 US6977091 (B2) 2005-12-20",
+        "Date de priorité": "2002-10-11"
+      }
+    },
+    {
+      "idx": "6",
+      "title": "Method and Apparatus for Preparing Beverage Suitable for Consumption",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=5&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20081023&CC=US&NR=2008260927A1&KC=A1",
+      "sections": {
+        "Inventeur": "KNITEL JOSEPH THEODOOR [NL] STEENHOF VINCENT JAN [NL]",
+        "Demandeur": "SARA LEE DE NV [NL] KNITEL JOSEPH THEODOOR [NL] (+2)",
+        "CPC": "A47J31/002 A47J31/0642 A47J31/0668 (+2)",
+        "CIB": "A23F5/14 A23L2/00 A47J31/00 (+2)",
+        "Informations sur la publication": "US2008260927 (A1) 2008-10-23 US8071147 (B2) 2011-12-06",
+        "Date de priorité": "2005-01-27"
+      }
+    },
+    {
+      "idx": "7",
+      "title": "Automatic dispenser of frothed milk and pre-made liquid coffee",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=6&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20010227&CC=US&NR=6192785B1&KC=B1",
+      "sections": {
+        "Inventeur": "TRIDA ROBERTO [US] DEBATTISTI GIANCARLO [US]",
+        "Demandeur": "TRIDA ROBERTO DEBATTISTI GIANCARLO",
+        "CPC": "A47J31/41 A47J31/4485",
+        "CIB": "A47J31/41 A47J31/44 (IPC1-7): A47J31/40",
+        "Informations sur la publication": "US6192785 (B1) 2001-02-27",
+        "Date de priorité": "2000-03-27"
+      }
+    },
+    {
+      "idx": "8",
+      "title": "Method and Apparatus for Preparing Beverages from Soluble Products",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=7&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20080925&CC=US&NR=2008233264A1&KC=A1",
+      "sections": {
+        "Inventeur": "DOGLIONI MAJER LUCA [IT]",
+        "Demandeur": "DOGLIONI MAJER LUCA [IT] RHEA VENDORS SPA [IT]",
+        "CPC": "A47J31/401",
+        "CIB": "A23F5/40 A23L2/52 A47J31/40 (+2)",
+        "Informations sur la publication": "US2008233264 (A1) 2008-09-25 US8333301 (B2) 2012-12-18",
+        "Date de priorité": "2005-10-19"
+      }
+    },
+    {
+      "idx": "9",
+      "title": "Method and Apparatus for Consumable Powder Reconstitution and Frothing",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=8&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20080501&CC=US&NR=2008102178A1&KC=A1",
+      "sections": {
+        "Inventeur": "THAKUR BELI [US] SHER ALEXANDER A [US] (+4)",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A23C2210/30 A23F5/405 A23L2/39 (+8)",
+        "CIB": "A23L35/00 A47J31/40",
+        "Informations sur la publication": "US2008102178 (A1) 2008-05-01",
+        "Date de priorité": "2004-08-12"
+      }
+    },
+    {
+      "idx": "10",
+      "title": "Method for preparing beverages in portions",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=9&ND=4&adjacent=true&locale=fr_EP&FT=D&date=19830614&CC=US&NR=4388338A&KC=A",
+      "sections": {
+        "Inventeur": "WITTENBORG POUL E [DK]",
+        "Demandeur": "WITTENBORGS AUTOMATFAB [DK]",
+        "CPC": "A23F5/26 A47J31/401 A47J31/46 (+2)",
+        "CIB": "A23F5/26 A47J31/40 A47J31/46 (+4)",
+        "Informations sur la publication": "US4388338 (A) 1983-06-14",
+        "Date de priorité": "1978-04-26"
+      }
+    },
+    {
+      "idx": "11",
+      "title": "Cappuccino preparation",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=10&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20041202&CC=US&NR=2004241307A1&KC=A1",
+      "sections": {
+        "Inventeur": "KNITEL JOSEPH THEODOOR [NL]",
+        "Demandeur": "SARA LEE DE NV [NL]",
+        "CPC": "A47J31/0668 A47J31/4496",
+        "CIB": "A47J31/06 A47J31/24 (IPC1-7): A23C1/00",
+        "Informations sur la publication": "US2004241307 (A1) 2004-12-02 US7703383 (B2) 2010-04-27",
+        "Date de priorité": "2001-09-21"
+      }
+    },
+    {
+      "idx": "12",
+      "title": "Package and Device for Preparation of a Food Product Such as a Beverage",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=11&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20090910&CC=US&NR=2009223375A1&KC=A1",
+      "sections": {
+        "Inventeur": "VERBEEK ROLAND WALDEMAR [NL]",
+        "Demandeur": "CUPSYSTEM COMPANY B V [NL] VERBEEK ROLAND WALDEMAR [NL]",
+        "CPC": "A47J31/405 A47J31/407 B65D85/8055 (+3)",
+        "CIB": "A47J31/41 A47J31/44 B65B29/02",
+        "Informations sur la publication": "US2009223375 (A1) 2009-09-10 US8220382 (B2) 2012-07-17",
+        "Date de priorité": "2006-02-17"
+      }
+    },
+    {
+      "idx": "13",
+      "title": "Fluid delivery system for generating pressure pulses to make beverages",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=12&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20020618&CC=US&NR=6405637B1&KC=B1",
+      "sections": {
+        "Inventeur": "CAI EDWARD Z [US]",
+        "Demandeur": "HOUSEWARE TECHNOLOGY GROUP LLC [US]",
+        "CPC": "A47J31/002 A47J31/057 A47J31/30 (+6)",
+        "CIB": "A47J31/00 A47J31/30 A47J31/44 (+3)",
+        "Informations sur la publication": "US6405637 (B1) 2002-06-18",
+        "Date de priorité": "2000-01-13"
+      }
+    },
+    {
+      "idx": "14",
+      "title": "Process for generating milk froth from milk powder and milk froth generating device and coffee machine suitable for performing this process",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=13&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20090108&CC=US&NR=2009011105A1&KC=A1",
+      "sections": {
+        "Inventeur": "EUGSTER ARTHUR [CH] MAHLICH GOTTHARD [DE]",
+        "Demandeur": "EUGSTER FRISMAG AG [CH] EUGSTER FRISMAG AG",
+        "CPC": "A47J31/401",
+        "CIB": "A23L2/39 A23L2/52 A23L2/54 (+3)",
+        "Informations sur la publication": "US2009011105 (A1) 2009-01-08 US7992488 (B2) 2011-08-09",
+        "Date de priorité": "2006-02-21"
+      }
+    },
+    {
+      "idx": "15",
+      "title": "Apparatus for automatically dissolving instant powder, particularly milk powder, in hot water and, in particular, for frothing-up",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=14&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20081009&CC=US&NR=2008245239A1&KC=A1",
+      "sections": {
+        "Inventeur": "BRENDLE CHRISTIAN [CH] FISCHER DANIEL [CH]",
+        "Demandeur": "BRENDLE CHRISTIAN [CH] FISCHER DANIEL [CH] (+2)",
+        "CPC": "A47J31/401 A47J43/12",
+        "CIB": "A23C9/00 A47J31/40 A47J43/12",
+        "Informations sur la publication": "US2008245239 (A1) 2008-10-09 US8820218 (B2) 2014-09-02",
+        "Date de priorité": "2006-05-27"
+      }
+    },
+    {
+      "idx": "16",
+      "title": "Method and device for dispensing from liquid concentrates beverages having multi-layer visual appearance",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=15&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20050505&CC=US&NR=2005095341A1&KC=A1",
+      "sections": {
+        "Inventeur": "SAGGIN RAFFAELLA [US] SHER ALEXANDER A [US] (+4)",
+        "Demandeur": "NESTEC SA [CH]",
+        "CPC": "A23F5/243 A47J31/402 A47J31/41",
+        "CIB": "A23F5/24 A47J31/40 A47J31/41 (+2)",
+        "Informations sur la publication": "US2005095341 (A1) 2005-05-05 US7013933 (B2) 2006-03-21",
+        "Date de priorité": "2003-10-30"
+      }
+    }
+  ],
+  "citingRows": [],
+  "descriptionText": "[0001] The invention relates to a method for producing a whitened liquid with a stable top layer of froth in an hygienic and automatic manner. The invention also relates to a device for carrying out such method\n\n[0002] There is a need for providing a simple method through a beverage producing device that enables to deliver in a term of a few seconds a whitened coffee base beverage with a stable foamy top such as a cappucino-type beverage. All the existing methods encounters important drawbacks. Usually, frothing of the whitening liquid, such as a milk-based liquid, requires the use mechanical rotating elements in the device. Such elements must be cleaned after use to avoid bacterial growth and degraded food odor and taste to develop in the system.\n\n[0003] Therefore, it exists systems that remove the need for cleaning of whipping elements. For instance, WO 02/087400 relates to a method for the preparation of a foamed drink from a capsule comprising the operations of injecting liquid in the capsule to mix with the foamable food component and allowing the foamable food component mixed with the liquid to escape from the capsule into the receptacle followed by injecting a high-velocity jet of liquid into the receptacle.\n\n[0004] GB 2 379 624 relates to a beverage making apparatus comprising a liquid injection low diameter nozzle with a tapered bore for reducing risk of blocking the bore with solid scale residue. U.S. Pat. No. 4,388,338 relates to a method for preparing beverages from powder food component in portions by first filling the container partially with water under slight overpressure and by adding cold pressure water to the container while immediately after the container is partially filled with water under slight pressure for effectively mixing the liquid.\n\n[0005] There is a need for a simpler method than existing methods, in particular, that requires minimal intervention of the user for the preparation of a stable, frothed whitened beverage, in particular, a cappuccino-type beverage.\n\n[0006] There is also a need for preparing a hot frothed beverage from a portion of refrigerated liquid food component poured in the receptacle while ensuring a reduction of gradient of temperature in the whole beverage, which is unpleasant for the drinker.\n\n[0007] There is also a need for a device with a simple water feed circuit.\n\n[0008] For that, the invention consists in a method for hygienically and automatically producing a frothed whitened beverage in a receptacle comprising upon the actuation of a command on a beverage dispensing device the following operations controlled by a control unit of said device: a- metering and delivering a pre-warming volume of heated water in a receptacle for prewarming a whitening food component already contained in the receptacle and forming a warmed liquid in said receptacle, b- metering and delivering a frothing volume of heated water in the form of at least a pressurized jet directed in the receptacle for frothing the warmed liquid, c- producing and delivering in the receptacle a liquid mixture made of a second food component and a metered mixing volume of water.\n\n[0012] Preferably, the whitening food component is in a liquid form. It can be fresh milk or a liquid milk concentrate. The whitening food component is typically a liquid taken from a refrigerated storing place, e.g., a fridge, and poured in the receptacle by the user. Therefore, the food component is placed in the receptacle at a temperature below ambient, i.e., 4 to 12 degrees Celsius. According to the method of the invention, the prewarming water volume serves the purpose to rise the temperature of this food component, before frothing, in order to obtain a finally warmed froth layer on the top of the beverage having an elevated temperature.\n\n[0013] In an alternative, the whitening food component can be a powdered food component, e.g., agglomerated milk powder.\n\n[0014] According to a possible mode, the operations a- to c- are delivered successively. Therefore, this multi-step approach ensures that the temperature throughout the foamed part of the beverage is more homogeneous.\n\n[0015] In particular, the prewarming water volume is preferably larger than the frothing water volume. The ratio of the frothing water volume to the prewarming water volumes can be comprised between 1:4 and 1:8. Preferably, the volume of prewarming water is at least 50 mL for a recipe using fresh refrigerated milk as the whitening food component. The volume of prewarming water can be more than 80 mL, for instance about 95 mL, for a recipe using evaporated milk.\n\n[0016] In order to ensure a sufficiently high temperature of the foam, it is important that the prewarming water volume is heated in the device at a stabilized temperature of at least 85° C. The stabilized temperature that is measured is the temperature at the liquid outlet as dispensed from the device.\n\n[0017] A relatively small water frothing volume can be sufficient to energically froth the warmed liquid in the receptacle provided it is in the form of a pressurized jet. For instance, water volumes of less than 20 mL, e.g., 17 mL can be sufficient to froth 130 mL of warmed liquid corresponding to 70 mL of fresh milk and 60 mL of hot water. Also, less than 20 mL, e.g., 17 mL of frothing water is sufficient to froth 130 mL of warmed liquid corresponding to 35 mL of condensed milk and 95 mL of hot water. Of course, larger volumes of the whitening food component will require proportionally larger prewarming water volumes and larger frothing water volumes. This frothing volume is also depending on the pressurized jet's diameter and the pump pressure.\n\n[0018] Therefore, the frothing water volume is preferably delivered in the receptacle through a nozzle of a diameter comprised between 0.2 and 1 mm, preferably between 0.3 and 0.9 mm. In another embodiment, the frothing water can be delivered through several nozzles. In this latter case, preferably, the sum of the sections of the frothing nozzles outlets is the same presents the same value as the section of a unique frothing nozzle presenting a diameter comprised between 0.3 and 1 mm.\n\n[0019] According to the method of the invention, the liquid mixture, made of the said second food component, is usually produced by dosing a dry powder dose of the second food component from a reservoir in a mixing chamber and feeding in said mixing chamber the mixing water volume in the mixing chamber and delivering the mixture through a chamber outlet of the mixing chamber. Preferably, the mixing chamber does not comprise any inside moving parts. In particular, the mixing chamber is carried out only by means of at least one pressurized jet of water entering the mixing chamber. A preferred mixing chamber is described in the co-pending European patent application number EP 06125772.1; the content of which is incorporated herein by reference. The pressurized jet in the mixing chamber is obtained by passing water through a nozzle of a diameter comprised between 0.3 and 0.8 mm. The flow conditions through the nozzle can be such that a linear velocity in the order of from 10 to 50 m/sec., more preferably 12-25 m/sec., is produced.\n\n[0020] According to a preferred mode, the prewarming water volume is fed through the mixing chamber and via the chamber outlet into the receptacle.\n\n[0021] The invention relates too to a second method for hygienically and automatically producing from a beverage dispensing device a frothed whitened beverage in a receptacle comprising upon the actuation of a command on the device the following operations controlled by a control unit of said device: a′. metering and delivering a frothing volume of water in the form of a pressurized jet directed toward a receptacle comprising a fresh milk already contained in the receptacle for frothing the warmed liquid, b′. producing and delivering in the receptacle a liquid mixture made of a second food component and a metered mixing volume of water.\n\n[0024] It has been effectively observed that a simple jet of water, either cold or warm, enables an efficient frothing of fresh milk without the necessity of using steam or any complicated apparatus. The use of cold water for frothing milk is particularly interesting for the preparation of cold beverages like iced cappuccino or iced tea.\n\n[0025] FIG. 1 illustrates the general principle of the device of the invention during the prewarming operation according to the method of the invention;\n\n[0026] FIG. 2 illustrates the frothing operation by the device of the invention;\n\n[0027] FIG. 3 illustrates the subsequent operation of dosing of the second component in the device of the invention;\n\n[0028] FIG. 4 illustrates the next operation of mixing and delivery of the mixture of the second component in the receptacle.\n\n[0029] Referring to FIG. 1, a beverage production apparatus 1 of the invention is represented that includes a mixing device 2 for producing a liquid mixture from ingredient and water entering the device.\n\n[0030] The beverage production apparatus comprises a reservoir of soluble ingredient 3 placed above the mixing device which is coupled with a dosing system 4. The dosing system 4 has the primary function to meter upon request doses of ingredient into the mixing device 2. The reservoir 3 can be a hopper which is permanent or a disposable package containing the soluble ingredient. The dosing system 4 can be any suitable system such as a dosing screw or a reciprocating dosing piston. The dosing technology is also of course dependent on the nature of the soluble ingredient. The soluble ingredient is typically a dry food powder. However, it could also be a liquid concentrate. The device is fed upon request with ingredient automatically as prompted by a controller 11 and command 12.\n\n[0031] A water feed circuit is provided in the apparatus to be able to feed the mixing device 2 with more particularly hot water. For that, a water reservoir 5 is provided that can be replenished with fresh water. A water pump 6 transports the water from the reservoir 5 to a water heating system 7 such as a thermoblock or a cartridge type heater and to eventually a non-return valve 8. The pump can be any type of pump such as a piston pump, diaphragm pump or a peristaltic pump. Finally water is fed into the device by a tube means 9.\n\n[0032] As illustrated in FIG. 1, the mixing device 2 can be placed directly above a service tray 10 onto which is placed a receptacle 15, i.e., cup or glass, to receive the frothed liquid.\n\n[0033] A controller 11 is further provided to coordinate the different operations of the method of the invention. In particular, the controller can control the pump 6 and the dosing system separately or simultaneously.\n\n[0034] The water circuit further comprises a derived water line 13 which is directed to provide water directly into the receptacle 15. The derived water line 13 is designed to provide water in the form of a high-velocity jet inside the receptacle 15. For this purpose, it terminates by a nozzle 17 comprising a reduced diameter in the order of 0.2 to 1 mm. The derived water line 13 is connected to the main line by a valve 16 which is selectively controlled by the control unit 11. The valve can be any type of valve. In a preferred mode, the valve is described in co-pending patent application WO 2008/02563 and referring to a multiple-way valve device.\n\n[0035] FIG. 1 shows a first operation of the method for preparation of a hot cappuccino-type beverage. For starting the method, a receptacle 15 is filled with a dose of a whitening food component by the user himself. The receptacle is placed under the mixing and frothing device 2 in the service area 10. The whitening component may be a refrigerated dairy based component such as fresh milk or condensed milk. Depending on the nature of the liquid filled in the receptacle, the user is prompted to select a specific command 12 to initiate the automatic start of the beverage preparation. Once, the command pressed, the sequences of successive operations runs automatically.\n\n[0036] The first operation consists in prewarming the whitening component 18 contained in the receptacle 15 by adding a heated volume of water 14 via the main water line 9 at a relatively low velocity. For this, the valve 16 is controlled by the control unit 11 to open the main water line leading to the mixing system 2. The pump 6 is activated and so is the heater 7. The heater may require a prewarming period of several seconds before the pump 6 is actually run. The temperature may be controlled by a thermostat or any suitable sensor device known in the art. The whitening component 18 in the receptacle 15 being usually at most at ambient or refrigerated temperature, it is necessary to ensure during this operation to raise its temperature at least above 50° C. The heater 7 preferably heats water close to its boiling point to compensate for the heat loss of the water in contact with the surfaces of the device and so to be able to raise the temperature of the whitening component 18 in the receptacle 15 sufficiently. During this phase, it is preferable to avoid creating frothing of the whitening component 18 in the receptacle 15 because foam acts like a heat insulator and may reduce the final temperature of the liquid or creates gradients in the beverage. Therefore, it is an advantage that the velocity of water 14 is slowed down in the mixing chamber 2. The amount of water 14 dosed may depend on the nature of the whitening beverage. The water volume during this operation is comprised between 30 and 100 mL.\n\n[0037] In the next operation illustrated in FIG. 2, the prewarmed whitening liquid 19 is then frothed by adding a smaller volume of heated water at high velocity through the nozzle 17 of the derived water line 13 directed to the receptacle 15. For this, the control unit 11 operates the valve 16 to close main water 9 and open derived water line 13. The pump 6 may be run at the same speed or lower or higher speed if necessary. The volume of water delivered through the nozzle is comprised between 10 and 50 mL. The temperature must remain sufficiently high to avoid any drop of temperature of the liquid and foam in the receptacle. For this, it is preferred that the heater 7 is maintained active during the two phases or at least re-started during this second phase sufficiently early in case it has been interrupted during the first phase. The water temperature must remain in the order of 92-96° C. at the outlet of the heater 7.\n\n[0038] In the next operation illustrated in FIG. 3, the dosing system 4 meters a dose 20 of soluble ingredient from reservoir of soluble ingredient 3 inside the mixing device 2.\n\n[0039] In the last operation illustrated in FIG. 4, a metered volume of heated water is added in the mixing device 2 via the main water line 9. For this, the valve 16 is controlled by the control unit 11 to open the main water line 9 leading to the mixing system 2. The pump 6 is activated and so is the heater 7. In the mixing device 2, the dose of soluble ingredient and the heated water mix so that the soluble ingredient dissolves in the water and the obtained liquid mixture 21 is delivered into the receptacle 15 through the mixing device outlet 22. When the chamber is empty, a very small amount of water can be injected into this chamber in order to clean the coffee foam which reminds at the bottom of the chamber. This provides a clean water for the prewarming phase of the next cappuccino.",
+  "claimsText": "",
+  "legalStatusText": "USF 99453209 A (Patent of invention)\nDate: 2013/01/23\nCode: AS\nNote: ASSIGNMENT NEW OWNER : NESTEC S.A., SWITZERLAND FURTHER INFORMATION : ASSIGNMENT OF ASSIGNORS INTEREST;ASSIGNORS:GUGERLI, RAPHAEL;THULIEZ, JEAN-LUC;SIGNING DATES FROM 20080611 TO 20080721;REEL/FRAME:029676/0350 Event date : 2016/08/11 Event code : FPAY Code Expl.: + FEE PAYMENT PAYMENT YEAR : 4 Event date : 2013/02/06 Event code : STCF Code Expl.: INFORMATION ON STATUS: PATENT GRANT FURTHER INFORMATION : PATENTED CASE Event date : 2019/06/06 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : MERGER;ASSIGNOR:NESTEC S.A.;REEL/FRAME:049391/0756 Event date : 2019/06/13 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE ENGLISH TRANSLATION TO SHOW THE FULL AND CORRECT NEW NAME IN SECTION 51. PREVIOUSLY RECORDED AT REEL: 049391 FRAME: 0756. ASSIGNOR(S) HEREBY CONFIRMS THE MERGER;ASSIGNOR:NESTEC S.A.;REEL/FRAME:049853/0398 Event date : 2020/10/19 Event code : FEPP Code Expl.: FEE PAYMENT PROCEDURE FURTHER INFORMATION : MAINTENANCE FEE REMINDER MAILED (ORIGINAL EVENT CODE: REM.); ENTITY STATUS OF PATENT OWNER: LARGE ENTITY Event date : 2020/07/03 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE PATENT NUMBER 16062921 PREVIOUSLY RECORDED ON REEL 049391 FRAME 0756. ASSIGNOR(S) HEREBY CONFIRMS THE PATENT NUMBER SHOULD HAVE BEEN 16062912;ASSIGNOR:NESTEC S.A.;REEL/FRAME:054082/0001 Event date : 2020/07/03 Event code : AS Code Expl.: ASSIGNMENT NEW OWNER : SOCIETE DES PRODUITS NESTLE S.A., SWITZERLAND EFFECTIVE DATE : 20190528 FURTHER INFORMATION : CORRECTIVE ASSIGNMENT TO CORRECT THE PATENT NUMBER 16062921 PREVIOUSLY RECORDED ON REEL 049391 FRAME 0756. ASSIGNOR(S) HEREBY CONFIRMS THE PATENT NUMBER SHOULD HAVE BEEN 16062912;ASSIGNOR:NESTEC S.A.;REEL/FRAME:054082/0165 Event date : 2021/04/05 Event code : STCH Code Expl.: - INFORMATION ON STATUS: PATENT DISCONTINUATION FURTHER INFORMATION : PATENT EXPIRED DUE TO NONPAYMENT OF MAINTENANCE FEES UNDER 37 CFR 1.362 Event date : 2021/04/05 Event code : LAPS Code Expl.: - LAPSE FOR FAILURE TO PAY MAINTENANCE FEES FURTHER INFORMATION : PATENT EXPIRED FOR FAILURE TO PAY MAINTENANCE FEES (ORIGINAL EVENT CODE: EXP.); ENTITY STATUS OF PATENT OWNER: LARGE ENTITY Event date : 2021/04/27 Event code : FP Code Expl.: - LAPSED DUE TO FAILURE TO PAY MAINTENANCE FEE EFFECTIVE DATE : 20210226",
+  "patentFamilyText": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE\nInventeur: THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]\nDemandeur: THULIEZ JEAN-LUC [CH] NESTEC SA [CH] (+1)\nCPC: A47J31/401\nCIB: A23P30/40 A47J31/00 A47J31/41\nCitations: EP1702544 A1 EP1932457 A1 US2004071841 A1 US2004241307 A1 US2005095341 A1 (+14)\nInformations sur la publication: US2011081464 (A1) 2011-04-07 US8383184 (B2) 2013-02-26\nDate de priorité: 2008-05-28\n\nDevice and method for producing a frothed whitened beverage\nInventeur: THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]\nDemandeur: NESTEC SA [CH]\nCPC: A47J31/401\nCIB: A23P30/40 A47J31/00\nCitations: EP1702544 A1 20060920 EP1932457 A1 GB2379624 A US2004071841 A1 20040415 US2005095341 A1 20050505 (+4)\nInformations sur la publication: EP2127567 (A1) 2009-12-02\nDate de priorité: 2008-05-28\n\nDEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE\nInventeur: THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]\nDemandeur: NESTEC SA [CH]\nCPC: A47J31/401\nCIB: A23P30/40 A47J31/00\nInformations sur la publication: EP2303076 (A1) 2011-04-06 EP2303076 (B1) 2014-05-14\nDate de priorité: 2008-05-28\n\nDEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE.\nInventeur: GUGERLI RAFAEL [CH] THULIEZ JEAN LUC\nDemandeur: NESTEC SA [CH]\nCPC: A47J31/401\nCIB: A23P30/40 A47J31/00\nInformations sur la publication: MX2010012978 (A) 2010-12-21\nDate de priorité: 2008-05-28\n\nDEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE\nInventeur: THULIEZ JEAN-LUC [CH] GUGERLI RAPHAEL [CH]\nDemandeur: THULIEZ JEAN-LUC [CH] NESTEC SA [CH] (+1)\nCPC: A47J31/401\nCIB: A23P30/40 A47J31/00\nCitations: EP1702544 A1 20060920 US2004071841 A1 20040415 US2005095341 A1 20050505 US6405637 B1 20020618\nInformations sur la publication: WO2009144219 (A1) 2009-12-03\nDate de priorité: 2008-05-28",
+  "citedDocumentsText": "Milk frothing and heating system\nInventeur: JOHNSON MICHAEL W [US] ENGLER CHRISTOPHER J [US]\nDemandeur: BOYD COFFEE CO [US]\nCPC: A23C2210/30 A23C9/1524 A47J31/4485 (+3)\nCIB: A23C9/152 A47J31/44 A47J31/54 (+2)\nInformations sur la publication: US5498757 (A) 1996-03-12\nDate de priorité: 1995-04-04\n\nApparatus and Method for Preparing Milk under Various Temperature and Consistency Conditions in a Coffee Machine for Forming Various Types of Beverages\nInventeur: COCCIA ANDREA [IT] SALA DARIO [IT]\nDemandeur: GRUPPO CIMBALI SPA [IT] COCCIA ANDREA [IT] (+1)\nCPC: A47J31/4485 A47J31/469\nCIB: A23F3/00 A23P30/40 A47J31/41 (+2)\nInformations sur la publication: US2009092728 (A1) 2009-04-09 US8356551 (B2) 2013-01-22\nDate de priorité: 2007-10-08\n\nMethod for preparing frothed milk or café crème\nInventeur: MELS WILLEM NANKO [NL] VAN STRATEN ADRIANUS PETRUS MA [NL] (+3)\nDemandeur: SARA LEE DE NV [US]\nCPC: A47J31/4485 Y10T137/87595 Y10T137/87652\nCIB: A47J31/44 (IPC1-7): A23F5/00\nInformations sur la publication: US6183800 (B1) 2001-02-06\nDate de priorité: 1997-09-30\n\nDevice For Frothing And Steaming Milk\nInventeur: SCHOEDLER CLAUDIO [CH] SCHODLER CLAUDIO [CH]\nDemandeur: CAFINA AG [CH]\nCPC: A01J11/00 A47J31/00 A47J31/40 (+2)\nCIB: A23P30/40 A47J31/40 B01F3/04\nInformations sur la publication: US2009047402 (A1) 2009-02-19 US8003148 (B2) 2011-08-23\nDate de priorité: 2007-08-16\n\nFroth showering\nInventeur: CARHUFF PETER W [US] LAGO MICHAEL H [US] (+1)\nDemandeur: NESTEC SA [CH]\nCPC: A47J31/002 A47J31/401 A47J31/41\nCIB: A47J31/00 A47J31/40 A47J31/41 (+4)\nInformations sur la publication: US2004071841 (A1) 2004-04-15 US6977091 (B2) 2005-12-20\nDate de priorité: 2002-10-11\n\nMethod and Apparatus for Preparing Beverage Suitable for Consumption\nInventeur: KNITEL JOSEPH THEODOOR [NL] STEENHOF VINCENT JAN [NL]\nDemandeur: SARA LEE DE NV [NL] KNITEL JOSEPH THEODOOR [NL] (+2)\nCPC: A47J31/002 A47J31/0642 A47J31/0668 (+2)\nCIB: A23F5/14 A23L2/00 A47J31/00 (+2)\nInformations sur la publication: US2008260927 (A1) 2008-10-23 US8071147 (B2) 2011-12-06\nDate de priorité: 2005-01-27\n\nAutomatic dispenser of frothed milk and pre-made liquid coffee\nInventeur: TRIDA ROBERTO [US] DEBATTISTI GIANCARLO [US]\nDemandeur: TRIDA ROBERTO DEBATTISTI GIANCARLO\nCPC: A47J31/41 A47J31/4485\nCIB: A47J31/41 A47J31/44 (IPC1-7): A47J31/40\nInformations sur la publication: US6192785 (B1) 2001-02-27\nDate de priorité: 2000-03-27\n\nMethod and Apparatus for Preparing Beverages from Soluble Products\nInventeur: DOGLIONI MAJER LUCA [IT]\nDemandeur: DOGLIONI MAJER LUCA [IT] RHEA VENDORS SPA [IT]\nCPC: A47J31/401\nCIB: A23F5/40 A23L2/52 A47J31/40 (+2)\nInformations sur la publication: US2008233264 (A1) 2008-09-25 US8333301 (B2) 2012-12-18\nDate de priorité: 2005-10-19\n\nMethod and Apparatus for Consumable Powder Reconstitution and Frothing\nInventeur: THAKUR BELI [US] SHER ALEXANDER A [US] (+4)\nDemandeur: NESTEC SA [CH]\nCPC: A23C2210/30 A23F5/405 A23L2/39 (+8)\nCIB: A23L35/00 A47J31/40\nInformations sur la publication: US2008102178 (A1) 2008-05-01\nDate de priorité: 2004-08-12\n\nMethod for preparing beverages in portions\nInventeur: WITTENBORG POUL E [DK]\nDemandeur: WITTENBORGS AUTOMATFAB [DK]\nCPC: A23F5/26 A47J31/401 A47J31/46 (+2)\nCIB: A23F5/26 A47J31/40 A47J31/46 (+4)\nInformations sur la publication: US4388338 (A) 1983-06-14\nDate de priorité: 1978-04-26\n\nCappuccino preparation\nInventeur: KNITEL JOSEPH THEODOOR [NL]\nDemandeur: SARA LEE DE NV [NL]\nCPC: A47J31/0668 A47J31/4496\nCIB: A47J31/06 A47J31/24 (IPC1-7): A23C1/00\nInformations sur la publication: US2004241307 (A1) 2004-12-02 US7703383 (B2) 2010-04-27\nDate de priorité: 2001-09-21\n\nPackage and Device for Preparation of a Food Product Such as a Beverage\nInventeur: VERBEEK ROLAND WALDEMAR [NL]\nDemandeur: CUPSYSTEM COMPANY B V [NL] VERBEEK ROLAND WALDEMAR [NL]\nCPC: A47J31/405 A47J31/407 B65D85/8055 (+3)\nCIB: A47J31/41 A47J31/44 B65B29/02\nInformations sur la publication: US2009223375 (A1) 2009-09-10 US8220382 (B2) 2012-07-17\nDate de priorité: 2006-02-17\n\nFluid delivery system for generating pressure pulses to make beverages\nInventeur: CAI EDWARD Z [US]\nDemandeur: HOUSEWARE TECHNOLOGY GROUP LLC [US]\nCPC: A47J31/002 A47J31/057 A47J31/30 (+6)\nCIB: A47J31/00 A47J31/30 A47J31/44 (+3)\nInformations sur la publication: US6405637 (B1) 2002-06-18\nDate de priorité: 2000-01-13\n\nProcess for generating milk froth from milk powder and milk froth generating device and coffee machine suitable for performing this process\nInventeur: EUGSTER ARTHUR [CH] MAHLICH GOTTHARD [DE]\nDemandeur: EUGSTER FRISMAG AG [CH] EUGSTER FRISMAG AG\nCPC: A47J31/401\nCIB: A23L2/39 A23L2/52 A23L2/54 (+3)\nInformations sur la publication: US2009011105 (A1) 2009-01-08 US7992488 (B2) 2011-08-09\nDate de priorité: 2006-02-21\n\nApparatus for automatically dissolving instant powder, particularly milk powder, in hot water and, in particular, for frothing-up\nInventeur: BRENDLE CHRISTIAN [CH] FISCHER DANIEL [CH]\nDemandeur: BRENDLE CHRISTIAN [CH] FISCHER DANIEL [CH] (+2)\nCPC: A47J31/401 A47J43/12\nCIB: A23C9/00 A47J31/40 A47J43/12\nInformations sur la publication: US2008245239 (A1) 2008-10-09 US8820218 (B2) 2014-09-02\nDate de priorité: 2006-05-27\n\nMethod and device for dispensing from liquid concentrates beverages having multi-layer visual appearance\nInventeur: SAGGIN RAFFAELLA [US] SHER ALEXANDER A [US] (+4)\nDemandeur: NESTEC SA [CH]\nCPC: A23F5/243 A47J31/402 A47J31/41\nCIB: A23F5/24 A47J31/40 A47J31/41 (+2)\nInformations sur la publication: US2005095341 (A1) 2005-05-05 US7013933 (B2) 2006-03-21\nDate de priorité: 2003-10-30",
+  "citingDocumentsText": "",
+  "espacenetExtractedSections": [
+    "description",
+    "claims",
+    "mosaics",
+    "originalDocument",
+    "citedDocuments",
+    "citingDocuments",
+    "inpadoc",
+    "inpadocPatentFamily"
+  ],
+  "errors": [],
+  "manifestErrors": []
+}

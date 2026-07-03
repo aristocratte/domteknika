@@ -1,0 +1,59 @@
+{
+  "id": "USD568097S",
+  "publication": "USD568097 (S)",
+  "corpus": "jean-luc-thuliez",
+  "metadataMarkdown": "",
+  "descriptionParagraphs": [
+    "FIG. 1 is a perspective view of a filter accessory for carafe embodying my new design;FIG. 2 is a front elevational view of FIG. 1;FIG. 3 is a rear elevational view of FIG. 2;FIG. 4 is a right side elevational view of FIG. 2, with the left side elevational view being a mirror image thereof; and,FIG. 5 is a bottom plan view of FIG. 2, with the top plan view being a mirror image thereof."
+  ],
+  "claims": [
+    "CLAIM I claim the ornamental design for a filter accessory for carafe, as shown and described."
+  ],
+  "legalEvents": [
+    "Le statut juridique INPADOC pour USD568097 (S) 2008-05-06 n´est pas disponible dans la base de données Espacenet"
+  ],
+  "familyRows": [
+    {
+      "idx": "1",
+      "title": "Filter accessory for carafe",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20080506&CC=US&NR=D568097S&KC=S",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH]",
+        "Informations sur la publication": "USD568097 (S) 2008-05-06",
+        "Date de priorité": "2006-02-14"
+      }
+    }
+  ],
+  "citedRows": [],
+  "citingRows": [
+    {
+      "idx": "1",
+      "title": "Pet water fountain ring filter",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20221011&CC=US&NR=D966463S&KC=S",
+      "sections": {
+        "Inventeur": "GRAVES JASON R [US] WARD ERIC A [US] (+2)",
+        "Demandeur": "RADIO SYSTEMS CORP [US]",
+        "Informations sur la publication": "USD966463 (S) 2022-10-11",
+        "Date de priorité": "2021-03-31"
+      }
+    }
+  ],
+  "descriptionText": "FIG. 1 is a perspective view of a filter accessory for carafe embodying my new design;FIG. 2 is a front elevational view of FIG. 1;FIG. 3 is a rear elevational view of FIG. 2;FIG. 4 is a right side elevational view of FIG. 2, with the left side elevational view being a mirror image thereof; and,FIG. 5 is a bottom plan view of FIG. 2, with the top plan view being a mirror image thereof.",
+  "claimsText": "CLAIM I claim the ornamental design for a filter accessory for carafe, as shown and described.",
+  "legalStatusText": "Le statut juridique INPADOC pour USD568097 (S) 2008-05-06 n´est pas disponible dans la base de données Espacenet",
+  "patentFamilyText": "Filter accessory for carafe\nInventeur: THULIEZ JEAN-LUC [CH]\nInformations sur la publication: USD568097 (S) 2008-05-06\nDate de priorité: 2006-02-14",
+  "citedDocumentsText": "",
+  "citingDocumentsText": "Pet water fountain ring filter\nInventeur: GRAVES JASON R [US] WARD ERIC A [US] (+2)\nDemandeur: RADIO SYSTEMS CORP [US]\nInformations sur la publication: USD966463 (S) 2022-10-11\nDate de priorité: 2021-03-31",
+  "espacenetExtractedSections": [
+    "description",
+    "claims",
+    "mosaics",
+    "originalDocument",
+    "citedDocuments",
+    "citingDocuments",
+    "inpadoc",
+    "inpadocPatentFamily"
+  ],
+  "errors": [],
+  "manifestErrors": []
+}

@@ -1,0 +1,178 @@
+{
+  "id": "MA68857A1",
+  "publication": "MA68857 (A1)",
+  "corpus": "jean-luc-thuliez",
+  "metadataMarkdown": "",
+  "descriptionParagraphs": [],
+  "claims": [],
+  "legalEvents": [
+    "Le statut juridique INPADOC pour MA68857 (A1) 2025-06-30 n´est pas disponible dans la base de données Espacenet"
+  ],
+  "familyRows": [
+    {
+      "idx": "1",
+      "title": "ALL-TERRAIN SOLAR TRACTOR VEHICLE WITH INTERCHANGEABLE MODULES",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20250630&CC=MA&NR=68857A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] CHOMAT TIMOTHÉE [FR] (+2)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60G2300/38 B60G2500/30 B60G2800/203 (+9)",
+        "CIB": "B60G3/00 B60P1/64",
+        "Citations": "CN107128413 A DE102016014641 A1 GB2490526 A US2017246975 A1 US2020148469 A1 (+2)",
+        "Informations sur la publication": "MA68857 (A1) 2025-06-30",
+        "Date de priorité": "2022-05-25"
+      }
+    },
+    {
+      "idx": "2",
+      "title": "ALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=1&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20250606&CC=CR&NR=20240541A&KC=A",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH] HEISEL GUILLAUME [CH] (+2)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60G2300/38 B60G2500/30 B60G2800/203 (+9)",
+        "CIB": "B60G3/00 B60K1/04 B60P1/08 (+2)",
+        "Informations sur la publication": "CR20240541 (A) 2025-06-06",
+        "Date de priorité": "2022-05-25"
+      }
+    },
+    {
+      "idx": "3",
+      "title": "ALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=2&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20231130&CC=WO&NR=2023228125A1&KC=A1",
+      "sections": {
+        "Inventeur": "HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+2)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60G2300/38 B60G2500/30 B60G2800/203 (+9)",
+        "CIB": "B60G3/00 B60K1/04 B60P1/08 (+2)",
+        "Citations": "CN107128413 A 20190614 DE102016014641 A1 20180614 GB2490526 A 20121107 US2017246975 A1 20170831 US2020148469 A1 20200514 (+3)",
+        "Informations sur la publication": "WO2023228125 (A1) 2023-11-30",
+        "Date de priorité": "2022-05-25"
+      }
+    },
+    {
+      "idx": "4",
+      "title": "ALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=3&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20250827&CC=ZA&NR=202408899B&KC=B",
+      "sections": {
+        "Inventeur": "HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+2)",
+        "Demandeur": "SOFTCAR SA [CH]",
+        "CPC": "B60G2300/38 B60G2500/30 B60G2800/203 (+9)",
+        "Informations sur la publication": "ZA202408899 (B) 2025-08-27",
+        "Date de priorité": "2022-05-25"
+      }
+    }
+  ],
+  "citedRows": [
+    {
+      "idx": "1",
+      "title": "ULTRA-LIGHT ROAD VEHICLE",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=0&ND=4&adjacent=true&locale=fr_EP&FT=D&date=19970501&CC=WO&NR=9715484A1&KC=A1",
+      "sections": {
+        "Inventeur": "THULIEZ JEAN-LUC [CH]",
+        "Demandeur": "THULIEZ JEAN LUC [CH]",
+        "CPC": "B60G2204/30 B62D21/04 B62D31/003 (+2)",
+        "CIB": "B62D21/04 B62D31/00 B62D47/00 (+5)",
+        "Informations sur la publication": "WO9715484 (A1) 1997-05-01",
+        "Date de priorité": "1995-10-23"
+      }
+    },
+    {
+      "idx": "2",
+      "title": "System and method for controlling vehicle",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=1&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20220407&CC=US&NR=2022105775A1&KC=A1",
+      "sections": {
+        "Inventeur": "MIN KYONGWON [KR] HAN SANG OH [KR] (+2)",
+        "Demandeur": "HYUNDAI MOBIS CO LTD [KR]",
+        "CPC": "B60G17/0165 B60G17/018 B60G2200/13 (+18)",
+        "CIB": "B60G17/0165 B60G17/018",
+        "Informations sur la publication": "US2022105775 (A1) 2022-04-07 US11718139 (B2) 2023-08-08",
+        "Date de priorité": "2020-10-07"
+      }
+    },
+    {
+      "idx": "3",
+      "title": "A steerable wheel assembly for a vehicle, and a vehicle including such an assembly",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=2&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20121107&CC=GB&NR=2490526A&KC=A",
+      "sections": {
+        "Inventeur": "SAMUEL DANTZIE [GB] DANTZIE SAMUEL [GB]",
+        "Demandeur": "DEBORAH ANN DANTZIE [GB] SAMUEL DANTZIE [GB] (+1)",
+        "CPC": "B60G17/016 B60G17/021 B60G2200/10 (+29)",
+        "CIB": "B60G3/18 B60G7/00 B60G7/02",
+        "Informations sur la publication": "GB2490526 (A) 2012-11-07 GB2490526 (B) 2017-05-17",
+        "Date de priorité": "2011-05-04"
+      }
+    },
+    {
+      "idx": "4",
+      "title": "LOWERING SUSPENSION",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=3&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20170831&CC=US&NR=2017246975A1&KC=A1",
+      "sections": {
+        "Inventeur": "WELDY ROSS [US]",
+        "Demandeur": "WELDY ROSS [US]",
+        "CPC": "B60G11/225 B60G17/017 B60G17/027 (+9)",
+        "CIB": "B60G1/02 B60G11/22 B60G17/00 (+6)",
+        "Informations sur la publication": "US2017246975 (A1) 2017-08-31 US9975463 (B2) 2018-05-22",
+        "Date de priorité": "2012-04-09"
+      }
+    },
+    {
+      "idx": "5",
+      "title": "Antrieb und Lenkvorrichtung für Elektrotransportfahrzeuge",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=4&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20180614&CC=DE&NR=102016014641A1&KC=A1",
+      "sections": {
+        "Inventeur": "GRODDE GÜNTER [DE]",
+        "Demandeur": "CARIT AUTOMOTIVE GMBH & CO KG [DE]",
+        "CPC": "B60L2200/34 B60L2200/36 B62D11/02 (+1)",
+        "CIB": "B60L15/20 B62D11/02 B62D11/14",
+        "Informations sur la publication": "DE102016014641 (A1) 2018-06-14",
+        "Date de priorité": "2016-12-09"
+      }
+    },
+    {
+      "idx": "6",
+      "title": "Sitting self-balance vehicle",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=5&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20170905&CC=CN&NR=107128413A&KC=A",
+      "sections": {
+        "Inventeur": "FAN XINCHEN WANG BING (+3)",
+        "Demandeur": "UNIV SOUTHWEST JIAOTONG",
+        "CPC": "B60L2200/12 B60L8/003 B62J1/00 (+5)",
+        "CIB": "B60L8/00 B62J1/00 B62K15/00 (+2)",
+        "Informations sur la publication": "CN107128413 (A) 2017-09-05 CN107128413 (B) 2019-06-14",
+        "Date de priorité": "2017-04-29"
+      }
+    },
+    {
+      "idx": "7",
+      "title": "Object handling device and method",
+      "link": "https://worldwide.espacenet.com/publicationDetails/biblio?II=6&ND=4&adjacent=true&locale=fr_EP&FT=D&date=20200514&CC=US&NR=2020148469A1&KC=A1",
+      "sections": {
+        "Inventeur": "CURLEY MARK D [US]",
+        "Demandeur": "CURLEY MARK D [US]",
+        "CPC": "B60P1/02 B60P1/165 B60P1/34 (+26)",
+        "CIB": "B60P1/02 B60P1/16 B60P1/34 (+6)",
+        "Informations sur la publication": "US2020148469 (A1) 2020-05-14 US11117741 (B2) 2021-09-14",
+        "Date de priorité": "2016-04-13"
+      }
+    }
+  ],
+  "citingRows": [],
+  "descriptionText": "",
+  "claimsText": "",
+  "legalStatusText": "Le statut juridique INPADOC pour MA68857 (A1) 2025-06-30 n´est pas disponible dans la base de données Espacenet",
+  "patentFamilyText": "ALL-TERRAIN SOLAR TRACTOR VEHICLE WITH INTERCHANGEABLE MODULES\nInventeur: THULIEZ JEAN-LUC [CH] CHOMAT TIMOTHÉE [FR] (+2)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60G2300/38 B60G2500/30 B60G2800/203 (+9)\nCIB: B60G3/00 B60P1/64\nCitations: CN107128413 A DE102016014641 A1 GB2490526 A US2017246975 A1 US2020148469 A1 (+2)\nInformations sur la publication: MA68857 (A1) 2025-06-30\nDate de priorité: 2022-05-25\n\nALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES\nInventeur: THULIEZ JEAN-LUC [CH] HEISEL GUILLAUME [CH] (+2)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60G2300/38 B60G2500/30 B60G2800/203 (+9)\nCIB: B60G3/00 B60K1/04 B60P1/08 (+2)\nInformations sur la publication: CR20240541 (A) 2025-06-06\nDate de priorité: 2022-05-25\n\nALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES\nInventeur: HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+2)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60G2300/38 B60G2500/30 B60G2800/203 (+9)\nCIB: B60G3/00 B60K1/04 B60P1/08 (+2)\nCitations: CN107128413 A 20190614 DE102016014641 A1 20180614 GB2490526 A 20121107 US2017246975 A1 20170831 US2020148469 A1 20200514 (+3)\nInformations sur la publication: WO2023228125 (A1) 2023-11-30\nDate de priorité: 2022-05-25\n\nALL-TERRAIN SOLAR TRACTOR VEHICLE HAVING INTERCHANGEABLE MODULES\nInventeur: HEISEL GUILLAUME [CH] THULIEZ JEAN-LUC [CH] (+2)\nDemandeur: SOFTCAR SA [CH]\nCPC: B60G2300/38 B60G2500/30 B60G2800/203 (+9)\nInformations sur la publication: ZA202408899 (B) 2025-08-27\nDate de priorité: 2022-05-25",
+  "citedDocumentsText": "ULTRA-LIGHT ROAD VEHICLE\nInventeur: THULIEZ JEAN-LUC [CH]\nDemandeur: THULIEZ JEAN LUC [CH]\nCPC: B60G2204/30 B62D21/04 B62D31/003 (+2)\nCIB: B62D21/04 B62D31/00 B62D47/00 (+5)\nInformations sur la publication: WO9715484 (A1) 1997-05-01\nDate de priorité: 1995-10-23\n\nSystem and method for controlling vehicle\nInventeur: MIN KYONGWON [KR] HAN SANG OH [KR] (+2)\nDemandeur: HYUNDAI MOBIS CO LTD [KR]\nCPC: B60G17/0165 B60G17/018 B60G2200/13 (+18)\nCIB: B60G17/0165 B60G17/018\nInformations sur la publication: US2022105775 (A1) 2022-04-07 US11718139 (B2) 2023-08-08\nDate de priorité: 2020-10-07\n\nA steerable wheel assembly for a vehicle, and a vehicle including such an assembly\nInventeur: SAMUEL DANTZIE [GB] DANTZIE SAMUEL [GB]\nDemandeur: DEBORAH ANN DANTZIE [GB] SAMUEL DANTZIE [GB] (+1)\nCPC: B60G17/016 B60G17/021 B60G2200/10 (+29)\nCIB: B60G3/18 B60G7/00 B60G7/02\nInformations sur la publication: GB2490526 (A) 2012-11-07 GB2490526 (B) 2017-05-17\nDate de priorité: 2011-05-04\n\nLOWERING SUSPENSION\nInventeur: WELDY ROSS [US]\nDemandeur: WELDY ROSS [US]\nCPC: B60G11/225 B60G17/017 B60G17/027 (+9)\nCIB: B60G1/02 B60G11/22 B60G17/00 (+6)\nInformations sur la publication: US2017246975 (A1) 2017-08-31 US9975463 (B2) 2018-05-22\nDate de priorité: 2012-04-09\n\nAntrieb und Lenkvorrichtung für Elektrotransportfahrzeuge\nInventeur: GRODDE GÜNTER [DE]\nDemandeur: CARIT AUTOMOTIVE GMBH & CO KG [DE]\nCPC: B60L2200/34 B60L2200/36 B62D11/02 (+1)\nCIB: B60L15/20 B62D11/02 B62D11/14\nInformations sur la publication: DE102016014641 (A1) 2018-06-14\nDate de priorité: 2016-12-09\n\nSitting self-balance vehicle\nInventeur: FAN XINCHEN WANG BING (+3)\nDemandeur: UNIV SOUTHWEST JIAOTONG\nCPC: B60L2200/12 B60L8/003 B62J1/00 (+5)\nCIB: B60L8/00 B62J1/00 B62K15/00 (+2)\nInformations sur la publication: CN107128413 (A) 2017-09-05 CN107128413 (B) 2019-06-14\nDate de priorité: 2017-04-29\n\nObject handling device and method\nInventeur: CURLEY MARK D [US]\nDemandeur: CURLEY MARK D [US]\nCPC: B60P1/02 B60P1/165 B60P1/34 (+26)\nCIB: B60P1/02 B60P1/16 B60P1/34 (+6)\nInformations sur la publication: US2020148469 (A1) 2020-05-14 US11117741 (B2) 2021-09-14\nDate de priorité: 2016-04-13",
+  "citingDocumentsText": "",
+  "espacenetExtractedSections": [
+    "description",
+    "claims",
+    "mosaics",
+    "originalDocument",
+    "citedDocuments",
+    "citingDocuments",
+    "inpadoc",
+    "inpadocPatentFamily"
+  ],
+  "errors": [],
+  "manifestErrors": []
+}
