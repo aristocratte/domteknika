@@ -1,4 +1,4 @@
-// Generated from assets/jean_luc_thuliez_brevets on 2026-07-03T13:56:26.612Z.
+// Generated from assets/jean_luc_thuliez_brevets on 2026-07-03T14:39:01.930Z.
 // JSON source of truth: brevets_jean_luc_thuliez_full.json and etienne_crozier_sans_jean_luc_full.json.
 // Public patent images are rendered and cropped from PDF files, not copied from source PNG files.
 // Do not edit patent records manually; regenerate with scripts/generate-patents.mjs.
@@ -94,19 +94,19 @@ export const PATENT_FILTER_LABELS: Record<PatentFilterKey, string> = {
 };
 
 export const PATENT_STATS = {
-  "total": 56,
+  "total": 54,
   "categories": 6,
   "since": 1998,
   "byCategory": {
     "mobility": 15,
     "industrial": 24,
-    "energy": 4,
+    "energy": 3,
     "digital": 3,
     "medical": 6,
-    "materials": 4
+    "materials": 3
   },
   "corpus": {
-    "jeanLucThuliez": 54,
+    "jeanLucThuliez": 52,
     "etienneCrozierOnly": 2
   }
 } as const;
@@ -5898,118 +5898,6 @@ export const PATENTS: PatentRecord[] = [
       "inpadocFamily": "https://worldwide.espacenet.com/publicationDetails/inpadocPatentFamily?CC=US&NR=5584510A&KC=A&FT=D&ND=3&date=19961217&DB=&locale=fr_EP"
     },
     "detailPath": "/assets/patents/US5584510A/detail.json",
-    "verification": {
-      "source": "",
-      "extractedAt": ""
-    }
-  },
-  {
-    "id": "FR2288933A1",
-    "publication": "FR2288933 (A1)",
-    "corpus": "jean-luc-thuliez",
-    "filter": "materials",
-    "title": "Heating tapes incorporating wires individually covered - with organo-silicone insulation to inhibit permeation by moisture",
-    "abstract": "Heating tape contg. heating elements comprises an array of electrical resistance mixes each surrounded by individual layers of insulation material and braided sheating, within the layers of insulation and sheating material used to hold the individual elements together. The insulating material on the individual elements is a heat stable material such as an organo-silicone rubber or resin. Used for mfr. of tapes for heating pipelines etc. using temperatures up to 600 degrees C. Use of individual sheathing inhibits penetration by damp with subsequent corrosion and reduction of insulation resistance, esp. for tapes only used intermitantly and therefore subject to condensation.",
-    "date": "1976-05-21",
-    "priorityDate": "",
-    "inventors": "BELIAEV G N; THULIEZ J L; KULAMINA G M; FONAREV Z I; ALEKSANDROV A M; KHORKOV V P; MATZKIN L A; NOSILEVITCH N R; LEGLEYE A J; MEE R LE; BOGDANOV A A; RAIKHEL Z CH; FOURNIER P S; BALAIAN R D; SHTEINBERG R M",
-    "applicants": "COTERM CIE TERMINAUX MARINS [FR]",
-    "secondaryInventors": "(Z. I. FONAREV, A. M. ALEKSANDROV, L. A. MATZKIN, R. D. BALAIAN, R. M. SHTEINBERG, G. M. KULAMINA, N. R. NOSILEVITCH, G. N. BELIAEV, A. A. BOGDANOV, Z. CH. RAIKHEL, V. P. KHORKOV, R. LE MEE, J. L. THULIEZ, P. S. FOURNIER ET A. J. LEGLEYE)",
-    "secondaryApplicants": "(COTERM CIE TERMINAUX MARINS; COTERM CIE TERMINAUX MARINS)",
-    "classification": "Classification: - internationale F16L53/38; (IPC1-7): F16L53/00; F16L59/10; F17D1/18 - coopérative F16L53/38 (EP); H05B2203/005 (EP); H05B2203/017 (EP); H05B3/36 (EP); H05B3/56 (EP)",
-    "applicationNumber": "Numéro de demande FR19740023510 19740705",
-    "priorityNumbers": "Numéro(s) de priorité: FR19740023510 19740705 ;",
-    "alsoPublishedAs": "Également publié en tant que: FR2288933 (A1) FR2288933 (B1) FR2288933 (A1) FR2288933 (B1) moins",
-    "publicationHeader": "Données bibliographiques: FR2288933 (A1) ― 1976-05-21",
-    "tags": [
-      "COTERM CIE TERMINAUX MARINS",
-      "F16L53/38",
-      "1976"
-    ],
-    "coverImage": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001_drawing_01.png",
-    "images": [
-      {
-        "href": "/assets/patents/FR2288933A1/images/rendered_mosaic_page_001_drawing_01.png",
-        "pdfHref": "/assets/patents/FR2288933A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001 drawing 01",
-        "kind": "mosaic"
-      }
-    ],
-    "pdfs": [
-      {
-        "href": "/assets/patents/FR2288933A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
-        "kind": "mosaic"
-      }
-    ],
-    "links": {
-      "biblio": "https://worldwide.espacenet.com/publicationDetails/biblio?II=56&ND=3&adjacent=true&locale=fr_EP&FT=D&date=19760521&CC=FR&NR=2288933A1&KC=A1",
-      "description": "https://worldwide.espacenet.com/publicationDetails/description?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "claims": "https://worldwide.espacenet.com/publicationDetails/claims?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "mosaics": "https://worldwide.espacenet.com/publicationDetails/mosaics?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "originalDocument": "https://worldwide.espacenet.com/publicationDetails/originalDocument?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "citedDocuments": "https://worldwide.espacenet.com/publicationDetails/citedDocuments?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "citingDocuments": "https://worldwide.espacenet.com/publicationDetails/citingDocuments?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "legalStatus": "https://worldwide.espacenet.com/publicationDetails/inpadoc?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP",
-      "inpadocFamily": "https://worldwide.espacenet.com/publicationDetails/inpadocPatentFamily?CC=FR&NR=2288933A1&KC=A1&FT=D&ND=3&date=19760521&DB=&locale=fr_EP"
-    },
-    "detailPath": "/assets/patents/FR2288933A1/detail.json",
-    "verification": {
-      "source": "",
-      "extractedAt": ""
-    }
-  },
-  {
-    "id": "FR2277489A1",
-    "publication": "FR2277489 (A1)",
-    "corpus": "jean-luc-thuliez",
-    "filter": "energy",
-    "title": "Supply connexion element for conduit heating strip - has tubular cable body on flat housing holding end of strip",
-    "abstract": "The connection element is mounted at the end of the heating strip so as to connect the strip conductors with themselves and/or with an electrical energy supply source. A housing (2) has a cover (1) and a narrow slot (3) into which the heating strip (4) fits. On the cover is mounted, perpendicular to its surface, a tubular element (10) containing current carrying conductors tubular element being used as a direct connection to the supply source. The connections between the ends of the heating strip conductors and the supply conductors are covered by an insulating material (4), placed on the internal faces of the housing and cover, which hardens an electrically insulating material covering the connections and the base ends of the conductors.",
-    "date": "1976-01-30",
-    "priorityDate": "",
-    "inventors": "LEGLEYE A J; THULIEZ J L; MEE R LE; FONAREV Z I; BOGDANOV A A; FOURNIER P S; ALEKSANDROV A M; KHORKOV V P; BALAIAN R D; MATZKIN L A",
-    "applicants": "COTERM CIE TERMINAUX MARINS [FR]",
-    "secondaryInventors": "(Z. I. FONAREV, V. P. KHORKOV, A. A. BOGDANOV, L. A. MATZKIN, A. M. ALEKSANDROV, R. D. BALAIAN, R. LE MEE, J. L. THULIEZ, P. S. FOURNIER ET A. J. LEGLEYE)",
-    "secondaryApplicants": "(COTERM CIE TERMINAUX MARINS; COTERM CIE TERMINAUX MARINS)",
-    "classification": "Classification: - internationale H05B3/06; H05B3/58; (IPC1-7): F16L53/00; F16L59/10; F17D1/18; H02G1/14; H02G3/08; H05B3/06 - coopérative H05B3/06 (EP); H05B3/56 (EP); H05B3/565 (EP)",
-    "applicationNumber": "Numéro de demande FR19740023511 19740705",
-    "priorityNumbers": "Numéro(s) de priorité: FR19740023511 19740705 ;",
-    "alsoPublishedAs": "Également publié en tant que: FR2277489 (A1) FR2277489 (B1) FR2277489 (A1) FR2277489 (B1) moins",
-    "publicationHeader": "Données bibliographiques: FR2277489 (A1) ― 1976-01-30",
-    "tags": [
-      "COTERM CIE TERMINAUX MARINS",
-      "H05B3/06",
-      "1976"
-    ],
-    "coverImage": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001_drawing_01.png",
-    "images": [
-      {
-        "href": "/assets/patents/FR2277489A1/images/rendered_mosaic_page_001_drawing_01.png",
-        "pdfHref": "/assets/patents/FR2277489A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001 drawing 01",
-        "kind": "mosaic"
-      }
-    ],
-    "pdfs": [
-      {
-        "href": "/assets/patents/FR2277489A1/pdfs/mosaic_page_001.pdf",
-        "label": "mosaic page 001",
-        "kind": "mosaic"
-      }
-    ],
-    "links": {
-      "biblio": "https://worldwide.espacenet.com/publicationDetails/biblio?II=57&ND=3&adjacent=true&locale=fr_EP&FT=D&date=19760130&CC=FR&NR=2277489A1&KC=A1",
-      "description": "https://worldwide.espacenet.com/publicationDetails/description?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "claims": "https://worldwide.espacenet.com/publicationDetails/claims?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "mosaics": "https://worldwide.espacenet.com/publicationDetails/mosaics?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "originalDocument": "https://worldwide.espacenet.com/publicationDetails/originalDocument?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "citedDocuments": "https://worldwide.espacenet.com/publicationDetails/citedDocuments?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "citingDocuments": "https://worldwide.espacenet.com/publicationDetails/citingDocuments?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "legalStatus": "https://worldwide.espacenet.com/publicationDetails/inpadoc?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP",
-      "inpadocFamily": "https://worldwide.espacenet.com/publicationDetails/inpadocPatentFamily?CC=FR&NR=2277489A1&KC=A1&FT=D&ND=3&date=19760130&DB=&locale=fr_EP"
-    },
-    "detailPath": "/assets/patents/FR2277489A1/detail.json",
     "verification": {
       "source": "",
       "extractedAt": ""

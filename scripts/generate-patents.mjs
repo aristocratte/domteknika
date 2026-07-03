@@ -11,6 +11,7 @@ const DATA_FILE = path.join(ROOT, "src/data/patents.ts");
 const PDFTOPPM = "/Users/aris/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/pdftoppm";
 const REUSE_IMAGES = process.argv.includes("--reuse-images");
 const CROP_PADDING = 4;
+const EXCLUDED_PATENT_IDS = new Set(["FR2288933A1", "FR2277489A1"]);
 
 const SOURCE_FILES = [
   {
@@ -777,6 +778,8 @@ async function main() {
     const json = readJson(source.json);
     for (const patent of json.patents) {
       const docId = patent.docId;
+      if (EXCLUDED_PATENT_IDS.has(docId)) continue;
+
       const manifestPatent = manifests.get(`${source.corpus}:${docId}`);
       const publicDir = path.join(PUBLIC_ROOT, docId);
       const imageDir = path.join(publicDir, "images");
