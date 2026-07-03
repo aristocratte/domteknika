@@ -1,0 +1,41 @@
+{
+  "createdAt": "2026-07-03T09:27:01.816Z",
+  "pdfCount": 5,
+  "pngCount": 5,
+  "patents": [
+    {
+      "ordinal": 8,
+      "familyId": "060813658",
+      "docId": "US11857104B2",
+      "publication": "US11857104 (B2)",
+      "title": "EXCHANGEABLE CARTRIDGE FOR BEVERAGE PORTION DISPENSER",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "errors": [],
+      "imageFiles": [
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_png/mosaic_page_001.png",
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_png/mosaic_page_002.png",
+        "patents/08_US11857104B2_EXCHANGEABLE_CARTRIDGE_FOR_BEVERAGE_PORTION_DISPENSER/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "ordinal": 9,
+      "familyId": "060813659",
+      "docId": "US11950725B2",
+      "publication": "US11950725 (B2)",
+      "title": "PORTION DISPENSER FOR DISPENSING PORTIONED BEVERAGE ITEMS",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "errors": [],
+      "imageFiles": [
+        "patents/09_US11950725B2_PORTION_DISPENSER_FOR_DISPENSING_PORTIONED_BEVERAGE_ITEMS/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/09_US11950725B2_PORTION_DISPENSER_FOR_DISPENSING_PORTIONED_BEVERAGE_ITEMS/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/09_US11950725B2_PORTION_DISPENSER_FOR_DISPENSING_PORTIONED_BEVERAGE_ITEMS/mosaics_png/mosaic_page_001.png",
+        "patents/09_US11950725B2_PORTION_DISPENSER_FOR_DISPENSING_PORTIONED_BEVERAGE_ITEMS/mosaics_png/mosaic_page_002.png"
+      ]
+    }
+  ]
+}

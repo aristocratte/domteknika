@@ -701,7 +701,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                         ? "grid-cols-[auto_1fr]"
                         : "place-items-center text-center",
                       active &&
-                        "border-brand bg-brand text-white shadow-[0_8px_16px_rgba(227,6,19,0.25)] hover:border-brand hover:bg-brand hover:text-white",
+                        "border-brand bg-brand text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] hover:border-brand hover:bg-brand hover:text-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]",
                     )}
                     aria-pressed={active}
                     onClick={() => setActiveFilter(filter.key)}

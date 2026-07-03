@@ -14,6 +14,17 @@ Extraction depuis Espacenet, requête initiale `txt = thuliez`, via les endpoint
 
 Note : une page mosaïque Espacenet pour US2022338602A1 renvoie 404. Les pages de dessins correspondantes ont été récupérées depuis le document original, pages 2 à 11. Le fichier ERROR est conservé pour audit.
 
+## Ajout Étienne Crozier sans Jean-Luc Thuliez
+
+Une recherche Espacenet `Etienne Crozier` a aussi été vérifiée : 44 résultats analysés, 34 déjà couverts car co-inventés avec Jean-Luc Thuliez, 8 faux positifs, et 2 brevets ajoutés car Étienne Crozier apparaît sans Jean-Luc Thuliez.
+
+Dossier ajouté : `etienne_crozier_sans_jean_luc/`
+
+- `US11857104B2` - EXCHANGEABLE CARTRIDGE FOR BEVERAGE PORTION DISPENSER
+- `US11950725B2` - PORTION DISPENSER FOR DISPENSING PORTIONED BEVERAGE ITEMS
+
+Ces 2 brevets ont leurs métadonnées, descriptions, revendications, citations, famille, situation juridique et 5 pages de dessins en PDF + PNG.
+
 ## Fichiers principaux
 
 - `brevets_jean_luc_thuliez_full.json` : extraction complète structurée, sections, textes, liens.
