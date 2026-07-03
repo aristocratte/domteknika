@@ -1,0 +1,2 @@
+Failed to download from Espacenet. Status=404 contentType=text/html;charset=utf-8 length=6462
+URL=https://worldwide.espacenet.com/data/espacenetDocument.pdf?flavour=phantomMosaics&locale=fr_EP&FT=D&date=20221027&CC=US&NR=2022338602A1&KC=A1&pageNumber=1

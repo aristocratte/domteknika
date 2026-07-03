@@ -1,0 +1,942 @@
+{
+  "createdAt": "2026-07-01T08:59:14.538Z",
+  "pdfCount": 114,
+  "pngCount": 114,
+  "errorFiles": [
+    "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/mosaics_pdf/mosaic_page_001.pdf.ERROR.txt"
+  ],
+  "patents": [
+    {
+      "idx": 1,
+      "docId": "WO2026078588A1",
+      "publication": "WO2026078588 (A1)",
+      "title": "ULTRA-LIGHTWEIGHT AND RECYCLABLE DASHBOARD",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/01_WO2026078588A1_ULTRA-LIGHTWEIGHT_AND_RECYCLABLE_DASHBOARD/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/01_WO2026078588A1_ULTRA-LIGHTWEIGHT_AND_RECYCLABLE_DASHBOARD/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/01_WO2026078588A1_ULTRA-LIGHTWEIGHT_AND_RECYCLABLE_DASHBOARD/mosaics_png/mosaic_page_001.png",
+        "patents/01_WO2026078588A1_ULTRA-LIGHTWEIGHT_AND_RECYCLABLE_DASHBOARD/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 2,
+      "docId": "WO2026042020A1",
+      "publication": "WO2026042020 (A1)",
+      "title": "SCREW WITH ORIENTABLE HEAD",
+      "mosaicPdfCount": 5,
+      "mosaicPngCount": 5,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_pdf/mosaic_page_004.pdf",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_pdf/mosaic_page_005.pdf",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_png/mosaic_page_001.png",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_png/mosaic_page_002.png",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_png/mosaic_page_003.png",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_png/mosaic_page_004.png",
+        "patents/02_WO2026042020A1_SCREW_WITH_ORIENTABLE_HEAD/mosaics_png/mosaic_page_005.png"
+      ]
+    },
+    {
+      "idx": 3,
+      "docId": "EP4488027A1",
+      "publication": "EP4488027 (A1)",
+      "title": "REINFORCED ROTOMOLDED BODY",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_png/mosaic_page_001.png",
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_png/mosaic_page_002.png",
+        "patents/03_EP4488027A1_REINFORCED_ROTOMOLDED_BODY/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "idx": 4,
+      "docId": "EP4705115A1",
+      "publication": "EP4705115 (A1)",
+      "title": "DEFLECTOR FOR RIMS, E.G. CAR RIMS",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/04_EP4705115A1_DEFLECTOR_FOR_RIMS_E.G._CAR_RIMS/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/04_EP4705115A1_DEFLECTOR_FOR_RIMS_E.G._CAR_RIMS/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/04_EP4705115A1_DEFLECTOR_FOR_RIMS_E.G._CAR_RIMS/mosaics_png/mosaic_page_001.png",
+        "patents/04_EP4705115A1_DEFLECTOR_FOR_RIMS_E.G._CAR_RIMS/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 5,
+      "docId": "EP4680511A1",
+      "publication": "EP4680511 (A1)",
+      "title": "RECYCLABLE STEERING WHEEL",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_png/mosaic_page_001.png",
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_png/mosaic_page_002.png",
+        "patents/05_EP4680511A1_RECYCLABLE_STEERING_WHEEL/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "idx": 7,
+      "docId": "MA68857A1",
+      "publication": "MA68857 (A1)",
+      "title": "ALL-TERRAIN SOLAR TRACTOR VEHICLE WITH INTERCHANGEABLE MODULES",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/07_MA68857A1_ALL-TERRAIN_SOLAR_TRACTOR_VEHICLE_WITH_INTERCHANGEABLE_MODUL/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/07_MA68857A1_ALL-TERRAIN_SOLAR_TRACTOR_VEHICLE_WITH_INTERCHANGEABLE_MODUL/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/07_MA68857A1_ALL-TERRAIN_SOLAR_TRACTOR_VEHICLE_WITH_INTERCHANGEABLE_MODUL/mosaics_png/mosaic_page_001.png",
+        "patents/07_MA68857A1_ALL-TERRAIN_SOLAR_TRACTOR_VEHICLE_WITH_INTERCHANGEABLE_MODUL/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 8,
+      "docId": "US2025129628A1",
+      "publication": "US2025129628 (A1)",
+      "title": "AUTOMOBILE PLANT WITH SMALL CARBON FOOTPRINT",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/08_US2025129628A1_AUTOMOBILE_PLANT_WITH_SMALL_CARBON_FOOTPRINT/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/08_US2025129628A1_AUTOMOBILE_PLANT_WITH_SMALL_CARBON_FOOTPRINT/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 9,
+      "docId": "US2024326565A1",
+      "publication": "US2024326565 (A1)",
+      "title": "Vehicle door",
+      "mosaicPdfCount": 7,
+      "mosaicPngCount": 7,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_004.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_005.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_006.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_pdf/mosaic_page_007.pdf",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_001.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_002.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_003.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_004.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_005.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_006.png",
+        "patents/09_US2024326565A1_Vehicle_door/mosaics_png/mosaic_page_007.png"
+      ]
+    },
+    {
+      "idx": 11,
+      "docId": "US2023164492A1",
+      "publication": "US2023164492 (A1)",
+      "title": "Dual axial magnetic flux induction speaker",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/11_US2023164492A1_Dual_axial_magnetic_flux_induction_speaker/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/11_US2023164492A1_Dual_axial_magnetic_flux_induction_speaker/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/11_US2023164492A1_Dual_axial_magnetic_flux_induction_speaker/mosaics_png/mosaic_page_001.png",
+        "patents/11_US2023164492A1_Dual_axial_magnetic_flux_induction_speaker/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 12,
+      "docId": "US2022338602A1",
+      "publication": "US2022338602 (A1)",
+      "title": "Frame for bad weather and/or sun protection device",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 10,
+      "originalDrawingPngCount": 10,
+      "errors": [
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/mosaics_pdf/mosaic_page_001.pdf.ERROR.txt"
+      ],
+      "imageFiles": [
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/mosaics_png/mosaic_page_002.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_002.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_003.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_004.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_005.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_006.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_007.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_008.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_009.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_010.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_pdf/original_drawing_page_011.pdf",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_002.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_003.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_004.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_005.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_006.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_007.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_008.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_009.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_010.png",
+        "patents/12_US2022338602A1_Frame_for_bad_weather_and_or_sun_protection_device/original_drawing_pages_png/original_drawing_page_011.png"
+      ]
+    },
+    {
+      "idx": 13,
+      "docId": "WO2021043427A1",
+      "publication": "WO2021043427 (A1)",
+      "title": "HOUSING FOR A DEVICE FOR PROTECTION AGAINST BAD WEATHER AND/OR SUN",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/13_WO2021043427A1_HOUSING_FOR_A_DEVICE_FOR_PROTECTION_AGAINST_BAD_WEATHER_AND/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/13_WO2021043427A1_HOUSING_FOR_A_DEVICE_FOR_PROTECTION_AGAINST_BAD_WEATHER_AND/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/13_WO2021043427A1_HOUSING_FOR_A_DEVICE_FOR_PROTECTION_AGAINST_BAD_WEATHER_AND/mosaics_png/mosaic_page_001.png",
+        "patents/13_WO2021043427A1_HOUSING_FOR_A_DEVICE_FOR_PROTECTION_AGAINST_BAD_WEATHER_AND/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 14,
+      "docId": "EP3744622A1",
+      "publication": "EP3744622 (A1)",
+      "title": "VEHICLE ARCHITECTURE",
+      "mosaicPdfCount": 5,
+      "mosaicPngCount": 5,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_004.pdf",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_005.pdf",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_001.png",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_002.png",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_003.png",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_004.png",
+        "patents/14_EP3744622A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_005.png"
+      ]
+    },
+    {
+      "idx": 15,
+      "docId": "US2022141591A1",
+      "publication": "US2022141591 (A1)",
+      "title": "System for cooling the stationary winding of an induction motor",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/15_US2022141591A1_System_for_cooling_the_stationary_winding_of_an_induction_mo/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/15_US2022141591A1_System_for_cooling_the_stationary_winding_of_an_induction_mo/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/15_US2022141591A1_System_for_cooling_the_stationary_winding_of_an_induction_mo/mosaics_png/mosaic_page_001.png",
+        "patents/15_US2022141591A1_System_for_cooling_the_stationary_winding_of_an_induction_mo/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 16,
+      "docId": "US2021127892A1",
+      "publication": "US2021127892 (A1)",
+      "title": "Beverage preparation apparatus with beverage draining means",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/16_US2021127892A1_Beverage_preparation_apparatus_with_beverage_draining_means/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/16_US2021127892A1_Beverage_preparation_apparatus_with_beverage_draining_means/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 17,
+      "docId": "US2021106167A1",
+      "publication": "US2021106167 (A1)",
+      "title": "Beverage preparation device with beverage draining means",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/17_US2021106167A1_Beverage_preparation_device_with_beverage_draining_means/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/17_US2021106167A1_Beverage_preparation_device_with_beverage_draining_means/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/17_US2021106167A1_Beverage_preparation_device_with_beverage_draining_means/mosaics_png/mosaic_page_001.png",
+        "patents/17_US2021106167A1_Beverage_preparation_device_with_beverage_draining_means/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 18,
+      "docId": "US2020154939A1",
+      "publication": "US2020154939 (A1)",
+      "title": "Beverage preparation device for vehicle",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/18_US2020154939A1_Beverage_preparation_device_for_vehicle/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/18_US2020154939A1_Beverage_preparation_device_for_vehicle/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 19,
+      "docId": "US2019223656A1",
+      "publication": "US2019223656 (A1)",
+      "title": "Beverage preparation machine with a controlled pump",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/19_US2019223656A1_Beverage_preparation_machine_with_a_controlled_pump/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/19_US2019223656A1_Beverage_preparation_machine_with_a_controlled_pump/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 20,
+      "docId": "EP3399892A1",
+      "publication": "EP3399892 (A1)",
+      "title": "BEVERAGE MACHINE WITH A CONFIGURATION FOR SAFE STANDING",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/20_EP3399892A1_BEVERAGE_MACHINE_WITH_A_CONFIGURATION_FOR_SAFE_STANDING/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/20_EP3399892A1_BEVERAGE_MACHINE_WITH_A_CONFIGURATION_FOR_SAFE_STANDING/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 21,
+      "docId": "US2019008312A1",
+      "publication": "US2019008312 (A1)",
+      "title": "Beverage machine with an ergonomic water storage",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/21_US2019008312A1_Beverage_machine_with_an_ergonomic_water_storage/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/21_US2019008312A1_Beverage_machine_with_an_ergonomic_water_storage/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 22,
+      "docId": "EP3399891A1",
+      "publication": "EP3399891 (A1)",
+      "title": "INFILTRATION-SAFE BEVERAGE MACHINE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/22_EP3399891A1_INFILTRATION-SAFE_BEVERAGE_MACHINE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/22_EP3399891A1_INFILTRATION-SAFE_BEVERAGE_MACHINE/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 23,
+      "docId": "EP3393889A1",
+      "publication": "EP3393889 (A1)",
+      "title": "VEHICLE ARCHITECTURE",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_001.png",
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_002.png",
+        "patents/23_EP3393889A1_VEHICLE_ARCHITECTURE/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "idx": 24,
+      "docId": "US2019059639A1",
+      "publication": "US2019059639 (A1)",
+      "title": "Beverage machine with ergonomic outlet",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/24_US2019059639A1_Beverage_machine_with_ergonomic_outlet/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/24_US2019059639A1_Beverage_machine_with_ergonomic_outlet/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 25,
+      "docId": "US2019313839A1",
+      "publication": "US2019313839 (A1)",
+      "title": "Beverage machine with an ergonomic user-interface",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/25_US2019313839A1_Beverage_machine_with_an_ergonomic_user-interface/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/25_US2019313839A1_Beverage_machine_with_an_ergonomic_user-interface/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 26,
+      "docId": "EP3261867A2",
+      "publication": "EP3261867 (A2)",
+      "title": "ELECTRIC SINGLE-SEATER VEHICLE",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_png/mosaic_page_001.png",
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_png/mosaic_page_002.png",
+        "patents/26_EP3261867A2_ELECTRIC_SINGLE-SEATER_VEHICLE/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "idx": 27,
+      "docId": "EP3215454A1",
+      "publication": "EP3215454 (A1)",
+      "title": "BEAKER THAT CAN BE FILLED FROM THE BOTTOM AND CONNECTING DEVICE FOR THE BEAKER",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/27_EP3215454A1_BEAKER_THAT_CAN_BE_FILLED_FROM_THE_BOTTOM_AND_CONNECTING_DEV/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/27_EP3215454A1_BEAKER_THAT_CAN_BE_FILLED_FROM_THE_BOTTOM_AND_CONNECTING_DEV/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 28,
+      "docId": "EP3185821A1",
+      "publication": "EP3185821 (A1)",
+      "title": "IMPACTOR BODY FOR ORTHOPAEDIC SURGERY OPERATION",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/28_EP3185821A1_IMPACTOR_BODY_FOR_ORTHOPAEDIC_SURGERY_OPERATION/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/28_EP3185821A1_IMPACTOR_BODY_FOR_ORTHOPAEDIC_SURGERY_OPERATION/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/28_EP3185821A1_IMPACTOR_BODY_FOR_ORTHOPAEDIC_SURGERY_OPERATION/mosaics_png/mosaic_page_001.png",
+        "patents/28_EP3185821A1_IMPACTOR_BODY_FOR_ORTHOPAEDIC_SURGERY_OPERATION/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 29,
+      "docId": "WO2016004540A1",
+      "publication": "WO2016004540 (A1)",
+      "title": "OPTICAL METHOD FOR MAKING AT LEAST ONE COMPONENT OF A WATCH MOVEMENT INVISIBLE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/29_WO2016004540A1_OPTICAL_METHOD_FOR_MAKING_AT_LEAST_ONE_COMPONENT_OF_A_WATCH/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/29_WO2016004540A1_OPTICAL_METHOD_FOR_MAKING_AT_LEAST_ONE_COMPONENT_OF_A_WATCH/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 30,
+      "docId": "US2015360014A1",
+      "publication": "US2015360014 (A1)",
+      "title": "Applicator and capsule for such applicator",
+      "mosaicPdfCount": 6,
+      "mosaicPngCount": 6,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_004.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_005.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_pdf/mosaic_page_006.pdf",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_001.png",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_002.png",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_003.png",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_004.png",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_005.png",
+        "patents/30_US2015360014A1_Applicator_and_capsule_for_such_applicator/mosaics_png/mosaic_page_006.png"
+      ]
+    },
+    {
+      "idx": 31,
+      "docId": "US2015342657A1",
+      "publication": "US2015342657 (A1)",
+      "title": "BONE FIXATION ASSEMBLY",
+      "mosaicPdfCount": 4,
+      "mosaicPngCount": 4,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_pdf/mosaic_page_004.pdf",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_png/mosaic_page_001.png",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_png/mosaic_page_002.png",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_png/mosaic_page_003.png",
+        "patents/31_US2015342657A1_BONE_FIXATION_ASSEMBLY/mosaics_png/mosaic_page_004.png"
+      ]
+    },
+    {
+      "idx": 32,
+      "docId": "AU2014274521A1",
+      "publication": "AU2014274521 (A1)",
+      "title": "Device and method for producing a frothed liquid from soluble ingredients and diluent",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/32_AU2014274521A1_Device_and_method_for_producing_a_frothed_liquid_from_solubl/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/32_AU2014274521A1_Device_and_method_for_producing_a_frothed_liquid_from_solubl/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/32_AU2014274521A1_Device_and_method_for_producing_a_frothed_liquid_from_solubl/mosaics_png/mosaic_page_001.png",
+        "patents/32_AU2014274521A1_Device_and_method_for_producing_a_frothed_liquid_from_solubl/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 33,
+      "docId": "US2016000570A1",
+      "publication": "US2016000570 (A1)",
+      "title": "Polymer based joint implants and method of manufacture",
+      "mosaicPdfCount": 3,
+      "mosaicPngCount": 3,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_pdf/mosaic_page_003.pdf",
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_png/mosaic_page_001.png",
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_png/mosaic_page_002.png",
+        "patents/33_US2016000570A1_Polymer_based_joint_implants_and_method_of_manufacture/mosaics_png/mosaic_page_003.png"
+      ]
+    },
+    {
+      "idx": 34,
+      "docId": "CH707437A1",
+      "publication": "CH707437 (A1)",
+      "title": "Method for allowing e.g. lower bridge of movement of e.g. wrist watch to be invisible in spectrum of visible wavelengths, involves performing treatment e.g. antireflective treatment, of watch glass to reduce light reflected by component",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/34_CH707437A1_Method_for_allowing_e.g._lower_bridge_of_movement_of_e.g._wr/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/34_CH707437A1_Method_for_allowing_e.g._lower_bridge_of_movement_of_e.g._wr/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 35,
+      "docId": "EP2745749A1",
+      "publication": "EP2745749 (A1)",
+      "title": "Device for preparing a drink",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/35_EP2745749A1_Device_for_preparing_a_drink/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/35_EP2745749A1_Device_for_preparing_a_drink/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/35_EP2745749A1_Device_for_preparing_a_drink/mosaics_png/mosaic_page_001.png",
+        "patents/35_EP2745749A1_Device_for_preparing_a_drink/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 36,
+      "docId": "FR2999439A1",
+      "publication": "FR2999439 (A1)",
+      "title": "DISPOSITIF DE DISTRIBUTION D'UN PRODUIT ET D'EMISSION D'UN RAYONNEMENT LUMINEUX",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/36_FR2999439A1_DISPOSITIF_DE_DISTRIBUTION_D_UN_PRODUIT_ET_D_EMISSION_D_UN_R/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/36_FR2999439A1_DISPOSITIF_DE_DISTRIBUTION_D_UN_PRODUIT_ET_D_EMISSION_D_UN_R/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/36_FR2999439A1_DISPOSITIF_DE_DISTRIBUTION_D_UN_PRODUIT_ET_D_EMISSION_D_UN_R/mosaics_png/mosaic_page_001.png",
+        "patents/36_FR2999439A1_DISPOSITIF_DE_DISTRIBUTION_D_UN_PRODUIT_ET_D_EMISSION_D_UN_R/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 37,
+      "docId": "CH700288A2",
+      "publication": "CH700288 (A2)",
+      "title": "Automatic hot beverage preparing machine i.e. coffee machine, has discharge device used for unlocking and opening extraction chamber, swinging pivoting support and ejecting used portion into recovery tray immediately after extraction",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/37_CH700288A2_Automatic_hot_beverage_preparing_machine_i.e._coffee_machine/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/37_CH700288A2_Automatic_hot_beverage_preparing_machine_i.e._coffee_machine/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/37_CH700288A2_Automatic_hot_beverage_preparing_machine_i.e._coffee_machine/mosaics_png/mosaic_page_001.png",
+        "patents/37_CH700288A2_Automatic_hot_beverage_preparing_machine_i.e._coffee_machine/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 38,
+      "docId": "US2011081464A1",
+      "publication": "US2011081464 (A1)",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED WHITENED BEVERAGE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/38_US2011081464A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_WHITENED_BEVERAGE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/38_US2011081464A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_WHITENED_BEVERAGE/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 39,
+      "docId": "US2011061534A1",
+      "publication": "US2011061534 (A1)",
+      "title": "BEVERAGE PRODUCTION DEVICE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/39_US2011061534A1_BEVERAGE_PRODUCTION_DEVICE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/39_US2011061534A1_BEVERAGE_PRODUCTION_DEVICE/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 40,
+      "docId": "CH701083B1",
+      "publication": "CH701083 (B1)",
+      "title": "Dispositif pour le détartage et le blanchiment simultane des dents.",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/40_CH701083B1_Dispositif_pour_le_detartage_et_le_blanchiment_simultane_des/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/40_CH701083B1_Dispositif_pour_le_detartage_et_le_blanchiment_simultane_des/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/40_CH701083B1_Dispositif_pour_le_detartage_et_le_blanchiment_simultane_des/mosaics_png/mosaic_page_001.png",
+        "patents/40_CH701083B1_Dispositif_pour_le_detartage_et_le_blanchiment_simultane_des/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 41,
+      "docId": "EP2000065A1",
+      "publication": "EP2000065 (A1)",
+      "title": "Device and method for producing a beverage by mixing soluble ingredients and a diluent",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/41_EP2000065A1_Device_and_method_for_producing_a_beverage_by_mixing_soluble/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/41_EP2000065A1_Device_and_method_for_producing_a_beverage_by_mixing_soluble/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 42,
+      "docId": "EP2129582A1",
+      "publication": "EP2129582 (A1)",
+      "title": "METHOD FOR INERTING A CONTAINER WITH THE INJECTION OF AN INERT GAS AND DEVICE FOR IMPLEMENTING SAME",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/42_EP2129582A1_METHOD_FOR_INERTING_A_CONTAINER_WITH_THE_INJECTION_OF_AN_INE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/42_EP2129582A1_METHOD_FOR_INERTING_A_CONTAINER_WITH_THE_INJECTION_OF_AN_INE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/42_EP2129582A1_METHOD_FOR_INERTING_A_CONTAINER_WITH_THE_INJECTION_OF_AN_INE/mosaics_png/mosaic_page_001.png",
+        "patents/42_EP2129582A1_METHOD_FOR_INERTING_A_CONTAINER_WITH_THE_INJECTION_OF_AN_INE/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 43,
+      "docId": "US2010173057A1",
+      "publication": "US2010173057 (A1)",
+      "title": "DEVICE AND METHOD FOR PRODUCING A FROTHED LIQUID FROM SOLUBLE INGREDIENTS AND DILUENT",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/43_US2010173057A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_LIQUID_FROM_SOLUBL/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/43_US2010173057A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_LIQUID_FROM_SOLUBL/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/43_US2010173057A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_LIQUID_FROM_SOLUBL/mosaics_png/mosaic_page_001.png",
+        "patents/43_US2010173057A1_DEVICE_AND_METHOD_FOR_PRODUCING_A_FROTHED_LIQUID_FROM_SOLUBL/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 44,
+      "docId": "USD568097S",
+      "publication": "USD568097 (S)",
+      "title": "Filter accessory for carafe",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/44_USD568097S_Filter_accessory_for_carafe/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/44_USD568097S_Filter_accessory_for_carafe/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 45,
+      "docId": "US2009320941A1",
+      "publication": "US2009320941 (A1)",
+      "title": "MULTI-WAY VALVE DEVICE",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/45_US2009320941A1_MULTI-WAY_VALVE_DEVICE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/45_US2009320941A1_MULTI-WAY_VALVE_DEVICE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/45_US2009320941A1_MULTI-WAY_VALVE_DEVICE/mosaics_png/mosaic_page_001.png",
+        "patents/45_US2009320941A1_MULTI-WAY_VALVE_DEVICE/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 46,
+      "docId": "WO2008017182A1",
+      "publication": "WO2008017182 (A1)",
+      "title": "METHOD AND DEVICE OR CONTROLLING THE QUALITY OF A FILTRATION CARTRIDGE AND VESSEL WITH SUCH A DEVICE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/46_WO2008017182A1_METHOD_AND_DEVICE_OR_CONTROLLING_THE_QUALITY_OF_A_FILTRATION/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/46_WO2008017182A1_METHOD_AND_DEVICE_OR_CONTROLLING_THE_QUALITY_OF_A_FILTRATION/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 47,
+      "docId": "USD560092S",
+      "publication": "USD560092 (S)",
+      "title": "Carafe",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/47_USD560092S_Carafe/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/47_USD560092S_Carafe/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 48,
+      "docId": "EP1744653A1",
+      "publication": "EP1744653 (A1)",
+      "title": "DEVICE FOR GENERATING AT LEAST ONE BEVERAGE JET AND A BEVERAGE DISPENSER PROVIDED WITH SAID DEVICE",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/48_EP1744653A1_DEVICE_FOR_GENERATING_AT_LEAST_ONE_BEVERAGE_JET_AND_A_BEVERA/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/48_EP1744653A1_DEVICE_FOR_GENERATING_AT_LEAST_ONE_BEVERAGE_JET_AND_A_BEVERA/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 50,
+      "docId": "FR2814501A1",
+      "publication": "FR2814501 (A1)",
+      "title": "DISPOSITIF D'ADMISSION D'AIR POUR UN MOTEUR THERMIQUE",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/50_FR2814501A1_DISPOSITIF_D_ADMISSION_D_AIR_POUR_UN_MOTEUR_THERMIQUE/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/50_FR2814501A1_DISPOSITIF_D_ADMISSION_D_AIR_POUR_UN_MOTEUR_THERMIQUE/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/50_FR2814501A1_DISPOSITIF_D_ADMISSION_D_AIR_POUR_UN_MOTEUR_THERMIQUE/mosaics_png/mosaic_page_001.png",
+        "patents/50_FR2814501A1_DISPOSITIF_D_ADMISSION_D_AIR_POUR_UN_MOTEUR_THERMIQUE/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 52,
+      "docId": "CH690989A5",
+      "publication": "CH690989 (A5)",
+      "title": "Forming container perform made from at least materials using same injector to supply each material successively",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/52_CH690989A5_Forming_container_perform_made_from_at_least_materials_using/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/52_CH690989A5_Forming_container_perform_made_from_at_least_materials_using/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 53,
+      "docId": "FR2757569A1",
+      "publication": "FR2757569 (A1)",
+      "title": "Admission system for automobile electronic fuel injection engines",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/53_FR2757569A1_Admission_system_for_automobile_electronic_fuel_injection_en/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/53_FR2757569A1_Admission_system_for_automobile_electronic_fuel_injection_en/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 54,
+      "docId": "US6015022A",
+      "publication": "US6015022 (A)",
+      "title": "Ultra-light road vehicle",
+      "mosaicPdfCount": 2,
+      "mosaicPngCount": 2,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/54_US6015022A_Ultra-light_road_vehicle/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/54_US6015022A_Ultra-light_road_vehicle/mosaics_pdf/mosaic_page_002.pdf",
+        "patents/54_US6015022A_Ultra-light_road_vehicle/mosaics_png/mosaic_page_001.png",
+        "patents/54_US6015022A_Ultra-light_road_vehicle/mosaics_png/mosaic_page_002.png"
+      ]
+    },
+    {
+      "idx": 55,
+      "docId": "US5667030A",
+      "publication": "US5667030 (A)",
+      "title": "Heat exchanger for motor vehicle cooling system",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/55_US5667030A_Heat_exchanger_for_motor_vehicle_cooling_system/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/55_US5667030A_Heat_exchanger_for_motor_vehicle_cooling_system/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 56,
+      "docId": "US5584510A",
+      "publication": "US5584510 (A)",
+      "title": "Motor vehicle chassis",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/56_US5584510A_Motor_vehicle_chassis/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/56_US5584510A_Motor_vehicle_chassis/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 57,
+      "docId": "FR2288933A1",
+      "publication": "FR2288933 (A1)",
+      "title": "Heating tapes incorporating wires individually covered - with organo-silicone insulation to inhibit permeation by moisture",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/57_FR2288933A1_Heating_tapes_incorporating_wires_individually_covered_-_wit/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/57_FR2288933A1_Heating_tapes_incorporating_wires_individually_covered_-_wit/mosaics_png/mosaic_page_001.png"
+      ]
+    },
+    {
+      "idx": 58,
+      "docId": "FR2277489A1",
+      "publication": "FR2277489 (A1)",
+      "title": "Supply connexion element for conduit heating strip - has tubular cable body on flat housing holding end of strip",
+      "mosaicPdfCount": 1,
+      "mosaicPngCount": 1,
+      "originalDrawingPdfCount": 0,
+      "originalDrawingPngCount": 0,
+      "errors": [],
+      "imageFiles": [
+        "patents/58_FR2277489A1_Supply_connexion_element_for_conduit_heating_strip_-_has_tub/mosaics_pdf/mosaic_page_001.pdf",
+        "patents/58_FR2277489A1_Supply_connexion_element_for_conduit_heating_strip_-_has_tub/mosaics_png/mosaic_page_001.png"
+      ]
+    }
+  ]
+}
