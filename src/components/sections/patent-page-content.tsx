@@ -44,6 +44,23 @@ type PanelRect = {
   radius: string;
 };
 
+type PatentStat = {
+  icon: string;
+  width: number;
+  height: number;
+  value: string;
+  label: string;
+};
+
+type PatentFilterOption = {
+  key: FilterKey;
+  label: string;
+  count?: string;
+  icon?: string;
+  width?: number;
+  height?: number;
+};
+
 const ASSET_BASE = "/assets/patent-page";
 
 const MODAL_TRANSITION_MS = 320;
@@ -64,88 +81,159 @@ function centeredPatentPanelRect(): PanelRect {
   };
 }
 
-const STATS = [
-  {
-    icon: `${ASSET_BASE}/icon-patent.png`,
-    width: 26,
-    height: 42,
-    value: "48+",
-    label: "Patents",
-  },
-  {
-    icon: `${ASSET_BASE}/icon-industries.png`,
-    width: 43,
-    height: 45,
-    value: "6",
-    label: "Core industries",
-  },
-  {
-    icon: `${ASSET_BASE}/icon-calendar.png`,
-    width: 49,
-    height: 47,
-    value: "Since 1998",
-    label: "+25 Years of innovation",
-  },
-] as const;
+const STATS: Record<PatentLocale, PatentStat[]> = {
+  en: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: "48+",
+      label: "Patents",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: "6",
+      label: "Core industries",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: "Since 1998",
+      label: "+25 Years of innovation",
+    },
+  ],
+  fr: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: "48+",
+      label: "Brevets",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: "6",
+      label: "Industries clés",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: "Depuis 1998",
+      label: "+25 ans d'innovation",
+    },
+  ],
+};
 
-const FILTERS: Array<{
-  key: FilterKey;
-  label: string;
-  count?: string;
-  icon?: string;
-  width?: number;
-  height?: number;
-}> = [
-  { key: "all", label: "All" },
-  {
-    key: "mobility",
-    label: "Mobility",
-    count: "12 patents",
-    icon: `${ASSET_BASE}/icon-mobility.png`,
-    width: 28,
-    height: 25,
-  },
-  {
-    key: "industrial",
-    label: "Industrial",
-    count: "14 patents",
-    icon: `${ASSET_BASE}/icon-industrial.png`,
-    width: 30,
-    height: 32,
-  },
-  {
-    key: "medical",
-    label: "Medical",
-    count: "8 patents",
-    icon: `${ASSET_BASE}/icon-medical.png`,
-    width: 39,
-    height: 34,
-  },
-  {
-    key: "energy",
-    label: "Energy",
-    count: "6 patents",
-    icon: `${ASSET_BASE}/icon-energy.png`,
-    width: 23,
-    height: 35,
-  },
-  {
-    key: "materials",
-    label: "Materials",
-    count: "10 patents",
-    icon: `${ASSET_BASE}/icon-materials.png`,
-    width: 34,
-    height: 33,
-  },
-  {
-    key: "digital",
-    label: "Digital",
-    count: "5 patents",
-    icon: `${ASSET_BASE}/icon-digital.png`,
-    width: 37,
-    height: 35,
-  },
-];
+const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
+  en: [
+    { key: "all", label: "All" },
+    {
+      key: "mobility",
+      label: "Mobility",
+      count: "12 patents",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "Industrial",
+      count: "14 patents",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "Medical",
+      count: "8 patents",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "Energy",
+      count: "6 patents",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "Materials",
+      count: "10 patents",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "Digital",
+      count: "5 patents",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
+  fr: [
+    { key: "all", label: "Tous" },
+    {
+      key: "mobility",
+      label: "Mobilité",
+      count: "12 brevets",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "Industrie",
+      count: "14 brevets",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "Médical",
+      count: "8 brevets",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "Énergie",
+      count: "6 brevets",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "Matériaux",
+      count: "10 brevets",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "Digital",
+      count: "5 brevets",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
+};
 
 const CARD_ICON: Record<Exclude<FilterKey, "all">, { src: string; width: number; height: number }> =
   {
@@ -299,6 +387,9 @@ const COPY: Record<
       statusValue: string;
       family: string;
     };
+    card: {
+      openDetails: string;
+    };
     cta: {
       eyebrow: string;
       titlePrefix: string;
@@ -321,7 +412,7 @@ const COPY: Record<
     archiveTitle: "Innovation archive",
     filtersLabel: "Filter patents",
     noResults: "No patents match this category.",
-    deposited: "Dépôt:",
+    deposited: "Filed:",
     details: {
       close: "Close patent details",
       eyebrow: "Protected innovation",
@@ -333,6 +424,9 @@ const COPY: Record<
       status: "Status",
       statusValue: "Protected",
       family: "Family",
+    },
+    card: {
+      openDetails: "Open patent details",
     },
     cta: {
       eyebrow: "Let's build together",
@@ -368,13 +462,16 @@ const COPY: Record<
       statusValue: "Protégé",
       family: "Famille",
     },
+    card: {
+      openDetails: "Ouvrir le détail du brevet",
+    },
     cta: {
       eyebrow: "Construisons ensemble",
       titlePrefix: ".",
-      title: "Anything we can build for you",
+      title: "Un projet que nous pouvons réaliser pour vous",
       titleQuestion: "?",
       body: "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions intelligentes et fabricables.",
-      button: "Start your project",
+      button: "Démarrer votre projet",
     },
   },
 };
@@ -383,12 +480,18 @@ function resolveLocale(locale: string): PatentLocale {
   return locale === "fr" ? "fr" : "en";
 }
 
-function getPatentCategoryLabel(filter: Exclude<FilterKey, "all">) {
-  return FILTERS.find((item) => item.key === filter)?.label ?? filter;
+function getPatentCategoryLabel(
+  filter: Exclude<FilterKey, "all">,
+  locale: PatentLocale,
+) {
+  return FILTERS[locale].find((item) => item.key === filter)?.label ?? filter;
 }
 
 export function PatentPageContent({ locale }: { locale: string }) {
-  const copy = COPY[resolveLocale(locale)];
+  const resolvedLocale = resolveLocale(locale);
+  const copy = COPY[resolvedLocale];
+  const stats = STATS[resolvedLocale];
+  const filters = FILTERS[resolvedLocale];
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
   const [selectedPatent, setSelectedPatent] = useState<PatentItem | null>(null);
   const [dialogState, setDialogState] = useState<
@@ -619,7 +722,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const backdropVisible = dialogState === "open";
   const panelVisible = dialogState === "open";
   const selectedPatentCategory = selectedPatent
-    ? getPatentCategoryLabel(selectedPatent.filter)
+    ? getPatentCategoryLabel(selectedPatent.filter, resolvedLocale)
     : "";
   const selectedPatentScope = selectedPatent
     ? PATENT_SCOPE[selectedPatent.filter]
@@ -665,7 +768,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
             </p>
           </Reveal>
 
-          <PatentStatsBar />
+          <PatentStatsBar stats={stats} />
         </Container>
       </section>
 
@@ -689,7 +792,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
               role="group"
               aria-label={copy.filtersLabel}
             >
-              {FILTERS.map((filter) => {
+              {filters.map((filter) => {
                 const active = activeFilter === filter.key;
                 return (
                   <button
@@ -752,6 +855,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   <PatentCard
                     patent={patent}
                     depositedLabel={copy.deposited}
+                    openDetailsLabel={copy.card.openDetails}
                     onOpen={openPatent}
                   />
                 </Reveal>
@@ -942,19 +1046,19 @@ export function PatentPageContent({ locale }: { locale: string }) {
   );
 }
 
-function PatentStatsBar() {
+function PatentStatsBar({ stats }: { stats: PatentStat[] }) {
   return (
     <Reveal
       delay={0.1}
       className="relative z-20 mx-auto mt-10 w-full max-w-[720px] md:absolute md:bottom-9 md:left-1/2 md:mt-0 md:-translate-x-1/2"
     >
       <div className="grid overflow-hidden rounded-[9px] border border-border/80 bg-white shadow-[0_7px_14px_rgba(0,0,0,0.20)] sm:grid-cols-3">
-        {STATS.map((stat, index) => (
+        {stats.map((stat, index) => (
           <article
             key={stat.label}
             className={cn(
               "group/stat grid min-h-[74px] grid-cols-[34px_1fr] items-center gap-3 px-5 py-3 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.08)] [transition-timing-function:var(--ease-smooth)]",
-              index < STATS.length - 1 && "border-b border-border sm:border-b-0 sm:border-r",
+              index < stats.length - 1 && "border-b border-border sm:border-b-0 sm:border-r",
             )}
           >
             <Image
@@ -983,10 +1087,12 @@ function PatentStatsBar() {
 function PatentCard({
   patent,
   depositedLabel,
+  openDetailsLabel,
   onOpen,
 }: {
   patent: PatentItem;
   depositedLabel: string;
+  openDetailsLabel: string;
   onOpen: (patent: PatentItem) => void;
 }) {
   const icon = CARD_ICON[patent.filter];
@@ -996,7 +1102,7 @@ function PatentCard({
       type="button"
       className="group/patent relative z-0 flex min-h-[174px] w-full origin-center transform-gpu flex-col rounded-[5px] border border-border bg-white px-5 pb-4 pt-5 text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.045] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-visible:z-10 focus-visible:scale-[1.045] focus-visible:border-brand/25 focus-visible:ring-2 focus-visible:ring-brand/35 focus-visible:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
       aria-haspopup="dialog"
-      aria-label={`Open ${patent.id} details`}
+      aria-label={`${openDetailsLabel}: ${patent.id}`}
       onClick={() => onOpen(patent)}
     >
         <span className="grid grid-cols-[28px_1fr_auto] items-start gap-4">

@@ -20,7 +20,7 @@ export function Footer() {
           <br />
           2520, La Neuveville
           <br />
-          Switzerland
+          {t("country")}
         </address>
 
         <p className="text-[13px] font-medium leading-[1.55] text-muted-foreground md:text-center">

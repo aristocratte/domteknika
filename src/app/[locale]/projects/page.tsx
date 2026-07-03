@@ -31,9 +31,9 @@ export default async function ProjectsPage({
 
   return (
     <>
-      <ProjectsPageContent />
+      <ProjectsPageContent locale={locale} />
       <TrustedBy />
-      <ProjectsPageCta />
+      <ProjectsPageCta locale={locale} />
     </>
   );
 }

@@ -48,7 +48,7 @@ export function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-[900]">
       <nav
         className="relative isolate mx-auto h-[68px] max-w-[1180px] rounded-b-[34px] md:h-[80px] md:rounded-b-[50px]"
         aria-label="Primary"

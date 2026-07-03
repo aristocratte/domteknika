@@ -38,6 +38,57 @@ type PanelRect = {
   radius: string;
 };
 
+type ProjectsLocale = "en" | "fr";
+
+type ProjectStat = {
+  label: string;
+  value: string;
+  icon: string;
+  width: number;
+  height: number;
+};
+
+type ProjectsPageCopy = {
+  hero: {
+    eyebrow: string;
+    title: string;
+    strong: string;
+    rest: string;
+    lead: string;
+  };
+  filters: Array<{ key: FilterKey; label: string }>;
+  featuredProject: Project;
+  projects: Project[];
+  stats: ProjectStat[];
+  statsLabel: string;
+  selectedTitle: string;
+  filtersLabel: string;
+  searchLabel: string;
+  searchPlaceholder: string;
+  noResults: string;
+  featuredLabel: string;
+  viewCaseStudy: string;
+  cardOpenDetails: string;
+  modal: {
+    close: string;
+    overview: string;
+    tags: string;
+    area: string;
+    focus: string;
+    output: string;
+    design: string;
+    prototype: string;
+  };
+  cta: {
+    eyebrow: string;
+    title: string;
+    bodyStrong: string;
+    body: string;
+    button: string;
+    subject: string;
+  };
+};
+
 const FILTERS: Array<{ key: FilterKey; label: string }> = [
   { key: "all", label: "All Projects" },
   { key: "area-1", label: "Area 1" },
@@ -127,7 +178,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const STATS = [
+const STATS: ProjectStat[] = [
   {
     label: "Projects delivered",
     value: "60+",
@@ -156,7 +207,172 @@ const STATS = [
     width: 51,
     height: 50,
   },
-] as const;
+];
+
+const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
+  "project-1": {
+    category: "Projet phare",
+    title: "Projet 1",
+    imageAlt: "Croquis technique de produit",
+  },
+  "project-2": {
+    category: "Domaine 1",
+    title: "Projet 2",
+    imageAlt: "Concept de vélo électrique gris",
+  },
+  "project-3": {
+    category: "Domaine 2",
+    title: "Projet 3",
+    imageAlt: "Concept de produit industriel rouge et noir",
+  },
+  "project-4": {
+    category: "Domaine 3",
+    title: "Projet 4",
+    imageAlt: "Concept de produit translucide bleu",
+  },
+  "project-5": {
+    category: "Domaine 4",
+    title: "Projet 5",
+    imageAlt: "Vélo électrique gris de profil",
+  },
+  "project-6": {
+    category: "Domaine 5",
+    title: "Projet 6",
+    imageAlt: "Concept de dispositif médical blanc",
+  },
+  "project-7": {
+    category: "Domaine 6",
+    title: "Projet 7",
+    imageAlt: "Prototype de préhenseur blanc",
+  },
+};
+
+function localizeProject(
+  project: Project,
+  overrides: Record<string, Partial<Project>>,
+) {
+  return {
+    ...project,
+    ...(overrides[project.id] ?? {}),
+  };
+}
+
+function resolveProjectsLocale(locale: string): ProjectsLocale {
+  return locale === "fr" ? "fr" : "en";
+}
+
+const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
+  en: {
+    hero: {
+      eyebrow: "Our work in action",
+      title: "Projects",
+      strong: "Swiss precision engineering",
+      rest: "for real-world results.",
+      lead: "Explore a selection of projects where we turn complex challenges into high-performance products.",
+    },
+    filters: FILTERS,
+    featuredProject: FEATURED_PROJECT,
+    projects: PROJECTS,
+    stats: STATS,
+    statsLabel: "Project statistics",
+    selectedTitle: "Selected projects",
+    filtersLabel: "Filter projects",
+    searchLabel: "Search projects",
+    searchPlaceholder: "Search...",
+    noResults: "No projects match your search.",
+    featuredLabel: "Featured project",
+    viewCaseStudy: "View case study",
+    cardOpenDetails: "Open project details",
+    modal: {
+      close: "Close project details",
+      overview: "Project overview",
+      tags: "Project tags",
+      area: "Area",
+      focus: "Focus",
+      output: "Output",
+      design: "Design",
+      prototype: "Prototype",
+    },
+    cta: {
+      eyebrow: "Let's build together",
+      title: "Let's build what's next",
+      bodyStrong: "Have a challenge in mind ?",
+      body: "We partner with forward-thinking companies to design, prototype and deliver solutions that make a real impact.",
+      button: "Start a project",
+      subject: "Project enquiry",
+    },
+  },
+  fr: {
+    hero: {
+      eyebrow: "Nos réalisations en action",
+      title: "Projets",
+      strong: "Ingénierie suisse de précision",
+      rest: "pour des résultats concrets.",
+      lead: "Découvrez une sélection de projets où nous transformons des défis complexes en produits performants.",
+    },
+    filters: [
+      { key: "all", label: "Tous les projets" },
+      { key: "area-1", label: "Domaine 1" },
+      { key: "area-2", label: "Domaine 2" },
+      { key: "area-3", label: "Domaine 3" },
+      { key: "area-4", label: "Domaine 4" },
+      { key: "area-5", label: "Domaine 5" },
+    ],
+    featuredProject: localizeProject(FEATURED_PROJECT, FR_PROJECT_OVERRIDES),
+    projects: PROJECTS.map((project) =>
+      localizeProject(project, FR_PROJECT_OVERRIDES),
+    ),
+    stats: [
+      {
+        ...STATS[0],
+        label: "Projets livrés",
+        value: "60+",
+      },
+      {
+        ...STATS[1],
+        label: "Accompagnement projet",
+        value: "End-to-end",
+      },
+      {
+        ...STATS[2],
+        label: "Industries clés",
+        value: "6+",
+      },
+      {
+        ...STATS[3],
+        label: "Pays servis",
+        value: "International",
+      },
+    ],
+    statsLabel: "Statistiques des projets",
+    selectedTitle: "Projets sélectionnés",
+    filtersLabel: "Filtrer les projets",
+    searchLabel: "Rechercher des projets",
+    searchPlaceholder: "Rechercher...",
+    noResults: "Aucun projet ne correspond à votre recherche.",
+    featuredLabel: "Projet phare",
+    viewCaseStudy: "Voir le cas",
+    cardOpenDetails: "Ouvrir le détail du projet",
+    modal: {
+      close: "Fermer le détail du projet",
+      overview: "Vue d'ensemble du projet",
+      tags: "Tags du projet",
+      area: "Domaine",
+      focus: "Focus",
+      output: "Livrable",
+      design: "Design",
+      prototype: "Prototype",
+    },
+    cta: {
+      eyebrow: "Construisons ensemble",
+      title: "Construisons la suite",
+      bodyStrong: "Vous avez un défi en tête ?",
+      body: "Nous accompagnons les entreprises visionnaires pour concevoir, prototyper et livrer des solutions à impact réel.",
+      button: "Démarrer un projet",
+      subject: "Demande de projet",
+    },
+  },
+};
 
 const MODAL_TRANSITION_MS = 320;
 const MODAL_CLOSE_FALLBACK_MS = 360;
@@ -176,7 +392,8 @@ function centeredPanelRect(): PanelRect {
   };
 }
 
-export function ProjectsPageContent() {
+export function ProjectsPageContent({ locale }: { locale: string }) {
+  const copy = PROJECTS_COPY[resolveProjectsLocale(locale)];
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -205,8 +422,8 @@ export function ProjectsPageContent() {
     const query = searchQuery.trim().toLowerCase();
     const filteredProjects =
       activeFilter === "all"
-        ? PROJECTS
-        : PROJECTS.filter((project) => project.filter === activeFilter);
+        ? copy.projects
+        : copy.projects.filter((project) => project.filter === activeFilter);
 
     if (!query) return filteredProjects;
 
@@ -222,7 +439,7 @@ export function ProjectsPageContent() {
         .toLowerCase()
         .includes(query),
     );
-  }, [activeFilter, searchQuery]);
+  }, [activeFilter, copy.projects, searchQuery]);
 
   const updateFilterIndicator = useCallback(() => {
     const track = filterTrackRef.current;
@@ -488,23 +705,22 @@ export function ProjectsPageContent() {
           <Reveal className="pb-5 md:pb-0 md:pl-4">
             <div className="flex items-center gap-3 text-[15px] font-normal text-foreground md:text-[16px]">
               <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
-              Our work in action
+              {copy.hero.eyebrow}
             </div>
             <h1
               id="projects-page-title"
               className="domtek-text-shadow mt-14 max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-16 md:text-[66px]"
             >
-              Projects<span className="text-brand">.</span>
+              {copy.hero.title}<span className="text-brand">.</span>
             </h1>
             <p className="mt-8 max-w-[500px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px]">
               <strong className="font-extrabold">
-                Swiss precision engineering
+                {copy.hero.strong}
               </strong>{" "}
-              for real-world results.
+              {copy.hero.rest}
             </p>
             <p className="mt-5 max-w-[470px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] sm:leading-[1.32]">
-              Explore a selection of projects where we turn complex challenges
-              into high-performance products.
+              {copy.hero.lead}
             </p>
           </Reveal>
 
@@ -514,19 +730,19 @@ export function ProjectsPageContent() {
               data-project-origin
               className="absolute bottom-0 right-4 z-20 grid w-[250px] gap-2 rounded-[7px] border border-border/80 bg-white/80 px-5 py-5 text-left shadow-[0_16px_34px_rgba(0,0,0,0.12)] backdrop-blur-sm outline-none transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-white/95 hover:shadow-[0_18px_40px_rgba(0,0,0,0.14)] focus-visible:ring-2 focus-visible:ring-brand/30"
               aria-haspopup="dialog"
-              onClick={() => openProject(FEATURED_PROJECT)}
+              onClick={() => openProject(copy.featuredProject)}
             >
               <span className="text-[10px] font-extrabold text-brand">
-                Featured project
+                {copy.featuredLabel}
               </span>
               <strong className="text-[17px] font-extrabold leading-tight">
-                Project 1
+                {copy.featuredProject.title}
               </strong>
               <span className="text-[12px] font-medium text-muted-foreground">
-                Description 1
+                {copy.featuredProject.description}
               </span>
               <span className="mt-5 inline-flex items-center gap-5 text-[11px] font-extrabold">
-                View case study
+                {copy.viewCaseStudy}
                 <ArrowRight className="size-4 text-brand" aria-hidden />
               </span>
               <span
@@ -538,7 +754,7 @@ export function ProjectsPageContent() {
         </Container>
       </section>
 
-      <ProjectsStatsSection />
+      <ProjectsStatsSection stats={copy.stats} ariaLabel={copy.statsLabel} />
 
       <section
         id="projects"
@@ -552,13 +768,13 @@ export function ProjectsPageContent() {
                 id="selected-projects"
                 className="text-[22px] font-extrabold leading-none text-foreground"
               >
-                Selected projects
+                {copy.selectedTitle}
               </h2>
               <div
                 ref={filterTrackRef}
                 className="group/filters relative mt-4 flex w-full max-w-full items-center gap-7 overflow-x-auto pb-2 sm:gap-9 md:gap-10"
                 role="group"
-                aria-label="Filter projects"
+                aria-label={copy.filtersLabel}
                 onScroll={updateFilterIndicator}
               >
                 <span
@@ -566,7 +782,7 @@ export function ProjectsPageContent() {
                   style={filterIndicatorStyle}
                   aria-hidden
                 />
-                {FILTERS.map((filter) => (
+                {copy.filters.map((filter) => (
                   <button
                     key={filter.key}
                     type="button"
@@ -596,7 +812,7 @@ export function ProjectsPageContent() {
             </div>
 
             <label className="relative mb-1 block md:w-[300px] lg:w-[340px]">
-              <span className="sr-only">Search projects</span>
+              <span className="sr-only">{copy.searchLabel}</span>
               <Search
                 className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
                 aria-hidden
@@ -605,7 +821,7 @@ export function ProjectsPageContent() {
                 type="search"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search..."
+                placeholder={copy.searchPlaceholder}
                 className="h-9 w-full rounded-[4px] border border-transparent bg-muted pl-9 pr-4 text-[13px] font-medium text-foreground outline-none transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-muted-foreground focus:border-brand/40 focus:bg-white focus:shadow-[0_10px_26px_rgba(0,0,0,0.06)]"
               />
             </label>
@@ -618,13 +834,18 @@ export function ProjectsPageContent() {
                   key={project.id}
                   delay={(index % 2) * 0.06}
                 >
-                  <ProjectCard project={project} onOpen={openProject} />
+                  <ProjectCard
+                    project={project}
+                    onOpen={openProject}
+                    ctaLabel={copy.viewCaseStudy}
+                    openDetailsLabel={copy.cardOpenDetails}
+                  />
                 </Reveal>
               ))}
             </div>
           ) : (
             <Reveal className="rounded-[7px] border border-border bg-white px-5 py-12 text-center text-[14px] font-medium text-muted-foreground">
-              No projects match your search.
+              {copy.noResults}
             </Reveal>
           )}
         </Container>
@@ -642,7 +863,7 @@ export function ProjectsPageContent() {
               "absolute inset-0 cursor-default bg-black/55 backdrop-blur-[7px] transition-opacity duration-200 ease-out",
               backdropVisible ? "opacity-100" : "opacity-0",
             )}
-            aria-label="Close project details"
+            aria-label={copy.modal.close}
             onClick={closeProject}
           />
 
@@ -666,7 +887,7 @@ export function ProjectsPageContent() {
                 "absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-border bg-white/95 text-foreground transition duration-200 hover:rotate-6 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand/30",
                 contentVisible ? "opacity-100" : "opacity-0",
               )}
-              aria-label="Close project details"
+              aria-label={copy.modal.close}
               onClick={closeProject}
             >
               <X className="size-4" aria-hidden />
@@ -718,7 +939,7 @@ export function ProjectsPageContent() {
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
                   <section>
                     <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
-                      Project overview
+                      {copy.modal.overview}
                     </h3>
                     <p className="mt-3 text-[14px] font-medium leading-[1.65] text-muted-foreground">
                       {selectedProject.overview}
@@ -726,7 +947,7 @@ export function ProjectsPageContent() {
                   </section>
                   <section>
                     <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
-                      Project tags
+                      {copy.modal.tags}
                     </h3>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {selectedProject.tags.map((tag) => (
@@ -743,9 +964,9 @@ export function ProjectsPageContent() {
 
                 <div className="mt-8 grid border border-border md:grid-cols-3">
                   {[
-                    ["Area", selectedProject.category],
-                    ["Focus", "Design"],
-                    ["Output", "Prototype"],
+                    [copy.modal.area, selectedProject.category],
+                    [copy.modal.focus, copy.modal.design],
+                    [copy.modal.output, copy.modal.prototype],
                   ].map(([label, value], index) => (
                     <div
                       key={label}
@@ -773,19 +994,25 @@ export function ProjectsPageContent() {
   );
 }
 
-function ProjectsStatsSection() {
+function ProjectsStatsSection({
+  stats,
+  ariaLabel,
+}: {
+  stats: ProjectStat[];
+  ariaLabel: string;
+}) {
   return (
-    <section className="bg-background py-[28px]" aria-label="Project statistics">
+    <section className="bg-background py-[28px]" aria-label={ariaLabel}>
       <Container size="wide">
         <div className="grid border border-border bg-white sm:grid-cols-2 lg:grid-cols-4">
-          {STATS.map((stat, index) => (
+          {stats.map((stat, index) => (
             <Reveal
               as="article"
               key={stat.label}
               delay={index * 0.05}
               className={cn(
                 "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                index < STATS.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
+                index < stats.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
               )}
             >
               <Image
@@ -814,9 +1041,13 @@ function ProjectsStatsSection() {
 function ProjectCard({
   project,
   onOpen,
+  ctaLabel,
+  openDetailsLabel,
 }: {
   project: Project;
   onOpen: (project: Project) => void;
+  ctaLabel: string;
+  openDetailsLabel: string;
 }) {
   return (
     <article
@@ -827,7 +1058,7 @@ function ProjectCard({
         type="button"
         className="block w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
         aria-haspopup="dialog"
-        aria-label={`Open ${project.title} details`}
+        aria-label={`${openDetailsLabel}: ${project.title}`}
         onClick={() => onOpen(project)}
       >
         <span className="relative block h-[220px] overflow-hidden bg-muted">
@@ -859,7 +1090,7 @@ function ProjectCard({
 
           <span className="mt-auto flex items-end justify-between gap-4 pt-6">
             <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground">
-              View case study
+              {ctaLabel}
               <ArrowRight
                 className="size-4 text-brand transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden
@@ -875,7 +1106,10 @@ function ProjectCard({
   );
 }
 
-export function ProjectsPageCta() {
+export function ProjectsPageCta({ locale }: { locale: string }) {
+  const copy = PROJECTS_COPY[resolveProjectsLocale(locale)].cta;
+  const mailSubject = encodeURIComponent(copy.subject);
+
   return (
     <section
       id="contact"
@@ -897,27 +1131,26 @@ export function ProjectsPageCta() {
         <Reveal className="max-w-[590px]">
           <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
             <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
-            Let&apos;s build together
+            {copy.eyebrow}
           </div>
           <h2
             id="projects-cta-title"
             className="domtek-text-shadow mt-8 text-[36px] font-extrabold leading-[1.05] text-foreground sm:text-[48px]"
           >
             <span className="text-brand">.</span>
-            Let&apos;s build what&apos;s next
+            {copy.title}
             {" "}
             <span className="text-brand">?</span>
           </h2>
           <p className="mt-6 max-w-[560px] text-[16px] font-medium leading-[1.35] text-muted-foreground">
-            <strong className="font-extrabold">Have a challenge in mind ?</strong>{" "}
-            We partner with forward-thinking companies to design, prototype and
-            deliver solutions that make a real impact.
+            <strong className="font-extrabold">{copy.bodyStrong}</strong>{" "}
+            {copy.body}
           </p>
           <a
-            href="mailto:info@domteknika.ch?subject=Project%20enquiry"
+            href={`mailto:info@domteknika.ch?subject=${mailSubject}`}
             className="mt-8 inline-flex h-10 items-center justify-center gap-6 rounded-[7px] bg-brand px-5 text-[14px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/35"
           >
-            Start a project
+            {copy.button}
             <ArrowRight className="size-4" aria-hidden />
           </a>
         </Reveal>

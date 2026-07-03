@@ -64,7 +64,7 @@ export function ProcessSection() {
                     alt=""
                     fill
                     sizes="430px"
-                    className="object-contain object-center md:scale-[1.08]"
+                    className="scale-[1.12] object-contain object-center md:scale-[1.2] lg:scale-[1.24] xl:scale-[1.28]"
                   />
                 </div>
               </div>

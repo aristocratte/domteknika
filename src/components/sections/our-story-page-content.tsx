@@ -159,9 +159,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     eyebrow: "Notre parcours depuis 1998",
     title: "Notre histoire",
     intro:
-      "Depuis plus de 25 ans, DOMTEKNIKA transforme des défis techniques complexes en solutions fiables. Des premiers concepts aux prototypes, de la simulation à l'electronique et au développement industriel, nous aidons les idées à devenir des produits qui fonctionnent. Découvrez une sélection de projets qui reflètent notre expertise et notre expérience.",
+      "Depuis plus de 25 ans, DOMTEKNIKA transforme des défis techniques complexes en solutions fiables. Des premiers concepts aux prototypes, de la simulation à l'électronique et au développement industriel, nous aidons les idées à devenir des produits qui fonctionnent. Découvrez une sélection de projets qui reflètent notre expertise et notre expérience.",
     timelineTitlePrefix: "DOMTEKNIKA",
-    timelineTitleSuffix: "timeline",
+    timelineTitleSuffix: "chronologie",
     cards: {
       founded: {
         year: "1998",
