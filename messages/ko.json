@@ -1,0 +1,254 @@
+{
+  "Meta": {
+    "title": "DOMTEKNIKA - 제품 엔지니어링 및 프로토타이핑",
+    "description": "DOMTEKNIKA는 스위스에서 산업 기업과 혁신가를 위해 엔지니어링, 프로토타이핑, 생산을 연결합니다."
+  },
+  "Nav": {
+    "home": "홈",
+    "projects": "프로젝트",
+    "expertise": "전문성",
+    "patent": "특허",
+    "story": "회사 이야기",
+    "cta": "문의",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기"
+  },
+  "Hero": {
+    "eyebrow": "아이디어를 실제 솔루션으로",
+    "engineering": "Engineering",
+    "prototyping": "Prototyping",
+    "producing": "Producing",
+    "shape": "Shape your dreams",
+    "lead": "아이디어의 첫 순간부터 양산까지, <brand>DOMTEKNIKA</brand>는 산업 기업과 혁신가를 위해 엔지니어링과 제조를 이어 줍니다. 기계공학, 맞춤형 산업 솔루션, 정밀 프로토타이핑을 <strong>스위스에서 구현합니다.</strong>",
+    "ctaPrimary": "문의하기",
+    "ctaSecondary": "전문성 보기"
+  },
+  "Projects": {
+    "title": "프로젝트",
+    "viewAll": "모든 프로젝트 보기",
+    "items": {
+      "2": {
+        "title": "Aventor",
+        "description": "경량 복합재 차체를 갖춘 고성능 전기 플랫폼."
+      },
+      "3": {
+        "title": "SOFTCAR",
+        "description": "재활용 가능한 차량 시스템을 갖춘 저탄소 도시형 전기차 아키텍처."
+      },
+      "4": {
+        "title": "STAJVELO RV01",
+        "description": "폴리머 엔지니어링과 독특한 휠을 중심으로 한 도심형 전기자전거."
+      },
+      "5": {
+        "title": "Alicoffee",
+        "description": "이중 통과 캡슐 유체 회로를 적용한 커피 머신 콘셉트."
+      }
+    },
+    "previous": "이전 프로젝트",
+    "next": "다음 프로젝트"
+  },
+  "ProjectsPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 프로젝트",
+      "description": "스위스 정밀 엔지니어링, 프로토타이핑, 생산 분야의 DOMTEKNIKA 주요 프로젝트를 살펴보세요."
+    }
+  },
+  "PatentPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 특허",
+      "description": "핵심 산업 전반에서 DOMTEKNIKA의 보호된 혁신, 특허, 엔지니어링 포트폴리오를 살펴보세요."
+    }
+  },
+  "ContactPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 문의",
+      "description": "엔지니어링, 프로토타이핑, 생산 프로젝트를 논의하려면 스위스 라 뇌브빌의 DOMTEKNIKA에 문의하세요."
+    },
+    "Hero": {
+      "eyebrow": "함께 이야기해요",
+      "title": "문의",
+      "lead": "질문이 있거나 프로젝트를 구상 중이거나 협업 가능성을 알아보고 싶으신가요? 저희가 도와드리겠습니다."
+    },
+    "Cards": {
+      "location": {
+        "title": "위치",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSwitzerland",
+        "action": "Google Maps에서 열기"
+      },
+      "email": {
+        "title": "이메일 문의",
+        "body": "info@domteknika.ch",
+        "action": "이메일 보내기"
+      },
+      "phone": {
+        "title": "전화 문의",
+        "body": "+41 32 751 71 46",
+        "action": "DOMTEKNIKA에 전화하기"
+      }
+    },
+    "Form": {
+      "title": "메시지 보내기",
+      "firstName": "이름",
+      "lastName": "성",
+      "company": "회사",
+      "email": "이메일",
+      "phone": "전화번호(선택)",
+      "message": "메시지를 입력하세요...",
+      "submit": "메시지 보내기",
+      "secure": "입력하신 정보는 안전하게 보호되며 공유되지 않습니다.",
+      "success": "메시지가 준비되었습니다. 다음 단계에서 이 양식을 받은편지함에 연결합니다."
+    },
+    "Map": {
+      "eyebrow": "찾아오시는 길",
+      "title": "워크숍 방문",
+      "body": "저희 사무실과 워크숍은 비엘 호수와 쥐라 산기슭 사이의 라 뇌브빌에 있습니다.",
+      "marker": "DOMTEKNIKA SA"
+    }
+  },
+  "Process": {
+    "ideaTitle": "아이디어",
+    "ideaIntro": "모든 훌륭한 제품은 아이디어, 스케치, 해결해야 할 문제 또는 개선할 시스템에서 시작됩니다.",
+    "ideaBody": "산업 기업이든 첫 혁신을 준비하는 분이든, <strong>저희는 아이디어가 현실이 되도록 돕습니다.</strong>",
+    "processTitle": "프로세스",
+    "processBody": "타당성 검토와 CAD 설계부터 프로토타이핑과 양산까지 전체 과정을 민첩하고 기밀성 있게 진행합니다.",
+    "productTitle": "제품",
+    "productBody": "실제로 작동하는 생산 준비 완료 부품입니다. 산업 고객은 출시 시간을 줄이고, 혁신가는 첫 아이디어가 제조와 테스트가 가능한 제품으로 바뀌는 과정을 확인합니다.",
+    "stats": {
+      "years": {
+        "value": "+25년",
+        "label": "경험"
+      },
+      "sectors": {
+        "value": "다양한 산업",
+        "label": "전문성"
+      },
+      "swiss": {
+        "value": "100%",
+        "label": "스위스 엔지니어링"
+      }
+    }
+  },
+  "ExpertisePage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 산업 전문성",
+      "description": "스위스 기반 DOMTEKNIKA의 혁신, 제품 디자인, 프로토타이핑, 시뮬레이션, 폴리머, 전자 통합 전문성을 살펴보세요."
+    },
+    "Hero": {
+      "eyebrow": "아이디어를 실제 솔루션으로",
+      "team": "우리 팀",
+      "title": "전문성"
+    },
+    "Services": {
+      "eyebrow": "우리가 하는 일",
+      "title": "모든 단계의 엔드투엔드 전문성",
+      "intro": "단일 프로토타입부터 산업 규모 생산까지, 개인과 기업이 아이디어를 설계하고 엔지니어링하며 제조하도록 돕습니다.",
+      "items": {
+        "creativity": {
+          "title": "창의성과 혁신",
+          "description": "전략적 아이디어 도출과 기본 원리에 기반한 솔루션으로 초기 콘셉트를 새로운 기회로 바꿉니다."
+        },
+        "design": {
+          "title": "제품 디자인",
+          "description": "성능과 제조 가능성을 고려한 산업 디자인, 기계, 전기, 시스템 엔지니어링."
+        },
+        "prototyping": {
+          "title": "프로토타이핑",
+          "description": "빠른 프로토타이핑과 고급 기술로 아이디어를 검증하고 위험을 낮춥니다."
+        },
+        "simulation": {
+          "title": "시뮬레이션 및 분석",
+          "description": "고급 시뮬레이션과 분석으로 성능을 예측하고 설계를 최적화하며 신뢰성을 확보합니다."
+        },
+        "polymer": {
+          "title": "폴리머 및 사출 전문성",
+          "description": "정밀 부품을 위한 폴리머 소재, 사출 성형, 공정 최적화 전문성."
+        },
+        "electronics": {
+          "title": "전자 통합",
+          "description": "연결되고 신뢰할 수 있는 지능형 제품을 위한 스마트 전자 설계 및 통합."
+        }
+      }
+    },
+    "Swiss": {
+      "title": "스위스의 뿌리에서 출발해 아이디어를 완성합니다."
+    },
+    "AddedValue": {
+      "eyebrow": "우리의 가치",
+      "values": {
+        "partner": {
+          "title": "엔드투엔드 파트너",
+          "description": "콘셉트부터 산업화까지 전 과정을 맡습니다."
+        },
+        "agile": {
+          "title": "민첩하고 신속한 대응",
+          "description": "빠르게 움직이고 유연하게 적응하며 고객 가까이에 머뭅니다."
+        },
+        "confidential": {
+          "title": "기밀성",
+          "description": "고객의 아이디어는 언제나 안전하게 보호됩니다."
+        },
+        "quality": {
+          "title": "스위스 품질",
+          "description": "스위스 기준의 정밀 엔지니어링과 프리미엄 품질."
+        }
+      },
+      "stats": {
+        "projects": {
+          "value": "+60",
+          "label": "완료한 프로젝트"
+        },
+        "years": {
+          "value": "+25년",
+          "label": "경험"
+        },
+        "worldwide": {
+          "value": "전 세계",
+          "label": "서비스 국가"
+        },
+        "industries": {
+          "value": "6+",
+          "label": "핵심 산업"
+        }
+      }
+    },
+    "Cta": {
+      "eyebrow": "함께 만들어 갑시다",
+      "title": "해결할 과제가 있으신가요",
+      "subtitle": "저희는 미래지향적인 기업과 협력해 복잡한 과제를 스마트하고 제조 가능한 솔루션으로 바꿉니다.",
+      "button": "프로젝트 시작하기"
+    }
+  },
+  "TrustedBy": {
+    "label": "신뢰하는 고객"
+  },
+  "SwissBanner": {
+    "titleLineOne": "스위스에서 제작.",
+    "titleLineTwo": "세계를 위해 설계.",
+    "values": {
+      "swissQuality": "스위스 품질",
+      "endToEnd": "엔드투엔드 파트너",
+      "agile": "민첩하고 유연함",
+      "confidential": "기밀 유지"
+    },
+    "end": "스위스 가치 끝"
+  },
+  "Cta": {
+    "eyebrow": "함께 만들어 갑시다",
+    "title": "다음 아이디어를 현실로",
+    "subtitle": "과제를 들려주세요. 스위스 워크숍에서 설계하고 프로토타입을 만들며 실제 현장에 맞게 준비하겠습니다.",
+    "cta": "프로젝트 시작하기"
+  },
+  "Footer": {
+    "country": "Switzerland",
+    "rights": "All rights reserved"
+  },
+  "Language": {
+    "switch": "언어 변경",
+    "fr": "Français",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "ko": "한국어",
+    "zh": "中文"
+  }
+}

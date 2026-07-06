@@ -19,7 +19,7 @@
     "prototyping": "Prototyping",
     "producing": "Producing",
     "shape": "Shape your dreams",
-    "lead": "De la première étincelle d'une idée à la production en série, <brand>DOMTEKNIKA</brand> relie ingénierie et fabrication pour les industriels et les innovateurs. Ingénierie mécanique, solutions industrielles sur mesure et prototypage de précision <strong>made in Switzerland.</strong>",
+    "lead": "De la première étincelle d'une idée à la production en série, <brand>DOMTEKNIKA</brand> relie ingénierie et fabrication pour les industriels et les innovateurs. Ingénierie mécanique, solutions industrielles sur mesure et prototypage de précision <strong>conçus en Suisse.</strong>",
     "ctaPrimary": "Contact",
     "ctaSecondary": "Notre expertise"
   },
@@ -222,8 +222,8 @@
     "label": "Ils nous font confiance"
   },
   "SwissBanner": {
-    "titleLineOne": "Built in Switzerland.",
-    "titleLineTwo": "Engineered for the world.",
+    "titleLineOne": "Conçu en Suisse.",
+    "titleLineTwo": "Pensé pour le monde.",
     "values": {
       "swissQuality": "Qualité suisse",
       "endToEnd": "Partenaire end-to-end",
@@ -234,7 +234,7 @@
   },
   "Cta": {
     "eyebrow": "Construisons ensemble",
-    "title": "Let's shape your next idea",
+    "title": "Façonnons votre prochaine idée",
     "subtitle": "Présentez-nous votre défi. Nous le concevrons, le prototyperons et le préparerons pour le monde réel, depuis notre atelier en Suisse.",
     "cta": "Démarrer votre projet"
   },
@@ -245,6 +245,10 @@
   "Language": {
     "switch": "Changer de langue",
     "fr": "Français",
-    "en": "English"
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "ko": "한국어",
+    "zh": "中文"
   }
 }

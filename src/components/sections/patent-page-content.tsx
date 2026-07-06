@@ -41,7 +41,7 @@ import {
   type PatentSourceLinks,
 } from "@/data/patents";
 
-type PatentLocale = "en" | "fr";
+type PatentLocale = "en" | "fr" | "de" | "es" | "ko" | "zh";
 type FilterKey = "all" | PatentFilterKey;
 type PatentItem = PatentRecord;
 
@@ -137,6 +137,98 @@ const STATS: Record<PatentLocale, PatentStat[]> = {
       label: "+25 ans d'innovation",
     },
   ],
+  de: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: String(PATENT_STATS.total),
+      label: "Verifizierte Patente",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: String(PATENT_STATS.categories),
+      label: "Kernbranchen",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: `Seit ${PATENT_STATS.since}`,
+      label: "+25 Jahre Innovation",
+    },
+  ],
+  es: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: String(PATENT_STATS.total),
+      label: "Patentes verificadas",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: String(PATENT_STATS.categories),
+      label: "Industrias clave",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: `Desde ${PATENT_STATS.since}`,
+      label: "+25 años de innovación",
+    },
+  ],
+  ko: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: String(PATENT_STATS.total),
+      label: "검증된 특허",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: String(PATENT_STATS.categories),
+      label: "핵심 산업",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: `${PATENT_STATS.since}년부터`,
+      label: "+25년의 혁신",
+    },
+  ],
+  zh: [
+    {
+      icon: `${ASSET_BASE}/icon-patent.png`,
+      width: 26,
+      height: 42,
+      value: String(PATENT_STATS.total),
+      label: "已验证专利",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-industries.png`,
+      width: 43,
+      height: 45,
+      value: String(PATENT_STATS.categories),
+      label: "核心行业",
+    },
+    {
+      icon: `${ASSET_BASE}/icon-calendar.png`,
+      width: 49,
+      height: 47,
+      value: `自 ${PATENT_STATS.since} 年`,
+      label: "+25 年创新",
+    },
+  ],
 };
 
 const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
@@ -230,6 +322,186 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
       height: 35,
     },
   ],
+  de: [
+    { key: "all", label: "Alle" },
+    {
+      key: "mobility",
+      label: "Mobilität",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "Industrie",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "Medizin",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "Energie",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "Materialien",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "Digital",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
+  es: [
+    { key: "all", label: "Todo" },
+    {
+      key: "mobility",
+      label: "Movilidad",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "Industrial",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "Médico",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "Energía",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "Materiales",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "Digital",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
+  ko: [
+    { key: "all", label: "전체" },
+    {
+      key: "mobility",
+      label: "모빌리티",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "산업",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "의료",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "에너지",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "소재",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "디지털",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
+  zh: [
+    { key: "all", label: "全部" },
+    {
+      key: "mobility",
+      label: "出行",
+      icon: `${ASSET_BASE}/icon-mobility.png`,
+      width: 28,
+      height: 25,
+    },
+    {
+      key: "industrial",
+      label: "工业",
+      icon: `${ASSET_BASE}/icon-industrial.png`,
+      width: 30,
+      height: 32,
+    },
+    {
+      key: "medical",
+      label: "医疗",
+      icon: `${ASSET_BASE}/icon-medical.png`,
+      width: 39,
+      height: 34,
+    },
+    {
+      key: "energy",
+      label: "能源",
+      icon: `${ASSET_BASE}/icon-energy.png`,
+      width: 23,
+      height: 35,
+    },
+    {
+      key: "materials",
+      label: "材料",
+      icon: `${ASSET_BASE}/icon-materials.png`,
+      width: 34,
+      height: 33,
+    },
+    {
+      key: "digital",
+      label: "数字",
+      icon: `${ASSET_BASE}/icon-digital.png`,
+      width: 37,
+      height: 35,
+    },
+  ],
 };
 
 const CARD_ICON: Record<PatentFilterKey, { src: string; width: number; height: number }> = {
@@ -254,6 +526,7 @@ const COPY: Record<
     noResults: string;
     searchPlaceholder: string;
     resultsLabel: string;
+    filterCountLabel: string;
     deposited: string;
     details: {
       close: string;
@@ -317,6 +590,7 @@ const COPY: Record<
     noResults: "No patents match this category.",
     searchPlaceholder: "Search title, inventor, applicant, publication...",
     resultsLabel: "patents shown",
+    filterCountLabel: "patents",
     deposited: "Published:",
     details: {
       close: "Close patent details",
@@ -379,6 +653,7 @@ const COPY: Record<
     noResults: "Aucun brevet ne correspond à cette catégorie.",
     searchPlaceholder: "Rechercher titre, inventeur, demandeur, publication...",
     resultsLabel: "brevets affichés",
+    filterCountLabel: "brevets",
     deposited: "Publié:",
     details: {
       close: "Fermer le détail du brevet",
@@ -427,10 +702,262 @@ const COPY: Record<
       button: "Démarrer votre projet",
     },
   },
+  de: {
+    hero: {
+      eyebrow: "Unsere geschützte Innovation",
+      title: "Patente",
+      leadOne:
+        "Unser Patentportfolio spiegelt Jahre der Forschung, Engineering-Exzellenz und das Engagement für komplexe Herausforderungen wider.",
+      leadTwo:
+        "Entdecken Sie unsere geschützten Innovationen, die mehrere Branchen mitgestalten.",
+    },
+    archiveTitle: "Innovationsarchiv",
+    filtersLabel: "Patente filtern",
+    noResults: "Keine Patente passen zu dieser Kategorie.",
+    searchPlaceholder: "Titel, Erfinder, Anmelder, Veröffentlichung suchen...",
+    resultsLabel: "Patente angezeigt",
+    filterCountLabel: "Patente",
+    deposited: "Veröffentlicht:",
+    details: {
+      close: "Patentdetails schließen",
+      eyebrow: "Geschützte Innovation",
+      overview: "Patentübersicht",
+      tags: "Patent-Tags",
+      category: "Kategorie",
+      publication: "Veröffentlichung",
+      publicationDate: "Veröffentlichungsdatum",
+      priorityDate: "Prioritätsdatum",
+      inventors: "Erfinder",
+      applicants: "Anmelder",
+      application: "Anmeldung",
+      classification: "Klassifikation",
+      alsoPublishedAs: "Auch veröffentlicht als",
+      images: "Zeichnungen",
+      openDrawing: "Zeichnung öffnen",
+      closeDrawing: "Zeichnung schließen",
+      previousDrawing: "Vorherige Zeichnung",
+      nextDrawing: "Nächste Zeichnung",
+      rotateDrawing: "Zeichnung drehen",
+      zoomInDrawing: "Zeichnung vergrößern",
+      zoomOutDrawing: "Zeichnung verkleinern",
+      openImageViewer: "Bildbetrachter öffnen",
+      vectorPdf: "Vektor-PDF",
+      sourceLinks: "Espacenet-Quelle",
+      downloadPdfs: "PDFs herunterladen",
+      fullDescription: "Vollständige Beschreibung",
+      claims: "Ansprüche",
+      legalStatus: "Rechtsstand",
+      family: "INPADOC-Familie",
+      cited: "Zitierte Dokumente",
+      citing: "Zitierende Dokumente",
+      loading: "Verifizierten Patenteintrag laden...",
+      unavailable: "Für diesen Abschnitt ist lokal kein Text verfügbar.",
+    },
+    card: {
+      openDetails: "Patentdetails öffnen",
+    },
+    cta: {
+      eyebrow: "Lassen Sie uns bauen",
+      titlePrefix: ".",
+      title: "Etwas, das wir für Sie entwickeln können",
+      titleQuestion: "?",
+      body: "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um komplexe Herausforderungen in intelligente, herstellbare Lösungen zu verwandeln.",
+      button: "Projekt starten",
+    },
+  },
+  es: {
+    hero: {
+      eyebrow: "Nuestra innovación, protegida",
+      title: "Patentes",
+      leadOne:
+        "Nuestra cartera de patentes refleja años de investigación, excelencia en ingeniería y compromiso con la resolución de retos complejos.",
+      leadTwo:
+        "Explora nuestras innovaciones protegidas que dan forma al futuro en múltiples industrias.",
+    },
+    archiveTitle: "Archivo de innovación",
+    filtersLabel: "Filtrar patentes",
+    noResults: "Ninguna patente coincide con esta categoría.",
+    searchPlaceholder: "Buscar título, inventor, solicitante, publicación...",
+    resultsLabel: "patentes mostradas",
+    filterCountLabel: "patentes",
+    deposited: "Publicado:",
+    details: {
+      close: "Cerrar detalles de la patente",
+      eyebrow: "Innovación protegida",
+      overview: "Resumen de la patente",
+      tags: "Etiquetas de patente",
+      category: "Categoría",
+      publication: "Publicación",
+      publicationDate: "Fecha de publicación",
+      priorityDate: "Fecha de prioridad",
+      inventors: "Inventores",
+      applicants: "Solicitantes",
+      application: "Solicitud",
+      classification: "Clasificación",
+      alsoPublishedAs: "También publicado como",
+      images: "Dibujos",
+      openDrawing: "Abrir dibujo",
+      closeDrawing: "Cerrar dibujo",
+      previousDrawing: "Dibujo anterior",
+      nextDrawing: "Dibujo siguiente",
+      rotateDrawing: "Girar dibujo",
+      zoomInDrawing: "Acercar dibujo",
+      zoomOutDrawing: "Alejar dibujo",
+      openImageViewer: "Abrir visor de imagen",
+      vectorPdf: "PDF vectorial",
+      sourceLinks: "Fuente Espacenet",
+      downloadPdfs: "Descargar PDFs",
+      fullDescription: "Descripción completa",
+      claims: "Reivindicaciones",
+      legalStatus: "Situación jurídica",
+      family: "Familia INPADOC",
+      cited: "Documentos citados",
+      citing: "Documentos citantes",
+      loading: "Cargando ficha de patente verificada...",
+      unavailable: "No hay texto local disponible para esta sección.",
+    },
+    card: {
+      openDetails: "Abrir detalles de la patente",
+    },
+    cta: {
+      eyebrow: "Construyamos juntos",
+      titlePrefix: ".",
+      title: "Algo que podamos construir para ti",
+      titleQuestion: "?",
+      body: "Colaboramos con empresas visionarias para convertir retos complejos en soluciones inteligentes y fabricables.",
+      button: "Iniciar tu proyecto",
+    },
+  },
+  ko: {
+    hero: {
+      eyebrow: "보호받는 혁신",
+      title: "특허",
+      leadOne:
+        "특허 포트폴리오는 수년간의 연구, 엔지니어링 우수성, 복잡한 과제를 해결하려는 의지를 보여 줍니다.",
+      leadTwo:
+        "여러 산업의 미래를 만들어 가는 보호된 혁신을 살펴보세요.",
+    },
+    archiveTitle: "혁신 아카이브",
+    filtersLabel: "특허 필터",
+    noResults: "이 카테고리에 맞는 특허가 없습니다.",
+    searchPlaceholder: "제목, 발명자, 출원인, 공개번호 검색...",
+    resultsLabel: "개 특허 표시",
+    filterCountLabel: "개 특허",
+    deposited: "공개:",
+    details: {
+      close: "특허 상세 닫기",
+      eyebrow: "보호된 혁신",
+      overview: "특허 개요",
+      tags: "특허 태그",
+      category: "카테고리",
+      publication: "공개번호",
+      publicationDate: "공개일",
+      priorityDate: "우선일",
+      inventors: "발명자",
+      applicants: "출원인",
+      application: "출원",
+      classification: "분류",
+      alsoPublishedAs: "동시 공개",
+      images: "도면",
+      openDrawing: "도면 열기",
+      closeDrawing: "도면 닫기",
+      previousDrawing: "이전 도면",
+      nextDrawing: "다음 도면",
+      rotateDrawing: "도면 회전",
+      zoomInDrawing: "도면 확대",
+      zoomOutDrawing: "도면 축소",
+      openImageViewer: "이미지 뷰어 열기",
+      vectorPdf: "벡터 PDF",
+      sourceLinks: "Espacenet 출처",
+      downloadPdfs: "PDF 다운로드",
+      fullDescription: "전체 설명",
+      claims: "청구항",
+      legalStatus: "법적 상태",
+      family: "INPADOC 패밀리",
+      cited: "인용 문헌",
+      citing: "피인용 문헌",
+      loading: "검증된 특허 기록을 불러오는 중...",
+      unavailable: "이 섹션에는 로컬 텍스트가 없습니다.",
+    },
+    card: {
+      openDetails: "특허 상세 열기",
+    },
+    cta: {
+      eyebrow: "함께 만들어 갑시다",
+      titlePrefix: ".",
+      title: "우리가 만들어 드릴 수 있는 것이 있나요",
+      titleQuestion: "?",
+      body: "저희는 미래지향적인 기업과 협력해 복잡한 과제를 스마트하고 제조 가능한 솔루션으로 바꿉니다.",
+      button: "프로젝트 시작하기",
+    },
+  },
+  zh: {
+    hero: {
+      eyebrow: "我们的创新，受到保护",
+      title: "专利",
+      leadOne:
+        "我们的专利组合体现了多年研究、卓越工程能力，以及解决复杂挑战的持续投入。",
+      leadTwo:
+        "探索我们在多个行业中塑造未来的受保护创新。",
+    },
+    archiveTitle: "创新档案",
+    filtersLabel: "筛选专利",
+    noResults: "没有符合该类别的专利。",
+    searchPlaceholder: "搜索标题、发明人、申请人、公布号...",
+    resultsLabel: "项专利显示",
+    filterCountLabel: "项专利",
+    deposited: "公开:",
+    details: {
+      close: "关闭专利详情",
+      eyebrow: "受保护创新",
+      overview: "专利概览",
+      tags: "专利标签",
+      category: "类别",
+      publication: "公布",
+      publicationDate: "公布日期",
+      priorityDate: "优先权日",
+      inventors: "发明人",
+      applicants: "申请人",
+      application: "申请",
+      classification: "分类",
+      alsoPublishedAs: "也公布为",
+      images: "附图",
+      openDrawing: "打开附图",
+      closeDrawing: "关闭附图",
+      previousDrawing: "上一张附图",
+      nextDrawing: "下一张附图",
+      rotateDrawing: "旋转附图",
+      zoomInDrawing: "放大附图",
+      zoomOutDrawing: "缩小附图",
+      openImageViewer: "打开图片查看器",
+      vectorPdf: "矢量 PDF",
+      sourceLinks: "Espacenet 来源",
+      downloadPdfs: "下载 PDF",
+      fullDescription: "完整说明",
+      claims: "权利要求",
+      legalStatus: "法律状态",
+      family: "INPADOC 族",
+      cited: "被引用文献",
+      citing: "引用文献",
+      loading: "正在加载已验证专利记录...",
+      unavailable: "此部分没有本地文本。",
+    },
+    card: {
+      openDetails: "打开专利详情",
+    },
+    cta: {
+      eyebrow: "一起打造",
+      titlePrefix: ".",
+      title: "有什么可以由我们为你打造",
+      titleQuestion: "?",
+      body: "我们与具有前瞻性的企业合作，将复杂挑战转化为智能、可制造的解决方案。",
+      button: "启动你的项目",
+    },
+  },
 };
 
 function resolveLocale(locale: string): PatentLocale {
-  return locale === "fr" ? "fr" : "en";
+  return locale in COPY ? (locale as PatentLocale) : "en";
 }
 
 function getPatentCategoryLabel(
@@ -1067,7 +1594,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                             active && "text-white/85",
                           )}
                         >
-                          {count} {resolvedLocale === "fr" ? "brevets" : "patents"}
+                          {count} {copy.filterCountLabel}
                         </span>
                       )}
                     </span>
@@ -1085,6 +1612,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
                     patent={patent}
                     depositedLabel={copy.deposited}
                     openDetailsLabel={copy.card.openDetails}
+                    previousDrawingLabel={copy.details.previousDrawing}
+                    nextDrawingLabel={copy.details.nextDrawing}
                     onOpen={openPatent}
                   />
                 </Reveal>
@@ -2132,11 +2661,15 @@ function PatentCard({
   patent,
   depositedLabel,
   openDetailsLabel,
+  previousDrawingLabel,
+  nextDrawingLabel,
   onOpen,
 }: {
   patent: PatentItem;
   depositedLabel: string;
   openDetailsLabel: string;
+  previousDrawingLabel: string;
+  nextDrawingLabel: string;
   onOpen: (patent: PatentItem) => void;
 }) {
   const icon = CARD_ICON[patent.filter];
@@ -2191,7 +2724,7 @@ function PatentCard({
             <button
               type="button"
               className="pointer-events-auto absolute left-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]"
-              aria-label="Previous drawing"
+              aria-label={previousDrawingLabel}
               onClick={(event) => {
                 event.stopPropagation();
                 cycleCardImage(-1);
@@ -2202,7 +2735,7 @@ function PatentCard({
             <button
               type="button"
               className="pointer-events-auto absolute right-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]"
-              aria-label="Next drawing"
+              aria-label={nextDrawingLabel}
               onClick={(event) => {
                 event.stopPropagation();
                 cycleCardImage(1);

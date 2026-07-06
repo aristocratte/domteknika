@@ -245,6 +245,10 @@
   "Language": {
     "switch": "Switch language",
     "fr": "Français",
-    "en": "English"
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "ko": "한국어",
+    "zh": "中文"
   }
 }

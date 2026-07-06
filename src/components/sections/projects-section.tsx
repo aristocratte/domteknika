@@ -14,7 +14,12 @@ import {
 } from "@/components/ui/carousel";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
-import { getProjectsForLocale } from "@/components/sections/projects-page-content";
+import {
+  type Project,
+  getProjectsPageCopy,
+  getProjectsForLocale,
+  ProjectDetailsDialog,
+} from "@/components/sections/projects-page-content";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +27,9 @@ export function ProjectsSection() {
   const t = useTranslations("Projects");
   const locale = useLocale();
   const [api, setApi] = useState<CarouselApi>();
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projects = useMemo(() => getProjectsForLocale(locale), [locale]);
+  const projectsCopy = useMemo(() => getProjectsPageCopy(locale), [locale]);
   const carouselProjects = useMemo(() => [...projects, ...projects], [projects]);
   const autoplay = useMemo(
     () =>
@@ -89,10 +96,13 @@ export function ProjectsSection() {
                     className="basis-[min(274px,78vw)] pl-7"
                   >
                     <ProjectCard
-                      image={project.image}
-                      title={project.title}
-                      description={project.description}
+                      project={project}
                       tag={project.tags[1] ?? project.tags[0] ?? project.category}
+                      openDetailsLabel={projectsCopy.cardOpenDetails}
+                      onOpen={(nextProject) => {
+                        autoplay.stop();
+                        setSelectedProject(nextProject);
+                      }}
                     />
                   </CarouselItem>
                 ))}
@@ -117,44 +127,60 @@ export function ProjectsSection() {
           </div>
         </Reveal>
       </Container>
+      {selectedProject ? (
+        <ProjectDetailsDialog
+          locale={locale}
+          modal={projectsCopy.modal}
+          project={selectedProject}
+          onClosed={() => setSelectedProject(null)}
+        />
+      ) : null}
     </section>
   );
 }
 
 function ProjectCard({
-  image,
-  title,
-  description,
+  project,
   tag,
+  onOpen,
+  openDetailsLabel,
 }: {
-  image: string;
-  title: string;
-  description: string;
+  project: Project;
   tag: string;
+  onOpen: (project: Project) => void;
+  openDetailsLabel: string;
 }) {
   return (
-    <article className="group h-[286px] overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
-      <div className="relative h-[160px] bg-muted">
-        <Image
-          src={image}
-          alt=""
-          fill
-          sizes="274px"
-          className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
-        />
-      </div>
-      <div className="flex h-[126px] flex-col px-4 pb-4 pt-4">
-        <h3 className="text-[14px] font-extrabold leading-tight text-foreground">
-          {title}
-        </h3>
-        <p className="mt-2 text-[13px] font-medium leading-tight text-muted-foreground">
-          {description}
-        </p>
-        <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
-          {tag}
-        </p>
-      </div>
-    </article>
+    <button
+      type="button"
+      className="group block h-[286px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30"
+      aria-haspopup="dialog"
+      aria-label={`${openDetailsLabel}: ${project.title}`}
+      onClick={() => onOpen(project)}
+    >
+      <article className="h-full">
+        <div className="relative h-[160px] bg-muted">
+          <Image
+            src={project.image}
+            alt=""
+            fill
+            sizes="274px"
+            className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
+          />
+        </div>
+        <div className="flex h-[126px] flex-col px-4 pb-4 pt-4">
+          <h3 className="text-[14px] font-extrabold leading-tight text-foreground">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-[13px] font-medium leading-tight text-muted-foreground">
+            {project.description}
+          </p>
+          <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
+            {tag}
+          </p>
+        </div>
+      </article>
+    </button>
   );
 }
 

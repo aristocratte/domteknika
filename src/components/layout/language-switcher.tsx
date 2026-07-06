@@ -16,8 +16,21 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const LANGUAGE_NAMES: Record<Locale, string> = {
-  en: "English",
   fr: "Français",
+  en: "English",
+  de: "Deutsch",
+  es: "Español",
+  ko: "한국어",
+  zh: "中文",
+};
+
+const LANGUAGE_BADGES: Record<Locale, string> = {
+  fr: "FR",
+  en: "EN",
+  de: "DE",
+  es: "ES",
+  ko: "KO",
+  zh: "ZH",
 };
 
 export function LanguageSwitcher({ className }: { className?: string }) {
@@ -100,6 +113,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           >
             {locales.map((locale) => {
               const active = locale === current;
+              const badge = LANGUAGE_BADGES[locale];
+              const showBadge = badge !== LANGUAGE_NAMES[locale];
 
               return (
                 <button
@@ -115,7 +130,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   )}
                 >
                   <span>{LANGUAGE_NAMES[locale]}</span>
-                  <span className="text-[11px] uppercase">{locale}</span>
+                  {showBadge ? (
+                    <span className="text-[11px]">{badge}</span>
+                  ) : null}
                 </button>
               );
             })}
@@ -130,12 +147,12 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen((value) => !value)}
         disabled={isPending}
-        className="inline-flex h-[42px] min-w-[64px] items-center justify-center gap-1.5 rounded-[10px] border border-white/75 bg-white/[0.72] px-3 text-[13px] font-extrabold uppercase text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_16px_rgba(0,0,0,0.08)] backdrop-blur-2xl transition-colors hover:bg-white/[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:opacity-60"
+        className="inline-flex h-[42px] min-w-[64px] items-center justify-center gap-1.5 rounded-[10px] border border-white/75 bg-white/[0.72] px-3 text-[13px] font-extrabold text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_16px_rgba(0,0,0,0.08)] backdrop-blur-2xl transition-colors hover:bg-white/[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:opacity-60"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label={t("switch")}
       >
-        {current}
+        {LANGUAGE_BADGES[current]}
         <ChevronDown
           className={cn(
             "size-3.5 transition-transform duration-200",

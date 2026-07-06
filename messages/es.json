@@ -1,0 +1,254 @@
+{
+  "Meta": {
+    "title": "DOMTEKNIKA - Ingeniería de producto y prototipado",
+    "description": "DOMTEKNIKA conecta ingeniería, prototipado y producción para empresas industriales e innovadores desde Suiza."
+  },
+  "Nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "expertise": "Experiencia",
+    "patent": "Patentes",
+    "story": "Nuestra historia",
+    "cta": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "Hero": {
+    "eyebrow": "Convertimos ideas en soluciones reales",
+    "engineering": "Engineering",
+    "prototyping": "Prototyping",
+    "producing": "Producing",
+    "shape": "Shape your dreams",
+    "lead": "Desde la primera chispa de una idea hasta la producción en serie, <brand>DOMTEKNIKA</brand> conecta ingeniería y fabricación para industriales e innovadores. Ingeniería mecánica, soluciones industriales a medida y prototipos de precisión <strong>hechos en Suiza.</strong>",
+    "ctaPrimary": "Contacto",
+    "ctaSecondary": "Nuestra experiencia"
+  },
+  "Projects": {
+    "title": "Nuestros proyectos",
+    "viewAll": "Ver todos los proyectos",
+    "items": {
+      "2": {
+        "title": "Aventor",
+        "description": "Plataforma eléctrica de alto rendimiento con carrocería ligera de composite."
+      },
+      "3": {
+        "title": "SOFTCAR",
+        "description": "Arquitectura urbana de vehículo eléctrico de baja huella con sistemas reciclables."
+      },
+      "4": {
+        "title": "STAJVELO RV01",
+        "description": "Arquitectura de e-bike urbana con ingeniería de polímeros y ruedas distintivas."
+      },
+      "5": {
+        "title": "Alicoffee",
+        "description": "Concepto de cafetera con circuito fluídico de cápsula de doble paso."
+      }
+    },
+    "previous": "Proyecto anterior",
+    "next": "Proyecto siguiente"
+  },
+  "ProjectsPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Proyectos",
+      "description": "Explora proyectos seleccionados de DOMTEKNIKA en ingeniería de precisión suiza, prototipado y producción."
+    }
+  },
+  "PatentPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Patentes",
+      "description": "Explora las innovaciones protegidas, patentes y cartera de ingeniería de DOMTEKNIKA en industrias clave."
+    }
+  },
+  "ContactPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Contacto",
+      "description": "Contacta con DOMTEKNIKA en La Neuveville, Suiza, para hablar de proyectos de ingeniería, prototipado y producción."
+    },
+    "Hero": {
+      "eyebrow": "Hablemos",
+      "title": "Contacto",
+      "lead": "¿Tienes una pregunta, un proyecto en mente o quieres explorar cómo podemos trabajar juntos? Estamos aquí para ayudarte."
+    },
+    "Cards": {
+      "location": {
+        "title": "Nuestra ubicación",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSuiza",
+        "action": "Abrir en Google Maps"
+      },
+      "email": {
+        "title": "Escríbenos",
+        "body": "info@domteknika.ch",
+        "action": "Enviar un email"
+      },
+      "phone": {
+        "title": "Llámanos",
+        "body": "+41 32 751 71 46",
+        "action": "Llamar a DOMTEKNIKA"
+      }
+    },
+    "Form": {
+      "title": "Envíanos un mensaje",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "company": "Empresa",
+      "email": "Email",
+      "phone": "Teléfono (opcional)",
+      "message": "Tu mensaje...",
+      "submit": "Enviar mensaje",
+      "secure": "Tu información está segura y nunca será compartida.",
+      "success": "Mensaje listo. Después conectaremos este formulario con tu buzón."
+    },
+    "Map": {
+      "eyebrow": "Dónde encontrarnos",
+      "title": "Visita nuestro taller",
+      "body": "Nuestra oficina y taller están en La Neuveville, entre el lago de Biel y las estribaciones del Jura.",
+      "marker": "DOMTEKNIKA SA"
+    }
+  },
+  "Process": {
+    "ideaTitle": "La idea",
+    "ideaIntro": "Todo gran producto empieza con una idea, un boceto, un problema por resolver o un sistema por mejorar.",
+    "ideaBody": "Tanto si eres una empresa industrial como un innovador primerizo, <strong>te ayudamos a convertir tus ideas en algo real.</strong>",
+    "processTitle": "El proceso",
+    "processBody": "Desde el estudio de viabilidad y el diseño CAD hasta el prototipado y la producción en serie, mantenemos todo el proceso ágil y confidencial.",
+    "productTitle": "El producto",
+    "productBody": "Una pieza lista para producción que funciona. Los clientes industriales reducen su tiempo de salida al mercado. Los innovadores ven cómo su primera idea se convierte en un producto fabricable y testeable.",
+    "stats": {
+      "years": {
+        "value": "+25 años",
+        "label": "De experiencia"
+      },
+      "sectors": {
+        "value": "Multisectorial",
+        "label": "Experiencia"
+      },
+      "swiss": {
+        "value": "100%",
+        "label": "Ingeniería suiza"
+      }
+    }
+  },
+  "ExpertisePage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - Experiencia industrial",
+      "description": "Explora la experiencia de DOMTEKNIKA: innovación, diseño de producto, prototipado, simulación, polímeros e integración electrónica desde Suiza."
+    },
+    "Hero": {
+      "eyebrow": "Convertimos ideas en soluciones reales",
+      "team": "Nuestro equipo",
+      "title": "Experiencia"
+    },
+    "Services": {
+      "eyebrow": "Qué hacemos",
+      "title": "Experiencia de extremo a extremo en cada etapa",
+      "intro": "Desde prototipos únicos hasta producción industrial, ayudamos a personas y empresas a diseñar, desarrollar y fabricar sus ideas.",
+      "items": {
+        "creativity": {
+          "title": "Creatividad e innovación",
+          "description": "Convertimos conceptos iniciales en nuevas oportunidades mediante ideación estratégica y soluciones de primeros principios."
+        },
+        "design": {
+          "title": "Diseño de producto",
+          "description": "Diseño industrial e ingeniería mecánica, eléctrica y de sistemas orientados al rendimiento y la fabricabilidad."
+        },
+        "prototyping": {
+          "title": "Prototipado",
+          "description": "Prototipado rápido y técnicas avanzadas para validar ideas y reducir riesgos."
+        },
+        "simulation": {
+          "title": "Simulación y análisis",
+          "description": "Simulación y análisis avanzados para prever rendimiento, optimizar diseños y asegurar fiabilidad."
+        },
+        "polymer": {
+          "title": "Polímeros e inyección",
+          "description": "Experiencia en materiales poliméricos, moldeo por inyección y optimización de procesos para componentes de precisión."
+        },
+        "electronics": {
+          "title": "Integración electrónica",
+          "description": "Diseño e integración de electrónica inteligente para productos conectados, fiables e inteligentes."
+        }
+      }
+    },
+    "Swiss": {
+      "title": "Desde raíces suizas. Damos forma a tus ideas."
+    },
+    "AddedValue": {
+      "eyebrow": "Nuestro valor añadido",
+      "values": {
+        "partner": {
+          "title": "Socio integral",
+          "description": "Del concepto a la industrialización, nos ocupamos de todo."
+        },
+        "agile": {
+          "title": "Ágiles y receptivos",
+          "description": "Avanzamos rápido, nos adaptamos con rapidez y permanecemos cerca de ti."
+        },
+        "confidential": {
+          "title": "Confidencial",
+          "description": "Tus ideas están seguras con nosotros. Siempre."
+        },
+        "quality": {
+          "title": "Calidad suiza",
+          "description": "Ingeniería de precisión y calidad premium según estándares suizos."
+        }
+      },
+      "stats": {
+        "projects": {
+          "value": "+60",
+          "label": "Proyectos entregados"
+        },
+        "years": {
+          "value": "+25 años",
+          "label": "De experiencia"
+        },
+        "worldwide": {
+          "value": "Internacional",
+          "label": "Países atendidos"
+        },
+        "industries": {
+          "value": "6+",
+          "label": "Industrias clave"
+        }
+      }
+    },
+    "Cta": {
+      "eyebrow": "Construyamos juntos",
+      "title": "¿Tienes un reto que podamos resolver?",
+      "subtitle": "Colaboramos con empresas visionarias para convertir retos complejos en soluciones inteligentes y fabricables.",
+      "button": "Iniciar tu proyecto"
+    }
+  },
+  "TrustedBy": {
+    "label": "Confían en nosotros"
+  },
+  "SwissBanner": {
+    "titleLineOne": "Construido en Suiza.",
+    "titleLineTwo": "Diseñado para el mundo.",
+    "values": {
+      "swissQuality": "Calidad suiza",
+      "endToEnd": "Socio integral",
+      "agile": "Ágil y flexible",
+      "confidential": "Confidencial"
+    },
+    "end": "Fin de los valores suizos"
+  },
+  "Cta": {
+    "eyebrow": "Construyamos juntos",
+    "title": "Demos forma a tu próxima idea",
+    "subtitle": "Cuéntanos tu reto. Lo diseñaremos, lo prototiparemos y lo prepararemos para el mundo real desde nuestro taller en Suiza.",
+    "cta": "Iniciar tu proyecto"
+  },
+  "Footer": {
+    "country": "Suiza",
+    "rights": "Todos los derechos reservados"
+  },
+  "Language": {
+    "switch": "Cambiar idioma",
+    "fr": "Français",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "ko": "한국어",
+    "zh": "中文"
+  }
+}

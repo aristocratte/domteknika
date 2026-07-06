@@ -5,6 +5,50 @@ import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 
+const ERROR_COPY = {
+  fr: {
+    title: "La page n'a pas fini de charger",
+    body: "La navigation n'a pas abouti correctement. Réessayez, ou rechargez la page si le serveur local vient d'être mis à jour.",
+    retry: "Réessayer",
+    reload: "Recharger",
+  },
+  en: {
+    title: "Page loading issue",
+    body: "The page did not finish loading correctly. Try again, or reload the page if the local server was just updated.",
+    retry: "Try again",
+    reload: "Reload page",
+  },
+  de: {
+    title: "Die Seite wurde nicht vollständig geladen",
+    body: "Die Navigation wurde nicht korrekt abgeschlossen. Versuchen Sie es erneut oder laden Sie die Seite neu, falls der lokale Server gerade aktualisiert wurde.",
+    retry: "Erneut versuchen",
+    reload: "Neu laden",
+  },
+  es: {
+    title: "La página no terminó de cargar",
+    body: "La navegación no se completó correctamente. Inténtalo de nuevo o recarga la página si el servidor local acaba de actualizarse.",
+    retry: "Intentar de nuevo",
+    reload: "Recargar",
+  },
+  ko: {
+    title: "페이지 로딩이 완료되지 않았습니다",
+    body: "탐색이 정상적으로 완료되지 않았습니다. 다시 시도하거나 로컬 서버가 방금 업데이트된 경우 페이지를 새로고침하세요.",
+    retry: "다시 시도",
+    reload: "새로고침",
+  },
+  zh: {
+    title: "页面未完成加载",
+    body: "导航未正确完成。请重试；如果本地服务器刚刚更新，请刷新页面。",
+    retry: "重试",
+    reload: "刷新页面",
+  },
+};
+
+function getErrorCopy(pathname: string) {
+  const locale = pathname.split("/")[1] as keyof typeof ERROR_COPY;
+  return ERROR_COPY[locale] ?? ERROR_COPY.en;
+}
+
 export default function RouteError({
   error,
   reset,
@@ -13,20 +57,7 @@ export default function RouteError({
   reset: () => void;
 }) {
   const pathname = usePathname();
-  const isFrench = pathname.startsWith("/fr");
-  const copy = isFrench
-    ? {
-        title: "La page n'a pas fini de charger",
-        body: "La navigation n'a pas abouti correctement. Réessayez, ou rechargez la page si le serveur local vient d'être mis à jour.",
-        retry: "Réessayer",
-        reload: "Recharger",
-      }
-    : {
-        title: "Page loading issue",
-        body: "The page did not finish loading correctly. Try again, or reload the page if the local server was just updated.",
-        retry: "Try again",
-        reload: "Reload page",
-      };
+  const copy = getErrorCopy(pathname);
 
   useEffect(() => {
     console.error(error);

@@ -1,0 +1,254 @@
+{
+  "Meta": {
+    "title": "DOMTEKNIKA - 产品工程与原型开发",
+    "description": "DOMTEKNIKA 在瑞士为工业企业与创新者连接工程、原型开发和生产。"
+  },
+  "Nav": {
+    "home": "首页",
+    "projects": "项目",
+    "expertise": "专长",
+    "patent": "专利",
+    "story": "我们的故事",
+    "cta": "联系",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
+  },
+  "Hero": {
+    "eyebrow": "把想法转化为真实解决方案",
+    "engineering": "Engineering",
+    "prototyping": "Prototyping",
+    "producing": "Producing",
+    "shape": "Shape your dreams",
+    "lead": "从最初的灵感到批量生产，<brand>DOMTEKNIKA</brand> 为工业企业和创新者连接工程与制造。机械工程、定制工业方案和精密原型开发，<strong>源自瑞士。</strong>",
+    "ctaPrimary": "联系我们",
+    "ctaSecondary": "了解专长"
+  },
+  "Projects": {
+    "title": "我们的项目",
+    "viewAll": "查看全部项目",
+    "items": {
+      "2": {
+        "title": "Aventor",
+        "description": "采用轻量化复合材料车身的高性能电动平台。"
+      },
+      "3": {
+        "title": "SOFTCAR",
+        "description": "低环境足迹的城市电动车架构，采用可回收车辆系统。"
+      },
+      "4": {
+        "title": "STAJVELO RV01",
+        "description": "以聚合物工程和独特车轮为核心的城市电动自行车架构。"
+      },
+      "5": {
+        "title": "Alicoffee",
+        "description": "采用双通道胶囊流体回路的咖啡机概念。"
+      }
+    },
+    "previous": "上一个项目",
+    "next": "下一个项目"
+  },
+  "ProjectsPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 项目",
+      "description": "探索 DOMTEKNIKA 在瑞士精密工程、原型开发和生产领域的精选项目。"
+    }
+  },
+  "PatentPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 专利",
+      "description": "探索 DOMTEKNIKA 在核心行业中的受保护创新、专利与工程组合。"
+    }
+  },
+  "ContactPage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 联系",
+      "description": "联系位于瑞士 La Neuveville 的 DOMTEKNIKA，讨论工程、原型开发和生产项目。"
+    },
+    "Hero": {
+      "eyebrow": "让我们联系",
+      "title": "联系",
+      "lead": "有问题、有项目想法，或想了解我们如何合作？我们随时乐意协助。"
+    },
+    "Cards": {
+      "location": {
+        "title": "我们的位置",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSwitzerland",
+        "action": "在 Google Maps 中打开"
+      },
+      "email": {
+        "title": "给我们发邮件",
+        "body": "info@domteknika.ch",
+        "action": "发送邮件"
+      },
+      "phone": {
+        "title": "致电我们",
+        "body": "+41 32 751 71 46",
+        "action": "致电 DOMTEKNIKA"
+      }
+    },
+    "Form": {
+      "title": "给我们留言",
+      "firstName": "名",
+      "lastName": "姓",
+      "company": "公司",
+      "email": "邮箱",
+      "phone": "电话（可选）",
+      "message": "请输入你的留言...",
+      "submit": "发送留言",
+      "secure": "你的信息会被安全保存，绝不会被分享。",
+      "success": "留言已准备好。下一步会把此表单连接到你的收件箱。"
+    },
+    "Map": {
+      "eyebrow": "找到我们",
+      "title": "参观我们的工作室",
+      "body": "我们的办公室和工作室位于 La Neuveville，坐落在比尔湖与汝拉山麓之间。",
+      "marker": "DOMTEKNIKA SA"
+    }
+  },
+  "Process": {
+    "ideaTitle": "想法",
+    "ideaIntro": "每一件优秀产品都始于一个想法、一张草图、一个待解决的问题，或一个需要改进的系统。",
+    "ideaBody": "无论你是工业企业还是首次创新者，<strong>我们都会帮助你把构想变成真实可行的成果。</strong>",
+    "processTitle": "流程",
+    "processBody": "从可行性研究、CAD 设计到原型开发和批量生产，我们让整个流程保持敏捷并严格保密。",
+    "productTitle": "产品",
+    "productBody": "一个可投产、能可靠运行的部件。工业客户缩短上市时间，创新者则看到最初的想法变成可制造、可测试的产品。",
+    "stats": {
+      "years": {
+        "value": "+25 年",
+        "label": "经验"
+      },
+      "sectors": {
+        "value": "多行业",
+        "label": "专长"
+      },
+      "swiss": {
+        "value": "100%",
+        "label": "瑞士工程"
+      }
+    }
+  },
+  "ExpertisePage": {
+    "Meta": {
+      "title": "DOMTEKNIKA - 工业专长",
+      "description": "了解 DOMTEKNIKA 源自瑞士的创新、产品设计、原型开发、仿真、聚合物和电子集成专长。"
+    },
+    "Hero": {
+      "eyebrow": "把想法转化为真实解决方案",
+      "team": "我们的团队",
+      "title": "专长"
+    },
+    "Services": {
+      "eyebrow": "我们做什么",
+      "title": "覆盖每一步的端到端专长",
+      "intro": "从一次性原型到工业规模生产，我们帮助个人和企业设计、工程化并制造他们的想法。",
+      "items": {
+        "creativity": {
+          "title": "创意与创新",
+          "description": "我们通过战略构思和第一性原理解法，将原始概念转化为新的机会。"
+        },
+        "design": {
+          "title": "产品设计",
+          "description": "面向性能和可制造性的工业设计、机械、电气与系统工程。"
+        },
+        "prototyping": {
+          "title": "原型开发",
+          "description": "快速原型开发和先进技术，用于验证想法并降低风险。"
+        },
+        "simulation": {
+          "title": "仿真与分析",
+          "description": "通过先进仿真和分析预测性能、优化设计并确保可靠性。"
+        },
+        "polymer": {
+          "title": "聚合物与注塑专长",
+          "description": "面向精密组件的聚合物材料、注塑成型和工艺优化专长。"
+        },
+        "electronics": {
+          "title": "电子集成",
+          "description": "为互联、可靠、智能的产品提供智能电子设计与集成。"
+        }
+      }
+    },
+    "Swiss": {
+      "title": "源自瑞士根基。我们塑造你的想法。"
+    },
+    "AddedValue": {
+      "eyebrow": "我们的附加价值",
+      "values": {
+        "partner": {
+          "title": "端到端伙伴",
+          "description": "从概念到工业化，我们全程负责。"
+        },
+        "agile": {
+          "title": "敏捷且响应迅速",
+          "description": "我们行动迅速、快速适应，并始终贴近你。"
+        },
+        "confidential": {
+          "title": "保密",
+          "description": "你的想法在我们这里始终安全。"
+        },
+        "quality": {
+          "title": "瑞士品质",
+          "description": "符合瑞士标准的精密工程与高端质量。"
+        }
+      },
+      "stats": {
+        "projects": {
+          "value": "+60",
+          "label": "交付项目"
+        },
+        "years": {
+          "value": "+25 年",
+          "label": "经验"
+        },
+        "worldwide": {
+          "value": "全球",
+          "label": "服务国家"
+        },
+        "industries": {
+          "value": "6+",
+          "label": "核心行业"
+        }
+      }
+    },
+    "Cta": {
+      "eyebrow": "一起打造",
+      "title": "有我们可以解决的挑战吗",
+      "subtitle": "我们与具有前瞻性的企业合作，将复杂挑战转化为智能、可制造的解决方案。",
+      "button": "启动你的项目"
+    }
+  },
+  "TrustedBy": {
+    "label": "客户信任"
+  },
+  "SwissBanner": {
+    "titleLineOne": "瑞士制造。",
+    "titleLineTwo": "面向世界设计。",
+    "values": {
+      "swissQuality": "瑞士品质",
+      "endToEnd": "端到端伙伴",
+      "agile": "敏捷灵活",
+      "confidential": "保密"
+    },
+    "end": "瑞士价值结束"
+  },
+  "Cta": {
+    "eyebrow": "一起打造",
+    "title": "塑造你的下一个想法",
+    "subtitle": "告诉我们你的挑战。我们将在瑞士工作室完成设计、原型开发，并让它准备好进入真实世界。",
+    "cta": "启动你的项目"
+  },
+  "Footer": {
+    "country": "Switzerland",
+    "rights": "All rights reserved"
+  },
+  "Language": {
+    "switch": "切换语言",
+    "fr": "Français",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "ko": "한국어",
+    "zh": "中文"
+  }
+}
