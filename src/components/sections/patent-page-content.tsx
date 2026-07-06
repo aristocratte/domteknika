@@ -2,7 +2,9 @@
 
 import {
   ArrowRight,
+  ArrowDownUp,
   ArrowUpRight,
+  Check,
   ChevronLeft,
   ChevronRight,
   Download,
@@ -50,6 +52,7 @@ import {
 
 type PatentLocale = "en" | "fr" | "de" | "es" | "ko" | "zh";
 type FilterKey = "all" | PatentFilterKey;
+type PatentSortKey = "date-desc" | "date-asc" | "publication" | "title";
 type PatentItem = PatentRecord;
 
 type PanelRect = {
@@ -75,6 +78,11 @@ type PatentFilterOption = {
   icon?: string;
   width?: number;
   height?: number;
+};
+
+type PatentSortOption = {
+  key: PatentSortKey;
+  label: string;
 };
 
 const ASSET_BASE = "/assets/patent-page";
@@ -534,6 +542,10 @@ const COPY: Record<
     searchPlaceholder: string;
     resultsLabel: string;
     filterCountLabel: string;
+    sort: {
+      label: string;
+      options: PatentSortOption[];
+    };
     deposited: string;
     details: {
       close: string;
@@ -600,6 +612,15 @@ const COPY: Record<
     searchPlaceholder: "Search title, inventor, applicant, publication...",
     resultsLabel: "patents shown",
     filterCountLabel: "patents",
+    sort: {
+      label: "Sort",
+      options: [
+        { key: "date-desc", label: "Newest first" },
+        { key: "date-asc", label: "Oldest first" },
+        { key: "publication", label: "Publication" },
+        { key: "title", label: "Title A-Z" },
+      ],
+    },
     deposited: "Published:",
     details: {
       close: "Close patent details",
@@ -665,6 +686,15 @@ const COPY: Record<
     searchPlaceholder: "Rechercher titre, inventeur, demandeur, publication...",
     resultsLabel: "brevets affichés",
     filterCountLabel: "brevets",
+    sort: {
+      label: "Trier",
+      options: [
+        { key: "date-desc", label: "Plus récents" },
+        { key: "date-asc", label: "Plus anciens" },
+        { key: "publication", label: "Publication" },
+        { key: "title", label: "Titre A-Z" },
+      ],
+    },
     deposited: "Publié:",
     details: {
       close: "Fermer le détail du brevet",
@@ -730,6 +760,15 @@ const COPY: Record<
     searchPlaceholder: "Titel, Erfinder, Anmelder, Veröffentlichung suchen...",
     resultsLabel: "Patente angezeigt",
     filterCountLabel: "Patente",
+    sort: {
+      label: "Sortieren",
+      options: [
+        { key: "date-desc", label: "Neueste zuerst" },
+        { key: "date-asc", label: "Älteste zuerst" },
+        { key: "publication", label: "Veröffentlichung" },
+        { key: "title", label: "Titel A-Z" },
+      ],
+    },
     deposited: "Veröffentlicht:",
     details: {
       close: "Patentdetails schließen",
@@ -795,6 +834,15 @@ const COPY: Record<
     searchPlaceholder: "Buscar título, inventor, solicitante, publicación...",
     resultsLabel: "patentes mostradas",
     filterCountLabel: "patentes",
+    sort: {
+      label: "Ordenar",
+      options: [
+        { key: "date-desc", label: "Más recientes" },
+        { key: "date-asc", label: "Más antiguos" },
+        { key: "publication", label: "Publicación" },
+        { key: "title", label: "Título A-Z" },
+      ],
+    },
     deposited: "Publicado:",
     details: {
       close: "Cerrar detalles de la patente",
@@ -860,6 +908,15 @@ const COPY: Record<
     searchPlaceholder: "제목, 발명자, 출원인, 공개번호 검색...",
     resultsLabel: "개 특허 표시",
     filterCountLabel: "개 특허",
+    sort: {
+      label: "정렬",
+      options: [
+        { key: "date-desc", label: "최신순" },
+        { key: "date-asc", label: "오래된순" },
+        { key: "publication", label: "공개번호" },
+        { key: "title", label: "제목 A-Z" },
+      ],
+    },
     deposited: "공개:",
     details: {
       close: "특허 상세 닫기",
@@ -925,6 +982,15 @@ const COPY: Record<
     searchPlaceholder: "搜索标题、发明人、申请人、公布号...",
     resultsLabel: "项专利显示",
     filterCountLabel: "项专利",
+    sort: {
+      label: "排序",
+      options: [
+        { key: "date-desc", label: "最新优先" },
+        { key: "date-asc", label: "最早优先" },
+        { key: "publication", label: "公布号" },
+        { key: "title", label: "标题 A-Z" },
+      ],
+    },
     deposited: "公开:",
     details: {
       close: "关闭专利详情",
@@ -1015,12 +1081,35 @@ function patentMatchesSearch(patent: PatentItem, query: string) {
   ).includes(query);
 }
 
+function sortPatents(
+  patents: PatentItem[],
+  sortKey: PatentSortKey,
+  locale: PatentLocale,
+) {
+  return [...patents].sort((a, b) => {
+    switch (sortKey) {
+      case "date-asc":
+        return a.date.localeCompare(b.date);
+      case "publication":
+        return a.publication.localeCompare(b.publication, locale, {
+          numeric: true,
+        });
+      case "title":
+        return a.title.localeCompare(b.title, locale, { numeric: true });
+      case "date-desc":
+      default:
+        return b.date.localeCompare(a.date);
+    }
+  });
+}
+
 export function PatentPageContent({ locale }: { locale: string }) {
   const resolvedLocale = resolveLocale(locale);
   const copy = COPY[resolvedLocale];
   const stats = STATS[resolvedLocale];
   const filters = FILTERS[resolvedLocale];
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [sortKey, setSortKey] = useState<PatentSortKey>("date-desc");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPatent, setSelectedPatent] = useState<PatentItem | null>(null);
   const [selectedLinkedProject, setSelectedLinkedProject] =
@@ -1047,6 +1136,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
+  const sortDetailsRef = useRef<HTMLDetailsElement | null>(null);
 
   const normalizedSearchTerm = useMemo(
     () => normalizeSearch(searchTerm),
@@ -1054,11 +1144,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
   );
 
   const visiblePatents = useMemo(() => {
-    return PATENTS.filter((patent) => {
+    const filteredPatents = PATENTS.filter((patent) => {
       const matchesFilter = activeFilter === "all" || patent.filter === activeFilter;
       return matchesFilter && patentMatchesSearch(patent, normalizedSearchTerm);
     });
-  }, [activeFilter, normalizedSearchTerm]);
+
+    return sortPatents(filteredPatents, sortKey, resolvedLocale);
+  }, [activeFilter, normalizedSearchTerm, resolvedLocale, sortKey]);
+  const activeSortLabel =
+    copy.sort.options.find((option) => option.key === sortKey)?.label ??
+    copy.sort.options[0]?.label ??
+    copy.sort.label;
   const localizedProjects = useMemo(
     () => getProjectsForLocale(resolvedLocale),
     [resolvedLocale],
@@ -1579,19 +1675,62 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   {visiblePatents.length} / {PATENTS.length} {copy.resultsLabel}
                 </p>
               </div>
-              <label className="relative block w-full max-w-[360px]">
-                <Search
-                  className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                  aria-hidden
-                />
-                <input
-                  value={searchTerm}
-                  onChange={(event) => setSearchTerm(event.target.value)}
-                  placeholder={copy.searchPlaceholder}
-                  className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
-                  type="search"
-                />
-              </label>
+              <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+                <details ref={sortDetailsRef} className="relative z-30">
+                  <summary
+                    className="flex h-11 min-w-[180px] cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+                    aria-label={copy.sort.label}
+                  >
+                    <span className="inline-flex min-w-0 items-center gap-2">
+                      <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+                      <span className="shrink-0">{copy.sort.label}</span>
+                    </span>
+                    <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground">
+                      {activeSortLabel}
+                    </span>
+                  </summary>
+                  <div className="absolute right-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+                    {copy.sort.options.map((option) => {
+                      const active = option.key === sortKey;
+
+                      return (
+                        <button
+                          key={option.key}
+                          type="button"
+                          className={cn(
+                            "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                            active && "bg-brand text-white hover:bg-brand",
+                          )}
+                          aria-pressed={active}
+                          onClick={() => {
+                            setSortKey(option.key);
+                            sortDetailsRef.current?.removeAttribute("open");
+                          }}
+                        >
+                          <span>{option.label}</span>
+                          {active ? (
+                            <Check className="size-4 shrink-0" aria-hidden />
+                          ) : null}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
+
+                <label className="relative block w-full max-w-[360px] sm:w-[320px]">
+                  <Search
+                    className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                    aria-hidden
+                  />
+                  <input
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    placeholder={copy.searchPlaceholder}
+                    className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+                    type="search"
+                  />
+                </label>
+              </div>
             </div>
           </Reveal>
 
@@ -1660,8 +1799,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
           {visiblePatents.length > 0 ? (
             <div className="mt-8 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
-              {visiblePatents.map((patent, index) => (
-                <Reveal key={patent.id} delay={(index % 3) * 0.04}>
+              {visiblePatents.map((patent) => (
+                <div key={patent.id}>
                   <PatentCard
                     patent={patent}
                     depositedLabel={copy.deposited}
@@ -1670,7 +1809,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                     nextDrawingLabel={copy.details.nextDrawing}
                     onOpen={openPatent}
                   />
-                </Reveal>
+                </div>
               ))}
             </div>
           ) : (

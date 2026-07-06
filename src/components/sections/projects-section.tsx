@@ -61,7 +61,7 @@ export function ProjectsSection() {
     () =>
       Autoplay({
         delay: 3000,
-        stopOnInteraction: false,
+        stopOnInteraction: true,
         stopOnMouseEnter: true,
       }),
     [],
@@ -78,13 +78,13 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-[116px] pt-[clamp(96px,8.7vw,150px)]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-10 md:pb-[116px] md:pt-[clamp(96px,8.7vw,150px)]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
         <Reveal
           minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
-          className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between"
+          className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between"
         >
           <h2
             id="projects-title"
@@ -104,33 +104,33 @@ export function ProjectsSection() {
         <Reveal delay={0.1} minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}>
           <div
             data-projects-fade
-            className="relative -mx-4 overflow-hidden px-4 sm:-mx-8 sm:px-8 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
+            className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_right,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+              className="pointer-events-none absolute inset-y-14 left-0 z-20 w-7 bg-gradient-to-r from-background/80 to-transparent backdrop-blur-[1px] [mask-image:linear-gradient(to_right,black_0%,black_42%,transparent_100%)] sm:w-10 md:inset-y-0 md:w-16 md:from-background md:via-background/70 md:backdrop-blur-[3px] lg:w-24"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-background via-background/80 to-transparent backdrop-blur-[5px] [mask-image:linear-gradient(to_left,black_0%,black_58%,transparent_100%)] sm:w-24 lg:w-32"
+              className="pointer-events-none absolute inset-y-14 right-0 z-20 w-7 bg-gradient-to-l from-background/80 to-transparent backdrop-blur-[1px] [mask-image:linear-gradient(to_left,black_0%,black_42%,transparent_100%)] sm:w-10 md:inset-y-0 md:w-16 md:from-background md:via-background/70 md:backdrop-blur-[3px] lg:w-24"
             />
             <Carousel
               setApi={setApi}
               opts={{
-                align: "start",
+                align: "center",
                 loop: true,
                 dragFree: false,
               }}
               plugins={[autoplay]}
-              className="w-full"
+              className="w-full touch-pan-y"
               onFocus={() => autoplay.stop()}
               onBlur={() => autoplay.reset()}
             >
-              <CarouselContent className="-ml-7">
+              <CarouselContent className="-ml-4">
                 {carouselProjects.map((project, index) => (
                   <CarouselItem
                     key={`${project.id}-${index}`}
-                    className="basis-[min(274px,78vw)] pl-7"
+                    className="basis-[min(340px,82vw)] pl-4 md:basis-[274px]"
                   >
                     <ProjectCard
                       project={project}
@@ -147,7 +147,7 @@ export function ProjectsSection() {
             </Carousel>
             <ProjectArrow
               label={t("previous")}
-              className="left-2 sm:left-4 lg:left-8"
+              className="left-[calc(50%-58px)] md:left-2 lg:left-8"
               disabled={!api}
               onClick={() => api?.scrollPrev()}
             >
@@ -155,7 +155,7 @@ export function ProjectsSection() {
             </ProjectArrow>
             <ProjectArrow
               label={t("next")}
-              className="right-14 sm:right-14 lg:right-8"
+              className="right-[calc(50%-58px)] md:right-14 lg:right-8"
               disabled={!api}
               onClick={() => api?.scrollNext()}
             >
@@ -241,7 +241,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute top-1/2 z-50 grid size-12 -translate-y-1/2 place-items-center text-brand transition-transform hover:-translate-y-1/2 hover:scale-110 disabled:pointer-events-none disabled:opacity-40",
+        "absolute bottom-0 z-50 grid size-11 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40 md:top-1/2 md:size-12 md:-translate-y-1/2 md:hover:-translate-y-1/2",
         className,
       )}
     >

@@ -1,9 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Search, X } from "lucide-react";
+import {
+  ArrowDownUp,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  X,
+} from "lucide-react";
 import {
   type CSSProperties,
+  type TouchEvent as ReactTouchEvent,
   useCallback,
   useEffect,
   useMemo,
@@ -19,6 +29,13 @@ import { cn } from "@/lib/utils";
 import projectAssetManifest from "../../../public/assets/projects/manifest.json";
 
 type FilterKey = "all" | PatentFilterKey;
+type ProjectSortKey =
+  | "default"
+  | "date-desc"
+  | "date-asc"
+  | "title-asc"
+  | "title-desc"
+  | "category";
 
 const PATENT_ASSET_BASE = "/assets/patent-page";
 
@@ -249,6 +266,11 @@ type ProjectFilterOption = {
   height?: number;
 };
 
+type ProjectSortOption = {
+  key: ProjectSortKey;
+  label: string;
+};
+
 type ProjectsPageCopy = {
   hero: {
     eyebrow: string;
@@ -265,6 +287,10 @@ type ProjectsPageCopy = {
   selectedTitle: string;
   resultsLabel: string;
   filtersLabel: string;
+  sort: {
+    label: string;
+    options: ProjectSortOption[];
+  };
   searchLabel: string;
   searchPlaceholder: string;
   noResults: string;
@@ -273,6 +299,10 @@ type ProjectsPageCopy = {
   cardOpenDetails: string;
   modal: {
     close: string;
+    openImage: string;
+    closeImage: string;
+    previousImage: string;
+    nextImage: string;
     gallery: string;
     overview: string;
     scope: string;
@@ -1847,6 +1877,11 @@ const PINNED_PROJECT_IDS = [
   "softcar",
 ];
 
+const PROJECT_SORT_YEARS: Partial<Record<string, number>> = {
+  "totalcar-concept": 2013,
+  softcar: 2024,
+};
+
 export const ALL_PROJECTS = [FEATURED_PROJECT, ...PROJECTS].sort((a, b) => {
   const aIndex = PINNED_PROJECT_IDS.indexOf(a.id);
   const bIndex = PINNED_PROJECT_IDS.indexOf(b.id);
@@ -2218,6 +2253,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "Selected projects",
     resultsLabel: "projects shown",
     filtersLabel: "Filter projects",
+    sort: {
+      label: "Sort",
+      options: [
+        { key: "default", label: "Default order" },
+        { key: "date-desc", label: "Newest first" },
+        { key: "date-asc", label: "Oldest first" },
+        { key: "title-asc", label: "Title A-Z" },
+        { key: "title-desc", label: "Title Z-A" },
+        { key: "category", label: "Category" },
+      ],
+    },
     searchLabel: "Search projects",
     searchPlaceholder: "Search...",
     noResults: "No projects match your search.",
@@ -2226,6 +2272,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "Open project details",
     modal: {
       close: "Close project details",
+      openImage: "View image larger",
+      closeImage: "Close enlarged image",
+      previousImage: "Previous image",
+      nextImage: "Next image",
       gallery: "Project images",
       overview: "Project overview",
       scope: "What we handled",
@@ -2330,6 +2380,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "Projets sélectionnés",
     resultsLabel: "projets affichés",
     filtersLabel: "Filtrer les projets",
+    sort: {
+      label: "Trier",
+      options: [
+        { key: "default", label: "Ordre initial" },
+        { key: "date-desc", label: "Plus récents" },
+        { key: "date-asc", label: "Plus anciens" },
+        { key: "title-asc", label: "Titre A-Z" },
+        { key: "title-desc", label: "Titre Z-A" },
+        { key: "category", label: "Catégorie" },
+      ],
+    },
     searchLabel: "Rechercher des projets",
     searchPlaceholder: "Rechercher...",
     noResults: "Aucun projet ne correspond à votre recherche.",
@@ -2338,6 +2399,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "Ouvrir le détail du projet",
     modal: {
       close: "Fermer le détail du projet",
+      openImage: "Voir l'image en grand",
+      closeImage: "Fermer l'image agrandie",
+      previousImage: "Image précédente",
+      nextImage: "Image suivante",
       gallery: "Images du projet",
       overview: "Vue d'ensemble du projet",
       scope: "Travail réalisé",
@@ -2389,6 +2454,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "Ausgewählte Projekte",
     resultsLabel: "Projekte angezeigt",
     filtersLabel: "Projekte filtern",
+    sort: {
+      label: "Sortieren",
+      options: [
+        { key: "default", label: "Standardreihenfolge" },
+        { key: "date-desc", label: "Neueste zuerst" },
+        { key: "date-asc", label: "Älteste zuerst" },
+        { key: "title-asc", label: "Titel A-Z" },
+        { key: "title-desc", label: "Titel Z-A" },
+        { key: "category", label: "Kategorie" },
+      ],
+    },
     searchLabel: "Projekte suchen",
     searchPlaceholder: "Suchen...",
     noResults: "Keine Projekte entsprechen Ihrer Suche.",
@@ -2397,6 +2473,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "Projektdetails öffnen",
     modal: {
       close: "Projektdetails schließen",
+      openImage: "Bild vergrößern",
+      closeImage: "Vergrößertes Bild schließen",
+      previousImage: "Vorheriges Bild",
+      nextImage: "Nächstes Bild",
       gallery: "Projektbilder",
       overview: "Projektübersicht",
       scope: "Unser Beitrag",
@@ -2448,6 +2528,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "Proyectos seleccionados",
     resultsLabel: "proyectos mostrados",
     filtersLabel: "Filtrar proyectos",
+    sort: {
+      label: "Ordenar",
+      options: [
+        { key: "default", label: "Orden inicial" },
+        { key: "date-desc", label: "Más recientes" },
+        { key: "date-asc", label: "Más antiguos" },
+        { key: "title-asc", label: "Título A-Z" },
+        { key: "title-desc", label: "Título Z-A" },
+        { key: "category", label: "Categoría" },
+      ],
+    },
     searchLabel: "Buscar proyectos",
     searchPlaceholder: "Buscar...",
     noResults: "Ningún proyecto coincide con tu búsqueda.",
@@ -2456,6 +2547,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "Abrir detalles del proyecto",
     modal: {
       close: "Cerrar detalles del proyecto",
+      openImage: "Ver imagen ampliada",
+      closeImage: "Cerrar imagen ampliada",
+      previousImage: "Imagen anterior",
+      nextImage: "Imagen siguiente",
       gallery: "Imágenes del proyecto",
       overview: "Resumen del proyecto",
       scope: "Trabajo realizado",
@@ -2507,6 +2602,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "선정 프로젝트",
     resultsLabel: "개 프로젝트 표시",
     filtersLabel: "프로젝트 필터",
+    sort: {
+      label: "정렬",
+      options: [
+        { key: "default", label: "기본 순서" },
+        { key: "date-desc", label: "최신순" },
+        { key: "date-asc", label: "오래된순" },
+        { key: "title-asc", label: "제목 A-Z" },
+        { key: "title-desc", label: "제목 Z-A" },
+        { key: "category", label: "카테고리" },
+      ],
+    },
     searchLabel: "프로젝트 검색",
     searchPlaceholder: "검색...",
     noResults: "검색 조건에 맞는 프로젝트가 없습니다.",
@@ -2515,6 +2621,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "프로젝트 상세 열기",
     modal: {
       close: "프로젝트 상세 닫기",
+      openImage: "이미지 크게 보기",
+      closeImage: "확대 이미지 닫기",
+      previousImage: "이전 이미지",
+      nextImage: "다음 이미지",
       gallery: "프로젝트 이미지",
       overview: "프로젝트 개요",
       scope: "담당 범위",
@@ -2566,6 +2676,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     selectedTitle: "精选项目",
     resultsLabel: "个项目显示",
     filtersLabel: "筛选项目",
+    sort: {
+      label: "排序",
+      options: [
+        { key: "default", label: "默认顺序" },
+        { key: "date-desc", label: "最新优先" },
+        { key: "date-asc", label: "最早优先" },
+        { key: "title-asc", label: "标题 A-Z" },
+        { key: "title-desc", label: "标题 Z-A" },
+        { key: "category", label: "类别" },
+      ],
+    },
     searchLabel: "搜索项目",
     searchPlaceholder: "搜索...",
     noResults: "没有符合搜索条件的项目。",
@@ -2574,6 +2695,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     cardOpenDetails: "打开项目详情",
     modal: {
       close: "关闭项目详情",
+      openImage: "放大查看图片",
+      closeImage: "关闭放大图片",
+      previousImage: "上一张图片",
+      nextImage: "下一张图片",
       gallery: "项目图片",
       overview: "项目概览",
       scope: "我们负责的工作",
@@ -2598,10 +2723,100 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
 
 const MODAL_TRANSITION_MS = 320;
 const MODAL_CLOSE_FALLBACK_MS = 360;
+const PROJECT_HORIZONTAL_SCROLL_SELECTOR =
+  "[data-project-dialog-horizontal-scroll]";
 export const PROJECT_DETAIL_HASH_PREFIX = "project-";
+
+function canScrollHorizontally(container: HTMLElement, deltaX: number) {
+  const maxScrollLeft = container.scrollWidth - container.clientWidth;
+  if (maxScrollLeft <= 0) return false;
+  if (deltaX < 0) return container.scrollLeft > 0;
+  if (deltaX > 0) return container.scrollLeft < maxScrollLeft - 1;
+  return true;
+}
+
+function scrollHorizontalTrackFromWheel(
+  event: WheelEvent,
+  container: HTMLElement,
+) {
+  const delta =
+    Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      ? event.deltaX
+      : event.deltaY;
+
+  if (!delta || !canScrollHorizontally(container, delta)) return false;
+
+  const maxScrollLeft = container.scrollWidth - container.clientWidth;
+  container.scrollLeft = Math.max(
+    0,
+    Math.min(container.scrollLeft + delta, maxScrollLeft),
+  );
+
+  return true;
+}
 
 export function getProjectsPageCopy(locale: string) {
   return PROJECTS_COPY[resolveProjectsLocale(locale)];
+}
+
+function getProjectSortYear(project: Project) {
+  const explicitYear = PROJECT_SORT_YEARS[project.id];
+  if (explicitYear) return explicitYear;
+
+  const yearTag = project.tags.find((tag) => /^#(?:19|20)\d{2}$/.test(tag));
+  return yearTag ? Number(yearTag.slice(1)) : 0;
+}
+
+function sortProjects(
+  projects: Project[],
+  sortKey: ProjectSortKey,
+  locale: ProjectsLocale,
+) {
+  const withIndex = projects.map((project, index) => ({ project, index }));
+
+  return withIndex
+    .sort((a, b) => {
+      switch (sortKey) {
+        case "date-desc": {
+          const yearOrder =
+            getProjectSortYear(b.project) - getProjectSortYear(a.project);
+          if (yearOrder !== 0) return yearOrder;
+
+          return a.index - b.index;
+        }
+        case "date-asc": {
+          const yearOrder =
+            getProjectSortYear(a.project) - getProjectSortYear(b.project);
+          if (yearOrder !== 0) return yearOrder;
+
+          return a.index - b.index;
+        }
+        case "title-asc":
+          return a.project.title.localeCompare(b.project.title, locale, {
+            numeric: true,
+          });
+        case "title-desc":
+          return b.project.title.localeCompare(a.project.title, locale, {
+            numeric: true,
+          });
+        case "category": {
+          const categoryOrder = a.project.category.localeCompare(
+            b.project.category,
+            locale,
+            { numeric: true },
+          );
+          if (categoryOrder !== 0) return categoryOrder;
+
+          return a.project.title.localeCompare(b.project.title, locale, {
+            numeric: true,
+          });
+        }
+        case "default":
+        default:
+          return a.index - b.index;
+      }
+    })
+    .map(({ project }) => project);
 }
 
 function centeredPanelRect(): PanelRect {
@@ -2632,6 +2847,7 @@ export function ProjectDetailsDialog({
 }) {
   const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(null);
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
+  const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(null);
   const [dialogState, setDialogState] = useState<
     "opening" | "open" | "closing"
   >("opening");
@@ -2642,12 +2858,63 @@ export function ProjectDetailsDialog({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
+  const expandedTouchStartXRef = useRef<number | null>(null);
 
   const projectGallery = useMemo(() => getProjectGallery(project), [project]);
   const activeGalleryImage =
     projectGallery[
       Math.min(activeGalleryIndex, Math.max(projectGallery.length - 1, 0))
     ] ?? project.image;
+  const expandedImage =
+    expandedImageIndex === null
+      ? null
+      : (projectGallery[expandedImageIndex] ?? activeGalleryImage);
+
+  const showExpandedImageAt = useCallback(
+    (index: number) => {
+      if (!projectGallery.length) return;
+
+      const nextIndex =
+        ((index % projectGallery.length) + projectGallery.length) %
+        projectGallery.length;
+      setActiveGalleryIndex(nextIndex);
+      setExpandedImageIndex(nextIndex);
+    },
+    [projectGallery.length],
+  );
+
+  const showPreviousExpandedImage = useCallback(() => {
+    if (expandedImageIndex === null) return;
+    showExpandedImageAt(expandedImageIndex - 1);
+  }, [expandedImageIndex, showExpandedImageAt]);
+
+  const showNextExpandedImage = useCallback(() => {
+    if (expandedImageIndex === null) return;
+    showExpandedImageAt(expandedImageIndex + 1);
+  }, [expandedImageIndex, showExpandedImageAt]);
+
+  const handleExpandedTouchEnd = useCallback(
+    (event: ReactTouchEvent<HTMLDivElement>) => {
+      if (projectGallery.length < 2) return;
+
+      const startX = expandedTouchStartXRef.current;
+      expandedTouchStartXRef.current = null;
+      if (startX === null) return;
+
+      const endX = event.changedTouches[0]?.clientX;
+      if (endX === undefined) return;
+
+      const deltaX = startX - endX;
+      if (Math.abs(deltaX) < 42) return;
+
+      if (deltaX > 0) {
+        showNextExpandedImage();
+      } else {
+        showPreviousExpandedImage();
+      }
+    },
+    [projectGallery.length, showNextExpandedImage, showPreviousExpandedImage],
+  );
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
@@ -2659,6 +2926,7 @@ export function ProjectDetailsDialog({
   const finishClose = useCallback(() => {
     clearCloseTimer();
     setSelectedPatent(null);
+    setExpandedImageIndex(null);
     previousFocusRef.current?.focus?.({ preventScroll: true });
     previousFocusRef.current = null;
     onClosed();
@@ -2708,6 +2976,7 @@ export function ProjectDetailsDialog({
       capture: true,
       passive: false,
     } satisfies AddEventListenerOptions;
+    let touchStartX = 0;
     let touchStartY = 0;
 
     const canScrollWithin = (container: HTMLElement, deltaY: number) => {
@@ -2719,10 +2988,15 @@ export function ProjectDetailsDialog({
     };
 
     const onTouchStart = (event: TouchEvent) => {
+      touchStartX = event.touches[0]?.clientX ?? 0;
       touchStartY = event.touches[0]?.clientY ?? 0;
     };
 
     const preventBackgroundScroll = (event: Event) => {
+      const horizontalScrollContainer =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
+          : null;
       const scrollContainer =
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(
@@ -2735,6 +3009,32 @@ export function ProjectDetailsDialog({
           : event instanceof TouchEvent
             ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
             : 0;
+
+      if (horizontalScrollContainer) {
+        if (
+          event instanceof WheelEvent &&
+          scrollHorizontalTrackFromWheel(event, horizontalScrollContainer)
+        ) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+
+        if (event instanceof TouchEvent) {
+          const currentX = event.touches[0]?.clientX ?? touchStartX;
+          const currentY = event.touches[0]?.clientY ?? touchStartY;
+          const deltaX = touchStartX - currentX;
+          const touchDeltaY = touchStartY - currentY;
+
+          if (
+            Math.abs(deltaX) > Math.abs(touchDeltaY) &&
+            canScrollHorizontally(horizontalScrollContainer, deltaX)
+          ) {
+            event.stopPropagation();
+            return;
+          }
+        }
+      }
 
       if (scrollContainer && canScrollWithin(scrollContainer, deltaY)) {
         event.stopPropagation();
@@ -2802,6 +3102,26 @@ export function ProjectDetailsDialog({
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (expandedImageIndex !== null) {
+        if (event.key === "Escape") {
+          setExpandedImageIndex(null);
+          return;
+        }
+
+        if (projectGallery.length > 1 && event.key === "ArrowLeft") {
+          event.preventDefault();
+          showPreviousExpandedImage();
+          return;
+        }
+
+        if (projectGallery.length > 1 && event.key === "ArrowRight") {
+          event.preventDefault();
+          showNextExpandedImage();
+        }
+
+        return;
+      }
+
       if (selectedPatent) return;
 
       if (event.key === "Escape") {
@@ -2836,7 +3156,14 @@ export function ProjectDetailsDialog({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [closeProject, selectedPatent]);
+  }, [
+    closeProject,
+    expandedImageIndex,
+    projectGallery.length,
+    selectedPatent,
+    showNextExpandedImage,
+    showPreviousExpandedImage,
+  ]);
 
   useEffect(() => {
     if (dialogState !== "open") return;
@@ -2908,7 +3235,19 @@ export function ProjectDetailsDialog({
             )}
           >
             <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
-              <div className="relative min-h-[210px] flex-1">
+              <button
+                type="button"
+                className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35"
+                aria-label={modal.openImage}
+                onClick={() =>
+                  setExpandedImageIndex(
+                    Math.min(
+                      activeGalleryIndex,
+                      Math.max(projectGallery.length - 1, 0),
+                    ),
+                  )
+                }
+              >
                 <Image
                   src={activeGalleryImage}
                   alt={project.imageAlt}
@@ -2917,14 +3256,18 @@ export function ProjectDetailsDialog({
                   className="object-contain p-6 md:p-7"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-              </div>
+              </button>
 
               {projectGallery.length > 1 && (
                 <div
                   className="border-t border-border bg-white/[0.92] p-3"
                   aria-label={modal.gallery}
                 >
-                  <div className="flex gap-2 overflow-x-auto pb-1">
+                  <div
+                    data-project-dialog-horizontal-scroll
+                    data-lenis-prevent
+                    className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1"
+                  >
                     {projectGallery.map((image, index) => (
                       <button
                         key={image}
@@ -3072,6 +3415,67 @@ export function ProjectDetailsDialog({
             </div>
           </div>
         </section>
+
+        {expandedImage && (
+          <div
+            className="fixed inset-0 z-[40] grid place-items-center bg-black/82 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label={modal.closeImage}
+            onClick={() => setExpandedImageIndex(null)}
+          >
+            <button
+              type="button"
+              className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+              aria-label={modal.closeImage}
+              onClick={() => setExpandedImageIndex(null)}
+            >
+              <X className="size-5" aria-hidden />
+            </button>
+            {projectGallery.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="absolute left-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:left-6 md:size-12"
+                  aria-label={modal.previousImage}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showPreviousExpandedImage();
+                  }}
+                >
+                  <ChevronLeft className="size-6" aria-hidden />
+                </button>
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:right-6 md:size-12"
+                  aria-label={modal.nextImage}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showNextExpandedImage();
+                  }}
+                >
+                  <ChevronRight className="size-6" aria-hidden />
+                </button>
+              </>
+            )}
+            <div
+              className="relative h-[min(82vh,780px)] w-[min(94vw,1120px)] touch-pan-y"
+              onTouchStart={(event) => {
+                expandedTouchStartXRef.current = event.touches[0]?.clientX ?? null;
+              }}
+              onTouchEnd={handleExpandedTouchEnd}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Image
+                src={expandedImage}
+                alt={project.imageAlt}
+                fill
+                sizes="94vw"
+                className="object-contain"
+              />
+            </div>
+          </div>
+        )}
       </div>
       {selectedPatent && (
         <PatentDialog
@@ -3089,6 +3493,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   const resolvedLocale = resolveProjectsLocale(locale);
   const copy = PROJECTS_COPY[resolvedLocale];
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [sortKey, setSortKey] = useState<ProjectSortKey>("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(null);
@@ -3102,6 +3507,24 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   const closeTimerRef = useRef<number | null>(null);
   const dialogStateRef = useRef(dialogState);
   const lockedScrollYRef = useRef(0);
+  const sortDetailsRef = useRef<HTMLDetailsElement | null>(null);
+  const expandedGalleryTouchStartXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const closeSortOnOutsidePointer = (event: PointerEvent) => {
+      const sortDetails = sortDetailsRef.current;
+      if (!sortDetails?.open) return;
+      if (event.target instanceof Node && sortDetails.contains(event.target)) return;
+
+      sortDetails.removeAttribute("open");
+    };
+
+    document.addEventListener("pointerdown", closeSortOnOutsidePointer);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeSortOnOutsidePointer);
+    };
+  }, []);
 
   const visibleProjects = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -3110,22 +3533,33 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         ? copy.projects
         : copy.projects.filter((project) => project.filter === activeFilter);
 
-    if (!query) return filteredProjects;
+    if (!query) return sortProjects(filteredProjects, sortKey, resolvedLocale);
 
-    return filteredProjects.filter((project) =>
-      [
-        project.category,
-        project.title,
-        project.description,
-        project.overview,
-        ...(project.scope ?? []),
-        ...project.tags,
-      ]
-        .join(" ")
-        .toLowerCase()
-        .includes(query),
+    return sortProjects(
+      filteredProjects.filter((project) =>
+        [
+          project.category,
+          project.title,
+          project.description,
+          project.overview,
+          ...(project.scope ?? []),
+          ...project.tags,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(query),
+      ),
+      sortKey,
+      resolvedLocale,
     );
-  }, [activeFilter, copy.projects, searchQuery]);
+  }, [activeFilter, copy.projects, resolvedLocale, searchQuery, sortKey]);
+  const activeSortLabel =
+    copy.sort.options.find((option) => option.key === sortKey)?.label ??
+    copy.sort.options[0]?.label ??
+    copy.sort.label;
+  const [expandedGalleryIndex, setExpandedGalleryIndex] = useState<number | null>(
+    null,
+  );
 
   const selectedProjectGallery = useMemo(
     () => (selectedProject ? getProjectGallery(selectedProject) : []),
@@ -3135,6 +3569,64 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     selectedProjectGallery[
       Math.min(activeGalleryIndex, Math.max(selectedProjectGallery.length - 1, 0))
     ] ?? selectedProject?.image;
+  const expandedGalleryImage =
+    expandedGalleryIndex === null
+      ? null
+      : (selectedProjectGallery[expandedGalleryIndex] ??
+        activeGalleryImage ??
+        selectedProject?.image ??
+        null);
+
+  const showExpandedGalleryImageAt = useCallback(
+    (index: number) => {
+      if (!selectedProjectGallery.length) return;
+
+      const nextIndex =
+        ((index % selectedProjectGallery.length) +
+          selectedProjectGallery.length) %
+        selectedProjectGallery.length;
+      setActiveGalleryIndex(nextIndex);
+      setExpandedGalleryIndex(nextIndex);
+    },
+    [selectedProjectGallery.length],
+  );
+
+  const showPreviousExpandedGalleryImage = useCallback(() => {
+    if (expandedGalleryIndex === null) return;
+    showExpandedGalleryImageAt(expandedGalleryIndex - 1);
+  }, [expandedGalleryIndex, showExpandedGalleryImageAt]);
+
+  const showNextExpandedGalleryImage = useCallback(() => {
+    if (expandedGalleryIndex === null) return;
+    showExpandedGalleryImageAt(expandedGalleryIndex + 1);
+  }, [expandedGalleryIndex, showExpandedGalleryImageAt]);
+
+  const handleExpandedGalleryTouchEnd = useCallback(
+    (event: ReactTouchEvent<HTMLDivElement>) => {
+      if (selectedProjectGallery.length < 2) return;
+
+      const startX = expandedGalleryTouchStartXRef.current;
+      expandedGalleryTouchStartXRef.current = null;
+      if (startX === null) return;
+
+      const endX = event.changedTouches[0]?.clientX;
+      if (endX === undefined) return;
+
+      const deltaX = startX - endX;
+      if (Math.abs(deltaX) < 42) return;
+
+      if (deltaX > 0) {
+        showNextExpandedGalleryImage();
+      } else {
+        showPreviousExpandedGalleryImage();
+      }
+    },
+    [
+      selectedProjectGallery.length,
+      showNextExpandedGalleryImage,
+      showPreviousExpandedGalleryImage,
+    ],
+  );
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
@@ -3158,6 +3650,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     }
 
     setSelectedPatent(null);
+    setExpandedGalleryIndex(null);
     setSelectedProject(null);
     setPanelRect(null);
     setDialogState("closed");
@@ -3171,6 +3664,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       lockedScrollYRef.current = window.scrollY;
       previousFocusRef.current = document.activeElement as HTMLElement | null;
       setActiveGalleryIndex(0);
+      setExpandedGalleryIndex(null);
       setSelectedProject(project);
       setPanelRect(centeredPanelRect());
       setDialogState("opening");
@@ -3274,6 +3768,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       capture: true,
       passive: false,
     } satisfies AddEventListenerOptions;
+    let touchStartX = 0;
     let touchStartY = 0;
 
     const canScrollWithin = (container: HTMLElement, deltaY: number) => {
@@ -3285,10 +3780,15 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     };
 
     const onTouchStart = (event: TouchEvent) => {
+      touchStartX = event.touches[0]?.clientX ?? 0;
       touchStartY = event.touches[0]?.clientY ?? 0;
     };
 
     const preventBackgroundScroll = (event: Event) => {
+      const horizontalScrollContainer =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
+          : null;
       const scrollContainer =
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(
@@ -3301,6 +3801,32 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           : event instanceof TouchEvent
             ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
             : 0;
+
+      if (horizontalScrollContainer) {
+        if (
+          event instanceof WheelEvent &&
+          scrollHorizontalTrackFromWheel(event, horizontalScrollContainer)
+        ) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+
+        if (event instanceof TouchEvent) {
+          const currentX = event.touches[0]?.clientX ?? touchStartX;
+          const currentY = event.touches[0]?.clientY ?? touchStartY;
+          const deltaX = touchStartX - currentX;
+          const touchDeltaY = touchStartY - currentY;
+
+          if (
+            Math.abs(deltaX) > Math.abs(touchDeltaY) &&
+            canScrollHorizontally(horizontalScrollContainer, deltaX)
+          ) {
+            event.stopPropagation();
+            return;
+          }
+        }
+      }
 
       if (scrollContainer && canScrollWithin(scrollContainer, deltaY)) {
         event.stopPropagation();
@@ -3370,6 +3896,26 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     if (!selectedProject) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
+      if (expandedGalleryIndex !== null) {
+        if (event.key === "Escape") {
+          setExpandedGalleryIndex(null);
+          return;
+        }
+
+        if (selectedProjectGallery.length > 1 && event.key === "ArrowLeft") {
+          event.preventDefault();
+          showPreviousExpandedGalleryImage();
+          return;
+        }
+
+        if (selectedProjectGallery.length > 1 && event.key === "ArrowRight") {
+          event.preventDefault();
+          showNextExpandedGalleryImage();
+        }
+
+        return;
+      }
+
       if (selectedPatent) return;
 
       if (event.key === "Escape") {
@@ -3404,7 +3950,15 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [closeProject, selectedPatent, selectedProject]);
+  }, [
+    closeProject,
+    expandedGalleryIndex,
+    selectedPatent,
+    selectedProject,
+    selectedProjectGallery.length,
+    showNextExpandedGalleryImage,
+    showPreviousExpandedGalleryImage,
+  ]);
 
   useEffect(() => {
     if (!selectedProject || dialogState !== "open") return;
@@ -3524,20 +4078,48 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               </p>
             </div>
 
-            <label className="relative block w-full max-w-[360px]">
-              <span className="sr-only">{copy.searchLabel}</span>
-              <Search
-                className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                aria-hidden
-              />
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder={copy.searchPlaceholder}
-                className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
-              />
-            </label>
+            <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+              <details ref={sortDetailsRef} className="relative z-30">
+                <summary
+                  className="flex h-11 min-w-[180px] cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+                  aria-label={copy.sort.label}
+                >
+                  <span className="inline-flex min-w-0 items-center gap-2">
+                    <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+                    <span className="shrink-0">{copy.sort.label}</span>
+                  </span>
+                  <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground">
+                    {activeSortLabel}
+                  </span>
+                </summary>
+                <div className="absolute right-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+                  {copy.sort.options.map((option) => {
+                    const active = option.key === sortKey;
+
+                    return (
+                      <button
+                        key={option.key}
+                        type="button"
+                        className={cn(
+                          "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                          active && "bg-brand text-white hover:bg-brand",
+                        )}
+                        aria-pressed={active}
+                        onClick={() => {
+                          setSortKey(option.key);
+                          sortDetailsRef.current?.removeAttribute("open");
+                        }}
+                      >
+                        <span>{option.label}</span>
+                        {active ? (
+                          <Check className="size-4 shrink-0" aria-hidden />
+                        ) : null}
+                      </button>
+                    );
+                  })}
+                </div>
+              </details>
+            </div>
           </Reveal>
 
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
@@ -3606,22 +4188,33 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 );
               })}
             </div>
+            <label className="relative mt-4 block w-full md:ml-auto md:max-w-[360px]">
+              <span className="sr-only">{copy.searchLabel}</span>
+              <Search
+                className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                aria-hidden
+              />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder={copy.searchPlaceholder}
+                className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+              />
+            </label>
           </Reveal>
 
           {visibleProjects.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {visibleProjects.map((project, index) => (
-                <Reveal
-                  key={project.id}
-                  delay={(index % 2) * 0.06}
-                >
+              {visibleProjects.map((project) => (
+                <div key={project.id}>
                   <ProjectCard
                     project={project}
                     onOpen={openProject}
                     ctaLabel={copy.viewCaseStudy}
                     openDetailsLabel={copy.cardOpenDetails}
                   />
-                </Reveal>
+                </div>
               ))}
             </div>
           ) : (
@@ -3678,10 +4271,22 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               className={cn(
                 "grid h-full md:grid-cols-[46%_54%]",
                 !contentVisible && "pointer-events-none",
-              )}
-            >
-              <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
-                <div className="relative min-h-[210px] flex-1">
+            )}
+          >
+            <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
+                <button
+                  type="button"
+                  className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35"
+                  aria-label={copy.modal.openImage}
+                  onClick={() =>
+                    setExpandedGalleryIndex(
+                      Math.min(
+                        activeGalleryIndex,
+                        Math.max(selectedProjectGallery.length - 1, 0),
+                      ),
+                    )
+                  }
+                >
                   <Image
                     src={activeGalleryImage ?? selectedProject.image}
                     alt={selectedProject.imageAlt}
@@ -3690,14 +4295,18 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                     className="object-contain p-6 md:p-7"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-                </div>
+                </button>
 
                 {selectedProjectGallery.length > 1 && (
                   <div
                     className="border-t border-border bg-white/[0.92] p-3"
                     aria-label={copy.modal.gallery}
                   >
-                    <div className="flex gap-2 overflow-x-auto pb-1">
+                    <div
+                      data-project-dialog-horizontal-scroll
+                      data-lenis-prevent
+                      className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1"
+                    >
                       {selectedProjectGallery.map((image, index) => (
                         <button
                           key={image}
@@ -3844,6 +4453,67 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
               </div>
             </div>
+            {expandedGalleryImage && (
+              <div
+                className="fixed inset-0 z-[40] grid place-items-center bg-black/82 p-4"
+                role="dialog"
+                aria-modal="true"
+                aria-label={copy.modal.closeImage}
+                onClick={() => setExpandedGalleryIndex(null)}
+              >
+                <button
+                  type="button"
+                  className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+                  aria-label={copy.modal.closeImage}
+                  onClick={() => setExpandedGalleryIndex(null)}
+                >
+                  <X className="size-5" aria-hidden />
+                </button>
+                {selectedProjectGallery.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      className="absolute left-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:left-6 md:size-12"
+                      aria-label={copy.modal.previousImage}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        showPreviousExpandedGalleryImage();
+                      }}
+                    >
+                      <ChevronLeft className="size-6" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:right-6 md:size-12"
+                      aria-label={copy.modal.nextImage}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        showNextExpandedGalleryImage();
+                      }}
+                    >
+                      <ChevronRight className="size-6" aria-hidden />
+                    </button>
+                  </>
+                )}
+                <div
+                  className="relative h-[min(82vh,780px)] w-[min(94vw,1120px)] touch-pan-y"
+                  onTouchStart={(event) => {
+                    expandedGalleryTouchStartXRef.current =
+                      event.touches[0]?.clientX ?? null;
+                  }}
+                  onTouchEnd={handleExpandedGalleryTouchEnd}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <Image
+                    src={expandedGalleryImage}
+                    alt={selectedProject.imageAlt}
+                    fill
+                    sizes="94vw"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            )}
           </section>
         </div>
       )}

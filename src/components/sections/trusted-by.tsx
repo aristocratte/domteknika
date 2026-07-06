@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { type CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
@@ -20,36 +21,46 @@ export function TrustedBy() {
   const logos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-background py-[72px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-8">
+    <section className="bg-background py-8 md:py-[72px]" aria-label={t("label")}>
+      <Container size="wide" className="mb-4 md:mb-8">
         <Reveal>
-          <h2 className="text-[18px] font-normal uppercase leading-none tracking-normal text-foreground">
+          <h2 className="text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px]">
             {t("label")}
           </h2>
         </Reveal>
       </Container>
 
       <Reveal delay={0.08}>
-        <div data-marquee-rail className="relative overflow-hidden bg-muted py-2">
+        <div data-marquee-rail className="relative overflow-hidden bg-muted py-1 md:py-2">
           <div
-            className="flex w-max animate-marquee items-center gap-11 pr-11"
+            className="flex w-max animate-marquee items-center gap-6 pr-6 md:gap-11 md:pr-11"
             style={{ ["--marquee-duration" as string]: "36s" }}
           >
             {logos.map((logo, index) => {
               const logoBoxWidth = Math.min(Math.round(logo.width * 1.08), 230);
               const logoBoxHeight = Math.min(Math.round(logo.height * 1.08), 86);
+              const mobileLogoBoxWidth = Math.min(
+                Math.round(logo.width * 0.72),
+                150,
+              );
+              const mobileLogoBoxHeight = Math.min(
+                Math.round(logo.height * 0.72),
+                56,
+              );
 
               return (
                 <div
                   key={`${logo.name}-${index}`}
-                  className="flex h-[100px] w-[230px] shrink-0 items-center justify-center"
+                  className="flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px]"
                 >
                   <div
-                    className="relative"
+                    className="relative h-[var(--logo-height-mobile)] w-[var(--logo-width-mobile)] md:h-[var(--logo-height)] md:w-[var(--logo-width)]"
                     style={{
-                      width: `${logoBoxWidth}px`,
-                      height: `${logoBoxHeight}px`,
-                    }}
+                      "--logo-width-mobile": `${mobileLogoBoxWidth}px`,
+                      "--logo-height-mobile": `${mobileLogoBoxHeight}px`,
+                      "--logo-width": `${logoBoxWidth}px`,
+                      "--logo-height": `${logoBoxHeight}px`,
+                    } as CSSProperties}
                   >
                     <Image
                       src={`/assets/${logo.src}.png`}

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -42,7 +43,17 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+
+    if (!mobileOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
+      document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
@@ -50,14 +61,14 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
       <nav
-        className="relative isolate mx-auto h-[68px] max-w-[1180px] rounded-b-[34px] md:h-[80px] md:rounded-b-[50px]"
+        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] md:block"
         aria-label="Primary"
       >
         <div
-          className="absolute inset-0 rounded-b-[34px] bg-white/75 shadow-[0_2px_10px_rgba(0,0,0,0.12)] md:rounded-b-[50px]"
+          className="absolute inset-0 rounded-b-[50px] bg-white/75 shadow-[0_2px_10px_rgba(0,0,0,0.12)]"
           aria-hidden
         />
-        <div className="domtek-glass-surface absolute inset-x-px top-0 bottom-px z-0 overflow-hidden rounded-b-[33px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%] md:rounded-b-[49px]">
+        <div className="domtek-glass-surface absolute inset-x-px top-0 bottom-px z-0 overflow-hidden rounded-b-[49px] border-b border-white/55 bg-white/[0.015] backdrop-blur-[10px] backdrop-saturate-[180%]">
           <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
             <GlassSurface
               width="100%"
@@ -75,7 +86,7 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[118px_minmax(0,1fr)_178px] md:gap-3 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)_230px]"
+          className="relative z-10 grid h-full grid-cols-[118px_minmax(0,1fr)_178px] items-center gap-3 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)_230px]"
         >
           <Link
             href="/"
@@ -126,69 +137,106 @@ export function Navbar() {
               <ArrowRight data-icon="inline-end" />
             </Button>
             <LanguageSwitcher className="hidden md:inline-flex" />
-            <button
-              type="button"
-              className="grid size-11 place-items-center rounded-[7px] border border-border bg-white/55 text-foreground backdrop-blur-xl md:hidden"
-              aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
-              aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen((value) => !value)}
-            >
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
           </div>
         </Container>
       </nav>
 
-      {mobileOpen && (
-        <div className="md:hidden">
-          <Container size="wide" className="pt-2">
-            <div className="domtek-glass-surface relative isolate overflow-hidden rounded-[24px] border border-white/55 bg-white/[0.025] p-4 shadow-[0_12px_22px_rgba(0,39,61,0.08)] backdrop-blur-[12px] backdrop-saturate-[180%]">
-              <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-                <GlassSurface
-                  width="100%"
-                  height="100%"
-                  borderRadius={24}
-                  backgroundOpacity={0.03}
-                  saturation={1.75}
-                  distortionScale={0}
-                  redOffset={0}
-                  greenOffset={0}
-                  blueOffset={0}
-                  className="[&>div:last-child]:p-0"
-                />
-              </div>
-              <div className="relative z-10 flex flex-col gap-1">
-                {NAV_ITEMS.map((item) => (
-                  <NavLink
-                    key={item.key}
-                    href={item.href}
-                    disabled={"disabled" in item ? Boolean(item.disabled) : false}
-                    active={
-                      !("disabled" in item ? Boolean(item.disabled) : false) &&
-                      currentNavKey === item.key
-                    }
-                    mobile
-                    onNavigate={() => setMobileOpen(false)}
-                  >
-                    {t(item.key)}
-                  </NavLink>
-                ))}
-                <div className="mt-3 flex items-center justify-between border-t border-border/70 pt-4">
-                  <LanguageSwitcher />
-                  <Button
-                    nativeButton={false}
-                    className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
-                    render={<Link href="/contact" />}
+      <button
+        type="button"
+        className="fixed right-7 top-5 z-[910] grid size-[58px] place-items-center rounded-[10px] border border-border bg-white text-foreground shadow-[0_10px_28px_rgba(0,0,0,0.16)] ring-1 ring-black/5 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 md:hidden"
+        aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
+        aria-expanded={mobileOpen}
+        onClick={() => setMobileOpen((value) => !value)}
+      >
+        {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+      </button>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="fixed inset-0 z-[920] md:hidden"
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            <motion.button
+              type="button"
+              className="absolute inset-0 cursor-default bg-black/15"
+              aria-label={t("closeMenu")}
+              onClick={() => setMobileOpen(false)}
+              variants={{
+                closed: { opacity: 0 },
+                open: { opacity: 1 },
+              }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <motion.aside
+              role="dialog"
+              aria-modal="true"
+              className="absolute inset-y-0 right-0 isolate flex w-[min(84vw,360px)] flex-col overflow-hidden border-l border-border bg-white shadow-[-18px_0_42px_rgba(0,0,0,0.12)]"
+              aria-label={t("openMenu")}
+              variants={{
+                closed: { x: "100%", opacity: 0.98 },
+                open: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="relative z-10 flex h-full flex-col px-6 pb-7 pt-5">
+                <div className="flex items-center justify-between gap-4">
+                  <Link
+                    href="/"
+                    className="inline-flex rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+                    aria-label="DOMTEKNIKA home"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {t("cta")}
-                  </Button>
+                    <Logo className="w-[126px]" />
+                  </Link>
+                  <button
+                    type="button"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-brand/30 bg-white text-foreground shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-colors hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+                    aria-label={t("closeMenu")}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <X className="size-5" aria-hidden />
+                  </button>
+                </div>
+
+                <div className="mt-10 flex flex-col gap-2">
+                  {NAV_ITEMS.map((item) => (
+                    <NavLink
+                      key={item.key}
+                      href={item.href}
+                      disabled={"disabled" in item ? Boolean(item.disabled) : false}
+                      active={
+                        !("disabled" in item ? Boolean(item.disabled) : false) &&
+                        currentNavKey === item.key
+                      }
+                      mobile
+                      onNavigate={() => setMobileOpen(false)}
+                    >
+                      {t(item.key)}
+                    </NavLink>
+                  ))}
+                </div>
+
+                <div className="mt-auto border-t border-border/70 pt-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <LanguageSwitcher />
+                    <Button
+                      nativeButton={false}
+                      className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
+                      render={<Link href="/contact" />}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {t("cta")}
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Container>
-        </div>
-      )}
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
@@ -211,8 +259,9 @@ function NavLink({
   const className = cn(
     "relative inline-flex whitespace-nowrap text-[13px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand lg:text-[14px] 2xl:text-[16px]",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
-    mobile && "w-full rounded-[7px] px-3 py-3 text-[16px] hover:bg-white/50",
-    mobile && active && "bg-white/60 text-brand",
+    mobile &&
+      "w-full items-center rounded-[7px] px-4 py-3 text-[18px] hover:bg-muted",
+    mobile && active && "bg-muted text-brand",
   );
   const indicator = !disabled && !mobile && (
     <span

@@ -10,7 +10,7 @@ export function ProcessSection() {
   return (
     <section
       id="expertise"
-      className="scroll-mt-28 bg-white py-[96px] md:py-[112px]"
+      className="scroll-mt-28 bg-white py-10 md:py-[112px]"
       aria-labelledby="process-title"
     >
       <Container
@@ -20,7 +20,7 @@ export function ProcessSection() {
         <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch">
           <Reveal
             as="article"
-            className="group flex min-h-[304px] flex-col justify-center rounded-[15px] border border-border bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+            className="group flex min-h-[248px] flex-col justify-center rounded-[15px] border border-border bg-white p-5 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] md:p-6"
           >
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
@@ -41,7 +41,7 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.08}
-            className="group relative z-20 my-0 min-h-[304px] rounded-[15px] bg-brand px-6 py-7 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:px-7"
+            className="group relative z-20 my-0 min-h-[260px] rounded-[15px] bg-brand px-5 py-6 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[304px] md:px-7 md:py-7"
           >
             <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-center">
               <div>
@@ -57,7 +57,7 @@ export function ProcessSection() {
                 </p>
               </div>
 
-              <div className="relative h-full min-h-[236px] border-white/70 md:min-h-[250px] md:border-l">
+              <div className="relative h-full min-h-[190px] border-white/70 md:min-h-[250px] md:border-l">
                 <div className="absolute inset-y-0 left-7 right-0 md:left-8">
                   <Image
                     src="/assets/schema-process.png"
@@ -74,9 +74,9 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.16}
-            className="group flex min-h-[304px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+            className="group flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px]"
           >
-            <div className="px-6 pb-0 pt-[42px]">
+            <div className="px-5 pb-0 pt-6 md:px-6 md:pt-[42px]">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
                 {t("productTitle")}

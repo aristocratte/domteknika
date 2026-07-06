@@ -124,21 +124,21 @@ function ExpertiseHero() {
 
           <Reveal
             delay={0.1}
-            className="min-h-[260px] sm:min-h-[304px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]"
+            className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]"
           >
-            <div className="relative mx-auto w-[min(100%,320px)] pt-1 sm:w-[min(100%,460px)] md:ml-auto md:mr-0 md:w-full md:max-w-[540px] lg:max-w-[640px]">
-              <div className="mx-auto mb-3 flex w-fit flex-col items-center gap-1">
-                <p className="text-center text-[15px] font-medium leading-none text-muted-foreground">
+            <div className="relative mx-auto w-[min(100%,356px)] pt-1 sm:w-[min(100%,500px)] md:ml-auto md:mr-0 md:w-full md:max-w-[540px] lg:max-w-[640px]">
+              <div className="mx-auto mb-4 flex w-fit flex-col items-center gap-1">
+                <p className="text-center text-[17px] font-medium leading-none text-muted-foreground md:text-[15px]">
                   {t("team")}
                 </p>
                 <span className="h-px w-16 bg-brand/55" aria-hidden />
               </div>
 
               <div
-                className="pointer-events-none absolute left-1/2 top-10 h-[218px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[250px] md:top-11 md:h-[238px] lg:h-[266px]"
+                className="pointer-events-none absolute left-1/2 top-12 h-[272px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[292px] md:top-11 md:h-[238px] lg:h-[266px]"
                 aria-hidden
               />
-              <div className="relative mx-auto flex max-w-[304px] items-start justify-center gap-2 sm:max-w-[460px] sm:gap-3 md:max-w-[500px] lg:max-w-[590px] lg:gap-4 xl:gap-5">
+              <div className="relative mx-auto flex max-w-[312px] items-start justify-center gap-2 min-[390px]:max-w-[344px] sm:max-w-[500px] sm:gap-3 md:max-w-[500px] lg:max-w-[590px] lg:gap-4 xl:gap-5">
                 {TEAM_MEMBERS.slice(0, 4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -152,7 +152,7 @@ function ExpertiseHero() {
                   />
                 ))}
               </div>
-              <div className="relative mx-auto mt-2 flex max-w-[240px] items-start justify-center gap-3 sm:max-w-[360px] md:max-w-[380px] lg:mt-3 lg:max-w-[440px] lg:gap-5">
+              <div className="relative mx-auto mt-4 flex max-w-[256px] items-start justify-center gap-3 min-[390px]:max-w-[286px] sm:max-w-[390px] md:max-w-[380px] lg:mt-3 lg:max-w-[440px] lg:gap-5">
                 {TEAM_MEMBERS.slice(4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -179,7 +179,7 @@ function TeamPortrait({
   return (
     <figure
       className={cn(
-        "group relative isolate aspect-[196/269] w-[64px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] sm:w-[88px] md:w-[96px] lg:w-[124px] xl:w-[136px]",
+        "group relative isolate aspect-[196/269] w-[72px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[390px]:w-[80px] sm:w-[96px] md:w-[96px] lg:w-[124px] xl:w-[136px]",
         className,
       )}
     >
@@ -258,7 +258,7 @@ function ExpertiseSwissBanner() {
   const titleParts = t("title").split(". ");
 
   return (
-    <section className="relative h-[190px] overflow-hidden bg-alps md:h-[236px]">
+    <section className="relative h-[176px] overflow-hidden bg-alps md:h-[236px]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
           src="/assets/expertise-alps-cows.png"
@@ -269,7 +269,23 @@ function ExpertiseSwissBanner() {
         />
       </div>
       <div
-        className="absolute inset-y-0 right-0 w-[60%]"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,39,61,0.62)_0%,rgba(0,70,45,0.48)_48%,rgba(0,39,61,0.16)_100%)] md:hidden"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-y-0 right-0 w-[58%] md:hidden"
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          WebkitMaskImage:
+            "linear-gradient(to left, black 0%, black 48%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to left, black 0%, black 48%, transparent 100%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-y-0 right-0 hidden w-[60%] md:block"
         style={{
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
@@ -281,7 +297,7 @@ function ExpertiseSwissBanner() {
         aria-hidden
       />
       <div
-        className="absolute inset-y-0 right-0 w-[60%]"
+        className="absolute inset-y-0 right-0 hidden w-[60%] md:block"
         style={{
           background:
             "linear-gradient(to left, rgba(4,91,39,0.49) 0%, rgba(4,91,39,0.32) 42%, rgba(4,91,39,0) 100%)",
@@ -291,11 +307,11 @@ function ExpertiseSwissBanner() {
 
       <Container
         size="wide"
-        className="relative z-10 flex h-full max-w-none items-center justify-end px-5 sm:px-8 lg:px-10 xl:px-11"
+        className="relative z-10 flex h-full max-w-none items-center justify-between px-5 sm:px-8 md:justify-end lg:px-10 xl:px-11"
       >
-        <Reveal className="flex items-center gap-4 md:gap-6">
+        <Reveal className="flex w-full items-center justify-between gap-4 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="max-w-[500px] text-[24px] font-extrabold uppercase leading-[1.16] tracking-wide text-white md:text-[26px]"
+            className="max-w-[280px] text-[19px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
             {titleParts.map((part, index) => (
@@ -310,7 +326,7 @@ function ExpertiseSwissBanner() {
             alt=""
             width={88}
             height={88}
-            className="size-[42px] shrink-0 object-contain sm:size-[46px] md:size-[52px] lg:size-[58px]"
+            className="size-[38px] shrink-0 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.28)] sm:size-[42px] md:size-[52px] lg:size-[58px]"
           />
         </Reveal>
       </Container>
@@ -334,14 +350,14 @@ function AddedValueSection() {
               {t("eyebrow")}
             </div>
 
-            <div className="mt-9 grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+            <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
               {VALUE_ITEMS.map((item, index) => {
                 return (
                   <Reveal
                     as="article"
                     key={item.key}
                     delay={index * 0.04}
-                    className="group transform-gpu rounded-[7px] px-0 py-1 transition-transform duration-300 hover:-translate-y-1 sm:px-2 lg:border-l lg:border-border lg:px-7 first:lg:border-l-0 first:lg:pl-0"
+                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-4 py-5 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_28px_rgba(0,0,0,0.06)] sm:px-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none first:lg:border-l-0 first:lg:pl-0"
                   >
                     <Image
                       src={`/assets/${item.icon}.png`}
