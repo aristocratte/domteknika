@@ -27,7 +27,13 @@ import {
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
-import { getPatentLinkedProjectsForLocale } from "@/components/sections/projects-page-content";
+import {
+  type Project,
+  getPatentLinkedProjectsForLocale,
+  getProjectsForLocale,
+  getProjectsPageCopy,
+  ProjectDetailsDialog,
+} from "@/components/sections/projects-page-content";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -1017,6 +1023,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPatent, setSelectedPatent] = useState<PatentItem | null>(null);
+  const [selectedLinkedProject, setSelectedLinkedProject] =
+    useState<Project | null>(null);
   const [selectedPatentDetails, setSelectedPatentDetails] =
     useState<PatentDetail | null>(null);
   const [detailError, setDetailError] = useState(false);
@@ -1051,6 +1059,14 @@ export function PatentPageContent({ locale }: { locale: string }) {
       return matchesFilter && patentMatchesSearch(patent, normalizedSearchTerm);
     });
   }, [activeFilter, normalizedSearchTerm]);
+  const localizedProjects = useMemo(
+    () => getProjectsForLocale(resolvedLocale),
+    [resolvedLocale],
+  );
+  const projectsCopy = useMemo(
+    () => getProjectsPageCopy(resolvedLocale),
+    [resolvedLocale],
+  );
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
@@ -1069,6 +1085,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
       );
     }
     setSelectedPatent(null);
+    setSelectedLinkedProject(null);
     setPanelRect(null);
     setActiveDrawingIndex(null);
     setModalImageIndex(0);
@@ -1137,6 +1154,16 @@ export function PatentPageContent({ locale }: { locale: string }) {
       MODAL_CLOSE_FALLBACK_MS,
     );
   }, [clearCloseTimer, dialogState, finishClose, selectedPatent]);
+
+  const openLinkedProject = useCallback(
+    (projectId: string) => {
+      const project = localizedProjects.find((item) => item.id === projectId);
+      if (!project) return;
+
+      setSelectedLinkedProject(project);
+    },
+    [localizedProjects],
+  );
 
   const closeDrawing = useCallback(() => {
     setActiveDrawingIndex(null);
@@ -1291,7 +1318,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
     const preventBackgroundScroll = (event: Event) => {
       const scrollContainer =
         event.target instanceof Element
-          ? event.target.closest<HTMLElement>("[data-patent-dialog-scroll]")
+          ? event.target.closest<HTMLElement>(
+              "[data-patent-dialog-scroll], [data-project-dialog-scroll]",
+            )
           : null;
       const deltaY =
         event instanceof WheelEvent
@@ -1368,6 +1397,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
     if (!selectedPatent) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
+      if (selectedLinkedProject) return;
+
       if (activeDrawingIndex !== null) {
         if (event.key === "Escape") {
           closeDrawing();
@@ -1439,6 +1470,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
     cycleDrawing,
     cycleModalImage,
     selectedPatent,
+    selectedLinkedProject,
   ]);
 
   useEffect(() => {
@@ -1840,6 +1872,32 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   {selectedPatent.abstract || copy.details.unavailable}
                 </p>
 
+                {selectedPatentLinkedProjects.length > 0 && (
+                  <section className="mt-6">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                      {copy.details.linkedProjects}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-3">
+                      {selectedPatentLinkedProjects.map((project) => (
+                        <button
+                          key={project.id}
+                          type="button"
+                          className="group/projectLink inline-flex min-h-11 items-center justify-center gap-3 rounded-[7px] bg-brand px-4 py-2.5 text-[13px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+                          aria-haspopup="dialog"
+                          aria-label={`${copy.details.openLinkedProject}: ${project.title}`}
+                          onClick={() => openLinkedProject(project.id)}
+                        >
+                          <span>{project.title}</span>
+                          <ArrowRight
+                            className="size-4 transition-transform duration-300 group-hover/projectLink:translate-x-0.5"
+                            aria-hidden
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
                 <div className="mt-7 grid gap-5 md:grid-cols-2">
                   <section>
                     <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
@@ -1877,30 +1935,6 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   <PatentFact label={copy.details.classification} value={selectedPatent.classification} wide />
                   <PatentFact label={copy.details.alsoPublishedAs} value={selectedPatent.alsoPublishedAs} wide />
                 </div>
-
-                {selectedPatentLinkedProjects.length > 0 && (
-                  <section className="mt-8">
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
-                      {copy.details.linkedProjects}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-3">
-                      {selectedPatentLinkedProjects.map((project) => (
-                        <Link
-                          key={project.id}
-                          href={`/projects?project=${encodeURIComponent(project.id)}`}
-                          className="group/projectLink inline-flex min-h-11 items-center justify-center gap-3 rounded-[7px] bg-brand px-4 py-2.5 text-[13px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
-                          aria-label={`${copy.details.openLinkedProject}: ${project.title}`}
-                        >
-                          <span>{project.title}</span>
-                          <ArrowRight
-                            className="size-4 transition-transform duration-300 group-hover/projectLink:translate-x-0.5"
-                            aria-hidden
-                          />
-                        </Link>
-                      ))}
-                    </div>
-                  </section>
-                )}
 
                 {selectedPatent.images.length > 0 && (
                   <PatentDrawingGallery
@@ -1946,6 +1980,15 @@ export function PatentPageContent({ locale }: { locale: string }) {
             />
           )}
         </div>
+      )}
+      {selectedLinkedProject && (
+        <ProjectDetailsDialog
+          key={selectedLinkedProject.id}
+          locale={resolvedLocale}
+          modal={projectsCopy.modal}
+          project={selectedLinkedProject}
+          onClosed={() => setSelectedLinkedProject(null)}
+        />
       )}
     </>
   );
