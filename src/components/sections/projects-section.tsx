@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import {
   Carousel,
@@ -14,21 +14,16 @@ import {
 } from "@/components/ui/carousel";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
+import { getProjectsForLocale } from "@/components/sections/projects-page-content";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-const PROJECTS = [
-  { id: 2, src: "product-1", tag: "Tag1" },
-  { id: 3, src: "product-2", tag: "Tag2" },
-  { id: 4, src: "product-3", tag: "Tag3" },
-  { id: 5, src: "product-4", tag: "Tag5" },
-] as const;
-
-const CAROUSEL_PROJECTS = [...PROJECTS, ...PROJECTS];
-
 export function ProjectsSection() {
   const t = useTranslations("Projects");
+  const locale = useLocale();
   const [api, setApi] = useState<CarouselApi>();
+  const projects = useMemo(() => getProjectsForLocale(locale), [locale]);
+  const carouselProjects = useMemo(() => [...projects, ...projects], [projects]);
   const autoplay = useMemo(
     () =>
       Autoplay({
@@ -88,16 +83,16 @@ export function ProjectsSection() {
               onBlur={() => autoplay.reset()}
             >
               <CarouselContent className="-ml-7">
-                {CAROUSEL_PROJECTS.map((project, index) => (
+                {carouselProjects.map((project, index) => (
                   <CarouselItem
                     key={`${project.id}-${index}`}
                     className="basis-[min(274px,78vw)] pl-7"
                   >
                     <ProjectCard
-                      image={`/assets/${project.src}.png`}
-                      title={t(`items.${project.id}.title` as never)}
-                      description={t(`items.${project.id}.description` as never)}
-                      tag={project.tag}
+                      image={project.image}
+                      title={project.title}
+                      description={project.description}
+                      tag={project.tags[1] ?? project.tags[0] ?? project.category}
                     />
                   </CarouselItem>
                 ))}
@@ -156,7 +151,7 @@ function ProjectCard({
           {description}
         </p>
         <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
-          #{tag}
+          {tag}
         </p>
       </div>
     </article>

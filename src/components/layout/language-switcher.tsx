@@ -2,7 +2,6 @@
 
 import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -13,6 +12,7 @@ import {
 import { createPortal } from "react-dom";
 
 import { locales, type Locale } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const LANGUAGE_NAMES: Record<Locale, string> = {
@@ -81,15 +81,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     setOpen(false);
     if (next === current) return;
     startTransition(() => {
-      // Replace the leading /xx (locale segment) of the current pathname.
-      const segments = pathname.split("/");
-      // pathname starts with "/<locale>/..." → segments[1] is the locale
-      if (segments.length > 1 && locales.includes(segments[1] as Locale)) {
-        segments[1] = next;
-      } else {
-        segments.splice(1, 0, next);
-      }
-      router.push(segments.join("/") || `/${next}`);
+      router.push(pathname, { locale: next });
     });
   }
 

@@ -28,20 +28,20 @@
     "viewAll": "View all projects",
     "items": {
       "2": {
-        "title": "Projet 2",
-        "description": "Description 2"
+        "title": "Aventor",
+        "description": "High-performance electric platform with lightweight composite bodywork."
       },
       "3": {
-        "title": "Projet 3",
-        "description": "Description 3"
+        "title": "SOFTCAR",
+        "description": "Low-footprint urban EV architecture with recyclable vehicle systems."
       },
       "4": {
-        "title": "Projet 4",
-        "description": "Description 4"
+        "title": "STAJVELO RV01",
+        "description": "Urban e-bike architecture with polymer engineering and distinctive wheels."
       },
       "5": {
-        "title": "Projet 5",
-        "description": "Description 5"
+        "title": "Alicoffee",
+        "description": "Coffee machine concept with a double-pass capsule fluid circuit."
       }
     },
     "previous": "Previous project",

@@ -519,6 +519,13 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
   const finishClose = useCallback(() => {
     clearCloseTimer();
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
+    }
     setSelectedPatent(null);
     setPanelRect(null);
     setActiveDrawingIndex(null);
@@ -555,6 +562,23 @@ export function PatentPageContent({ locale }: { locale: string }) {
     },
     [clearCloseTimer],
   );
+
+  useEffect(() => {
+    const openPatentFromHash = () => {
+      const patentId = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+      if (!patentId || selectedPatent?.id === patentId) return;
+
+      const patent = PATENTS.find((item) => item.id === patentId);
+      if (patent) {
+        setActiveFilter(patent.filter);
+        openPatent(patent);
+      }
+    };
+
+    openPatentFromHash();
+    window.addEventListener("hashchange", openPatentFromHash);
+    return () => window.removeEventListener("hashchange", openPatentFromHash);
+  }, [openPatent, selectedPatent?.id]);
 
   const closePatent = useCallback(() => {
     if (!selectedPatent || dialogState === "closing") return;

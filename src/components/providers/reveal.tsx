@@ -94,6 +94,29 @@ export function Reveal({
     [controls],
   );
 
+  useEffect(() => {
+    const revealIfAlreadyVisible = () => {
+      const element = elementRef.current;
+      if (!element || currentStateRef.current === "visible") return;
+
+      const rect = element.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
+        requestState("visible");
+      }
+    };
+
+    const frameId = window.requestAnimationFrame(revealIfAlreadyVisible);
+    const timerId = window.setTimeout(revealIfAlreadyVisible, 450);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(timerId);
+    };
+  }, [requestState]);
+
   return (
     <MotionTag
       ref={(node: HTMLElement | null) => {

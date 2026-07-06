@@ -1,0 +1,516 @@
+[
+  {
+    "slug": "airsmile",
+    "sourceFolder": "Airsmile",
+    "cover": "/assets/projects/airsmile/airsmile-01-cover.webp",
+    "images": [
+      {
+        "source": "Airsmile/fkfl.png",
+        "output": "/assets/projects/airsmile/airsmile-01-cover.webp"
+      },
+      {
+        "source": "Airsmile/f.png",
+        "output": "/assets/projects/airsmile/airsmile-02-f.webp"
+      },
+      {
+        "source": "Airsmile/Sans titre.jpg",
+        "output": "/assets/projects/airsmile/airsmile-03-sans-titre.webp"
+      }
+    ]
+  },
+  {
+    "slug": "aventor",
+    "sourceFolder": "Aventor",
+    "cover": "/assets/projects/aventor/aventor-01-cover.webp",
+    "images": [
+      {
+        "source": "Aventor/Aventor9.jpeg",
+        "output": "/assets/projects/aventor/aventor-01-cover.webp"
+      },
+      {
+        "source": "Aventor/160721-3w.png",
+        "output": "/assets/projects/aventor/aventor-02-160721-3w.webp"
+      },
+      {
+        "source": "Aventor/Aventor Rolf Biland 2 July 2015 Lignieres.jpg",
+        "output": "/assets/projects/aventor/aventor-03-aventor-rolf-biland-2-july-2015-lignieres.webp"
+      },
+      {
+        "source": "Aventor/Déplacements arceau 2.2.PNG",
+        "output": "/assets/projects/aventor/aventor-04-deplacements-arceau-2-2.webp"
+      },
+      {
+        "source": "Aventor/DSC_2737.JPG",
+        "output": "/assets/projects/aventor/aventor-05-dsc-2737.webp"
+      },
+      {
+        "source": "Aventor/v18-vert-dessus.jpg",
+        "output": "/assets/projects/aventor/aventor-06-v18-vert-dessus.webp"
+      }
+    ]
+  },
+  {
+    "slug": "brossadent",
+    "sourceFolder": "BrossAdent",
+    "cover": "/assets/projects/brossadent/brossadent-01-cover.webp",
+    "images": [
+      {
+        "source": "BrossAdent/Sans titre.png",
+        "output": "/assets/projects/brossadent/brossadent-01-cover.webp"
+      },
+      {
+        "source": "BrossAdent/hj.png",
+        "output": "/assets/projects/brossadent/brossadent-02-hj.webp"
+      },
+      {
+        "source": "BrossAdent/Sans titref.jpg",
+        "output": "/assets/projects/brossadent/brossadent-03-sans-titref.webp"
+      }
+    ]
+  },
+  {
+    "slug": "aventor-drone",
+    "sourceFolder": "DroneAventor",
+    "cover": "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
+    "images": [
+      {
+        "source": "DroneAventor/1.JPG",
+        "output": "/assets/projects/aventor-drone/aventor-drone-01-cover.webp"
+      },
+      {
+        "source": "DroneAventor/20170601_094412279_iOS.jpg",
+        "output": "/assets/projects/aventor-drone/aventor-drone-02-20170601-094412279-ios.webp"
+      },
+      {
+        "source": "DroneAventor/20170604_170723671_iOS.jpg",
+        "output": "/assets/projects/aventor-drone/aventor-drone-03-20170604-170723671-ios.webp"
+      },
+      {
+        "source": "DroneAventor/4.JPG",
+        "output": "/assets/projects/aventor-drone/aventor-drone-04-4.webp"
+      }
+    ]
+  },
+  {
+    "slug": "velum-sky-screen",
+    "sourceFolder": "EcranVelumSKY",
+    "cover": "/assets/projects/velum-sky-screen/velum-sky-screen-01-cover.webp",
+    "images": [
+      {
+        "source": "EcranVelumSKY/_DSC7008-Modifier.jpg",
+        "output": "/assets/projects/velum-sky-screen/velum-sky-screen-01-cover.webp"
+      }
+    ]
+  },
+  {
+    "slug": "insulin-pen",
+    "sourceFolder": "InsulinPen",
+    "cover": "/assets/projects/insulin-pen/insulin-pen-01-cover.webp",
+    "images": [
+      {
+        "source": "InsulinPen/170831-InsulinPen-3.jpg",
+        "output": "/assets/projects/insulin-pen/insulin-pen-01-cover.webp"
+      },
+      {
+        "source": "InsulinPen/170831-InsulinPen-1.jpg",
+        "output": "/assets/projects/insulin-pen/insulin-pen-02-170831-insulinpen-1.webp"
+      },
+      {
+        "source": "InsulinPen/170831-InsulinPen-2.jpg",
+        "output": "/assets/projects/insulin-pen/insulin-pen-03-170831-insulinpen-2.webp"
+      }
+    ]
+  },
+  {
+    "slug": "vacheron-watch-mechanics",
+    "sourceFolder": "MontreVacheron",
+    "cover": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp",
+    "images": [
+      {
+        "source": "MontreVacheron/Watch-3.333.jpg",
+        "output": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp"
+      },
+      {
+        "source": "MontreVacheron/Capture d’écran 2026-07-03 à 10.12.35 AM.png",
+        "output": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-02-capture-d-ecran-2026-07-03-a-10-12-35-am.webp"
+      },
+      {
+        "source": "MontreVacheron/Double-spiral.478.jpg",
+        "output": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-03-double-spiral-478.webp"
+      },
+      {
+        "source": "MontreVacheron/montreete.png",
+        "output": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-04-montreete.webp"
+      },
+      {
+        "source": "MontreVacheron/Sans titre.jpg",
+        "output": "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-05-sans-titre.webp"
+      }
+    ]
+  },
+  {
+    "slug": "paradigm-spine",
+    "sourceFolder": "Paradigm (pince pour mettre en deux vertebre)",
+    "cover": "/assets/projects/paradigm-spine/paradigm-spine-01-cover.webp",
+    "images": [
+      {
+        "source": "Paradigm (pince pour mettre en deux vertebre)/set-complet-paradigm-spine.2.jpg",
+        "output": "/assets/projects/paradigm-spine/paradigm-spine-01-cover.webp"
+      },
+      {
+        "source": "Paradigm (pince pour mettre en deux vertebre)/Calcul2x-1000N.JPG",
+        "output": "/assets/projects/paradigm-spine/paradigm-spine-02-calcul2x-1000n.webp"
+      },
+      {
+        "source": "Paradigm (pince pour mettre en deux vertebre)/mettre sur fond blanc.png",
+        "output": "/assets/projects/paradigm-spine/paradigm-spine-03-mettre-sur-fond-blanc.webp"
+      }
+    ]
+  },
+  {
+    "slug": "folding-umbrella",
+    "sourceFolder": "Parapluis",
+    "cover": "/assets/projects/folding-umbrella/folding-umbrella-01-cover.webp",
+    "images": [
+      {
+        "source": "Parapluis/IMG_2957.JPG",
+        "output": "/assets/projects/folding-umbrella/folding-umbrella-01-cover.webp"
+      },
+      {
+        "source": "Parapluis/Coupe étui ouvert.JPG",
+        "output": "/assets/projects/folding-umbrella/folding-umbrella-02-coupe-etui-ouvert.webp"
+      },
+      {
+        "source": "Parapluis/DSCN9965.JPG",
+        "output": "/assets/projects/folding-umbrella/folding-umbrella-03-dscn9965.webp"
+      },
+      {
+        "source": "Parapluis/IMG_3019.JPG",
+        "output": "/assets/projects/folding-umbrella/folding-umbrella-04-img-3019.webp"
+      },
+      {
+        "source": "Parapluis/Parapluie ouvert.JPG",
+        "output": "/assets/projects/folding-umbrella/folding-umbrella-05-parapluie-ouvert.webp"
+      }
+    ]
+  },
+  {
+    "slug": "instant-coffee-dispenser",
+    "sourceFolder": "Pumamachien caffesoluble",
+    "cover": "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
+    "images": [
+      {
+        "source": "Pumamachien caffesoluble/DSC00550.JPG",
+        "output": "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp"
+      },
+      {
+        "source": "Pumamachien caffesoluble/DSC00548.JPG",
+        "output": "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-02-dsc00548.webp"
+      },
+      {
+        "source": "Pumamachien caffesoluble/PC190046.JPG",
+        "output": "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-03-pc190046.webp"
+      }
+    ]
+  },
+  {
+    "slug": "totalcar-concept",
+    "sourceFolder": "TotalCar",
+    "cover": "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp",
+    "images": [
+      {
+        "source": "public/assets/our-story/total-car.png",
+        "output": "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp"
+      }
+    ]
+  },
+  {
+    "slug": "cliris",
+    "sourceFolder": "cliris",
+    "cover": "/assets/projects/cliris/cliris-01-cover.webp",
+    "images": [
+      {
+        "source": "cliris/Copie de cliris_open_persp_140410.jpg",
+        "output": "/assets/projects/cliris/cliris-01-cover.webp"
+      },
+      {
+        "source": "cliris/Copie de cliris_white_closed_2_140410.jpg",
+        "output": "/assets/projects/cliris/cliris-02-copie-de-cliris-white-closed-2-140410.webp"
+      },
+      {
+        "source": "cliris/Copie de cliris_white_open_140410.jpg",
+        "output": "/assets/projects/cliris/cliris-03-copie-de-cliris-white-open-140410.webp"
+      }
+    ]
+  },
+  {
+    "slug": "alicoffee-machine",
+    "sourceFolder": "coffeeMachine",
+    "cover": "/assets/projects/alicoffee-machine/alicoffee-machine-01-cover.webp",
+    "images": [
+      {
+        "source": "coffeeMachine/2.1-Alicoffee-red.jpg",
+        "output": "/assets/projects/alicoffee-machine/alicoffee-machine-01-cover.webp"
+      },
+      {
+        "source": "coffeeMachine/Iso2 avec pieds déportés.JPG",
+        "output": "/assets/projects/alicoffee-machine/alicoffee-machine-02-iso2-avec-pieds-deportes.webp"
+      },
+      {
+        "source": "coffeeMachine/Machine V8.JPG",
+        "output": "/assets/projects/alicoffee-machine/alicoffee-machine-03-machine-v8.webp"
+      }
+    ]
+  },
+  {
+    "slug": "flex-drill",
+    "sourceFolder": "flexDrill",
+    "cover": "/assets/projects/flex-drill/flex-drill-01-cover.webp",
+    "images": [
+      {
+        "source": "flexDrill/Flex-drill.10.png",
+        "output": "/assets/projects/flex-drill/flex-drill-01-cover.webp"
+      },
+      {
+        "source": "flexDrill/20.JPG",
+        "output": "/assets/projects/flex-drill/flex-drill-02-20.webp"
+      },
+      {
+        "source": "flexDrill/DSC09237.JPG",
+        "output": "/assets/projects/flex-drill/flex-drill-03-dsc09237.webp"
+      },
+      {
+        "source": "flexDrill/Flex-drill.8.png",
+        "output": "/assets/projects/flex-drill/flex-drill-04-flex-drill-8.webp"
+      }
+    ]
+  },
+  {
+    "slug": "ikitty",
+    "sourceFolder": "iKitty",
+    "cover": "/assets/projects/ikitty/ikitty-01-cover.webp",
+    "images": [
+      {
+        "source": "iKitty/Kitty1.png",
+        "output": "/assets/projects/ikitty/ikitty-01-cover.webp"
+      },
+      {
+        "source": "iKitty/05-5 - New package concept.JPG",
+        "output": "/assets/projects/ikitty/ikitty-02-05-5-new-package-concept.webp"
+      },
+      {
+        "source": "iKitty/Capsule insertion - step 08.JPG",
+        "output": "/assets/projects/ikitty/ikitty-03-capsule-insertion-step-08.webp"
+      },
+      {
+        "source": "iKitty/ikitty New design - Iso view 2.JPG",
+        "output": "/assets/projects/ikitty/ikitty-04-ikitty-new-design-iso-view-2.webp"
+      },
+      {
+        "source": "iKitty/ikitty New design with feeder - Cut view.JPG",
+        "output": "/assets/projects/ikitty/ikitty-05-ikitty-new-design-with-feeder-cut-view.webp"
+      },
+      {
+        "source": "iKitty/ikitty New design with feeder - Front view.JPG",
+        "output": "/assets/projects/ikitty/ikitty-06-ikitty-new-design-with-feeder-front-view.webp"
+      }
+    ]
+  },
+  {
+    "slug": "biome-staple-applicator",
+    "sourceFolder": "pistolet agrafebiomes",
+    "cover": "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp",
+    "images": [
+      {
+        "source": "pistolet agrafebiomes/image 18.png",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp"
+      },
+      {
+        "source": "pistolet agrafebiomes/Capture d’écran 2026-07-03 à 11.22.34 AM.png",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-02-capture-d-ecran-2026-07-03-a-11-22-34-am.webp"
+      },
+      {
+        "source": "pistolet agrafebiomes/Capture d’écran 2026-07-03 à 11.24.49 AM.png",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-03-capture-d-ecran-2026-07-03-a-11-24-49-am.webp"
+      },
+      {
+        "source": "pistolet agrafebiomes/Capture d’écran 2026-07-03 à 11.26.07 AM.png",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-04-capture-d-ecran-2026-07-03-a-11-26-07-am.webp"
+      },
+      {
+        "source": "pistolet agrafebiomes/Capture d’écran 2026-07-03 à 11.27.20 AM.png",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-05-capture-d-ecran-2026-07-03-a-11-27-20-am.webp"
+      },
+      {
+        "source": "pistolet agrafebiomes/GOPR0517.JPG",
+        "output": "/assets/projects/biome-staple-applicator/biome-staple-applicator-06-gopr0517.webp"
+      }
+    ]
+  },
+  {
+    "slug": "glove-helmet-dryer",
+    "sourceFolder": "seche gant",
+    "cover": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
+    "images": [
+      {
+        "source": "seche gant/DSC06254.JPG",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp"
+      },
+      {
+        "source": "seche gant/1.jpg",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-02-1.webp"
+      },
+      {
+        "source": "seche gant/150813-01.JPG",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-03-150813-01.webp"
+      },
+      {
+        "source": "seche gant/150813-3d1.JPG",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-04-150813-3d1.webp"
+      },
+      {
+        "source": "seche gant/DSC06247.JPG",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-05-dsc06247.webp"
+      }
+    ]
+  },
+  {
+    "slug": "skincare-applicator",
+    "sourceFolder": "skincare",
+    "cover": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp",
+    "images": [
+      {
+        "source": "skincare/Applicateur.260.png",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp"
+      },
+      {
+        "source": "skincare/jf.jpg",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-02-jf.webp"
+      },
+      {
+        "source": "skincare/PC070111.JPG",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-03-pc070111.webp"
+      },
+      {
+        "source": "skincare/principe.jpg",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-04-principe.webp"
+      },
+      {
+        "source": "skincare/Sans titre.png",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-05-sans-titre.webp"
+      }
+    ]
+  },
+  {
+    "slug": "smart-bottle",
+    "sourceFolder": "smartBottle",
+    "cover": "/assets/projects/smart-bottle/smart-bottle-01-cover.webp",
+    "images": [
+      {
+        "source": "smartBottle/BTD3 détouré.png",
+        "output": "/assets/projects/smart-bottle/smart-bottle-01-cover.webp"
+      },
+      {
+        "source": "smartBottle/Oreilles +6mm - Perspective.JPG",
+        "output": "/assets/projects/smart-bottle/smart-bottle-02-oreilles-6mm-perspective.webp"
+      }
+    ]
+  },
+  {
+    "slug": "stajvelo-rv01",
+    "sourceFolder": "stajv",
+    "cover": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-cover.webp",
+    "images": [
+      {
+        "source": "stajv/RV01-01 1.png",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-cover.webp"
+      },
+      {
+        "source": "stajv/181017 - Jante - Déplacements.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-02-181017-jante-deplacements.webp"
+      },
+      {
+        "source": "stajv/b6_dev17_C0_S.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-03-b6-dev17-c0-s.webp"
+      },
+      {
+        "source": "stajv/DSC01762.JPG",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-04-dsc01762.webp"
+      },
+      {
+        "source": "stajv/IMG-20180608-WA0002.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-05-img-20180608-wa0002.webp"
+      },
+      {
+        "source": "stajv/STAJleclerc.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-06-stajleclerc.webp"
+      }
+    ]
+  },
+  {
+    "slug": "folding-bike-scooter",
+    "sourceFolder": "velo:scooter",
+    "cover": "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp",
+    "images": [
+      {
+        "source": "velo:scooter/VELO ELECTRIQUE PLIANT copie.jpg",
+        "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp"
+      },
+      {
+        "source": "velo:scooter/005 velo axe 1 ergo.jpg",
+        "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-02-005-velo-axe-1-ergo.webp"
+      },
+      {
+        "source": "velo:scooter/011 scooter 1.jpg",
+        "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-03-011-scooter-1.webp"
+      },
+      {
+        "source": "velo:scooter/015 scooter 1.jpg",
+        "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-04-015-scooter-1.webp"
+      },
+      {
+        "source": "velo:scooter/VAE pliage 4.JPG",
+        "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-05-vae-pliage-4.webp"
+      }
+    ]
+  },
+  {
+    "slug": "weebot",
+    "sourceFolder": "weebot",
+    "cover": "/assets/projects/weebot/weebot-01-cover.webp",
+    "images": [
+      {
+        "source": "weebot/weebotneige.png",
+        "output": "/assets/projects/weebot/weebot-01-cover.webp"
+      },
+      {
+        "source": "weebot/de 3-4 sans frein beau.JPG",
+        "output": "/assets/projects/weebot/weebot-02-de-3-4-sans-frein-beau.webp"
+      },
+      {
+        "source": "weebot/DSC04061.JPG",
+        "output": "/assets/projects/weebot/weebot-03-dsc04061.webp"
+      },
+      {
+        "source": "weebot/DSC04066.JPG",
+        "output": "/assets/projects/weebot/weebot-04-dsc04066.webp"
+      },
+      {
+        "source": "weebot/modif 6.JPG",
+        "output": "/assets/projects/weebot/weebot-05-modif-6.webp"
+      },
+      {
+        "source": "weebot/modif 7.JPG",
+        "output": "/assets/projects/weebot/weebot-06-modif-7.webp"
+      },
+      {
+        "source": "weebot/weebot.png",
+        "output": "/assets/projects/weebot/weebot-07-weebot.webp"
+      },
+      {
+        "source": "weebot/weebotdraw.png",
+        "output": "/assets/projects/weebot/weebot-08-weebotdraw.webp"
+      }
+    ]
+  }
+]

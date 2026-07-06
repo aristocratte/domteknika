@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { RouteRecovery } from "@/components/providers/route-recovery";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 
 // 42dot Sans, self-hosted and subsetted for DOMTEKNIKA Latin/French copy.
@@ -73,6 +74,7 @@ export default async function LocaleLayout({
       <body className="min-h-full bg-background font-sans text-foreground">
         <NextIntlClientProvider>
           <SmoothScrollProvider>
+            <RouteRecovery />
             <Navbar />
             <main className="relative">{children}</main>
             <Footer />
