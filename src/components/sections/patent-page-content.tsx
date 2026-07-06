@@ -1684,12 +1684,12 @@ export function PatentPageContent({ locale }: { locale: string }) {
       </section>
 
       <section
-        className="bg-background py-[48px] md:py-[58px]"
+        className="bg-background py-[64px] md:py-[58px]"
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">
           <Reveal>
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
               <div>
                 <h2
                   id="patent-archive-title"
@@ -1701,7 +1701,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   {visiblePatents.length} / {PATENTS.length} {copy.resultsLabel}
                 </p>
               </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+              <div className="flex w-full flex-col gap-4 sm:flex-row md:w-auto">
                 <details ref={sortDetailsRef} className="relative z-30">
                   <summary
                     className="flex h-11 min-w-[180px] cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
@@ -1760,7 +1760,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
             </div>
           </Reveal>
 
-          <Reveal delay={0.06} className="mt-7" as="div">
+          <Reveal delay={0.06} className="mt-9" as="div">
             <div
               className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))]"
               role="group"
@@ -1824,7 +1824,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visiblePatents.length > 0 ? (
-            <div className="mt-8 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
               {visiblePatents.map((patent) => (
                 <div key={patent.id}>
                   <PatentCard

@@ -309,9 +309,9 @@ function ExpertiseSwissBanner() {
         size="wide"
         className="relative z-10 flex h-full max-w-none items-center justify-between px-5 sm:px-8 md:justify-end lg:px-10 xl:px-11"
       >
-        <Reveal className="flex w-full items-center justify-between gap-4 md:w-auto md:justify-start md:gap-6">
+        <Reveal className="flex w-full items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="max-w-[280px] text-[19px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-[26px] md:leading-[1.16]"
+            className="max-w-[300px] text-right text-[19px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
             {titleParts.map((part, index) => (

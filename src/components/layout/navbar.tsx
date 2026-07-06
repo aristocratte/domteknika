@@ -2,7 +2,7 @@
 
 import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
@@ -25,9 +25,12 @@ export function Navbar() {
   const t = useTranslations("Nav");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileNavVisible, setMobileNavVisible] = useState(true);
   const [hoveredNavKey, setHoveredNavKey] = useState<
     (typeof NAV_ITEMS)[number]["key"] | null
   >(null);
+  const lastScrollYRef = useRef(0);
+  const tickingRef = useRef(false);
   const currentNavKey =
     pathname === "/projects"
       ? "projects"
@@ -55,6 +58,38 @@ export function Navbar() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+
+    const handleScroll = () => {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+
+      window.requestAnimationFrame(() => {
+        const currentScrollY = Math.max(window.scrollY, 0);
+        const delta = currentScrollY - lastScrollYRef.current;
+
+        if (mobileOpen || currentScrollY < 112) {
+          setMobileNavVisible(true);
+        } else if (delta > 8 && currentScrollY > 150) {
+          setMobileNavVisible(false);
+        } else if (delta < -8) {
+          setMobileNavVisible(true);
+        }
+
+        lastScrollYRef.current = currentScrollY;
+        tickingRef.current = false;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      tickingRef.current = false;
     };
   }, [mobileOpen]);
 
@@ -141,15 +176,44 @@ export function Navbar() {
         </Container>
       </nav>
 
-      <button
-        type="button"
-        className="fixed right-7 top-5 z-[910] grid size-[58px] place-items-center rounded-[10px] border border-border bg-white text-foreground shadow-[0_10px_28px_rgba(0,0,0,0.16)] ring-1 ring-black/5 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 md:hidden"
-        aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
-        aria-expanded={mobileOpen}
-        onClick={() => setMobileOpen((value) => !value)}
+      <motion.div
+        className={cn(
+          "fixed inset-x-4 top-3 z-[910] transform-gpu will-change-transform md:hidden",
+          !mobileNavVisible && !mobileOpen && "pointer-events-none",
+        )}
+        initial={false}
+        animate={{
+          y: mobileNavVisible || mobileOpen ? 0 : -88,
+          opacity: mobileNavVisible || mobileOpen ? 1 : 0,
+        }}
+        transition={{
+          y: { duration: 0.52, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 0.36, ease: [0.16, 1, 0.3, 1] },
+        }}
       >
-        {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-      </button>
+        <div className="flex h-[68px] items-center justify-between gap-3 rounded-[18px] border border-border/80 bg-white px-3.5 pl-5 shadow-[0_10px_30px_rgba(0,0,0,0.14)] ring-1 ring-black/5">
+          <Link
+            href="/"
+            className="inline-flex min-w-0 rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+            aria-label="DOMTEKNIKA home"
+            onClick={() => setMobileOpen(false)}
+          >
+            <Logo className="w-[142px]" />
+          </Link>
+          <div className="flex shrink-0 items-center gap-2">
+            <LanguageSwitcher className="[&>button]:h-[52px] [&>button]:min-w-[56px] [&>button]:rounded-[12px] [&>button]:border-border [&>button]:bg-white [&>button]:px-2.5 [&>button]:shadow-[0_6px_18px_rgba(0,0,0,0.10)]" />
+            <button
+              type="button"
+              className="grid size-[52px] shrink-0 place-items-center rounded-[12px] border border-border bg-white text-foreground shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+              aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((value) => !value)}
+            >
+              {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+            </button>
+          </div>
+        </div>
+      </motion.div>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -161,7 +225,7 @@ export function Navbar() {
           >
             <motion.button
               type="button"
-              className="absolute inset-0 cursor-default bg-black/15"
+              className="absolute inset-0 cursor-default bg-black/20 backdrop-blur-[5px]"
               aria-label={t("closeMenu")}
               onClick={() => setMobileOpen(false)}
               variants={{
@@ -220,8 +284,7 @@ export function Navbar() {
                 </div>
 
                 <div className="mt-auto border-t border-border/70 pt-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <LanguageSwitcher />
+                  <div className="flex items-center justify-end gap-3">
                     <Button
                       nativeButton={false}
                       className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"

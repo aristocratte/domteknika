@@ -34,7 +34,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative min-h-[680px] overflow-hidden bg-background pb-[84px] pt-[132px] md:min-h-[720px] md:pb-[96px] md:pt-[152px]"
+      className="relative min-h-[680px] overflow-hidden bg-background pb-[84px] pt-[132px] md:min-h-[660px] md:pb-[56px] md:pt-[152px]"
       aria-labelledby="hero-title"
     >
       <Image
