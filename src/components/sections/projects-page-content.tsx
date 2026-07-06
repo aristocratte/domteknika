@@ -257,6 +257,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Direkter Aventor-SA-Patentkontext für die Architektur eines elektrischen Einsitzers.",
     EP3744622A1:
       "Patentfamilie zur Fahrzeugarchitektur der SOFTCAR-Plattform.",
+    EP3393889A1:
+      "Frühere SOFTCAR-Fahrzeugarchitektur mit leichtem Struktur- und Karosseriekonzept.",
     EP4488027A1:
       "Verstärktes Rotomolding-Verfahren für leichte Fahrzeugkarosserieteile.",
     EP4680511A1:
@@ -277,6 +279,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Applikator- und Kapselsystem für austauschbare Produktzufuhr.",
     US2016000570A1:
       "Fertigungsrahmen für polymerbasierte Gelenkimplantate und biomedizinische Präzisionsteile.",
+    US2022338602A1:
+      "Ausklappbarer Rahmen für ein Wetter- und Sonnenschutzsystem.",
     US2024326565A1:
       "Türsystem für komplexe Fahrzeuggeometrie und kompakten Zugang.",
     US2025129628A1:
@@ -309,6 +313,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Contexto directo de patente de Aventor SA para la arquitectura de un vehículo eléctrico monoplaza.",
     EP3744622A1:
       "Familia de patentes de arquitectura de vehículo para la plataforma SOFTCAR.",
+    EP3393889A1:
+      "Arquitectura de vehículo SOFTCAR anterior, centrada en estructura ligera y carrocería.",
     EP4488027A1:
       "Proceso de carrocería rotomoldeada reforzada para piezas ligeras de vehículo.",
     EP4680511A1:
@@ -329,6 +335,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Sistema de aplicador y cápsula para alimentación reemplazable de producto.",
     US2016000570A1:
       "Marco de fabricación para implantes articulares poliméricos y piezas biomédicas de precisión.",
+    US2022338602A1:
+      "Estructura desplegable para un sistema de protección contra lluvia y sol.",
     US2024326565A1:
       "Sistema de puerta para geometría compleja de carrocería y acceso compacto.",
     US2025129628A1:
@@ -361,6 +369,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "전기 단좌 차량 아키텍처에 관한 Aventor SA의 직접 특허 맥락입니다.",
     EP3744622A1:
       "SOFTCAR 플랫폼에 연결된 차량 아키텍처 특허군입니다.",
+    EP3393889A1:
+      "경량 구조와 차체 콘셉트에 초점을 둔 초기 SOFTCAR 차량 아키텍처입니다.",
     EP4488027A1:
       "경량 차량 부품을 위한 보강 회전성형 차체 공정입니다.",
     EP4680511A1:
@@ -381,6 +391,8 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "교체 가능한 제품 공급을 위한 애플리케이터와 캡슐 시스템입니다.",
     US2016000570A1:
       "폴리머 기반 관절 임플란트와 정밀 생체의료 부품의 제조 맥락입니다.",
+    US2022338602A1:
+      "비와 햇빛 보호 시스템을 위한 전개식 프레임 특허 맥락입니다.",
     US2024326565A1:
       "복잡한 차체 형상과 컴팩트한 접근성을 위한 차량 도어 시스템입니다.",
     US2025129628A1:
@@ -408,6 +420,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
     EP3185821A1: "与冲击器和铰刀类外科器械相关的骨科手术工具专利背景。",
     EP3261867A2: "Aventor SA 关于电动单座车辆架构的直接专利背景。",
     EP3744622A1: "面向 SOFTCAR 平台的车辆架构专利族。",
+    EP3393889A1: "早期 SOFTCAR 车辆架构，聚焦轻量结构和车身概念。",
     EP4488027A1: "用于轻量化车辆部件的增强滚塑车身工艺。",
     EP4680511A1: "面向低影响车辆内饰的可回收方向盘架构。",
     EP4705115A1: "SOFTCAR 轮辋导流件，用于车轮气流和空气动力轮罩集成。",
@@ -418,6 +431,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
     US2015342657A1: "面向承载关键生物医疗组件的固定和载荷传递背景。",
     US2015360014A1: "用于可替换产品供给的施用器和胶囊系统。",
     US2016000570A1: "聚合物关节植入物和精密生物医疗部件的制造背景。",
+    US2022338602A1: "用于防雨和遮阳保护系统的可展开框架专利背景。",
     US2024326565A1: "适用于复杂车身几何和紧凑出入空间的车门系统。",
     US2025129628A1: "与工业化策略相关的低碳汽车工厂概念。",
     US5584510A: "紧凑车辆中用于结构集成和能量吸收的底盘原理。",
@@ -689,6 +703,10 @@ export const PROJECTS: Project[] = [
         "Vehicle architecture patent family for the SOFTCAR platform.",
       ),
       relatedPatent(
+        "EP3393889A1",
+        "Earlier SOFTCAR vehicle architecture covering the lightweight structural and body concept.",
+      ),
+      relatedPatent(
         "US2025129628A1",
         "Low-carbon automobile plant concept connected to the industrialization strategy.",
       ),
@@ -955,6 +973,10 @@ export const PROJECTS: Project[] = [
       "The project explores a new folding umbrella architecture designed to fit in a pocket once closed, close to the footprint of a smartphone. The work runs from case cutaways and mechanism studies to full-scale physical prototypes.",
     relatedPatents: [
       relatedPatent(
+        "US2022338602A1",
+        "Deployable frame architecture for a weather and sun-protection device.",
+      ),
+      relatedPatent(
         "WO2021043427A1",
         "Housing architecture for a weather-protection device.",
       ),
@@ -1205,6 +1227,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "Famille de brevets d'architecture véhicule pour la plateforme SOFTCAR.",
       ),
       relatedPatent(
+        "EP3393889A1",
+        "Architecture véhicule SOFTCAR antérieure, centrée sur la structure légère et le concept de carrosserie.",
+      ),
+      relatedPatent(
         "US2025129628A1",
         "Concept d'usine automobile à faible empreinte carbone lié à l'industrialisation.",
       ),
@@ -1385,6 +1411,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "Le projet explore une nouvelle architecture de parapluie pliant conçue pour tenir dans une poche une fois fermé, proche de l'encombrement d'un smartphone. Le travail couvre les coupes d'étui, les études mécanisme et les prototypes physiques.",
     relatedPatents: [
+      relatedPatent(
+        "US2022338602A1",
+        "Architecture de structure déployable pour dispositif de protection contre les intempéries et le soleil.",
+      ),
       relatedPatent(
         "WO2021043427A1",
         "Architecture de boîtier pour dispositif de protection contre les intempéries.",
@@ -2594,6 +2624,13 @@ const PROJECT_SORT_YEARS: Partial<Record<string, number>> = {
   softcar: 2024,
 };
 
+const FILTER_PROJECT_PRIORITY_IDS: Partial<
+  Record<Exclude<FilterKey, "all">, string[]>
+> = {
+  mobility: ["aventor"],
+  medical: ["airsmile"],
+};
+
 export const ALL_PROJECTS = [FEATURED_PROJECT, ...PROJECTS].sort((a, b) => {
   const aIndex = PINNED_PROJECT_IDS.indexOf(a.id);
   const bIndex = PINNED_PROJECT_IDS.indexOf(b.id);
@@ -3571,6 +3608,43 @@ function getProjectSortYear(project: Project) {
   return yearTag ? Number(yearTag.slice(1)) : 0;
 }
 
+function compareProjectTitles(
+  a: Project,
+  b: Project,
+  locale: ProjectsLocale,
+) {
+  return new Intl.Collator(locale, {
+    numeric: true,
+    sensitivity: "base",
+  }).compare(a.title, b.title);
+}
+
+function sortProjectsByTitle(
+  projects: Project[],
+  locale: ProjectsLocale,
+  filter?: Exclude<FilterKey, "all">,
+) {
+  const priorityIds = filter ? (FILTER_PROJECT_PRIORITY_IDS[filter] ?? []) : [];
+
+  return projects
+    .map((project, index) => ({ project, index }))
+    .sort((a, b) => {
+      const aPriority = priorityIds.indexOf(a.project.id);
+      const bPriority = priorityIds.indexOf(b.project.id);
+
+      if (aPriority !== -1 || bPriority !== -1) {
+        return (
+          (aPriority === -1 ? 999 : aPriority) -
+          (bPriority === -1 ? 999 : bPriority)
+        );
+      }
+
+      const titleOrder = compareProjectTitles(a.project, b.project, locale);
+      return titleOrder !== 0 ? titleOrder : a.index - b.index;
+    })
+    .map(({ project }) => project);
+}
+
 function sortProjects(
   projects: Project[],
   sortKey: ProjectSortKey,
@@ -3596,13 +3670,9 @@ function sortProjects(
           return a.index - b.index;
         }
         case "title-asc":
-          return a.project.title.localeCompare(b.project.title, locale, {
-            numeric: true,
-          });
+          return compareProjectTitles(a.project, b.project, locale);
         case "title-desc":
-          return b.project.title.localeCompare(a.project.title, locale, {
-            numeric: true,
-          });
+          return compareProjectTitles(b.project, a.project, locale);
         case "category": {
           const categoryOrder = a.project.category.localeCompare(
             b.project.category,
@@ -3611,9 +3681,7 @@ function sortProjects(
           );
           if (categoryOrder !== 0) return categoryOrder;
 
-          return a.project.title.localeCompare(b.project.title, locale, {
-            numeric: true,
-          });
+          return compareProjectTitles(a.project, b.project, locale);
         }
         case "default":
         default:
@@ -4313,26 +4381,30 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         ? copy.projects
         : copy.projects.filter((project) => project.filter === activeFilter);
 
-    if (!query) return sortProjects(filteredProjects, sortKey, resolvedLocale);
+    const matchedProjects = query
+      ? filteredProjects.filter((project) =>
+          [
+            project.category,
+            project.title,
+            project.description,
+            project.overview,
+            ...(project.scope ?? []),
+            ...project.tags,
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(query),
+        )
+      : filteredProjects;
 
-    return sortProjects(
-      filteredProjects.filter((project) =>
-        [
-          project.category,
-          project.title,
-          project.description,
-          project.overview,
-          ...(project.scope ?? []),
-          ...project.tags,
-        ]
-          .join(" ")
-          .toLowerCase()
-          .includes(query),
-      ),
-      sortKey,
-      resolvedLocale,
-    );
+    return activeFilter === "all"
+      ? sortProjects(matchedProjects, sortKey, resolvedLocale)
+      : sortProjectsByTitle(matchedProjects, resolvedLocale, activeFilter);
   }, [activeFilter, copy.projects, resolvedLocale, searchQuery, sortKey]);
+  const handleFilterChange = useCallback((filter: FilterKey) => {
+    setActiveFilter(filter);
+    setSortKey("default");
+  }, []);
   const activeSortLabel =
     copy.sort.options.find((option) => option.key === sortKey)?.label ??
     copy.sort.options[0]?.label ??
@@ -4942,7 +5014,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                         "border-brand bg-brand text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] hover:border-brand hover:bg-brand hover:text-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]",
                     )}
                     aria-pressed={active}
-                    onClick={() => setActiveFilter(filter.key)}
+                    onClick={() => handleFilterChange(filter.key)}
                   >
                     {filter.icon && (
                       <Image
@@ -4999,15 +5071,18 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
           {visibleProjects.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {visibleProjects.map((project) => (
-                <div key={project.id}>
+              {visibleProjects.map((project, index) => (
+                <Reveal
+                  key={project.id}
+                  delay={Math.min(index * 0.035, 0.18)}
+                >
                   <ProjectCard
                     project={project}
                     onOpen={openProject}
                     ctaLabel={copy.viewCaseStudy}
                     openDetailsLabel={copy.cardOpenDetails}
                   />
-                </div>
+                </Reveal>
               ))}
             </div>
           ) : (
@@ -5312,7 +5387,7 @@ function ProjectsStatsSection({
           {stats.map((stat, index) => (
             <Reveal
               as="article"
-              key={stat.label}
+              key={`${index}-${stat.label}`}
               delay={index * 0.05}
               className={cn(
                 "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",

@@ -4,6 +4,9 @@ import { type ReactNode, useCallback, useEffect, useRef } from "react";
 import { motion, useAnimationControls, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+type RevealState = "hidden" | "visible";
+type ScrollDirection = "down" | "up";
+
 const variants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -39,20 +42,65 @@ export function Reveal({
   const MotionTag = motion[as];
   const controls = useAnimationControls();
   const elementRef = useRef<HTMLElement | null>(null);
-  const isVisibleRef = useRef(false);
-  const isInViewportRef = useRef(false);
+  const currentStateRef = useRef<RevealState>("hidden");
+  const targetStateRef = useRef<RevealState>("hidden");
+  const isAnimatingRef = useRef(false);
+  const lastScrollYRef = useRef(0);
+  const scrollDirectionRef = useRef<ScrollDirection>("down");
 
-  const reveal = useCallback(() => {
-    if (isVisibleRef.current || window.scrollY < minimumScrollY) return;
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
 
-    isVisibleRef.current = true;
-    void controls.start("visible");
-  }, [controls, minimumScrollY]);
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      if (Math.abs(scrollY - lastScrollYRef.current) > 1) {
+        scrollDirectionRef.current =
+          scrollY > lastScrollYRef.current ? "down" : "up";
+        lastScrollYRef.current = scrollY;
+      }
+    };
+
+    window.addEventListener("scroll", updateScrollDirection, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollDirection);
+  }, []);
+
+  const runAnimationQueue = useCallback(async () => {
+    if (isAnimatingRef.current) return;
+
+    isAnimatingRef.current = true;
+    try {
+      while (targetStateRef.current !== currentStateRef.current) {
+        const nextState = targetStateRef.current;
+        await controls.start(nextState);
+        currentStateRef.current = nextState;
+      }
+    } finally {
+      isAnimatingRef.current = false;
+    }
+  }, [controls]);
+
+  const requestState = useCallback(
+    (state: RevealState) => {
+      targetStateRef.current = state;
+      void runAnimationQueue();
+    },
+    [runAnimationQueue],
+  );
+
+  const setStateImmediately = useCallback(
+    (state: RevealState) => {
+      controls.stop();
+      targetStateRef.current = state;
+      currentStateRef.current = state;
+      controls.set(state);
+    },
+    [controls],
+  );
 
   useEffect(() => {
     const revealIfAlreadyVisible = () => {
       const element = elementRef.current;
-      if (!element || isVisibleRef.current) return;
+      if (!element || currentStateRef.current === "visible") return;
       if (window.scrollY < minimumScrollY) return;
 
       const rect = element.getBoundingClientRect();
@@ -60,7 +108,7 @@ export function Reveal({
         window.innerHeight || document.documentElement.clientHeight;
 
       if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
-        reveal();
+        requestState("visible");
       }
     };
 
@@ -71,18 +119,28 @@ export function Reveal({
       window.cancelAnimationFrame(frameId);
       window.clearTimeout(timerId);
     };
-  }, [minimumScrollY, reveal]);
+  }, [minimumScrollY, requestState]);
 
   useEffect(() => {
     if (!minimumScrollY) return;
 
     const revealAfterScrollStarts = () => {
-      if (isInViewportRef.current) reveal();
+      const element = elementRef.current;
+      if (!element || currentStateRef.current === "visible") return;
+      if (window.scrollY < minimumScrollY) return;
+
+      const rect = element.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
+        requestState("visible");
+      }
     };
 
     window.addEventListener("scroll", revealAfterScrollStarts, { passive: true });
     return () => window.removeEventListener("scroll", revealAfterScrollStarts);
-  }, [minimumScrollY, reveal]);
+  }, [minimumScrollY, requestState]);
 
   return (
     <MotionTag
@@ -95,11 +153,19 @@ export function Reveal({
       animate={controls}
       viewport={{ once: false, margin: "-80px" }}
       onViewportEnter={() => {
-        isInViewportRef.current = true;
-        reveal();
+        if (window.scrollY < minimumScrollY) return;
+
+        if (scrollDirectionRef.current === "down") {
+          requestState("visible");
+          return;
+        }
+
+        setStateImmediately("visible");
       }}
       onViewportLeave={() => {
-        isInViewportRef.current = false;
+        if (scrollDirectionRef.current === "up") {
+          requestState("hidden");
+        }
       }}
       transition={{ delay }}
       className={cn(className)}

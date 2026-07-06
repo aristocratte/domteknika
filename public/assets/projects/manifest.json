@@ -541,20 +541,16 @@
         "output": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp"
       },
       {
-        "source": "skincare/Applicateur.260.png",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-02-applicateur-260.webp"
-      },
-      {
         "source": "skincare/PC070111.JPG",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-03-pc070111.webp"
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-02-pc070111.webp"
       },
       {
         "source": "skincare/principe.jpg",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-04-principe.webp"
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-03-principe.webp"
       },
       {
         "source": "skincare/Sans titre.png",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-05-sans-titre.webp"
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-04-sans-titre.webp"
       }
     ]
   },

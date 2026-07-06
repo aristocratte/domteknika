@@ -172,7 +172,10 @@ function collectProjectOverrides(variableName) {
 
   for (const [projectId, projectOverride] of objectProperties(initializer)) {
     const properties = objectProperties(projectOverride);
-    overrides.set(projectId, new Set(properties.keys()));
+    overrides.set(projectId, {
+      fields: new Set(properties.keys()),
+      relatedPatentIds: collectRelatedPatentIds(properties.get("relatedPatents")),
+    });
   }
 
   return overrides;
@@ -203,19 +206,23 @@ for (const [locale, overrideVariable] of Object.entries(overrideVariables)) {
   const overrides = collectProjectOverrides(overrideVariable);
   const missingProjectFields = [];
   const missingPatentNotes = [];
+  const mismatchedPatentLinks = [];
 
   for (const [projectId, project] of baseProjects) {
-    const projectOverride = overrides.get(projectId) ?? new Set();
+    const projectOverride = overrides.get(projectId) ?? {
+      fields: new Set(),
+      relatedPatentIds: [],
+    };
 
     for (const field of project.fields) {
-      if (!projectOverride.has(field)) {
+      if (!projectOverride.fields.has(field)) {
         missingProjectFields.push(`${projectId}.${field}`);
       }
     }
 
     if (
       project.relatedPatentIds.length > 0 &&
-      !projectOverride.has("relatedPatents")
+      !projectOverride.fields.has("relatedPatents")
     ) {
       const translatedPatentIds = relatedPatentTranslationKeys.get(locale) ?? new Set();
 
@@ -223,6 +230,17 @@ for (const [locale, overrideVariable] of Object.entries(overrideVariables)) {
         if (!translatedPatentIds.has(patentId)) {
           missingPatentNotes.push(`${projectId}.${patentId}`);
         }
+      }
+    }
+
+    if (projectOverride.fields.has("relatedPatents")) {
+      const basePatentIds = [...project.relatedPatentIds].sort();
+      const overridePatentIds = [...projectOverride.relatedPatentIds].sort();
+
+      if (basePatentIds.join("|") !== overridePatentIds.join("|")) {
+        mismatchedPatentLinks.push(
+          `${projectId}: base=[${basePatentIds.join(", ")}] ${locale}=[${overridePatentIds.join(", ")}]`,
+        );
       }
     }
   }
@@ -236,6 +254,11 @@ for (const [locale, overrideVariable] of Object.entries(overrideVariables)) {
     reportIssue(
       `Project related-patent notes missing localized fallback for ${locale}:`,
       missingPatentNotes,
+    ) || hasErrors;
+  hasErrors =
+    reportIssue(
+      `Project related-patent links differ from base project data for ${locale}:`,
+      mismatchedPatentLinks,
     ) || hasErrors;
 }
 

@@ -126,7 +126,6 @@ const projects = [
     cover: "jf.jpg",
     order: [
       "jf.jpg",
-      "Applicateur.260.png",
       "PC070111.JPG",
       "principe.jpg",
       "Sans titre.png",
