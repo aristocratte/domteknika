@@ -674,7 +674,7 @@ export const PROJECTS: Project[] = [
     description: "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
     image: "/assets/projects/softcar/softcar-01-cover.webp",
     imageAlt: "Yellow SOFTCAR compact city vehicle with open door",
-    tags: ["#2011", "#CityEV", "#Circular"],
+    tags: ["#2015", "#CityEV", "#Circular"],
     overview:
       "SOFTCAR extends the mobility work into compact city electric vehicles, combining lightweight body architecture, simplified assemblies and low ecological footprint transport.",
     relatedPatents: [
@@ -744,7 +744,7 @@ export const PROJECTS: Project[] = [
     description: "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
     image: "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp",
     imageAlt: "Green Total Car electric vehicle prototype on display",
-    tags: ["#EV", "#Urban", "#EcoDesign"],
+    tags: ["#2011", "#EV", "#Urban", "#EcoDesign"],
     overview:
       "Total Car extends the mobility portfolio with a compact electric vehicle study, combining lightweight bodywork, prototype assembly and practical cabin-access validation for low-footprint transport.",
   },
@@ -756,7 +756,7 @@ export const PROJECTS: Project[] = [
     description: "Dental care device concept developed from product styling through functional packaging and prototype families.",
     image: "/assets/projects/airsmile/airsmile-01-cover.webp",
     imageAlt: "AirSmile handheld dental care device render",
-    tags: ["#2026", "#Dental", "#Device"],
+    tags: ["#2007", "#Dental", "#Device"],
     overview:
       "AirSmile required a clean handheld product architecture, removable components and ergonomic detailing for a dental-care use case.",
     relatedPatents: [
@@ -774,7 +774,7 @@ export const PROJECTS: Project[] = [
     description: "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
     image: "/assets/projects/brossadent/brossadent-01-cover.webp",
     imageAlt: "O2 Cosmetics toothbrush concept with refill cartridges",
-    tags: ["#2026", "#Dental", "#Injection"],
+    tags: ["#2007", "#Dental", "#Injection"],
     overview:
       "The concept combines an ergonomic toothbrush body, replaceable O2 Cosmetics consumables and internal mechanism packaging for a compact dental-care product.",
     relatedPatents: [
@@ -926,7 +926,7 @@ export const PROJECTS: Project[] = [
     description: "PEEK surgical reamer handle and cover development for acetabular surgery, supported by design, FEA and injection-molding constraints.",
     image: "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp",
     imageAlt: "Acetabular reamer holder prototype in orange and black PEEK",
-    tags: ["#2017", "#PEEK", "#SurgicalTool"],
+    tags: ["#2014", "#PEEK", "#SurgicalTool"],
     overview:
       "This medical tooling project covers a PEEK handle and protective cover for an acetabular reamer, combining detailed design, finite-element analysis, injection-molding feasibility and high-stiffness requirements for a hygienic surgical instrument.",
     relatedPatents: [
@@ -944,7 +944,7 @@ export const PROJECTS: Project[] = [
     description: "Single-use medical turbine concept developed to reduce size, weight and cost through material and geometry optimization.",
     image: "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp",
     imageAlt: "Transparent single-use turbine medical component",
-    tags: ["#2017", "#SingleUse", "#Medical"],
+    tags: ["#2011", "#SingleUse", "#Medical"],
     overview:
       "The Single Use Turbine is documented in the medical portfolio as a compact disposable device, with development priorities around reduced size, reduced weight, reduced cost and innovative materials.",
   },
@@ -2620,8 +2620,8 @@ const PINNED_PROJECT_IDS = [
 ];
 
 const PROJECT_SORT_YEARS: Partial<Record<string, number>> = {
-  "totalcar-concept": 2013,
-  softcar: 2024,
+  "totalcar-concept": 2011,
+  softcar: 2015,
 };
 
 const FILTER_PROJECT_PRIORITY_IDS: Partial<

@@ -1,6 +1,7 @@
 "use client";
 
 import "./globals.css";
+import { domtekSans } from "./domtek-font";
 
 export default function GlobalError({
   error,
@@ -12,7 +13,7 @@ export default function GlobalError({
   console.error(error);
 
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${domtekSans.variable} h-full antialiased`}>
       <body className="min-h-screen bg-background font-sans text-foreground">
         <main className="grid min-h-screen place-items-center px-6">
           <div className="max-w-[520px] text-center">

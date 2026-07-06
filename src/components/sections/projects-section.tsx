@@ -84,24 +84,24 @@ export function ProjectsSection() {
       <Container size="wide">
         <Reveal
           minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
-          className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between"
+          className="relative"
         >
-          <h2
-            id="projects-title"
-            className="text-[20px] font-extrabold leading-none text-foreground"
-          >
-            {t("title")}
-          </h2>
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px]"
-          >
-            {t("viewAll")}
-            <ArrowRight className="size-5 text-brand" aria-hidden />
-          </Link>
-        </Reveal>
+          <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <h2
+              id="projects-title"
+              className="text-[20px] font-extrabold leading-none text-foreground"
+            >
+              {t("title")}
+            </h2>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px]"
+            >
+              {t("viewAll")}
+              <ArrowRight className="size-5 text-brand" aria-hidden />
+            </Link>
+          </div>
 
-        <Reveal delay={0.1} minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}>
           <div
             data-projects-fade
             className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
