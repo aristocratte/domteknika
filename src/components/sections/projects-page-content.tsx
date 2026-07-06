@@ -4945,9 +4945,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
-            <div className="grid gap-3 xl:grid-cols-[auto_auto] xl:items-start xl:justify-between">
+            <div className="grid gap-3 min-[1100px]:grid-cols-[auto_auto] min-[1100px]:items-start min-[1100px]:justify-between">
               <div
-                className="grid w-full grid-cols-2 gap-3 md:w-fit md:grid-cols-[82px_repeat(3,152px)]"
+                className="grid w-full grid-cols-2 gap-3 md:w-fit md:grid-cols-[82px_repeat(3,148px)] min-[1280px]:grid-cols-[82px_repeat(3,152px)]"
                 role="group"
                 aria-label={copy.filtersLabel}
               >
@@ -5011,8 +5011,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   );
                 })}
               </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-end xl:w-auto">
-                <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px]">
+              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-end min-[1100px]:w-auto">
+                <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px] min-[1100px]:w-[170px] min-[1280px]:w-[180px]">
                   <summary
                     className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
                     aria-label={copy.sort.label}
@@ -5053,7 +5053,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   </div>
                 </details>
 
-                <label className="relative block w-full md:max-w-[320px] xl:w-[254px] xl:max-w-none">
+                <label className="relative block w-full md:max-w-[320px] min-[1100px]:w-[230px] min-[1100px]:max-w-none min-[1280px]:w-[254px]">
                   <span className="sr-only">{copy.searchLabel}</span>
                   <Search
                     className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"

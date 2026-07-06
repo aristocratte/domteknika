@@ -78,7 +78,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-10 md:pb-[116px] md:pt-[clamp(48px,5vw,76px)]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-[88px] md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
