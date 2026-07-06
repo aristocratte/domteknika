@@ -70,13 +70,12 @@ export function Navbar() {
 
       window.requestAnimationFrame(() => {
         const currentScrollY = Math.max(window.scrollY, 0);
-        const delta = currentScrollY - lastScrollYRef.current;
 
-        if (mobileOpen || currentScrollY < 112) {
+        if (mobileOpen || currentScrollY <= 2) {
           setMobileNavVisible(true);
-        } else if (delta > 8 && currentScrollY > 150) {
+        } else if (currentScrollY > lastScrollYRef.current) {
           setMobileNavVisible(false);
-        } else if (delta < -8) {
+        } else if (currentScrollY < lastScrollYRef.current) {
           setMobileNavVisible(true);
         }
 
