@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import {
-  getOurStoryMeta,
-  OurStoryPageContent,
-} from "@/components/sections/our-story-page-content";
+import { OurStoryPageContent } from "@/components/sections/our-story-page-content";
+import { getOurStoryMeta } from "@/components/sections/our-story-meta";
 
 export async function generateMetadata({
   params,

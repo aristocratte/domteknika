@@ -16,6 +16,7 @@ import {
   type CSSProperties,
   type PointerEvent,
   type ReactNode,
+  type WheelEvent as ReactWheelEvent,
   useCallback,
   useEffect,
   useRef,
@@ -640,10 +641,21 @@ export function PatentDialog({
     };
 
     const preventBackgroundScroll = (event: Event) => {
-      const scrollContainer =
-        event.target instanceof Element
-          ? event.target.closest<HTMLElement>("[data-patent-dialog-scroll]")
-          : null;
+      const eventTarget = event.target instanceof Element ? event.target : null;
+      const drawingZoomTarget = eventTarget?.closest<HTMLElement>(
+        "[data-patent-drawing-zoom]",
+      );
+      if (
+        drawingZoomTarget &&
+        event instanceof WheelEvent &&
+        (event.ctrlKey || event.metaKey)
+      ) {
+        return;
+      }
+
+      const scrollContainer = eventTarget?.closest<HTMLElement>(
+        "[data-patent-dialog-scroll]",
+      );
       const deltaY =
         event instanceof WheelEvent
           ? event.deltaY
@@ -942,7 +954,7 @@ export function PatentDialog({
               </div>
             )}
             {modalImageHref && (
-              <div className="absolute bottom-[92px] left-6 z-20 flex items-center gap-2">
+              <div className="absolute bottom-12 right-5 z-20 flex items-center gap-2 md:right-6">
                 <button
                   type="button"
                   className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color,opacity] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-45 [transition-timing-function:var(--ease-smooth)]"
@@ -1595,6 +1607,17 @@ function PatentDrawingLightbox({
     x: number;
     y: number;
   } | null>(null);
+  const activePointersRef = useRef<Map<number, { x: number; y: number }>>(
+    new Map(),
+  );
+  const pinchRef = useRef<{
+    distance: number;
+    centerX: number;
+    centerY: number;
+    offsetX: number;
+    offsetY: number;
+    zoom: number;
+  } | null>(null);
   const currentViewerState =
     viewerState.activeIndex === activeIndex
       ? viewerState
@@ -1621,8 +1644,115 @@ function PatentDrawingLightbox({
     [activeIndex],
   );
 
+  const clampViewerZoom = useCallback(
+    (value: number) => Math.min(2.8, Math.max(1, Number(value.toFixed(2)))),
+    [],
+  );
+
+  const getPinchGesture = useCallback(() => {
+    const [first, second] = Array.from(activePointersRef.current.values());
+    if (!first || !second) return null;
+
+    const deltaX = second.x - first.x;
+    const deltaY = second.y - first.y;
+
+    return {
+      centerX: (first.x + second.x) / 2,
+      centerY: (first.y + second.y) / 2,
+      distance: Math.hypot(deltaX, deltaY),
+    };
+  }, []);
+
+  const getZoomedOffset = useCallback(
+    (
+      element: HTMLDivElement,
+      clientX: number,
+      clientY: number,
+      startZoom: number,
+      nextZoom: number,
+      startOffsetX: number,
+      startOffsetY: number,
+    ) => {
+      if (nextZoom <= 1) return { offsetX: 0, offsetY: 0 };
+
+      const rect = element.getBoundingClientRect();
+      const focalX = clientX - rect.left;
+      const focalY = clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const zoomRatio = nextZoom / Math.max(startZoom, 0.01);
+
+      return {
+        offsetX:
+          startOffsetX + (focalX - centerX - startOffsetX) * (1 - zoomRatio),
+        offsetY:
+          startOffsetY + (focalY - centerY - startOffsetY) * (1 - zoomRatio),
+      };
+    },
+    [],
+  );
+
+  const handleWheelZoom = useCallback(
+    (event: ReactWheelEvent<HTMLDivElement>) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const normalizedDelta = Math.max(-18, Math.min(18, event.deltaY));
+      const nextZoom = clampViewerZoom(
+        zoom * Math.exp(-normalizedDelta * 0.01),
+      );
+      if (nextZoom === zoom) return;
+
+      updateViewerState({
+        ...getZoomedOffset(
+          event.currentTarget,
+          event.clientX,
+          event.clientY,
+          zoom,
+          nextZoom,
+          offsetX,
+          offsetY,
+        ),
+        rotation,
+        zoom: nextZoom,
+      });
+    },
+    [
+      clampViewerZoom,
+      getZoomedOffset,
+      offsetX,
+      offsetY,
+      rotation,
+      updateViewerState,
+      zoom,
+    ],
+  );
+
   const handlePanStart = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
+      activePointersRef.current.set(event.pointerId, {
+        x: event.clientX,
+        y: event.clientY,
+      });
+      event.currentTarget.setPointerCapture(event.pointerId);
+
+      if (activePointersRef.current.size >= 2) {
+        event.preventDefault();
+        panRef.current = null;
+        const pinch = getPinchGesture();
+        if (pinch) {
+          pinchRef.current = {
+            ...pinch,
+            offsetX,
+            offsetY,
+            zoom,
+          };
+        }
+        return;
+      }
+
       if (zoom <= 1) return;
       event.preventDefault();
       panRef.current = {
@@ -1630,13 +1760,66 @@ function PatentDrawingLightbox({
         x: event.clientX,
         y: event.clientY,
       };
-      event.currentTarget.setPointerCapture(event.pointerId);
     },
-    [zoom],
+    [getPinchGesture, offsetX, offsetY, zoom],
   );
 
   const handlePanMove = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
+      if (activePointersRef.current.has(event.pointerId)) {
+        activePointersRef.current.set(event.pointerId, {
+          x: event.clientX,
+          y: event.clientY,
+        });
+      }
+
+      const pinch = getPinchGesture();
+      if (activePointersRef.current.size >= 2 && pinch) {
+        event.preventDefault();
+        if (!pinchRef.current) {
+          pinchRef.current = {
+            ...pinch,
+            offsetX,
+            offsetY,
+            zoom,
+          };
+          return;
+        }
+
+        const start = pinchRef.current;
+        if (start.distance <= 0) return;
+
+        const nextZoom = clampViewerZoom(
+          start.zoom * (pinch.distance / start.distance),
+        );
+        const rect = event.currentTarget.getBoundingClientRect();
+        const startFocalX = start.centerX - rect.left;
+        const startFocalY = start.centerY - rect.top;
+        const focalX = pinch.centerX - rect.left;
+        const focalY = pinch.centerY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const zoomRatio = nextZoom / Math.max(start.zoom, 0.01);
+
+        updateViewerState({
+          offsetX:
+            nextZoom === 1
+              ? 0
+              : focalX -
+                centerX -
+                zoomRatio * (startFocalX - centerX - start.offsetX),
+          offsetY:
+            nextZoom === 1
+              ? 0
+              : focalY -
+                centerY -
+                zoomRatio * (startFocalY - centerY - start.offsetY),
+          rotation,
+          zoom: nextZoom,
+        });
+        return;
+      }
+
       const pan = panRef.current;
       if (!pan || pan.pointerId !== event.pointerId) return;
       event.preventDefault();
@@ -1667,13 +1850,28 @@ function PatentDrawingLightbox({
         };
       });
     },
-    [activeIndex],
+    [
+      activeIndex,
+      clampViewerZoom,
+      getPinchGesture,
+      offsetX,
+      offsetY,
+      rotation,
+      updateViewerState,
+      zoom,
+    ],
   );
 
   const handlePanEnd = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    activePointersRef.current.delete(event.pointerId);
+    if (activePointersRef.current.size < 2) {
+      pinchRef.current = null;
+    }
+
     const pan = panRef.current;
-    if (!pan || pan.pointerId !== event.pointerId) return;
-    panRef.current = null;
+    if (pan?.pointerId === event.pointerId) {
+      panRef.current = null;
+    }
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
@@ -1757,10 +1955,12 @@ function PatentDrawingLightbox({
         </div>
 
         <div
+          data-patent-drawing-zoom
           className={cn(
             "relative h-full touch-none bg-[#f8f8f8]",
             zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default",
           )}
+          onWheel={handleWheelZoom}
           onPointerDown={handlePanStart}
           onPointerMove={handlePanMove}
           onPointerUp={handlePanEnd}

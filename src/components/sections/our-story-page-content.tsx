@@ -1,10 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import {
-  Box,
-  FileChartColumnIncreasing,
-  Globe2,
-  MonitorCog,
-} from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
@@ -13,6 +10,12 @@ import {
   OurStoryTimelineRail,
   OurStoryTimelineStep,
 } from "@/components/sections/our-story-timeline-rail";
+import {
+  type Project,
+  getProjectsForLocale,
+  getProjectsPageCopy,
+  ProjectDetailsDialog,
+} from "@/components/sections/projects-page-content";
 import { cn } from "@/lib/utils";
 
 type StoryLocale = "en" | "fr" | "de" | "es" | "ko" | "zh";
@@ -63,6 +66,40 @@ interface TimelineRow {
   left?: TimelineBlock;
   right?: TimelineBlock;
 }
+
+const STORY_CARD_PROJECT_IDS: Partial<Record<CardKey, string>> = {
+  cree: "sam-cree",
+  startup: "smart-bottle",
+  totalCar: "totalcar-concept",
+  aventor: "aventor",
+  boneFixation: "biome-staple-applicator",
+  softcar: "softcar",
+  stajvelo: "stajvelo-rv01",
+  softcarReveal: "softcar",
+};
+
+const STORY_ICONS = {
+  box: {
+    src: "/assets/our-story/icons/box.png",
+    width: 256,
+    height: 256,
+  },
+  monitor: {
+    src: "/assets/our-story/icons/monitor.png",
+    width: 256,
+    height: 256,
+  },
+  document: {
+    src: "/assets/our-story/icons/document.png",
+    width: 256,
+    height: 256,
+  },
+  globe: {
+    src: "/assets/our-story/icons/globe.png",
+    width: 256,
+    height: 256,
+  },
+} satisfies Record<IconKey, { src: string; width: number; height: number }>;
 
 const STORY_COPY: Record<StoryLocale, StoryCopy> = {
   en: {
@@ -720,45 +757,8 @@ const TIMELINE_ROWS: TimelineRow[] = [
   { left: { type: "card", key: "today" } },
 ];
 
-const metaCopy = {
-  en: {
-    title: "DOMTEKNIKA - Our Story",
-    description:
-      "Discover DOMTEKNIKA's journey from La Neuveville since 1998 through product engineering, mobility, medtech and prototyping milestones.",
-  },
-  fr: {
-    title: "DOMTEKNIKA - Notre histoire",
-    description:
-      "Découvrez le parcours de DOMTEKNIKA depuis 1998 à travers ses jalons en ingénierie produit, mobilité, dispositifs médicaux et prototypage.",
-  },
-  de: {
-    title: "DOMTEKNIKA - Unsere Geschichte",
-    description:
-      "Entdecken Sie DOMTEKNIKAs Weg seit 1998 über Meilensteine in Produktentwicklung, Mobilität, Medizintechnik und Prototyping.",
-  },
-  es: {
-    title: "DOMTEKNIKA - Nuestra historia",
-    description:
-      "Descubre el recorrido de DOMTEKNIKA desde 1998 a través de hitos en ingeniería de producto, movilidad, tecnología médica y prototipado.",
-  },
-  ko: {
-    title: "DOMTEKNIKA - 회사 이야기",
-    description:
-      "1998년부터 이어진 DOMTEKNIKA의 제품 엔지니어링, 모빌리티, 의료기술, 프로토타이핑 여정을 살펴보세요.",
-  },
-  zh: {
-    title: "DOMTEKNIKA - 我们的故事",
-    description:
-      "了解 DOMTEKNIKA 自 1998 年以来在产品工程、出行、医疗技术和原型开发方面的重要历程。",
-  },
-} satisfies Record<StoryLocale, { title: string; description: string }>;
-
 export function getOurStoryCopy(locale: string) {
   return STORY_COPY[isStoryLocale(locale) ? locale : "en"];
-}
-
-export function getOurStoryMeta(locale: string) {
-  return metaCopy[isStoryLocale(locale) ? locale : "en"];
 }
 
 function isStoryLocale(locale: string): locale is StoryLocale {
@@ -767,6 +767,22 @@ function isStoryLocale(locale: string): locale is StoryLocale {
 
 export function OurStoryPageContent({ locale }: { locale: string }) {
   const copy = getOurStoryCopy(locale);
+  const projects = useMemo(() => getProjectsForLocale(locale), [locale]);
+  const projectModalCopy = useMemo(
+    () => getProjectsPageCopy(locale).modal,
+    [locale],
+  );
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const openProject = useCallback(
+    (projectId: string) => {
+      const project = projects.find((item) => item.id === projectId);
+      if (!project) return;
+
+      setSelectedProject(project);
+    },
+    [projects],
+  );
 
   return (
     <section
@@ -807,10 +823,24 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
 
         <OurStoryTimelineRail>
           {TIMELINE_ROWS.map((row, index) => (
-            <TimelineRow key={index} row={row} copy={copy} />
+            <TimelineRow
+              key={index}
+              row={row}
+              copy={copy}
+              onOpenProject={openProject}
+            />
           ))}
         </OurStoryTimelineRail>
       </Container>
+
+      {selectedProject && (
+        <ProjectDetailsDialog
+          locale={locale}
+          modal={projectModalCopy}
+          project={selectedProject}
+          onClosed={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 }
@@ -818,9 +848,11 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
 function TimelineRow({
   row,
   copy,
+  onOpenProject,
 }: {
   row: TimelineRow;
   copy: StoryCopy;
+  onOpenProject: (projectId: string) => void;
 }) {
   return (
     <OurStoryTimelineStep
@@ -829,7 +861,12 @@ function TimelineRow({
     >
       {row.left ? (
         <OurStoryTimelineBlock className="col-start-2 row-start-1 md:col-start-1">
-          <StoryBlock block={row.left} copy={copy} side="left" />
+          <StoryBlock
+            block={row.left}
+            copy={copy}
+            side="left"
+            onOpenProject={onOpenProject}
+          />
         </OurStoryTimelineBlock>
       ) : (
         <div className="hidden md:block" />
@@ -842,7 +879,12 @@ function TimelineRow({
             row.left ? "row-start-2" : "row-start-1",
           )}
         >
-          <StoryBlock block={row.right} copy={copy} side="right" />
+          <StoryBlock
+            block={row.right}
+            copy={copy}
+            side="right"
+            onOpenProject={onOpenProject}
+          />
         </OurStoryTimelineBlock>
       ) : (
         <div className="hidden md:block" />
@@ -855,26 +897,44 @@ function StoryBlock({
   block,
   copy,
   side,
+  onOpenProject,
 }: {
   block: TimelineBlock;
   copy: StoryCopy;
   side: "left" | "right";
+  onOpenProject: (projectId: string) => void;
 }) {
   if (block.type === "card") {
-    return <TimelineCard card={copy.cards[block.key]} />;
+    return (
+      <TimelineCard
+        card={copy.cards[block.key]}
+        projectId={STORY_CARD_PROJECT_IDS[block.key]}
+        onOpenProject={onOpenProject}
+      />
+    );
   }
 
   return <TimelineMedia media={MEDIA[block.key]} side={side} />;
 }
 
-function TimelineCard({ card }: { card: StoryCard }) {
-  return (
-    <article
-      className={cn(
-        "group/card grid min-h-[112px] grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow] duration-500 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
-        card.awards && "sm:grid-cols-[minmax(0,1fr)_88px_52px]",
-      )}
-    >
+function TimelineCard({
+  card,
+  projectId,
+  onOpenProject,
+}: {
+  card: StoryCard;
+  projectId?: string;
+  onOpenProject: (projectId: string) => void;
+}) {
+  const className = cn(
+    "group/card grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
+    projectId &&
+      "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35",
+    card.awards && "sm:grid-cols-[minmax(0,1fr)_88px_52px]",
+  );
+
+  const content = (
+    <>
       <div className="min-w-0">
         <span className="block text-[13px] font-extrabold leading-none text-brand md:text-[14px]">
           {card.year}
@@ -904,8 +964,22 @@ function TimelineCard({ card }: { card: StoryCard }) {
       >
         <StoryIcon icon={card.icon} />
       </span>
-    </article>
+    </>
   );
+
+  if (projectId) {
+    return (
+      <button
+        type="button"
+        className={className}
+        onClick={() => onOpenProject(projectId)}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return <article className={className}>{content}</article>;
 }
 
 function TimelineMedia({
@@ -939,17 +1013,16 @@ function TimelineMedia({
 }
 
 function StoryIcon({ icon }: { icon: IconKey }) {
-  const className = "size-5 stroke-[2.4]";
+  const asset = STORY_ICONS[icon];
 
-  switch (icon) {
-    case "monitor":
-      return <MonitorCog className={className} aria-hidden />;
-    case "document":
-      return <FileChartColumnIncreasing className={className} aria-hidden />;
-    case "globe":
-      return <Globe2 className={className} aria-hidden />;
-    case "box":
-    default:
-      return <Box className={className} aria-hidden />;
-  }
+  return (
+    <Image
+      src={asset.src}
+      alt=""
+      width={asset.width}
+      height={asset.height}
+      sizes="30px"
+      className="size-[30px] object-contain"
+    />
+  );
 }
