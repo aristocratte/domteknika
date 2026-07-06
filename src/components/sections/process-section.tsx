@@ -76,7 +76,7 @@ export function ProcessSection() {
             delay={0.16}
             className="group flex min-h-[304px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
           >
-            <div className="p-6 pb-0">
+            <div className="px-6 pb-0 pt-[42px]">
               <AccentLine />
               <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
                 {t("productTitle")}
@@ -86,16 +86,18 @@ export function ProcessSection() {
               </p>
             </div>
 
-            <div className="mt-6 grid border-t border-border bg-white lg:grid-cols-3">
+            <div className="relative mt-6 grid bg-white before:absolute before:left-6 before:right-6 before:top-0 before:h-px before:bg-border lg:grid-cols-3">
               <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
               <Stat
                 label={t("stats.sectors.label")}
                 value={t("stats.sectors.value")}
+                divider
               />
               <Stat
                 label={t("stats.swiss.label")}
                 value={t("stats.swiss.value")}
                 withFlag
+                divider
               />
             </div>
           </Reveal>
@@ -120,13 +122,21 @@ function Stat({
   value,
   label,
   withFlag,
+  divider,
 }: {
   value: string;
   label: string;
   withFlag?: boolean;
+  divider?: boolean;
 }) {
   return (
-    <div className="min-h-[66px] border-t border-border px-4 py-3 first:border-t-0 lg:min-h-[92px] lg:border-l lg:border-t-0 lg:px-3 lg:py-4 lg:first:border-l-0 xl:px-4">
+    <div
+      className={`relative min-h-[66px] px-4 py-3 lg:min-h-[92px] lg:border-t-0 lg:px-3 lg:py-4 xl:px-4 ${
+        divider
+          ? "border-t border-border lg:border-t-0 lg:before:absolute lg:before:bottom-4 lg:before:left-0 lg:before:top-4 lg:before:w-px lg:before:bg-border"
+          : "pt-4"
+      }`}
+    >
       <div className={withFlag ? "flex items-start justify-between gap-2" : undefined}>
         <strong className="block text-[22px] font-extrabold leading-[1.08] text-brand lg:text-[20px] xl:text-[21px]">
           {value}

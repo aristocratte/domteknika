@@ -21,6 +21,8 @@ interface RevealProps {
   className?: string;
   /** Delay in seconds before the reveal animation starts. */
   delay?: number;
+  /** Keep the reveal hidden until the page has been scrolled by this amount. */
+  minimumScrollY?: number;
   /** Render as a different element. */
   as?: "article" | "div" | "section" | "li" | "span";
 }
@@ -34,6 +36,7 @@ export function Reveal({
   children,
   className,
   delay = 0,
+  minimumScrollY = 0,
   as = "div",
 }: RevealProps) {
   const MotionTag = motion[as];
@@ -98,6 +101,7 @@ export function Reveal({
     const revealIfAlreadyVisible = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
+      if (window.scrollY < minimumScrollY) return;
 
       const rect = element.getBoundingClientRect();
       const viewportHeight =
@@ -115,7 +119,28 @@ export function Reveal({
       window.cancelAnimationFrame(frameId);
       window.clearTimeout(timerId);
     };
-  }, [requestState]);
+  }, [minimumScrollY, requestState]);
+
+  useEffect(() => {
+    if (!minimumScrollY) return;
+
+    const revealAfterScrollStarts = () => {
+      const element = elementRef.current;
+      if (!element || currentStateRef.current === "visible") return;
+      if (window.scrollY < minimumScrollY) return;
+
+      const rect = element.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
+        requestState("visible");
+      }
+    };
+
+    window.addEventListener("scroll", revealAfterScrollStarts, { passive: true });
+    return () => window.removeEventListener("scroll", revealAfterScrollStarts);
+  }, [minimumScrollY, requestState]);
 
   return (
     <MotionTag
@@ -128,6 +153,8 @@ export function Reveal({
       animate={controls}
       viewport={{ once: false, margin: "-80px" }}
       onViewportEnter={() => {
+        if (window.scrollY < minimumScrollY) return;
+
         if (scrollDirectionRef.current === "down") {
           requestState("visible");
           return;

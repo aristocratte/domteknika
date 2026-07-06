@@ -27,6 +27,7 @@ import {
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
+import { getPatentLinkedProjectsForLocale } from "@/components/sections/projects-page-content";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -554,6 +555,8 @@ const COPY: Record<
       vectorPdf: string;
       sourceLinks: string;
       downloadPdfs: string;
+      linkedProjects: string;
+      openLinkedProject: string;
       fullDescription: string;
       claims: string;
       legalStatus: string;
@@ -618,6 +621,8 @@ const COPY: Record<
       vectorPdf: "Vector PDF",
       sourceLinks: "Espacenet source",
       downloadPdfs: "Download PDFs",
+      linkedProjects: "Linked projects",
+      openLinkedProject: "Open project",
       fullDescription: "Full description",
       claims: "Claims",
       legalStatus: "Legal status",
@@ -681,6 +686,8 @@ const COPY: Record<
       vectorPdf: "PDF vectoriel",
       sourceLinks: "Source Espacenet",
       downloadPdfs: "Télécharger les PDF",
+      linkedProjects: "Projets liés",
+      openLinkedProject: "Ouvrir le projet",
       fullDescription: "Description complète",
       claims: "Revendications",
       legalStatus: "Situation juridique",
@@ -744,6 +751,8 @@ const COPY: Record<
       vectorPdf: "Vektor-PDF",
       sourceLinks: "Espacenet-Quelle",
       downloadPdfs: "PDFs herunterladen",
+      linkedProjects: "Verknüpfte Projekte",
+      openLinkedProject: "Projekt öffnen",
       fullDescription: "Vollständige Beschreibung",
       claims: "Ansprüche",
       legalStatus: "Rechtsstand",
@@ -807,6 +816,8 @@ const COPY: Record<
       vectorPdf: "PDF vectorial",
       sourceLinks: "Fuente Espacenet",
       downloadPdfs: "Descargar PDFs",
+      linkedProjects: "Proyectos vinculados",
+      openLinkedProject: "Abrir proyecto",
       fullDescription: "Descripción completa",
       claims: "Reivindicaciones",
       legalStatus: "Situación jurídica",
@@ -870,6 +881,8 @@ const COPY: Record<
       vectorPdf: "벡터 PDF",
       sourceLinks: "Espacenet 출처",
       downloadPdfs: "PDF 다운로드",
+      linkedProjects: "연결된 프로젝트",
+      openLinkedProject: "프로젝트 열기",
       fullDescription: "전체 설명",
       claims: "청구항",
       legalStatus: "법적 상태",
@@ -933,6 +946,8 @@ const COPY: Record<
       vectorPdf: "矢量 PDF",
       sourceLinks: "Espacenet 来源",
       downloadPdfs: "下载 PDF",
+      linkedProjects: "关联项目",
+      openLinkedProject: "打开项目",
       fullDescription: "完整说明",
       claims: "权利要求",
       legalStatus: "法律状态",
@@ -1453,6 +1468,13 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const selectedPatentCategory = selectedPatent
     ? getPatentCategoryLabel(selectedPatent.filter, resolvedLocale)
     : "";
+  const selectedPatentLinkedProjects = useMemo(
+    () =>
+      selectedPatent
+        ? getPatentLinkedProjectsForLocale(selectedPatent.id, resolvedLocale)
+        : [],
+    [resolvedLocale, selectedPatent],
+  );
   const selectedPatentImages = selectedPatent?.images ?? [];
   const safeModalImageIndex = selectedPatentImages[modalImageIndex]
     ? modalImageIndex
@@ -1855,6 +1877,30 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   <PatentFact label={copy.details.classification} value={selectedPatent.classification} wide />
                   <PatentFact label={copy.details.alsoPublishedAs} value={selectedPatent.alsoPublishedAs} wide />
                 </div>
+
+                {selectedPatentLinkedProjects.length > 0 && (
+                  <section className="mt-8">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                      {copy.details.linkedProjects}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-3">
+                      {selectedPatentLinkedProjects.map((project) => (
+                        <Link
+                          key={project.id}
+                          href={`/projects?project=${encodeURIComponent(project.id)}`}
+                          className="group/projectLink inline-flex min-h-11 items-center justify-center gap-3 rounded-[7px] bg-brand px-4 py-2.5 text-[13px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+                          aria-label={`${copy.details.openLinkedProject}: ${project.title}`}
+                        >
+                          <span>{project.title}</span>
+                          <ArrowRight
+                            className="size-4 transition-transform duration-300 group-hover/projectLink:translate-x-0.5"
+                            aria-hidden
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
                 {selectedPatent.images.length > 0 && (
                   <PatentDrawingGallery

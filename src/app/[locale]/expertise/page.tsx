@@ -377,6 +377,8 @@ function AddedValueSection() {
 
             <div className="relative grid h-full gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-y-0">
               {STATS.map((stat, index) => {
+                const isWideStat = stat.key === "worldwide";
+
                 return (
                   <div
                     key={stat.key}
@@ -392,7 +394,13 @@ function AddedValueSection() {
                       className="size-[42px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 md:size-[48px]"
                     />
                     <div className="min-w-0">
-                      <strong className="block whitespace-nowrap text-[24px] font-extrabold leading-none tracking-normal md:text-[28px] xl:text-[30px]">
+                      <strong
+                        className={`block whitespace-nowrap font-extrabold leading-none tracking-normal ${
+                          isWideStat
+                            ? "text-[23px] md:text-[25px] xl:text-[27px]"
+                            : "text-[24px] md:text-[28px] xl:text-[30px]"
+                        }`}
+                      >
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
                       <span className="mt-2 block text-[12px] font-medium leading-tight text-white/88 md:text-[13px]">

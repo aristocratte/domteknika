@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -23,6 +23,28 @@ import {
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+const HOME_PROJECTS_REVEAL_SCROLL_Y = 24;
+const PINNED_HOME_PROJECT_ID = "aventor";
+
+function shuffleHomeProjects(projects: Project[]) {
+  const pinnedProject = projects.find(
+    (project) => project.id === PINNED_HOME_PROJECT_ID,
+  );
+  const shuffledProjects = projects.filter(
+    (project) => project.id !== PINNED_HOME_PROJECT_ID,
+  );
+
+  for (let index = shuffledProjects.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledProjects[index], shuffledProjects[randomIndex]] = [
+      shuffledProjects[randomIndex],
+      shuffledProjects[index],
+    ];
+  }
+
+  return pinnedProject ? [pinnedProject, ...shuffledProjects] : shuffledProjects;
+}
+
 export function ProjectsSection() {
   const t = useTranslations("Projects");
   const locale = useLocale();
@@ -30,7 +52,11 @@ export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projects = useMemo(() => getProjectsForLocale(locale), [locale]);
   const projectsCopy = useMemo(() => getProjectsPageCopy(locale), [locale]);
-  const carouselProjects = useMemo(() => [...projects, ...projects], [projects]);
+  const [homeProjects, setHomeProjects] = useState(projects);
+  const carouselProjects = useMemo(
+    () => [...homeProjects, ...homeProjects],
+    [homeProjects],
+  );
   const autoplay = useMemo(
     () =>
       Autoplay({
@@ -41,6 +67,14 @@ export function ProjectsSection() {
     [],
   );
 
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      setHomeProjects(shuffleHomeProjects(projects));
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [projects]);
+
   return (
     <section
       id="projects"
@@ -48,7 +82,10 @@ export function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <Container size="wide">
-        <Reveal className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <Reveal
+          minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
+          className="mb-[38px] flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between"
+        >
           <h2
             id="projects-title"
             className="text-[20px] font-extrabold leading-none text-foreground"
@@ -64,7 +101,7 @@ export function ProjectsSection() {
           </Link>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}>
           <div
             data-projects-fade
             className="relative -mx-4 overflow-hidden px-4 sm:-mx-8 sm:px-8 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"

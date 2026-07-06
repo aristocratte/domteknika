@@ -6,7 +6,6 @@ import {
   type CSSProperties,
   useCallback,
   useEffect,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -15,11 +14,13 @@ import {
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
 import { PatentDialog } from "@/components/sections/patent-dialog";
-import { PATENTS, type PatentRecord } from "@/data/patents";
+import { PATENTS, type PatentFilterKey, type PatentRecord } from "@/data/patents";
 import { cn } from "@/lib/utils";
 import projectAssetManifest from "../../../public/assets/projects/manifest.json";
 
-type FilterKey = "all" | "area-1" | "area-2" | "area-3" | "area-4" | "area-5";
+type FilterKey = "all" | PatentFilterKey;
+
+const PATENT_ASSET_BASE = "/assets/patent-page";
 
 export type Project = {
   id: string;
@@ -41,6 +42,13 @@ type RelatedPatent = {
   publication: string;
   title: string;
   note: string;
+};
+
+export type PatentLinkedProject = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
 };
 
 type ProjectAssetManifestEntry = {
@@ -233,6 +241,14 @@ type ProjectStat = {
   height: number;
 };
 
+type ProjectFilterOption = {
+  key: FilterKey;
+  label: string;
+  icon?: string;
+  width?: number;
+  height?: number;
+};
+
 type ProjectsPageCopy = {
   hero: {
     eyebrow: string;
@@ -241,12 +257,13 @@ type ProjectsPageCopy = {
     rest: string;
     lead: string;
   };
-  filters: Array<{ key: FilterKey; label: string }>;
+  filters: ProjectFilterOption[];
   featuredProject: Project;
   projects: Project[];
   stats: ProjectStat[];
   statsLabel: string;
   selectedTitle: string;
+  resultsLabel: string;
   filtersLabel: string;
   searchLabel: string;
   searchPlaceholder: string;
@@ -279,19 +296,56 @@ type ProjectsPageCopy = {
 
 type ProjectModalCopy = ProjectsPageCopy["modal"];
 
-const FILTERS: Array<{ key: FilterKey; label: string }> = [
-  { key: "all", label: "All Projects" },
-  { key: "area-1", label: "Mobility" },
-  { key: "area-2", label: "Medical & Dental" },
-  { key: "area-3", label: "Consumer Products" },
-  { key: "area-4", label: "Industrial Systems" },
-  { key: "area-5", label: "Architecture & Environment" },
+const FILTERS: ProjectFilterOption[] = [
+  { key: "all", label: "All" },
+  {
+    key: "mobility",
+    label: "Mobility",
+    icon: `${PATENT_ASSET_BASE}/icon-mobility.png`,
+    width: 28,
+    height: 25,
+  },
+  {
+    key: "industrial",
+    label: "Industrial",
+    icon: `${PATENT_ASSET_BASE}/icon-industrial.png`,
+    width: 30,
+    height: 32,
+  },
+  {
+    key: "medical",
+    label: "Medical",
+    icon: `${PATENT_ASSET_BASE}/icon-medical.png`,
+    width: 39,
+    height: 34,
+  },
+  {
+    key: "energy",
+    label: "Energy",
+    icon: `${PATENT_ASSET_BASE}/icon-energy.png`,
+    width: 23,
+    height: 35,
+  },
+  {
+    key: "materials",
+    label: "Materials",
+    icon: `${PATENT_ASSET_BASE}/icon-materials.png`,
+    width: 34,
+    height: 33,
+  },
+  {
+    key: "digital",
+    label: "Digital",
+    icon: `${PATENT_ASSET_BASE}/icon-digital.png`,
+    width: 37,
+    height: 35,
+  },
 ];
 
 export const FEATURED_PROJECT: Project = {
   id: "stajvelo-rv01",
   category: "Mobility",
-  filter: "area-1",
+  filter: "mobility",
   title: "STAJVELO RV01",
   description: "Urban e-bike architecture built around injected composite design, distinctive wheels and premium industrial detailing.",
   image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-cover.webp",
@@ -299,12 +353,6 @@ export const FEATURED_PROJECT: Project = {
   tags: ["#2017", "#E-bike", "#Polymer"],
   overview:
     "DOMTEKNIKA supported the polymer conception and structural development of this urban e-bike, from early architecture and wheel engineering to manufacturable product definition.",
-  relatedPatents: [
-    relatedPatent(
-      "EP4705115A1",
-      "Rim and wheel-airflow work that connects with lightweight mobility wheel development.",
-    ),
-  ],
 };
 
 const PROJECT_GALLERIES = Object.fromEntries(
@@ -327,7 +375,7 @@ export const PROJECTS: Project[] = [
   {
     id: "aventor",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "Aventor",
     description: "High-performance electric vehicle platform developed around speed, acceleration and lightweight composite bodywork.",
     image: "/assets/projects/aventor/aventor-01-cover.webp",
@@ -345,7 +393,7 @@ export const PROJECTS: Project[] = [
   {
     id: "weebot",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "Weebot",
     description: "Compact electric mobility concept explored through CAD, prototype builds and winter-use product studies.",
     image: "/assets/projects/weebot/weebot-01-cover.webp",
@@ -357,7 +405,7 @@ export const PROJECTS: Project[] = [
   {
     id: "totalcar-concept",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "Total Car",
     description: "Compact electric mobility concept focused on lightweight vehicle architecture and ecological urban transport.",
     image: "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp",
@@ -365,32 +413,44 @@ export const PROJECTS: Project[] = [
     tags: ["#EV", "#Urban", "#EcoDesign"],
     overview:
       "Total Car extends the mobility portfolio with a small electric vehicle study, using lightweight bodywork, clean product integration and a low-footprint urban transport approach.",
+  },
+  {
+    id: "cree",
+    category: "Mobility",
+    filter: "mobility",
+    title: "CREE",
+    description: "Ultra-light electric road vehicle concept built around compact packaging, a central chassis beam and reduced urban footprint.",
+    image: "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp",
+    imageAlt: "CREE ultra-light electric vehicle concept",
+    tags: ["#1996", "#EV", "#Lightweight"],
+    overview:
+      "CREE brings together the early ultra-light electric road vehicle architecture, with a central beam chassis, compact packaging and component integration focused on efficient urban mobility.",
     relatedPatents: [
       relatedPatent(
         "US6015022A",
-        "Historic ultra-light road vehicle architecture linked to compact electric mobility.",
+        "Ultra-light electric road-vehicle architecture with central beam chassis and compact wheelbase strategy.",
       ),
       relatedPatent(
         "US5584510A",
-        "Motor vehicle chassis principles for light structural vehicle packaging.",
+        "Motor-vehicle chassis principles for structural packaging and impact-energy management.",
       ),
       relatedPatent(
         "US5667030A",
-        "Vehicle thermal-management work connected to the early lightweight road-vehicle platform.",
+        "Cooling-system heat exchanger integrated around lightweight vehicle architecture.",
       ),
     ],
   },
   {
     id: "softcar",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "SOFTCAR",
     description: "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
-    image: "/assets/our-story/softcar-concept.png",
+    image: "/assets/our-story/softcar-v1.png",
     imageAlt: "SOFTCAR compact electric city vehicle concept",
     gallery: [
-      "/assets/our-story/softcar-concept.png",
       "/assets/our-story/softcar-v1.png",
+      "/assets/our-story/softcar-concept.png",
     ],
     tags: ["#CityEV", "#EcoDesign", "#Mobility"],
     overview:
@@ -403,6 +463,10 @@ export const PROJECTS: Project[] = [
       relatedPatent(
         "EP4488027A1",
         "Reinforced rotomolded body process for lightweight vehicle parts.",
+      ),
+      relatedPatent(
+        "EP4705115A1",
+        "SOFTCAR rim deflector work for vehicle wheel airflow and aerodynamic wheel-cover integration.",
       ),
       relatedPatent(
         "EP4680511A1",
@@ -425,7 +489,7 @@ export const PROJECTS: Project[] = [
   {
     id: "folding-bike-scooter",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "Folding bike & scooter",
     description: "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
     image: "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp",
@@ -433,17 +497,11 @@ export const PROJECTS: Project[] = [
     tags: ["#2011", "#Folding", "#Mobility"],
     overview:
       "A set of folding e-bike and scooter concepts focused on hinge mechanisms, compact storage volume, ergonomic riding positions and manufacturable mechanical assemblies.",
-    relatedPatents: [
-      relatedPatent(
-        "US6015022A",
-        "Compact road-vehicle transformation principle used as historical lightweight mobility context.",
-      ),
-    ],
   },
   {
     id: "aventor-drone",
     category: "Mobility",
-    filter: "area-1",
+    filter: "mobility",
     title: "Aventor drone",
     description: "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
     image: "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
@@ -454,8 +512,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "airsmile",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "AirSmile",
     description: "Dental care device concept developed from product styling through functional packaging and prototype families.",
     image: "/assets/projects/airsmile/airsmile-01-cover.webp",
@@ -472,8 +530,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "brossadent",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "O2 Cosmetics toothbrush",
     description: "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
     image: "/assets/projects/brossadent/brossadent-01-cover.webp",
@@ -490,8 +548,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "insulin-pen",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "Insulin pen",
     description: "Injection pen housing and mechanism packaging studies for a slim, manufacturable medical device.",
     image: "/assets/projects/insulin-pen/insulin-pen-01-cover.webp",
@@ -502,8 +560,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "paradigm-spine",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "Paradigm Spine",
     description: "Spinal implant and instrumentation development supported by product rendering and mechanical simulation.",
     image: "/assets/projects/paradigm-spine/paradigm-spine-01-cover.webp",
@@ -513,14 +571,6 @@ export const PROJECTS: Project[] = [
       "A medical implant project combining precision part design, kit presentation and finite element analysis for load-critical spinal hardware.",
     relatedPatents: [
       relatedPatent(
-        "US2015342657A1",
-        "Bone fixation assembly connected to spinal implant and fixation-system development.",
-      ),
-      relatedPatent(
-        "EP3185821A1",
-        "Orthopaedic impactor body relevant to surgical instrumentation mechanics.",
-      ),
-      relatedPatent(
         "US2016000570A1",
         "Polymer joint implant manufacturing context for medical implant development.",
       ),
@@ -528,8 +578,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "flex-drill",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "Flex Drill",
     description: "Flexible drill accessory concept with shaped polymer guide, prototype validation and stress-analysis views.",
     image: "/assets/projects/flex-drill/flex-drill-01-cover.webp",
@@ -537,17 +587,11 @@ export const PROJECTS: Project[] = [
     tags: ["#2014", "#Tooling", "#Analysis"],
     overview:
       "Flex Drill explores a curved drill-guide architecture, moving from mechanical stress simulation to physical prototype and product rendering.",
-    relatedPatents: [
-      relatedPatent(
-        "EP3185821A1",
-        "Orthopaedic instrument patent context for precision surgical-tool mechanics.",
-      ),
-    ],
   },
   {
     id: "biome-staple-applicator",
-    category: "Medical & Dental",
-    filter: "area-2",
+    category: "Medical",
+    filter: "medical",
     title: "Biome staple applicator",
     description: "Handheld applicator concept developed through sketches, structural analysis and printed prototypes.",
     image: "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp",
@@ -564,8 +608,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "cliris",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Industrial",
+    filter: "industrial",
     title: "Cliris",
     description: "Automatic eyeglass cleaning device with a compact drawer architecture and refined consumer-product finish.",
     image: "/assets/projects/cliris/cliris-01-cover.webp",
@@ -576,8 +620,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ikitty",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Industrial",
+    filter: "industrial",
     title: "iKitty",
     description: "Cat enrichment product with refill capsule architecture, feeder mechanism and soft product styling.",
     image: "/assets/projects/ikitty/ikitty-01-cover.webp",
@@ -588,8 +632,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "smart-bottle",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Digital",
+    filter: "digital",
     title: "Smart Bottle",
     description: "Portable smart-bottle concept with integrated module, compact electronics bay and product-ready casing.",
     image: "/assets/projects/smart-bottle/smart-bottle-01-cover.webp",
@@ -597,25 +641,11 @@ export const PROJECTS: Project[] = [
     tags: ["#2014", "#SmartProduct", "#CAD"],
     overview:
       "A compact product architecture study for a connected bottle or dosing module, including casing design and internal component packaging.",
-    relatedPatents: [
-      relatedPatent(
-        "WO2008017182A1",
-        "Filtration cartridge quality-control logic for a vessel with integrated sensing.",
-      ),
-      relatedPatent(
-        "USD560092S",
-        "Carafe design reference connected to vessel and drinking-product form studies.",
-      ),
-      relatedPatent(
-        "USD568097S",
-        "Filter accessory design reference for carafe and vessel systems.",
-      ),
-    ],
   },
   {
     id: "glove-helmet-dryer",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Industrial",
+    filter: "industrial",
     title: "Glove & helmet dryer",
     description: "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
     image: "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
@@ -626,8 +656,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "folding-umbrella",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Industrial",
+    filter: "industrial",
     title: "Folding umbrella",
     description: "Compact umbrella mechanism with case studies, folding geometry and working prototype details.",
     image: "/assets/projects/folding-umbrella/folding-umbrella-01-cover.webp",
@@ -637,10 +667,6 @@ export const PROJECTS: Project[] = [
       "The project explores a new folding umbrella architecture, from case cutaways and mechanism studies to full-scale physical prototypes.",
     relatedPatents: [
       relatedPatent(
-        "US2022338602A1",
-        "Bad-weather and sun-protection frame patent connected to deployable protection mechanisms.",
-      ),
-      relatedPatent(
         "WO2021043427A1",
         "Housing architecture for a weather-protection device.",
       ),
@@ -648,8 +674,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "skincare-applicator",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Medical",
+    filter: "medical",
     title: "Skincare applicator",
     description: "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
     image: "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp",
@@ -670,38 +696,26 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "alicoffee-machine",
-    category: "Consumer Products",
-    filter: "area-3",
-    title: "Alicoffee machine",
+    category: "Industrial",
+    filter: "industrial",
+    title: "Coffee machine",
     description: "Countertop coffee machine concept built around a double-pass capsule circuit, where water makes an out-and-back path through the capsule.",
     image: "/assets/projects/alicoffee-machine/alicoffee-machine-01-cover.webp",
-    imageAlt: "Alicoffee countertop machine concept render",
+    imageAlt: "Coffee machine countertop concept render",
     tags: ["#2014", "#Coffee", "#Capsule", "#Fluidics"],
     overview:
-      "Alicoffee studies a compact beverage appliance where water does not simply flow straight through the capsule. It follows an out-and-back path inside the capsule, creating a double pass intended to make better use of the dose. This fluidic logic connects the industrial design to related patented work around capsule chambers, portion handling and pressurized beverage flow.",
+      "This compact beverage appliance studies a capsule circuit where water does not simply flow straight through the capsule. It follows an out-and-back path inside the capsule, creating a double pass intended to make better use of the dose. This fluidic logic connects the industrial design to related patented work around capsule chambers, portion handling and pressurized beverage flow.",
     relatedPatents: [
       relatedPatent(
         "US2011061534A1",
         "Capsule-based beverage production chamber where liquid interacts with the ingredient inside the capsule.",
       ),
-      relatedPatent(
-        "EP2745749A1",
-        "Drink-preparation device with capsule or pad chamber, supply line and discharge line.",
-      ),
-      relatedPatent(
-        "CH700288A2",
-        "Automatic hot-beverage machine with portion chamber handling and ejection after extraction.",
-      ),
-      relatedPatent(
-        "EP1744653A1",
-        "DOMTEKNIKA beverage jet device using pressurized water through a permeable pouch.",
-      ),
     ],
   },
   {
     id: "instant-coffee-dispenser",
-    category: "Consumer Products",
-    filter: "area-3",
+    category: "Industrial",
+    filter: "industrial",
     title: "Instant coffee dispenser",
     description: "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
     image: "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
@@ -710,10 +724,6 @@ export const PROJECTS: Project[] = [
     overview:
       "A physical prototype project focused on soluble coffee handling, dosing ergonomics and a compact appliance form factor.",
     relatedPatents: [
-      relatedPatent(
-        "AU2014274521A1",
-        "Frothed liquid preparation from soluble ingredients and diluent.",
-      ),
       relatedPatent(
         "EP2000065A1",
         "Mixing chamber and airflow management for soluble beverage ingredients.",
@@ -730,8 +740,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "vacheron-watch-mechanics",
-    category: "Industrial Systems",
-    filter: "area-4",
+    category: "Materials",
+    filter: "materials",
     title: "Vacheron watch mechanics",
     description: "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
     image: "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp",
@@ -744,16 +754,12 @@ export const PROJECTS: Project[] = [
         "WO2016004540A1",
         "Optical method for making a watch movement component invisible.",
       ),
-      relatedPatent(
-        "CH707437A1",
-        "Anti-reflective treatment principle for visible-spectrum watch movement invisibility.",
-      ),
     ],
   },
   {
     id: "velum-sky-screen",
-    category: "Architecture & Environment",
-    filter: "area-5",
+    category: "Industrial",
+    filter: "industrial",
     title: "Velum SKY screen mechanism",
     description: "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
     image: "/assets/projects/velum-sky-screen/velum-sky-screen-01-cover.webp",
@@ -761,16 +767,6 @@ export const PROJECTS: Project[] = [
     tags: ["#2025", "#Architecture", "#Mechanism"],
     overview:
       "Velum SKY is represented here through a high-precision mechanical assembly, suggesting an architectural or environmental screen mechanism requiring robust motion and clean detailing.",
-    relatedPatents: [
-      relatedPatent(
-        "US2022338602A1",
-        "Frame architecture for bad-weather and sun-protection systems.",
-      ),
-      relatedPatent(
-        "WO2021043427A1",
-        "Protective device housing relevant to screen and environmental-protection mechanisms.",
-      ),
-    ],
   },
 ];
 
@@ -812,12 +808,6 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Rendu du vélo électrique STAJVELO RV01",
     overview:
       "DOMTEKNIKA a accompagné la conception polymère et le développement structurel de cet e-bike urbain, depuis l'architecture initiale et l'ingénierie des roues jusqu'à la définition industrialisable du produit.",
-    relatedPatents: [
-      relatedPatent(
-        "EP4705115A1",
-        "Travail sur jante et flux d'air relié au développement de roues légères pour la mobilité.",
-      ),
-    ],
   },
   aventor: {
     category: "Mobilité",
@@ -846,18 +836,25 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Concept de véhicule électrique Total Car sur route",
     overview:
       "Total Car complète le portefeuille mobilité avec une étude de petit véhicule électrique, autour d'une carrosserie légère, d'une intégration produit propre et d'une approche urbaine à faible empreinte.",
+  },
+  cree: {
+    category: "Mobilité",
+    description: "Concept de véhicule routier électrique ultra-léger autour d'une architecture compacte, d'un châssis central et d'un encombrement urbain réduit.",
+    imageAlt: "Concept de véhicule électrique ultra-léger CREE",
+    overview:
+      "CREE regroupe les premiers travaux de véhicule routier électrique ultra-léger, avec châssis poutre central, packaging compact et intégration de composants pour une mobilité urbaine efficiente.",
     relatedPatents: [
       relatedPatent(
         "US6015022A",
-        "Architecture historique de véhicule routier ultra-léger liée à la mobilité électrique compacte.",
+        "Architecture de véhicule routier électrique ultra-léger avec châssis poutre central et stratégie d'empattement compact.",
       ),
       relatedPatent(
         "US5584510A",
-        "Principe de châssis automobile pour packaging structurel léger.",
+        "Principes de châssis automobile pour packaging structurel et absorption d'énergie.",
       ),
       relatedPatent(
         "US5667030A",
-        "Travail de gestion thermique véhicule lié à la plateforme routière légère.",
+        "Échangeur thermique de refroidissement intégré à une architecture véhicule légère.",
       ),
     ],
   },
@@ -865,7 +862,12 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilité",
     title: "SOFTCAR",
     description: "Concept de véhicule électrique urbain à très faible empreinte, centré sur une architecture légère, un packaging compact et une mobilité écologique.",
+    image: "/assets/our-story/softcar-v1.png",
     imageAlt: "Concept de véhicule électrique urbain compact SOFTCAR",
+    gallery: [
+      "/assets/our-story/softcar-v1.png",
+      "/assets/our-story/softcar-concept.png",
+    ],
     overview:
       "SOFTCAR prolonge le travail mobilité vers les véhicules électriques urbains compacts, avec architecture légère, assemblages simplifiés et transport à faible empreinte écologique.",
     relatedPatents: [
@@ -876,6 +878,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       relatedPatent(
         "EP4488027A1",
         "Procédé de carrosserie rotomoulée renforcée pour pièces véhicule légères.",
+      ),
+      relatedPatent(
+        "EP4705115A1",
+        "Déflecteur de jante SOFTCAR pour le flux d'air autour des roues et l'intégration aérodynamique.",
       ),
       relatedPatent(
         "EP4680511A1",
@@ -902,12 +908,6 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Rendu de vélo électrique pliant",
     overview:
       "Une série de concepts vélo électrique et scooter pliants centrés sur les mécanismes de charnière, le volume de rangement, l'ergonomie et les assemblages mécaniques fabricables.",
-    relatedPatents: [
-      relatedPatent(
-        "US6015022A",
-        "Principe historique de véhicule compact transformable utilisé comme contexte mobilité légère.",
-      ),
-    ],
   },
   "aventor-drone": {
     category: "Mobilité",
@@ -918,7 +918,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ce travail drone combine implantation mécanique, packaging de charge utile et validation prototype pour une plateforme aérienne légère.",
   },
   airsmile: {
-    category: "Médical & dentaire",
+    category: "Médical",
     description: "Concept de dispositif dentaire développé depuis le style produit jusqu'au packaging fonctionnel et aux familles de prototypes.",
     imageAlt: "Rendu du dispositif dentaire portatif AirSmile",
     overview:
@@ -931,7 +931,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   brossadent: {
-    category: "Médical & dentaire",
+    category: "Médical",
     title: "Brosse à dents O2 Cosmetics",
     description: "Concept de soin dentaire combinant corps de brosse à dents, cartouches O2 Cosmetics et packaging du mécanisme interne.",
     imageAlt: "Concept de brosse à dents O2 Cosmetics avec cartouches",
@@ -945,7 +945,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "insulin-pen": {
-    category: "Médical & dentaire",
+    category: "Médical",
     title: "Stylo à insuline",
     description: "Études de boîtier et de packaging mécanisme pour un dispositif médical fin et industrialisable.",
     imageAlt: "Rendu de stylo à insuline bleu",
@@ -953,20 +953,12 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ce projet se concentre sur un produit médical au format stylo, en équilibrant contraintes de mécanisme interne, prise en main et design industriel épuré.",
   },
   "paradigm-spine": {
-    category: "Médical & dentaire",
+    category: "Médical",
     description: "Développement d'implant et d'instrumentation rachidienne avec rendu produit et simulation mécanique.",
     imageAlt: "Rendu d'un kit d'implants Paradigm Spine",
     overview:
       "Projet d'implant médical combinant conception de pièces de précision, présentation de kit et analyse par éléments finis pour du matériel spinal chargé mécaniquement.",
     relatedPatents: [
-      relatedPatent(
-        "US2015342657A1",
-        "Assemblage de fixation osseuse lié au développement d'implants et systèmes de fixation rachidiens.",
-      ),
-      relatedPatent(
-        "EP3185821A1",
-        "Corps impacteur orthopédique pertinent pour la mécanique d'instrumentation chirurgicale.",
-      ),
       relatedPatent(
         "US2016000570A1",
         "Contexte de fabrication d'implants articulaires polymères pour le développement médical.",
@@ -974,20 +966,14 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "flex-drill": {
-    category: "Médical & dentaire",
+    category: "Médical",
     description: "Concept d'accessoire de perçage flexible avec guide polymère, validation prototype et vues d'analyse de contraintes.",
     imageAlt: "Concept de guide de perçage flexible bleu",
     overview:
       "Flex Drill explore une architecture de guide de perçage courbe, depuis la simulation mécanique jusqu'au prototype physique et au rendu produit.",
-    relatedPatents: [
-      relatedPatent(
-        "EP3185821A1",
-        "Contexte brevet d'instrument orthopédique pour la mécanique d'outils chirurgicaux de précision.",
-      ),
-    ],
   },
   "biome-staple-applicator": {
-    category: "Médical & dentaire",
+    category: "Médical",
     title: "Applicateur d'agrafes biomédicales",
     description: "Concept d'applicateur portatif développé par croquis, analyse structurelle et prototypes imprimés.",
     imageAlt: "Rendu d'applicateur d'agrafes biomédical blanc et rouge",
@@ -1001,43 +987,29 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   cliris: {
-    category: "Produits consumer",
+    category: "Industrie",
     description: "Nettoyeur automatique de lunettes avec architecture compacte à tiroir et finition de produit grand public.",
     imageAlt: "Nettoyeur de lunettes automatique Cliris noir ouvert",
     overview:
       "Cliris combine chambre de nettoyage compacte, mouvement de tiroir et surfaces visibles dans un produit conçu pour un entretien fiable et hygiénique des lunettes.",
   },
   ikitty: {
-    category: "Produits consumer",
+    category: "Industrie",
     description: "Produit d'enrichissement pour chat avec architecture de capsule rechargeable, mécanisme feeder et design doux.",
     imageAlt: "Prototype de dispositif iKitty pour chat",
     overview:
       "Le concept iKitty intègre capsules rechargeables, mécanique interne de distribution et langage produit reconnaissable dans un objet consumer fabricable.",
   },
   "smart-bottle": {
-    category: "Produits consumer",
+    category: "Digital",
     title: "Smart Bottle",
     description: "Concept de bouteille intelligente portable avec module intégré, baie électronique compacte et boîtier produit.",
     imageAlt: "Concept Smart Bottle avec module interne bleu",
     overview:
       "Étude d'architecture pour bouteille connectée ou module de dosage, incluant conception de boîtier et intégration des composants internes.",
-    relatedPatents: [
-      relatedPatent(
-        "WO2008017182A1",
-        "Logique de contrôle de qualité d'une cartouche filtrante dans un récipient avec détection intégrée.",
-      ),
-      relatedPatent(
-        "USD560092S",
-        "Référence de design de carafe liée aux études de récipients et produits de boisson.",
-      ),
-      relatedPatent(
-        "USD568097S",
-        "Référence de design d'accessoire filtrant pour systèmes de carafe et récipient.",
-      ),
-    ],
   },
   "glove-helmet-dryer": {
-    category: "Produits consumer",
+    category: "Industrie",
     title: "Sèche-gants & casque",
     description: "Concept de station de séchage pour équipement sportif, développé du layout CAO aux essais sur prototype physique.",
     imageAlt: "Prototype de sèche-gants avec gants montés",
@@ -1045,7 +1017,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ce produit intègre les chemins d'air et supports pour gants et casques dans une station compacte, avec concepts rendus et prototypes physiques.",
   },
   "folding-umbrella": {
-    category: "Produits consumer",
+    category: "Industrie",
     title: "Parapluie pliant",
     description: "Mécanisme de parapluie compact avec études d'étui, géométrie de pliage et détails de prototype fonctionnel.",
     imageAlt: "Prototype de parapluie pliant jaune",
@@ -1053,17 +1025,13 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Le projet explore une nouvelle architecture de parapluie pliant, depuis les coupes d'étui et études mécanisme jusqu'aux prototypes physiques.",
     relatedPatents: [
       relatedPatent(
-        "US2022338602A1",
-        "Brevet de cadre pour protection pluie/soleil lié aux mécanismes de protection déployables.",
-      ),
-      relatedPatent(
         "WO2021043427A1",
         "Architecture de boîtier pour dispositif de protection contre les intempéries.",
       ),
     ],
   },
   "skincare-applicator": {
-    category: "Produits consumer",
+    category: "Médical",
     title: "Applicateur skincare",
     description: "Concept d'applicateur dermocosmétique avec pièce à main ergonomique, layout de cartouche interne et présentation produit.",
     imageAlt: "Rendu d'un applicateur skincare blanc",
@@ -1081,42 +1049,27 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "alicoffee-machine": {
-    category: "Produits consumer",
+    category: "Industrie",
+    title: "Coffee machine",
     description: "Concept de machine à café de comptoir basé sur un circuit capsule double passage, où l'eau fait un aller-retour dans la capsule.",
-    imageAlt: "Rendu du concept de machine de comptoir Alicoffee",
+    imageAlt: "Rendu du concept de machine à café de comptoir",
     overview:
-      "Alicoffee étudie un appareil de boisson compact où l'eau ne traverse pas simplement la capsule en ligne droite. Elle effectue un aller-retour dans la capsule, avec un double passage pensé pour mieux exploiter la dose. Cette logique fluidique relie le design industriel aux brevets liés aux chambres capsule, à la gestion des portions et au flux de boisson sous pression.",
+      "Ce projet étudie un appareil de boisson compact où l'eau ne traverse pas simplement la capsule en ligne droite. Elle effectue un aller-retour dans la capsule, avec un double passage pensé pour mieux exploiter la dose. Cette logique fluidique relie le design industriel aux brevets liés aux chambres capsule, à la gestion des portions et au flux de boisson sous pression.",
     relatedPatents: [
       relatedPatent(
         "US2011061534A1",
         "Chambre de production à capsule où le liquide interagit avec l'ingrédient contenu dans la capsule.",
       ),
-      relatedPatent(
-        "EP2745749A1",
-        "Dispositif de préparation de boisson avec chambre capsule/pad, ligne d'alimentation et ligne de sortie.",
-      ),
-      relatedPatent(
-        "CH700288A2",
-        "Machine automatique à boisson chaude avec gestion de chambre de portion et éjection après extraction.",
-      ),
-      relatedPatent(
-        "EP1744653A1",
-        "Dispositif DOMTEKNIKA de jet de boisson utilisant de l'eau sous pression à travers une pochette perméable.",
-      ),
     ],
   },
   "instant-coffee-dispenser": {
-    category: "Produits consumer",
+    category: "Industrie",
     title: "Distributeur de café soluble",
     description: "Prototype d'appareil pour dosage de café soluble, testé avec packaging consumer et maquettes physiques.",
     imageAlt: "Prototype de distributeur de café soluble en interaction main",
     overview:
       "Projet prototype centré sur la manipulation du café soluble, l'ergonomie de dosage et un format d'appareil compact.",
     relatedPatents: [
-      relatedPatent(
-        "AU2014274521A1",
-        "Préparation de liquide moussé depuis ingrédients solubles et diluant.",
-      ),
       relatedPatent(
         "EP2000065A1",
         "Chambre de mélange et gestion de flux d'air pour ingrédients solubles.",
@@ -1132,7 +1085,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "vacheron-watch-mechanics": {
-    category: "Systèmes industriels",
+    category: "Matériaux",
     title: "Mécanique horlogère Vacheron",
     description: "Études horlogères de précision combinant layouts mécaniques, assemblages rendus et analyse de composants.",
     imageAlt: "Rendu de montre mécanique avec mouvement visible",
@@ -1143,29 +1096,15 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "WO2016004540A1",
         "Méthode optique pour rendre invisible un composant de mouvement horloger.",
       ),
-      relatedPatent(
-        "CH707437A1",
-        "Principe de traitement antireflet pour invisibilité dans le spectre visible.",
-      ),
     ],
   },
   "velum-sky-screen": {
-    category: "Architecture & environnement",
+    category: "Industrie",
     title: "Mécanisme Velum SKY",
     description: "Prototype de mécanisme architectural pour écran ou élément de façade, photographié comme assemblage mécanique de précision.",
     imageAlt: "Prototype mécanique Velum SKY sur fond studio sombre",
     overview:
       "Velum SKY est représenté ici par un assemblage mécanique de précision, suggérant un mécanisme architectural ou environnemental demandant mouvement robuste et détails propres.",
-    relatedPatents: [
-      relatedPatent(
-        "US2022338602A1",
-        "Architecture de cadre pour systèmes de protection pluie/soleil.",
-      ),
-      relatedPatent(
-        "WO2021043427A1",
-        "Boîtier de dispositif de protection pertinent pour mécanismes d'écran et de protection environnementale.",
-      ),
-    ],
   },
 };
 
@@ -1903,6 +1842,7 @@ export function resolveProjectsLocale(locale: string): ProjectsLocale {
 const PINNED_PROJECT_IDS = [
   "aventor",
   "totalcar-concept",
+  "cree",
   "stajvelo-rv01",
   "softcar",
 ];
@@ -1965,6 +1905,18 @@ const PROJECT_SCOPES: Record<string, Partial<Record<ProjectsLocale, string[]>>> 
       "Concept de petit véhicule électrique urbain autour d'une structure légère et d'un assemblage simple.",
       "Études d'implantation véhicule pour accès habitacle, packaging et encombrement réduit.",
       "Stratégie mobilité reliée à une production à faible impact et une architecture recyclable.",
+    ],
+  },
+  cree: {
+    en: [
+      "Ultra-light electric road vehicle architecture centered on a structural central beam.",
+      "Compact packaging strategy for batteries, drivetrain and reduced urban footprint.",
+      "Vehicle chassis and cooling-system patent context gathered under the CREE project.",
+    ],
+    fr: [
+      "Architecture de véhicule routier électrique ultra-léger centrée sur une poutre structurelle centrale.",
+      "Stratégie de packaging compact pour batteries, chaîne de traction et encombrement urbain réduit.",
+      "Contexte brevets châssis et refroidissement regroupé sous le projet CREE.",
     ],
   },
   softcar: {
@@ -2227,6 +2179,28 @@ export function getProjectsForLocale(locale: string) {
   });
 }
 
+export function getPatentLinkedProjectsForLocale(
+  patentId: string,
+  locale: string,
+): PatentLinkedProject[] {
+  return getProjectsForLocale(locale).flatMap((project) => {
+    const isLinked = project.relatedPatents?.some(
+      (patent) => patent.patentId === patentId,
+    );
+
+    if (!isLinked) return [];
+
+    return [
+      {
+        id: project.id,
+        title: project.title,
+        category: project.category,
+        description: project.description,
+      },
+    ];
+  });
+}
+
 const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   en: {
     hero: {
@@ -2242,12 +2216,13 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     stats: STATS,
     statsLabel: "Project statistics",
     selectedTitle: "Selected projects",
+    resultsLabel: "projects shown",
     filtersLabel: "Filter projects",
     searchLabel: "Search projects",
     searchPlaceholder: "Search...",
     noResults: "No projects match your search.",
     featuredLabel: "Featured project",
-    viewCaseStudy: "View case study",
+    viewCaseStudy: "View project",
     cardOpenDetails: "Open project details",
     modal: {
       close: "Close project details",
@@ -2280,12 +2255,49 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       lead: "Découvrez une sélection de projets où nous transformons des défis complexes en produits performants.",
     },
     filters: [
-      { key: "all", label: "Tous les projets" },
-      { key: "area-1", label: "Mobilité" },
-      { key: "area-2", label: "Médical & dentaire" },
-      { key: "area-3", label: "Produits consumer" },
-      { key: "area-4", label: "Systèmes industriels" },
-      { key: "area-5", label: "Architecture & environnement" },
+      { key: "all", label: "Tous" },
+      {
+        key: "mobility",
+        label: "Mobilité",
+        icon: `${PATENT_ASSET_BASE}/icon-mobility.png`,
+        width: 28,
+        height: 25,
+      },
+      {
+        key: "industrial",
+        label: "Industrie",
+        icon: `${PATENT_ASSET_BASE}/icon-industrial.png`,
+        width: 30,
+        height: 32,
+      },
+      {
+        key: "medical",
+        label: "Médical",
+        icon: `${PATENT_ASSET_BASE}/icon-medical.png`,
+        width: 39,
+        height: 34,
+      },
+      {
+        key: "energy",
+        label: "Énergie",
+        icon: `${PATENT_ASSET_BASE}/icon-energy.png`,
+        width: 23,
+        height: 35,
+      },
+      {
+        key: "materials",
+        label: "Matériaux",
+        icon: `${PATENT_ASSET_BASE}/icon-materials.png`,
+        width: 34,
+        height: 33,
+      },
+      {
+        key: "digital",
+        label: "Digital",
+        icon: `${PATENT_ASSET_BASE}/icon-digital.png`,
+        width: 37,
+        height: 35,
+      },
     ],
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, FR_PROJECT_OVERRIDES),
@@ -2316,12 +2328,13 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "Statistiques des projets",
     selectedTitle: "Projets sélectionnés",
+    resultsLabel: "projets affichés",
     filtersLabel: "Filtrer les projets",
     searchLabel: "Rechercher des projets",
     searchPlaceholder: "Rechercher...",
     noResults: "Aucun projet ne correspond à votre recherche.",
     featuredLabel: "Projet phare",
-    viewCaseStudy: "Voir le cas",
+    viewCaseStudy: "Voir le projet",
     cardOpenDetails: "Ouvrir le détail du projet",
     modal: {
       close: "Fermer le détail du projet",
@@ -2355,11 +2368,11 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     filters: [
       { key: "all", label: "Alle Projekte" },
-      { key: "area-1", label: "Mobilität" },
-      { key: "area-2", label: "Medizin & Dental" },
-      { key: "area-3", label: "Konsumprodukte" },
-      { key: "area-4", label: "Industriesysteme" },
-      { key: "area-5", label: "Architektur & Umwelt" },
+      { key: "mobility", label: "Mobilität" },
+      { key: "medical", label: "Medizin & Dental" },
+      { key: "materials", label: "Konsumprodukte" },
+      { key: "industrial", label: "Industriesysteme" },
+      { key: "energy", label: "Architektur & Umwelt" },
     ],
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, DE_PROJECT_OVERRIDES),
@@ -2374,6 +2387,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "Projektstatistiken",
     selectedTitle: "Ausgewählte Projekte",
+    resultsLabel: "Projekte angezeigt",
     filtersLabel: "Projekte filtern",
     searchLabel: "Projekte suchen",
     searchPlaceholder: "Suchen...",
@@ -2413,11 +2427,11 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     filters: [
       { key: "all", label: "Todos los proyectos" },
-      { key: "area-1", label: "Movilidad" },
-      { key: "area-2", label: "Médico y dental" },
-      { key: "area-3", label: "Productos de consumo" },
-      { key: "area-4", label: "Sistemas industriales" },
-      { key: "area-5", label: "Arquitectura y medio ambiente" },
+      { key: "mobility", label: "Movilidad" },
+      { key: "medical", label: "Médico y dental" },
+      { key: "materials", label: "Productos de consumo" },
+      { key: "industrial", label: "Sistemas industriales" },
+      { key: "energy", label: "Arquitectura y medio ambiente" },
     ],
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, ES_PROJECT_OVERRIDES),
@@ -2432,6 +2446,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "Estadísticas de proyectos",
     selectedTitle: "Proyectos seleccionados",
+    resultsLabel: "proyectos mostrados",
     filtersLabel: "Filtrar proyectos",
     searchLabel: "Buscar proyectos",
     searchPlaceholder: "Buscar...",
@@ -2471,11 +2486,11 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     filters: [
       { key: "all", label: "전체 프로젝트" },
-      { key: "area-1", label: "모빌리티" },
-      { key: "area-2", label: "의료 및 치과" },
-      { key: "area-3", label: "소비자 제품" },
-      { key: "area-4", label: "산업 시스템" },
-      { key: "area-5", label: "건축 및 환경" },
+      { key: "mobility", label: "모빌리티" },
+      { key: "medical", label: "의료 및 치과" },
+      { key: "materials", label: "소비자 제품" },
+      { key: "industrial", label: "산업 시스템" },
+      { key: "energy", label: "건축 및 환경" },
     ],
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, KO_PROJECT_OVERRIDES),
@@ -2490,6 +2505,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "프로젝트 통계",
     selectedTitle: "선정 프로젝트",
+    resultsLabel: "개 프로젝트 표시",
     filtersLabel: "프로젝트 필터",
     searchLabel: "프로젝트 검색",
     searchPlaceholder: "검색...",
@@ -2529,11 +2545,11 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     filters: [
       { key: "all", label: "全部项目" },
-      { key: "area-1", label: "出行" },
-      { key: "area-2", label: "医疗与牙科" },
-      { key: "area-3", label: "消费产品" },
-      { key: "area-4", label: "工业系统" },
-      { key: "area-5", label: "建筑与环境" },
+      { key: "mobility", label: "出行" },
+      { key: "medical", label: "医疗与牙科" },
+      { key: "materials", label: "消费产品" },
+      { key: "industrial", label: "工业系统" },
+      { key: "energy", label: "建筑与环境" },
     ],
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, ZH_PROJECT_OVERRIDES),
@@ -2548,6 +2564,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "项目统计",
     selectedTitle: "精选项目",
+    resultsLabel: "个项目显示",
     filtersLabel: "筛选项目",
     searchLabel: "搜索项目",
     searchPlaceholder: "搜索...",
@@ -3069,7 +3086,8 @@ export function ProjectDetailsDialog({
 }
 
 export function ProjectsPageContent({ locale }: { locale: string }) {
-  const copy = PROJECTS_COPY[resolveProjectsLocale(locale)];
+  const resolvedLocale = resolveProjectsLocale(locale);
+  const copy = PROJECTS_COPY[resolvedLocale];
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -3079,22 +3097,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     "closed" | "opening" | "open" | "closing"
   >("closed");
   const [panelRect, setPanelRect] = useState<PanelRect | null>(null);
-  const [filterIndicatorStyle, setFilterIndicatorStyle] =
-    useState<CSSProperties>({ left: 0, width: 0 });
   const panelRef = useRef<HTMLElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const dialogStateRef = useRef(dialogState);
   const lockedScrollYRef = useRef(0);
-  const filterTrackRef = useRef<HTMLDivElement | null>(null);
-  const filterButtonRefs = useRef<Record<FilterKey, HTMLButtonElement | null>>({
-    all: null,
-    "area-1": null,
-    "area-2": null,
-    "area-3": null,
-    "area-4": null,
-    "area-5": null,
-  });
 
   const visibleProjects = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -3129,20 +3136,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       Math.min(activeGalleryIndex, Math.max(selectedProjectGallery.length - 1, 0))
     ] ?? selectedProject?.image;
 
-  const updateFilterIndicator = useCallback(() => {
-    const track = filterTrackRef.current;
-    const button = filterButtonRefs.current[activeFilter];
-    if (!track || !button) return;
-
-    const trackRect = track.getBoundingClientRect();
-    const buttonRect = button.getBoundingClientRect();
-
-    setFilterIndicatorStyle({
-      left: buttonRect.left - trackRect.left + track.scrollLeft,
-      width: buttonRect.width,
-    });
-  }, [activeFilter]);
-
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
@@ -3152,6 +3145,18 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
   const finishClose = useCallback(() => {
     clearCloseTimer();
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (searchParams.has("project")) {
+      searchParams.delete("project");
+      const nextSearch = searchParams.toString();
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`,
+      );
+    }
+
     setSelectedPatent(null);
     setSelectedProject(null);
     setPanelRect(null);
@@ -3178,6 +3183,23 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     },
     [clearCloseTimer],
   );
+
+  useEffect(() => {
+    const openProjectFromUrl = () => {
+      const projectId = new URLSearchParams(window.location.search).get("project");
+      if (!projectId || selectedProject?.id === projectId) return;
+
+      const project = copy.projects.find((item) => item.id === projectId);
+      if (!project) return;
+
+      setActiveFilter(project.filter ?? "all");
+      openProject(project);
+    };
+
+    openProjectFromUrl();
+    window.addEventListener("popstate", openProjectFromUrl);
+    return () => window.removeEventListener("popstate", openProjectFromUrl);
+  }, [copy.projects, openProject, selectedProject?.id]);
 
   const closeProject = useCallback(() => {
     if (!selectedProject || dialogState === "closing") return;
@@ -3392,15 +3414,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     return () => window.removeEventListener("resize", onResize);
   }, [dialogState, selectedProject]);
 
-  useLayoutEffect(() => {
-    updateFilterIndicator();
-  }, [updateFilterIndicator]);
-
-  useEffect(() => {
-    window.addEventListener("resize", updateFilterIndicator);
-    return () => window.removeEventListener("resize", updateFilterIndicator);
-  }, [updateFilterIndicator]);
-
   useEffect(() => () => clearCloseTimer(), [clearCloseTimer]);
 
   const panelStyle = panelRect
@@ -3498,7 +3511,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         aria-labelledby="selected-projects"
       >
         <Container size="wide">
-          <Reveal className="mb-4 flex min-w-0 flex-col items-stretch gap-5 md:flex-row md:items-end md:justify-between">
+          <Reveal className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="min-w-0">
               <h2
                 id="selected-projects"
@@ -3506,51 +3519,15 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               >
                 {copy.selectedTitle}
               </h2>
-              <div
-                ref={filterTrackRef}
-                className="group/filters relative mt-4 flex w-full max-w-full items-center gap-7 overflow-x-auto pb-2 sm:gap-9 md:gap-10"
-                role="group"
-                aria-label={copy.filtersLabel}
-                onScroll={updateFilterIndicator}
-              >
-                <span
-                  className="pointer-events-none absolute bottom-0 h-[2px] bg-brand transition-[left,width,opacity] duration-300 group-hover/filters:opacity-0 [transition-timing-function:var(--ease-smooth)]"
-                  style={filterIndicatorStyle}
-                  aria-hidden
-                />
-                {copy.filters.map((filter) => (
-                  <button
-                    key={filter.key}
-                    type="button"
-                    ref={(node) => {
-                      filterButtonRefs.current[filter.key] = node;
-                    }}
-                    className={cn(
-                      "group/filterButton relative whitespace-nowrap py-1 text-[16px] font-extrabold leading-none text-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:text-brand md:text-[17px]",
-                      activeFilter === filter.key && "text-brand",
-                    )}
-                    aria-pressed={activeFilter === filter.key}
-                    onClick={() => setActiveFilter(filter.key)}
-                  >
-                    {filter.label}
-                    <span
-                      className={cn(
-                        "pointer-events-none absolute -bottom-2 left-0 h-[2px] w-full origin-left bg-brand transition-transform duration-300 group-hover/filterButton:scale-x-100 group-focus-visible/filterButton:scale-x-100 [transition-timing-function:var(--ease-smooth)]",
-                        activeFilter === filter.key
-                          ? "scale-x-100 group-hover/filters:scale-x-0 group-hover/filterButton:scale-x-100 group-focus-visible/filterButton:scale-x-100"
-                          : "scale-x-0",
-                      )}
-                      aria-hidden
-                    />
-                  </button>
-                ))}
-              </div>
+              <p className="mt-3 text-[12px] font-medium text-muted-foreground">
+                {visibleProjects.length} / {copy.projects.length} {copy.resultsLabel}
+              </p>
             </div>
 
-            <label className="relative mb-1 block md:w-[300px] lg:w-[340px]">
+            <label className="relative block w-full max-w-[360px]">
               <span className="sr-only">{copy.searchLabel}</span>
               <Search
-                className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
                 aria-hidden
               />
               <input
@@ -3558,9 +3535,77 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder={copy.searchPlaceholder}
-                className="h-9 w-full rounded-[4px] border border-transparent bg-muted pl-9 pr-4 text-[13px] font-medium text-foreground outline-none transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-muted-foreground focus:border-brand/40 focus:bg-white focus:shadow-[0_10px_26px_rgba(0,0,0,0.06)]"
+                className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
               />
             </label>
+          </Reveal>
+
+          <Reveal delay={0.06} className="mb-7 mt-7" as="div">
+            <div
+              className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))]"
+              role="group"
+              aria-label={copy.filtersLabel}
+            >
+              {copy.filters.map((filter) => {
+                const active = activeFilter === filter.key;
+                const count =
+                  filter.key === "all"
+                    ? copy.projects.length
+                    : copy.projects.filter((project) => project.filter === filter.key)
+                        .length;
+
+                return (
+                  <button
+                    key={filter.key}
+                    type="button"
+                    className={cn(
+                      "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]",
+                      filter.icon
+                        ? "grid-cols-[auto_1fr]"
+                        : "place-items-center text-center",
+                      active &&
+                        "border-brand bg-brand text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] hover:border-brand hover:bg-brand hover:text-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]",
+                    )}
+                    aria-pressed={active}
+                    onClick={() => setActiveFilter(filter.key)}
+                  >
+                    {filter.icon && (
+                      <Image
+                        src={filter.icon}
+                        alt=""
+                        width={filter.width}
+                        height={filter.height}
+                        unoptimized
+                        className={cn(
+                          "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 [transition-timing-function:var(--ease-smooth)]",
+                          active && "brightness-0 invert",
+                        )}
+                      />
+                    )}
+                    <span
+                      className={cn(
+                        "grid min-w-0",
+                        !filter.icon && "place-items-center text-center",
+                      )}
+                    >
+                      <strong className="text-[12px] font-extrabold leading-none">
+                        {filter.label}
+                      </strong>
+                      {filter.key !== "all" && (
+                        <span
+                          className={cn(
+                            "mt-1 text-[9px] font-medium leading-none text-muted-foreground",
+                            active && "text-white/85",
+                          )}
+                        >
+                          {count} {resolvedLocale === "fr" ? "projets" : "projects"}
+                        </span>
+                      )}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </Reveal>
 
           {visibleProjects.length > 0 ? (
