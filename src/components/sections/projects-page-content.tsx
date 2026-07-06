@@ -988,8 +988,8 @@ export const PROJECTS: Project[] = [
     filter: "medical",
     title: "Skincare applicator",
     description: "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
-    image: "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp",
-    imageAlt: "White skincare applicator render",
+    image: "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp",
+    imageAlt: "IDlab skincare applicator with cosmetic cartridges and packaging",
     tags: ["#2012", "#BeautyTech", "#Packaging"],
     overview:
       "A handheld skincare system combining fluid delivery, user ergonomics, product styling and packaging-ready visual development.",
@@ -4945,127 +4945,129 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
-            <div
-              className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))]"
-              role="group"
-              aria-label={copy.filtersLabel}
-            >
-              {copy.filters.map((filter) => {
-                const active = activeFilter === filter.key;
-                const count =
-                  filter.key === "all"
-                    ? copy.projects.length
-                    : copy.projects.filter((project) => project.filter === filter.key)
-                        .length;
+            <div className="grid gap-3 xl:grid-cols-[auto_auto] xl:items-start xl:justify-between">
+              <div
+                className="grid w-full grid-cols-2 gap-3 md:w-fit md:grid-cols-[82px_repeat(3,152px)]"
+                role="group"
+                aria-label={copy.filtersLabel}
+              >
+                {copy.filters.map((filter) => {
+                  const active = activeFilter === filter.key;
+                  const count =
+                    filter.key === "all"
+                      ? copy.projects.length
+                      : copy.projects.filter((project) => project.filter === filter.key)
+                          .length;
 
-                return (
-                  <button
-                    key={filter.key}
-                    type="button"
-                    className={cn(
-                      "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]",
-                      filter.icon
-                        ? "grid-cols-[auto_1fr]"
-                        : "place-items-center text-center",
-                      active &&
-                        "border-brand bg-brand text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] hover:border-brand hover:bg-brand hover:text-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]",
-                    )}
-                    aria-pressed={active}
-                    onClick={() => handleFilterChange(filter.key)}
-                  >
-                    {filter.icon && (
-                      <Image
-                        src={filter.icon}
-                        alt=""
-                        width={filter.width}
-                        height={filter.height}
-                        unoptimized
-                        className={cn(
-                          "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 [transition-timing-function:var(--ease-smooth)]",
-                          active && "brightness-0 invert",
-                        )}
-                      />
-                    )}
-                    <span
+                  return (
+                    <button
+                      key={filter.key}
+                      type="button"
                       className={cn(
-                        "grid min-w-0",
-                        !filter.icon && "place-items-center text-center",
+                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]",
+                        filter.icon
+                          ? "grid-cols-[auto_1fr]"
+                          : "place-items-center text-center",
+                        active &&
+                          "border-brand bg-brand text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] hover:border-brand hover:bg-brand hover:text-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]",
                       )}
+                      aria-pressed={active}
+                      onClick={() => handleFilterChange(filter.key)}
                     >
-                      <strong className="text-[12px] font-extrabold leading-none">
-                        {filter.label}
-                      </strong>
-                      {filter.key !== "all" && (
-                        <span
+                      {filter.icon && (
+                        <Image
+                          src={filter.icon}
+                          alt=""
+                          width={filter.width}
+                          height={filter.height}
+                          unoptimized
                           className={cn(
-                            "mt-1 text-[9px] font-medium leading-none text-muted-foreground",
-                            active && "text-white/85",
+                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 [transition-timing-function:var(--ease-smooth)]",
+                            active && "brightness-0 invert",
                           )}
-                        >
-                          {count} {resolvedLocale === "fr" ? "projets" : "projects"}
-                        </span>
+                        />
                       )}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-            <div className="mt-4 flex w-full flex-col gap-3 sm:flex-row md:justify-end">
-              <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px]">
-                <summary
-                  className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
-                  aria-label={copy.sort.label}
-                >
-                  <span className="inline-flex min-w-0 items-center gap-2">
-                    <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
-                    <span className="shrink-0">{copy.sort.label}</span>
-                  </span>
-                  <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground">
-                    {activeSortLabel}
-                  </span>
-                </summary>
-                <div className="absolute right-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
-                  {copy.sort.options.map((option) => {
-                    const active = option.key === sortKey;
-
-                    return (
-                      <button
-                        key={option.key}
-                        type="button"
+                      <span
                         className={cn(
-                          "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
-                          active && "bg-brand text-white hover:bg-brand",
+                          "grid min-w-0",
+                          !filter.icon && "place-items-center text-center",
                         )}
-                        aria-pressed={active}
-                        onClick={() => {
-                          setSortKey(option.key);
-                          sortDetailsRef.current?.removeAttribute("open");
-                        }}
                       >
-                        <span>{option.label}</span>
-                        {active ? (
-                          <Check className="size-4 shrink-0" aria-hidden />
-                        ) : null}
-                      </button>
-                    );
-                  })}
-                </div>
-              </details>
+                        <strong className="text-[12px] font-extrabold leading-none">
+                          {filter.label}
+                        </strong>
+                        {filter.key !== "all" && (
+                          <span
+                            className={cn(
+                              "mt-1 text-[9px] font-medium leading-none text-muted-foreground",
+                              active && "text-white/85",
+                            )}
+                          >
+                            {count} {resolvedLocale === "fr" ? "projets" : "projects"}
+                          </span>
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-end xl:w-auto">
+                <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px]">
+                  <summary
+                    className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+                    aria-label={copy.sort.label}
+                  >
+                    <span className="inline-flex min-w-0 items-center gap-2">
+                      <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+                      <span className="shrink-0">{copy.sort.label}</span>
+                    </span>
+                    <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground">
+                      {activeSortLabel}
+                    </span>
+                  </summary>
+                  <div className="absolute right-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+                    {copy.sort.options.map((option) => {
+                      const active = option.key === sortKey;
 
-              <label className="relative block w-full md:max-w-[360px]">
-                <span className="sr-only">{copy.searchLabel}</span>
-                <Search
-                  className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                  aria-hidden
-                />
-                <input
-                  type="search"
-                  value={searchQuery}
-                  onChange={(event) => setSearchQuery(event.target.value)}
-                  placeholder={copy.searchPlaceholder}
-                  className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
-                />
-              </label>
+                      return (
+                        <button
+                          key={option.key}
+                          type="button"
+                          className={cn(
+                            "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                            active && "bg-brand text-white hover:bg-brand",
+                          )}
+                          aria-pressed={active}
+                          onClick={() => {
+                            setSortKey(option.key);
+                            sortDetailsRef.current?.removeAttribute("open");
+                          }}
+                        >
+                          <span>{option.label}</span>
+                          {active ? (
+                            <Check className="size-4 shrink-0" aria-hidden />
+                          ) : null}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
+
+                <label className="relative block w-full md:max-w-[320px] xl:w-[254px] xl:max-w-none">
+                  <span className="sr-only">{copy.searchLabel}</span>
+                  <Search
+                    className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                    aria-hidden
+                  />
+                  <input
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder={copy.searchPlaceholder}
+                    className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+                  />
+                </label>
+              </div>
             </div>
           </Reveal>
 

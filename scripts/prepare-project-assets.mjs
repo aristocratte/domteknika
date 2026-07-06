@@ -130,6 +130,9 @@ const projects = [
       "principe.jpg",
       "Sans titre.png",
     ],
+    labels: {
+      "jf.jpg": "idlab-cover",
+    },
   },
   { folder: "smartBottle", slug: "smart-bottle", cover: "BTD3 détouré.png" },
   {

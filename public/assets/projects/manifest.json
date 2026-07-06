@@ -534,11 +534,11 @@
   {
     "slug": "skincare-applicator",
     "sourceFolder": "skincare",
-    "cover": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp",
+    "cover": "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp",
     "images": [
       {
         "source": "skincare/jf.jpg",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp"
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp"
       },
       {
         "source": "skincare/PC070111.JPG",

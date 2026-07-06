@@ -930,7 +930,7 @@ function TimelineCard({
     "group/card grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
     projectId &&
       "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35",
-    card.awards && "sm:grid-cols-[minmax(0,1fr)_88px_52px]",
+    card.awards && "sm:grid-cols-[minmax(0,1fr)_122px_52px] md:grid-cols-[minmax(0,1fr)_136px_52px]",
   );
 
   const content = (
@@ -953,7 +953,7 @@ function TimelineCard({
           alt=""
           width={218}
           height={76}
-          className="hidden w-[82px] self-start justify-self-end invert hue-rotate-180 sm:block"
+          className="hidden w-[116px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[130px]"
         />
       )}
       <span

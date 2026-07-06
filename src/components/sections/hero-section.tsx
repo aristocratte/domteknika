@@ -48,7 +48,7 @@ export function HeroSection() {
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
       <div
-        className="pointer-events-none absolute right-[-2px] top-[238px] z-[1] h-[176px] w-[282px] max-w-none opacity-[0.4] min-[390px]:right-[4px] min-[390px]:top-[248px] min-[390px]:h-[194px] min-[390px]:w-[310px] sm:right-[10px] sm:top-[230px] sm:h-[224px] sm:w-[358px] sm:opacity-[0.48] md:right-[-8vw] md:top-[188px] md:h-[420px] md:w-[600px] md:max-w-[820px] md:opacity-100 lg:right-[-5vw] lg:top-[178px] lg:h-[440px] lg:w-[660px] xl:right-[-2vw] 2xl:right-[2vw]"
+        className="pointer-events-none absolute bottom-[-22px] right-[-38px] z-[1] h-[238px] w-[360px] max-w-none opacity-[0.28] min-[390px]:right-[-36px] min-[390px]:h-[270px] min-[390px]:w-[430px] sm:bottom-[-34px] sm:right-[-70px] sm:h-[320px] sm:w-[520px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
@@ -72,10 +72,14 @@ export function HeroSection() {
             fill
             priority
             sizes="(max-width: 1024px) 82vw, 1040px"
-            className="object-contain object-center"
+            className="object-contain object-bottom"
           />
           <div
             className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-white via-white/80 to-transparent"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-white via-white/75 to-transparent"
             aria-hidden
           />
         </div>
