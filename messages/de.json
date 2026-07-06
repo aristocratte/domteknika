@@ -19,7 +19,7 @@
     "prototyping": "Prototyping",
     "producing": "Producing",
     "shape": "Shape your dreams",
-    "lead": "Vom ersten Funken einer Idee bis zur Serienproduktion verbindet <brand>DOMTEKNIKA</brand> Engineering und Fertigung für Industrieunternehmen und Innovatoren. Maschinenbau, maßgeschneiderte Industrielösungen und Präzisionsprototypen <strong>aus der Schweiz.</strong>",
+    "lead": "Vom ersten Funken einer Idee bis zur Serienproduktion verbindet <brand>DOMTEKNIKA</brand> Entwicklung und Fertigung für Industrieunternehmen und Innovatoren. Maschinenbau, maßgeschneiderte Industrielösungen und Präzisionsprototypen <strong>aus der Schweiz.</strong>",
     "ctaPrimary": "Kontakt",
     "ctaSecondary": "Unsere Expertise"
   },
@@ -37,7 +37,7 @@
       },
       "4": {
         "title": "STAJVELO RV01",
-        "description": "Urbanes E-Bike mit Polymer-Engineering und markanten Rädern."
+        "description": "Urbanes Elektrofahrrad mit Polymerentwicklung und markanten Rädern."
       },
       "5": {
         "title": "Alicoffee",
@@ -96,7 +96,7 @@
       "message": "Ihre Nachricht...",
       "submit": "Nachricht senden",
       "secure": "Ihre Informationen sind sicher und werden niemals weitergegeben.",
-      "success": "Nachricht bereit. Als Nächstes verbinden wir dieses Formular mit Ihrem Posteingang."
+      "success": "Ihre Nachricht ist bereit. Der E-Mail-Versand wird als Nächstes finalisiert."
     },
     "Map": {
       "eyebrow": "So finden Sie uns",
@@ -112,7 +112,7 @@
     "processTitle": "Der Prozess",
     "processBody": "Von Machbarkeitsstudie und CAD-Konstruktion über Prototyping bis zur Serienproduktion halten wir den gesamten Prozess agil und vertraulich.",
     "productTitle": "Das Produkt",
-    "productBody": "Ein produktionsreifes Teil, das funktioniert. Industriekunden verkürzen ihre Time-to-Market. Innovatoren sehen, wie aus der ersten Idee ein herstellbares und testbares Produkt wird.",
+    "productBody": "Ein produktionsreifes Teil, das funktioniert. Industriekunden verkürzen ihre Markteinführungszeit. Innovatoren sehen, wie aus der ersten Idee ein herstellbares und testbares Produkt wird.",
     "stats": {
       "years": {
         "value": "+25 Jahre",

@@ -37,7 +37,7 @@
       },
       "4": {
         "title": "STAJVELO RV01",
-        "description": "E-bike urbain autour d'une architecture polymère et roues distinctives."
+        "description": "Vélo électrique urbain autour d'une architecture polymère et de roues distinctives."
       },
       "5": {
         "title": "Alicoffee",
@@ -96,12 +96,12 @@
       "message": "Votre message...",
       "submit": "Envoyer le message",
       "secure": "Vos informations sont sécurisées et ne seront jamais partagées.",
-      "success": "Message prêt. Nous connecterons ensuite ce formulaire à votre boîte mail."
+      "success": "Votre message est prêt. L'envoi par email sera finalisé prochainement."
     },
     "Map": {
       "eyebrow": "Nous trouver",
-      "title": "Visitez notre atelier",
-      "body": "Notre bureau et atelier se trouvent à La Neuveville, entre le lac de Bienne et les contreforts du Jura.",
+      "title": "Visitez nos locaux",
+      "body": "Nos locaux se trouvent à La Neuveville, entre le lac de Bienne et les contreforts du Jura.",
       "marker": "DOMTEKNIKA SA"
     }
   },
@@ -112,7 +112,7 @@
     "processTitle": "Le processus",
     "processBody": "De l'étude de faisabilité à la conception CAO, du prototypage à la production en série, nous gardons un processus agile et confidentiel.",
     "productTitle": "Le produit",
-    "productBody": "Une pièce prête pour la production, fiable et fonctionnelle. Les clients industriels réduisent leur time-to-market. Les innovateurs transforment leur première idée en produit testable et fabricable.",
+    "productBody": "Une pièce prête pour la production, fiable et fonctionnelle. Les clients industriels réduisent leur délai de mise sur le marché. Les innovateurs transforment leur première idée en produit testable et fabricable.",
     "stats": {
       "years": {
         "value": "+25 ans",
@@ -176,7 +176,7 @@
       "eyebrow": "Notre valeur ajoutée",
       "values": {
         "partner": {
-          "title": "Partenaire end-to-end",
+          "title": "Partenaire de bout en bout",
           "description": "Du concept à l'industrialisation, nous gérons tout."
         },
         "agile": {
@@ -226,7 +226,7 @@
     "titleLineTwo": "Pensé pour le monde.",
     "values": {
       "swissQuality": "Qualité suisse",
-      "endToEnd": "Partenaire end-to-end",
+      "endToEnd": "Partenaire de bout en bout",
       "agile": "Agile & flexible",
       "confidential": "Confidentiel"
     },

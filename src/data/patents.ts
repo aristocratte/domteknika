@@ -84,15 +84,6 @@ export type PatentDetail = {
   manifestErrors: string[];
 };
 
-export const PATENT_FILTER_LABELS: Record<PatentFilterKey, string> = {
-  "mobility": "Mobility",
-  "industrial": "Industrial",
-  "medical": "Medical",
-  "energy": "Energy",
-  "materials": "Materials",
-  "digital": "Digital"
-};
-
 export const PATENT_STATS = {
   "total": 54,
   "categories": 6,

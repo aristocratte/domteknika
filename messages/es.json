@@ -37,7 +37,7 @@
       },
       "4": {
         "title": "STAJVELO RV01",
-        "description": "Arquitectura de e-bike urbana con ingeniería de polímeros y ruedas distintivas."
+        "description": "Arquitectura de bicicleta eléctrica urbana con ingeniería de polímeros y ruedas distintivas."
       },
       "5": {
         "title": "Alicoffee",
@@ -96,7 +96,7 @@
       "message": "Tu mensaje...",
       "submit": "Enviar mensaje",
       "secure": "Tu información está segura y nunca será compartida.",
-      "success": "Mensaje listo. Después conectaremos este formulario con tu buzón."
+      "success": "Tu mensaje está listo. El envío por email se finalizará próximamente."
     },
     "Map": {
       "eyebrow": "Dónde encontrarnos",

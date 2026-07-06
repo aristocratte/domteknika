@@ -28,24 +28,28 @@
         "output": "/assets/projects/aventor/aventor-01-cover.webp"
       },
       {
-        "source": "Aventor/160721-3w.png",
-        "output": "/assets/projects/aventor/aventor-02-160721-3w.webp"
-      },
-      {
         "source": "Aventor/Aventor Rolf Biland 2 July 2015 Lignieres.jpg",
-        "output": "/assets/projects/aventor/aventor-03-aventor-rolf-biland-2-july-2015-lignieres.webp"
+        "output": "/assets/projects/aventor/aventor-02-aventor-rolf-biland-2-july-2015-lignieres.webp"
       },
       {
-        "source": "Aventor/Déplacements arceau 2.2.PNG",
-        "output": "/assets/projects/aventor/aventor-04-deplacements-arceau-2-2.webp"
+        "source": "Aventor/val_6595.jpg",
+        "output": "/assets/projects/aventor/aventor-03-val-6595.webp"
       },
       {
         "source": "Aventor/DSC_2737.JPG",
-        "output": "/assets/projects/aventor/aventor-05-dsc-2737.webp"
+        "output": "/assets/projects/aventor/aventor-04-dsc-2737.webp"
       },
       {
         "source": "Aventor/v18-vert-dessus.jpg",
-        "output": "/assets/projects/aventor/aventor-06-v18-vert-dessus.webp"
+        "output": "/assets/projects/aventor/aventor-05-v18-vert-dessus.webp"
+      },
+      {
+        "source": "Aventor/160721-3w.png",
+        "output": "/assets/projects/aventor/aventor-06-160721-3w.webp"
+      },
+      {
+        "source": "Aventor/Déplacements arceau 2.2.PNG",
+        "output": "/assets/projects/aventor/aventor-07-deplacements-arceau-2-2.webp"
       }
     ]
   },
@@ -216,11 +220,100 @@
   {
     "slug": "totalcar-concept",
     "sourceFolder": "TotalCar",
-    "cover": "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp",
+    "cover": "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp",
     "images": [
       {
-        "source": "public/assets/our-story/total-car.png",
-        "output": "/assets/projects/totalcar-concept/totalcar-concept-01-cover.webp"
+        "source": "TotalCar/DSC00016.JPG",
+        "output": "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp"
+      },
+      {
+        "source": "TotalCar/HUT-3.JPG",
+        "output": "/assets/projects/totalcar-concept/totalcar-concept-03-hut-assembly.webp"
+      },
+      {
+        "source": "TotalCar/Image CAO HUT109.JPG",
+        "output": "/assets/projects/totalcar-concept/totalcar-concept-04-cad-hut109.webp"
+      },
+      {
+        "source": "TotalCar/PV2.JPG",
+        "output": "/assets/projects/totalcar-concept/totalcar-concept-05-prototype-side.webp"
+      }
+    ]
+  },
+  {
+    "slug": "sam-cree",
+    "sourceFolder": "SAM CREE",
+    "cover": "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp",
+    "images": [
+      {
+        "source": "SAM CREE/s727078908517165717_p271_i6_w750.jpeg",
+        "output": "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp"
+      },
+      {
+        "source": "SAM CREE/cree-sam-vorserien-elektrofahrzeug-made-in-switzerland.jpeg",
+        "output": "/assets/projects/sam-cree/sam-cree-02-prototype.webp"
+      },
+      {
+        "source": "SAM CREE/Cree_SAM_IMG_0346-20140108.jpg",
+        "output": "/assets/projects/sam-cree/sam-cree-03-workshop.webp"
+      },
+      {
+        "source": "SAM CREE/s727078908517165717_p271_i1_w600.jpeg",
+        "output": "/assets/projects/sam-cree/sam-cree-04-side-view.webp"
+      },
+      {
+        "source": "SAM CREE/usine.jpg",
+        "output": "/assets/projects/sam-cree/sam-cree-05-factory.webp"
+      }
+    ]
+  },
+  {
+    "slug": "softcar",
+    "sourceFolder": "Softcar",
+    "cover": "/assets/projects/softcar/softcar-01-cover.webp",
+    "images": [
+      {
+        "source": "Softcar/softcar.jpg",
+        "output": "/assets/projects/softcar/softcar-01-cover.webp"
+      },
+      {
+        "source": "Softcar/01KKEJ8X2R05RJJ4T5GCNSQX5R.webp",
+        "output": "/assets/projects/softcar/softcar-02-alpine-road.webp"
+      },
+      {
+        "source": "Softcar/DSC4672.jpg",
+        "output": "/assets/projects/softcar/softcar-03-studio-body.webp"
+      },
+      {
+        "source": "Softcar/softcar-concept.jpg",
+        "output": "/assets/projects/softcar/softcar-04-concept.webp"
+      }
+    ]
+  },
+  {
+    "slug": "angel-interceptor",
+    "sourceFolder": "Angel Interceptor",
+    "cover": "/assets/projects/angel-interceptor/angel-interceptor-02-cover.webp",
+    "images": [
+      {
+        "source": "Angel Interceptor/Sans titre.png",
+        "output": "/assets/projects/angel-interceptor/angel-interceptor-02-cover.webp"
+      },
+      {
+        "source": "Angel Interceptor/Capture d’écran 2026-07-06 à 10.29.16 AM.png",
+        "output": "/assets/projects/angel-interceptor/angel-interceptor-03-cad-screenshot.webp"
+      },
+      {
+        "source": "Angel Interceptor/asm angel interceptor v2.jpg",
+        "output": "/assets/projects/angel-interceptor/angel-interceptor-04-package-study.webp"
+      },
+      {
+        "source": "Angel Interceptor/2012-08-27 11.28.45.jpg",
+        "output": "/assets/projects/angel-interceptor/angel-interceptor-05-prototype.webp"
+      },
+      {
+        "source": "Angel Interceptor/fjf.png",
+        "output": "/assets/projects/angel-interceptor/angel-interceptor-06-front-study.webp"
       }
     ]
   },
@@ -240,6 +333,17 @@
       {
         "source": "cliris/Copie de cliris_white_open_140410.jpg",
         "output": "/assets/projects/cliris/cliris-03-copie-de-cliris-white-open-140410.webp"
+      }
+    ]
+  },
+  {
+    "slug": "filter-carafe",
+    "sourceFolder": "Carafe",
+    "cover": "/assets/projects/filter-carafe/filter-carafe-01-cover.webp",
+    "images": [
+      {
+        "source": "Carafe/Sans titre.jpg",
+        "output": "/assets/projects/filter-carafe/filter-carafe-01-cover.webp"
       }
     ]
   },
@@ -348,6 +452,36 @@
     ]
   },
   {
+    "slug": "personal-injector",
+    "sourceFolder": "Personal Injector",
+    "cover": "/assets/projects/personal-injector/personal-injector-01-cover.webp",
+    "images": [
+      {
+        "source": "Personal Injector/Sans titre.png",
+        "output": "/assets/projects/personal-injector/personal-injector-01-cover.webp"
+      },
+      {
+        "source": "Personal Injector/Sans titre.jpg",
+        "output": "/assets/projects/personal-injector/personal-injector-02-sans-titre.webp"
+      }
+    ]
+  },
+  {
+    "slug": "acetabular-reamer-holder",
+    "sourceFolder": "Reamer Holder",
+    "cover": "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp",
+    "images": [
+      {
+        "source": "Reamer Holder/OffsetC-1.jpg",
+        "output": "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp"
+      },
+      {
+        "source": "Reamer Holder/OffsetC-3.jpg",
+        "output": "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-02-offsetc-3.webp"
+      }
+    ]
+  },
+  {
     "slug": "glove-helmet-dryer",
     "sourceFolder": "seche gant",
     "cover": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
@@ -357,20 +491,43 @@
         "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp"
       },
       {
+        "source": "seche gant/DSC06247.JPG",
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-02-dsc06247.webp"
+      },
+      {
         "source": "seche gant/1.jpg",
-        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-02-1.webp"
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-03-1.webp"
       },
       {
         "source": "seche gant/150813-01.JPG",
-        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-03-150813-01.webp"
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-04-150813-01.webp"
       },
       {
         "source": "seche gant/150813-3d1.JPG",
-        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-04-150813-3d1.webp"
+        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-05-150813-3d1.webp"
+      }
+    ]
+  },
+  {
+    "slug": "single-use-turbine",
+    "sourceFolder": "Single use turbine",
+    "cover": "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp",
+    "images": [
+      {
+        "source": "Single use turbine/Turbine 1.JPG",
+        "output": "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp"
       },
       {
-        "source": "seche gant/DSC06247.JPG",
-        "output": "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-05-dsc06247.webp"
+        "source": "Single use turbine/Epaisseures.jpg",
+        "output": "/assets/projects/single-use-turbine/single-use-turbine-02-epaisseures.webp"
+      },
+      {
+        "source": "Single use turbine/Turbine 2.JPG",
+        "output": "/assets/projects/single-use-turbine/single-use-turbine-03-turbine-2.webp"
+      },
+      {
+        "source": "Single use turbine/Turbine 4.JPG",
+        "output": "/assets/projects/single-use-turbine/single-use-turbine-04-turbine-4.webp"
       }
     ]
   },
@@ -380,12 +537,12 @@
     "cover": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp",
     "images": [
       {
-        "source": "skincare/Applicateur.260.png",
+        "source": "skincare/jf.jpg",
         "output": "/assets/projects/skincare-applicator/skincare-applicator-01-cover.webp"
       },
       {
-        "source": "skincare/jf.jpg",
-        "output": "/assets/projects/skincare-applicator/skincare-applicator-02-jf.webp"
+        "source": "skincare/Applicateur.260.png",
+        "output": "/assets/projects/skincare-applicator/skincare-applicator-02-applicateur-260.webp"
       },
       {
         "source": "skincare/PC070111.JPG",
@@ -417,33 +574,52 @@
     ]
   },
   {
-    "slug": "stajvelo-rv01",
-    "sourceFolder": "stajv",
-    "cover": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-cover.webp",
+    "slug": "special-t-machine",
+    "sourceFolder": "special T",
+    "cover": "/assets/projects/special-t-machine/special-t-machine-01-new-cover.webp",
     "images": [
       {
-        "source": "stajv/RV01-01 1.png",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-cover.webp"
+        "source": "special T/1Sans titre.png",
+        "output": "/assets/projects/special-t-machine/special-t-machine-01-new-cover.webp"
       },
       {
-        "source": "stajv/181017 - Jante - Déplacements.jpg",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-02-181017-jante-deplacements.webp"
+        "source": "special T/dr.jpg",
+        "output": "/assets/projects/special-t-machine/special-t-machine-02-brewing-unit.webp"
       },
       {
-        "source": "stajv/b6_dev17_C0_S.jpg",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-03-b6-dev17-c0-s.webp"
+        "source": "special T/Sans titre.jpg",
+        "output": "/assets/projects/special-t-machine/special-t-machine-03-prototype.webp"
+      }
+    ]
+  },
+  {
+    "slug": "stajvelo-rv01",
+    "sourceFolder": "stajv",
+    "cover": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp",
+    "images": [
+      {
+        "source": "stajv/STAJleclerc.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp"
       },
       {
         "source": "stajv/DSC01762.JPG",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-04-dsc01762.webp"
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-02-prototype-side.webp"
       },
       {
         "source": "stajv/IMG-20180608-WA0002.jpg",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-05-img-20180608-wa0002.webp"
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-03-ride-view.webp"
       },
       {
-        "source": "stajv/STAJleclerc.jpg",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-06-stajleclerc.webp"
+        "source": "stajv/RV01-01 1.png",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-04-studio-render.webp"
+      },
+      {
+        "source": "stajv/b6_dev17_C0_S.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-05-wheel-render.webp"
+      },
+      {
+        "source": "stajv/181017 - Jante - Déplacements.jpg",
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-06-wheel-analysis.webp"
       }
     ]
   },

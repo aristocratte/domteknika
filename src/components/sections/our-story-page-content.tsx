@@ -168,21 +168,21 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2001",
         title: "CREE - Premiers pas en mobilité électrique",
         description:
-          "Le projet CREE a ouvert un chapitre précoce de la mobilité électrique, avec des véhicules urbains compacts et légers bien avant l'essor de l'e-mobilité.",
+          "Le projet CREE a ouvert un chapitre précoce de la mobilité électrique, avec des véhicules urbains compacts et légers bien avant l'essor de la mobilité électrique.",
         icon: "box",
       },
       swissbiomed: {
         year: "2009",
-        title: "SwissBiomed - un chapitre medtech dédié",
+        title: "SwissBiomed - un chapitre dédié aux dispositifs médicaux",
         description:
           "Avec SwissBiomed, DOMTEKNIKA a étendu son savoir-faire au développement de dispositifs médicaux, en combinant mécanique de précision, matériaux et prototypage.",
         icon: "monitor",
       },
       startup: {
         year: "2011-2013",
-        title: "Innovations startup primées 3 ans de suite",
+        title: "Innovations de jeunes entreprises primées 3 ans de suite",
         description:
-          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts ambitieux en innovations récompensées dans les produits intelligents, la beauty-tech et la medtech.",
+          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts ambitieux en innovations récompensées dans les produits intelligents, les technologies beauté et les dispositifs médicaux.",
         icon: "document",
         awards: true,
       },
@@ -195,7 +195,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       aventor: {
         year: "2014",
-        title: "Aventor - la performance comme banc d'essai",
+        title: "Aventor - la haute performance comme banc d'essai",
         description:
           "Aventor a poussé la mobilité électrique vers un format haute performance, en utilisant vitesse et accélération pour valider matériaux et architectures.",
         icon: "document",
@@ -218,12 +218,12 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2018",
         title: "Stajvelo - innovation polymère sur deux roues",
         description:
-          "DOMTEKNIKA a appliqué son expertise polymère à Stajvelo, un e-bike urbain construit autour de structures intégrées, du confort et du design.",
+          "DOMTEKNIKA a appliqué son expertise polymère à Stajvelo, un vélo électrique urbain construit autour de structures intégrées, du confort et du design.",
         icon: "document",
       },
       softcarReveal: {
         year: "2024",
-        title: "Softcar V1 Reveal",
+        title: "Présentation de Softcar V1",
         description:
           "Softcar V1 révèle une nouvelle génération de véhicule urbain propre, concrétisant des décennies d'ingénierie légère et de mobilité circulaire.",
         icon: "globe",
@@ -232,7 +232,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "Aujourd'hui",
         title: "Ingénierie pour ce qui vient ensuite",
         description:
-          "DOMTEKNIKA continue d'accompagner les innovateurs industriels, medtech et mobilité, de l'idée au prototype.",
+          "DOMTEKNIKA continue d'accompagner les innovateurs industriels, médicaux et mobilité, de l'idée au prototype.",
         icon: "document",
       },
     },
@@ -254,21 +254,21 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2001",
         title: "CREE - frühe Schritte in der Elektromobilität",
         description:
-          "Das CREE-Projekt eröffnete ein frühes Kapitel der Elektromobilität mit kompakten, leichten Stadtfahrzeugen, lange bevor E-Mobilität zum Mainstream wurde.",
+          "Das CREE-Projekt eröffnete ein frühes Kapitel der Elektromobilität mit kompakten, leichten Stadtfahrzeugen, lange bevor Elektromobilität allgemein verbreitet war.",
         icon: "box",
       },
       swissbiomed: {
         year: "2009",
-        title: "SwissBiomed - ein eigener Medtech-Abschnitt",
+        title: "SwissBiomed - ein eigenes Medizintechnik-Kapitel",
         description:
           "Mit SwissBiomed erweiterte DOMTEKNIKA sein Engineering-Know-how in die Medizintechnik und verband Präzisionsmechanik, Materialien und Prototyping.",
         icon: "monitor",
       },
       startup: {
         year: "2011-2013",
-        title: "Prämierte Startup-Innovationen in drei aufeinanderfolgenden Jahren",
+        title: "Prämierte Start-up-Innovationen in drei aufeinanderfolgenden Jahren",
         description:
-          "Von Smart Bottle bis Skin Care und Personal Injector verwandelte DOMTEKNIKA ambitionierte Konzepte in ausgezeichnete Innovationen für smarte Produkte, Beauty-Tech und Medtech.",
+          "Von Smart Bottle bis Skin Care und Personal Injector verwandelte DOMTEKNIKA ambitionierte Konzepte in ausgezeichnete Innovationen für smarte Produkte, Beauty-Technologie und Medizintechnik.",
         icon: "document",
         awards: true,
       },
@@ -304,21 +304,21 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2018",
         title: "Stajvelo - Polymerinnovation auf zwei Rädern",
         description:
-          "DOMTEKNIKA übertrug seine Polymerexpertise auf Stajvelo, ein urbanes E-Bike mit integrierten Strukturen, Komfort und Design.",
+          "DOMTEKNIKA übertrug seine Polymerexpertise auf Stajvelo, ein urbanes Elektrofahrrad mit integrierten Strukturen, Komfort und Design.",
         icon: "document",
       },
       softcarReveal: {
         year: "2024",
-        title: "Softcar V1 Reveal",
+        title: "Vorstellung des Softcar V1",
         description:
           "Softcar V1 zeigte eine neue Generation sauberer urbaner Fahrzeuge und machte Jahrzehnte leichter Ingenieurarbeit und Kreislaufmobilität greifbar.",
         icon: "globe",
       },
       today: {
         year: "Heute",
-        title: "Engineering für das, was als Nächstes kommt",
+        title: "Entwicklung für das, was als Nächstes kommt",
         description:
-          "DOMTEKNIKA begleitet weiterhin Innovatoren aus Industrie, Medtech und Mobilität von der Idee bis zum Prototyp.",
+          "DOMTEKNIKA begleitet weiterhin Innovatoren aus Industrie, Medizintechnik und Mobilität von der Idee bis zum Prototyp.",
         icon: "document",
       },
     },
@@ -340,21 +340,21 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2001",
         title: "CREE - primeros pasos en movilidad eléctrica",
         description:
-          "El proyecto CREE abrió un capítulo temprano de movilidad eléctrica con vehículos urbanos compactos y ligeros mucho antes del auge de la e-movilidad.",
+          "El proyecto CREE abrió un capítulo temprano de movilidad eléctrica con vehículos urbanos compactos y ligeros mucho antes del auge de la movilidad eléctrica.",
         icon: "box",
       },
       swissbiomed: {
         year: "2009",
-        title: "SwissBiomed - un capítulo dedicado a medtech",
+        title: "SwissBiomed - un capítulo dedicado a la tecnología médica",
         description:
           "Con SwissBiomed, DOMTEKNIKA amplió su saber hacer hacia el desarrollo de dispositivos médicos, combinando mecánica de precisión, materiales y prototipado.",
         icon: "monitor",
       },
       startup: {
         year: "2011-2013",
-        title: "Innovaciones startup premiadas durante tres años seguidos",
+        title: "Innovaciones de start-ups premiadas durante tres años seguidos",
         description:
-          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos ambiciosos en innovaciones premiadas en productos inteligentes, beauty-tech y medtech.",
+          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos ambiciosos en innovaciones premiadas en productos inteligentes, tecnología de belleza y tecnología médica.",
         icon: "document",
         awards: true,
       },
@@ -367,7 +367,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       aventor: {
         year: "2014",
-        title: "Aventor - la performance como banco de pruebas",
+        title: "Aventor - el rendimiento como banco de pruebas",
         description:
           "Aventor llevó la movilidad eléctrica a un formato de alto rendimiento, utilizando velocidad y aceleración para validar materiales y arquitecturas.",
         icon: "document",
@@ -390,7 +390,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2018",
         title: "Stajvelo - innovación polimérica sobre dos ruedas",
         description:
-          "DOMTEKNIKA aplicó su experiencia en polímeros a Stajvelo, una e-bike urbana construida alrededor de estructuras integradas, confort y diseño.",
+          "DOMTEKNIKA aplicó su experiencia en polímeros a Stajvelo, una bicicleta eléctrica urbana construida alrededor de estructuras integradas, confort y diseño.",
         icon: "document",
       },
       softcarReveal: {
@@ -404,7 +404,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "Hoy",
         title: "Ingeniería para lo que viene",
         description:
-          "DOMTEKNIKA sigue acompañando a innovadores industriales, medtech y de movilidad desde la idea hasta el prototipo.",
+          "DOMTEKNIKA sigue acompañando a innovadores industriales, de tecnología médica y de movilidad desde la idea hasta el prototipo.",
         icon: "document",
       },
     },
@@ -426,12 +426,12 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2001",
         title: "CREE - 전기 모빌리티의 초기 도전",
         description:
-          "CREE 프로젝트는 e-모빌리티가 대중화되기 훨씬 전, 작고 가벼운 도심형 차량으로 전기 모빌리티의 초기 장을 열었습니다.",
+          "CREE 프로젝트는 전기 모빌리티가 대중화되기 훨씬 전, 작고 가벼운 도심형 차량으로 초기 전기차 개발의 장을 열었습니다.",
         icon: "box",
       },
       swissbiomed: {
         year: "2009",
-        title: "SwissBiomed - 메드테크 전용 챕터",
+        title: "SwissBiomed - 의료기기 개발의 새로운 장",
         description:
           "SwissBiomed를 통해 DOMTEKNIKA는 정밀 기계, 소재, 프로토타이핑을 결합해 의료기기 개발 분야로 전문성을 확장했습니다.",
         icon: "monitor",
@@ -440,7 +440,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2011-2013",
         title: "3년 연속 수상한 스타트업 혁신",
         description:
-          "Smart Bottle, Skin Care, Personal Injector까지 DOMTEKNIKA는 스마트 제품, 뷰티테크, 메드테크 분야의 야심찬 콘셉트를 수상 혁신으로 발전시켰습니다.",
+          "Smart Bottle, Skin Care, Personal Injector까지 DOMTEKNIKA는 스마트 제품, 뷰티 기술, 의료기술 분야의 야심찬 콘셉트를 수상 혁신으로 발전시켰습니다.",
         icon: "document",
         awards: true,
       },
@@ -476,7 +476,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2018",
         title: "Stajvelo - 두 바퀴 위의 폴리머 혁신",
         description:
-          "DOMTEKNIKA는 통합 구조, 편안함, 디자인을 갖춘 도심형 e-bike Stajvelo에 폴리머 설계 전문성을 적용했습니다.",
+          "DOMTEKNIKA는 통합 구조, 편안함, 디자인을 갖춘 도심형 전기자전거 Stajvelo에 폴리머 설계 전문성을 적용했습니다.",
         icon: "document",
       },
       softcarReveal: {
@@ -490,7 +490,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "오늘",
         title: "다음을 위한 엔지니어링",
         description:
-          "DOMTEKNIKA는 산업, 메드테크, 모빌리티 혁신가가 아이디어에서 프로토타입으로 나아가도록 계속 지원합니다.",
+          "DOMTEKNIKA는 산업, 의료기술, 모빌리티 혁신가가 아이디어에서 프로토타입으로 나아가도록 계속 지원합니다.",
         icon: "document",
       },
     },
@@ -729,22 +729,22 @@ const metaCopy = {
   fr: {
     title: "DOMTEKNIKA - Notre histoire",
     description:
-      "Découvrez le parcours de DOMTEKNIKA depuis 1998 à travers ses jalons en ingénierie produit, mobilité, medtech et prototypage.",
+      "Découvrez le parcours de DOMTEKNIKA depuis 1998 à travers ses jalons en ingénierie produit, mobilité, dispositifs médicaux et prototypage.",
   },
   de: {
     title: "DOMTEKNIKA - Unsere Geschichte",
     description:
-      "Entdecken Sie DOMTEKNIKAs Weg seit 1998 über Meilensteine in Produktentwicklung, Mobilität, Medtech und Prototyping.",
+      "Entdecken Sie DOMTEKNIKAs Weg seit 1998 über Meilensteine in Produktentwicklung, Mobilität, Medizintechnik und Prototyping.",
   },
   es: {
     title: "DOMTEKNIKA - Nuestra historia",
     description:
-      "Descubre el recorrido de DOMTEKNIKA desde 1998 a través de hitos en ingeniería de producto, movilidad, medtech y prototipado.",
+      "Descubre el recorrido de DOMTEKNIKA desde 1998 a través de hitos en ingeniería de producto, movilidad, tecnología médica y prototipado.",
   },
   ko: {
     title: "DOMTEKNIKA - 회사 이야기",
     description:
-      "1998년부터 이어진 DOMTEKNIKA의 제품 엔지니어링, 모빌리티, 메드테크, 프로토타이핑 여정을 살펴보세요.",
+      "1998년부터 이어진 DOMTEKNIKA의 제품 엔지니어링, 모빌리티, 의료기술, 프로토타이핑 여정을 살펴보세요.",
   },
   zh: {
     title: "DOMTEKNIKA - 我们的故事",

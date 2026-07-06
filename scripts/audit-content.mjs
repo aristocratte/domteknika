@@ -1,0 +1,296 @@
+import fs from "node:fs";
+import path from "node:path";
+import ts from "typescript";
+
+const LOCALES = ["en", "fr", "de", "es", "ko", "zh"];
+const PROJECTS_SOURCE = "src/components/sections/projects-page-content.tsx";
+const PATENTS_SOURCE = "src/data/patents.ts";
+const PROJECT_ASSET_MANIFEST = "public/assets/projects/manifest.json";
+
+function readText(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(readText(filePath));
+}
+
+function flattenMessages(value, prefix = "", output = {}) {
+  for (const [key, child] of Object.entries(value)) {
+    const nextKey = prefix ? `${prefix}.${key}` : key;
+
+    if (child && typeof child === "object" && !Array.isArray(child)) {
+      flattenMessages(child, nextKey, output);
+    } else {
+      output[nextKey] = child;
+    }
+  }
+
+  return output;
+}
+
+function unique(values) {
+  return [...new Set(values)];
+}
+
+function reportIssue(title, values) {
+  if (!values.length) return false;
+
+  console.error(`\n${title}`);
+  for (const value of values) console.error(`- ${value}`);
+  return true;
+}
+
+let hasErrors = false;
+
+const projectsSource = readText(PROJECTS_SOURCE);
+const projectsAst = ts.createSourceFile(
+  PROJECTS_SOURCE,
+  projectsSource,
+  ts.ScriptTarget.Latest,
+  true,
+  ts.ScriptKind.TSX,
+);
+const patentsSource = readText(PATENTS_SOURCE);
+const patentIds = new Set(
+  [...patentsSource.matchAll(/"id": "([^"]+)"/g)].map((match) => match[1]),
+);
+const relatedPatentIds = unique(
+  [...projectsSource.matchAll(/relatedPatent\(\s*"([^"]+)"/g)].map(
+    (match) => match[1],
+  ),
+);
+
+hasErrors =
+  reportIssue(
+    "Project links reference missing patent IDs:",
+    relatedPatentIds.filter((patentId) => !patentIds.has(patentId)),
+  ) || hasErrors;
+
+function nodeName(node) {
+  if (ts.isIdentifier(node) || ts.isStringLiteral(node) || ts.isNumericLiteral(node)) {
+    return node.text;
+  }
+
+  return undefined;
+}
+
+function propertyName(node) {
+  return node.name ? nodeName(node.name) : undefined;
+}
+
+function findVariableInitializer(name) {
+  let initializer;
+
+  function visit(node) {
+    if (initializer) return;
+
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.name.text === name) {
+      initializer = node.initializer;
+      return;
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  visit(projectsAst);
+  return initializer;
+}
+
+function objectProperties(objectExpression) {
+  const properties = new Map();
+  if (!objectExpression || !ts.isObjectLiteralExpression(objectExpression)) return properties;
+
+  for (const property of objectExpression.properties) {
+    if (!ts.isPropertyAssignment(property)) continue;
+
+    const name = propertyName(property);
+    if (name) properties.set(name, property.initializer);
+  }
+
+  return properties;
+}
+
+function stringLiteralValue(expression) {
+  return expression && ts.isStringLiteral(expression) ? expression.text : undefined;
+}
+
+function collectRelatedPatentIds(expression) {
+  const ids = [];
+
+  function visit(node) {
+    if (
+      ts.isCallExpression(node) &&
+      ts.isIdentifier(node.expression) &&
+      node.expression.text === "relatedPatent"
+    ) {
+      const patentId = stringLiteralValue(node.arguments[0]);
+      if (patentId) ids.push(patentId);
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  if (expression) visit(expression);
+  return ids;
+}
+
+function collectBaseProjects() {
+  const projects = new Map();
+
+  function recordProject(objectExpression) {
+    const properties = objectProperties(objectExpression);
+    const id = stringLiteralValue(properties.get("id"));
+    if (!id) return;
+
+    projects.set(id, {
+      fields: new Set(
+        ["category", "description", "imageAlt", "overview"].filter((field) =>
+          properties.has(field),
+        ),
+      ),
+      relatedPatentIds: collectRelatedPatentIds(properties.get("relatedPatents")),
+    });
+  }
+
+  const featuredProject = findVariableInitializer("FEATURED_PROJECT");
+  if (ts.isObjectLiteralExpression(featuredProject)) recordProject(featuredProject);
+
+  const projectsArray = findVariableInitializer("PROJECTS");
+  if (ts.isArrayLiteralExpression(projectsArray)) {
+    for (const item of projectsArray.elements) {
+      if (ts.isObjectLiteralExpression(item)) recordProject(item);
+    }
+  }
+
+  return projects;
+}
+
+function collectProjectOverrides(variableName) {
+  const overrides = new Map();
+  const initializer = findVariableInitializer(variableName);
+
+  for (const [projectId, projectOverride] of objectProperties(initializer)) {
+    const properties = objectProperties(projectOverride);
+    overrides.set(projectId, new Set(properties.keys()));
+  }
+
+  return overrides;
+}
+
+function collectRelatedPatentTranslationKeys() {
+  const localeKeys = new Map();
+  const initializer = findVariableInitializer("RELATED_PATENT_NOTE_TRANSLATIONS");
+
+  for (const [locale, localeTranslations] of objectProperties(initializer)) {
+    localeKeys.set(locale, new Set(objectProperties(localeTranslations).keys()));
+  }
+
+  return localeKeys;
+}
+
+const baseProjects = collectBaseProjects();
+const overrideVariables = {
+  fr: "FR_PROJECT_OVERRIDES",
+  de: "DE_PROJECT_OVERRIDES",
+  es: "ES_PROJECT_OVERRIDES",
+  ko: "KO_PROJECT_OVERRIDES",
+  zh: "ZH_PROJECT_OVERRIDES",
+};
+const relatedPatentTranslationKeys = collectRelatedPatentTranslationKeys();
+
+for (const [locale, overrideVariable] of Object.entries(overrideVariables)) {
+  const overrides = collectProjectOverrides(overrideVariable);
+  const missingProjectFields = [];
+  const missingPatentNotes = [];
+
+  for (const [projectId, project] of baseProjects) {
+    const projectOverride = overrides.get(projectId) ?? new Set();
+
+    for (const field of project.fields) {
+      if (!projectOverride.has(field)) {
+        missingProjectFields.push(`${projectId}.${field}`);
+      }
+    }
+
+    if (
+      project.relatedPatentIds.length > 0 &&
+      !projectOverride.has("relatedPatents")
+    ) {
+      const translatedPatentIds = relatedPatentTranslationKeys.get(locale) ?? new Set();
+
+      for (const patentId of project.relatedPatentIds) {
+        if (!translatedPatentIds.has(patentId)) {
+          missingPatentNotes.push(`${projectId}.${patentId}`);
+        }
+      }
+    }
+  }
+
+  hasErrors =
+    reportIssue(
+      `Project overrides missing localized visible fields for ${locale}:`,
+      missingProjectFields,
+    ) || hasErrors;
+  hasErrors =
+    reportIssue(
+      `Project related-patent notes missing localized fallback for ${locale}:`,
+      missingPatentNotes,
+    ) || hasErrors;
+}
+
+const assetPaths = unique(
+  [...projectsSource.matchAll(/(?:image|icon): "([^"]+)"/g)]
+    .map((match) => match[1])
+    .filter((value) => value.startsWith("/assets/")),
+);
+
+hasErrors =
+  reportIssue(
+    "Project data references missing assets:",
+    assetPaths.filter((assetPath) => !fs.existsSync(path.join("public", assetPath))),
+  ) || hasErrors;
+
+const manifest = readJson(PROJECT_ASSET_MANIFEST);
+const manifestOutputs = manifest.flatMap((project) =>
+  project.images.map((image) => image.output),
+);
+
+hasErrors =
+  reportIssue(
+    "Project manifest references missing generated images:",
+    manifestOutputs.filter((assetPath) => !fs.existsSync(path.join("public", assetPath))),
+  ) || hasErrors;
+
+const localeMessages = Object.fromEntries(
+  LOCALES.map((locale) => [
+    locale,
+    flattenMessages(readJson(`messages/${locale}.json`)),
+  ]),
+);
+const englishKeys = Object.keys(localeMessages.en).sort();
+
+for (const locale of LOCALES.filter((locale) => locale !== "en")) {
+  const localeKeys = Object.keys(localeMessages[locale]).sort();
+  const missingKeys = englishKeys.filter((key) => !(key in localeMessages[locale]));
+  const extraKeys = localeKeys.filter((key) => !(key in localeMessages.en));
+
+  hasErrors =
+    reportIssue(`messages/${locale}.json is missing keys:`, missingKeys) ||
+    hasErrors;
+  hasErrors =
+    reportIssue(`messages/${locale}.json has extra keys:`, extraKeys) || hasErrors;
+}
+
+if (hasErrors) {
+  process.exit(1);
+}
+
+console.log(
+  [
+    `Content audit passed.`,
+    `${patentIds.size} patents available; ${relatedPatentIds.length} linked to projects.`,
+    `${manifest.length} project asset folders; ${manifestOutputs.length} generated images checked.`,
+    `${englishKeys.length} translation keys checked across ${LOCALES.length} locales.`,
+  ].join("\n"),
+);

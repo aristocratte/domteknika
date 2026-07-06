@@ -72,7 +72,7 @@
     "Cards": {
       "location": {
         "title": "위치",
-        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\nSwitzerland",
+        "body": "Chemin de Saint-Joux 16B\n2520 La Neuveville\n스위스",
         "action": "Google Maps에서 열기"
       },
       "email": {
@@ -96,7 +96,7 @@
       "message": "메시지를 입력하세요...",
       "submit": "메시지 보내기",
       "secure": "입력하신 정보는 안전하게 보호되며 공유되지 않습니다.",
-      "success": "메시지가 준비되었습니다. 다음 단계에서 이 양식을 받은편지함에 연결합니다."
+      "success": "메시지가 준비되었습니다. 이메일 전송 기능은 곧 연결됩니다."
     },
     "Map": {
       "eyebrow": "찾아오시는 길",
@@ -239,8 +239,8 @@
     "cta": "프로젝트 시작하기"
   },
   "Footer": {
-    "country": "Switzerland",
-    "rights": "All rights reserved"
+    "country": "스위스",
+    "rights": "모든 권리 보유"
   },
   "Language": {
     "switch": "언어 변경",
