@@ -38,6 +38,10 @@ type ProjectSortKey =
   | "category";
 
 const PATENT_ASSET_BASE = "/assets/patent-page";
+const PROJECT_LIGHTBOX_FRAME_CLASS =
+  "relative h-[min(82vh,620px)] w-[min(92vw,900px)] touch-pan-y md:h-[min(70vh,560px)] md:w-[min(74vw,840px)] lg:w-[min(64vw,820px)]";
+const PROJECT_LIGHTBOX_IMAGE_SIZES =
+  "(max-width: 768px) 92vw, (max-width: 1024px) 74vw, 820px";
 
 export type Project = {
   id: string;
@@ -4307,7 +4311,7 @@ export function ProjectDetailsDialog({
               </>
             )}
             <div
-              className="relative h-[min(82vh,780px)] w-[min(94vw,1120px)] touch-pan-y"
+              className={PROJECT_LIGHTBOX_FRAME_CLASS}
               onTouchStart={(event) => {
                 expandedTouchStartXRef.current = event.touches[0]?.clientX ?? null;
               }}
@@ -4318,7 +4322,7 @@ export function ProjectDetailsDialog({
                 src={expandedImage}
                 alt={project.imageAlt}
                 fill
-                sizes="94vw"
+                sizes={PROJECT_LIGHTBOX_IMAGE_SIZES}
                 className="object-contain"
               />
             </div>
@@ -5341,7 +5345,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   </>
                 )}
                 <div
-                  className="relative h-[min(82vh,780px)] w-[min(94vw,1120px)] touch-pan-y"
+                  className={PROJECT_LIGHTBOX_FRAME_CLASS}
                   onTouchStart={(event) => {
                     expandedGalleryTouchStartXRef.current =
                       event.touches[0]?.clientX ?? null;
@@ -5353,7 +5357,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                     src={expandedGalleryImage}
                     alt={selectedProject.imageAlt}
                     fill
-                    sizes="94vw"
+                    sizes={PROJECT_LIGHTBOX_IMAGE_SIZES}
                     className="object-contain"
                   />
                 </div>
