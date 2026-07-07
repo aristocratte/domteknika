@@ -5267,7 +5267,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
-            <div className="grid gap-3 lg:grid-cols-[auto_auto] lg:items-start lg:justify-between">
+            <div className="grid gap-3 md:justify-items-center lg:grid-cols-[auto_auto] lg:items-start lg:justify-between lg:justify-items-stretch">
               <div
                 className="grid w-full grid-cols-2 gap-3 md:mx-auto md:w-fit md:grid-cols-[82px_repeat(3,148px)] lg:mx-0 lg:grid-cols-[82px_repeat(3,136px)] xl:grid-cols-[82px_repeat(3,152px)]"
                 role="group"
@@ -5333,7 +5333,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   );
                 })}
               </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-start lg:w-auto lg:justify-end">
+              <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center md:w-fit lg:w-auto lg:justify-end">
                 <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px] lg:w-[160px] xl:w-[180px]">
                   <summary
                     className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
@@ -5375,7 +5375,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   </div>
                 </details>
 
-                <label className="relative block w-full md:max-w-[320px] lg:w-[200px] lg:max-w-none xl:w-[254px]">
+                <label className="relative block w-full sm:w-[320px] sm:max-w-[320px] lg:w-[200px] lg:max-w-none xl:w-[254px]">
                   <span className="sr-only">{copy.searchLabel}</span>
                   <Search
                     className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
