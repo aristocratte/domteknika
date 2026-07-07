@@ -1684,7 +1684,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
       </section>
 
       <section
-        className="bg-background py-[64px] md:py-[58px]"
+        className="bg-background pb-[64px] pt-[90px] md:pb-[58px] md:pt-[82px]"
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">
@@ -1702,9 +1702,12 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 </p>
               </div>
               <div className="flex w-full flex-col gap-4 sm:flex-row md:w-auto">
-                <details ref={sortDetailsRef} className="relative z-30">
+                <details
+                  ref={sortDetailsRef}
+                  className="relative z-30 w-full max-w-[360px] sm:w-[320px]"
+                >
                   <summary
-                    className="flex h-11 min-w-[180px] cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+                    className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
                     aria-label={copy.sort.label}
                   >
                     <span className="inline-flex min-w-0 items-center gap-2">
@@ -1824,7 +1827,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visiblePatents.length > 0 ? (
-            <div className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
               {visiblePatents.map((patent) => (
                 <div key={patent.id}>
                   <PatentCard
@@ -3129,7 +3132,7 @@ function PatentCard({
   };
 
   return (
-    <article className="group/patent relative z-0 flex h-[392px] w-full origin-center transform-gpu flex-col overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.035] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.035] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]">
+    <article className="group/patent relative z-0 flex h-[392px] w-full origin-center transform-gpu flex-col overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[560px]:h-[258px] min-[560px]:flex-row [transition-timing-function:var(--ease-smooth)]">
       <button
         type="button"
         className="absolute inset-0 z-10 cursor-pointer rounded-[5px] outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
@@ -3138,16 +3141,16 @@ function PatentCard({
         onClick={() => onOpen(patent)}
       />
 
-      <span className="relative block h-[126px] bg-[#f7f7f7]">
+      <span className="relative block h-[126px] bg-[#f7f7f7] min-[560px]:h-full min-[560px]:w-[38%] min-[560px]:shrink-0 lg:w-[35%]">
         {activeImage ? (
           <Image
             src={activeImage.href}
             alt=""
             fill
-            sizes="(max-width: 768px) 100vw, 360px"
+            sizes="(max-width: 560px) 100vw, (max-width: 1024px) 38vw, 220px"
             quality={100}
             unoptimized
-            className="object-contain p-4 transition-transform duration-700 group-hover/patent:scale-105 [transition-timing-function:var(--ease-smooth)]"
+            className="object-contain p-4 transition-transform duration-700 group-hover/patent:scale-105 min-[560px]:p-3 [transition-timing-function:var(--ease-smooth)]"
           />
         ) : (
           <span className="absolute inset-0 grid place-items-center">
@@ -3192,8 +3195,8 @@ function PatentCard({
         )}
       </span>
 
-      <span className="pointer-events-none relative z-20 flex flex-1 flex-col px-5 pb-4 pt-5">
-        <span className="grid grid-cols-[28px_1fr_auto] items-start gap-4">
+      <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-5 pb-4 pt-5 min-[560px]:px-4 min-[560px]:py-4">
+        <span className="grid grid-cols-[28px_1fr_auto] items-start gap-4 min-[560px]:gap-3">
           <span className="grid size-7 place-items-center" aria-hidden>
             <Image
               src={icon.src}
@@ -3204,7 +3207,7 @@ function PatentCard({
               className="object-contain transition-transform duration-500 group-hover/patent:scale-110 group-focus-within/patent:scale-110 [transition-timing-function:var(--ease-smooth)]"
             />
           </span>
-          <span className="max-w-[270px] text-[15px] font-extrabold leading-none text-brand">
+          <span className="max-w-[270px] text-[15px] font-extrabold leading-none text-brand min-[560px]:max-w-none min-[560px]:text-[13px] lg:text-[14px]">
             {patent.publication}
             <span className="ml-2 inline-block size-1.5 translate-y-[-1px] rounded-full bg-brand" />
           </span>
@@ -3214,17 +3217,17 @@ function PatentCard({
           />
         </span>
 
-        <span className="mt-5 max-w-[300px] overflow-hidden text-[14px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+        <span className="mt-5 max-w-[300px] overflow-hidden text-[14px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] min-[560px]:mt-4 min-[560px]:max-w-none min-[560px]:text-[13px] min-[560px]:[-webkit-line-clamp:3] lg:text-[14px]">
           {patent.title}
         </span>
-        <span className="mt-3 h-[68px] max-w-[310px] overflow-hidden text-[10px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5]">
+        <span className="mt-3 h-[68px] max-w-[310px] overflow-hidden text-[10px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5] min-[560px]:h-[54px] min-[560px]:max-w-none min-[560px]:[-webkit-line-clamp:4] lg:h-[58px]">
           {patent.abstract}
         </span>
 
-        <span className="mt-auto block pt-5">
-          <span className="mb-4 block border-t border-border" />
+        <span className="mt-auto block pt-5 min-[560px]:pt-3">
+          <span className="mb-4 block border-t border-border min-[560px]:mb-3" />
           <span className="flex items-end justify-between gap-5">
-            <span className="flex h-[24px] min-w-0 flex-wrap gap-x-5 gap-y-2 overflow-hidden">
+            <span className="flex h-[24px] min-w-0 flex-wrap gap-x-5 gap-y-2 overflow-hidden min-[560px]:gap-x-3">
               {patent.tags.map((tag, index) => (
                 <span
                   key={tag}
