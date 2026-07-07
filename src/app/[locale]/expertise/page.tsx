@@ -394,26 +394,26 @@ function AddedValueSection() {
               {t("eyebrow")}
             </div>
 
-            <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+            <div className="mt-9 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0">
               {VALUE_ITEMS.map((item, index) => {
                 return (
                   <Reveal
                     as="article"
                     key={item.key}
                     delay={index * 0.04}
-                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-4 py-5 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_28px_rgba(0,0,0,0.06)] sm:px-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none first:lg:border-l-0 first:lg:pl-0"
+                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-3 py-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_28px_rgba(0,0,0,0.06)] sm:px-5 sm:py-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none first:lg:border-l-0 first:lg:pl-0"
                   >
                     <Image
                       src={`/assets/${item.icon}.png`}
                       alt=""
                       width={item.width}
                       height={item.height}
-                      className="h-11 w-11 object-contain transition-transform duration-300 group-hover:-translate-y-1"
+                      className="h-9 w-9 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:h-11 sm:w-11"
                     />
-                    <h3 className="mt-5 min-h-[2.5em] text-[15px] font-extrabold leading-tight text-foreground lg:text-[16px]">
+                    <h3 className="mt-4 min-h-[2.5em] text-[13px] font-extrabold leading-tight text-foreground sm:mt-5 sm:text-[15px] lg:text-[16px]">
                       {t(`values.${item.key}.title` as never)}
                     </h3>
-                    <p className="mt-4 text-[14px] font-medium leading-[1.38] text-muted-foreground">
+                    <p className="mt-3 text-[11.5px] font-medium leading-[1.34] text-muted-foreground sm:mt-4 sm:text-[14px] sm:leading-[1.38]">
                       {t(`values.${item.key}.description` as never)}
                     </p>
                   </Reveal>
@@ -424,48 +424,46 @@ function AddedValueSection() {
 
           <Reveal
             delay={0.1}
-            className="relative transform-gpu overflow-hidden rounded-[7px] bg-brand px-6 py-6 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
+            className="relative aspect-square transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] sm:aspect-auto md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
           >
             <div
-              className="pointer-events-none absolute left-7 right-7 top-1/2 hidden h-px -translate-y-1/2 bg-white/28 sm:block"
+              className="pointer-events-none absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-white/28 md:left-7 md:right-7"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute bottom-7 left-1/2 top-7 hidden w-px -translate-x-1/2 bg-white/28 sm:block"
+              className="pointer-events-none absolute bottom-5 left-1/2 top-5 w-px -translate-x-1/2 bg-white/28 md:bottom-7 md:top-7"
               aria-hidden
             />
 
-            <div className="relative grid h-full gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-y-0">
+            <div className="relative grid h-full grid-cols-2 grid-rows-2">
               {STATS.map((stat, index) => {
                 const isWideStat = stat.key === "worldwide";
 
                 return (
                   <div
                     key={stat.key}
-                    className={`group flex min-h-[96px] min-w-0 items-center border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
-                      index > 0 ? "border-t pt-8 sm:pt-0" : ""
-                    } ${isWideStat ? "gap-3" : "gap-4"} ${
-                      index % 2 === 0 ? "sm:pr-6" : "sm:pl-6"
-                    }`}
+                    className={`group flex min-w-0 flex-col justify-center ${
+                      isWideStat ? "gap-2" : "gap-2.5"
+                    } ${index % 2 === 0 ? "pr-4 sm:pr-6" : "pl-4 sm:pl-6"}`}
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="size-[42px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 md:size-[48px]"
+                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[48px]"
                     />
                     <div className="min-w-0">
                       <strong
                         className={`block whitespace-nowrap font-extrabold leading-none tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(17px,1.7vw,23px)] 2xl:text-[27px]"
-                            : "text-[24px] md:text-[28px] xl:text-[30px]"
+                            ? "text-[clamp(16px,4vw,20px)] sm:text-[clamp(17px,1.7vw,23px)] 2xl:text-[27px]"
+                            : "text-[24px] sm:text-[26px] md:text-[28px] xl:text-[30px]"
                         }`}
                       >
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
-                      <span className="mt-2 block text-[12px] font-medium leading-tight text-white/88 md:text-[13px]">
+                      <span className="mt-1.5 block text-[11px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[12px] md:text-[13px]">
                         {t(`stats.${stat.key}.label` as never)}
                       </span>
                     </div>
