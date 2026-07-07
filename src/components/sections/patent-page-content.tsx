@@ -1763,7 +1763,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">
-          <Reveal className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+          <Reveal className="flex min-w-0 flex-col gap-4 min-[860px]:flex-row min-[860px]:items-end min-[860px]:justify-between">
             <div className="min-w-0 shrink-0">
               <h2
                 id="patent-archive-title"
@@ -1777,13 +1777,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
             </div>
             {renderPatentControls({
               wrapperClassName:
-                "hidden w-full min-w-0 gap-3 sm:grid sm:grid-cols-[minmax(150px,210px)_minmax(0,360px)] sm:justify-end md:w-auto md:flex",
-              sortClassName: "relative z-30 min-w-0 md:w-[210px]",
-              searchClassName: "relative block min-w-0 md:w-[360px]",
+                "hidden w-full min-w-0 gap-3 sm:grid sm:grid-cols-[minmax(150px,210px)_minmax(0,1fr)] min-[860px]:w-auto min-[860px]:grid-cols-[180px_320px] min-[860px]:justify-end lg:grid-cols-[210px_360px]",
+              sortClassName: "relative z-30 min-w-0",
+              searchClassName: "relative block min-w-0",
             })}
           </Reveal>
 
-          <Reveal delay={0.06} className="mt-9" as="div">
+          <Reveal
+            delay={0.06}
+            className="mt-9 sm:mt-6 min-[860px]:mt-9"
+            as="div"
+          >
             <div
               className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))]"
               role="group"
