@@ -397,9 +397,11 @@ function AddedValueSection() {
                 return (
                   <div
                     key={stat.key}
-                    className={`group flex min-h-[96px] min-w-0 items-center gap-4 border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
+                    className={`group flex min-h-[96px] min-w-0 items-center border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
                       index > 0 ? "border-t pt-8 sm:pt-0" : ""
-                    } ${index % 2 === 0 ? "sm:pr-6" : "sm:pl-6"}`}
+                    } ${isWideStat ? "gap-3" : "gap-4"} ${
+                      index % 2 === 0 ? "sm:pr-6" : "sm:pl-6"
+                    }`}
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
@@ -412,7 +414,7 @@ function AddedValueSection() {
                       <strong
                         className={`block whitespace-nowrap font-extrabold leading-none tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(19px,3.15vw,27px)]"
+                            ? "text-[clamp(17px,1.7vw,23px)] 2xl:text-[27px]"
                             : "text-[24px] md:text-[28px] xl:text-[30px]"
                         }`}
                       >

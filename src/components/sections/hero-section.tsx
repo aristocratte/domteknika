@@ -48,7 +48,7 @@ export function HeroSection() {
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
       <div
-        className="pointer-events-none absolute right-[-58px] top-[252px] z-[1] h-[220px] w-[334px] max-w-none opacity-[0.28] min-[390px]:right-[-70px] min-[390px]:top-[244px] min-[390px]:h-[248px] min-[390px]:w-[396px] sm:right-[-100px] sm:top-[224px] sm:h-[292px] sm:w-[474px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:top-auto md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute right-[clamp(-68px,-13vw,-44px)] top-[clamp(232px,64vw,252px)] z-[1] h-[clamp(224px,64vw,260px)] w-[clamp(344px,108vw,430px)] max-w-none opacity-[0.28] sm:right-[-100px] sm:top-[224px] sm:h-[292px] sm:w-[474px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:top-auto md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
@@ -133,7 +133,7 @@ export function HeroSection() {
                 {t("producing")}
                 <span className="text-brand">.</span>
               </span>
-              <span className="relative mt-4 block w-full max-w-[min(100%,390px)] whitespace-normal pl-0 text-[clamp(28px,6.8vw,38px)] font-extrabold leading-[1.03] sm:max-w-full sm:text-[42px] md:mt-6 md:pl-[52px] lg:mt-7 lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
+              <span className="relative mt-4 block w-max max-w-none whitespace-nowrap pl-0 text-[clamp(24px,8.4vw,38px)] font-extrabold leading-[1.03] sm:max-w-full sm:text-[42px] md:mt-6 md:pl-[52px] lg:mt-7 lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
                 <Image
                   src="/assets/arrow-right-hero.png"
                   alt=""
@@ -147,8 +147,8 @@ export function HeroSection() {
                 {shapeFirstLine}
                 {shapeLastWord ? (
                   <>
-                    <span className="hidden md:inline"> </span>
-                    <span className="block md:inline">
+                    <span> </span>
+                    <span className="inline">
                       {shapeLastWord}
                       <span className="text-brand">.</span>
                     </span>
