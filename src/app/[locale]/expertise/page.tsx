@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
+import { BrainstormingCardSwap } from "@/components/sections/brainstorming-card-swap";
 import { TrustedBy } from "@/components/sections/trusted-by";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -202,7 +203,7 @@ function ExpertiseGrid() {
   return (
     <section className="bg-background pb-[118px]" aria-labelledby="expertise-services">
       <Container size="wide">
-        <div className="mx-auto max-w-[900px]">
+        <div className="mx-auto max-w-[1080px]">
           <Reveal>
             <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
               <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
@@ -222,34 +223,76 @@ function ExpertiseGrid() {
             </p>
           </Reveal>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {EXPERTISE_ITEMS.map((item, index) => {
-              const Icon = item.icon;
-
-              return (
-                <Reveal
-                  as="article"
-                  key={item.key}
-                  delay={index * 0.05}
-                  className="group flex min-h-[246px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-6 py-8 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
-                >
-                  <Icon
-                    className="size-10 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1"
-                    aria-hidden
-                  />
-                  <h3 className="mt-8 text-[16px] font-extrabold leading-tight text-foreground">
-                    {t(`items.${item.key}.title` as never)}
-                  </h3>
-                  <p className="mt-8 max-w-[250px] text-[14px] font-medium leading-[1.28] text-muted-foreground">
-                    {t(`items.${item.key}.description` as never)}
-                  </p>
-                </Reveal>
-              );
-            })}
-          </div>
+          <ExpertiseServiceCards items={EXPERTISE_ITEMS} startIndex={0} />
+          <BrainstormingSection />
         </div>
       </Container>
     </section>
+  );
+}
+
+function ExpertiseServiceCards({
+  items,
+  startIndex,
+}: {
+  items: readonly (typeof EXPERTISE_ITEMS)[number][];
+  startIndex: number;
+}) {
+  const t = useTranslations("ExpertisePage.Services");
+
+  return (
+    <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((item, index) => {
+        const Icon = item.icon;
+
+        return (
+          <Reveal
+            as="article"
+            key={item.key}
+            delay={(startIndex + index) * 0.05}
+            className="group flex min-h-[246px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-6 py-8 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+          >
+            <Icon
+              className="size-10 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1"
+              aria-hidden
+            />
+            <h3 className="mt-8 text-[16px] font-extrabold leading-tight text-foreground">
+              {t(`items.${item.key}.title` as never)}
+            </h3>
+            <p className="mt-8 max-w-[250px] text-[14px] font-medium leading-[1.28] text-muted-foreground">
+              {t(`items.${item.key}.description` as never)}
+            </p>
+          </Reveal>
+        );
+      })}
+    </div>
+  );
+}
+
+function BrainstormingSection() {
+  const t = useTranslations("ExpertisePage.Services.brainstorming");
+
+  return (
+    <Reveal className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+      <div className="relative">
+        <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground">
+          <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+          {t("title")}
+        </div>
+        <h3 className="domtek-text-shadow mt-7 max-w-[520px] text-[42px] font-extrabold leading-none text-foreground sm:text-[58px]">
+          {t("eyebrow")}
+          <span className="text-brand">.</span>
+        </h3>
+        <p className="mt-6 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground">
+          {t("lead")}
+        </p>
+        <p className="mt-4 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground">
+          {t("body")}
+        </p>
+      </div>
+
+      <BrainstormingCardSwap />
+    </Reveal>
   );
 }
 

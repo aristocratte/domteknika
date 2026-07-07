@@ -142,6 +142,12 @@
       "eyebrow": "Ce que nous faisons",
       "title": "Une expertise de bout en bout à chaque étape",
       "intro": "Du prototype unique à la production industrielle, nous aidons les entreprises et les inventeurs à concevoir, valider et produire leurs idées.",
+      "brainstorming": {
+        "eyebrow": "Brainstorming",
+        "title": "Transformer un problème en piste claire",
+        "lead": "Avant de figer une solution, nous ouvrons le champ des possibles: contraintes d'usage, mécanique, matériaux, coûts, fabrication et risques sont mis sur la table.",
+        "body": "Cette phase nous permet de faire émerger des idées, de comparer plusieurs architectures et d'identifier rapidement les solutions réellement pertinentes pour le projet."
+      },
       "items": {
         "creativity": {
           "title": "Créativité & Innovation",

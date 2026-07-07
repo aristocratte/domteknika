@@ -142,6 +142,12 @@
       "eyebrow": "Was wir tun",
       "title": "End-to-End-Expertise in jedem Schritt",
       "intro": "Vom Einzelprototyp bis zur industriellen Serienproduktion helfen wir Privatpersonen und Unternehmen, Ideen zu entwerfen, zu entwickeln und herzustellen.",
+      "brainstorming": {
+        "eyebrow": "Brainstorming",
+        "title": "Aus einem Problem eine klare Richtung machen",
+        "lead": "Bevor wir eine Lösung festlegen, öffnen wir den Lösungsraum: Nutzung, Mechanik, Materialien, Kosten, Fertigung und Risiken werden gemeinsam betrachtet.",
+        "body": "So entstehen belastbare Ideen, mehrere Architekturen können verglichen werden und die wirklich passenden Lösungen werden früh sichtbar."
+      },
       "items": {
         "creativity": {
           "title": "Kreativität & Innovation",

@@ -142,6 +142,12 @@
       "eyebrow": "Qué hacemos",
       "title": "Experiencia de extremo a extremo en cada etapa",
       "intro": "Desde prototipos únicos hasta producción industrial, ayudamos a personas y empresas a diseñar, desarrollar y fabricar sus ideas.",
+      "brainstorming": {
+        "eyebrow": "Brainstorming",
+        "title": "Convertir un problema en una dirección clara",
+        "lead": "Antes de fijar una solución, abrimos el campo de posibilidades: uso, mecánica, materiales, costes, fabricación y riesgos se analizan juntos.",
+        "body": "Esta fase permite generar ideas sólidas, comparar varias arquitecturas e identificar pronto las soluciones que realmente encajan con el proyecto."
+      },
       "items": {
         "creativity": {
           "title": "Creatividad e innovación",
