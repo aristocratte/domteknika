@@ -1684,7 +1684,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
       </section>
 
       <section
-        className="bg-background pb-[64px] pt-[90px] md:pb-[58px] md:pt-[82px]"
+        className="bg-background pb-[64px] pt-[116px] md:pb-[58px] md:pt-[98px]"
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">

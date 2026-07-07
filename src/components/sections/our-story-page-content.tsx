@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 
 import { Container } from "@/components/layout/container";
@@ -927,9 +928,9 @@ function TimelineCard({
   onOpenProject: (projectId: string) => void;
 }) {
   const className = cn(
-    "group/card grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
+    "group/card relative grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
     projectId &&
-      "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35",
+      "cursor-pointer pr-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-4",
     card.awards && "sm:grid-cols-[minmax(0,1fr)_122px_52px] md:grid-cols-[minmax(0,1fr)_136px_52px]",
   );
 
@@ -964,6 +965,14 @@ function TimelineCard({
       >
         <StoryIcon icon={card.icon} />
       </span>
+      {projectId && (
+        <span
+          className="absolute right-3 top-3 grid size-8 place-items-center rounded-full bg-foreground/85 text-white transition-colors duration-300 group-hover/card:bg-brand"
+          aria-hidden
+        >
+          <ArrowUpRight className="size-3.5" />
+        </span>
+      )}
     </>
   );
 

@@ -98,6 +98,21 @@ export function Reveal({
   );
 
   useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
+    const rect = element.getBoundingClientRect();
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    const shouldStartVisible =
+      window.scrollY >= minimumScrollY &&
+      rect.top < viewportHeight + 120 &&
+      rect.bottom > -120;
+
+    setStateImmediately(shouldStartVisible ? "visible" : "hidden");
+  }, [minimumScrollY, setStateImmediately]);
+
+  useEffect(() => {
     const revealIfAlreadyVisible = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
@@ -149,7 +164,7 @@ export function Reveal({
       }}
       data-reveal
       variants={variants}
-      initial="hidden"
+      initial={false}
       animate={controls}
       viewport={{ once: false, margin: "-80px" }}
       onViewportEnter={() => {

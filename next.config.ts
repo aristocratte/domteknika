@@ -1,10 +1,17 @@
 import type { NextConfig } from "next";
+import { networkInterfaces } from "node:os";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+const localDevOrigins = Object.values(networkInterfaces())
+  .flatMap((entries) => entries ?? [])
+  .filter((entry) => entry.family === "IPv4" && !entry.internal)
+  .map((entry) => entry.address);
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  allowedDevOrigins: localDevOrigins,
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],

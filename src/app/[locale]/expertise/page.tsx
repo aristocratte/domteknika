@@ -310,7 +310,7 @@ function ExpertiseSwissBanner() {
       >
         <Reveal className="flex w-full items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="max-w-[calc(100vw-106px)] text-right text-[14px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[17px] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
+            className="max-w-[calc(100vw-128px)] text-right text-[12px] font-extrabold uppercase leading-[1.08] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[13px] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
             <span className="block whitespace-nowrap" aria-hidden>

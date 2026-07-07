@@ -43,12 +43,12 @@ export function HeroSection() {
         width={1200}
         height={768}
         priority
-        sizes="(max-width: 640px) 82vw, (max-width: 1024px) 82vw, 56vw"
-        className="pointer-events-none absolute right-[-18vw] top-[120px] z-0 h-auto w-[78vw] max-w-none opacity-60 min-[390px]:right-[-16vw] min-[390px]:w-[82vw] sm:right-[-14vw] sm:top-[104px] sm:w-[72vw] md:right-[-18vw] md:top-[72px] md:w-[82vw] lg:right-0 lg:top-[82px] lg:w-[56vw] lg:max-w-[900px]"
+        sizes="(max-width: 640px) 112vw, (max-width: 767px) 96vw, (max-width: 1024px) 82vw, 56vw"
+        className="pointer-events-none absolute right-[-40vw] top-[108px] z-0 h-auto w-[112vw] max-w-none opacity-[0.82] min-[390px]:right-[-42vw] min-[390px]:w-[116vw] sm:right-[-30vw] sm:top-[100px] sm:w-[96vw] md:right-[-18vw] md:top-[72px] md:w-[82vw] md:opacity-60 lg:right-0 lg:top-[82px] lg:w-[56vw] lg:max-w-[900px]"
       />
-      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/62 to-white/8 md:via-white/76 md:to-white/16" />
       <div
-        className="pointer-events-none absolute right-[clamp(-68px,-13vw,-44px)] top-[clamp(232px,64vw,252px)] z-[1] h-[clamp(224px,64vw,260px)] w-[clamp(344px,108vw,430px)] max-w-none opacity-[0.28] sm:right-[-100px] sm:top-[224px] sm:h-[292px] sm:w-[474px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:top-auto md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute z-[1] hidden max-w-none md:bottom-[28px] md:right-[-25vw] md:top-auto md:block md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
@@ -70,7 +70,6 @@ export function HeroSection() {
             src="/assets/rv01-hero.png"
             alt=""
             fill
-            priority
             sizes="(max-width: 1024px) 82vw, 1040px"
             className="object-contain object-bottom"
           />
@@ -180,7 +179,7 @@ export function HeroSection() {
 
           <motion.div
             variants={rise}
-            className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8"
+            className="mt-10 flex flex-row flex-wrap items-center gap-x-4 gap-y-5 sm:gap-x-8"
           >
             <Button
               nativeButton={false}
@@ -194,7 +193,7 @@ export function HeroSection() {
 
             <Link
               href="/expertise"
-              className="inline-flex items-center gap-6 text-[15px] font-extrabold text-foreground transition-colors hover:text-brand"
+              className="inline-flex items-center gap-3 text-[15px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6"
             >
               {t("ctaSecondary")}
               <ArrowRight className="size-5 text-brand" aria-hidden />

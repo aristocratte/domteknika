@@ -13,7 +13,8 @@ import {
 } from "lucide-react";
 import {
   type CSSProperties,
-  type TouchEvent as ReactTouchEvent,
+  type PointerEvent as ReactPointerEvent,
+  type WheelEvent as ReactWheelEvent,
   useCallback,
   useEffect,
   useMemo,
@@ -42,6 +43,7 @@ const PROJECT_LIGHTBOX_FRAME_CLASS =
   "relative h-[min(82vh,620px)] w-[min(92vw,900px)] touch-pan-y md:h-[min(70vh,560px)] md:w-[min(74vw,840px)] lg:w-[min(64vw,820px)]";
 const PROJECT_LIGHTBOX_IMAGE_SIZES =
   "(max-width: 768px) 92vw, (max-width: 1024px) 74vw, 820px";
+const PROJECT_IMAGE_ZOOM_SELECTOR = "[data-project-image-zoom]";
 
 export type Project = {
   id: string;
@@ -3710,6 +3712,407 @@ function centeredPanelRect(): PanelRect {
   };
 }
 
+function ProjectImageLightbox({
+  image,
+  alt,
+  closeLabel,
+  previousLabel,
+  nextLabel,
+  hasMultiple,
+  onClose,
+  onPrevious,
+  onNext,
+}: {
+  image: string;
+  alt: string;
+  closeLabel: string;
+  previousLabel: string;
+  nextLabel: string;
+  hasMultiple: boolean;
+  onClose: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+}) {
+  const [viewerState, setViewerState] = useState({
+    image,
+    offsetX: 0,
+    offsetY: 0,
+    zoom: 1,
+  });
+  const activePointersRef = useRef<Map<number, { x: number; y: number }>>(
+    new Map(),
+  );
+  const panRef = useRef<{
+    pointerId: number;
+    x: number;
+    y: number;
+  } | null>(null);
+  const pinchRef = useRef<{
+    distance: number;
+    centerX: number;
+    centerY: number;
+    offsetX: number;
+    offsetY: number;
+    zoom: number;
+  } | null>(null);
+  const swipeRef = useRef<{
+    pointerId: number;
+    x: number;
+    y: number;
+    used: boolean;
+  } | null>(null);
+
+  const currentViewerState =
+    viewerState.image === image
+      ? viewerState
+      : { image, offsetX: 0, offsetY: 0, zoom: 1 };
+  const { offsetX, offsetY, zoom } = currentViewerState;
+  const imageStyle = {
+    transform: `translate3d(${offsetX}px, ${offsetY}px, 0) scale(${zoom})`,
+  } satisfies CSSProperties;
+
+  const updateViewerState = useCallback(
+    (nextState: Omit<typeof viewerState, "image">) => {
+      setViewerState({
+        image,
+        ...nextState,
+      });
+    },
+    [image],
+  );
+
+  const clampZoom = useCallback(
+    (value: number) => Math.min(3, Math.max(1, Number(value.toFixed(2)))),
+    [],
+  );
+
+  const getPinchGesture = useCallback(() => {
+    const [first, second] = Array.from(activePointersRef.current.values());
+    if (!first || !second) return null;
+
+    const deltaX = second.x - first.x;
+    const deltaY = second.y - first.y;
+
+    return {
+      centerX: (first.x + second.x) / 2,
+      centerY: (first.y + second.y) / 2,
+      distance: Math.hypot(deltaX, deltaY),
+    };
+  }, []);
+
+  const getZoomedOffset = useCallback(
+    (
+      element: HTMLDivElement,
+      clientX: number,
+      clientY: number,
+      startZoom: number,
+      nextZoom: number,
+      startOffsetX: number,
+      startOffsetY: number,
+    ) => {
+      if (nextZoom <= 1) return { offsetX: 0, offsetY: 0 };
+
+      const rect = element.getBoundingClientRect();
+      const focalX = clientX - rect.left;
+      const focalY = clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const zoomRatio = nextZoom / Math.max(startZoom, 0.01);
+
+      return {
+        offsetX:
+          startOffsetX + (focalX - centerX - startOffsetX) * (1 - zoomRatio),
+        offsetY:
+          startOffsetY + (focalY - centerY - startOffsetY) * (1 - zoomRatio),
+      };
+    },
+    [],
+  );
+
+  const handleWheelZoom = useCallback(
+    (event: ReactWheelEvent<HTMLDivElement>) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const normalizedDelta = Math.max(-18, Math.min(18, event.deltaY));
+      const nextZoom = clampZoom(zoom * Math.exp(-normalizedDelta * 0.01));
+      if (nextZoom === zoom) return;
+
+      updateViewerState({
+        ...getZoomedOffset(
+          event.currentTarget,
+          event.clientX,
+          event.clientY,
+          zoom,
+          nextZoom,
+          offsetX,
+          offsetY,
+        ),
+        zoom: nextZoom,
+      });
+    },
+    [clampZoom, getZoomedOffset, offsetX, offsetY, updateViewerState, zoom],
+  );
+
+  const handlePointerDown = useCallback(
+    (event: ReactPointerEvent<HTMLDivElement>) => {
+      activePointersRef.current.set(event.pointerId, {
+        x: event.clientX,
+        y: event.clientY,
+      });
+      event.currentTarget.setPointerCapture(event.pointerId);
+
+      if (activePointersRef.current.size >= 2) {
+        event.preventDefault();
+        panRef.current = null;
+        swipeRef.current = null;
+        const pinch = getPinchGesture();
+        if (pinch) {
+          pinchRef.current = {
+            ...pinch,
+            offsetX,
+            offsetY,
+            zoom,
+          };
+        }
+        return;
+      }
+
+      swipeRef.current = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+        used: false,
+      };
+
+      if (zoom <= 1) return;
+
+      event.preventDefault();
+      panRef.current = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+      };
+    },
+    [getPinchGesture, offsetX, offsetY, zoom],
+  );
+
+  const handlePointerMove = useCallback(
+    (event: ReactPointerEvent<HTMLDivElement>) => {
+      if (activePointersRef.current.has(event.pointerId)) {
+        activePointersRef.current.set(event.pointerId, {
+          x: event.clientX,
+          y: event.clientY,
+        });
+      }
+
+      const pinch = getPinchGesture();
+      if (activePointersRef.current.size >= 2 && pinch) {
+        event.preventDefault();
+        if (!pinchRef.current) {
+          pinchRef.current = {
+            ...pinch,
+            offsetX,
+            offsetY,
+            zoom,
+          };
+          return;
+        }
+
+        const start = pinchRef.current;
+        if (start.distance <= 0) return;
+
+        const nextZoom = clampZoom(
+          start.zoom * (pinch.distance / start.distance),
+        );
+        const rect = event.currentTarget.getBoundingClientRect();
+        const startFocalX = start.centerX - rect.left;
+        const startFocalY = start.centerY - rect.top;
+        const focalX = pinch.centerX - rect.left;
+        const focalY = pinch.centerY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const zoomRatio = nextZoom / Math.max(start.zoom, 0.01);
+
+        updateViewerState({
+          offsetX:
+            nextZoom === 1
+              ? 0
+              : focalX -
+                centerX -
+                zoomRatio * (startFocalX - centerX - start.offsetX),
+          offsetY:
+            nextZoom === 1
+              ? 0
+              : focalY -
+                centerY -
+                zoomRatio * (startFocalY - centerY - start.offsetY),
+          zoom: nextZoom,
+        });
+        return;
+      }
+
+      const pan = panRef.current;
+      if (!pan || pan.pointerId !== event.pointerId) return;
+
+      event.preventDefault();
+      const deltaX = event.clientX - pan.x;
+      const deltaY = event.clientY - pan.y;
+      panRef.current = {
+        ...pan,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      setViewerState((current) => {
+        const base =
+          current.image === image
+            ? current
+            : { image, offsetX: 0, offsetY: 0, zoom: 1 };
+
+        return {
+          ...base,
+          offsetX: base.offsetX + deltaX,
+          offsetY: base.offsetY + deltaY,
+        };
+      });
+    },
+    [clampZoom, getPinchGesture, image, offsetX, offsetY, updateViewerState, zoom],
+  );
+
+  const handlePointerEnd = useCallback(
+    (event: ReactPointerEvent<HTMLDivElement>) => {
+      activePointersRef.current.delete(event.pointerId);
+      if (activePointersRef.current.size < 2) {
+        pinchRef.current = null;
+      }
+
+      const pan = panRef.current;
+      if (pan?.pointerId === event.pointerId) {
+        panRef.current = null;
+      }
+
+      const swipe = swipeRef.current;
+      if (
+        swipe?.pointerId === event.pointerId &&
+        !swipe.used &&
+        zoom <= 1 &&
+        hasMultiple &&
+        event.pointerType === "touch"
+      ) {
+        const deltaX = swipe.x - event.clientX;
+        const deltaY = swipe.y - event.clientY;
+        if (Math.abs(deltaX) > 42 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          swipeRef.current = { ...swipe, used: true };
+          if (deltaX > 0) {
+            onNext();
+          } else {
+            onPrevious();
+          }
+        }
+      }
+
+      if (swipe?.pointerId === event.pointerId) {
+        swipeRef.current = null;
+      }
+
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    },
+    [hasMultiple, onNext, onPrevious, zoom],
+  );
+
+  return (
+    <div
+      className="fixed inset-0 z-[40] grid place-items-center bg-black/82 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={closeLabel}
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+        aria-label={closeLabel}
+        onClick={onClose}
+      >
+        <X className="size-5" aria-hidden />
+      </button>
+      {hasMultiple && (
+        <>
+          <button
+            type="button"
+            className="absolute left-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:left-6 md:size-12"
+            aria-label={previousLabel}
+            onClick={(event) => {
+              event.stopPropagation();
+              onPrevious();
+            }}
+          >
+            <ChevronLeft className="size-6" aria-hidden />
+          </button>
+          <button
+            type="button"
+            className="absolute right-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:right-6 md:size-12"
+            aria-label={nextLabel}
+            onClick={(event) => {
+              event.stopPropagation();
+              onNext();
+            }}
+          >
+            <ChevronRight className="size-6" aria-hidden />
+          </button>
+        </>
+      )}
+      <div
+        data-project-image-zoom
+        data-lenis-prevent
+        className={cn(
+          PROJECT_LIGHTBOX_FRAME_CLASS,
+          "overflow-hidden select-none",
+          zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in",
+        )}
+        style={{ touchAction: "none" }}
+        onClick={(event) => event.stopPropagation()}
+        onDoubleClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const nextZoom = zoom > 1 ? 1 : 2;
+          updateViewerState({
+            ...getZoomedOffset(
+              event.currentTarget,
+              event.clientX,
+              event.clientY,
+              zoom,
+              nextZoom,
+              offsetX,
+              offsetY,
+            ),
+            zoom: nextZoom,
+          });
+        }}
+        onWheel={handleWheelZoom}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
+      >
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          draggable={false}
+          sizes={PROJECT_LIGHTBOX_IMAGE_SIZES}
+          style={imageStyle}
+          className="object-contain"
+        />
+      </div>
+    </div>
+  );
+}
+
 export function ProjectDetailsDialog({
   locale,
   modal,
@@ -3734,7 +4137,6 @@ export function ProjectDetailsDialog({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
-  const expandedTouchStartXRef = useRef<number | null>(null);
 
   const projectGallery = useMemo(() => getProjectGallery(project), [project]);
   const activeGalleryImage =
@@ -3768,29 +4170,6 @@ export function ProjectDetailsDialog({
     if (expandedImageIndex === null) return;
     showExpandedImageAt(expandedImageIndex + 1);
   }, [expandedImageIndex, showExpandedImageAt]);
-
-  const handleExpandedTouchEnd = useCallback(
-    (event: ReactTouchEvent<HTMLDivElement>) => {
-      if (projectGallery.length < 2) return;
-
-      const startX = expandedTouchStartXRef.current;
-      expandedTouchStartXRef.current = null;
-      if (startX === null) return;
-
-      const endX = event.changedTouches[0]?.clientX;
-      if (endX === undefined) return;
-
-      const deltaX = startX - endX;
-      if (Math.abs(deltaX) < 42) return;
-
-      if (deltaX > 0) {
-        showNextExpandedImage();
-      } else {
-        showPreviousExpandedImage();
-      }
-    },
-    [projectGallery.length, showNextExpandedImage, showPreviousExpandedImage],
-  );
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
@@ -3873,6 +4252,10 @@ export function ProjectDetailsDialog({
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
           : null;
+      const zoomContainer =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>(PROJECT_IMAGE_ZOOM_SELECTOR)
+          : null;
       const scrollContainer =
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(
@@ -3885,6 +4268,8 @@ export function ProjectDetailsDialog({
           : event instanceof TouchEvent
             ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
             : 0;
+
+      if (zoomContainer) return;
 
       if (horizontalScrollContainer) {
         if (
@@ -4269,64 +4654,17 @@ export function ProjectDetailsDialog({
         </section>
 
         {expandedImage && (
-          <div
-            className="fixed inset-0 z-[40] grid place-items-center bg-black/82 p-4"
-            role="dialog"
-            aria-modal="true"
-            aria-label={modal.closeImage}
-            onClick={() => setExpandedImageIndex(null)}
-          >
-            <button
-              type="button"
-              className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
-              aria-label={modal.closeImage}
-              onClick={() => setExpandedImageIndex(null)}
-            >
-              <X className="size-5" aria-hidden />
-            </button>
-            {projectGallery.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  className="absolute left-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:left-6 md:size-12"
-                  aria-label={modal.previousImage}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    showPreviousExpandedImage();
-                  }}
-                >
-                  <ChevronLeft className="size-6" aria-hidden />
-                </button>
-                <button
-                  type="button"
-                  className="absolute right-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:right-6 md:size-12"
-                  aria-label={modal.nextImage}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    showNextExpandedImage();
-                  }}
-                >
-                  <ChevronRight className="size-6" aria-hidden />
-                </button>
-              </>
-            )}
-            <div
-              className={PROJECT_LIGHTBOX_FRAME_CLASS}
-              onTouchStart={(event) => {
-                expandedTouchStartXRef.current = event.touches[0]?.clientX ?? null;
-              }}
-              onTouchEnd={handleExpandedTouchEnd}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <Image
-                src={expandedImage}
-                alt={project.imageAlt}
-                fill
-                sizes={PROJECT_LIGHTBOX_IMAGE_SIZES}
-                className="object-contain"
-              />
-            </div>
-          </div>
+          <ProjectImageLightbox
+            image={expandedImage}
+            alt={project.imageAlt}
+            closeLabel={modal.closeImage}
+            previousLabel={modal.previousImage}
+            nextLabel={modal.nextImage}
+            hasMultiple={projectGallery.length > 1}
+            onClose={() => setExpandedImageIndex(null)}
+            onPrevious={showPreviousExpandedImage}
+            onNext={showNextExpandedImage}
+          />
         )}
       </div>
       {selectedPatent && (
@@ -4360,7 +4698,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   const dialogStateRef = useRef(dialogState);
   const lockedScrollYRef = useRef(0);
   const sortDetailsRef = useRef<HTMLDetailsElement | null>(null);
-  const expandedGalleryTouchStartXRef = useRef<number | null>(null);
 
   useEffect(() => {
     const closeSortOnOutsidePointer = (event: PointerEvent) => {
@@ -4458,33 +4795,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     if (expandedGalleryIndex === null) return;
     showExpandedGalleryImageAt(expandedGalleryIndex + 1);
   }, [expandedGalleryIndex, showExpandedGalleryImageAt]);
-
-  const handleExpandedGalleryTouchEnd = useCallback(
-    (event: ReactTouchEvent<HTMLDivElement>) => {
-      if (selectedProjectGallery.length < 2) return;
-
-      const startX = expandedGalleryTouchStartXRef.current;
-      expandedGalleryTouchStartXRef.current = null;
-      if (startX === null) return;
-
-      const endX = event.changedTouches[0]?.clientX;
-      if (endX === undefined) return;
-
-      const deltaX = startX - endX;
-      if (Math.abs(deltaX) < 42) return;
-
-      if (deltaX > 0) {
-        showNextExpandedGalleryImage();
-      } else {
-        showPreviousExpandedGalleryImage();
-      }
-    },
-    [
-      selectedProjectGallery.length,
-      showNextExpandedGalleryImage,
-      showPreviousExpandedGalleryImage,
-    ],
-  );
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimerRef.current) {
@@ -4647,6 +4957,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
           : null;
+      const zoomContainer =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>(PROJECT_IMAGE_ZOOM_SELECTOR)
+          : null;
       const scrollContainer =
         event.target instanceof Element
           ? event.target.closest<HTMLElement>(
@@ -4659,6 +4973,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           : event instanceof TouchEvent
             ? touchStartY - (event.touches[0]?.clientY ?? touchStartY)
             : 0;
+
+      if (zoomContainer) return;
 
       if (horizontalScrollContainer) {
         if (
@@ -5303,65 +5619,17 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               </div>
             </div>
             {expandedGalleryImage && (
-              <div
-                className="fixed inset-0 z-[40] grid place-items-center bg-black/82 p-4"
-                role="dialog"
-                aria-modal="true"
-                aria-label={copy.modal.closeImage}
-                onClick={() => setExpandedGalleryIndex(null)}
-              >
-                <button
-                  type="button"
-                  className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
-                  aria-label={copy.modal.closeImage}
-                  onClick={() => setExpandedGalleryIndex(null)}
-                >
-                  <X className="size-5" aria-hidden />
-                </button>
-                {selectedProjectGallery.length > 1 && (
-                  <>
-                    <button
-                      type="button"
-                      className="absolute left-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:left-6 md:size-12"
-                      aria-label={copy.modal.previousImage}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        showPreviousExpandedGalleryImage();
-                      }}
-                    >
-                      <ChevronLeft className="size-6" aria-hidden />
-                    </button>
-                    <button
-                      type="button"
-                      className="absolute right-3 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.28)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:right-6 md:size-12"
-                      aria-label={copy.modal.nextImage}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        showNextExpandedGalleryImage();
-                      }}
-                    >
-                      <ChevronRight className="size-6" aria-hidden />
-                    </button>
-                  </>
-                )}
-                <div
-                  className={PROJECT_LIGHTBOX_FRAME_CLASS}
-                  onTouchStart={(event) => {
-                    expandedGalleryTouchStartXRef.current =
-                      event.touches[0]?.clientX ?? null;
-                  }}
-                  onTouchEnd={handleExpandedGalleryTouchEnd}
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <Image
-                    src={expandedGalleryImage}
-                    alt={selectedProject.imageAlt}
-                    fill
-                    sizes={PROJECT_LIGHTBOX_IMAGE_SIZES}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
+              <ProjectImageLightbox
+                image={expandedGalleryImage}
+                alt={selectedProject.imageAlt}
+                closeLabel={copy.modal.closeImage}
+                previousLabel={copy.modal.previousImage}
+                nextLabel={copy.modal.nextImage}
+                hasMultiple={selectedProjectGallery.length > 1}
+                onClose={() => setExpandedGalleryIndex(null)}
+                onPrevious={showPreviousExpandedGalleryImage}
+                onNext={showNextExpandedGalleryImage}
+              />
             )}
           </section>
         </div>
