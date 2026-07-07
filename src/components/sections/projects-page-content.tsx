@@ -4397,9 +4397,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         )
       : filteredProjects;
 
-    return activeFilter === "all"
-      ? sortProjects(matchedProjects, sortKey, resolvedLocale)
-      : sortProjectsByTitle(matchedProjects, resolvedLocale, activeFilter);
+    if (activeFilter !== "all" && sortKey === "default") {
+      return sortProjectsByTitle(matchedProjects, resolvedLocale, activeFilter);
+    }
+
+    return sortProjects(matchedProjects, sortKey, resolvedLocale);
   }, [activeFilter, copy.projects, resolvedLocale, searchQuery, sortKey]);
   const handleFilterChange = useCallback((filter: FilterKey) => {
     setActiveFilter(filter);
@@ -4947,7 +4949,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
             <div className="grid gap-3 lg:grid-cols-[auto_auto] lg:items-start lg:justify-between">
               <div
-                className="grid w-full grid-cols-2 gap-3 md:w-fit md:grid-cols-[82px_repeat(3,148px)] lg:grid-cols-[82px_repeat(3,136px)] xl:grid-cols-[82px_repeat(3,152px)]"
+                className="grid w-full grid-cols-2 gap-3 md:mx-auto md:w-fit md:grid-cols-[82px_repeat(3,148px)] lg:mx-0 lg:grid-cols-[82px_repeat(3,136px)] xl:grid-cols-[82px_repeat(3,152px)]"
                 role="group"
                 aria-label={copy.filtersLabel}
               >
@@ -5025,7 +5027,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       {activeSortLabel}
                     </span>
                   </summary>
-                  <div className="absolute right-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+                  <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
                     {copy.sort.options.map((option) => {
                       const active = option.key === sortKey;
 
@@ -5073,18 +5075,15 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
           {visibleProjects.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {visibleProjects.map((project, index) => (
-                <Reveal
-                  key={project.id}
-                  delay={Math.min(index * 0.035, 0.18)}
-                >
+              {visibleProjects.map((project) => (
+                <div key={project.id}>
                   <ProjectCard
                     project={project}
                     onOpen={openProject}
                     ctaLabel={copy.viewCaseStudy}
                     openDetailsLabel={copy.cardOpenDetails}
                   />
-                </Reveal>
+                </div>
               ))}
             </div>
           ) : (

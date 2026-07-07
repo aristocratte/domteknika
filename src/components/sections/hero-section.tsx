@@ -34,7 +34,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative min-h-[680px] overflow-hidden bg-background pb-[84px] pt-[132px] md:min-h-[660px] md:pb-[56px] md:pt-[152px]"
+      className="relative min-h-[680px] overflow-hidden bg-background pb-10 pt-[132px] md:min-h-[660px] md:pb-[56px] md:pt-[152px]"
       aria-labelledby="hero-title"
     >
       <Image
@@ -43,12 +43,12 @@ export function HeroSection() {
         width={1200}
         height={768}
         priority
-        sizes="(max-width: 640px) 82vw, (max-width: 768px) 72vw, 56vw"
-        className="pointer-events-none absolute right-[-18vw] top-[120px] z-0 h-auto w-[78vw] max-w-none opacity-60 min-[390px]:right-[-16vw] min-[390px]:w-[82vw] sm:right-[-14vw] sm:top-[104px] sm:w-[72vw] md:right-0 md:top-[82px] md:w-[56vw] md:max-w-[900px]"
+        sizes="(max-width: 640px) 82vw, (max-width: 1024px) 82vw, 56vw"
+        className="pointer-events-none absolute right-[-18vw] top-[120px] z-0 h-auto w-[78vw] max-w-none opacity-60 min-[390px]:right-[-16vw] min-[390px]:w-[82vw] sm:right-[-14vw] sm:top-[104px] sm:w-[72vw] md:right-[-18vw] md:top-[72px] md:w-[82vw] lg:right-0 lg:top-[82px] lg:w-[56vw] lg:max-w-[900px]"
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/76 to-white/16" />
       <div
-        className="pointer-events-none absolute bottom-[-22px] right-[-38px] z-[1] h-[238px] w-[360px] max-w-none opacity-[0.28] min-[390px]:right-[-36px] min-[390px]:h-[270px] min-[390px]:w-[430px] sm:bottom-[-34px] sm:right-[-70px] sm:h-[320px] sm:w-[520px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute right-[-58px] top-[252px] z-[1] h-[220px] w-[334px] max-w-none opacity-[0.28] min-[390px]:right-[-70px] min-[390px]:top-[244px] min-[390px]:h-[248px] min-[390px]:w-[396px] sm:right-[-100px] sm:top-[224px] sm:h-[292px] sm:w-[474px] sm:opacity-[0.36] md:bottom-[28px] md:right-[-25vw] md:top-auto md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",

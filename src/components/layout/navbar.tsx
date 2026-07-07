@@ -200,7 +200,7 @@ export function Navbar() {
             <Logo className="w-[142px]" />
           </Link>
           <div className="flex shrink-0 items-center gap-2">
-            <LanguageSwitcher className="[&>button]:h-[52px] [&>button]:min-w-[56px] [&>button]:rounded-[12px] [&>button]:border-border [&>button]:bg-white [&>button]:px-2.5 [&>button]:shadow-[0_6px_18px_rgba(0,0,0,0.10)]" />
+            <LanguageSwitcher className="[&>button]:h-[52px] [&>button]:min-w-[56px] [&>button]:rounded-[12px] [&>button]:border-border [&>button]:bg-white [&>button]:px-2.5 [&>button]:shadow-[0_6px_18px_rgba(0,0,0,0.10)] [&>button]:transition-[border-color,background-color,transform] [&>button]:duration-300 [&>button]:hover:-translate-y-0.5 [&>button]:hover:border-brand/35" />
             <button
               type="button"
               className="grid size-[52px] shrink-0 place-items-center rounded-[12px] border border-border bg-white text-foreground shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
