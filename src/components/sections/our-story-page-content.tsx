@@ -967,10 +967,10 @@ function TimelineCard({
       </span>
       {projectId && (
         <span
-          className="absolute right-3 top-3 grid size-7 place-items-center rounded-full bg-foreground/70 text-white/90 transition-colors duration-300 group-hover/card:bg-brand group-hover/card:text-white"
+          className="absolute right-3 top-3 grid size-6 place-items-center text-muted-foreground/70 transition-[color,transform] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-muted-foreground"
           aria-hidden
         >
-          <ArrowUpRight className="size-3" />
+          <ArrowUpRight className="size-4" />
         </span>
       )}
     </>
