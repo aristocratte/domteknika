@@ -45,11 +45,11 @@ const CardSwap = ({
     easing === 'elastic'
       ? {
           ease: 'elastic.out(0.6,0.9)',
-          durDrop: 2,
-          durMove: 2,
-          durReturn: 2,
-          promoteOverlap: 0.9,
-          returnDelay: 0.05
+          durDrop: 1.35,
+          durMove: 1.25,
+          durReturn: 1.25,
+          promoteOverlap: 0.58,
+          returnDelay: 0.24
         }
       : {
           ease: 'power1.inOut',
@@ -87,6 +87,7 @@ const CardSwap = ({
 
   useEffect(() => {
     const total = refs.length;
+    const dropDistance = Math.max(height * 1.08, 320);
     refs.forEach((r, i) => placeNow(r.current, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
 
     const swap = (isManual = false) => {
@@ -102,7 +103,7 @@ const CardSwap = ({
       tlRef.current = tl;
 
       tl.to(elFront, {
-        y: '+=500',
+        y: `+=${dropDistance}`,
         duration: activeConfig.durDrop,
         ease: activeConfig.ease
       });
@@ -194,7 +195,7 @@ const CardSwap = ({
       clearInterval(intervalRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
+  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing, height]);
 
   useEffect(() => {
     if (manualSwapSignal === 0) return;

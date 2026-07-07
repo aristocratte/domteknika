@@ -127,7 +127,7 @@ function ExpertiseHero() {
             delay={0.1}
             className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-0 md:top-[-32px] md:min-h-0 md:w-[52%] lg:right-[-36px] lg:top-[-48px] lg:w-[54%] xl:right-[-84px] xl:w-[58%] 2xl:right-[-148px] 2xl:w-[60%]"
           >
-            <div className="relative mx-auto w-[min(100%,356px)] pt-1 sm:w-[min(100%,500px)] md:ml-auto md:mr-0 md:w-full md:max-w-[500px] lg:max-w-[560px] xl:max-w-[620px] 2xl:max-w-[640px]">
+            <div className="relative left-1/2 w-[min(calc(100vw-28px),380px)] -translate-x-1/2 pt-1 sm:w-[min(100%,520px)] md:left-auto md:ml-auto md:mr-0 md:w-full md:max-w-[520px] md:translate-x-0 lg:max-w-[580px] xl:max-w-[640px] 2xl:max-w-[660px]">
               <div className="mx-auto mb-4 flex w-fit flex-col items-center gap-1">
                 <p className="text-center text-[17px] font-medium leading-none text-muted-foreground md:text-[15px]">
                   {t("team")}
@@ -139,7 +139,7 @@ function ExpertiseHero() {
                 className="pointer-events-none absolute left-1/2 top-12 h-[272px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[292px] md:top-11 md:h-[238px] lg:h-[266px]"
                 aria-hidden
               />
-              <div className="relative mx-auto flex max-w-[312px] items-start justify-center gap-2 min-[390px]:max-w-[344px] sm:max-w-[500px] sm:gap-3 md:max-w-[500px] lg:max-w-[540px] lg:gap-4 xl:max-w-[590px] xl:gap-5">
+              <div className="relative mx-auto flex max-w-[292px] items-start justify-center gap-1 min-[360px]:max-w-[326px] min-[390px]:max-w-[366px] min-[390px]:gap-1.5 sm:max-w-[520px] sm:gap-3 md:max-w-[520px] md:gap-2 lg:max-w-[560px] lg:gap-4 xl:max-w-[620px] xl:gap-5">
                 {TEAM_MEMBERS.slice(0, 4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -153,7 +153,7 @@ function ExpertiseHero() {
                   />
                 ))}
               </div>
-              <div className="relative mx-auto mt-4 flex max-w-[256px] items-start justify-center gap-3 min-[390px]:max-w-[286px] sm:max-w-[390px] md:max-w-[380px] lg:mt-3 lg:max-w-[410px] lg:gap-5 xl:max-w-[440px]">
+              <div className="relative mx-auto mt-4 flex max-w-[258px] items-start justify-center gap-3 min-[360px]:max-w-[284px] min-[390px]:max-w-[328px] sm:max-w-[428px] md:max-w-[408px] lg:mt-3 lg:max-w-[440px] lg:gap-5 xl:max-w-[470px]">
                 {TEAM_MEMBERS.slice(4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -180,7 +180,7 @@ function TeamPortrait({
   return (
     <figure
       className={cn(
-        "group relative isolate aspect-[196/269] w-[72px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[390px]:w-[80px] sm:w-[96px] md:w-[96px] lg:w-[112px] xl:w-[124px] 2xl:w-[136px]",
+        "group relative isolate aspect-[196/269] w-[70px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[360px]:w-[78px] min-[390px]:w-[88px] sm:w-[108px] md:w-[112px] lg:w-[122px] xl:w-[134px] 2xl:w-[142px]",
         className,
       )}
     >
@@ -291,7 +291,7 @@ function BrainstormingSection() {
         </p>
       </div>
 
-      <div className="lg:translate-x-14 xl:translate-x-14">
+      <div className="lg:translate-x-20 xl:translate-x-24">
         <BrainstormingCardSwap />
       </div>
     </Reveal>
@@ -300,6 +300,15 @@ function BrainstormingSection() {
 
 function ExpertiseSwissBanner() {
   const t = useTranslations("ExpertisePage.Swiss");
+  const titleLineTwo = t("titleLineTwo");
+  const titleLineTwoWords = titleLineTwo.split(" ");
+  const mobileTitleLines =
+    titleLineTwoWords.length > 3
+      ? [
+          titleLineTwoWords.slice(0, -2).join(" "),
+          titleLineTwoWords.slice(-2).join(" "),
+        ]
+      : [titleLineTwo];
 
   return (
     <section className="relative h-[176px] overflow-hidden bg-alps md:h-[236px]">
@@ -353,17 +362,22 @@ function ExpertiseSwissBanner() {
         size="wide"
         className="relative z-10 flex h-full max-w-none items-center justify-between px-5 sm:px-8 md:justify-end lg:px-10 xl:px-11"
       >
-        <Reveal className="flex w-full items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
+        <Reveal className="flex w-full min-w-0 items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="max-w-[calc(100vw-128px)] text-right text-[12px] font-extrabold uppercase leading-[1.08] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[13px] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
+            className="min-w-0 max-w-[calc(100vw-104px)] text-right text-[15px] font-extrabold uppercase leading-[1.05] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[17px] sm:max-w-[560px] sm:text-[22px] md:max-w-[660px] md:text-left md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
             <span className="block whitespace-nowrap" aria-hidden>
               {t("titleLineOne")}
             </span>
-            <span className="block whitespace-nowrap" aria-hidden>
-              {t("titleLineTwo")}
+            <span className="hidden whitespace-nowrap sm:block" aria-hidden>
+              {titleLineTwo}
             </span>
+            {mobileTitleLines.map((line) => (
+              <span key={line} className="block sm:hidden" aria-hidden>
+                {line}
+              </span>
+            ))}
           </h2>
           <Image
             src="/assets/flag-switzerland.webp"

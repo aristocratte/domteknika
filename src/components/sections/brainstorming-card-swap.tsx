@@ -2,7 +2,7 @@
 
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import CardSwapModule, { Card as CardModule } from "@/components/CardSwap";
 
@@ -28,36 +28,104 @@ type CardProps = {
 const CardSwap = CardSwapModule as ComponentType<CardSwapProps>;
 const Card = CardModule as ComponentType<CardProps>;
 
+const DEFAULT_SWAP_SIZE = {
+  width: 460,
+  height: 360,
+  cardDistance: 64,
+  verticalDistance: 46,
+};
+
 const BRAINSTORMING_CARDS = [
   {
-    image: "/assets/expertise-page/brainstorming/brainstorming-numedico-sliding-speculum.webp",
-    title: "Sliding speculum",
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-01.jpg",
+    title: "Porte et tringle",
   },
   {
-    image: "/assets/expertise-page/brainstorming/brainstorming-numedico-pump-skin-solution.webp",
-    title: "Pump solution",
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-02.jpg",
+    title: "Verrou à ressort",
   },
   {
-    image: "/assets/expertise-page/brainstorming/brainstorming-ikitty-capsule-rack.webp",
-    title: "Capsule rack",
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-03.jpg",
+    title: "Verrouillage magnétique",
   },
   {
-    image: "/assets/expertise-page/brainstorming/brainstorming-ikitty-one-way.webp",
-    title: "One-way flow",
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-04.jpg",
+    title: "Attache trois points",
   },
   {
-    image: "/assets/expertise-page/brainstorming/brainstorming-ikitty-closed-loop.webp",
-    title: "Closed loop",
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-05.jpg",
+    title: "Loquet souple",
+  },
+  {
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-06.jpg",
+    title: "Déverrouillage mécanique",
+  },
+  {
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-07.jpg",
+    title: "Rotation 90 degrés",
+  },
+  {
+    image:
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-08.jpg",
+    title: "Adhérence mécanique",
   },
 ] as const;
 
 export function BrainstormingCardSwap() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [manualSwapSignal, setManualSwapSignal] = useState(0);
+  const [swapSize, setSwapSize] = useState(DEFAULT_SWAP_SIZE);
   const triggerSwap = () => setManualSwapSignal((signal) => signal + 1);
+
+  useEffect(() => {
+    const node = wrapperRef.current;
+    if (!node) return;
+
+    const updateSize = () => {
+      const availableWidth = node.getBoundingClientRect().width;
+      const widthRatio = availableWidth < 480 ? 0.92 : availableWidth < 900 ? 0.78 : 0.72;
+      const minWidth = availableWidth < 340 ? 250 : 286;
+      const width = Math.round(Math.min(460, Math.max(minWidth, availableWidth * widthRatio)));
+      const height = Math.round(width * 0.78);
+      const cardDistance = Math.round(width * (availableWidth < 480 ? 0.055 : 0.14));
+      const verticalDistance = Math.round(width * (availableWidth < 480 ? 0.06 : 0.1));
+
+      setSwapSize((current) => {
+        if (
+          current.width === width &&
+          current.height === height &&
+          current.cardDistance === cardDistance &&
+          current.verticalDistance === verticalDistance
+        ) {
+          return current;
+        }
+
+        return { width, height, cardDistance, verticalDistance };
+      });
+    };
+
+    updateSize();
+
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
+      ref={wrapperRef}
       className="domtek-card-swap relative h-[440px] cursor-pointer overflow-hidden bg-transparent sm:h-[500px] lg:h-[560px]"
+      style={{
+        height: `clamp(356px, ${swapSize.height + 144}px, 560px)`,
+      }}
       role="button"
       tabIndex={0}
       aria-label="Faire avancer les cartes de brainstorming"
@@ -70,16 +138,15 @@ export function BrainstormingCardSwap() {
       }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12px_12px,rgba(227,6,19,0.08)_1.2px,transparent_1.3px)] bg-[length:28px_28px] opacity-45" />
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
+      <div className="domtek-card-swap-side-fade pointer-events-none absolute inset-y-0 left-0 z-20" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-white to-transparent" />
 
       <CardSwap
-        width={460}
-        height={360}
-        cardDistance={64}
-        verticalDistance={46}
+        width={swapSize.width}
+        height={swapSize.height}
+        cardDistance={swapSize.cardDistance}
+        verticalDistance={swapSize.verticalDistance}
         delay={3200}
         manualSwapSignal={manualSwapSignal}
         skewAmount={3}
@@ -102,7 +169,7 @@ export function BrainstormingCardSwap() {
                   alt={item.title}
                   fill
                   sizes="(max-width: 640px) 320px, (max-width: 1024px) 420px, 460px"
-                  className="object-cover"
+                  className="object-contain"
                   draggable={false}
                 />
               </div>

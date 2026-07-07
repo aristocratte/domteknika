@@ -26,7 +26,27 @@
 .domtek-card-swap .card-swap-container {
   bottom: 50%;
   right: 50%;
-  transform: translate(46%, 49%);
+  transform: translate(52%, 49%);
+}
+
+.domtek-card-swap {
+  contain: paint;
+  overflow: clip;
+}
+
+.domtek-card-swap-side-fade {
+  width: clamp(82px, 16vw, 132px);
+  background: linear-gradient(
+    to right,
+    #fff 0%,
+    rgba(255, 255, 255, 0.98) 34%,
+    rgba(255, 255, 255, 0.78) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-backdrop-filter: blur(1.2px);
+  backdrop-filter: blur(1.2px);
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 100%);
 }
 
 .domtek-card-swap .card {
@@ -46,7 +66,7 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(34%, 49%) scale(0.78);
+    transform: translate(42%, 49%);
   }
 }
 
@@ -56,6 +76,12 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(24%, 50%) scale(0.62);
+    transform: translate(49%, 50%);
+  }
+
+  .domtek-card-swap-side-fade {
+    width: clamp(104px, 34vw, 156px);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 }
