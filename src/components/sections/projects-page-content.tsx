@@ -35,8 +35,7 @@ type ProjectSortKey =
   | "date-desc"
   | "date-asc"
   | "title-asc"
-  | "title-desc"
-  | "category";
+  | "title-desc";
 
 const PATENT_ASSET_BASE = "/assets/patent-page";
 const PROJECT_LIGHTBOX_FRAME_CLASS =
@@ -3104,7 +3103,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "Oldest first" },
         { key: "title-asc", label: "Title A-Z" },
         { key: "title-desc", label: "Title Z-A" },
-        { key: "category", label: "Category" },
       ],
     },
     searchLabel: "Search projects",
@@ -3231,7 +3229,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "Plus anciens" },
         { key: "title-asc", label: "Titre A-Z" },
         { key: "title-desc", label: "Titre Z-A" },
-        { key: "category", label: "Catégorie" },
       ],
     },
     searchLabel: "Rechercher des projets",
@@ -3306,7 +3303,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "Älteste zuerst" },
         { key: "title-asc", label: "Titel A-Z" },
         { key: "title-desc", label: "Titel Z-A" },
-        { key: "category", label: "Kategorie" },
       ],
     },
     searchLabel: "Projekte suchen",
@@ -3381,7 +3377,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "Más antiguos" },
         { key: "title-asc", label: "Título A-Z" },
         { key: "title-desc", label: "Título Z-A" },
-        { key: "category", label: "Categoría" },
       ],
     },
     searchLabel: "Buscar proyectos",
@@ -3456,7 +3451,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "오래된순" },
         { key: "title-asc", label: "제목 A-Z" },
         { key: "title-desc", label: "제목 Z-A" },
-        { key: "category", label: "카테고리" },
       ],
     },
     searchLabel: "프로젝트 검색",
@@ -3531,7 +3525,6 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         { key: "date-asc", label: "最早优先" },
         { key: "title-asc", label: "标题 A-Z" },
         { key: "title-desc", label: "标题 Z-A" },
-        { key: "category", label: "类别" },
       ],
     },
     searchLabel: "搜索项目",
@@ -3679,16 +3672,6 @@ function sortProjects(
           return compareProjectTitles(a.project, b.project, locale);
         case "title-desc":
           return compareProjectTitles(b.project, a.project, locale);
-        case "category": {
-          const categoryOrder = a.project.category.localeCompare(
-            b.project.category,
-            locale,
-            { numeric: true },
-          );
-          if (categoryOrder !== 0) return categoryOrder;
-
-          return compareProjectTitles(a.project, b.project, locale);
-        }
         case "default":
         default:
           return a.index - b.index;
@@ -4697,15 +4680,24 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   const closeTimerRef = useRef<number | null>(null);
   const dialogStateRef = useRef(dialogState);
   const lockedScrollYRef = useRef(0);
-  const sortDetailsRef = useRef<HTMLDetailsElement | null>(null);
 
   useEffect(() => {
     const closeSortOnOutsidePointer = (event: PointerEvent) => {
-      const sortDetails = sortDetailsRef.current;
-      if (!sortDetails?.open) return;
-      if (event.target instanceof Node && sortDetails.contains(event.target)) return;
+      const sortDetails = Array.from(
+        document.querySelectorAll<HTMLDetailsElement>(
+          "[data-project-sort-details]",
+        ),
+      );
+      const openSortDetails = sortDetails.filter((details) => details.open);
+      if (openSortDetails.length === 0) return;
+      if (
+        event.target instanceof Node &&
+        openSortDetails.some((details) => details.contains(event.target as Node))
+      ) {
+        return;
+      }
 
-      sortDetails.removeAttribute("open");
+      openSortDetails.forEach((details) => details.removeAttribute("open"));
     };
 
     document.addEventListener("pointerdown", closeSortOnOutsidePointer);
@@ -4752,6 +4744,74 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     copy.sort.options.find((option) => option.key === sortKey)?.label ??
     copy.sort.options[0]?.label ??
     copy.sort.label;
+
+  const renderProjectControls = ({
+    wrapperClassName,
+    sortClassName,
+    searchClassName,
+  }: {
+    wrapperClassName: string;
+    sortClassName: string;
+    searchClassName: string;
+  }) => (
+    <div className={wrapperClassName}>
+      <details data-project-sort-details className={sortClassName}>
+        <summary
+          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-2 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:px-2 md:px-3 xl:px-4 [&::-webkit-details-marker]:hidden"
+          aria-label={copy.sort.label}
+        >
+          <span className="inline-flex min-w-0 items-center gap-2">
+            <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+            <span className="shrink-0">{copy.sort.label}</span>
+          </span>
+          <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground min-[520px]:max-w-[48px] md:max-w-[74px] xl:max-w-[110px]">
+            {activeSortLabel}
+          </span>
+        </summary>
+        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+          {copy.sort.options.map((option) => {
+            const active = option.key === sortKey;
+
+            return (
+              <button
+                key={option.key}
+                type="button"
+                className={cn(
+                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                  active && "bg-brand text-white hover:bg-brand",
+                )}
+                aria-pressed={active}
+                onClick={(event) => {
+                  setSortKey(option.key);
+                  event.currentTarget
+                    .closest("details")
+                    ?.removeAttribute("open");
+                }}
+              >
+                <span>{option.label}</span>
+                {active ? <Check className="size-4 shrink-0" aria-hidden /> : null}
+              </button>
+            );
+          })}
+        </div>
+      </details>
+
+      <label className={searchClassName}>
+        <span className="sr-only">{copy.searchLabel}</span>
+        <Search
+          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+          aria-hidden
+        />
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+          placeholder={copy.searchPlaceholder}
+          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+        />
+      </label>
+    </div>
+  );
   const [expandedGalleryIndex, setExpandedGalleryIndex] = useState<number | null>(
     null,
   );
@@ -5252,8 +5312,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         aria-labelledby="selected-projects"
       >
         <Container size="wide">
-          <Reveal className="flex min-w-0 flex-col gap-4">
-            <div className="min-w-0">
+          <Reveal className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="min-w-0 shrink-0">
               <h2
                 id="selected-projects"
                 className="text-[22px] font-extrabold leading-none text-foreground"
@@ -5264,12 +5324,18 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 {visibleProjects.length} / {copy.projects.length} {copy.resultsLabel}
               </p>
             </div>
+            {renderProjectControls({
+              wrapperClassName:
+                "grid w-full min-w-0 gap-3 min-[520px]:grid-cols-[minmax(138px,180px)_minmax(0,1fr)] md:w-auto md:flex lg:hidden",
+              sortClassName: "relative z-30 min-w-0 md:w-[180px]",
+              searchClassName: "relative block min-w-0 md:w-[320px]",
+            })}
           </Reveal>
 
           <Reveal delay={0.06} className="mb-7 mt-7" as="div">
-            <div className="grid gap-3 md:justify-items-center lg:grid-cols-[auto_auto] lg:items-start lg:justify-between lg:justify-items-stretch">
+            <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px]">
               <div
-                className="grid w-full grid-cols-2 gap-3 md:mx-auto md:w-fit md:grid-cols-[82px_repeat(3,148px)] lg:mx-0 lg:grid-cols-[82px_repeat(3,136px)] xl:grid-cols-[82px_repeat(3,152px)]"
+                className="contents"
                 role="group"
                 aria-label={copy.filtersLabel}
               >
@@ -5286,7 +5352,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       key={filter.key}
                       type="button"
                       className={cn(
-                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]",
+                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 [transition-timing-function:var(--ease-smooth)]",
                         filter.icon
                           ? "grid-cols-[auto_1fr]"
                           : "place-items-center text-center",
@@ -5304,7 +5370,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                           height={filter.height}
                           unoptimized
                           className={cn(
-                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 [transition-timing-function:var(--ease-smooth)]",
+                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 min-[520px]:max-h-7 min-[520px]:max-w-7 md:max-h-none md:max-w-none [transition-timing-function:var(--ease-smooth)]",
                             active && "brightness-0 invert",
                           )}
                         />
@@ -5315,13 +5381,13 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                           !filter.icon && "place-items-center text-center",
                         )}
                       >
-                        <strong className="text-[12px] font-extrabold leading-none">
+                        <strong className="truncate text-[12px] font-extrabold leading-none min-[520px]:text-[11px] md:text-[12px]">
                           {filter.label}
                         </strong>
                         {filter.key !== "all" && (
                           <span
                             className={cn(
-                              "mt-1 text-[9px] font-medium leading-none text-muted-foreground",
+                              "mt-1 truncate text-[9px] font-medium leading-none text-muted-foreground",
                               active && "text-white/85",
                             )}
                           >
@@ -5333,63 +5399,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   );
                 })}
               </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center md:w-fit lg:w-auto lg:justify-end">
-                <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px] lg:w-[160px] xl:w-[180px]">
-                  <summary
-                    className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
-                    aria-label={copy.sort.label}
-                  >
-                    <span className="inline-flex min-w-0 items-center gap-2">
-                      <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
-                      <span className="shrink-0">{copy.sort.label}</span>
-                    </span>
-                    <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground">
-                      {activeSortLabel}
-                    </span>
-                  </summary>
-                  <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
-                    {copy.sort.options.map((option) => {
-                      const active = option.key === sortKey;
-
-                      return (
-                        <button
-                          key={option.key}
-                          type="button"
-                          className={cn(
-                            "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
-                            active && "bg-brand text-white hover:bg-brand",
-                          )}
-                          aria-pressed={active}
-                          onClick={() => {
-                            setSortKey(option.key);
-                            sortDetailsRef.current?.removeAttribute("open");
-                          }}
-                        >
-                          <span>{option.label}</span>
-                          {active ? (
-                            <Check className="size-4 shrink-0" aria-hidden />
-                          ) : null}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </details>
-
-                <label className="relative block w-full sm:w-[320px] sm:max-w-[320px] lg:w-[200px] lg:max-w-none xl:w-[254px]">
-                  <span className="sr-only">{copy.searchLabel}</span>
-                  <Search
-                    className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                    aria-hidden
-                  />
-                  <input
-                    type="search"
-                    value={searchQuery}
-                    onChange={(event) => setSearchQuery(event.target.value)}
-                    placeholder={copy.searchPlaceholder}
-                    className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
-                  />
-                </label>
-              </div>
+              {renderProjectControls({
+                wrapperClassName: "hidden lg:contents",
+                sortClassName: "relative z-30 min-w-0",
+                searchClassName: "relative block w-full min-w-0",
+              })}
             </div>
           </Reveal>
 

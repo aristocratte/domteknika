@@ -1137,15 +1137,24 @@ export function PatentPageContent({ locale }: { locale: string }) {
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
-  const sortDetailsRef = useRef<HTMLDetailsElement | null>(null);
 
   useEffect(() => {
-    const closeSortOnOutsidePointer = (event: Event) => {
-      const sortDetails = sortDetailsRef.current;
-      if (!sortDetails?.open) return;
-      if (event.target instanceof Node && sortDetails.contains(event.target)) return;
+    const closeSortOnOutsidePointer = (event: globalThis.PointerEvent) => {
+      const sortDetails = Array.from(
+        document.querySelectorAll<HTMLDetailsElement>(
+          "[data-patent-sort-details]",
+        ),
+      );
+      const openSortDetails = sortDetails.filter((details) => details.open);
+      if (openSortDetails.length === 0) return;
+      if (
+        event.target instanceof Node &&
+        openSortDetails.some((details) => details.contains(event.target as Node))
+      ) {
+        return;
+      }
 
-      sortDetails.removeAttribute("open");
+      openSortDetails.forEach((details) => details.removeAttribute("open"));
     };
 
     document.addEventListener("pointerdown", closeSortOnOutsidePointer);
@@ -1172,6 +1181,72 @@ export function PatentPageContent({ locale }: { locale: string }) {
     copy.sort.options.find((option) => option.key === sortKey)?.label ??
     copy.sort.options[0]?.label ??
     copy.sort.label;
+  const renderPatentControls = ({
+    wrapperClassName,
+    sortClassName,
+    searchClassName,
+  }: {
+    wrapperClassName: string;
+    sortClassName: string;
+    searchClassName: string;
+  }) => (
+    <div className={wrapperClassName}>
+      <details data-patent-sort-details className={sortClassName}>
+        <summary
+          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+          aria-label={copy.sort.label}
+        >
+          <span className="inline-flex min-w-0 items-center gap-2">
+            <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+            <span className="shrink-0">{copy.sort.label}</span>
+          </span>
+          <span className="max-w-[92px] truncate text-[12px] font-medium text-muted-foreground">
+            {activeSortLabel}
+          </span>
+        </summary>
+        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+          {copy.sort.options.map((option) => {
+            const active = option.key === sortKey;
+
+            return (
+              <button
+                key={option.key}
+                type="button"
+                className={cn(
+                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                  active && "bg-brand text-white hover:bg-brand",
+                )}
+                aria-pressed={active}
+                onClick={(event) => {
+                  setSortKey(option.key);
+                  event.currentTarget
+                    .closest("details")
+                    ?.removeAttribute("open");
+                }}
+              >
+                <span>{option.label}</span>
+                {active ? <Check className="size-4 shrink-0" aria-hidden /> : null}
+              </button>
+            );
+          })}
+        </div>
+      </details>
+
+      <label className={searchClassName}>
+        <Search
+          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+          aria-hidden
+        />
+        <input
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder={copy.searchPlaceholder}
+          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+          type="search"
+        />
+      </label>
+    </div>
+  );
   const localizedProjects = useMemo(
     () => getProjectsForLocale(resolvedLocale),
     [resolvedLocale],
@@ -1688,20 +1763,24 @@ export function PatentPageContent({ locale }: { locale: string }) {
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">
-          <Reveal>
-            <div>
-              <div>
-                <h2
-                  id="patent-archive-title"
-                  className="text-[22px] font-extrabold leading-none text-foreground"
-                >
-                  {copy.archiveTitle}
-                </h2>
-                <p className="mt-3 text-[12px] font-medium text-muted-foreground">
-                  {visiblePatents.length} / {PATENTS.length} {copy.resultsLabel}
-                </p>
-              </div>
+          <Reveal className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+            <div className="min-w-0 shrink-0">
+              <h2
+                id="patent-archive-title"
+                className="text-[22px] font-extrabold leading-none text-foreground"
+              >
+                {copy.archiveTitle}
+              </h2>
+              <p className="mt-3 text-[12px] font-medium text-muted-foreground">
+                {visiblePatents.length} / {PATENTS.length} {copy.resultsLabel}
+              </p>
             </div>
+            {renderPatentControls({
+              wrapperClassName:
+                "hidden w-full min-w-0 gap-3 sm:grid sm:grid-cols-[minmax(150px,210px)_minmax(0,360px)] sm:justify-end md:w-auto md:flex",
+              sortClassName: "relative z-30 min-w-0 md:w-[210px]",
+              searchClassName: "relative block min-w-0 md:w-[360px]",
+            })}
           </Reveal>
 
           <Reveal delay={0.06} className="mt-9" as="div">
@@ -1767,66 +1846,12 @@ export function PatentPageContent({ locale }: { locale: string }) {
             </div>
           </Reveal>
 
-          <Reveal delay={0.09} className="mt-5" as="div">
-            <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
-              <details
-                ref={sortDetailsRef}
-                className="relative z-30 w-full sm:w-[210px]"
-              >
-                <summary
-                  className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
-                  aria-label={copy.sort.label}
-                >
-                  <span className="inline-flex min-w-0 items-center gap-2">
-                    <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
-                    <span className="shrink-0">{copy.sort.label}</span>
-                  </span>
-                  <span className="max-w-[92px] truncate text-[12px] font-medium text-muted-foreground">
-                    {activeSortLabel}
-                  </span>
-                </summary>
-                <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
-                  {copy.sort.options.map((option) => {
-                    const active = option.key === sortKey;
-
-                    return (
-                      <button
-                        key={option.key}
-                        type="button"
-                        className={cn(
-                          "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
-                          active && "bg-brand text-white hover:bg-brand",
-                        )}
-                        aria-pressed={active}
-                        onClick={() => {
-                          setSortKey(option.key);
-                          sortDetailsRef.current?.removeAttribute("open");
-                        }}
-                      >
-                        <span>{option.label}</span>
-                        {active ? (
-                          <Check className="size-4 shrink-0" aria-hidden />
-                        ) : null}
-                      </button>
-                    );
-                  })}
-                </div>
-              </details>
-
-              <label className="relative block w-full sm:w-[320px] md:w-[360px]">
-                <Search
-                  className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                  aria-hidden
-                />
-                <input
-                  value={searchTerm}
-                  onChange={(event) => setSearchTerm(event.target.value)}
-                  placeholder={copy.searchPlaceholder}
-                  className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
-                  type="search"
-                />
-              </label>
-            </div>
+          <Reveal delay={0.09} className="mt-5 sm:hidden" as="div">
+            {renderPatentControls({
+              wrapperClassName: "grid w-full gap-3",
+              sortClassName: "relative z-30 w-full",
+              searchClassName: "relative block w-full",
+            })}
           </Reveal>
 
           {visiblePatents.length > 0 ? (
