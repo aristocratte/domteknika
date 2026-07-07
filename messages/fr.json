@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "Racines suisses. Nous façonnons vos idées."
+      "title": "Ancré en Suisse. Nous donnons forme à vos idées.",
+      "titleLineOne": "Ancré en Suisse.",
+      "titleLineTwo": "Nous donnons forme à vos idées."
     },
     "AddedValue": {
       "eyebrow": "Notre valeur ajoutée",
@@ -239,6 +241,8 @@
     "cta": "Démarrer votre projet"
   },
   "Footer": {
+    "addressLabel": "Adresse",
+    "contactLabel": "Contact",
     "country": "Suisse",
     "rights": "Tous droits réservés"
   },

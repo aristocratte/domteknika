@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "Desde raíces suizas. Damos forma a tus ideas."
+      "title": "Arraigados en Suiza. Damos forma a tus ideas.",
+      "titleLineOne": "Arraigados en Suiza.",
+      "titleLineTwo": "Damos forma a tus ideas."
     },
     "AddedValue": {
       "eyebrow": "Nuestro valor añadido",
@@ -239,6 +241,8 @@
     "cta": "Iniciar tu proyecto"
   },
   "Footer": {
+    "addressLabel": "Dirección",
+    "contactLabel": "Contacto",
     "country": "Suiza",
     "rights": "Todos los derechos reservados"
   },

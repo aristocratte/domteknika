@@ -5011,7 +5011,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   );
                 })}
               </div>
-              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-end lg:w-auto">
+              <div className="flex w-full flex-col gap-3 sm:flex-row md:justify-start lg:w-auto lg:justify-end">
                 <details ref={sortDetailsRef} className="relative z-30 sm:w-[180px] lg:w-[160px] xl:w-[180px]">
                   <summary
                     className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"

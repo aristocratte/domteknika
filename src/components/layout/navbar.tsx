@@ -95,7 +95,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
       <nav
-        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] md:block"
+        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] min-[810px]:block"
         aria-label="Primary"
       >
         <div
@@ -120,18 +120,18 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full grid-cols-[118px_minmax(0,1fr)_178px] items-center gap-3 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)_230px]"
+          className="relative z-10 grid h-full grid-cols-[132px_minmax(0,1fr)_210px] items-center gap-2 px-4 sm:px-4 md:px-4 min-[880px]:px-6 lg:grid-cols-[132px_minmax(0,1fr)_220px] lg:gap-3 lg:px-8 xl:px-10"
         >
           <Link
             href="/"
             className="inline-flex w-fit rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             aria-label="DOMTEKNIKA home"
           >
-            <Logo className="w-[120px] md:w-[118px] lg:w-[132px] 2xl:w-[158px]" />
+            <Logo className="w-[132px]" />
           </Link>
 
           <ul
-            className="hidden min-w-0 items-center justify-center gap-3 md:flex min-[960px]:gap-5 lg:gap-6 xl:gap-8 2xl:gap-10"
+            className="hidden min-w-0 items-center justify-center gap-6 md:flex"
             onMouseLeave={() => setHoveredNavKey(null)}
           >
             {NAV_ITEMS.map((item) => {
@@ -177,7 +177,7 @@ export function Navbar() {
 
       <motion.div
         className={cn(
-          "fixed inset-x-4 top-3 z-[910] transform-gpu will-change-transform md:hidden",
+          "fixed inset-x-4 top-3 z-[910] transform-gpu will-change-transform min-[810px]:hidden",
           !mobileNavVisible && !mobileOpen && "pointer-events-none",
         )}
         initial={false}
@@ -217,7 +217,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-[920] md:hidden"
+            className="fixed inset-0 z-[920] min-[810px]:hidden"
             initial="closed"
             animate="open"
             exit="closed"
@@ -319,7 +319,7 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   const className = cn(
-    "relative inline-flex whitespace-nowrap text-[13px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand lg:text-[14px] 2xl:text-[16px]",
+    "relative inline-flex whitespace-nowrap text-[16px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
     mobile &&
       "w-full items-center rounded-[7px] px-4 py-3 text-[18px] hover:bg-muted",

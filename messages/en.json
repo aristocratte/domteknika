@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "From Swiss roots. We shape your ideas."
+      "title": "Rooted in Switzerland. We shape your ideas.",
+      "titleLineOne": "Rooted in Switzerland.",
+      "titleLineTwo": "We shape your ideas."
     },
     "AddedValue": {
       "eyebrow": "Our added value",
@@ -239,6 +241,8 @@
     "cta": "Start your project"
   },
   "Footer": {
+    "addressLabel": "Address",
+    "contactLabel": "Contact",
     "country": "Switzerland",
     "rights": "All rights reserved"
   },

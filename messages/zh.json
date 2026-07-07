@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "源自瑞士根基。我们塑造你的想法。"
+      "title": "植根瑞士。我们让你的想法成形。",
+      "titleLineOne": "植根瑞士。",
+      "titleLineTwo": "我们让你的想法成形。"
     },
     "AddedValue": {
       "eyebrow": "我们的附加价值",
@@ -239,6 +241,8 @@
     "cta": "启动你的项目"
   },
   "Footer": {
+    "addressLabel": "地址",
+    "contactLabel": "联系方式",
     "country": "瑞士",
     "rights": "保留所有权利"
   },

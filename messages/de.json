@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "Aus Schweizer Wurzeln. Wir formen Ihre Ideen."
+      "title": "In der Schweiz verankert. Wir geben Ihren Ideen Form.",
+      "titleLineOne": "In der Schweiz verankert.",
+      "titleLineTwo": "Wir geben Ihren Ideen Form."
     },
     "AddedValue": {
       "eyebrow": "Unser Mehrwert",
@@ -239,6 +241,8 @@
     "cta": "Projekt starten"
   },
   "Footer": {
+    "addressLabel": "Adresse",
+    "contactLabel": "Kontakt",
     "country": "Schweiz",
     "rights": "Alle Rechte vorbehalten"
   },

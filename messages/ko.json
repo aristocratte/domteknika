@@ -170,7 +170,9 @@
       }
     },
     "Swiss": {
-      "title": "스위스의 뿌리에서 출발해 아이디어를 완성합니다."
+      "title": "스위스에 뿌리를 두고. 당신의 아이디어에 형태를 부여합니다.",
+      "titleLineOne": "스위스에 뿌리를 두고.",
+      "titleLineTwo": "당신의 아이디어에 형태를 부여합니다."
     },
     "AddedValue": {
       "eyebrow": "우리의 가치",
@@ -239,6 +241,8 @@
     "cta": "프로젝트 시작하기"
   },
   "Footer": {
+    "addressLabel": "주소",
+    "contactLabel": "문의",
     "country": "스위스",
     "rights": "모든 권리 보유"
   },

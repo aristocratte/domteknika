@@ -124,9 +124,9 @@ function ExpertiseHero() {
 
           <Reveal
             delay={0.1}
-            className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-[-18px] md:top-[-32px] md:min-h-0 md:w-[54%] lg:right-[-148px] lg:top-[-48px] lg:w-[60%]"
+            className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-0 md:top-[-32px] md:min-h-0 md:w-[52%] lg:right-[-36px] lg:top-[-48px] lg:w-[54%] xl:right-[-84px] xl:w-[58%] 2xl:right-[-148px] 2xl:w-[60%]"
           >
-            <div className="relative mx-auto w-[min(100%,356px)] pt-1 sm:w-[min(100%,500px)] md:ml-auto md:mr-0 md:w-full md:max-w-[540px] lg:max-w-[640px]">
+            <div className="relative mx-auto w-[min(100%,356px)] pt-1 sm:w-[min(100%,500px)] md:ml-auto md:mr-0 md:w-full md:max-w-[500px] lg:max-w-[560px] xl:max-w-[620px] 2xl:max-w-[640px]">
               <div className="mx-auto mb-4 flex w-fit flex-col items-center gap-1">
                 <p className="text-center text-[17px] font-medium leading-none text-muted-foreground md:text-[15px]">
                   {t("team")}
@@ -138,7 +138,7 @@ function ExpertiseHero() {
                 className="pointer-events-none absolute left-1/2 top-12 h-[272px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[292px] md:top-11 md:h-[238px] lg:h-[266px]"
                 aria-hidden
               />
-              <div className="relative mx-auto flex max-w-[312px] items-start justify-center gap-2 min-[390px]:max-w-[344px] sm:max-w-[500px] sm:gap-3 md:max-w-[500px] lg:max-w-[590px] lg:gap-4 xl:gap-5">
+              <div className="relative mx-auto flex max-w-[312px] items-start justify-center gap-2 min-[390px]:max-w-[344px] sm:max-w-[500px] sm:gap-3 md:max-w-[500px] lg:max-w-[540px] lg:gap-4 xl:max-w-[590px] xl:gap-5">
                 {TEAM_MEMBERS.slice(0, 4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -152,7 +152,7 @@ function ExpertiseHero() {
                   />
                 ))}
               </div>
-              <div className="relative mx-auto mt-4 flex max-w-[256px] items-start justify-center gap-3 min-[390px]:max-w-[286px] sm:max-w-[390px] md:max-w-[380px] lg:mt-3 lg:max-w-[440px] lg:gap-5">
+              <div className="relative mx-auto mt-4 flex max-w-[256px] items-start justify-center gap-3 min-[390px]:max-w-[286px] sm:max-w-[390px] md:max-w-[380px] lg:mt-3 lg:max-w-[410px] lg:gap-5 xl:max-w-[440px]">
                 {TEAM_MEMBERS.slice(4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -179,7 +179,7 @@ function TeamPortrait({
   return (
     <figure
       className={cn(
-        "group relative isolate aspect-[196/269] w-[72px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[390px]:w-[80px] sm:w-[96px] md:w-[96px] lg:w-[124px] xl:w-[136px]",
+        "group relative isolate aspect-[196/269] w-[72px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[390px]:w-[80px] sm:w-[96px] md:w-[96px] lg:w-[112px] xl:w-[124px] 2xl:w-[136px]",
         className,
       )}
     >
@@ -255,7 +255,6 @@ function ExpertiseGrid() {
 
 function ExpertiseSwissBanner() {
   const t = useTranslations("ExpertisePage.Swiss");
-  const titleParts = t("title").split(". ");
 
   return (
     <section className="relative h-[176px] overflow-hidden bg-alps md:h-[236px]">
@@ -314,12 +313,12 @@ function ExpertiseSwissBanner() {
             className="max-w-[300px] text-right text-[19px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
-            {titleParts.map((part, index) => (
-              <span key={`${part}-${index}`} className="block" aria-hidden>
-                {part}
-                {index === 0 && titleParts.length > 1 ? "." : ""}
-              </span>
-            ))}
+            <span className="block" aria-hidden>
+              {t("titleLineOne")}
+            </span>
+            <span className="block" aria-hidden>
+              {t("titleLineTwo")}
+            </span>
           </h2>
           <Image
             src="/assets/flag-switzerland.webp"
