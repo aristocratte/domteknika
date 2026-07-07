@@ -95,7 +95,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
       <nav
-        className="relative isolate mx-auto hidden h-[80px] w-[calc(100%-32px)] max-w-[1760px] rounded-b-[50px] md:block"
+        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] md:block"
         aria-label="Primary"
       >
         <div
@@ -120,7 +120,7 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full max-w-none grid-cols-[118px_minmax(0,1fr)_178px] items-center gap-4 px-8 sm:px-10 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:px-14 2xl:grid-cols-[190px_minmax(0,1fr)_250px] 2xl:px-20"
+          className="relative z-10 grid h-full grid-cols-[118px_minmax(0,1fr)_178px] items-center gap-3 lg:grid-cols-[150px_minmax(0,1fr)_230px] lg:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)_230px]"
         >
           <Link
             href="/"
