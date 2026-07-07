@@ -9,8 +9,10 @@ import Lenis from "lenis";
  *
  * - Honours `prefers-reduced-motion`: skips Lenis entirely when the user
  *   has requested reduced motion (accessibility).
- * - Anchors / data-scroll-to are handled natively; Lenis intercepts wheel,
- *   touch and keyboard scroll for a premium feel.
+ * - Keeps native scroll on touch/coarse pointer devices, where Lenis can
+ *   fight the browser's own momentum scrolling.
+ * - Anchors / data-scroll-to are handled natively; Lenis smooths wheel scroll
+ *   on pointer devices for a premium feel.
  */
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -23,7 +25,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (prefersReducedMotion) {
+    const prefersNativeTouchScroll =
+      window.matchMedia("(pointer: coarse)").matches ||
+      navigator.maxTouchPoints > 0;
+    if (prefersReducedMotion || prefersNativeTouchScroll) {
       return () => {
         window.history.scrollRestoration = previousScrollRestoration;
       };
@@ -38,26 +43,24 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     lenisRef.current = lenis;
 
     let cancelQueuedResize: (() => void) | null = null;
-    const queueResize = () => {
+    const queueResize = (immediate = false) => {
       cancelQueuedResize?.();
 
-      let firstFrame = 0;
-      let secondFrame = 0;
-      const timers: number[] = [];
+      let frame = 0;
+      let timer = 0;
       const resize = () => lenis.resize();
 
-      resize();
-      firstFrame = window.requestAnimationFrame(() => {
+      if (immediate) {
         resize();
-        secondFrame = window.requestAnimationFrame(resize);
+      }
+      frame = window.requestAnimationFrame(() => {
+        resize();
+        timer = window.setTimeout(resize, 260);
       });
-      timers.push(window.setTimeout(resize, 140));
-      timers.push(window.setTimeout(resize, 520));
 
       cancelQueuedResize = () => {
-        window.cancelAnimationFrame(firstFrame);
-        window.cancelAnimationFrame(secondFrame);
-        timers.forEach((timer) => window.clearTimeout(timer));
+        window.cancelAnimationFrame(frame);
+        window.clearTimeout(timer);
         cancelQueuedResize = null;
       };
     };
@@ -75,7 +78,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
         lenis.start();
       }
     };
-    const handleResizeRequest = () => queueResize();
+    const handleResizeRequest = () => queueResize(true);
     const handleAssetLoad = (event: Event) => {
       if (
         event.target === window ||
@@ -97,7 +100,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     window.addEventListener("domtek:scroll-resize", handleResizeRequest);
     window.addEventListener("load", handleAssetLoad);
     document.addEventListener("load", handleAssetLoad, true);
-    queueResize();
+    queueResize(true);
 
     return () => {
       cancelQueuedResize?.();

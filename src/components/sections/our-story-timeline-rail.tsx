@@ -2,15 +2,19 @@
 
 import {
   createContext,
+  type RefObject,
   type ReactNode,
+  useCallback,
   useContext,
+  useEffect,
   useRef,
   useState,
 } from "react";
 import {
   motion,
+  type MotionValue,
   type Variants,
-  useAnimationFrame,
+  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useSpring,
@@ -32,9 +36,12 @@ interface OurStoryTimelineBlockProps {
   className?: string;
 }
 
-const railContext = createContext<React.RefObject<HTMLDivElement | null> | null>(
-  null,
-);
+interface RailContextValue {
+  progress: MotionValue<number>;
+  railRef: RefObject<HTMLDivElement | null>;
+}
+
+const railContext = createContext<RailContextValue | null>(null);
 const stepContext = createContext(false);
 
 const blockVariants: Variants = {
@@ -64,7 +71,7 @@ export function OurStoryTimelineRail({ children }: OurStoryTimelineRailProps) {
   });
 
   return (
-    <railContext.Provider value={ref}>
+    <railContext.Provider value={{ progress: scaleY, railRef: ref }}>
       <div ref={ref} className="relative mt-7 md:mt-9">
         <div
           className="pointer-events-none absolute bottom-0 left-[13px] top-1 z-0 w-[3px] overflow-hidden rounded-full md:left-1/2 md:-translate-x-1/2"
@@ -89,36 +96,74 @@ export function OurStoryTimelineStep({
   dotClassName,
 }: OurStoryTimelineStepProps) {
   const dotRef = useRef<HTMLSpanElement>(null);
-  const reachedRef = useRef(false);
-  const railRef = useContext(railContext);
+  const rail = useContext(railContext);
   const prefersReducedMotion = useReducedMotion();
   const [isReached, setIsReached] = useState(Boolean(prefersReducedMotion));
+  const reachedRef = useRef(Boolean(prefersReducedMotion));
 
-  useAnimationFrame(() => {
+  if (!rail) {
+    throw new Error(
+      "OurStoryTimelineStep must be rendered inside OurStoryTimelineRail.",
+    );
+  }
+
+  const setReached = useCallback((nextReached: boolean) => {
+    if (reachedRef.current === nextReached) return;
+
+    reachedRef.current = nextReached;
+    setIsReached(nextReached);
+  }, []);
+
+  const checkReached = useCallback(() => {
     if (prefersReducedMotion) {
-      if (!reachedRef.current) {
-        reachedRef.current = true;
-        setIsReached(true);
-      }
+      setReached(true);
       return;
     }
 
-    const dot = dotRef.current;
-    const rail = railRef?.current;
-    const line = rail?.querySelector<HTMLElement>("[data-our-story-rail-fill]");
+    const railElement = rail.railRef.current;
+    const dotElement = dotRef.current;
+    const lineElement = railElement?.querySelector<HTMLElement>(
+      "[data-our-story-rail-fill]",
+    );
+    if (!railElement || !dotElement || !lineElement) return;
 
-    if (!dot || !line) {
-      return;
-    }
-
-    const dotRect = dot.getBoundingClientRect();
-    const lineRect = line.getBoundingClientRect();
+    const lineRect = lineElement.getBoundingClientRect();
+    const dotRect = dotElement.getBoundingClientRect();
     const dotCenter = dotRect.top + dotRect.height / 2;
-    const nextReached = lineRect.bottom + 1 >= dotCenter;
 
-    if (nextReached !== reachedRef.current) {
-      reachedRef.current = nextReached;
-      setIsReached(nextReached);
+    setReached(lineRect.bottom + 1 >= dotCenter);
+  }, [prefersReducedMotion, rail, setReached]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setReached(true);
+      return;
+    }
+
+    let frame = 0;
+    const queueCheck = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(checkReached);
+    };
+
+    queueCheck();
+    window.addEventListener("resize", queueCheck);
+    window.addEventListener("domtek:scroll-resize", queueCheck);
+    window.addEventListener("load", queueCheck);
+    document.addEventListener("load", queueCheck, true);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", queueCheck);
+      window.removeEventListener("domtek:scroll-resize", queueCheck);
+      window.removeEventListener("load", queueCheck);
+      document.removeEventListener("load", queueCheck, true);
+    };
+  }, [prefersReducedMotion, checkReached, setReached]);
+
+  useMotionValueEvent(rail.progress, "change", () => {
+    if (!prefersReducedMotion) {
+      checkReached();
     }
   });
 

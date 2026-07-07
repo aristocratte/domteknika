@@ -5,7 +5,6 @@ import { motion, useAnimationControls, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type RevealState = "hidden" | "visible";
-type ScrollDirection = "down" | "up";
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -45,24 +44,6 @@ export function Reveal({
   const currentStateRef = useRef<RevealState>("hidden");
   const targetStateRef = useRef<RevealState>("hidden");
   const isAnimatingRef = useRef(false);
-  const lastScrollYRef = useRef(0);
-  const scrollDirectionRef = useRef<ScrollDirection>("down");
-
-  useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
-
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      if (Math.abs(scrollY - lastScrollYRef.current) > 1) {
-        scrollDirectionRef.current =
-          scrollY > lastScrollYRef.current ? "down" : "up";
-        lastScrollYRef.current = scrollY;
-      }
-    };
-
-    window.addEventListener("scroll", updateScrollDirection, { passive: true });
-    return () => window.removeEventListener("scroll", updateScrollDirection);
-  }, []);
 
   const runAnimationQueue = useCallback(async () => {
     if (isAnimatingRef.current) return;
@@ -166,21 +147,10 @@ export function Reveal({
       variants={variants}
       initial={false}
       animate={controls}
-      viewport={{ once: false, margin: "-80px" }}
+      viewport={{ once: true, margin: "-80px" }}
       onViewportEnter={() => {
         if (window.scrollY < minimumScrollY) return;
-
-        if (scrollDirectionRef.current === "down") {
-          requestState("visible");
-          return;
-        }
-
-        setStateImmediately("visible");
-      }}
-      onViewportLeave={() => {
-        if (scrollDirectionRef.current === "up") {
-          requestState("hidden");
-        }
+        requestState("visible");
       }}
       transition={{ delay }}
       className={cn(className)}
