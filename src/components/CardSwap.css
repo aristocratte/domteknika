@@ -46,7 +46,7 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(46%, 49%) scale(0.78);
+    transform: translate(34%, 49%) scale(0.78);
   }
 }
 
@@ -56,6 +56,6 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(46%, 50%) scale(0.62);
+    transform: translate(24%, 50%) scale(0.62);
   }
 }

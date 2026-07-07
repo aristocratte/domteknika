@@ -241,7 +241,7 @@ function ExpertiseServiceCards({
   const t = useTranslations("ExpertisePage.Services");
 
   return (
-    <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
       {items.map((item, index) => {
         const Icon = item.icon;
 
@@ -250,16 +250,16 @@ function ExpertiseServiceCards({
             as="article"
             key={item.key}
             delay={(startIndex + index) * 0.05}
-            className="group flex min-h-[246px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-6 py-8 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)]"
+            className="group flex min-h-[220px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-3 py-6 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[246px] sm:px-6 sm:py-8"
           >
             <Icon
-              className="size-10 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1"
+              className="size-9 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1 sm:size-10"
               aria-hidden
             />
-            <h3 className="mt-8 text-[16px] font-extrabold leading-tight text-foreground">
+            <h3 className="mt-6 text-[14px] font-extrabold leading-tight text-foreground sm:mt-8 sm:text-[16px]">
               {t(`items.${item.key}.title` as never)}
             </h3>
-            <p className="mt-8 max-w-[250px] text-[14px] font-medium leading-[1.28] text-muted-foreground">
+            <p className="mt-5 max-w-[250px] text-[12.5px] font-medium leading-[1.28] text-muted-foreground sm:mt-8 sm:text-[14px]">
               {t(`items.${item.key}.description` as never)}
             </p>
           </Reveal>
@@ -291,7 +291,9 @@ function BrainstormingSection() {
         </p>
       </div>
 
-      <BrainstormingCardSwap />
+      <div className="lg:translate-x-14 xl:translate-x-14">
+        <BrainstormingCardSwap />
+      </div>
     </Reveal>
   );
 }

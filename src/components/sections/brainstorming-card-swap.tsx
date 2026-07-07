@@ -2,6 +2,7 @@
 
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
+import { useState } from "react";
 
 import CardSwapModule, { Card as CardModule } from "@/components/CardSwap";
 
@@ -12,6 +13,7 @@ type CardSwapProps = {
   verticalDistance?: number;
   delay?: number;
   pauseOnHover?: boolean;
+  manualSwapSignal?: number;
   skewAmount?: number;
   easing?: "elastic" | string;
   children: ReactNode;
@@ -50,8 +52,23 @@ const BRAINSTORMING_CARDS = [
 ] as const;
 
 export function BrainstormingCardSwap() {
+  const [manualSwapSignal, setManualSwapSignal] = useState(0);
+  const triggerSwap = () => setManualSwapSignal((signal) => signal + 1);
+
   return (
-    <div className="domtek-card-swap relative h-[440px] overflow-hidden bg-transparent sm:h-[500px] lg:h-[560px]">
+    <div
+      className="domtek-card-swap relative h-[440px] cursor-pointer overflow-hidden bg-transparent sm:h-[500px] lg:h-[560px]"
+      role="button"
+      tabIndex={0}
+      aria-label="Faire avancer les cartes de brainstorming"
+      onPointerDown={triggerSwap}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          triggerSwap();
+        }
+      }}
+    >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12px_12px,rgba(227,6,19,0.08)_1.2px,transparent_1.3px)] bg-[length:28px_28px] opacity-45" />
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
@@ -64,6 +81,7 @@ export function BrainstormingCardSwap() {
         cardDistance={64}
         verticalDistance={46}
         delay={3200}
+        manualSwapSignal={manualSwapSignal}
         skewAmount={3}
         easing="elastic"
       >

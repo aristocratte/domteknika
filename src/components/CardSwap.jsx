@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useMemo, useRef } from 'react';
 import gsap from 'gsap';
 import './CardSwap.css';
 
@@ -36,11 +36,12 @@ const CardSwap = ({
   delay = 5000,
   pauseOnHover = false,
   onCardClick,
+  manualSwapSignal = 0,
   skewAmount = 6,
   easing = 'elastic',
   children
 }) => {
-  const config =
+  const autoConfig =
     easing === 'elastic'
       ? {
           ease: 'elastic.out(0.6,0.9)',
@@ -58,6 +59,14 @@ const CardSwap = ({
           promoteOverlap: 0.45,
           returnDelay: 0.2
         };
+  const manualConfig = {
+    ease: 'power2.out',
+    durDrop: 0.45,
+    durMove: 0.5,
+    durReturn: 0.5,
+    promoteOverlap: 0.82,
+    returnDelay: 0.03
+  };
 
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
@@ -71,20 +80,21 @@ const CardSwap = ({
   const tlRef = useRef(null);
   const intervalRef = useRef();
   const isAnimatingRef = useRef(false);
+  const pendingManualSwapRef = useRef(false);
   const swapRef = useRef(null);
-  const restartIntervalRef = useRef(null);
+  const manualSwapRef = useRef(null);
   const container = useRef(null);
-  const [manualSwapTick, setManualSwapTick] = useState(0);
 
   useEffect(() => {
     const total = refs.length;
     refs.forEach((r, i) => placeNow(r.current, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
 
-    const swap = () => {
+    const swap = (isManual = false) => {
       if (order.current.length < 2) return;
       if (isAnimatingRef.current) return;
 
       isAnimatingRef.current = true;
+      const activeConfig = isManual ? manualConfig : autoConfig;
 
       const [front, ...rest] = order.current;
       const elFront = refs[front].current;
@@ -93,11 +103,11 @@ const CardSwap = ({
 
       tl.to(elFront, {
         y: '+=500',
-        duration: config.durDrop,
-        ease: config.ease
+        duration: activeConfig.durDrop,
+        ease: activeConfig.ease
       });
 
-      tl.addLabel('promote', `-=${config.durDrop * config.promoteOverlap}`);
+      tl.addLabel('promote', `-=${activeConfig.durDrop * activeConfig.promoteOverlap}`);
       rest.forEach((idx, i) => {
         const el = refs[idx].current;
         const slot = makeSlot(i, cardDistance, verticalDistance, refs.length);
@@ -108,15 +118,15 @@ const CardSwap = ({
             x: slot.x,
             y: slot.y,
             z: slot.z,
-            duration: config.durMove,
-            ease: config.ease
+            duration: activeConfig.durMove,
+            ease: activeConfig.ease
           },
           `promote+=${i * 0.15}`
         );
       });
 
       const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
-      tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
+      tl.addLabel('return', `promote+=${activeConfig.durMove * activeConfig.returnDelay}`);
       tl.call(
         () => {
           gsap.set(elFront, { zIndex: backSlot.zIndex });
@@ -130,8 +140,8 @@ const CardSwap = ({
           x: backSlot.x,
           y: backSlot.y,
           z: backSlot.z,
-          duration: config.durReturn,
-          ease: config.ease
+          duration: activeConfig.durReturn,
+          ease: activeConfig.ease
         },
         'return'
       );
@@ -139,12 +149,22 @@ const CardSwap = ({
       tl.call(() => {
         order.current = [...rest, front];
         isAnimatingRef.current = false;
+        if (pendingManualSwapRef.current) {
+          pendingManualSwapRef.current = false;
+          window.setTimeout(() => manualSwapRef.current?.(), 0);
+        }
       });
     };
 
     swapRef.current = swap;
-    restartIntervalRef.current = () => {
+    manualSwapRef.current = () => {
       clearInterval(intervalRef.current);
+      if (isAnimatingRef.current) {
+        pendingManualSwapRef.current = true;
+        tlRef.current?.timeScale(4);
+        return;
+      }
+      swap(true);
       intervalRef.current = window.setInterval(swap, delay);
     };
     intervalRef.current = window.setInterval(swap, delay);
@@ -177,28 +197,40 @@ const CardSwap = ({
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
 
   useEffect(() => {
-    if (manualSwapTick === 0) return;
-    swapRef.current?.();
-    restartIntervalRef.current?.();
-  }, [manualSwapTick]);
+    if (manualSwapSignal === 0) return;
+    manualSwapRef.current?.();
+  }, [manualSwapSignal]);
 
+  // GSAP needs stable DOM refs for the stacked card transforms.
+  // eslint-disable-next-line react-hooks/refs
   const rendered = childArr.map((child, i) =>
     isValidElement(child)
       ? cloneElement(child, {
           key: i,
-          ref: refs[i],
+          ref: node => {
+            refs[i].current = node;
+          },
           style: { width, height, ...(child.props.style ?? {}) },
-          onClick: e => {
-            child.props.onClick?.(e);
+          onPointerDown: e => {
+            e.stopPropagation();
+            child.props.onPointerDown?.(e);
             onCardClick?.(i);
-            setManualSwapTick(tick => tick + 1);
+            manualSwapRef.current?.();
           }
         })
       : child
   );
 
   return (
-    <div ref={container} className="card-swap-container" style={{ width, height }}>
+    <div
+      ref={container}
+      className="card-swap-container"
+      style={{ width, height }}
+      onPointerDown={event => {
+        event.stopPropagation();
+        manualSwapRef.current?.();
+      }}
+    >
       {rendered}
     </div>
   );
