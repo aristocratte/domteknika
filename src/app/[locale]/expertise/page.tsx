@@ -268,18 +268,18 @@ function ExpertiseSwissBanner() {
         />
       </div>
       <div
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,39,61,0.62)_0%,rgba(0,70,45,0.48)_48%,rgba(0,39,61,0.16)_100%)] md:hidden"
+        className="absolute inset-y-0 right-0 w-[76%] bg-[linear-gradient(to_left,rgba(4,91,39,0.58)_0%,rgba(4,91,39,0.42)_48%,rgba(4,91,39,0)_100%)] md:hidden"
         aria-hidden
       />
       <div
-        className="absolute inset-y-0 right-0 w-[58%] md:hidden"
+        className="absolute inset-y-0 right-0 w-[72%] md:hidden"
         style={{
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           WebkitMaskImage:
-            "linear-gradient(to left, black 0%, black 48%, transparent 100%)",
+            "linear-gradient(to left, black 0%, black 44%, transparent 100%)",
           maskImage:
-            "linear-gradient(to left, black 0%, black 48%, transparent 100%)",
+            "linear-gradient(to left, black 0%, black 44%, transparent 100%)",
         }}
         aria-hidden
       />
@@ -310,13 +310,13 @@ function ExpertiseSwissBanner() {
       >
         <Reveal className="flex w-full items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="max-w-[300px] text-right text-[19px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
+            className="max-w-[calc(100vw-106px)] text-right text-[14px] font-extrabold uppercase leading-[1.1] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[17px] sm:max-w-[360px] sm:text-[21px] md:max-w-[500px] md:text-left md:text-[26px] md:leading-[1.16]"
             aria-label={t("title")}
           >
-            <span className="block" aria-hidden>
+            <span className="block whitespace-nowrap" aria-hidden>
               {t("titleLineOne")}
             </span>
-            <span className="block" aria-hidden>
+            <span className="block whitespace-nowrap" aria-hidden>
               {t("titleLineTwo")}
             </span>
           </h2>
@@ -397,7 +397,7 @@ function AddedValueSection() {
                 return (
                   <div
                     key={stat.key}
-                    className={`group flex min-h-[96px] items-center gap-4 border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
+                    className={`group flex min-h-[96px] min-w-0 items-center gap-4 border-white/25 first:border-t-0 sm:min-h-[112px] sm:border-t-0 ${
                       index > 0 ? "border-t pt-8 sm:pt-0" : ""
                     } ${index % 2 === 0 ? "sm:pr-6" : "sm:pl-6"}`}
                   >
@@ -412,7 +412,7 @@ function AddedValueSection() {
                       <strong
                         className={`block whitespace-nowrap font-extrabold leading-none tracking-normal ${
                           isWideStat
-                            ? "text-[23px] md:text-[25px] xl:text-[27px]"
+                            ? "text-[clamp(19px,3.15vw,27px)]"
                             : "text-[24px] md:text-[28px] xl:text-[30px]"
                         }`}
                       >
