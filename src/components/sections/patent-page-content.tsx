@@ -3132,7 +3132,7 @@ function PatentCard({
   };
 
   return (
-    <article className="group/patent relative z-0 flex h-[392px] w-full origin-center transform-gpu flex-col overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[560px]:h-[258px] min-[560px]:flex-row [transition-timing-function:var(--ease-smooth)]">
+    <article className="group/patent relative z-0 flex h-[246px] w-full origin-center transform-gpu flex-row overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[390px]:h-[258px] [transition-timing-function:var(--ease-smooth)]">
       <button
         type="button"
         className="absolute inset-0 z-10 cursor-pointer rounded-[5px] outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
@@ -3141,16 +3141,16 @@ function PatentCard({
         onClick={() => onOpen(patent)}
       />
 
-      <span className="relative block h-[126px] bg-[#f7f7f7] min-[560px]:h-full min-[560px]:w-[38%] min-[560px]:shrink-0 lg:w-[35%]">
+      <span className="relative block h-full w-[36%] shrink-0 bg-[#f7f7f7] min-[390px]:w-[38%] lg:w-[35%]">
         {activeImage ? (
           <Image
             src={activeImage.href}
             alt=""
             fill
-            sizes="(max-width: 560px) 100vw, (max-width: 1024px) 38vw, 220px"
+            sizes="(max-width: 768px) 36vw, (max-width: 1024px) 38vw, 220px"
             quality={100}
             unoptimized
-            className="object-contain p-4 transition-transform duration-700 group-hover/patent:scale-105 min-[560px]:p-3 [transition-timing-function:var(--ease-smooth)]"
+            className="object-contain p-2.5 transition-transform duration-700 group-hover/patent:scale-105 min-[390px]:p-3 [transition-timing-function:var(--ease-smooth)]"
           />
         ) : (
           <span className="absolute inset-0 grid place-items-center">
@@ -3195,9 +3195,9 @@ function PatentCard({
         )}
       </span>
 
-      <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-5 pb-4 pt-5 min-[560px]:px-4 min-[560px]:py-4">
-        <span className="grid grid-cols-[28px_1fr_auto] items-start gap-4 min-[560px]:gap-3">
-          <span className="grid size-7 place-items-center" aria-hidden>
+      <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-3 py-3 min-[390px]:px-4 min-[390px]:py-4">
+        <span className="grid grid-cols-[24px_1fr_auto] items-start gap-2 min-[390px]:grid-cols-[28px_1fr_auto] min-[390px]:gap-3">
+          <span className="grid size-6 place-items-center min-[390px]:size-7" aria-hidden>
             <Image
               src={icon.src}
               alt=""
@@ -3207,7 +3207,7 @@ function PatentCard({
               className="object-contain transition-transform duration-500 group-hover/patent:scale-110 group-focus-within/patent:scale-110 [transition-timing-function:var(--ease-smooth)]"
             />
           </span>
-          <span className="max-w-[270px] text-[15px] font-extrabold leading-none text-brand min-[560px]:max-w-none min-[560px]:text-[13px] lg:text-[14px]">
+          <span className="max-w-none text-[12px] font-extrabold leading-none text-brand min-[390px]:text-[13px] lg:text-[14px]">
             {patent.publication}
             <span className="ml-2 inline-block size-1.5 translate-y-[-1px] rounded-full bg-brand" />
           </span>
@@ -3217,17 +3217,17 @@ function PatentCard({
           />
         </span>
 
-        <span className="mt-5 max-w-[300px] overflow-hidden text-[14px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] min-[560px]:mt-4 min-[560px]:max-w-none min-[560px]:text-[13px] min-[560px]:[-webkit-line-clamp:3] lg:text-[14px]">
+        <span className="mt-3 max-w-none overflow-hidden text-[12px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-4 min-[390px]:text-[13px] lg:text-[14px]">
           {patent.title}
         </span>
-        <span className="mt-3 h-[68px] max-w-[310px] overflow-hidden text-[10px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5] min-[560px]:h-[54px] min-[560px]:max-w-none min-[560px]:[-webkit-line-clamp:4] lg:h-[58px]">
+        <span className="mt-2 h-[44px] max-w-none overflow-hidden text-[9px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-3 min-[390px]:h-[54px] min-[390px]:text-[10px] min-[390px]:[-webkit-line-clamp:4] lg:h-[58px]">
           {patent.abstract}
         </span>
 
-        <span className="mt-auto block pt-5 min-[560px]:pt-3">
-          <span className="mb-4 block border-t border-border min-[560px]:mb-3" />
-          <span className="flex items-end justify-between gap-5">
-            <span className="flex h-[24px] min-w-0 flex-wrap gap-x-5 gap-y-2 overflow-hidden min-[560px]:gap-x-3">
+        <span className="mt-auto block pt-2 min-[390px]:pt-3">
+          <span className="mb-2 block border-t border-border min-[390px]:mb-3" />
+          <span className="flex items-end justify-between gap-3">
+            <span className="flex h-[22px] min-w-0 flex-wrap gap-x-2 gap-y-2 overflow-hidden min-[390px]:h-[24px] min-[390px]:gap-x-3">
               {patent.tags.map((tag, index) => (
                 <span
                   key={tag}
