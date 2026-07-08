@@ -5451,24 +5451,32 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 "linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 0.72) 7%, black 18%, black 78%, rgb(0 0 0 / 0.35) 91%, transparent 100%)",
             }}
           >
+            <div
+              className="absolute bottom-[14%] left-[18%] right-[5%] z-[1] h-[18%] rotate-[-1deg] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.46)_0%,rgba(0,0,0,0.3)_34%,rgba(0,0,0,0.13)_62%,transparent_80%)] opacity-85 blur-[20px] mix-blend-multiply lg:bottom-[12%] lg:left-[15%] lg:right-[4%] lg:h-[20%] lg:blur-[26px]"
+              aria-hidden
+            />
+            <div
+              className="absolute left-[18%] right-[5%] top-[17%] z-[1] h-[17%] rotate-[1deg] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0.26)_34%,rgba(0,0,0,0.12)_62%,transparent_80%)] opacity-78 blur-[22px] mix-blend-multiply lg:left-[14%] lg:right-[4%] lg:top-[15%] lg:h-[18%] lg:blur-[28px]"
+              aria-hidden
+            />
             <Image
               src="/assets/projects/aventor/aventor-hero-3w-improve-u-top.webp"
               alt=""
               fill
               priority
               sizes="(max-width: 1024px) 96vw, 1180px"
-              className="object-contain object-center"
+              className="z-[2] object-contain object-center"
             />
             <div
-              className="absolute inset-y-0 left-0 w-[34%] bg-gradient-to-r from-background via-background/90 to-transparent"
+              className="absolute inset-y-0 left-0 z-[3] w-[36%] bg-gradient-to-r from-background via-background/90 to-transparent xl:w-[38%]"
               aria-hidden
             />
             <div
-              className="absolute inset-x-0 bottom-0 h-[24%] bg-gradient-to-t from-background via-background/86 to-transparent"
+              className="absolute inset-x-0 bottom-0 z-[3] h-[24%] bg-gradient-to-t from-background via-background/86 to-transparent"
               aria-hidden
             />
             <div
-              className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-background/90 via-background/52 to-transparent"
+              className="absolute inset-y-0 right-0 z-[3] w-[18%] bg-gradient-to-l from-background/90 via-background/52 to-transparent"
               aria-hidden
             />
           </div>
@@ -5551,7 +5559,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       key={filter.key}
                       type="button"
                       className={cn(
-                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 [transition-timing-function:var(--ease-smooth)]",
+                        "group/filter grid h-11 min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 [transition-timing-function:var(--ease-smooth)]",
                         filter.icon
                           ? "grid-cols-[auto_1fr]"
                           : "place-items-center text-center",

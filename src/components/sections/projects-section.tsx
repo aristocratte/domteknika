@@ -108,11 +108,11 @@ export function ProjectsSection() {
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-14 left-0 z-20 w-7 bg-gradient-to-r from-background/80 to-transparent backdrop-blur-[1px] [mask-image:linear-gradient(to_right,black_0%,black_42%,transparent_100%)] sm:w-10 md:inset-y-0 md:w-16 md:from-background md:via-background/70 md:backdrop-blur-[3px] lg:w-24"
+              className="pointer-events-none absolute bottom-14 left-0 top-0 z-20 w-12 bg-transparent backdrop-blur-[8px] [mask-image:linear-gradient(to_right,black_0%,rgb(0_0_0_/_0.82)_34%,rgb(0_0_0_/_0.28)_68%,transparent_100%)] sm:w-16 md:w-24 md:backdrop-blur-[10px] lg:w-32"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-14 right-0 z-20 w-7 bg-gradient-to-l from-background/80 to-transparent backdrop-blur-[1px] [mask-image:linear-gradient(to_left,black_0%,black_42%,transparent_100%)] sm:w-10 md:inset-y-0 md:w-16 md:from-background md:via-background/70 md:backdrop-blur-[3px] lg:w-24"
+              className="pointer-events-none absolute bottom-14 right-0 top-0 z-20 w-12 bg-transparent backdrop-blur-[8px] [mask-image:linear-gradient(to_left,black_0%,rgb(0_0_0_/_0.82)_34%,rgb(0_0_0_/_0.28)_68%,transparent_100%)] sm:w-16 md:w-24 md:backdrop-blur-[10px] lg:w-32"
             />
             <Carousel
               setApi={setApi}
@@ -241,7 +241,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute bottom-0 z-50 grid size-11 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40 md:top-1/2 md:size-12 md:-translate-y-1/2 md:hover:-translate-y-1/2",
+        "absolute bottom-0 z-50 grid size-11 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40 md:top-[143px] md:size-12 md:-translate-y-1/2 md:hover:-translate-y-1/2",
         className,
       )}
     >

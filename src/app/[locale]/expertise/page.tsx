@@ -456,9 +456,14 @@ function AddedValueSection() {
                 return (
                   <div
                     key={stat.key}
-                    className={`group flex min-w-0 flex-col justify-center ${
-                      isWideStat ? "gap-2" : "gap-2.5"
-                    } ${index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6"}`}
+                    className={cn(
+                      "group flex min-w-0 flex-col justify-center",
+                      isWideStat ? "gap-2" : "gap-2.5",
+                      index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
+                      index < 2
+                        ? "sm:pb-8 md:pb-9"
+                        : "sm:pt-8 md:pt-9",
+                    )}
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
@@ -471,8 +476,8 @@ function AddedValueSection() {
                       <strong
                         className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(20px,5.2vw,30px)] sm:text-[clamp(22px,2.7vw,30px)] lg:text-[clamp(21px,2vw,27px)] 2xl:text-[30px]"
-                            : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)] lg:text-[clamp(28px,3vw,42px)]"
+                            ? "text-[clamp(18px,4.3vw,26px)] sm:text-[clamp(20px,2.25vw,26px)] lg:text-[clamp(20px,1.55vw,25px)] 2xl:text-[27px]"
+                            : "text-[clamp(24px,6.2vw,34px)] sm:text-[clamp(26px,3.25vw,36px)] lg:text-[clamp(26px,2.35vw,34px)]"
                         }`}
                       >
                         {t(`stats.${stat.key}.value` as never)}
