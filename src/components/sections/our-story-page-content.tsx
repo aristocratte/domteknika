@@ -604,6 +604,8 @@ const MEDIA: Record<
     images: Array<{
       src: string;
       alt: string;
+      title: string;
+      meta: string;
       width: number;
       height: number;
       className?: string;
@@ -617,9 +619,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/lake-workshop.png",
         alt: "Lake Biel landscape near La Neuveville",
+        title: "La Neuveville",
+        meta: "Suisse",
         width: 382,
         height: 170,
-        className: "w-[280px] sm:w-[340px]",
+        className: "w-[280px] sm:w-[340px] md:w-[300px] xl:w-[340px]",
       },
     ],
   },
@@ -628,25 +632,31 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/cree.png",
         alt: "Green CREE electric vehicle prototype",
+        title: "CREE",
+        meta: "2001",
         width: 338,
         height: 223,
-        className: "w-[260px] sm:w-[330px]",
+        className: "w-[260px] sm:w-[330px] md:w-[290px] xl:w-[330px]",
       },
     ],
   },
   startupProducts: {
-    className: "gap-4 sm:flex-row",
+    className: "gap-3 sm:flex-row md:flex-col xl:flex-row xl:gap-4",
     images: [
       {
         src: "/assets/our-story/smart-bottle.png",
         alt: "Smart Bottle concept render",
+        title: "Smart Bottle",
+        meta: "2011",
         width: 290,
         height: 268,
-        className: "w-[150px] sm:w-[170px] rotate-[-5deg]",
+        className: "w-[150px] rotate-[-5deg] sm:w-[170px]",
       },
       {
         src: "/assets/our-story/personal-injector.png",
         alt: "Personal injector product render",
+        title: "Personal Injector",
+        meta: "2013",
         width: 265,
         height: 142,
         className: "w-[210px] sm:w-[250px]",
@@ -658,9 +668,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/aventor.png",
         alt: "Green startup mobility prototype",
+        title: "The Total Car",
+        meta: "2013",
         width: 274,
         height: 181,
-        className: "w-[235px] sm:w-[270px]",
+        className: "w-[235px] sm:w-[270px] md:w-[230px] xl:w-[270px]",
       },
     ],
   },
@@ -669,9 +681,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/total-car.png",
         alt: "Aventor performance vehicle on track",
+        title: "Aventor",
+        meta: "2015",
         width: 452,
         height: 202,
-        className: "w-[300px] sm:w-[390px]",
+        className: "w-[300px] sm:w-[390px] md:w-[310px] lg:w-[340px] xl:w-[390px]",
       },
     ],
   },
@@ -680,9 +694,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/bone-fixation.png",
         alt: "Bone fixation system prototype",
+        title: "Bone Fixation",
+        meta: "2016",
         width: 315,
         height: 237,
-        className: "w-[245px] sm:w-[300px]",
+        className: "w-[245px] sm:w-[300px] md:w-[255px] xl:w-[300px]",
       },
     ],
   },
@@ -691,6 +707,8 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/softcar-concept.png",
         alt: "White Softcar concept vehicle",
+        title: "Softcar",
+        meta: "2017",
         width: 249,
         height: 184,
         className: "w-[220px] sm:w-[248px]",
@@ -702,9 +720,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/stajvelo.png",
         alt: "Stajvelo e-bike against a concrete wall",
+        title: "Stajvelo",
+        meta: "2018",
         width: 359,
         height: 204,
-        className: "w-[285px] sm:w-[355px]",
+        className: "w-[285px] sm:w-[355px] md:w-[300px] lg:w-[330px] xl:w-[355px]",
       },
     ],
   },
@@ -713,9 +733,11 @@ const MEDIA: Record<
       {
         src: "/assets/our-story/softcar-v1.png",
         alt: "Yellow Softcar V1 reveal vehicle",
+        title: "Softcar V1",
+        meta: "2024",
         width: 275,
         height: 183,
-        className: "w-[245px] sm:w-[275px]",
+        className: "w-[245px] sm:w-[275px] md:w-[240px] xl:w-[275px]",
       },
     ],
   },
@@ -1119,21 +1141,38 @@ function TimelineMedia({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center py-2",
+        "flex min-w-0 flex-col items-center justify-center py-2",
         side === "left" ? "md:items-end md:pr-4" : "md:items-start md:pl-4",
         media.className,
       )}
     >
       {media.images.map((image) => (
-        <Image
+        <figure
           key={image.src}
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          sizes="(max-width: 768px) 76vw, 390px"
-          className={cn("h-auto object-contain", image.className)}
-        />
+          className={cn(
+            "max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
+            image.className,
+          )}
+        >
+          <div className="relative bg-muted/30 px-2 pt-2">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              sizes="(max-width: 768px) 76vw, 390px"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <figcaption className="flex items-center justify-between gap-3 border-t border-border bg-white px-3 py-2.5">
+            <span className="min-w-0 truncate text-[11px] font-extrabold leading-none text-foreground sm:text-[12px]">
+              {image.title}
+            </span>
+            <span className="shrink-0 text-[10px] font-bold leading-none text-brand sm:text-[11px]">
+              {image.meta}
+            </span>
+          </figcaption>
+        </figure>
       ))}
     </div>
   );
