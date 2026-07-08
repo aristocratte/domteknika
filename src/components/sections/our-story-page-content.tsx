@@ -79,29 +79,6 @@ const STORY_CARD_PROJECT_IDS: Partial<Record<CardKey, string>> = {
   softcarReveal: "softcar",
 };
 
-const STORY_ICONS = {
-  box: {
-    src: "/assets/our-story/icons/box.png",
-    width: 256,
-    height: 256,
-  },
-  monitor: {
-    src: "/assets/our-story/icons/monitor.png",
-    width: 256,
-    height: 256,
-  },
-  document: {
-    src: "/assets/our-story/icons/document.png",
-    width: 256,
-    height: 256,
-  },
-  globe: {
-    src: "/assets/our-story/icons/globe.png",
-    width: 256,
-    height: 256,
-  },
-} satisfies Record<IconKey, { src: string; width: number; height: number }>;
-
 const STORY_COPY: Record<StoryLocale, StoryCopy> = {
   en: {
     eyebrow: "Our journey since 1998",
@@ -791,15 +768,16 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
       aria-labelledby="our-story-title"
     >
       <Image
-        src="/assets/our-story/technical-sketch-top.png"
+        src="/assets/our-story/background/technical-linkage-arm.png"
         alt=""
-        width={954}
-        height={706}
+        width={705}
+        height={475}
         priority
-        sizes="(max-width: 768px) 94vw, 58vw"
-        className="pointer-events-none absolute right-[-18vw] top-[66px] z-0 w-[92vw] max-w-none opacity-[0.24] sm:right-[-10vw] md:right-[-2vw] md:top-[68px] md:w-[58vw] md:max-w-[820px]"
+        sizes="(max-width: 768px) 78vw, 520px"
+        className="pointer-events-none absolute right-[-24vw] top-[112px] z-0 w-[78vw] max-w-[620px] rotate-[-8deg] opacity-[0.2] sm:right-[-12vw] md:right-[2vw] md:top-[96px] md:w-[40vw]"
       />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[430px] bg-gradient-to-r from-white via-white/82 to-white/35" />
+      <OurStoryBackgroundSketches />
 
       <Container size="wide" className="relative z-10 pb-14 md:pb-[72px]">
         <div className="max-w-[540px]">
@@ -843,6 +821,107 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
         />
       )}
     </section>
+  );
+}
+
+function OurStoryBackgroundSketches() {
+  const bearingSupport = "/assets/our-story/background/technical-bearing-support.png";
+  const chassis = "/assets/our-story/background/technical-chassis-frame.png";
+  const bearing = "/assets/our-story/background/technical-exploded-bearing.png";
+  const explodedShaft = "/assets/our-story/background/technical-exploded-shaft-layout.png";
+  const flange = "/assets/our-story/background/technical-flange-bracket.png";
+  const frontFlange = "/assets/our-story/background/technical-front-flange.png";
+  const liteChassis = "/assets/our-story/background/technical-lite-chassis.png";
+  const moldCavity = "/assets/our-story/background/technical-mold-cavity.png";
+  const rectBlock = "/assets/our-story/background/technical-rectangular-block.png";
+  const roundFlange = "/assets/our-story/background/technical-round-flange-detail.png";
+
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      aria-hidden
+    >
+      <Image
+        src={chassis}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="(max-width: 768px) 86vw, 520px"
+        className="absolute right-[-36vw] top-[560px] w-[84vw] max-w-[600px] rotate-[-10deg] opacity-[0.12] sm:left-[-22vw] sm:right-auto sm:opacity-[0.15] md:left-[-7vw] md:top-[640px] md:w-[40vw]"
+      />
+      <Image
+        src={bearingSupport}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="(max-width: 768px) 72vw, 460px"
+        className="absolute right-[-40vw] top-[940px] w-[72vw] max-w-[460px] rotate-[8deg] opacity-[0.09] sm:right-[-30vw] md:left-[62vw] md:right-auto md:top-[1000px] md:w-[32vw] md:opacity-[0.12]"
+      />
+      <Image
+        src={bearing}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="(max-width: 768px) 92vw, 620px"
+        className="absolute right-[-54vw] top-[1210px] w-[90vw] max-w-[660px] rotate-[14deg] scale-x-[-1] opacity-[0.13] sm:right-[-38vw] md:right-[-16vw] md:top-[1340px] md:w-[46vw]"
+      />
+      <Image
+        src={frontFlange}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="500px"
+        className="absolute left-[-12vw] top-[1600px] hidden w-[34vw] max-w-[500px] rotate-[-12deg] opacity-[0.11] md:block"
+      />
+      <Image
+        src={liteChassis}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="720px"
+        className="absolute left-[-18vw] top-[1880px] hidden w-[54vw] max-w-[720px] rotate-[-5deg] opacity-[0.045] xl:block"
+      />
+      <Image
+        src={flange}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="560px"
+        className="absolute left-[64vw] top-[2260px] hidden w-[30vw] max-w-[440px] rotate-[-7deg] opacity-[0.075] md:block"
+      />
+      <Image
+        src={moldCavity}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="560px"
+        className="absolute left-[-12vw] top-[2460px] hidden w-[38vw] max-w-[560px] rotate-[10deg] opacity-[0.085] md:block"
+      />
+      <Image
+        src={rectBlock}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="(max-width: 768px) 66vw, 470px"
+        className="absolute right-[-42vw] top-[2920px] w-[66vw] max-w-[430px] rotate-[-10deg] opacity-[0.08] sm:right-[-30vw] md:left-[66vw] md:right-auto md:top-[2980px] md:w-[28vw] md:max-w-[410px] md:opacity-[0.08]"
+      />
+      <Image
+        src={roundFlange}
+        alt=""
+        width={930}
+        height={695}
+        sizes="520px"
+        className="absolute left-[-7vw] top-[3160px] hidden w-[36vw] max-w-[500px] rotate-[9deg] opacity-[0.11] md:block"
+      />
+      <Image
+        src={explodedShaft}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="650px"
+        className="absolute left-[52vw] top-[3320px] hidden w-[40vw] max-w-[600px] rotate-[7deg] opacity-[0.06] md:block"
+      />
+    </div>
   );
 }
 
@@ -910,6 +989,7 @@ function StoryBlock({
       <TimelineCard
         card={copy.cards[block.key]}
         projectId={STORY_CARD_PROJECT_IDS[block.key]}
+        side={side}
         onOpenProject={onOpenProject}
       />
     );
@@ -921,18 +1001,20 @@ function StoryBlock({
 function TimelineCard({
   card,
   projectId,
+  side,
   onOpenProject,
 }: {
   card: StoryCard;
   projectId?: string;
+  side: "left" | "right";
   onOpenProject: (projectId: string) => void;
 }) {
   const className = cn(
-    "group/card relative grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
+    "group/card relative grid min-h-[112px] w-full max-w-[500px] grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:items-center md:min-h-[116px] md:max-w-[460px] md:px-5 md:py-4 lg:max-w-[470px]",
+    side === "left" ? "md:justify-self-end" : "md:justify-self-start",
     projectId &&
-      "cursor-pointer pr-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-4",
-    card.awards &&
-      "sm:pr-[154px] lg:pr-[168px] xl:grid-cols-[minmax(0,1fr)_136px_52px] xl:pr-0",
+      "cursor-pointer pr-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-11",
+    card.awards && "sm:grid-cols-[minmax(0,1fr)_116px] md:grid-cols-[minmax(0,1fr)_128px]",
   );
 
   const content = (
@@ -955,17 +1037,12 @@ function TimelineCard({
           alt=""
           width={218}
           height={76}
-          className="pointer-events-none absolute right-[72px] top-4 hidden w-[108px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[122px] xl:static xl:w-[130px]"
+          className={cn(
+            "hidden w-[110px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[122px]",
+            projectId && "pr-6",
+          )}
         />
       )}
-      <span
-        className={cn(
-          "grid size-[44px] place-items-center justify-self-end rounded-full border-2 border-brand bg-white text-foreground transition-transform duration-500 group-hover/card:scale-105 [transition-timing-function:var(--ease-smooth)] sm:justify-self-center",
-          card.awards && "xl:col-start-3",
-        )}
-      >
-        <StoryIcon icon={card.icon} />
-      </span>
       {projectId && (
         <span
           className="absolute right-3 top-3 grid size-6 place-items-center text-muted-foreground/70 transition-[color,transform] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-muted-foreground"
@@ -1019,20 +1096,5 @@ function TimelineMedia({
         />
       ))}
     </div>
-  );
-}
-
-function StoryIcon({ icon }: { icon: IconKey }) {
-  const asset = STORY_ICONS[icon];
-
-  return (
-    <Image
-      src={asset.src}
-      alt=""
-      width={asset.width}
-      height={asset.height}
-      sizes="30px"
-      className="size-[30px] object-contain"
-    />
   );
 }

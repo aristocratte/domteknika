@@ -126,7 +126,7 @@ export function ContactPageContent() {
               </div>
             </div>
 
-            <Reveal className="lg:pt-[54px]" delay={0.08}>
+            <Reveal className="lg:pt-[234px]" delay={0.08}>
               <ContactForm copy={formCopy} />
             </Reveal>
 
@@ -143,8 +143,8 @@ export function ContactPageContent() {
           <Reveal>
             <div className="grid gap-7 lg:grid-cols-[360px_1fr] lg:items-start">
               <div>
-                <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground">
-                  <span className="h-[2px] w-[29px] bg-brand" aria-hidden />
+                <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+                  <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
                   {t("Map.eyebrow")}
                 </div>
                 <h2
