@@ -22,6 +22,10 @@ interface RevealProps {
   delay?: number;
   /** Keep the reveal hidden until the page has been scrolled by this amount. */
   minimumScrollY?: number;
+  /** Ignore minimumScrollY on mobile screens. */
+  minimumScrollYDesktopOnly?: boolean;
+  /** Render visible without reveal animation on mobile screens. */
+  disabledOnMobile?: boolean;
   /** Render as a different element. */
   as?: "article" | "div" | "section" | "li" | "span";
 }
@@ -36,6 +40,8 @@ export function Reveal({
   className,
   delay = 0,
   minimumScrollY = 0,
+  minimumScrollYDesktopOnly = false,
+  disabledOnMobile = false,
   as = "div",
 }: RevealProps) {
   const MotionTag = motion[as];
@@ -78,26 +84,57 @@ export function Reveal({
     [controls],
   );
 
+  const getEffectiveMinimumScrollY = useCallback(() => {
+    if (
+      minimumScrollYDesktopOnly &&
+      window.matchMedia("(max-width: 767px)").matches
+    ) {
+      return 0;
+    }
+
+    return minimumScrollY;
+  }, [minimumScrollY, minimumScrollYDesktopOnly]);
+
+  const isDisabledOnCurrentMobileScreen = useCallback(
+    () =>
+      disabledOnMobile && window.matchMedia("(max-width: 767px)").matches,
+    [disabledOnMobile],
+  );
+
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
+    if (isDisabledOnCurrentMobileScreen()) {
+      setStateImmediately("visible");
+      return;
+    }
+
+    const effectiveMinimumScrollY = getEffectiveMinimumScrollY();
     const rect = element.getBoundingClientRect();
     const viewportHeight =
       window.innerHeight || document.documentElement.clientHeight;
     const shouldStartVisible =
-      window.scrollY >= minimumScrollY &&
+      window.scrollY >= effectiveMinimumScrollY &&
       rect.top < viewportHeight + 120 &&
       rect.bottom > -120;
 
     setStateImmediately(shouldStartVisible ? "visible" : "hidden");
-  }, [minimumScrollY, setStateImmediately]);
+  }, [
+    getEffectiveMinimumScrollY,
+    isDisabledOnCurrentMobileScreen,
+    setStateImmediately,
+  ]);
 
   useEffect(() => {
     const revealIfAlreadyVisible = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
-      if (window.scrollY < minimumScrollY) return;
+      if (isDisabledOnCurrentMobileScreen()) {
+        setStateImmediately("visible");
+        return;
+      }
+      if (window.scrollY < getEffectiveMinimumScrollY()) return;
 
       const rect = element.getBoundingClientRect();
       const viewportHeight =
@@ -115,15 +152,24 @@ export function Reveal({
       window.cancelAnimationFrame(frameId);
       window.clearTimeout(timerId);
     };
-  }, [minimumScrollY, requestState]);
+  }, [
+    getEffectiveMinimumScrollY,
+    isDisabledOnCurrentMobileScreen,
+    requestState,
+    setStateImmediately,
+  ]);
 
   useEffect(() => {
-    if (!minimumScrollY) return;
+    if (!minimumScrollY && !disabledOnMobile) return;
 
     const revealAfterScrollStarts = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
-      if (window.scrollY < minimumScrollY) return;
+      if (isDisabledOnCurrentMobileScreen()) {
+        setStateImmediately("visible");
+        return;
+      }
+      if (window.scrollY < getEffectiveMinimumScrollY()) return;
 
       const rect = element.getBoundingClientRect();
       const viewportHeight =
@@ -136,7 +182,14 @@ export function Reveal({
 
     window.addEventListener("scroll", revealAfterScrollStarts, { passive: true });
     return () => window.removeEventListener("scroll", revealAfterScrollStarts);
-  }, [minimumScrollY, requestState]);
+  }, [
+    disabledOnMobile,
+    getEffectiveMinimumScrollY,
+    isDisabledOnCurrentMobileScreen,
+    minimumScrollY,
+    requestState,
+    setStateImmediately,
+  ]);
 
   return (
     <MotionTag
@@ -149,7 +202,11 @@ export function Reveal({
       animate={controls}
       viewport={{ once: true, margin: "-80px" }}
       onViewportEnter={() => {
-        if (window.scrollY < minimumScrollY) return;
+        if (isDisabledOnCurrentMobileScreen()) {
+          setStateImmediately("visible");
+          return;
+        }
+        if (window.scrollY < getEffectiveMinimumScrollY()) return;
         requestState("visible");
       }}
       transition={{ delay }}

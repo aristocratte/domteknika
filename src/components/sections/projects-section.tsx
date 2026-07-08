@@ -84,6 +84,8 @@ export function ProjectsSection() {
       <Container size="wide">
         <Reveal
           minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
+          minimumScrollYDesktopOnly
+          disabledOnMobile
           className="relative"
         >
           <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between">

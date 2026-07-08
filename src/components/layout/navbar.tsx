@@ -2,6 +2,8 @@
 
 import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -31,6 +33,8 @@ export function Navbar() {
   >(null);
   const lastScrollYRef = useRef(0);
   const tickingRef = useRef(false);
+  const contactBubbleRef = useRef<HTMLDivElement>(null);
+  const contactBubbleProgressRef = useRef(0);
   const currentNavKey =
     pathname === "/projects"
       ? "projects"
@@ -43,6 +47,7 @@ export function Navbar() {
             : pathname === "/"
               ? "home"
               : null;
+  const isContactPage = pathname === "/contact" || pathname.endsWith("/contact");
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -91,6 +96,62 @@ export function Navbar() {
       tickingRef.current = false;
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    if (isContactPage) return;
+
+    let animationFrame = 0;
+
+    const updateContactBubbleColor = () => {
+      animationFrame = 0;
+
+      const bubble = contactBubbleRef.current;
+      if (!bubble) return;
+
+      const rect = bubble.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+
+      const samplePoints = [
+        [0.25, 0.25],
+        [0.5, 0.25],
+        [0.75, 0.25],
+        [0.25, 0.5],
+        [0.5, 0.5],
+        [0.75, 0.5],
+        [0.25, 0.75],
+        [0.5, 0.75],
+        [0.75, 0.75],
+      ] as const;
+
+      const redHits = samplePoints.reduce((hits, [xRatio, yRatio]) => {
+        const x = rect.left + rect.width * xRatio;
+        const y = rect.top + rect.height * yRatio;
+
+        return hits + (hasRedBackdropAtPoint(x, y, bubble) ? 1 : 0);
+      }, 0);
+      const progress = redHits / samplePoints.length;
+
+      if (Math.abs(progress - contactBubbleProgressRef.current) < 0.01) return;
+
+      contactBubbleProgressRef.current = progress;
+      bubble.style.setProperty("--contact-invert-progress", progress.toFixed(3));
+    };
+
+    const scheduleUpdate = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(updateContactBubbleColor);
+    };
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, [isContactPage]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
@@ -214,6 +275,61 @@ export function Navbar() {
         </div>
       </motion.div>
 
+      {!isContactPage && (
+        <motion.div
+          ref={contactBubbleRef}
+          className={cn(
+            "fixed bottom-[calc(env(safe-area-inset-bottom)+30px)] right-5 z-[905] min-[810px]:hidden",
+            (!mobileNavVisible || mobileOpen) && "pointer-events-none",
+          )}
+          style={
+            { "--contact-invert-progress": 0 } as CSSProperties
+          }
+          initial={{ y: 74, opacity: 0, scale: 0.92 }}
+          animate={{
+            y: mobileNavVisible && !mobileOpen ? 0 : 74,
+            opacity: mobileNavVisible && !mobileOpen ? 1 : 0,
+            scale: mobileNavVisible && !mobileOpen ? 1 : 0.92,
+          }}
+          transition={{
+            y: { duration: 0.52, ease: [0.16, 1, 0.3, 1] },
+            opacity: { duration: 0.36, ease: [0.16, 1, 0.3, 1] },
+            scale: { duration: 0.36, ease: [0.16, 1, 0.3, 1] },
+          }}
+        >
+          <Link
+            href="/contact"
+            aria-label={t("cta")}
+            className="group/contact-bubble relative grid size-[60px] place-items-center overflow-visible outline-none transition-transform duration-300 hover:-translate-y-0.5 focus-visible:ring-4 focus-visible:ring-brand/25"
+          >
+            <Image
+              src="/assets/contact-bubble-button-mask.png"
+              alt=""
+              fill
+              sizes="60px"
+              className="pointer-events-none object-contain drop-shadow-[0_8px_12px_rgba(227,6,19,0.34)] transition-[filter,opacity] duration-200 group-hover/contact-bubble:drop-shadow-[0_10px_16px_rgba(227,6,19,0.42)]"
+              style={
+                {
+                  opacity: "calc(1 - var(--contact-invert-progress, 0))",
+                } as CSSProperties
+              }
+              aria-hidden
+            />
+            <Image
+              src="/assets/contact-bubble-button-mask-inverted.png"
+              alt=""
+              fill
+              sizes="60px"
+              className="pointer-events-none object-contain drop-shadow-[0_8px_12px_rgba(227,6,19,0.18)] transition-[filter,opacity] duration-200 group-hover/contact-bubble:drop-shadow-[0_10px_16px_rgba(227,6,19,0.24)]"
+              style={
+                { opacity: "var(--contact-invert-progress, 0)" } as CSSProperties
+              }
+              aria-hidden
+            />
+          </Link>
+        </motion.div>
+      )}
+
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -301,6 +417,58 @@ export function Navbar() {
       </AnimatePresence>
     </header>
   );
+}
+
+function hasRedBackdropAtPoint(x: number, y: number, bubble: HTMLElement) {
+  const elements = document.elementsFromPoint(x, y);
+
+  return elements.some((element) => {
+    if (bubble.contains(element)) return false;
+    return hasRedBackgroundInStack(element);
+  });
+}
+
+function hasRedBackgroundInStack(element: Element) {
+  let current: Element | null = element;
+
+  while (current && current !== document.documentElement) {
+    const styles = window.getComputedStyle(current);
+
+    if (isRedBackgroundColor(styles.backgroundColor)) return true;
+    if (isVisibleBackgroundColor(styles.backgroundColor)) return false;
+
+    current = current.parentElement;
+  }
+
+  return false;
+}
+
+function isVisibleBackgroundColor(color: string) {
+  const parsed = parseCssRgb(color);
+
+  return Boolean(parsed && parsed.alpha > 0.08);
+}
+
+function isRedBackgroundColor(color: string) {
+  const parsed = parseCssRgb(color);
+  if (!parsed || parsed.alpha < 0.08) return false;
+
+  return parsed.red > 150 && parsed.green < 85 && parsed.blue < 85;
+}
+
+function parseCssRgb(color: string) {
+  const match = color.match(
+    /rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)/,
+  );
+
+  if (!match) return null;
+
+  return {
+    red: Number(match[1]),
+    green: Number(match[2]),
+    blue: Number(match[3]),
+    alpha: match[4] === undefined ? 1 : Number(match[4]),
+  };
 }
 
 function NavLink({

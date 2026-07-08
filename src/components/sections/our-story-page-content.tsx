@@ -666,13 +666,13 @@ const MEDIA: Record<
   startupCar: {
     images: [
       {
-        src: "/assets/our-story/aventor.png",
-        alt: "Green startup mobility prototype",
+        src: "/assets/our-story/total-car-expo.jpg",
+        alt: "The Total Car prototype displayed at an exhibition",
         title: "The Total Car",
         meta: "2013",
-        width: 274,
-        height: 181,
-        className: "w-[235px] sm:w-[270px] md:w-[230px] xl:w-[270px]",
+        width: 1600,
+        height: 1066,
+        className: "w-[280px] sm:w-[370px] md:w-[320px] xl:w-[370px]",
       },
     ],
   },
@@ -692,13 +692,13 @@ const MEDIA: Record<
   boneFixation: {
     images: [
       {
-        src: "/assets/our-story/bone-fixation.png",
+        src: "/assets/our-story/bone-fixation-production.png",
         alt: "Bone fixation system prototype",
         title: "Bone Fixation",
         meta: "2016",
-        width: 315,
-        height: 237,
-        className: "w-[245px] sm:w-[300px] md:w-[255px] xl:w-[300px]",
+        width: 1200,
+        height: 800,
+        className: "w-[260px] sm:w-[340px] md:w-[300px] xl:w-[340px]",
       },
     ],
   },
@@ -1076,7 +1076,8 @@ function TimelineCard({
     side === "left" ? "md:justify-self-end" : "md:justify-self-start",
     projectId &&
       "cursor-pointer pr-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-11",
-    card.awards && "sm:grid-cols-[minmax(0,1fr)_116px] md:grid-cols-[minmax(0,1fr)_128px]",
+    card.awards &&
+      "gap-4 pr-12 sm:grid-cols-1 sm:items-start sm:pr-12 lg:grid-cols-[minmax(0,1fr)_176px] lg:pr-5",
   );
 
   const content = (
@@ -1099,10 +1100,7 @@ function TimelineCard({
           alt=""
           width={218}
           height={76}
-          className={cn(
-            "hidden w-[110px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[122px]",
-            projectId && "pr-6",
-          )}
+          className="pointer-events-none w-[126px] self-start justify-self-start invert hue-rotate-180 sm:w-[140px] lg:col-start-2 lg:row-start-1 lg:w-[150px] lg:justify-self-center"
         />
       )}
       {projectId && (
