@@ -52,7 +52,7 @@ export function ContactPageContent() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-background pb-[32px] pt-[86px] md:min-h-[640px] md:pb-[38px] md:pt-[108px]"
+        className="relative overflow-hidden bg-background pb-[32px] pt-[132px] md:min-h-[640px] md:pb-[38px] md:pt-[152px]"
         aria-labelledby="contact-page-title"
       >
         <Image
@@ -71,14 +71,14 @@ export function ContactPageContent() {
           <div className="grid gap-7 lg:grid-cols-[340px_minmax(380px,500px)_1fr] lg:items-start lg:gap-10 xl:gap-[54px]">
             <div>
               <Reveal>
-                <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-brand">
-                  <span className="h-[2px] w-[29px] bg-brand" aria-hidden />
+                <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+                  <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
                   {t("Hero.eyebrow")}
                 </div>
 
                 <h1
                   id="contact-page-title"
-                  className="domtek-text-shadow mt-8 text-[40px] font-extrabold leading-none text-foreground sm:whitespace-nowrap sm:text-[48px] md:text-[52px] xl:text-[58px]"
+                  className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:whitespace-nowrap sm:text-[60px] md:mt-[52px] md:text-[66px]"
                 >
                   {t("Hero.title")}
                   <span className="text-brand">.</span>

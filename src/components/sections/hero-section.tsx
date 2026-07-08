@@ -48,7 +48,7 @@ export function HeroSection() {
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/62 to-white/8 md:via-white/76 md:to-white/16" />
       <div
-        className="pointer-events-none absolute z-[1] hidden max-w-none md:bottom-[28px] md:right-[-25vw] md:top-auto md:block md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-18vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute z-[1] hidden max-w-none md:bottom-[28px] md:right-[-25vw] md:top-auto md:block md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-14vw] xl:right-[-12vw] 2xl:right-[-6vw]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
@@ -97,10 +97,13 @@ export function HeroSection() {
         >
           <motion.div
             variants={rise}
-            className="mb-[38px] flex items-start gap-2 text-[15px] font-normal text-muted-foreground md:mb-[52px] md:items-center md:text-[16px]"
+            className="mb-[38px] flex items-start gap-3 text-[15px] font-medium leading-none text-muted-foreground md:mb-[52px] md:items-center md:text-[16px]"
           >
-            <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
-            <span className="min-w-0 max-w-[220px] leading-[1.2] min-[390px]:max-w-[240px] md:max-w-none">
+            <span
+              className="mt-[6px] h-[3px] w-[34px] shrink-0 bg-brand md:mt-0"
+              aria-hidden
+            />
+            <span className="min-w-0 max-w-[calc(100vw-150px)] leading-[1.2] md:max-w-none md:leading-none">
               {t("eyebrow")}
             </span>
           </motion.div>

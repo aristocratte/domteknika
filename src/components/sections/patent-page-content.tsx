@@ -1737,7 +1737,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
   return (
     <>
       <section
-        className="relative min-h-[560px] overflow-hidden border-b border-border bg-background pt-[112px] md:min-h-[620px] md:pt-[126px]"
+        className="relative min-h-[560px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[620px] md:pt-[152px]"
         aria-labelledby="patent-page-title"
       >
         <Image
@@ -1757,14 +1757,14 @@ export function PatentPageContent({ locale }: { locale: string }) {
           size="wide"
           className="relative z-10 grid min-h-[440px] items-start"
         >
-          <Reveal className="max-w-[515px] pt-3 md:pt-8">
-            <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-muted-foreground">
-              <span className="h-[2px] w-[22px] bg-brand" aria-hidden />
+          <Reveal className="max-w-[515px]">
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
               {copy.hero.eyebrow}
             </div>
             <h1
               id="patent-page-title"
-              className="domtek-text-shadow mt-9 text-[48px] font-extrabold leading-none text-foreground sm:text-[64px] md:text-[68px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
             >
               {copy.hero.title}
               <span className="text-brand">.</span>

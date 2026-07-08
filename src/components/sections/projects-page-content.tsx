@@ -5420,7 +5420,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   return (
     <>
       <section
-        className="relative min-h-[540px] overflow-hidden border-b border-border bg-background pt-[104px] md:min-h-[590px] md:pt-[112px]"
+        className="relative min-h-[540px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[590px] md:pt-[152px]"
         aria-labelledby="projects-page-title"
       >
         <Image
@@ -5476,16 +5476,16 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
         <Container
           size="wide"
-          className="relative z-10 flex min-h-[410px] items-center pb-10"
+          className="relative z-10 flex min-h-[410px] items-start pb-10"
         >
-          <Reveal className="max-w-[560px] pb-5 md:pb-0 md:pl-4">
-            <div className="flex items-center gap-3 text-[15px] font-normal text-foreground md:text-[16px]">
-              <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
+          <Reveal className="max-w-[560px] pb-5 md:pb-0">
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
               {copy.hero.eyebrow}
             </div>
             <h1
               id="projects-page-title"
-              className="domtek-text-shadow mt-14 max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-16 md:text-[66px]"
+              className="domtek-text-shadow mt-[38px] max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
             >
               {copy.hero.title}
               <span className="text-brand">.</span>

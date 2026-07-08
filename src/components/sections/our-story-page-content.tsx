@@ -787,7 +787,7 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
 
   return (
     <section
-      className="relative overflow-hidden bg-background pt-[92px] md:pt-[98px]"
+      className="relative overflow-hidden bg-background pt-[132px] md:pt-[152px]"
       aria-labelledby="our-story-title"
     >
       <Image
@@ -802,15 +802,15 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[430px] bg-gradient-to-r from-white via-white/82 to-white/35" />
 
       <Container size="wide" className="relative z-10 pb-14 md:pb-[72px]">
-        <div className="max-w-[540px] md:pl-2">
+        <div className="max-w-[540px]">
           <Reveal>
-            <div className="flex items-center gap-3 text-[14px] font-medium leading-none text-muted-foreground">
-              <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
               {copy.eyebrow}
             </div>
             <h1
               id="our-story-title"
-              className="domtek-text-shadow mt-7 text-[38px] font-extrabold leading-none text-foreground sm:text-[46px] md:text-[50px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
             >
               {copy.title}
               <span className="text-brand">.</span>

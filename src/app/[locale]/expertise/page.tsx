@@ -92,7 +92,7 @@ function ExpertiseHero() {
 
   return (
     <section
-      className="relative overflow-visible bg-background pb-[42px] pt-[116px] md:min-h-[376px] md:pb-[46px] md:pt-[134px]"
+      className="relative overflow-visible bg-background pb-[42px] pt-[132px] md:min-h-[376px] md:pb-[46px] md:pt-[152px]"
       aria-labelledby="expertise-hero-title"
     >
       <Image
@@ -109,14 +109,14 @@ function ExpertiseHero() {
       <Container size="wide" className="relative z-10">
         <div className="relative grid gap-12 md:block">
           <Reveal>
-            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground">
-              <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
               {t("eyebrow")}
             </div>
 
             <h1
               id="expertise-hero-title"
-              className="domtek-text-shadow mt-12 text-[42px] font-extrabold leading-none text-foreground sm:text-[58px] md:mt-14 md:text-[64px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
             >
               {t("title")}
               <span className="text-brand">.</span>
