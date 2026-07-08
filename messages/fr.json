@@ -146,7 +146,17 @@
         "eyebrow": "Brainstorming",
         "title": "Transformer un problème en piste claire",
         "lead": "Avant de figer une solution, nous ouvrons le champ des possibles: contraintes d'usage, mécanique, matériaux, coûts, fabrication et risques sont mis sur la table.",
-        "body": "Cette phase nous permet de faire émerger des idées, de comparer plusieurs architectures et d'identifier rapidement les solutions réellement pertinentes pour le projet."
+        "body": "Cette phase nous permet de faire émerger des idées, de comparer plusieurs architectures et d'identifier rapidement les solutions réellement pertinentes pour le projet.",
+        "cards": {
+          "doorRod": "Porte et tringle",
+          "springLock": "Verrou à ressort",
+          "magneticLock": "Verrouillage magnétique",
+          "threePointAttachment": "Attache trois points",
+          "flexibleLatch": "Loquet souple",
+          "mechanicalUnlock": "Déverrouillage mécanique",
+          "rotation90": "Rotation 90°",
+          "mechanicalAdhesion": "Adhérence mécanique"
+        }
       },
       "items": {
         "creativity": {

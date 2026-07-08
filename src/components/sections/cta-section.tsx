@@ -30,7 +30,7 @@ export function CtaSection() {
       />
 
       <Container size="wide" className="relative z-10">
-        <Reveal className="max-w-[760px]">
+        <Reveal className="max-w-[920px]">
           <div className="flex items-center gap-3 text-[16px] font-medium text-muted-foreground">
             <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
             {t("eyebrow")}
@@ -38,7 +38,7 @@ export function CtaSection() {
 
           <h2
             id="cta-title"
-            className="domtek-text-shadow mt-6 text-[32px] font-extrabold leading-[1.08] text-foreground sm:text-[42px] lg:text-[48px]"
+            className="domtek-text-shadow mt-6 max-w-[860px] text-[32px] font-extrabold leading-[1.08] text-foreground sm:text-[42px] lg:text-[48px]"
           >
             <span className="text-brand">.</span>
             {t("title")}

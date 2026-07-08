@@ -146,7 +146,17 @@
         "eyebrow": "Brainstorming",
         "title": "Aus einem Problem eine klare Richtung machen",
         "lead": "Bevor wir eine Lösung festlegen, öffnen wir den Lösungsraum: Nutzung, Mechanik, Materialien, Kosten, Fertigung und Risiken werden gemeinsam betrachtet.",
-        "body": "So entstehen belastbare Ideen, mehrere Architekturen können verglichen werden und die wirklich passenden Lösungen werden früh sichtbar."
+        "body": "So entstehen belastbare Ideen, mehrere Architekturen können verglichen werden und die wirklich passenden Lösungen werden früh sichtbar.",
+        "cards": {
+          "doorRod": "Tür und Gestänge",
+          "springLock": "Federschloss",
+          "magneticLock": "Magnetische Verriegelung",
+          "threePointAttachment": "Dreipunktbefestigung",
+          "flexibleLatch": "Flexibler Riegel",
+          "mechanicalUnlock": "Mechanische Entriegelung",
+          "rotation90": "90°-Drehung",
+          "mechanicalAdhesion": "Mechanische Haftung"
+        }
       },
       "items": {
         "creativity": {

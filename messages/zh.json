@@ -146,7 +146,17 @@
         "eyebrow": "头脑风暴",
         "title": "把问题转化为清晰方向",
         "lead": "在确定方案之前，我们先打开思路：使用约束、机械结构、材料、成本、制造方式和风险都会一起评估。",
-        "body": "这一阶段帮助我们提出扎实想法，比较多种架构，并尽早找到真正适合项目的解决方案。"
+        "body": "这一阶段帮助我们提出扎实想法，比较多种架构，并尽早找到真正适合项目的解决方案。",
+        "cards": {
+          "doorRod": "车门与连杆",
+          "springLock": "弹簧锁",
+          "magneticLock": "磁性锁定",
+          "threePointAttachment": "三点连接",
+          "flexibleLatch": "柔性锁舌",
+          "mechanicalUnlock": "机械解锁",
+          "rotation90": "90° 旋转",
+          "mechanicalAdhesion": "机械附着"
+        }
       },
       "items": {
         "creativity": {

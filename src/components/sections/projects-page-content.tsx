@@ -25,17 +25,17 @@ import {
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
 import { PatentDialog } from "@/components/sections/patent-dialog";
-import { PATENTS, type PatentFilterKey, type PatentRecord } from "@/data/patents";
+import {
+  PATENTS,
+  type PatentFilterKey,
+  type PatentRecord,
+} from "@/data/patents";
 import { cn } from "@/lib/utils";
 import projectAssetManifest from "../../../public/assets/projects/manifest.json";
 
 type FilterKey = "all" | PatentFilterKey;
 type ProjectSortKey =
-  | "default"
-  | "date-desc"
-  | "date-asc"
-  | "title-asc"
-  | "title-desc";
+  "default" | "date-desc" | "date-asc" | "title-asc" | "title-desc";
 
 const PATENT_ASSET_BASE = "/assets/patent-page";
 const PROJECT_LIGHTBOX_FRAME_CLASS =
@@ -146,15 +146,18 @@ const RELATED_PATENT_RECORDS = {
   },
   AU2014274521A1: {
     publication: "AU2014274521 (A1)",
-    title: "Device and method for producing a frothed liquid from soluble ingredients and diluent",
+    title:
+      "Device and method for producing a frothed liquid from soluble ingredients and diluent",
   },
   EP2000065A1: {
     publication: "EP2000065 (A1)",
-    title: "Device and method for producing a beverage by mixing soluble ingredients and a diluent",
+    title:
+      "Device and method for producing a beverage by mixing soluble ingredients and a diluent",
   },
   US2010173057A1: {
     publication: "US2010173057 (A1)",
-    title: "DEVICE AND METHOD FOR PRODUCING A FROTHED LIQUID FROM SOLUBLE INGREDIENTS AND DILUENT",
+    title:
+      "DEVICE AND METHOD FOR PRODUCING A FROTHED LIQUID FROM SOLUBLE INGREDIENTS AND DILUENT",
   },
   US2009320941A1: {
     publication: "US2009320941 (A1)",
@@ -162,7 +165,8 @@ const RELATED_PATENT_RECORDS = {
   },
   CH701083B1: {
     publication: "CH701083 (B1)",
-    title: "Dispositif pour le détartrage et le blanchiment simultané des dents",
+    title:
+      "Dispositif pour le détartrage et le blanchiment simultané des dents",
   },
   US2015360014A1: {
     publication: "US2015360014 (A1)",
@@ -170,7 +174,8 @@ const RELATED_PATENT_RECORDS = {
   },
   FR2999439A1: {
     publication: "FR2999439 (A1)",
-    title: "DISPOSITIF DE DISTRIBUTION D'UN PRODUIT ET D'EMISSION D'UN RAYONNEMENT LUMINEUX",
+    title:
+      "DISPOSITIF DE DISTRIBUTION D'UN PRODUIT ET D'EMISSION D'UN RAYONNEMENT LUMINEUX",
   },
   US2015342657A1: {
     publication: "US2015342657 (A1)",
@@ -186,7 +191,8 @@ const RELATED_PATENT_RECORDS = {
   },
   WO2016004540A1: {
     publication: "WO2016004540 (A1)",
-    title: "OPTICAL METHOD FOR MAKING AT LEAST ONE COMPONENT OF A WATCH MOVEMENT INVISIBLE",
+    title:
+      "OPTICAL METHOD FOR MAKING AT LEAST ONE COMPONENT OF A WATCH MOVEMENT INVISIBLE",
   },
   CH707437A1: {
     publication: "CH707437 (A1)",
@@ -202,7 +208,8 @@ const RELATED_PATENT_RECORDS = {
   },
   WO2008017182A1: {
     publication: "WO2008017182 (A1)",
-    title: "METHOD AND DEVICE FOR CONTROLLING THE QUALITY OF A FILTRATION CARTRIDGE",
+    title:
+      "METHOD AND DEVICE FOR CONTROLLING THE QUALITY OF A FILTRATION CARTRIDGE",
   },
   USD568097S: {
     publication: "USD568097 (S)",
@@ -260,8 +267,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Patentkontext für orthopädische Chirurgiewerkzeuge rund um Impaktor- und Reamer-Instrumente.",
     EP3261867A2:
       "Direkter Aventor-SA-Patentkontext für die Architektur eines elektrischen Einsitzers.",
-    EP3744622A1:
-      "Patentfamilie zur Fahrzeugarchitektur der SOFTCAR-Plattform.",
+    EP3744622A1: "Patentfamilie zur Fahrzeugarchitektur der SOFTCAR-Plattform.",
     EP3393889A1:
       "Frühere SOFTCAR-Fahrzeugarchitektur mit leichtem Struktur- und Karosseriekonzept.",
     EP4488027A1:
@@ -302,8 +308,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "Qualitätskontrolle für eine Filterkartusche in einem Gefäß für gefiltertes Wasser.",
     WO2016004540A1:
       "Optisches Verfahren, um Komponenten eines Uhrwerks unsichtbar oder sehr diskret erscheinen zu lassen.",
-    WO2021043427A1:
-      "Gehäusekontext für Wetter- und Sonnenschutzsysteme.",
+    WO2021043427A1: "Gehäusekontext für Wetter- und Sonnenschutzsysteme.",
     WO2026078588A1:
       "Ultraleichtes, recycelbares Armaturenbrett mit integrierten geformten Funktionen und Luftkanälen.",
   },
@@ -372,18 +377,15 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "임팩터와 리머 계열 수술 기구에 관련된 정형외과 수술 도구 특허 맥락입니다.",
     EP3261867A2:
       "전기 단좌 차량 아키텍처에 관한 Aventor SA의 직접 특허 맥락입니다.",
-    EP3744622A1:
-      "SOFTCAR 플랫폼에 연결된 차량 아키텍처 특허군입니다.",
+    EP3744622A1: "SOFTCAR 플랫폼에 연결된 차량 아키텍처 특허군입니다.",
     EP3393889A1:
       "경량 구조와 차체 콘셉트에 초점을 둔 초기 SOFTCAR 차량 아키텍처입니다.",
-    EP4488027A1:
-      "경량 차량 부품을 위한 보강 회전성형 차체 공정입니다.",
+    EP4488027A1: "경량 차량 부품을 위한 보강 회전성형 차체 공정입니다.",
     EP4680511A1:
       "저영향 차량 인테리어에 맞춘 재활용 가능 스티어링 휠 아키텍처입니다.",
     EP4705115A1:
       "휠 주변 공기 흐름과 공력 휠 커버 통합을 위한 SOFTCAR 림 디플렉터 작업입니다.",
-    FR2999439A1:
-      "정밀한 화장품 도포를 위한 제품 분배와 광 방출 원리입니다.",
+    FR2999439A1: "정밀한 화장품 도포를 위한 제품 분배와 광 방출 원리입니다.",
     US2009320941A1:
       "소형 음료 시스템을 위한 다방향 밸브와 정량 제어 로직입니다.",
     US2010173057A1:
@@ -400,12 +402,10 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "비와 햇빛 보호 시스템을 위한 전개식 프레임 특허 맥락입니다.",
     US2024326565A1:
       "복잡한 차체 형상과 컴팩트한 접근성을 위한 차량 도어 시스템입니다.",
-    US2025129628A1:
-      "산업화 전략과 연결된 저탄소 자동차 공장 개념입니다.",
+    US2025129628A1: "산업화 전략과 연결된 저탄소 자동차 공장 개념입니다.",
     US5584510A:
       "소형 차량의 구조 패키징과 충격 에너지 관리를 위한 섀시 원리입니다.",
-    US5667030A:
-      "경량 차량 아키텍처에 통합된 냉각용 열교환기입니다.",
+    US5667030A: "경량 차량 아키텍처에 통합된 냉각용 열교환기입니다.",
     US6015022A:
       "중앙 빔 섀시와 짧은 휠베이스 전략을 갖춘 초경량 전기 도로 차량 아키텍처입니다.",
     USD560092S: "카라프 형태에 관한 디자인 특허입니다.",
@@ -414,8 +414,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
       "정수 용기에 통합된 필터 카트리지 품질 관리 방법과 장치입니다.",
     WO2016004540A1:
       "시계 무브먼트 부품을 보이지 않거나 매우 절제되어 보이게 하는 광학 방법입니다.",
-    WO2021043427A1:
-      "비와 햇빛 보호 시스템을 위한 하우징 특허 맥락입니다.",
+    WO2021043427A1: "비와 햇빛 보호 시스템을 위한 하우징 특허 맥락입니다.",
     WO2026078588A1:
       "성형 기능과 공기 회로를 통합한 초경량 재활용 가능 대시보드입니다.",
   },
@@ -578,7 +577,8 @@ export const FEATURED_PROJECT: Project = {
   category: "Mobility",
   filter: "mobility",
   title: "STAJVELO RV01",
-  description: "Urban e-bike architecture built around injected composite design, distinctive wheels and premium industrial detailing.",
+  description:
+    "Urban e-bike architecture built around injected composite design, distinctive wheels and premium industrial detailing.",
   image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp",
   imageAlt: "STAJVELO RV01 electric bicycle render",
   tags: ["#2017", "#E-bike", "#Polymer"],
@@ -608,7 +608,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Aventor",
-    description: "High-performance electric vehicle platform developed around speed, acceleration and lightweight composite bodywork.",
+    description:
+      "High-performance electric vehicle platform developed around speed, acceleration and lightweight composite bodywork.",
     image: "/assets/projects/aventor/aventor-01-cover.webp",
     imageAlt: "Green Aventor electric vehicle on a road course",
     tags: ["#2013", "#EV", "#Composite"],
@@ -626,7 +627,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Weebot",
-    description: "Compact electric mobility concept explored through CAD, prototype builds and winter-use product studies.",
+    description:
+      "Compact electric mobility concept explored through CAD, prototype builds and winter-use product studies.",
     image: "/assets/projects/weebot/weebot-01-cover.webp",
     imageAlt: "Weebot compact snow mobility concept",
     tags: ["#2014", "#Mobility", "#Prototype"],
@@ -638,7 +640,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "SAM CREE",
-    description: "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
+    description:
+      "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
     image: "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp",
     imageAlt: "Orange SAM CREE electric three-wheeler with open canopy",
     tags: ["#1996", "#EV", "#ThreeWheeler"],
@@ -664,7 +667,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Angel Interceptor",
-    description: "High-performance electric three-wheel concept developed through CAD architecture, cockpit packaging and protective body studies.",
+    description:
+      "High-performance electric three-wheel concept developed through CAD architecture, cockpit packaging and protective body studies.",
     image: "/assets/projects/angel-interceptor/angel-interceptor-02-cover.webp",
     imageAlt: "Angel Interceptor three-wheel vehicle side-section CAD study",
     tags: ["#2012", "#Vehicle", "#CAD"],
@@ -676,7 +680,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "SOFTCAR",
-    description: "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
+    description:
+      "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
     image: "/assets/projects/softcar/softcar-01-cover.webp",
     imageAlt: "Yellow SOFTCAR compact city vehicle with open door",
     tags: ["#2015", "#CityEV", "#Circular"],
@@ -722,8 +727,10 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Folding bike & scooter",
-    description: "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
-    image: "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp",
+    description:
+      "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
+    image:
+      "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp",
     imageAlt: "Folding electric bicycle concept render",
     tags: ["#2011", "#Folding", "#Mobility"],
     overview:
@@ -734,7 +741,8 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Aventor drone",
-    description: "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
+    description:
+      "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
     image: "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
     imageAlt: "White Aventor drone prototype",
     tags: ["#2017", "#Drone", "#Prototype"],
@@ -746,8 +754,10 @@ export const PROJECTS: Project[] = [
     category: "Mobility",
     filter: "mobility",
     title: "Total Car",
-    description: "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
-    image: "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp",
+    description:
+      "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
+    image:
+      "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp",
     imageAlt: "Green Total Car electric vehicle prototype on display",
     tags: ["#2011", "#EV", "#Urban", "#EcoDesign"],
     overview:
@@ -758,7 +768,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "AirSmile",
-    description: "Dental care device concept developed from product styling through functional packaging and prototype families.",
+    description:
+      "Dental care device concept developed from product styling through functional packaging and prototype families.",
     image: "/assets/projects/airsmile/airsmile-01-cover.webp",
     imageAlt: "AirSmile handheld dental care device render",
     tags: ["#2007", "#Dental", "#Device"],
@@ -776,7 +787,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "O2 Cosmetics toothbrush",
-    description: "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
+    description:
+      "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
     image: "/assets/projects/brossadent/brossadent-01-cover.webp",
     imageAlt: "O2 Cosmetics toothbrush concept with refill cartridges",
     tags: ["#2007", "#Dental", "#Injection"],
@@ -794,7 +806,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Insulin pen",
-    description: "Injection pen housing and mechanism packaging studies for a slim, manufacturable medical device.",
+    description:
+      "Injection pen housing and mechanism packaging studies for a slim, manufacturable medical device.",
     image: "/assets/projects/insulin-pen/insulin-pen-01-cover.webp",
     imageAlt: "Blue insulin pen product render",
     tags: ["#2017", "#Medical", "#Packaging"],
@@ -806,7 +819,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Paradigm Spine",
-    description: "Spinal implant and instrumentation development supported by product rendering and mechanical simulation.",
+    description:
+      "Spinal implant and instrumentation development supported by product rendering and mechanical simulation.",
     image: "/assets/projects/paradigm-spine/paradigm-spine-01-cover.webp",
     imageAlt: "Paradigm Spine implant set render",
     tags: ["#2015", "#Spine", "#Simulation"],
@@ -824,7 +838,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Flex Drill",
-    description: "Flexible drill accessory concept with shaped polymer guide, prototype validation and stress-analysis views.",
+    description:
+      "Flexible drill accessory concept with shaped polymer guide, prototype validation and stress-analysis views.",
     image: "/assets/projects/flex-drill/flex-drill-01-cover.webp",
     imageAlt: "Blue flexible drill guide concept",
     tags: ["#2014", "#Tooling", "#Analysis"],
@@ -836,8 +851,10 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Biome staple applicator",
-    description: "Handheld applicator concept developed through sketches, structural analysis and printed prototypes.",
-    image: "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp",
+    description:
+      "Handheld applicator concept developed through sketches, structural analysis and printed prototypes.",
+    image:
+      "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp",
     imageAlt: "White and red biomedical staple applicator render",
     tags: ["#2013", "#Medical", "#Prototype"],
     overview:
@@ -854,7 +871,8 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Cliris",
-    description: "Automatic eyeglass cleaning device with a compact drawer architecture and refined consumer-product finish.",
+    description:
+      "Automatic eyeglass cleaning device with a compact drawer architecture and refined consumer-product finish.",
     image: "/assets/projects/cliris/cliris-01-cover.webp",
     imageAlt: "Black Cliris automatic eyeglass cleaner open",
     tags: ["#2014", "#Consumer", "#Hygiene"],
@@ -866,7 +884,8 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Filter Carafe",
-    description: "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
+    description:
+      "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
     image: "/assets/projects/filter-carafe/filter-carafe-01-cover.webp",
     imageAlt: "Filtered-water carafe concept with cartridge accessories",
     tags: ["#2008", "#Filtration", "#ProductDesign"],
@@ -877,10 +896,7 @@ export const PROJECTS: Project[] = [
         "WO2008017182A1",
         "Quality-control method and device for a filtration cartridge integrated into a filtered-water vessel.",
       ),
-      relatedPatent(
-        "USD560092S",
-        "Design patent covering the carafe form.",
-      ),
+      relatedPatent("USD560092S", "Design patent covering the carafe form."),
       relatedPatent(
         "USD568097S",
         "Design patent covering the filter accessory for the carafe.",
@@ -892,7 +908,8 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "iKitty",
-    description: "Cat enrichment product with refill capsule architecture, feeder mechanism and soft product styling.",
+    description:
+      "Cat enrichment product with refill capsule architecture, feeder mechanism and soft product styling.",
     image: "/assets/projects/ikitty/ikitty-01-cover.webp",
     imageAlt: "iKitty cat enrichment device prototype",
     tags: ["#2023", "#PetTech", "#Mechanism"],
@@ -904,9 +921,11 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Smart Bottle",
-    description: "Secure medical dispensing bottle for controlled opioid delivery, with biometric access, compact internal packaging and anti-tamper casing.",
+    description:
+      "Secure medical dispensing bottle for controlled opioid delivery, with biometric access, compact internal packaging and anti-tamper casing.",
     image: "/assets/projects/smart-bottle/smart-bottle-01-cover.webp",
-    imageAlt: "Smart Bottle medical dispenser concept with blue internal module",
+    imageAlt:
+      "Smart Bottle medical dispenser concept with blue internal module",
     tags: ["#2014", "#Medical", "#Dosing"],
     overview:
       "A compact medical-device architecture study for a controlled drug dispenser, including dose-access logic, biometric-use constraints, casing design and internal component packaging.",
@@ -916,7 +935,8 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Personal Injector",
-    description: "Connected personal-injection device concept focused on compatibility, no needle handling, compact kinematics and a single-use syringe.",
+    description:
+      "Connected personal-injection device concept focused on compatibility, no needle handling, compact kinematics and a single-use syringe.",
     image: "/assets/projects/personal-injector/personal-injector-01-cover.webp",
     imageAlt: "Personal injector medical device concept",
     tags: ["#2013", "#Medical", "#Connected"],
@@ -928,8 +948,10 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Acetabular Reamer Holder",
-    description: "PEEK surgical reamer handle and cover development for acetabular surgery, supported by design, FEA and injection-molding constraints.",
-    image: "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp",
+    description:
+      "PEEK surgical reamer handle and cover development for acetabular surgery, supported by design, FEA and injection-molding constraints.",
+    image:
+      "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp",
     imageAlt: "Acetabular reamer holder prototype in orange and black PEEK",
     tags: ["#2014", "#PEEK", "#SurgicalTool"],
     overview:
@@ -946,8 +968,10 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Single Use Turbine",
-    description: "Single-use medical turbine concept developed to reduce size, weight and cost through material and geometry optimization.",
-    image: "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp",
+    description:
+      "Single-use medical turbine concept developed to reduce size, weight and cost through material and geometry optimization.",
+    image:
+      "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp",
     imageAlt: "Transparent single-use turbine medical component",
     tags: ["#2011", "#SingleUse", "#Medical"],
     overview:
@@ -958,8 +982,10 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Glove & helmet dryer",
-    description: "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
-    image: "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
+    description:
+      "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
+    image:
+      "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
     imageAlt: "Prototype glove dryer with gloves mounted",
     tags: ["#2015", "#Consumer", "#Prototype"],
     overview:
@@ -970,7 +996,8 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Pocket folding umbrella",
-    description: "Phone-sized folding umbrella concept with compact case studies, folding geometry and working prototype details.",
+    description:
+      "Phone-sized folding umbrella concept with compact case studies, folding geometry and working prototype details.",
     image: "/assets/projects/folding-umbrella/folding-umbrella-01-cover.webp",
     imageAlt: "Yellow pocket folding umbrella prototype",
     tags: ["#2018", "#Mechanism", "#Consumer"],
@@ -992,9 +1019,12 @@ export const PROJECTS: Project[] = [
     category: "Medical",
     filter: "medical",
     title: "Skincare applicator",
-    description: "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
-    image: "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp",
-    imageAlt: "IDlab skincare applicator with cosmetic cartridges and packaging",
+    description:
+      "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
+    image:
+      "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp",
+    imageAlt:
+      "IDlab skincare applicator with cosmetic cartridges and packaging",
     tags: ["#2012", "#BeautyTech", "#Packaging"],
     overview:
       "A handheld skincare system combining fluid delivery, user ergonomics, product styling and packaging-ready visual development.",
@@ -1014,7 +1044,8 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Coffee Machine",
-    description: "Coffee machine concept built around a double-pass capsule circuit, where water makes an out-and-back path through the capsule.",
+    description:
+      "Coffee machine concept built around a double-pass capsule circuit, where water makes an out-and-back path through the capsule.",
     image: "/assets/projects/alicoffee-machine/alicoffee-machine-01-cover.webp",
     imageAlt: "Coffee machine countertop concept render",
     tags: ["#2014", "#Coffee", "#Capsule", "#Fluidics"],
@@ -1032,8 +1063,10 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Tea Machine",
-    description: "Tea-capsule brewing-unit development, from capsule handling and ejection to beverage flow and pilot-series readiness.",
-    image: "/assets/projects/special-t-machine/special-t-machine-01-new-cover.webp",
+    description:
+      "Tea-capsule brewing-unit development, from capsule handling and ejection to beverage flow and pilot-series readiness.",
+    image:
+      "/assets/projects/special-t-machine/special-t-machine-01-new-cover.webp",
     imageAlt: "Tea-machine brewing unit prototype",
     tags: ["#2008", "#Tea", "#BrewingUnit"],
     overview:
@@ -1050,8 +1083,10 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Instant coffee dispenser",
-    description: "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
-    image: "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
+    description:
+      "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
+    image:
+      "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
     imageAlt: "Instant coffee dispenser prototype with hand interaction",
     tags: ["#2006", "#Appliance", "#Prototype"],
     overview:
@@ -1076,8 +1111,10 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Watch mechanics",
-    description: "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
-    image: "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp",
+    description:
+      "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
+    image:
+      "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp",
     imageAlt: "Mechanical watch render with visible movement",
     tags: ["#2014", "#Horology", "#Precision"],
     overview:
@@ -1094,9 +1131,11 @@ export const PROJECTS: Project[] = [
     category: "Industrial",
     filter: "industrial",
     title: "Velum SKY screen mechanism",
-    description: "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
+    description:
+      "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
     image: "/assets/projects/velum-sky-screen/velum-sky-screen-01-cover.webp",
-    imageAlt: "Velum SKY mechanical screen prototype on a dark studio background",
+    imageAlt:
+      "Velum SKY mechanical screen prototype on a dark studio background",
     tags: ["#2025", "#Architecture", "#Mechanism"],
     overview:
       "Velum SKY is represented here through a high-precision mechanical assembly, suggesting an architectural or environmental screen mechanism requiring robust motion and clean detailing.",
@@ -1137,14 +1176,16 @@ const STATS: ProjectStat[] = [
 const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "Mobilité",
-    description: "Architecture de vélo urbain électrique autour d'une conception composite injectée, de roues distinctives et de détails industriels premium.",
+    description:
+      "Architecture de vélo urbain électrique autour d'une conception composite injectée, de roues distinctives et de détails industriels premium.",
     imageAlt: "Rendu du vélo électrique STAJVELO RV01",
     overview:
       "DOMTEKNIKA a accompagné la conception polymère et le développement structurel de ce vélo électrique urbain, depuis l'architecture initiale et l'ingénierie des roues jusqu'à la définition industrialisable du produit.",
   },
   aventor: {
     category: "Mobilité",
-    description: "Plateforme de véhicule électrique haute performance développée autour de la vitesse, de l'accélération et d'une carrosserie composite légère.",
+    description:
+      "Plateforme de véhicule électrique haute performance développée autour de la vitesse, de l'accélération et d'une carrosserie composite légère.",
     imageAlt: "Véhicule électrique vert Aventor sur circuit",
     overview:
       "Aventor associe implantation véhicule, conception composite, essais sur piste et optimisation structurelle pour une plateforme électrique compacte et performante.",
@@ -1157,7 +1198,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   weebot: {
     category: "Mobilité",
-    description: "Concept de mobilité électrique compacte exploré par CAO, prototypes et études produit pour usage hivernal.",
+    description:
+      "Concept de mobilité électrique compacte exploré par CAO, prototypes et études produit pour usage hivernal.",
     imageAlt: "Concept de mobilité neige compact Weebot",
     overview:
       "Le projet couvre l'architecture produit, l'intégration mécanique et le développement de prototypes pour une petite plateforme de mobilité électrique destinée à des usages extérieurs exigeants.",
@@ -1165,7 +1207,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "totalcar-concept": {
     category: "Mobilité",
     title: "Total Car",
-    description: "Prototype de véhicule électrique vert centré sur une structure légère, l'accès à l'habitacle et la mobilité urbaine compacte.",
+    description:
+      "Prototype de véhicule électrique vert centré sur une structure légère, l'accès à l'habitacle et la mobilité urbaine compacte.",
     imageAlt: "Prototype de véhicule électrique vert Total Car exposé",
     overview:
       "Total Car complète le portefeuille mobilité avec une étude de véhicule électrique compact, associant carrosserie légère, assemblage prototype et validation concrète de l'accès habitacle.",
@@ -1173,7 +1216,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "sam-cree": {
     category: "Mobilité",
     title: "SAM CREE",
-    description: "Trois-roues électrique suisse ultra-léger autour de sièges en tandem, d'un châssis central et d'une autonomie urbaine compacte.",
+    description:
+      "Trois-roues électrique suisse ultra-léger autour de sièges en tandem, d'un châssis central et d'une autonomie urbaine compacte.",
     imageAlt: "Trois-roues électrique orange SAM CREE avec canopy ouvert",
     overview:
       "SAM CREE regroupe les premiers travaux de véhicule routier électrique ultra-léger, avec châssis poutre central, implantation des sièges en tandem et intégration des composants pour une mobilité urbaine efficiente.",
@@ -1194,15 +1238,18 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "angel-interceptor": {
     category: "Mobilité",
-    description: "Concept électrique trois-roues haute performance développé par architecture CAO, aménagement du poste de conduite et études de carrosserie protectrice.",
-    imageAlt: "Étude CAO en coupe latérale du véhicule trois-roues Angel Interceptor",
+    description:
+      "Concept électrique trois-roues haute performance développé par architecture CAO, aménagement du poste de conduite et études de carrosserie protectrice.",
+    imageAlt:
+      "Étude CAO en coupe latérale du véhicule trois-roues Angel Interceptor",
     overview:
       "Angel Interceptor explore une architecture électrique trois-roues haute performance, en équilibrant sièges tandem, protection de carrosserie, implantation des roues et intégration mécanique par études CAO.",
   },
   softcar: {
     category: "Mobilité",
     title: "SOFTCAR",
-    description: "Concept de véhicule électrique urbain à très faible empreinte, centré sur une architecture légère, une intégration compacte et une mobilité écologique.",
+    description:
+      "Concept de véhicule électrique urbain à très faible empreinte, centré sur une architecture légère, une intégration compacte et une mobilité écologique.",
     imageAlt: "Véhicule urbain compact jaune SOFTCAR avec porte ouverte",
     overview:
       "SOFTCAR prolonge le travail mobilité vers les véhicules électriques urbains compacts, avec architecture légère, assemblages simplifiés et transport à faible empreinte écologique.",
@@ -1244,7 +1291,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-bike-scooter": {
     category: "Mobilité",
     title: "Vélo & scooter pliants",
-    description: "Études de mobilité pliante combinant architecture compacte, mécanismes ergonomiques et formats transportables.",
+    description:
+      "Études de mobilité pliante combinant architecture compacte, mécanismes ergonomiques et formats transportables.",
     imageAlt: "Rendu de vélo électrique pliant",
     overview:
       "Une série de concepts vélo électrique et scooter pliants centrés sur les mécanismes de charnière, le volume de rangement, l'ergonomie et les assemblages mécaniques fabricables.",
@@ -1252,14 +1300,16 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "aventor-drone": {
     category: "Mobilité",
     title: "Drone Aventor",
-    description: "Développement d'une plateforme drone avec études de châssis léger, prototypes assemblés et itérations terrain.",
+    description:
+      "Développement d'une plateforme drone avec études de châssis léger, prototypes assemblés et itérations terrain.",
     imageAlt: "Prototype de drone blanc Aventor",
     overview:
       "Ce travail drone combine implantation mécanique, intégration de la charge utile et validation prototype pour une plateforme aérienne légère.",
   },
   airsmile: {
     category: "Médical",
-    description: "Concept de dispositif dentaire développé depuis le style produit jusqu'à l'intégration fonctionnelle et aux familles de prototypes.",
+    description:
+      "Concept de dispositif dentaire développé depuis le style produit jusqu'à l'intégration fonctionnelle et aux familles de prototypes.",
     imageAlt: "Rendu du dispositif dentaire portatif AirSmile",
     overview:
       "AirSmile demandait une architecture produit portative propre, des composants amovibles et un détail ergonomique adapté à un usage de soin dentaire.",
@@ -1273,7 +1323,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   brossadent: {
     category: "Médical",
     title: "Brosse à dents O2 Cosmetics",
-    description: "Concept de soin dentaire combinant corps de brosse à dents, cartouches O2 Cosmetics et intégration du mécanisme interne.",
+    description:
+      "Concept de soin dentaire combinant corps de brosse à dents, cartouches O2 Cosmetics et intégration du mécanisme interne.",
     imageAlt: "Concept de brosse à dents O2 Cosmetics avec cartouches",
     overview:
       "Le concept combine un corps de brosse à dents ergonomique, des consommables O2 Cosmetics remplaçables et l'intégration du mécanisme interne dans un produit dentaire compact.",
@@ -1287,14 +1338,16 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "insulin-pen": {
     category: "Médical",
     title: "Stylo à insuline",
-    description: "Études de boîtier et d'intégration du mécanisme pour un dispositif médical fin et industrialisable.",
+    description:
+      "Études de boîtier et d'intégration du mécanisme pour un dispositif médical fin et industrialisable.",
     imageAlt: "Rendu de stylo à insuline bleu",
     overview:
       "Ce projet se concentre sur un produit médical au format stylo, en équilibrant contraintes de mécanisme interne, prise en main et design industriel épuré.",
   },
   "paradigm-spine": {
     category: "Médical",
-    description: "Développement d'implant et d'instrumentation rachidienne avec rendu produit et simulation mécanique.",
+    description:
+      "Développement d'implant et d'instrumentation rachidienne avec rendu produit et simulation mécanique.",
     imageAlt: "Rendu d'un kit d'implants Paradigm Spine",
     overview:
       "Projet d'implant médical combinant conception de pièces de précision, présentation de kit et analyse par éléments finis pour du matériel spinal chargé mécaniquement.",
@@ -1307,7 +1360,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "flex-drill": {
     category: "Médical",
-    description: "Concept d'accessoire de perçage flexible avec guide polymère, validation prototype et vues d'analyse de contraintes.",
+    description:
+      "Concept d'accessoire de perçage flexible avec guide polymère, validation prototype et vues d'analyse de contraintes.",
     imageAlt: "Concept de guide de perçage flexible bleu",
     overview:
       "Flex Drill explore une architecture de guide de perçage courbe, depuis la simulation mécanique jusqu'au prototype physique et au rendu produit.",
@@ -1315,7 +1369,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "biome-staple-applicator": {
     category: "Médical",
     title: "Applicateur d'agrafes biomédicales",
-    description: "Concept d'applicateur portatif développé par croquis, analyse structurelle et prototypes imprimés.",
+    description:
+      "Concept d'applicateur portatif développé par croquis, analyse structurelle et prototypes imprimés.",
     imageAlt: "Rendu d'applicateur d'agrafes biomédical blanc et rouge",
     overview:
       "L'applicateur montre la boucle complète: idéation, architecture ergonomique, vérifications par éléments finis et pièces prototype pour un outil biomédical portatif.",
@@ -1328,7 +1383,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   cliris: {
     category: "Industrie",
-    description: "Nettoyeur automatique de lunettes avec architecture compacte à tiroir et finition de produit grand public.",
+    description:
+      "Nettoyeur automatique de lunettes avec architecture compacte à tiroir et finition de produit grand public.",
     imageAlt: "Nettoyeur de lunettes automatique Cliris noir ouvert",
     overview:
       "Cliris combine chambre de nettoyage compacte, mouvement de tiroir et surfaces visibles dans un produit conçu pour un entretien fiable et hygiénique des lunettes.",
@@ -1336,7 +1392,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "filter-carafe": {
     category: "Industrie",
     title: "Carafe filtrante",
-    description: "Système de carafe filtrante combinant design produit, accessoire de cartouche et contrôle électronique de l'état du filtre.",
+    description:
+      "Système de carafe filtrante combinant design produit, accessoire de cartouche et contrôle électronique de l'état du filtre.",
     imageAlt: "Concept de carafe filtrante avec accessoires de cartouche",
     overview:
       "Le projet associe la carafe visible et son accessoire filtrant à un principe de contrôle intégré dans le couvercle, capable de suivre l'état d'utilisation de la cartouche de filtration.",
@@ -1357,7 +1414,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   ikitty: {
     category: "Industrie",
-    description: "Produit d'enrichissement pour chat avec capsule rechargeable, mécanisme de distribution et forme douce.",
+    description:
+      "Produit d'enrichissement pour chat avec capsule rechargeable, mécanisme de distribution et forme douce.",
     imageAlt: "Prototype de dispositif iKitty pour chat",
     overview:
       "Le concept iKitty intègre capsules rechargeables, mécanique interne de distribution et langage produit reconnaissable dans un objet grand public industrialisable.",
@@ -1365,15 +1423,18 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "smart-bottle": {
     category: "Médical",
     title: "Smart Bottle",
-    description: "Distributeur médical sécurisé pour opioïdes, avec accès biométrique, architecture interne compacte et boîtier anti-effraction.",
-    imageAlt: "Concept de distributeur médical Smart Bottle avec module interne bleu",
+    description:
+      "Distributeur médical sécurisé pour opioïdes, avec accès biométrique, architecture interne compacte et boîtier anti-effraction.",
+    imageAlt:
+      "Concept de distributeur médical Smart Bottle avec module interne bleu",
     overview:
       "Étude d'architecture de dispositif médical pour distribution contrôlée de médicaments, incluant logique d'accès aux doses, contraintes biométriques, conception de boîtier et intégration des composants internes.",
   },
   "personal-injector": {
     category: "Médical",
     title: "Personal Injector",
-    description: "Concept d'injecteur personnel connecté, centré sur la compatibilité, l'absence de manipulation d'aiguille, une cinématique compacte et une seringue à usage unique.",
+    description:
+      "Concept d'injecteur personnel connecté, centré sur la compatibilité, l'absence de manipulation d'aiguille, une cinématique compacte et une seringue à usage unique.",
     imageAlt: "Concept de dispositif médical Personal Injector",
     overview:
       "Présenté dans le portfolio médical comme projet SwissMedDev Start Up Prize 2013, Personal Injector vise une auto-injection plus sûre grâce à une mécanique compacte, une logique d'objet connecté, des contraintes de compatibilité et l'absence de manipulation directe de l'aiguille.",
@@ -1381,7 +1442,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "acetabular-reamer-holder": {
     category: "Médical",
     title: "Porte-fraise acétabulaire",
-    description: "Développement d'un porte-fraise et d'un capot en PEEK pour chirurgie acétabulaire, avec design, calculs éléments finis et contraintes d'injection.",
+    description:
+      "Développement d'un porte-fraise et d'un capot en PEEK pour chirurgie acétabulaire, avec design, calculs éléments finis et contraintes d'injection.",
     imageAlt: "Prototype de porte-fraise acétabulaire orange et noir en PEEK",
     overview:
       "Ce projet d'outillage médical couvre un porte-fraise en PEEK et un capot de protection pour chirurgie acétabulaire, en combinant conception détaillée, analyse éléments finis, faisabilité injection et exigence de rigidité pour un instrument chirurgical hygiénique.",
@@ -1395,7 +1457,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "single-use-turbine": {
     category: "Médical",
     title: "Turbine à usage unique",
-    description: "Concept de turbine médicale jetable développé pour réduire taille, poids et coût grâce à l'optimisation des matériaux et de la géométrie.",
+    description:
+      "Concept de turbine médicale jetable développé pour réduire taille, poids et coût grâce à l'optimisation des matériaux et de la géométrie.",
     imageAlt: "Composant médical transparent de turbine à usage unique",
     overview:
       "La turbine à usage unique est documentée dans le portfolio médical comme un dispositif jetable compact, avec des priorités de développement centrées sur la réduction de taille, de poids, de coût et l'emploi de matériaux innovants.",
@@ -1403,7 +1466,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "glove-helmet-dryer": {
     category: "Industrie",
     title: "Sèche-gants & casque",
-    description: "Concept de station de séchage pour équipement sportif, développé des plans CAO aux essais sur prototype physique.",
+    description:
+      "Concept de station de séchage pour équipement sportif, développé des plans CAO aux essais sur prototype physique.",
     imageAlt: "Prototype de sèche-gants avec gants montés",
     overview:
       "Ce produit intègre les chemins d'air et supports pour gants et casques dans une station compacte, avec rendus conceptuels et prototypes physiques.",
@@ -1411,7 +1475,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-umbrella": {
     category: "Industrie",
     title: "Parapluie pliant de poche",
-    description: "Concept de parapluie pliant au format téléphone, avec études d'étui, géométrie de pliage et détails de prototype fonctionnel.",
+    description:
+      "Concept de parapluie pliant au format téléphone, avec études d'étui, géométrie de pliage et détails de prototype fonctionnel.",
     imageAlt: "Prototype de parapluie pliant de poche jaune",
     overview:
       "Le projet explore une nouvelle architecture de parapluie pliant conçue pour tenir dans une poche une fois fermé, proche de l'encombrement d'un smartphone. Le travail couvre les coupes d'étui, les études mécanisme et les prototypes physiques.",
@@ -1429,7 +1494,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "skincare-applicator": {
     category: "Médical",
     title: "Applicateur soin de la peau",
-    description: "Concept d'applicateur dermocosmétique avec pièce à main ergonomique, architecture interne de cartouche et présentation produit.",
+    description:
+      "Concept d'applicateur dermocosmétique avec pièce à main ergonomique, architecture interne de cartouche et présentation produit.",
     imageAlt: "Rendu d'un applicateur dermocosmétique blanc",
     overview:
       "Système portatif de soin de la peau combinant distribution de fluide, ergonomie utilisateur, style produit et visuels prêts pour présentation.",
@@ -1447,7 +1513,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "alicoffee-machine": {
     category: "Industrie",
     title: "Machine à café",
-    description: "Concept de machine à café basé sur un circuit capsule double passage, où l'eau fait un aller-retour dans la capsule.",
+    description:
+      "Concept de machine à café basé sur un circuit capsule double passage, où l'eau fait un aller-retour dans la capsule.",
     imageAlt: "Rendu du concept de machine à café de comptoir",
     overview:
       "Ce projet se limite au principe capsule de la machine à café: l'eau ne traverse pas simplement la capsule en ligne droite. Elle effectue un aller-retour dans la capsule, créant un double passage pendant l'extraction.",
@@ -1461,7 +1528,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "special-t-machine": {
     category: "Industrie",
     title: "Machine à thé",
-    description: "Développement d'une unité d'extraction pour capsules de thé, de la gestion capsule et l'éjection jusqu'au flux boisson et à la présérie.",
+    description:
+      "Développement d'une unité d'extraction pour capsules de thé, de la gestion capsule et l'éjection jusqu'au flux boisson et à la présérie.",
     imageAlt: "Prototype d'unité d'extraction pour machine à thé",
     overview:
       "DOMTEKNIKA a travaillé sur l'unité d'extraction: maintien, ouverture, détection, cinématique et éjection de la capsule, flux boisson dans la tasse et intégration design industriel. Le projet a soutenu la première série pilote de la tête d'extraction et un composant à vortex breveté pour limiter l'accumulation de vapeur dans la capsule.",
@@ -1475,7 +1543,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "instant-coffee-dispenser": {
     category: "Industrie",
     title: "Distributeur de café soluble",
-    description: "Prototype d'appareil pour dosage de café soluble, testé avec emballages grand public et maquettes physiques.",
+    description:
+      "Prototype d'appareil pour dosage de café soluble, testé avec emballages grand public et maquettes physiques.",
     imageAlt: "Prototype de distributeur de café soluble en interaction main",
     overview:
       "Projet prototype centré sur la manipulation du café soluble, l'ergonomie de dosage et un format d'appareil compact.",
@@ -1497,7 +1566,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "vacheron-watch-mechanics": {
     category: "Industrie",
     title: "Mécanique horlogère",
-    description: "Études horlogères de précision combinant implantation mécanique, assemblages rendus et analyse de composants.",
+    description:
+      "Études horlogères de précision combinant implantation mécanique, assemblages rendus et analyse de composants.",
     imageAlt: "Rendu de montre mécanique avec mouvement visible",
     overview:
       "Ce projet horloger porte sur la mécanique de précision, la visualisation de mouvement et l'évaluation structurelle de petits composants à forte valeur.",
@@ -1511,7 +1581,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "velum-sky-screen": {
     category: "Industrie",
     title: "Mécanisme Velum SKY",
-    description: "Prototype de mécanisme architectural pour écran ou élément de façade, photographié comme assemblage mécanique de précision.",
+    description:
+      "Prototype de mécanisme architectural pour écran ou élément de façade, photographié comme assemblage mécanique de précision.",
     imageAlt: "Prototype mécanique Velum SKY sur fond studio sombre",
     overview:
       "Velum SKY est représenté ici par un assemblage mécanique de précision, suggérant un mécanisme architectural ou environnemental demandant mouvement robuste et détails propres.",
@@ -1521,28 +1592,32 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
 const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "Mobilität",
-    description: "Urbanes Elektrofahrrad, entwickelt rund um injizierte Verbundbauweise, markante Räder und hochwertige Industriedetails.",
+    description:
+      "Urbanes Elektrofahrrad, entwickelt rund um injizierte Verbundbauweise, markante Räder und hochwertige Industriedetails.",
     imageAlt: "Rendering des elektrischen Fahrrads STAJVELO RV01",
     overview:
       "DOMTEKNIKA unterstützte die Polymerkonzeption und Strukturentwicklung dieses urbanen Elektrofahrrads, von der frühen Architektur und Radentwicklung bis zur herstellbaren Produktdefinition.",
   },
   aventor: {
     category: "Mobilität",
-    description: "Elektrische Hochleistungsplattform, entwickelt rund um Geschwindigkeit, Beschleunigung und leichte Verbundkarosserie.",
+    description:
+      "Elektrische Hochleistungsplattform, entwickelt rund um Geschwindigkeit, Beschleunigung und leichte Verbundkarosserie.",
     imageAlt: "Grünes elektrisches Aventor-Fahrzeug auf einer Teststrecke",
     overview:
       "Aventor verbindet Fahrzeugintegration, Verbunddesign, Streckentests und strukturelle Optimierung für eine kompakte elektrische Hochleistungsplattform.",
   },
   weebot: {
     category: "Mobilität",
-    description: "Kompaktes elektrisches Mobilitätskonzept, untersucht mit CAD, Prototypenaufbauten und Produktstudien für den Wintereinsatz.",
+    description:
+      "Kompaktes elektrisches Mobilitätskonzept, untersucht mit CAD, Prototypenaufbauten und Produktstudien für den Wintereinsatz.",
     imageAlt: "Kompaktes Weebot-Schneemobilitätskonzept",
     overview:
       "Das Projekt umfasst Produktarchitektur, mechanische Integration und Prototypentwicklung für eine kleine elektrische Mobilitätsplattform für anspruchsvolle Outdoor-Anwendungen.",
   },
   "totalcar-concept": {
     category: "Mobilität",
-    description: "Kompaktes Elektromobilitätskonzept mit Fokus auf leichter Fahrzeugarchitektur und ökologischem Stadtverkehr.",
+    description:
+      "Kompaktes Elektromobilitätskonzept mit Fokus auf leichter Fahrzeugarchitektur und ökologischem Stadtverkehr.",
     imageAlt: "Ausgestellter grüner Total Car Elektrofahrzeug-Prototyp",
     overview:
       "Total Car erweitert das Mobilitätsportfolio um eine kleine Elektrofahrzeugstudie mit leichter Karosserie, sauberer Produktintegration und geringem urbanem Fußabdruck.",
@@ -1550,22 +1625,26 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "sam-cree": {
     category: "Mobilität",
     title: "SAM CREE",
-    description: "Schweizer ultraleichter elektrischer Dreiradwagen mit Tandemsitzen, zentralem Trägerchassis und kompakter urbaner Reichweite.",
-    imageAlt: "Orangefarbener elektrischer SAM CREE Dreiradwagen mit geöffnetem Dach",
+    description:
+      "Schweizer ultraleichter elektrischer Dreiradwagen mit Tandemsitzen, zentralem Trägerchassis und kompakter urbaner Reichweite.",
+    imageAlt:
+      "Orangefarbener elektrischer SAM CREE Dreiradwagen mit geöffnetem Dach",
     overview:
       "SAM CREE bündelt frühe Arbeiten an ultraleichten Elektrostraßenfahrzeugen: zentraler Träger, Tandem-Anordnung und Komponentenintegration für effiziente Stadtmobilität.",
   },
   "angel-interceptor": {
     category: "Mobilität",
     title: "Angel Interceptor",
-    description: "Elektrisches Hochleistungs-Dreiradkonzept, entwickelt über CAD-Architektur, Cockpit-Package und schützende Karosseriestudien.",
+    description:
+      "Elektrisches Hochleistungs-Dreiradkonzept, entwickelt über CAD-Architektur, Cockpit-Package und schützende Karosseriestudien.",
     imageAlt: "CAD-Seitenstudie des dreirädrigen Angel Interceptor",
     overview:
       "Angel Interceptor untersucht eine elektrische Hochleistungs-Dreiradarchitektur und balanciert Tandemsitze, Karosserieschutz, Radlayout und mechanische Integration in CAD-Studien.",
   },
   softcar: {
     category: "Mobilität",
-    description: "Städtisches Elektrofahrzeugkonzept mit sehr geringem Fußabdruck, leichter Architektur, kompakter Integration und ökologischer Mobilität.",
+    description:
+      "Städtisches Elektrofahrzeugkonzept mit sehr geringem Fußabdruck, leichter Architektur, kompakter Integration und ökologischer Mobilität.",
     imageAlt: "Kompaktes elektrisches Stadtfahrzeug SOFTCAR",
     overview:
       "SOFTCAR führt die Mobilitätsarbeit in kompakte Stadtelektrofahrzeuge weiter und kombiniert leichte Karosseriearchitektur, vereinfachte Baugruppen und Verkehr mit geringem ökologischem Fußabdruck.",
@@ -1573,7 +1652,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-bike-scooter": {
     category: "Mobilität",
     title: "Faltfahrrad & Scooter",
-    description: "Frühe Studien zu faltbarer Mobilität mit kompakter Fahrzeugarchitektur, ergonomischen Mechanismen und transportfähigen Formaten.",
+    description:
+      "Frühe Studien zu faltbarer Mobilität mit kompakter Fahrzeugarchitektur, ergonomischen Mechanismen und transportfähigen Formaten.",
     imageAlt: "Rendering eines faltbaren Elektrofahrrads",
     overview:
       "Eine Reihe von Falt-Elektrofahrrad- und Scooter-Konzepten mit Fokus auf Gelenkmechanismen, kompaktes Stauraumvolumen, ergonomische Fahrpositionen und herstellbare mechanische Baugruppen.",
@@ -1581,14 +1661,16 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "aventor-drone": {
     category: "Mobilität",
     title: "Aventor-Drohne",
-    description: "Entwicklung einer Drohnenplattform mit leichten Rahmenstudien, montierten Prototypen und Iterationen im Feldtest.",
+    description:
+      "Entwicklung einer Drohnenplattform mit leichten Rahmenstudien, montierten Prototypen und Iterationen im Feldtest.",
     imageAlt: "Weißer Aventor-Drohnenprototyp",
     overview:
       "Diese Drohnenarbeit verbindet mechanische Anordnung, Nutzlastintegration und Prototypvalidierung für eine leichte Luftplattform.",
   },
   airsmile: {
     category: "Medizin",
-    description: "Konzept für ein Dentalgerät, entwickelt vom Produktstyling bis zur funktionalen Integration und Prototypfamilien.",
+    description:
+      "Konzept für ein Dentalgerät, entwickelt vom Produktstyling bis zur funktionalen Integration und Prototypfamilien.",
     imageAlt: "Rendering eines handgeführten AirSmile-Dentalgeräts",
     overview:
       "AirSmile erforderte eine saubere handgeführte Produktarchitektur, austauschbare Komponenten und ergonomische Details für eine Dentalanwendung.",
@@ -1596,7 +1678,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   brossadent: {
     category: "Medizin",
     title: "O2 Cosmetics Zahnbürste",
-    description: "Dentalpflege-Konzept mit Zahnbürstenkörper, O2-Cosmetics-Nachfüllkartuschen und Integration des internen Mechanismus.",
+    description:
+      "Dentalpflege-Konzept mit Zahnbürstenkörper, O2-Cosmetics-Nachfüllkartuschen und Integration des internen Mechanismus.",
     imageAlt: "O2 Cosmetics Zahnbürstenkonzept mit Nachfüllkartuschen",
     overview:
       "Das Konzept kombiniert einen ergonomischen Zahnbürstenkörper, austauschbare O2-Cosmetics-Verbrauchsteile und den internen Mechanismus in einem kompakten Dentalprodukt.",
@@ -1604,21 +1687,24 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "insulin-pen": {
     category: "Medizin",
     title: "Insulinpen",
-    description: "Studien zu Gehäuse und Mechanismusintegration für ein schlankes, herstellbares Medizinprodukt im Pen-Format.",
+    description:
+      "Studien zu Gehäuse und Mechanismusintegration für ein schlankes, herstellbares Medizinprodukt im Pen-Format.",
     imageAlt: "Blaues Produkt-Rendering eines Insulinpens",
     overview:
       "Dieses Projekt konzentriert sich auf ein kompaktes medizinisches Pen-Produkt, das interne Mechanik, Nutzerhandhabung und klare Industriegestaltung ausbalanciert.",
   },
   "paradigm-spine": {
     category: "Medizin",
-    description: "Entwicklung von Wirbelsäulenimplantaten und Instrumentierung, unterstützt durch Produktrenderings und mechanische Simulation.",
+    description:
+      "Entwicklung von Wirbelsäulenimplantaten und Instrumentierung, unterstützt durch Produktrenderings und mechanische Simulation.",
     imageAlt: "Rendering eines Paradigm-Spine-Implantatsets",
     overview:
       "Ein medizinisches Implantatprojekt, das Präzisionsteiledesign, Kit-Präsentation und Finite-Elemente-Analyse für belastungskritische Wirbelsäulenkomponenten verbindet.",
   },
   "flex-drill": {
     category: "Medizin",
-    description: "Konzept eines flexiblen Bohrzubehörs mit geformter Polymerführung, Prototypvalidierung und Spannungsanalyse-Ansichten.",
+    description:
+      "Konzept eines flexiblen Bohrzubehörs mit geformter Polymerführung, Prototypvalidierung und Spannungsanalyse-Ansichten.",
     imageAlt: "Blaues Konzept einer flexiblen Bohrführung",
     overview:
       "Flex Drill untersucht eine gekrümmte Bohrführungsarchitektur, von mechanischer Spannungssimulation bis zu physischem Prototyp und Produktrendering.",
@@ -1626,14 +1712,16 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "biome-staple-applicator": {
     category: "Medizin",
     title: "Biome-Klammerapplikator",
-    description: "Handgeführtes Applikatorkonzept, entwickelt durch Skizzen, Strukturanalyse und gedruckte Prototypen.",
+    description:
+      "Handgeführtes Applikatorkonzept, entwickelt durch Skizzen, Strukturanalyse und gedruckte Prototypen.",
     imageAlt: "Weiß-rotes Rendering eines biomedizinischen Klammerapplikators",
     overview:
       "Der Applikator zeigt die gesamte Schleife von Ideenskizze und ergonomischem Layout bis zu Finite-Elemente-Prüfungen und Prototypteilen für ein biomedizinisches Handwerkzeug.",
   },
   cliris: {
     category: "Industrie",
-    description: "Automatisches Brillenreinigungsgerät mit kompakter Schubladenarchitektur und veredelter Produktoberfläche für Endnutzer.",
+    description:
+      "Automatisches Brillenreinigungsgerät mit kompakter Schubladenarchitektur und veredelter Produktoberfläche für Endnutzer.",
     imageAlt: "Geöffneter schwarzer automatischer Cliris-Brillenreiniger",
     overview:
       "Cliris kombiniert eine kompakte Reinigungskammer, Schubladenbewegung und nutzerseitige Oberflächen in einem Produkt für zuverlässige, hygienische Brillenpflege.",
@@ -1641,7 +1729,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "filter-carafe": {
     category: "Industrie",
     title: "Filterkaraffe",
-    description: "System für gefiltertes Wasser mit Karaffendesign, Filterzubehör und elektronischer Überwachung des Kartuschenzustands.",
+    description:
+      "System für gefiltertes Wasser mit Karaffendesign, Filterzubehör und elektronischer Überwachung des Kartuschenzustands.",
     imageAlt: "Konzept einer Filterkaraffe mit Kartuschenzubehör",
     overview:
       "Das Projekt verbindet die sichtbare Karaffe und das Filterzubehör mit einem im Deckel integrierten Kontrollprinzip, das den Zustand und die Nutzung der Filterkartusche überwacht.",
@@ -1650,10 +1739,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "WO2008017182A1",
         "Qualitätskontrolle für eine Filterkartusche in einem Gefäß für gefiltertes Wasser.",
       ),
-      relatedPatent(
-        "USD560092S",
-        "Designpatent für die Form der Karaffe.",
-      ),
+      relatedPatent("USD560092S", "Designpatent für die Form der Karaffe."),
       relatedPatent(
         "USD568097S",
         "Designpatent für das Filterzubehör der Karaffe.",
@@ -1662,7 +1748,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   ikitty: {
     category: "Industrie",
-    description: "Produkt zur Beschäftigung von Katzen mit Nachfüllkapsel-Architektur, Füttermechanismus und weicher Produktsprache.",
+    description:
+      "Produkt zur Beschäftigung von Katzen mit Nachfüllkapsel-Architektur, Füttermechanismus und weicher Produktsprache.",
     imageAlt: "iKitty-Prototyp für Katzenbeschäftigung",
     overview:
       "Das iKitty-Konzept verpackt Nachfüllkapseln, interne Füttermechanik und eine erkennbare katzenförmige Produktsprache in ein herstellbares Konsumprodukt.",
@@ -1670,15 +1757,18 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "smart-bottle": {
     category: "Medizin",
     title: "Smart Bottle",
-    description: "Gesicherter medizinischer Spender für kontrollierte Opioidabgabe mit biometrischem Zugang, kompaktem Innenaufbau und manipulationsgeschütztem Gehäuse.",
-    imageAlt: "Medizinisches Smart-Bottle-Spenderkonzept mit blauem internem Modul",
+    description:
+      "Gesicherter medizinischer Spender für kontrollierte Opioidabgabe mit biometrischem Zugang, kompaktem Innenaufbau und manipulationsgeschütztem Gehäuse.",
+    imageAlt:
+      "Medizinisches Smart-Bottle-Spenderkonzept mit blauem internem Modul",
     overview:
       "Eine kompakte Medizingeräte-Architekturstudie für kontrollierte Medikamentenabgabe, einschließlich Dosiszugang, biometrischer Nutzung, Gehäusedesign und interner Komponentenintegration.",
   },
   "personal-injector": {
     category: "Medizin",
     title: "Personal Injector",
-    description: "Vernetztes persönliches Injektionsgerät mit Fokus auf Kompatibilität, keine Nadelhandhabung, kompakte Kinematik und Einwegspritze.",
+    description:
+      "Vernetztes persönliches Injektionsgerät mit Fokus auf Kompatibilität, keine Nadelhandhabung, kompakte Kinematik und Einwegspritze.",
     imageAlt: "Konzept eines Personal-Injector-Medizinprodukts",
     overview:
       "Im medizinischen Portfolio als SwissMedDev Start Up Prize 2013 Projekt vorgestellt, adressiert der Personal Injector sicherere Selbstinjektion durch kompakte Mechanik, vernetzte Gerätefunktion, Kompatibilitätsanforderungen und keine direkte Nadelhandhabung.",
@@ -1686,8 +1776,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "acetabular-reamer-holder": {
     category: "Medizin",
     title: "Acetabulum-Reamer-Halter",
-    description: "PEEK-Griff und Schutzabdeckung für acetabuläre Reamer, entwickelt mit Design, FEM und Spritzgussanforderungen.",
-    imageAlt: "Orange-schwarzer PEEK-Prototyp eines acetabulären Reamer-Halters",
+    description:
+      "PEEK-Griff und Schutzabdeckung für acetabuläre Reamer, entwickelt mit Design, FEM und Spritzgussanforderungen.",
+    imageAlt:
+      "Orange-schwarzer PEEK-Prototyp eines acetabulären Reamer-Halters",
     overview:
       "Dieses medizinische Werkzeugprojekt umfasst einen PEEK-Griff und eine Schutzabdeckung für einen acetabulären Reamer, mit Detaildesign, Finite-Elemente-Analyse, Spritzgussmachbarkeit und hoher Steifigkeit für ein hygienisches chirurgisches Instrument.",
     relatedPatents: [
@@ -1700,7 +1792,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "single-use-turbine": {
     category: "Medizin",
     title: "Single-Use-Turbine",
-    description: "Einweg-Medizinturbine, entwickelt zur Reduktion von Größe, Gewicht und Kosten durch Material- und Geometrieoptimierung.",
+    description:
+      "Einweg-Medizinturbine, entwickelt zur Reduktion von Größe, Gewicht und Kosten durch Material- und Geometrieoptimierung.",
     imageAlt: "Transparente medizinische Einweg-Turbinenkomponente",
     overview:
       "Die Single-Use-Turbine ist im medizinischen Portfolio als kompaktes Einweggerät dokumentiert, mit Entwicklungszielen rund um reduzierte Größe, reduziertes Gewicht, geringere Kosten und innovative Materialien.",
@@ -1708,7 +1801,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "glove-helmet-dryer": {
     category: "Industrie",
     title: "Handschuh- & Helmtrockner",
-    description: "Trocknungsstation für Sportausrüstung, entwickelt von der CAD-Auslegung bis zu Tests physischer Prototypen.",
+    description:
+      "Trocknungsstation für Sportausrüstung, entwickelt von der CAD-Auslegung bis zu Tests physischer Prototypen.",
     imageAlt: "Prototyp eines Handschuhtrockners mit montierten Handschuhen",
     overview:
       "Dieses Konsumprodukt integriert Luftführung und Halterungen für Handschuhe und Helme in eine kompakte Dockingstation, mit gerenderten Konzepten und physischen Prototypen.",
@@ -1716,7 +1810,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-umbrella": {
     category: "Industrie",
     title: "Taschen-Regenschirm",
-    description: "Telefonformatiger Faltregenschirm mit Etuistudien, Faltgeometrie und Details funktionsfähiger Prototypen.",
+    description:
+      "Telefonformatiger Faltregenschirm mit Etuistudien, Faltgeometrie und Details funktionsfähiger Prototypen.",
     imageAlt: "Gelber Prototyp eines Taschen-Regenschirms",
     overview:
       "Das Projekt untersucht eine neue Architektur für einen faltbaren Regenschirm, der geschlossen in eine Tasche passt und ungefähr die Grundfläche eines Smartphones einnimmt. Die Arbeit reicht von Etui-Schnitten und Mechanismusstudien bis zu physischen Prototypen.",
@@ -1724,7 +1819,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "skincare-applicator": {
     category: "Medizin",
     title: "Hautpflege-Applikator",
-    description: "Dermokosmetisches Applikatorkonzept mit ergonomischem Handstück, internem Kartuschenaufbau und Produktpräsentation.",
+    description:
+      "Dermokosmetisches Applikatorkonzept mit ergonomischem Handstück, internem Kartuschenaufbau und Produktpräsentation.",
     imageAlt: "Rendering eines weißen Hautpflege-Applikators",
     overview:
       "Ein handgeführtes Hautpflegesystem, das Fluidabgabe, Nutzerergonomie, Produktgestaltung und präsentationsreife Visualisierung verbindet.",
@@ -1732,7 +1828,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "alicoffee-machine": {
     category: "Industrie",
     title: "Kaffeemaschine",
-    description: "Kaffeemaschinenkonzept mit doppeltem Kapselkreislauf, bei dem Wasser in der Kapsel hin und zurück geführt wird.",
+    description:
+      "Kaffeemaschinenkonzept mit doppeltem Kapselkreislauf, bei dem Wasser in der Kapsel hin und zurück geführt wird.",
     imageAlt: "Rendering des Kaffeemaschinenkonzepts",
     overview:
       "Dieses Projekt beschränkt sich auf das Kapselprinzip der Kaffeemaschine: Das Wasser fließt nicht einfach gerade durch die Kapsel, sondern folgt innen einem Hin-und-zurück-Weg mit doppeltem Durchlauf bei der Extraktion.",
@@ -1746,7 +1843,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "special-t-machine": {
     category: "Industrie",
     title: "Teemaschine",
-    description: "Entwicklung der Brüheinheit für Teekapseln, von Kapselhandling und Auswurf bis zu Getränkefluss und Pilotserie.",
+    description:
+      "Entwicklung der Brüheinheit für Teekapseln, von Kapselhandling und Auswurf bis zu Getränkefluss und Pilotserie.",
     imageAlt: "Prototyp der Brüheinheit für eine Teemaschine",
     overview:
       "DOMTEKNIKA arbeitete an der Brüheinheit: Kapselhalten, Öffnen, Erkennen, Kinematik, Auswurf, Getränkefluss in der Tasse und Industriedesign-Integration. Die Arbeit unterstützte die erste Pilotserie des Brühkopfs und eine patentierte Vortex-Komponente gegen Dampfansammlung in der Kapsel.",
@@ -1760,7 +1858,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "instant-coffee-dispenser": {
     category: "Industrie",
     title: "Instantkaffee-Dispenser",
-    description: "Prototypgerät für die Dosierung von löslichem Kaffee, getestet mit Endkundenverpackungen und physischen Modellen.",
+    description:
+      "Prototypgerät für die Dosierung von löslichem Kaffee, getestet mit Endkundenverpackungen und physischen Modellen.",
     imageAlt: "Instantkaffee-Dispenser-Prototyp mit Handinteraktion",
     overview:
       "Ein physisches Prototypenprojekt rund um die Handhabung von löslichem Kaffee, Dosierergonomie und ein kompaktes Geräteformat.",
@@ -1768,7 +1867,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "vacheron-watch-mechanics": {
     category: "Industrie",
     title: "Uhrenmechanik",
-    description: "Präzisionsstudien in der Uhrmacherei mit mechanischen Anordnungen, gerenderten Baugruppen und Komponentenanalyse.",
+    description:
+      "Präzisionsstudien in der Uhrmacherei mit mechanischen Anordnungen, gerenderten Baugruppen und Komponentenanalyse.",
     imageAlt: "Rendering einer mechanischen Uhr mit sichtbarem Werk",
     overview:
       "Dieses Uhrenprojekt konzentriert sich auf Präzisionsmechanik, Werkvisualisierung und strukturelle Bewertung kleiner, hochwertiger Komponenten.",
@@ -1776,8 +1876,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "velum-sky-screen": {
     category: "Industrie",
     title: "Velum SKY Bildschirmmechanismus",
-    description: "Prototyp eines architektonischen Mechanismus für ein Screen- oder Fassadenelement, als präzise mechanische Baugruppe fotografiert.",
-    imageAlt: "Velum SKY mechanischer Screen-Prototyp vor dunklem Studiohintergrund",
+    description:
+      "Prototyp eines architektonischen Mechanismus für ein Screen- oder Fassadenelement, als präzise mechanische Baugruppe fotografiert.",
+    imageAlt:
+      "Velum SKY mechanischer Screen-Prototyp vor dunklem Studiohintergrund",
     overview:
       "Velum SKY wird hier durch eine hochpräzise mechanische Baugruppe dargestellt und verweist auf einen architektonischen oder umweltbezogenen Screen-Mechanismus mit robuster Bewegung und sauberer Detaillierung.",
   },
@@ -1786,28 +1888,32 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
 const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "Movilidad",
-    description: "Bicicleta eléctrica urbana desarrollada alrededor de diseño composite inyectado, ruedas distintivas y detalles industriales premium.",
+    description:
+      "Bicicleta eléctrica urbana desarrollada alrededor de diseño composite inyectado, ruedas distintivas y detalles industriales premium.",
     imageAlt: "Render de la bicicleta eléctrica STAJVELO RV01",
     overview:
       "DOMTEKNIKA acompañó la concepción polimérica y el desarrollo estructural de esta bicicleta eléctrica urbana, desde la arquitectura inicial y la ingeniería de ruedas hasta la definición fabricable del producto.",
   },
   aventor: {
     category: "Movilidad",
-    description: "Plataforma de vehículo eléctrico de alto rendimiento desarrollada en torno a velocidad, aceleración y carrocería ligera de composite.",
+    description:
+      "Plataforma de vehículo eléctrico de alto rendimiento desarrollada en torno a velocidad, aceleración y carrocería ligera de composite.",
     imageAlt: "Vehículo eléctrico Aventor verde en circuito",
     overview:
       "Aventor combina implantación del vehículo, diseño composite, pruebas en pista y optimización estructural para una plataforma eléctrica compacta de alto rendimiento.",
   },
   weebot: {
     category: "Movilidad",
-    description: "Concepto compacto de movilidad eléctrica explorado mediante CAD, prototipos y estudios de producto para uso invernal.",
+    description:
+      "Concepto compacto de movilidad eléctrica explorado mediante CAD, prototipos y estudios de producto para uso invernal.",
     imageAlt: "Concepto compacto de movilidad sobre nieve Weebot",
     overview:
       "El proyecto cubre arquitectura de producto, integración mecánica y desarrollo de prototipos para una pequeña plataforma eléctrica destinada a usos exteriores exigentes.",
   },
   "totalcar-concept": {
     category: "Movilidad",
-    description: "Concepto compacto de movilidad eléctrica centrado en arquitectura ligera de vehículo y transporte urbano ecológico.",
+    description:
+      "Concepto compacto de movilidad eléctrica centrado en arquitectura ligera de vehículo y transporte urbano ecológico.",
     imageAlt: "Prototipo eléctrico verde Total Car en exposición",
     overview:
       "Total Car amplía el portafolio de movilidad con un estudio de pequeño vehículo eléctrico, usando carrocería ligera, integración limpia y un enfoque urbano de baja huella.",
@@ -1815,7 +1921,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "sam-cree": {
     category: "Movilidad",
     title: "SAM CREE",
-    description: "Triciclo eléctrico suizo ultraligero con asientos en tándem, viga central de chasis y autonomía urbana compacta.",
+    description:
+      "Triciclo eléctrico suizo ultraligero con asientos en tándem, viga central de chasis y autonomía urbana compacta.",
     imageAlt: "Triciclo eléctrico naranja SAM CREE con techo abierto",
     overview:
       "SAM CREE reúne trabajos tempranos sobre vehículos eléctricos ultraligeros: viga central, disposición en tándem e integración de componentes para una movilidad urbana eficiente.",
@@ -1823,14 +1930,17 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "angel-interceptor": {
     category: "Movilidad",
     title: "Angel Interceptor",
-    description: "Concepto eléctrico de tres ruedas de alto rendimiento desarrollado mediante arquitectura CAD, paquete de cockpit y estudios de carrocería protectora.",
-    imageAlt: "Estudio CAD lateral del vehículo de tres ruedas Angel Interceptor",
+    description:
+      "Concepto eléctrico de tres ruedas de alto rendimiento desarrollado mediante arquitectura CAD, paquete de cockpit y estudios de carrocería protectora.",
+    imageAlt:
+      "Estudio CAD lateral del vehículo de tres ruedas Angel Interceptor",
     overview:
       "Angel Interceptor explora una arquitectura eléctrica de tres ruedas de alto rendimiento, equilibrando asientos en tándem, protección de carrocería, implantación de ruedas e integración mecánica.",
   },
   softcar: {
     category: "Movilidad",
-    description: "Concepto de vehículo eléctrico urbano de muy baja huella, centrado en arquitectura ligera, integración compacta y movilidad urbana ecológica.",
+    description:
+      "Concepto de vehículo eléctrico urbano de muy baja huella, centrado en arquitectura ligera, integración compacta y movilidad urbana ecológica.",
     imageAlt: "Concepto SOFTCAR de vehículo eléctrico urbano compacto",
     overview:
       "SOFTCAR extiende el trabajo de movilidad hacia vehículos eléctricos urbanos compactos, combinando arquitectura ligera, ensamblajes simplificados y transporte de baja huella ecológica.",
@@ -1838,7 +1948,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-bike-scooter": {
     category: "Movilidad",
     title: "Bicicleta y scooter plegables",
-    description: "Primeros estudios de movilidad plegable que combinan arquitectura compacta, mecanismos ergonómicos y formatos transportables.",
+    description:
+      "Primeros estudios de movilidad plegable que combinan arquitectura compacta, mecanismos ergonómicos y formatos transportables.",
     imageAlt: "Render de bicicleta eléctrica plegable",
     overview:
       "Conjunto de conceptos de bicicleta eléctrica y scooter plegables centrados en bisagras, volumen compacto de guardado, posiciones ergonómicas y ensamblajes mecánicos fabricables.",
@@ -1846,14 +1957,16 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "aventor-drone": {
     category: "Movilidad",
     title: "Drone Aventor",
-    description: "Desarrollo de plataforma drone con estudios de chasis ligero, prototipos ensamblados e iteraciones de prueba en campo.",
+    description:
+      "Desarrollo de plataforma drone con estudios de chasis ligero, prototipos ensamblados e iteraciones de prueba en campo.",
     imageAlt: "Prototipo de drone blanco Aventor",
     overview:
       "Este trabajo con drones combina implantación mecánica, integración de la carga útil y validación de prototipo para una plataforma aérea ligera.",
   },
   airsmile: {
     category: "Médico",
-    description: "Concepto de dispositivo dental desarrollado desde el estilo de producto hasta la integración funcional y familias de prototipos.",
+    description:
+      "Concepto de dispositivo dental desarrollado desde el estilo de producto hasta la integración funcional y familias de prototipos.",
     imageAlt: "Render del dispositivo dental portátil AirSmile",
     overview:
       "AirSmile requería una arquitectura limpia de producto portátil, componentes removibles y detalles ergonómicos para un uso de cuidado dental.",
@@ -1861,7 +1974,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   brossadent: {
     category: "Médico",
     title: "Cepillo O2 Cosmetics",
-    description: "Concepto de cuidado dental que combina cuerpo de cepillo, cartuchos O2 Cosmetics e integración del mecanismo interno.",
+    description:
+      "Concepto de cuidado dental que combina cuerpo de cepillo, cartuchos O2 Cosmetics e integración del mecanismo interno.",
     imageAlt: "Concepto de cepillo O2 Cosmetics con cartuchos",
     overview:
       "El concepto combina un cuerpo ergonómico de cepillo, consumibles O2 Cosmetics reemplazables e integración del mecanismo interno en un producto dental compacto.",
@@ -1869,21 +1983,24 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "insulin-pen": {
     category: "Médico",
     title: "Pluma de insulina",
-    description: "Estudios de carcasa e integración del mecanismo para un dispositivo médico delgado y fabricable.",
+    description:
+      "Estudios de carcasa e integración del mecanismo para un dispositivo médico delgado y fabricable.",
     imageAlt: "Render de producto de pluma de insulina azul",
     overview:
       "Este proyecto se centra en un producto médico compacto tipo pluma, equilibrando restricciones de mecanismo interno, manejo por el usuario y diseño industrial limpio.",
   },
   "paradigm-spine": {
     category: "Médico",
-    description: "Desarrollo de implante e instrumentación espinal apoyado por renderizado de producto y simulación mecánica.",
+    description:
+      "Desarrollo de implante e instrumentación espinal apoyado por renderizado de producto y simulación mecánica.",
     imageAlt: "Render de kit de implantes Paradigm Spine",
     overview:
       "Proyecto de implante médico que combina diseño de piezas de precisión, presentación de kit y análisis por elementos finitos para hardware espinal sometido a carga.",
   },
   "flex-drill": {
     category: "Médico",
-    description: "Concepto de accesorio de taladro flexible con guía polimérica, validación de prototipo y vistas de análisis de tensiones.",
+    description:
+      "Concepto de accesorio de taladro flexible con guía polimérica, validación de prototipo y vistas de análisis de tensiones.",
     imageAlt: "Concepto azul de guía de taladro flexible",
     overview:
       "Flex Drill explora una arquitectura de guía de taladro curvada, desde simulación de esfuerzo mecánico hasta prototipo físico y render de producto.",
@@ -1891,14 +2008,16 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "biome-staple-applicator": {
     category: "Médico",
     title: "Aplicador de grapas Biome",
-    description: "Concepto de aplicador portátil desarrollado mediante bocetos, análisis estructural y prototipos impresos.",
+    description:
+      "Concepto de aplicador portátil desarrollado mediante bocetos, análisis estructural y prototipos impresos.",
     imageAlt: "Render blanco y rojo de aplicador biomédico de grapas",
     overview:
       "El aplicador muestra el ciclo completo desde boceto de ideación y planteamiento ergonómico hasta verificaciones por elementos finitos y piezas prototipo para una herramienta biomédica portátil.",
   },
   cliris: {
     category: "Industrial",
-    description: "Dispositivo automático de limpieza de gafas con arquitectura compacta de cajón y acabado refinado de producto de consumo.",
+    description:
+      "Dispositivo automático de limpieza de gafas con arquitectura compacta de cajón y acabado refinado de producto de consumo.",
     imageAlt: "Limpiador automático de gafas Cliris negro abierto",
     overview:
       "Cliris combina cámara de limpieza compacta, movimiento de cajón y superficies orientadas al usuario en un producto para cuidado higiénico y fiable de gafas.",
@@ -1906,7 +2025,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "filter-carafe": {
     category: "Industrial",
     title: "Jarra filtrante",
-    description: "Sistema de jarra filtrante que combina diseño de producto, accesorio de cartucho y control electrónico del estado del filtro.",
+    description:
+      "Sistema de jarra filtrante que combina diseño de producto, accesorio de cartucho y control electrónico del estado del filtro.",
     imageAlt: "Concepto de jarra filtrante con accesorios de cartucho",
     overview:
       "El proyecto combina la jarra visible y su accesorio filtrante con un principio de control integrado en la tapa, capaz de supervisar el estado y el uso del cartucho de filtración.",
@@ -1915,10 +2035,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "WO2008017182A1",
         "Método y dispositivo de control de calidad para un cartucho de filtración integrado en una jarra filtrante.",
       ),
-      relatedPatent(
-        "USD560092S",
-        "Patente de diseño de la forma de la jarra.",
-      ),
+      relatedPatent("USD560092S", "Patente de diseño de la forma de la jarra."),
       relatedPatent(
         "USD568097S",
         "Patente de diseño del accesorio filtrante de la jarra.",
@@ -1927,7 +2044,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   ikitty: {
     category: "Industrial",
-    description: "Producto de enriquecimiento para gatos con cápsula recargable, mecanismo de alimentación y estilo suave.",
+    description:
+      "Producto de enriquecimiento para gatos con cápsula recargable, mecanismo de alimentación y estilo suave.",
     imageAlt: "Prototipo de dispositivo iKitty para gatos",
     overview:
       "El concepto iKitty integra cápsulas recargables, mecánica interna de alimentación y un lenguaje de producto reconocible en un producto de consumo fabricable.",
@@ -1935,15 +2053,18 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "smart-bottle": {
     category: "Médico",
     title: "Smart Bottle",
-    description: "Dispensador médico seguro para entrega controlada de opioides, con acceso biométrico, arquitectura interna compacta y carcasa anti-manipulación.",
-    imageAlt: "Concepto de dispensador médico Smart Bottle con módulo interno azul",
+    description:
+      "Dispensador médico seguro para entrega controlada de opioides, con acceso biométrico, arquitectura interna compacta y carcasa anti-manipulación.",
+    imageAlt:
+      "Concepto de dispensador médico Smart Bottle con módulo interno azul",
     overview:
       "Estudio de arquitectura de dispositivo médico para dispensación controlada de medicamentos, incluyendo acceso a dosis, uso biométrico, diseño de carcasa e integración interna.",
   },
   "personal-injector": {
     category: "Médico",
     title: "Personal Injector",
-    description: "Concepto de inyector personal conectado, centrado en compatibilidad, sin manipulación de aguja, cinemática compacta y jeringa de un solo uso.",
+    description:
+      "Concepto de inyector personal conectado, centrado en compatibilidad, sin manipulación de aguja, cinemática compacta y jeringa de un solo uso.",
     imageAlt: "Concepto de dispositivo médico Personal Injector",
     overview:
       "Presentado en el portafolio médico como proyecto SwissMedDev Start Up Prize 2013, Personal Injector busca una autoinyección más segura mediante mecánica compacta, lógica de dispositivo conectado, requisitos de compatibilidad y sin manipulación directa de la aguja.",
@@ -1951,8 +2072,10 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "acetabular-reamer-holder": {
     category: "Médico",
     title: "Soporte de fresa acetabular",
-    description: "Desarrollo de mango y cubierta en PEEK para fresa acetabular, con diseño, análisis FEM y requisitos de inyección.",
-    imageAlt: "Prototipo naranja y negro de soporte de fresa acetabular en PEEK",
+    description:
+      "Desarrollo de mango y cubierta en PEEK para fresa acetabular, con diseño, análisis FEM y requisitos de inyección.",
+    imageAlt:
+      "Prototipo naranja y negro de soporte de fresa acetabular en PEEK",
     overview:
       "Este proyecto de instrumental médico cubre un mango de PEEK y una cubierta protectora para una fresa acetabular, combinando diseño detallado, análisis por elementos finitos, viabilidad de inyección y alta rigidez para un instrumento quirúrgico higiénico.",
     relatedPatents: [
@@ -1965,7 +2088,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "single-use-turbine": {
     category: "Médico",
     title: "Turbina de un solo uso",
-    description: "Concepto de turbina médica desechable desarrollado para reducir tamaño, peso y coste mediante optimización de materiales y geometría.",
+    description:
+      "Concepto de turbina médica desechable desarrollado para reducir tamaño, peso y coste mediante optimización de materiales y geometría.",
     imageAlt: "Componente médico transparente de turbina de un solo uso",
     overview:
       "La turbina de un solo uso aparece en el portafolio médico como un dispositivo compacto desechable, con prioridades de desarrollo centradas en reducir tamaño, peso y coste mediante materiales innovadores.",
@@ -1973,7 +2097,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "glove-helmet-dryer": {
     category: "Industrial",
     title: "Secador de guantes y casco",
-    description: "Concepto de estación de secado para equipamiento deportivo, desarrollado desde planos CAD hasta pruebas con prototipo físico.",
+    description:
+      "Concepto de estación de secado para equipamiento deportivo, desarrollado desde planos CAD hasta pruebas con prototipo físico.",
     imageAlt: "Prototipo de secador de guantes con guantes montados",
     overview:
       "Este producto integra rutas de aire y soportes para guantes y cascos en una estación compacta, con conceptos renderizados y prototipos físicos.",
@@ -1981,7 +2106,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-umbrella": {
     category: "Industrial",
     title: "Paraguas plegable de bolsillo",
-    description: "Concepto de paraguas plegable en formato teléfono, con estudios de funda, geometría de plegado y detalles de prototipo funcional.",
+    description:
+      "Concepto de paraguas plegable en formato teléfono, con estudios de funda, geometría de plegado y detalles de prototipo funcional.",
     imageAlt: "Prototipo amarillo de paraguas plegable de bolsillo",
     overview:
       "El proyecto explora una nueva arquitectura de paraguas plegable diseñada para caber en un bolsillo una vez cerrada, con una huella cercana a la de un smartphone. El trabajo va desde cortes de funda y estudios de mecanismo hasta prototipos físicos.",
@@ -1989,7 +2115,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "skincare-applicator": {
     category: "Médico",
     title: "Aplicador para el cuidado de la piel",
-    description: "Concepto de aplicador dermocosmético con pieza de mano ergonómica, arquitectura interna del cartucho y presentación de producto.",
+    description:
+      "Concepto de aplicador dermocosmético con pieza de mano ergonómica, arquitectura interna del cartucho y presentación de producto.",
     imageAlt: "Render de aplicador dermocosmético blanco",
     overview:
       "Sistema portátil para el cuidado de la piel que combina entrega de fluido, ergonomía de usuario, estilo de producto y desarrollo visual listo para presentación.",
@@ -1997,7 +2124,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "alicoffee-machine": {
     category: "Industrial",
     title: "Máquina de café",
-    description: "Concepto de máquina de café basado en un circuito de cápsula de doble paso, donde el agua hace ida y vuelta dentro de la cápsula.",
+    description:
+      "Concepto de máquina de café basado en un circuito de cápsula de doble paso, donde el agua hace ida y vuelta dentro de la cápsula.",
     imageAlt: "Render del concepto de máquina de café",
     overview:
       "Este proyecto se limita al principio de cápsula de la máquina de café: el agua no atraviesa simplemente la cápsula en línea recta, sino que realiza un recorrido de ida y vuelta dentro de ella durante la extracción.",
@@ -2011,7 +2139,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "special-t-machine": {
     category: "Industrial",
     title: "Máquina de té",
-    description: "Desarrollo de la unidad de extracción para cápsulas de té, desde el manejo y la expulsión de la cápsula hasta el flujo de bebida y la preserie.",
+    description:
+      "Desarrollo de la unidad de extracción para cápsulas de té, desde el manejo y la expulsión de la cápsula hasta el flujo de bebida y la preserie.",
     imageAlt: "Prototipo de unidad de extracción para máquina de té",
     overview:
       "DOMTEKNIKA trabajó en la unidad de extracción: sujeción, apertura, detección, cinemática y expulsión de la cápsula, flujo de bebida en taza e integración de diseño industrial. El trabajo apoyó la primera serie piloto del cabezal y un componente con vórtice patentado para reducir la acumulación de vapor en la cápsula.",
@@ -2025,7 +2154,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "instant-coffee-dispenser": {
     category: "Industrial",
     title: "Dispensador de café soluble",
-    description: "Prototipo de aparato para dosificación de café soluble, probado con envases de consumo y maquetas físicas.",
+    description:
+      "Prototipo de aparato para dosificación de café soluble, probado con envases de consumo y maquetas físicas.",
     imageAlt: "Prototipo de dispensador de café soluble con interacción manual",
     overview:
       "Proyecto de prototipo físico centrado en la manipulación de café soluble, ergonomía de dosificación y un formato compacto de aparato.",
@@ -2033,7 +2163,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "vacheron-watch-mechanics": {
     category: "Industrial",
     title: "Mecánica relojera",
-    description: "Estudios de relojería de precisión que combinan implantación mecánica, ensamblajes renderizados y análisis de componentes.",
+    description:
+      "Estudios de relojería de precisión que combinan implantación mecánica, ensamblajes renderizados y análisis de componentes.",
     imageAlt: "Render de reloj mecánico con movimiento visible",
     overview:
       "Este proyecto relojero se centra en mecánica de precisión, visualización de movimiento y evaluación estructural de pequeños componentes de alto valor.",
@@ -2041,7 +2172,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "velum-sky-screen": {
     category: "Industrial",
     title: "Mecanismo Velum SKY",
-    description: "Prototipo de mecanismo arquitectónico para pantalla o elemento de fachada, fotografiado como ensamblaje mecánico de precisión.",
+    description:
+      "Prototipo de mecanismo arquitectónico para pantalla o elemento de fachada, fotografiado como ensamblaje mecánico de precisión.",
     imageAlt: "Prototipo mecánico Velum SKY sobre fondo de estudio oscuro",
     overview:
       "Velum SKY se representa aquí mediante un ensamblaje mecánico de alta precisión, sugiriendo un mecanismo arquitectónico o ambiental que requiere movimiento robusto y detalles limpios.",
@@ -2051,28 +2183,32 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
 const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "모빌리티",
-    description: "사출 복합재 설계, 독특한 휠, 프리미엄 산업 디테일을 중심으로 한 도심형 전기자전거 아키텍처.",
+    description:
+      "사출 복합재 설계, 독특한 휠, 프리미엄 산업 디테일을 중심으로 한 도심형 전기자전거 아키텍처.",
     imageAlt: "STAJVELO RV01 전기자전거 렌더",
     overview:
       "DOMTEKNIKA는 초기 아키텍처와 휠 엔지니어링부터 제조 가능한 제품 정의까지 이 도심형 전기자전거의 폴리머 설계와 구조 개발을 지원했습니다.",
   },
   aventor: {
     category: "모빌리티",
-    description: "속도, 가속, 경량 복합재 차체를 중심으로 개발된 고성능 전기차 플랫폼.",
+    description:
+      "속도, 가속, 경량 복합재 차체를 중심으로 개발된 고성능 전기차 플랫폼.",
     imageAlt: "트랙 위의 초록색 Aventor 전기차",
     overview:
       "Aventor는 차량 구성, 복합재 설계, 트랙 테스트, 구조 최적화를 결합한 컴팩트 고성능 전기 플랫폼입니다.",
   },
   weebot: {
     category: "모빌리티",
-    description: "CAD, 프로토타입 제작, 겨울 사용 제품 연구를 통해 탐구한 소형 전기 모빌리티 콘셉트.",
+    description:
+      "CAD, 프로토타입 제작, 겨울 사용 제품 연구를 통해 탐구한 소형 전기 모빌리티 콘셉트.",
     imageAlt: "Weebot 소형 눈길 모빌리티 콘셉트",
     overview:
       "이 프로젝트는 까다로운 야외 사용을 위한 소형 전기 모빌리티 플랫폼의 제품 아키텍처, 기계 통합, 프로토타입 개발을 다룹니다.",
   },
   "totalcar-concept": {
     category: "모빌리티",
-    description: "경량 차량 아키텍처와 친환경 도시 교통에 초점을 둔 소형 전기 모빌리티 콘셉트.",
+    description:
+      "경량 차량 아키텍처와 친환경 도시 교통에 초점을 둔 소형 전기 모빌리티 콘셉트.",
     imageAlt: "전시된 녹색 Total Car 전기차 프로토타입",
     overview:
       "Total Car는 가벼운 차체, 깔끔한 제품 통합, 저영향 도시 교통 접근법을 활용한 소형 전기차 연구입니다.",
@@ -2080,7 +2216,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "sam-cree": {
     category: "모빌리티",
     title: "SAM CREE",
-    description: "탠덤 좌석, 중앙 빔 섀시, 도심형 컴팩트 주행 거리를 중심으로 한 스위스 초경량 전기 삼륜차입니다.",
+    description:
+      "탠덤 좌석, 중앙 빔 섀시, 도심형 컴팩트 주행 거리를 중심으로 한 스위스 초경량 전기 삼륜차입니다.",
     imageAlt: "캐노피가 열린 주황색 SAM CREE 전기 삼륜차",
     overview:
       "SAM CREE는 중앙 빔 섀시, 탠덤 패키징, 효율적인 도심 이동성을 위한 부품 통합을 중심으로 한 초기 초경량 전기 도로 차량 작업을 모읍니다.",
@@ -2088,14 +2225,16 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "angel-interceptor": {
     category: "모빌리티",
     title: "Angel Interceptor",
-    description: "CAD 아키텍처, 조종석 패키징, 보호 차체 연구를 통해 개발한 고성능 전기 삼륜 콘셉트입니다.",
+    description:
+      "CAD 아키텍처, 조종석 패키징, 보호 차체 연구를 통해 개발한 고성능 전기 삼륜 콘셉트입니다.",
     imageAlt: "Angel Interceptor 삼륜 차량 측면 CAD 연구",
     overview:
       "Angel Interceptor는 탠덤 좌석, 차체 보호, 휠 배치, 기계 통합을 CAD 연구 안에서 균형 있게 검토한 고성능 전기 삼륜 아키텍처입니다.",
   },
   softcar: {
     category: "모빌리티",
-    description: "경량 아키텍처, 컴팩트한 구성, 친환경 도심 모빌리티에 초점을 둔 초저영향 도심형 전기차 콘셉트.",
+    description:
+      "경량 아키텍처, 컴팩트한 구성, 친환경 도심 모빌리티에 초점을 둔 초저영향 도심형 전기차 콘셉트.",
     imageAlt: "SOFTCAR 소형 도심 전기차 콘셉트",
     overview:
       "SOFTCAR는 경량 차체 아키텍처, 단순화된 조립, 낮은 환경 발자국의 교통을 결합해 소형 도심 전기차 작업을 확장합니다.",
@@ -2103,7 +2242,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-bike-scooter": {
     category: "모빌리티",
     title: "접이식 자전거와 스쿠터",
-    description: "컴팩트 차량 아키텍처, 인체공학적 메커니즘, 휴대 가능한 형식을 결합한 초기 접이식 모빌리티 연구.",
+    description:
+      "컴팩트 차량 아키텍처, 인체공학적 메커니즘, 휴대 가능한 형식을 결합한 초기 접이식 모빌리티 연구.",
     imageAlt: "접이식 전기자전거 콘셉트 렌더",
     overview:
       "힌지 메커니즘, 작은 보관 부피, 인체공학적 주행 자세, 제조 가능한 기계 조립에 집중한 접이식 전기자전거와 스쿠터 콘셉트입니다.",
@@ -2111,14 +2251,16 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "aventor-drone": {
     category: "모빌리티",
     title: "Aventor 드론",
-    description: "경량 프레임 연구, 조립 프로토타입, 현장 테스트 반복을 포함한 드론 플랫폼 개발.",
+    description:
+      "경량 프레임 연구, 조립 프로토타입, 현장 테스트 반복을 포함한 드론 플랫폼 개발.",
     imageAlt: "흰색 Aventor 드론 프로토타입",
     overview:
       "이 드론 작업은 경량 항공 제품 플랫폼을 위해 기계 배치, 탑재물 통합, 프로토타입 검증을 결합합니다.",
   },
   airsmile: {
     category: "의료",
-    description: "제품 스타일링부터 기능 통합과 프로토타입 제품군까지 개발한 치과 케어 장치 콘셉트.",
+    description:
+      "제품 스타일링부터 기능 통합과 프로토타입 제품군까지 개발한 치과 케어 장치 콘셉트.",
     imageAlt: "AirSmile 휴대형 치과 장치 렌더",
     overview:
       "AirSmile은 치과 케어 사용 사례에 맞는 깔끔한 휴대형 제품 아키텍처, 탈착식 구성품, 인체공학적 디테일이 필요했습니다.",
@@ -2126,7 +2268,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   brossadent: {
     category: "의료",
     title: "O2 Cosmetics 칫솔",
-    description: "칫솔 본체, O2 Cosmetics 리필 카트리지, 내부 메커니즘 통합을 결합한 치과 케어 제품 콘셉트.",
+    description:
+      "칫솔 본체, O2 Cosmetics 리필 카트리지, 내부 메커니즘 통합을 결합한 치과 케어 제품 콘셉트.",
     imageAlt: "리필 카트리지가 있는 O2 Cosmetics 칫솔 콘셉트",
     overview:
       "이 콘셉트는 인체공학적 칫솔 본체, 교체 가능한 O2 Cosmetics 소모품, 내부 메커니즘 통합을 컴팩트한 치과 제품 안에 결합합니다.",
@@ -2134,21 +2277,24 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "insulin-pen": {
     category: "의료",
     title: "인슐린 펜",
-    description: "슬림하고 제조 가능한 의료기기를 위한 주사 펜 하우징과 메커니즘 통합 연구.",
+    description:
+      "슬림하고 제조 가능한 의료기기를 위한 주사 펜 하우징과 메커니즘 통합 연구.",
     imageAlt: "파란색 인슐린 펜 제품 렌더",
     overview:
       "이 프로젝트는 내부 메커니즘 제약, 사용자 조작성, 깔끔한 산업 디자인을 균형 있게 다룬 컴팩트 펜형 의료 제품에 집중합니다.",
   },
   "paradigm-spine": {
     category: "의료",
-    description: "제품 렌더링과 기계 시뮬레이션으로 지원한 척추 임플란트 및 수술 기구 개발.",
+    description:
+      "제품 렌더링과 기계 시뮬레이션으로 지원한 척추 임플란트 및 수술 기구 개발.",
     imageAlt: "Paradigm Spine 임플란트 세트 렌더",
     overview:
       "정밀 부품 설계, 키트 프레젠테이션, 하중이 중요한 척추 기구를 위한 유한요소해석을 결합한 의료 임플란트 프로젝트입니다.",
   },
   "flex-drill": {
     category: "의료",
-    description: "형상화된 폴리머 가이드, 프로토타입 검증, 응력 분석 뷰를 포함한 유연 드릴 액세서리 콘셉트.",
+    description:
+      "형상화된 폴리머 가이드, 프로토타입 검증, 응력 분석 뷰를 포함한 유연 드릴 액세서리 콘셉트.",
     imageAlt: "파란색 유연 드릴 가이드 콘셉트",
     overview:
       "Flex Drill은 곡선형 드릴 가이드 아키텍처를 탐구하며, 기계 응력 시뮬레이션에서 물리 프로토타입과 제품 렌더링까지 이어집니다.",
@@ -2156,14 +2302,16 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "biome-staple-applicator": {
     category: "의료",
     title: "Biome 스테이플 애플리케이터",
-    description: "스케치, 구조 분석, 출력 프로토타입을 통해 개발된 휴대형 애플리케이터 콘셉트.",
+    description:
+      "스케치, 구조 분석, 출력 프로토타입을 통해 개발된 휴대형 애플리케이터 콘셉트.",
     imageAlt: "흰색과 빨간색 바이오메디컬 스테이플 애플리케이터 렌더",
     overview:
       "이 애플리케이터는 아이디어 스케치와 인체공학적 배치에서 유한요소 검토와 프로토타입 부품까지의 전체 과정을 보여 줍니다.",
   },
   cliris: {
     category: "산업",
-    description: "컴팩트한 서랍식 아키텍처와 정제된 소비자 제품 마감을 갖춘 자동 안경 세척 장치.",
+    description:
+      "컴팩트한 서랍식 아키텍처와 정제된 소비자 제품 마감을 갖춘 자동 안경 세척 장치.",
     imageAlt: "열린 검은색 Cliris 자동 안경 세척기",
     overview:
       "Cliris는 안경을 위생적이고 안정적으로 관리하기 위해 컴팩트 세척 챔버, 서랍 동작, 사용자에게 보이는 표면을 결합합니다.",
@@ -2171,7 +2319,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "filter-carafe": {
     category: "산업",
     title: "필터 카라프",
-    description: "제품 디자인, 필터 카트리지 액세서리, 전자식 카트리지 상태 확인 기능을 결합한 정수 카라프 시스템.",
+    description:
+      "제품 디자인, 필터 카트리지 액세서리, 전자식 카트리지 상태 확인 기능을 결합한 정수 카라프 시스템.",
     imageAlt: "필터 카트리지 액세서리가 포함된 정수 카라프 콘셉트",
     overview:
       "이 프로젝트는 눈에 보이는 카라프와 필터 액세서리 디자인을 뚜껑에 통합된 제어 원리와 결합해, 필터 카트리지의 상태와 사용량을 추적합니다.",
@@ -2180,19 +2329,14 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "WO2008017182A1",
         "정수 용기에 통합된 필터 카트리지 품질 관리 방법과 장치.",
       ),
-      relatedPatent(
-        "USD560092S",
-        "카라프 형태에 관한 디자인 특허.",
-      ),
-      relatedPatent(
-        "USD568097S",
-        "카라프 필터 액세서리에 관한 디자인 특허.",
-      ),
+      relatedPatent("USD560092S", "카라프 형태에 관한 디자인 특허."),
+      relatedPatent("USD568097S", "카라프 필터 액세서리에 관한 디자인 특허."),
     ],
   },
   ikitty: {
     category: "산업",
-    description: "리필 캡슐 아키텍처, 급식 메커니즘, 부드러운 제품 스타일을 갖춘 고양이용 제품.",
+    description:
+      "리필 캡슐 아키텍처, 급식 메커니즘, 부드러운 제품 스타일을 갖춘 고양이용 제품.",
     imageAlt: "iKitty 고양이 장치 프로토타입",
     overview:
       "iKitty 콘셉트는 리필 캡슐, 내부 급식 메커니즘, 알아보기 쉬운 고양이 형태 제품 언어를 제조 가능한 소비자 제품으로 구성합니다.",
@@ -2200,7 +2344,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "smart-bottle": {
     category: "의료",
     title: "Smart Bottle",
-    description: "생체인식 접근, 컴팩트한 내부 구성, 변조 방지 케이스를 갖춘 오피오이드 제어 투여용 의료 디스펜서.",
+    description:
+      "생체인식 접근, 컴팩트한 내부 구성, 변조 방지 케이스를 갖춘 오피오이드 제어 투여용 의료 디스펜서.",
     imageAlt: "파란색 내부 모듈이 있는 Smart Bottle 의료 디스펜서 콘셉트",
     overview:
       "제어된 약물 투여를 위한 컴팩트 의료기기 아키텍처 연구로, 투여 접근 로직, 생체인식 사용 조건, 케이스 디자인과 내부 부품 구성을 포함합니다.",
@@ -2208,7 +2353,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "personal-injector": {
     category: "의료",
     title: "Personal Injector",
-    description: "호환성, 바늘 직접 취급 방지, 컴팩트한 기구 구조, 일회용 주사기를 중심으로 한 연결형 개인 주사기 콘셉트.",
+    description:
+      "호환성, 바늘 직접 취급 방지, 컴팩트한 기구 구조, 일회용 주사기를 중심으로 한 연결형 개인 주사기 콘셉트.",
     imageAlt: "Personal Injector 의료기기 콘셉트",
     overview:
       "의료 포트폴리오에서 SwissMedDev Start Up Prize 2013 프로젝트로 소개된 Personal Injector는 컴팩트한 기구, 연결형 장치 로직, 호환성 조건, 바늘 직접 취급 방지를 통해 더 안전한 자가 주사를 목표로 합니다.",
@@ -2216,7 +2362,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "acetabular-reamer-holder": {
     category: "의료",
     title: "비구 리머 홀더",
-    description: "비구 수술용 PEEK 리머 핸들과 커버 개발로, 디자인, 유한요소해석, 사출 성형 조건을 함께 다룹니다.",
+    description:
+      "비구 수술용 PEEK 리머 핸들과 커버 개발로, 디자인, 유한요소해석, 사출 성형 조건을 함께 다룹니다.",
     imageAlt: "오렌지와 검정색 PEEK 비구 리머 홀더 프로토타입",
     overview:
       "이 의료 공구 프로젝트는 비구 리머용 PEEK 핸들과 보호 커버를 다루며, 상세 설계, 유한요소해석, 사출 성형 가능성, 위생적인 수술 기구에 필요한 높은 강성을 함께 검토합니다.",
@@ -2230,7 +2377,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "single-use-turbine": {
     category: "의료",
     title: "일회용 터빈",
-    description: "재료와 형상 최적화를 통해 크기, 무게, 비용을 줄이도록 개발한 일회용 의료 터빈 콘셉트.",
+    description:
+      "재료와 형상 최적화를 통해 크기, 무게, 비용을 줄이도록 개발한 일회용 의료 터빈 콘셉트.",
     imageAlt: "투명한 일회용 의료 터빈 부품",
     overview:
       "Single Use Turbine은 의료 포트폴리오에서 컴팩트한 일회용 장치로 소개되며, 크기 축소, 무게 절감, 비용 절감, 혁신 소재를 개발 우선순위로 삼았습니다.",
@@ -2238,7 +2386,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "glove-helmet-dryer": {
     category: "산업",
     title: "장갑 및 헬멧 건조기",
-    description: "CAD 설계부터 물리 프로토타입 테스트까지 개발한 스포츠 장비용 건조 도크 콘셉트.",
+    description:
+      "CAD 설계부터 물리 프로토타입 테스트까지 개발한 스포츠 장비용 건조 도크 콘셉트.",
     imageAlt: "장갑이 장착된 장갑 건조기 프로토타입",
     overview:
       "공기 흐름 경로와 장갑/헬멧 지지 구조를 컴팩트 도크에 통합한 제품으로, 렌더 콘셉트와 물리 프로토타입을 모두 포함합니다.",
@@ -2246,7 +2395,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-umbrella": {
     category: "산업",
     title: "포켓 접이식 우산",
-    description: "휴대폰 크기에 가까운 포켓형 접이식 우산 콘셉트로, 케이스 연구와 접힘 기하, 작동 프로토타입 디테일을 포함합니다.",
+    description:
+      "휴대폰 크기에 가까운 포켓형 접이식 우산 콘셉트로, 케이스 연구와 접힘 기하, 작동 프로토타입 디테일을 포함합니다.",
     imageAlt: "노란색 포켓 접이식 우산 프로토타입",
     overview:
       "이 프로젝트는 접었을 때 주머니에 들어가고 스마트폰에 가까운 크기를 목표로 한 새로운 접이식 우산 구조를 탐구합니다. 케이스 단면과 메커니즘 연구부터 실물 크기 물리 프로토타입까지 포함합니다.",
@@ -2254,7 +2404,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "skincare-applicator": {
     category: "의료",
     title: "피부 관리 애플리케이터",
-    description: "인체공학적 핸드피스, 내부 카트리지 구성, 제품 프레젠테이션을 갖춘 더모코스메틱 애플리케이터 콘셉트.",
+    description:
+      "인체공학적 핸드피스, 내부 카트리지 구성, 제품 프레젠테이션을 갖춘 더모코스메틱 애플리케이터 콘셉트.",
     imageAlt: "흰색 피부 관리 애플리케이터 렌더",
     overview:
       "유체 전달, 사용자 인체공학, 제품 스타일링, 발표에 적합한 시각 개발을 결합한 휴대형 피부 관리 시스템입니다.",
@@ -2262,7 +2413,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "alicoffee-machine": {
     category: "산업",
     title: "커피 머신",
-    description: "캡슐 안에서 물이 왕복 경로를 만드는 이중 통과 캡슐 회로 기반의 커피 머신 콘셉트.",
+    description:
+      "캡슐 안에서 물이 왕복 경로를 만드는 이중 통과 캡슐 회로 기반의 커피 머신 콘셉트.",
     imageAlt: "커피 머신 콘셉트 렌더",
     overview:
       "이 프로젝트는 커피 머신의 캡슐 원리에만 초점을 둡니다. 물은 캡슐을 직선으로 통과하는 대신 내부에서 왕복하며, 추출 중 두 번 지나가는 흐름을 만듭니다.",
@@ -2276,7 +2428,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "special-t-machine": {
     category: "산업",
     title: "차 머신",
-    description: "차 캡슐용 브루잉 유닛 개발로, 캡슐 취급과 배출부터 음료 흐름, 파일럿 생산 준비까지 다룹니다.",
+    description:
+      "차 캡슐용 브루잉 유닛 개발로, 캡슐 취급과 배출부터 음료 흐름, 파일럿 생산 준비까지 다룹니다.",
     imageAlt: "차 머신 브루잉 유닛 프로토타입",
     overview:
       "DOMTEKNIKA는 캡슐 고정, 개봉, 감지, 운동 구조, 배출, 컵 안의 음료 흐름, 산업 디자인 통합까지 브루잉 유닛을 개발했습니다. 이 작업은 첫 브루잉 헤드 파일럿 시리즈와 캡슐 내부 증기 축적을 줄이는 특허받은 와류 부품으로 이어졌습니다.",
@@ -2290,7 +2443,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "instant-coffee-dispenser": {
     category: "산업",
     title: "인스턴트 커피 디스펜서",
-    description: "소비자용 포장과 물리 목업으로 테스트한 용해성 커피 투입용 프로토타입 장치.",
+    description:
+      "소비자용 포장과 물리 목업으로 테스트한 용해성 커피 투입용 프로토타입 장치.",
     imageAlt: "손으로 조작하는 인스턴트 커피 디스펜서 프로토타입",
     overview:
       "용해성 커피 처리, 투입 인체공학, 컴팩트한 기기 형태에 집중한 물리 프로토타입 프로젝트입니다.",
@@ -2298,7 +2452,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "vacheron-watch-mechanics": {
     category: "산업",
     title: "시계 메커니즘",
-    description: "기계 배치, 렌더 조립체, 부품 분석을 결합한 정밀 시계공학 연구.",
+    description:
+      "기계 배치, 렌더 조립체, 부품 분석을 결합한 정밀 시계공학 연구.",
     imageAlt: "무브먼트가 보이는 기계식 시계 렌더",
     overview:
       "이 시계 프로젝트는 정밀 기계, 무브먼트 시각화, 작은 고가치 부품의 구조 평가에 집중합니다.",
@@ -2306,7 +2461,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "velum-sky-screen": {
     category: "산업",
     title: "Velum SKY 스크린 메커니즘",
-    description: "스크린 또는 파사드 요소를 위한 건축 메커니즘 프로토타입으로, 정밀 기계 조립체로 촬영되었습니다.",
+    description:
+      "스크린 또는 파사드 요소를 위한 건축 메커니즘 프로토타입으로, 정밀 기계 조립체로 촬영되었습니다.",
     imageAlt: "어두운 스튜디오 배경의 Velum SKY 기계식 스크린 프로토타입",
     overview:
       "Velum SKY는 고정밀 기계 조립체로 표현되며, 견고한 움직임과 깔끔한 디테일이 필요한 건축 또는 환경 스크린 메커니즘을 보여 줍니다.",
@@ -2316,7 +2472,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
 const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "出行",
-    description: "围绕注塑复合材料设计、独特车轮和高端工业细节打造的城市电动自行车架构。",
+    description:
+      "围绕注塑复合材料设计、独特车轮和高端工业细节打造的城市电动自行车架构。",
     imageAlt: "STAJVELO RV01 电动自行车渲染图",
     overview:
       "DOMTEKNIKA 支持了这款城市电动自行车的聚合物构思和结构开发，从早期架构、车轮工程到可制造的产品定义。",
@@ -2345,7 +2502,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "sam-cree": {
     category: "出行",
     title: "SAM CREE",
-    description: "瑞士超轻电动三轮车，围绕串列座椅、中央梁底盘和紧凑城市续航设计。",
+    description:
+      "瑞士超轻电动三轮车，围绕串列座椅、中央梁底盘和紧凑城市续航设计。",
     imageAlt: "打开车顶的橙色 SAM CREE 电动三轮车",
     overview:
       "SAM CREE 汇集了早期超轻电动道路车辆工作：中央梁底盘、串列布局，以及面向高效城市出行的组件集成。",
@@ -2353,14 +2511,16 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "angel-interceptor": {
     category: "出行",
     title: "Angel Interceptor",
-    description: "高性能电动三轮概念，通过 CAD 架构、驾驶舱布局和防护车身研究开发。",
+    description:
+      "高性能电动三轮概念，通过 CAD 架构、驾驶舱布局和防护车身研究开发。",
     imageAlt: "Angel Interceptor 三轮车辆侧面 CAD 研究",
     overview:
       "Angel Interceptor 探索高性能电动三轮架构，在 CAD 研究中平衡串列座椅、车身防护、车轮布局和机械集成。",
   },
   softcar: {
     category: "出行",
-    description: "超低足迹城市电动车概念，聚焦轻量架构、紧凑集成和生态城市出行。",
+    description:
+      "超低足迹城市电动车概念，聚焦轻量架构、紧凑集成和生态城市出行。",
     imageAlt: "SOFTCAR 紧凑城市电动车概念",
     overview:
       "SOFTCAR 将出行工作延伸到紧凑城市电动车，结合轻量车身架构、简化组件和低生态足迹交通。",
@@ -2391,7 +2551,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   brossadent: {
     category: "医疗",
     title: "O2 Cosmetics 牙刷",
-    description: "牙科护理产品概念，结合牙刷主体、O2 Cosmetics 替换胶囊和内部机构集成。",
+    description:
+      "牙科护理产品概念，结合牙刷主体、O2 Cosmetics 替换胶囊和内部机构集成。",
     imageAlt: "带替换胶囊的 O2 Cosmetics 牙刷概念",
     overview:
       "该概念将人体工学牙刷主体、可替换 O2 Cosmetics 消耗件和内部机构整合到紧凑牙科产品中。",
@@ -2413,7 +2574,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "flex-drill": {
     category: "医疗",
-    description: "柔性钻孔附件概念，包含成型聚合物导向件、原型验证和应力分析视图。",
+    description:
+      "柔性钻孔附件概念，包含成型聚合物导向件、原型验证和应力分析视图。",
     imageAlt: "蓝色柔性钻孔导向概念",
     overview:
       "Flex Drill 探索弯曲钻孔导向架构，从机械应力仿真走向实体原型和产品渲染。",
@@ -2445,14 +2607,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
         "WO2008017182A1",
         "用于滤水容器中滤芯质量控制的方法和装置。",
       ),
-      relatedPatent(
-        "USD560092S",
-        "覆盖滤水壶外形的设计专利。",
-      ),
-      relatedPatent(
-        "USD568097S",
-        "覆盖滤水壶过滤附件的设计专利。",
-      ),
+      relatedPatent("USD560092S", "覆盖滤水壶外形的设计专利。"),
+      relatedPatent("USD568097S", "覆盖滤水壶过滤附件的设计专利。"),
     ],
   },
   ikitty: {
@@ -2465,7 +2621,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "smart-bottle": {
     category: "医疗",
     title: "Smart Bottle",
-    description: "用于受控阿片类药物给药的安全医疗分配器，包含生物识别访问、紧凑内部集成和防拆外壳。",
+    description:
+      "用于受控阿片类药物给药的安全医疗分配器，包含生物识别访问、紧凑内部集成和防拆外壳。",
     imageAlt: "带蓝色内部模块的 Smart Bottle 医疗分配器概念",
     overview:
       "面向受控药物分配的紧凑医疗设备架构研究，包括剂量访问逻辑、生物识别使用约束、外壳设计和内部组件集成。",
@@ -2473,7 +2630,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "personal-injector": {
     category: "医疗",
     title: "Personal Injector",
-    description: "联网个人注射器概念，聚焦兼容性、无需直接接触针头、紧凑运动机构和一次性注射器。",
+    description:
+      "联网个人注射器概念，聚焦兼容性、无需直接接触针头、紧凑运动机构和一次性注射器。",
     imageAlt: "Personal Injector 医疗设备概念",
     overview:
       "Personal Injector 在医疗作品集中作为 SwissMedDev Start Up Prize 2013 项目展示，目标是通过紧凑机械、联网设备逻辑、兼容性约束和避免直接接触针头，实现更安全的自我注射。",
@@ -2481,7 +2639,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "acetabular-reamer-holder": {
     category: "医疗",
     title: "髋臼铰刀支架",
-    description: "用于髋臼手术的 PEEK 铰刀手柄和保护盖开发，结合设计、有限元分析和注塑约束。",
+    description:
+      "用于髋臼手术的 PEEK 铰刀手柄和保护盖开发，结合设计、有限元分析和注塑约束。",
     imageAlt: "橙黑色 PEEK 髋臼铰刀支架原型",
     overview:
       "该医疗工具项目涵盖用于髋臼铰刀的 PEEK 手柄和保护盖，结合详细设计、有限元分析、注塑可行性，以及卫生手术器械所需的高刚度要求。",
@@ -2511,7 +2670,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-umbrella": {
     category: "工业",
     title: "口袋折叠伞",
-    description: "接近手机尺寸的口袋折叠伞概念，包含伞套研究、折叠几何和工作原型细节。",
+    description:
+      "接近手机尺寸的口袋折叠伞概念，包含伞套研究、折叠几何和工作原型细节。",
     imageAlt: "黄色口袋折叠伞原型",
     overview:
       "该项目探索一种新的折叠伞架构，收起后可放入口袋，占用空间接近智能手机。从伞套剖面和机构研究到实体原型均有覆盖。",
@@ -2555,7 +2715,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "instant-coffee-dispenser": {
     category: "工业",
     title: "速溶咖啡分配器",
-    description: "用于速溶咖啡计量的原型设备，并通过终端用户包装和实体模型进行测试。",
+    description:
+      "用于速溶咖啡计量的原型设备，并通过终端用户包装和实体模型进行测试。",
     imageAlt: "带手部交互的速溶咖啡分配器原型",
     overview:
       "一个实体原型项目，聚焦速溶咖啡处理、计量人体工学和紧凑设备形态。",
@@ -2578,7 +2739,10 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
 };
 
-const PROJECT_OVERRIDES: Record<ProjectsLocale, Record<string, Partial<Project>>> = {
+const PROJECT_OVERRIDES: Record<
+  ProjectsLocale,
+  Record<string, Partial<Project>>
+> = {
   en: {},
   fr: FR_PROJECT_OVERRIDES,
   de: DE_PROJECT_OVERRIDES,
@@ -2647,7 +2811,10 @@ export const ALL_PROJECTS = [FEATURED_PROJECT, ...PROJECTS].sort((a, b) => {
   return 0;
 });
 
-const PROJECT_SCOPES: Record<string, Partial<Record<ProjectsLocale, string[]>>> = {
+const PROJECT_SCOPES: Record<
+  string,
+  Partial<Record<ProjectsLocale, string[]>>
+> = {
   "stajvelo-rv01": {
     en: [
       "Polymer and injected-composite architecture for a premium urban e-bike.",
@@ -3065,9 +3232,7 @@ function isProjectCategoryFilter(
 }
 
 const ACTIVE_PROJECT_FILTER_KEYS = new Set<Exclude<FilterKey, "all">>(
-  ALL_PROJECTS.flatMap((project) =>
-    project.filter ? [project.filter] : [],
-  ),
+  ALL_PROJECTS.flatMap((project) => (project.filter ? [project.filter] : [])),
 );
 
 function withActiveProjectFilters(filters: ProjectFilterOption[]) {
@@ -3213,8 +3378,8 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       },
       {
         ...STATS[3],
-        label: "Rayonnement",
-        value: "International",
+        label: "Pays servis",
+        value: "Projets internationaux",
       },
     ],
     statsLabel: "Statistiques des projets",
@@ -3607,11 +3772,7 @@ function getProjectSortYear(project: Project) {
   return yearTag ? Number(yearTag.slice(1)) : 0;
 }
 
-function compareProjectTitles(
-  a: Project,
-  b: Project,
-  locale: ProjectsLocale,
-) {
+function compareProjectTitles(a: Project, b: Project, locale: ProjectsLocale) {
   return new Intl.Collator(locale, {
     numeric: true,
     sensitivity: "base",
@@ -3961,7 +4122,15 @@ function ProjectImageLightbox({
         };
       });
     },
-    [clampZoom, getPinchGesture, image, offsetX, offsetY, updateViewerState, zoom],
+    [
+      clampZoom,
+      getPinchGesture,
+      image,
+      offsetX,
+      offsetY,
+      updateViewerState,
+      zoom,
+    ],
   );
 
   const handlePointerEnd = useCallback(
@@ -4107,9 +4276,13 @@ export function ProjectDetailsDialog({
   onClosed: () => void;
   project: Project;
 }) {
-  const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(null);
+  const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(
+    null,
+  );
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
-  const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(null);
+  const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(
+    null,
+  );
   const [dialogState, setDialogState] = useState<
     "opening" | "open" | "closing"
   >("opening");
@@ -4233,7 +4406,9 @@ export function ProjectDetailsDialog({
     const preventBackgroundScroll = (event: Event) => {
       const horizontalScrollContainer =
         event.target instanceof Element
-          ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
+          ? event.target.closest<HTMLElement>(
+              PROJECT_HORIZONTAL_SCROLL_SELECTOR,
+            )
           : null;
       const zoomContainer =
         event.target instanceof Element
@@ -4299,7 +4474,11 @@ export function ProjectDetailsDialog({
       capture: true,
       passive: true,
     });
-    window.addEventListener("wheel", preventBackgroundScroll, scrollEventOptions);
+    window.addEventListener(
+      "wheel",
+      preventBackgroundScroll,
+      scrollEventOptions,
+    );
     window.addEventListener(
       "touchmove",
       preventBackgroundScroll,
@@ -4381,7 +4560,8 @@ export function ProjectDetailsDialog({
         ),
       ).filter(
         (element) =>
-          !element.hasAttribute("disabled") && element.getClientRects().length > 0,
+          !element.hasAttribute("disabled") &&
+          element.getClientRects().length > 0,
       );
 
       if (!focusable.length) return;
@@ -4669,7 +4849,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   const [sortKey, setSortKey] = useState<ProjectSortKey>("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(null);
+  const [selectedPatent, setSelectedPatent] = useState<PatentRecord | null>(
+    null,
+  );
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const [dialogState, setDialogState] = useState<
     "closed" | "opening" | "open" | "closing"
@@ -4692,7 +4874,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       if (openSortDetails.length === 0) return;
       if (
         event.target instanceof Node &&
-        openSortDetails.some((details) => details.contains(event.target as Node))
+        openSortDetails.some((details) =>
+          details.contains(event.target as Node),
+        )
       ) {
         return;
       }
@@ -4789,7 +4973,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 }}
               >
                 <span>{option.label}</span>
-                {active ? <Check className="size-4 shrink-0" aria-hidden /> : null}
+                {active ? (
+                  <Check className="size-4 shrink-0" aria-hidden />
+                ) : null}
               </button>
             );
           })}
@@ -4812,9 +4998,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       </label>
     </div>
   );
-  const [expandedGalleryIndex, setExpandedGalleryIndex] = useState<number | null>(
-    null,
-  );
+  const [expandedGalleryIndex, setExpandedGalleryIndex] = useState<
+    number | null
+  >(null);
 
   const selectedProjectGallery = useMemo(
     () => (selectedProject ? getProjectGallery(selectedProject) : []),
@@ -4822,7 +5008,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   );
   const activeGalleryImage =
     selectedProjectGallery[
-      Math.min(activeGalleryIndex, Math.max(selectedProjectGallery.length - 1, 0))
+      Math.min(
+        activeGalleryIndex,
+        Math.max(selectedProjectGallery.length - 1, 0),
+      )
     ] ?? selectedProject?.image;
   const expandedGalleryImage =
     expandedGalleryIndex === null
@@ -4908,7 +5097,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
   useEffect(() => {
     const openProjectFromUrl = () => {
-      const projectId = new URLSearchParams(window.location.search).get("project");
+      const projectId = new URLSearchParams(window.location.search).get(
+        "project",
+      );
       if (!projectId || selectedProject?.id === projectId) return;
 
       const project = copy.projects.find((item) => item.id === projectId);
@@ -5015,7 +5206,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     const preventBackgroundScroll = (event: Event) => {
       const horizontalScrollContainer =
         event.target instanceof Element
-          ? event.target.closest<HTMLElement>(PROJECT_HORIZONTAL_SCROLL_SELECTOR)
+          ? event.target.closest<HTMLElement>(
+              PROJECT_HORIZONTAL_SCROLL_SELECTOR,
+            )
           : null;
       const zoomContainer =
         event.target instanceof Element
@@ -5081,7 +5274,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       capture: true,
       passive: true,
     });
-    window.addEventListener("wheel", preventBackgroundScroll, scrollEventOptions);
+    window.addEventListener(
+      "wheel",
+      preventBackgroundScroll,
+      scrollEventOptions,
+    );
     window.addEventListener(
       "touchmove",
       preventBackgroundScroll,
@@ -5165,7 +5362,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         ),
       ).filter(
         (element) =>
-          !element.hasAttribute("disabled") && element.getClientRects().length > 0,
+          !element.hasAttribute("disabled") &&
+          element.getClientRects().length > 0,
       );
 
       if (!focusable.length) return;
@@ -5289,12 +5487,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               id="projects-page-title"
               className="domtek-text-shadow mt-14 max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-16 md:text-[66px]"
             >
-              {copy.hero.title}<span className="text-brand">.</span>
+              {copy.hero.title}
+              <span className="text-brand">.</span>
             </h1>
             <p className="mt-8 max-w-[500px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px]">
-              <strong className="font-extrabold">
-                {copy.hero.strong}
-              </strong>{" "}
+              <strong className="font-extrabold">{copy.hero.strong}</strong>{" "}
               {copy.hero.rest}
             </p>
             <p className="mt-5 max-w-[470px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] sm:leading-[1.32]">
@@ -5321,7 +5518,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 {copy.selectedTitle}
               </h2>
               <p className="mt-3 text-[12px] font-medium text-muted-foreground">
-                {visibleProjects.length} / {copy.projects.length} {copy.resultsLabel}
+                {visibleProjects.length} / {copy.projects.length}{" "}
+                {copy.resultsLabel}
               </p>
             </div>
             {renderProjectControls({
@@ -5344,8 +5542,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   const count =
                     filter.key === "all"
                       ? copy.projects.length
-                      : copy.projects.filter((project) => project.filter === filter.key)
-                          .length;
+                      : copy.projects.filter(
+                          (project) => project.filter === filter.key,
+                        ).length;
 
                   return (
                     <button
@@ -5391,7 +5590,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                               active && "text-white/85",
                             )}
                           >
-                            {count} {resolvedLocale === "fr" ? "projets" : "projects"}
+                            {count}{" "}
+                            {resolvedLocale === "fr" ? "projets" : "projects"}
                           </span>
                         )}
                       </span>
@@ -5474,9 +5674,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               className={cn(
                 "grid h-full md:grid-cols-[46%_54%]",
                 !contentVisible && "pointer-events-none",
-            )}
-          >
-            <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
+              )}
+            >
+              <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
                 <button
                   type="button"
                   className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35"
@@ -5698,7 +5898,7 @@ function ProjectsStatsSection({
                     className={cn(
                       "block max-w-full text-balance font-extrabold leading-[1.02] text-foreground lg:text-[25px] lg:leading-none",
                       isLongValue
-                        ? "text-[clamp(20px,5.2vw,30px)] sm:text-[clamp(22px,2.7vw,30px)]"
+                        ? "text-[clamp(19px,4.9vw,28px)] sm:text-[clamp(21px,2.6vw,28px)]"
                         : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)]",
                     )}
                   >
@@ -5817,9 +6017,7 @@ export function ProjectsPageCta({ locale }: { locale: string }) {
             className="domtek-text-shadow mt-8 text-[36px] font-extrabold leading-[1.05] text-foreground sm:text-[48px]"
           >
             <span className="text-brand">.</span>
-            {copy.title}
-            {" "}
-            <span className="text-brand">?</span>
+            {copy.title} <span className="text-brand">?</span>
           </h2>
           <p className="mt-6 max-w-[560px] text-[16px] font-medium leading-[1.35] text-muted-foreground">
             <strong className="font-extrabold">{copy.bodyStrong}</strong>{" "}

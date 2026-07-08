@@ -146,7 +146,17 @@
         "eyebrow": "Brainstorming",
         "title": "Convertir un problema en una dirección clara",
         "lead": "Antes de fijar una solución, abrimos el campo de posibilidades: uso, mecánica, materiales, costes, fabricación y riesgos se analizan juntos.",
-        "body": "Esta fase permite generar ideas sólidas, comparar varias arquitecturas e identificar pronto las soluciones que realmente encajan con el proyecto."
+        "body": "Esta fase permite generar ideas sólidas, comparar varias arquitecturas e identificar pronto las soluciones que realmente encajan con el proyecto.",
+        "cards": {
+          "doorRod": "Puerta y varilla",
+          "springLock": "Cierre de resorte",
+          "magneticLock": "Bloqueo magnético",
+          "threePointAttachment": "Fijación de tres puntos",
+          "flexibleLatch": "Pestillo flexible",
+          "mechanicalUnlock": "Desbloqueo mecánico",
+          "rotation90": "Rotación 90°",
+          "mechanicalAdhesion": "Adhesión mecánica"
+        }
       },
       "items": {
         "creativity": {

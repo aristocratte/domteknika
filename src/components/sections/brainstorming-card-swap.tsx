@@ -2,6 +2,7 @@
 
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import CardSwapModule, { Card as CardModule } from "@/components/CardSwap";
@@ -39,46 +40,47 @@ const BRAINSTORMING_CARDS = [
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-01-landscape.jpg",
-    title: "Porte et tringle",
+    titleKey: "doorRod",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-02.jpg",
-    title: "Verrou à ressort",
+    titleKey: "springLock",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-03.jpg",
-    title: "Verrouillage magnétique",
+    titleKey: "magneticLock",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-04-landscape.jpg",
-    title: "Attache trois points",
+    titleKey: "threePointAttachment",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-05-landscape.jpg",
-    title: "Loquet souple",
+    titleKey: "flexibleLatch",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-06-landscape.jpg",
-    title: "Déverrouillage mécanique",
+    titleKey: "mechanicalUnlock",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-07-landscape.jpg",
-    title: "Rotation à 90 degrés",
+    titleKey: "rotation90",
   },
   {
     image:
       "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-08.jpg",
-    title: "Adhérence mécanique",
+    titleKey: "mechanicalAdhesion",
   },
 ] as const;
 
 export function BrainstormingCardSwap() {
+  const t = useTranslations("ExpertisePage.Services.brainstorming.cards");
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [manualSwapSignal, setManualSwapSignal] = useState(0);
   const [swapSize, setSwapSize] = useState(DEFAULT_SWAP_SIZE);
@@ -90,12 +92,19 @@ export function BrainstormingCardSwap() {
 
     const updateSize = () => {
       const availableWidth = node.getBoundingClientRect().width;
-      const widthRatio = availableWidth < 480 ? 0.84 : availableWidth < 900 ? 0.76 : 0.72;
+      const widthRatio =
+        availableWidth < 480 ? 0.84 : availableWidth < 900 ? 0.76 : 0.72;
       const minWidth = availableWidth < 340 ? 250 : 286;
-      const width = Math.round(Math.min(460, Math.max(minWidth, availableWidth * widthRatio)));
+      const width = Math.round(
+        Math.min(460, Math.max(minWidth, availableWidth * widthRatio)),
+      );
       const height = Math.round(width * (availableWidth < 480 ? 0.84 : 0.78));
-      const cardDistance = Math.round(width * (availableWidth < 480 ? 0.055 : 0.14));
-      const verticalDistance = Math.round(width * (availableWidth < 480 ? 0.06 : 0.1));
+      const cardDistance = Math.round(
+        width * (availableWidth < 480 ? 0.055 : 0.14),
+      );
+      const verticalDistance = Math.round(
+        width * (availableWidth < 480 ? 0.06 : 0.1),
+      );
 
       setSwapSize((current) => {
         if (
@@ -153,30 +162,34 @@ export function BrainstormingCardSwap() {
         skewAmount={0}
         easing="elastic"
       >
-        {BRAINSTORMING_CARDS.map((item) => (
-          <Card
-            key={item.image}
-            customClass="brainstorming-swap-card overflow-hidden bg-white shadow-[0_18px_44px_rgba(0,0,0,0.11)] ring-1 ring-brand/35"
-          >
-            <div className="flex size-full flex-col bg-white">
-              <div className="border-b border-brand/75 px-4 pb-2 pt-3">
-                <p className="text-[13px] font-extrabold leading-none text-foreground">
-                  {item.title}
-                </p>
+        {BRAINSTORMING_CARDS.map((item) => {
+          const title = t(item.titleKey);
+
+          return (
+            <Card
+              key={item.image}
+              customClass="brainstorming-swap-card overflow-hidden bg-white shadow-[0_18px_44px_rgba(0,0,0,0.11)] ring-1 ring-brand/35"
+            >
+              <div className="flex size-full flex-col bg-white">
+                <div className="border-b border-brand/75 px-4 pb-2 pt-3">
+                  <p className="text-[13px] font-extrabold leading-none text-foreground">
+                    {title}
+                  </p>
+                </div>
+                <div className="relative min-h-0 flex-1">
+                  <Image
+                    src={item.image}
+                    alt={title}
+                    fill
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 420px, 460px"
+                    className="object-contain"
+                    draggable={false}
+                  />
+                </div>
               </div>
-              <div className="relative min-h-0 flex-1">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 420px, 460px"
-                  className="object-contain"
-                  draggable={false}
-                />
-              </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </CardSwap>
     </div>
   );

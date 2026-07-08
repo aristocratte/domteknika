@@ -520,9 +520,16 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
   ],
 };
 
-const CARD_ICON: Record<PatentFilterKey, { src: string; width: number; height: number }> = {
+const CARD_ICON: Record<
+  PatentFilterKey,
+  { src: string; width: number; height: number }
+> = {
   mobility: { src: `${ASSET_BASE}/icon-mobility.png`, width: 28, height: 25 },
-  industrial: { src: `${ASSET_BASE}/icon-industrial.png`, width: 30, height: 32 },
+  industrial: {
+    src: `${ASSET_BASE}/icon-industrial.png`,
+    width: 30,
+    height: 32,
+  },
   medical: { src: `${ASSET_BASE}/icon-medical.png`, width: 39, height: 34 },
   energy: { src: `${ASSET_BASE}/icon-energy.png`, width: 23, height: 35 },
   materials: { src: `${ASSET_BASE}/icon-materials.png`, width: 34, height: 33 },
@@ -900,8 +907,7 @@ const COPY: Record<
       title: "특허",
       leadOne:
         "특허 포트폴리오는 수년간의 연구, 엔지니어링 우수성, 복잡한 과제를 해결하려는 의지를 보여 줍니다.",
-      leadTwo:
-        "여러 산업의 미래를 만들어 가는 보호된 혁신을 살펴보세요.",
+      leadTwo: "여러 산업의 미래를 만들어 가는 보호된 혁신을 살펴보세요.",
     },
     archiveTitle: "혁신 아카이브",
     filtersLabel: "특허 필터",
@@ -974,8 +980,7 @@ const COPY: Record<
       title: "专利",
       leadOne:
         "我们的专利组合体现了多年研究、卓越工程能力，以及解决复杂挑战的持续投入。",
-      leadTwo:
-        "探索我们在多个行业中塑造未来的受保护创新。",
+      leadTwo: "探索我们在多个行业中塑造未来的受保护创新。",
     },
     archiveTitle: "创新档案",
     filtersLabel: "筛选专利",
@@ -1122,7 +1127,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
     "closed" | "opening" | "open" | "closing"
   >("closed");
   const [panelRect, setPanelRect] = useState<PanelRect | null>(null);
-  const [activeDrawingIndex, setActiveDrawingIndex] = useState<number | null>(null);
+  const [activeDrawingIndex, setActiveDrawingIndex] = useState<number | null>(
+    null,
+  );
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const [modalImageOffset, setModalImageOffset] = useState({ x: 0, y: 0 });
   const [modalImageRotation, setModalImageRotation] = useState(0);
@@ -1149,7 +1156,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
       if (openSortDetails.length === 0) return;
       if (
         event.target instanceof Node &&
-        openSortDetails.some((details) => details.contains(event.target as Node))
+        openSortDetails.some((details) =>
+          details.contains(event.target as Node),
+        )
       ) {
         return;
       }
@@ -1171,7 +1180,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
   const visiblePatents = useMemo(() => {
     const filteredPatents = PATENTS.filter((patent) => {
-      const matchesFilter = activeFilter === "all" || patent.filter === activeFilter;
+      const matchesFilter =
+        activeFilter === "all" || patent.filter === activeFilter;
       return matchesFilter && patentMatchesSearch(patent, normalizedSearchTerm);
     });
 
@@ -1225,7 +1235,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 }}
               >
                 <span>{option.label}</span>
-                {active ? <Check className="size-4 shrink-0" aria-hidden /> : null}
+                {active ? (
+                  <Check className="size-4 shrink-0" aria-hidden />
+                ) : null}
               </button>
             );
           })}
@@ -1312,7 +1324,9 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
   useEffect(() => {
     const openPatentFromHash = () => {
-      const patentId = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+      const patentId = decodeURIComponent(
+        window.location.hash.replace(/^#/, ""),
+      );
       if (!patentId || selectedPatent?.id === patentId) return;
 
       const patent = PATENTS.find((item) => item.id === patentId);
@@ -1459,7 +1473,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
     fetch(selectedPatent.detailPath)
       .then((response) => {
-        if (!response.ok) throw new Error(`Failed to load ${selectedPatent.detailPath}`);
+        if (!response.ok)
+          throw new Error(`Failed to load ${selectedPatent.detailPath}`);
         return response.json() as Promise<PatentDetail>;
       })
       .then((detail) => {
@@ -1545,7 +1560,11 @@ export function PatentPageContent({ locale }: { locale: string }) {
       capture: true,
       passive: true,
     });
-    window.addEventListener("wheel", preventBackgroundScroll, scrollEventOptions);
+    window.addEventListener(
+      "wheel",
+      preventBackgroundScroll,
+      scrollEventOptions,
+    );
     window.addEventListener(
       "touchmove",
       preventBackgroundScroll,
@@ -1641,7 +1660,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
         ),
       ).filter(
         (element) =>
-          !element.hasAttribute("disabled") && element.getClientRects().length > 0,
+          !element.hasAttribute("disabled") &&
+          element.getClientRects().length > 0,
       );
 
       if (!focusable.length) return;
@@ -1733,7 +1753,10 @@ export function PatentPageContent({ locale }: { locale: string }) {
         />
         <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/42 to-transparent" />
 
-        <Container size="wide" className="relative z-10 grid min-h-[440px] items-start">
+        <Container
+          size="wide"
+          className="relative z-10 grid min-h-[440px] items-start"
+        >
           <Reveal className="max-w-[515px] pt-3 md:pt-8">
             <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-muted-foreground">
               <span className="h-[2px] w-[22px] bg-brand" aria-hidden />
@@ -2112,28 +2135,62 @@ export function PatentPageContent({ locale }: { locale: string }) {
                       {copy.details.tags}
                     </h3>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {[selectedPatentCategory, ...selectedPatent.tags].map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      {[selectedPatentCategory, ...selectedPatent.tags].map(
+                        (tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ),
+                      )}
                     </div>
                   </section>
                 </div>
 
                 <div className="mt-8 grid border border-border sm:grid-cols-2">
-                  <PatentFact label={copy.details.publication} value={selectedPatent.publication} />
-                  <PatentFact label={copy.details.publicationDate} value={selectedPatent.date} />
-                  <PatentFact label={copy.details.priorityDate} value={selectedPatent.priorityDate} />
-                  <PatentFact label={copy.details.category} value={selectedPatentCategory} />
-                  <PatentFact label={copy.details.inventors} value={selectedPatent.inventors} wide />
-                  <PatentFact label={copy.details.applicants} value={selectedPatent.applicants} wide />
-                  <PatentFact label={copy.details.application} value={selectedPatent.applicationNumber} wide />
-                  <PatentFact label={copy.details.classification} value={selectedPatent.classification} wide />
-                  <PatentFact label={copy.details.alsoPublishedAs} value={selectedPatent.alsoPublishedAs} wide />
+                  <PatentFact
+                    label={copy.details.publication}
+                    value={selectedPatent.publication}
+                  />
+                  <PatentFact
+                    label={copy.details.publicationDate}
+                    value={selectedPatent.date}
+                  />
+                  <PatentFact
+                    label={copy.details.priorityDate}
+                    value={selectedPatent.priorityDate}
+                  />
+                  <PatentFact
+                    label={copy.details.category}
+                    value={selectedPatentCategory}
+                  />
+                  <PatentFact
+                    label={copy.details.inventors}
+                    value={selectedPatent.inventors}
+                    wide
+                  />
+                  <PatentFact
+                    label={copy.details.applicants}
+                    value={selectedPatent.applicants}
+                    wide
+                  />
+                  <PatentFact
+                    label={copy.details.application}
+                    value={selectedPatent.applicationNumber}
+                    wide
+                  />
+                  <PatentFact
+                    label={copy.details.classification}
+                    value={selectedPatent.classification}
+                    wide
+                  />
+                  <PatentFact
+                    label={copy.details.alsoPublishedAs}
+                    value={selectedPatent.alsoPublishedAs}
+                    wide
+                  />
                 </div>
 
                 {selectedPatent.images.length > 0 && (
@@ -2146,8 +2203,14 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 )}
 
                 <section className="mt-8 grid gap-3 sm:grid-cols-2">
-                  <PatentLinkGroup title={copy.details.sourceLinks} links={selectedPatent.links} />
-                  <PatentPdfGroup title={copy.details.downloadPdfs} pdfs={selectedPatent.pdfs} />
+                  <PatentLinkGroup
+                    title={copy.details.sourceLinks}
+                    links={selectedPatent.links}
+                  />
+                  <PatentPdfGroup
+                    title={copy.details.downloadPdfs}
+                    pdfs={selectedPatent.pdfs}
+                  />
                 </section>
 
                 <section className="mt-8 grid gap-4">
@@ -2169,16 +2232,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
               </div>
             </div>
           </section>
-          {activeDrawingIndex !== null && selectedPatent.images[activeDrawingIndex] && (
-            <PatentDrawingLightbox
-              images={selectedPatent.images}
-              activeIndex={activeDrawingIndex}
-              copy={copy.details}
-              onClose={closeDrawing}
-              onPrevious={() => cycleDrawing(-1)}
-              onNext={() => cycleDrawing(1)}
-            />
-          )}
+          {activeDrawingIndex !== null &&
+            selectedPatent.images[activeDrawingIndex] && (
+              <PatentDrawingLightbox
+                images={selectedPatent.images}
+                activeIndex={activeDrawingIndex}
+                copy={copy.details}
+                onClose={closeDrawing}
+                onPrevious={() => cycleDrawing(-1)}
+                onNext={() => cycleDrawing(1)}
+              />
+            )}
         </div>
       )}
       {selectedLinkedProject && (
@@ -2206,7 +2270,8 @@ function PatentStatsBar({ stats }: { stats: PatentStat[] }) {
             key={stat.label}
             className={cn(
               "group/stat grid min-h-[74px] grid-cols-[34px_1fr] items-center gap-3 px-5 py-3 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.08)] [transition-timing-function:var(--ease-smooth)]",
-              index < stats.length - 1 && "border-b border-border sm:border-b-0 sm:border-r",
+              index < stats.length - 1 &&
+                "border-b border-border sm:border-b-0 sm:border-r",
             )}
           >
             <span className="grid size-8 place-items-center transition-transform duration-500 group-hover/stat:-translate-y-1 [transition-timing-function:var(--ease-smooth)]">
@@ -2283,7 +2348,9 @@ function PatentLinkGroup({
 
   return (
     <div className="rounded-[4px] border border-border p-4">
-      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">{title}</h3>
+      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+        {title}
+      </h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {entries.map(([label, href]) => (
           <a
@@ -2313,7 +2380,9 @@ function PatentPdfGroup({
 
   return (
     <div className="rounded-[4px] border border-border p-4">
-      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">{title}</h3>
+      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+        {title}
+      </h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {pdfs.slice(0, 8).map((pdf, index) => (
           <a
@@ -2586,7 +2655,9 @@ function PatentDrawingGallery({
   const hasMultiple = images.length > 1;
 
   const cycle = (direction: -1 | 1) => {
-    setActiveIndex((current) => (current + direction + images.length) % images.length);
+    setActiveIndex(
+      (current) => (current + direction + images.length) % images.length,
+    );
   };
 
   if (!activeImage) return null;
@@ -3151,7 +3222,9 @@ function PatentCard({
 }) {
   const icon = CARD_ICON[patent.filter];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const safeActiveImageIndex = patent.images[activeImageIndex] ? activeImageIndex : 0;
+  const safeActiveImageIndex = patent.images[activeImageIndex]
+    ? activeImageIndex
+    : 0;
   const activeImage = patent.images[safeActiveImageIndex] ?? patent.images[0];
   const hasMultipleImages = patent.images.length > 1;
 
@@ -3164,7 +3237,7 @@ function PatentCard({
   };
 
   return (
-    <article className="group/patent relative z-0 flex h-[246px] w-full origin-center transform-gpu flex-row overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[390px]:h-[258px] [transition-timing-function:var(--ease-smooth)]">
+    <article className="group/patent relative z-0 flex h-[312px] w-full origin-center transform-gpu flex-row overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[390px]:h-[306px] sm:h-[292px] lg:h-[286px] xl:h-[268px] [transition-timing-function:var(--ease-smooth)]">
       <button
         type="button"
         className="absolute inset-0 z-10 cursor-pointer rounded-[5px] outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
@@ -3229,7 +3302,10 @@ function PatentCard({
 
       <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-3 py-3 min-[390px]:px-4 min-[390px]:py-4">
         <span className="grid grid-cols-[24px_1fr_auto] items-start gap-2 min-[390px]:grid-cols-[28px_1fr_auto] min-[390px]:gap-3">
-          <span className="grid size-6 place-items-center min-[390px]:size-7" aria-hidden>
+          <span
+            className="grid size-6 place-items-center min-[390px]:size-7"
+            aria-hidden
+          >
             <Image
               src={icon.src}
               alt=""
@@ -3252,7 +3328,7 @@ function PatentCard({
         <span className="mt-3 max-w-none overflow-hidden text-[12px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-4 min-[390px]:text-[13px] lg:text-[14px]">
           {patent.title}
         </span>
-        <span className="mt-2 h-[44px] max-w-none overflow-hidden text-[9px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-3 min-[390px]:h-[54px] min-[390px]:text-[10px] min-[390px]:[-webkit-line-clamp:4] lg:h-[58px]">
+        <span className="mt-2 h-[68px] max-w-none overflow-hidden text-[9px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] min-[390px]:mt-3 min-[390px]:h-[72px] min-[390px]:text-[10px] sm:h-[62px] sm:[-webkit-line-clamp:4] lg:h-[54px] xl:h-[50px]">
           {patent.abstract}
         </span>
 
@@ -3267,7 +3343,10 @@ function PatentCard({
                 >
                   {tag}
                   {index < patent.tags.length - 1 && (
-                    <span className="size-1 rounded-full bg-brand" aria-hidden />
+                    <span
+                      className="size-1 rounded-full bg-brand"
+                      aria-hidden
+                    />
                   )}
                 </span>
               ))}
@@ -3314,7 +3393,9 @@ export function PatentPageCta({ locale }: { locale: string }) {
           >
             <span className="text-brand">{copy.titlePrefix}</span>
             {copy.title}
-            <span className="whitespace-nowrap text-brand">&nbsp;{copy.titleQuestion}</span>
+            <span className="whitespace-nowrap text-brand">
+              &nbsp;{copy.titleQuestion}
+            </span>
           </h2>
           <p className="mt-8 max-w-[560px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px]">
             {copy.body}

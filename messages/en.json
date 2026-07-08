@@ -146,7 +146,17 @@
         "eyebrow": "Brainstorming",
         "title": "Turning a problem into a clear direction",
         "lead": "Before locking a solution, we open the field: user constraints, mechanics, materials, costs, manufacturing and risks are put on the table.",
-        "body": "This phase helps us surface strong ideas, compare several architectures and quickly identify the solutions that truly fit the project."
+        "body": "This phase helps us surface strong ideas, compare several architectures and quickly identify the solutions that truly fit the project.",
+        "cards": {
+          "doorRod": "Door and rod",
+          "springLock": "Spring lock",
+          "magneticLock": "Magnetic locking",
+          "threePointAttachment": "Three-point attachment",
+          "flexibleLatch": "Flexible latch",
+          "mechanicalUnlock": "Mechanical unlocking",
+          "rotation90": "90° rotation",
+          "mechanicalAdhesion": "Mechanical adhesion"
+        }
       },
       "items": {
         "creativity": {

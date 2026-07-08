@@ -132,7 +132,7 @@ export function HeroSection() {
                 {t("producing")}
                 <span className="text-brand">.</span>
               </span>
-              <span className="relative mt-4 block w-max max-w-none whitespace-nowrap pl-0 text-[clamp(24px,8.4vw,38px)] font-extrabold leading-[1.03] sm:max-w-full sm:text-[42px] md:mt-6 md:pl-[52px] lg:mt-7 lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
+              <span className="relative left-1/2 mt-4 block w-max max-w-none -translate-x-1/2 whitespace-nowrap pl-0 text-center text-[clamp(24px,8.4vw,38px)] font-extrabold leading-[1.03] sm:left-auto sm:max-w-full sm:translate-x-0 sm:text-left sm:text-[42px] md:mt-6 md:pl-[52px] lg:mt-7 lg:text-[48px] 2xl:pl-[58px] 2xl:text-[50px]">
                 <Image
                   src="/assets/arrow-right-hero.png"
                   alt=""
