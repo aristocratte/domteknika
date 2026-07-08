@@ -870,6 +870,46 @@ function OurStoryBackgroundSketches() {
         alt=""
         width={1448}
         height={1086}
+        sizes="82vw"
+        className="absolute left-[-48vw] top-[1600px] w-[82vw] max-w-[360px] rotate-[-12deg] opacity-[0.075] md:hidden"
+      />
+      <Image
+        src={moldCavity}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="86vw"
+        className="absolute right-[-52vw] top-[2240px] w-[86vw] max-w-[390px] rotate-[10deg] opacity-[0.065] md:hidden"
+      />
+      <Image
+        src={roundFlange}
+        alt=""
+        width={930}
+        height={695}
+        sizes="74vw"
+        className="absolute left-[-40vw] top-[2920px] w-[74vw] max-w-[330px] rotate-[9deg] opacity-[0.08] md:hidden"
+      />
+      <Image
+        src={explodedShaft}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="94vw"
+        className="absolute right-[-56vw] top-[3720px] w-[94vw] max-w-[420px] rotate-[7deg] opacity-[0.055] md:hidden"
+      />
+      <Image
+        src={liteChassis}
+        alt=""
+        width={1448}
+        height={1086}
+        sizes="104vw"
+        className="absolute left-[-60vw] top-[4580px] w-[104vw] max-w-[480px] rotate-[-5deg] opacity-[0.05] md:hidden"
+      />
+      <Image
+        src={frontFlange}
+        alt=""
+        width={1448}
+        height={1086}
         sizes="500px"
         className="absolute left-[-12vw] top-[1600px] hidden w-[34vw] max-w-[500px] rotate-[-12deg] opacity-[0.11] md:block"
       />

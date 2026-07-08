@@ -283,7 +283,7 @@ export function Navbar() {
                 </div>
 
                 <div className="mt-auto border-t border-border/70 pt-5">
-                  <div className="flex items-center justify-end gap-3">
+                  <div className="flex items-center justify-start gap-3">
                     <Button
                       nativeButton={false}
                       className="h-11 rounded-[7px] border-0 px-5 font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
