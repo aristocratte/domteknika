@@ -218,9 +218,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "Innovations de jeunes entreprises primées 3 ans de suite",
+        title: "Innovations startup primées 3 ans de suite",
         description:
-          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts ambitieux en innovations récompensées dans les produits intelligents, les technologies beauté et les dispositifs médicaux.",
+          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts startup ambitieux en innovations récompensées dans les produits intelligents, les technologies beauté et les dispositifs médicaux.",
         icon: "document",
         awards: true,
       },
@@ -304,9 +304,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "Prämierte Start-up-Innovationen in drei aufeinanderfolgenden Jahren",
+        title: "Prämierte Startup-Innovationen in drei aufeinanderfolgenden Jahren",
         description:
-          "Von Smart Bottle bis Skin Care und Personal Injector verwandelte DOMTEKNIKA ambitionierte Konzepte in ausgezeichnete Innovationen für smarte Produkte, Beauty-Technologie und Medizintechnik.",
+          "Von Smart Bottle bis Skin Care und Personal Injector verwandelte DOMTEKNIKA ambitionierte Startup-Konzepte in ausgezeichnete Innovationen für smarte Produkte, Beauty-Technologie und Medizintechnik.",
         icon: "document",
         awards: true,
       },
@@ -390,9 +390,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "Innovaciones de start-ups premiadas durante tres años seguidos",
+        title: "Innovaciones startup premiadas durante tres años seguidos",
         description:
-          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos ambiciosos en innovaciones premiadas en productos inteligentes, tecnología de belleza y tecnología médica.",
+          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos startup ambiciosos en innovaciones premiadas en productos inteligentes, tecnología de belleza y tecnología médica.",
         icon: "document",
         awards: true,
       },
@@ -476,9 +476,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "3년 연속 수상한 스타트업 혁신",
+        title: "3년 연속 수상한 startup 혁신",
         description:
-          "Smart Bottle, Skin Care, Personal Injector까지 DOMTEKNIKA는 스마트 제품, 뷰티 기술, 의료기술 분야의 야심찬 콘셉트를 수상 혁신으로 발전시켰습니다.",
+          "Smart Bottle, Skin Care, Personal Injector까지 DOMTEKNIKA는 스마트 제품, 뷰티 기술, 의료기술 분야의 야심찬 startup 콘셉트를 수상 혁신으로 발전시켰습니다.",
         icon: "document",
         awards: true,
       },
@@ -562,9 +562,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "连续三年获奖的初创创新",
+        title: "连续三年获奖的 startup 创新",
         description:
-          "从 Smart Bottle 到 Skin Care 和 Personal Injector，DOMTEKNIKA 将智能产品、美妆科技和医疗技术领域的雄心概念转化为获奖创新。",
+          "从 Smart Bottle 到 Skin Care 和 Personal Injector，DOMTEKNIKA 将智能产品、美妆科技和医疗技术领域的雄心 startup 概念转化为获奖创新。",
         icon: "document",
         awards: true,
       },
@@ -931,7 +931,8 @@ function TimelineCard({
     "group/card relative grid min-h-[112px] w-full grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:grid-cols-[minmax(0,1fr)_48px] sm:items-center sm:gap-5 md:min-h-[116px] md:grid-cols-[minmax(0,1fr)_52px] md:px-5 md:py-4",
     projectId &&
       "cursor-pointer pr-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-4",
-    card.awards && "sm:grid-cols-[minmax(0,1fr)_122px_52px] md:grid-cols-[minmax(0,1fr)_136px_52px]",
+    card.awards &&
+      "sm:pr-[154px] lg:pr-[168px] xl:grid-cols-[minmax(0,1fr)_136px_52px] xl:pr-0",
   );
 
   const content = (
@@ -954,13 +955,13 @@ function TimelineCard({
           alt=""
           width={218}
           height={76}
-          className="hidden w-[116px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[130px]"
+          className="pointer-events-none absolute right-[72px] top-4 hidden w-[108px] self-start justify-self-end invert hue-rotate-180 sm:block md:w-[122px] xl:static xl:w-[130px]"
         />
       )}
       <span
         className={cn(
           "grid size-[44px] place-items-center justify-self-end rounded-full border-2 border-brand bg-white text-foreground transition-transform duration-500 group-hover/card:scale-105 [transition-timing-function:var(--ease-smooth)] sm:justify-self-center",
-          card.awards && "sm:col-start-3",
+          card.awards && "xl:col-start-3",
         )}
       >
         <StoryIcon icon={card.icon} />

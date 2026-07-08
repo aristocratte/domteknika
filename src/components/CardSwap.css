@@ -93,6 +93,12 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1180px) {
+  .domtek-card-swap .card-swap-container {
+    transform: translate(44%, 49%);
+  }
+}
+
 @media (max-width: 480px) {
   .card-swap-container {
     transform: scale(0.55) translate(25%, 25%);

@@ -103,17 +103,9 @@ export function ProjectsSection() {
           </div>
 
           <div
-            data-projects-fade
+            data-projects-carousel
             className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
           >
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-14 left-0 top-0 z-20 w-12 bg-transparent backdrop-blur-[8px] [mask-image:linear-gradient(to_right,black_0%,rgb(0_0_0_/_0.82)_34%,rgb(0_0_0_/_0.28)_68%,transparent_100%)] sm:w-16 md:w-24 md:backdrop-blur-[10px] lg:w-32"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-14 right-0 top-0 z-20 w-12 bg-transparent backdrop-blur-[8px] [mask-image:linear-gradient(to_left,black_0%,rgb(0_0_0_/_0.82)_34%,rgb(0_0_0_/_0.28)_68%,transparent_100%)] sm:w-16 md:w-24 md:backdrop-blur-[10px] lg:w-32"
-            />
             <Carousel
               setApi={setApi}
               opts={{
@@ -147,7 +139,7 @@ export function ProjectsSection() {
             </Carousel>
             <ProjectArrow
               label={t("previous")}
-              className="left-[calc(50%-58px)] md:left-2 lg:left-8"
+              className="left-[calc(50%-58px)]"
               disabled={!api}
               onClick={() => api?.scrollPrev()}
             >
@@ -155,7 +147,7 @@ export function ProjectsSection() {
             </ProjectArrow>
             <ProjectArrow
               label={t("next")}
-              className="right-[calc(50%-58px)] md:right-14 lg:right-8"
+              className="right-[calc(50%-58px)]"
               disabled={!api}
               onClick={() => api?.scrollNext()}
             >
@@ -190,13 +182,13 @@ function ProjectCard({
   return (
     <button
       type="button"
-      className="group block h-[286px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30"
+      className="group block h-[334px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30"
       aria-haspopup="dialog"
       aria-label={`${openDetailsLabel}: ${project.title}`}
       onClick={() => onOpen(project)}
     >
       <article className="h-full">
-        <div className="relative h-[160px] bg-muted">
+        <div className="relative h-[148px] bg-muted">
           <Image
             src={project.image}
             alt=""
@@ -205,11 +197,11 @@ function ProjectCard({
             className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
           />
         </div>
-        <div className="flex h-[126px] flex-col px-4 pb-4 pt-4">
+        <div className="flex h-[186px] flex-col px-4 pb-4 pt-4">
           <h3 className="text-[14px] font-extrabold leading-tight text-foreground">
             {project.title}
           </h3>
-          <p className="mt-2 text-[13px] font-medium leading-tight text-muted-foreground">
+          <p className="mt-2 text-[12.5px] font-medium leading-[1.24] text-muted-foreground">
             {project.description}
           </p>
           <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
@@ -241,7 +233,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute bottom-0 z-50 grid size-11 place-items-center text-brand transition-transform hover:scale-110 disabled:pointer-events-none disabled:opacity-40 md:top-[143px] md:size-12 md:-translate-y-1/2 md:hover:-translate-y-1/2",
+        "absolute bottom-0 z-50 grid size-11 place-items-center rounded-[4px] text-brand transition-[background-color,transform] hover:scale-110 hover:bg-brand/5 disabled:pointer-events-none disabled:opacity-40 md:size-12",
         className,
       )}
     >

@@ -5616,9 +5616,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visibleProjects.length > 0 ? (
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid items-stretch gap-4 md:grid-cols-2">
               {visibleProjects.map((project) => (
-                <div key={project.id}>
+                <div key={project.id} className="h-full">
                   <ProjectCard
                     project={project}
                     onOpen={openProject}
@@ -5878,7 +5878,7 @@ function ProjectsStatsSection({
   return (
     <section className="bg-background py-[28px]" aria-label={ariaLabel}>
       <Container size="wide">
-        <div className="grid grid-cols-2 border border-border bg-white lg:grid-cols-4">
+        <div className="grid grid-cols-2 border border-border bg-white xl:grid-cols-4">
           {stats.map((stat, index) => {
             const isLongValue = stat.value.length > 6;
 
@@ -5888,10 +5888,10 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[164px] transform-gpu flex-col justify-center gap-3 bg-white px-5 py-6 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 lg:grid lg:min-h-[94px] lg:grid-cols-[46px_1fr] lg:items-center lg:gap-4 lg:px-5 lg:py-4 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index % 2 === 0 && "border-r border-border lg:border-r-0",
-                  index < 2 && "border-b border-border lg:border-b-0",
-                  index < stats.length - 1 && "lg:border-r lg:border-border",
+                  "group/stat relative flex min-h-[164px] transform-gpu flex-col justify-center gap-3 bg-white px-5 py-6 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 xl:grid xl:min-h-[94px] xl:grid-cols-[46px_1fr] xl:items-center xl:gap-4 xl:px-5 xl:py-4 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  index % 2 === 0 && "border-r border-border xl:border-r-0",
+                  index < 2 && "border-b border-border xl:border-b-0",
+                  index < stats.length - 1 && "xl:border-r xl:border-border",
                 )}
               >
                 <Image
@@ -5899,12 +5899,12 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] lg:h-[42px] lg:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] xl:h-[42px] xl:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
                     className={cn(
-                      "block max-w-full text-balance font-extrabold leading-[1.02] text-foreground lg:text-[25px] lg:leading-none",
+                      "block max-w-full text-balance font-extrabold leading-[1.02] text-foreground xl:text-[25px] xl:leading-none",
                       isLongValue
                         ? "text-[clamp(19px,4.9vw,28px)] sm:text-[clamp(21px,2.6vw,28px)]"
                         : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)]",
@@ -5912,7 +5912,7 @@ function ProjectsStatsSection({
                   >
                     {stat.value}
                   </strong>
-                  <span className="mt-2 block text-[14px] font-medium leading-tight text-muted-foreground sm:text-[16px] lg:mt-1 lg:text-[11px]">
+                  <span className="mt-2 block text-[14px] font-medium leading-tight text-muted-foreground sm:text-[16px] xl:mt-1 xl:text-[11px]">
                     {stat.label}
                   </span>
                 </div>
@@ -5939,11 +5939,11 @@ function ProjectCard({
   return (
     <article
       data-project-origin
-      className="group overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)]"
+      className="group h-full overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)]"
     >
       <button
         type="button"
-        className="block w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
+        className="flex h-full w-full flex-col text-left outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
         aria-haspopup="dialog"
         aria-label={`${openDetailsLabel}: ${project.title}`}
         onClick={() => onOpen(project)}
@@ -5964,7 +5964,7 @@ function ProjectCard({
           </span>
         </span>
 
-        <span className="flex min-h-[150px] flex-col px-5 pb-5 pt-5">
+        <span className="flex min-h-[150px] flex-1 flex-col px-5 pb-5 pt-5">
           <span className="text-[11px] font-extrabold text-brand">
             {project.category}
           </span>

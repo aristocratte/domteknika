@@ -291,7 +291,7 @@ function BrainstormingSection() {
         </p>
       </div>
 
-      <div className="lg:translate-x-20 xl:translate-x-24">
+      <div className="lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24">
         <BrainstormingCardSwap />
       </div>
     </Reveal>

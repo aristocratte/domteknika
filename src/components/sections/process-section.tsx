@@ -20,7 +20,7 @@ export function ProcessSection() {
         <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch">
           <Reveal
             as="article"
-            className="group flex min-h-[248px] flex-col justify-center rounded-[15px] border border-border bg-white p-5 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] md:p-6"
+            className="group flex min-h-[248px] flex-col justify-start rounded-[15px] border border-border bg-white p-5 pt-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] md:p-6 md:pt-[42px]"
           >
             <AccentLine />
             <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground">
@@ -41,9 +41,9 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.08}
-            className="group relative z-20 my-0 min-h-[260px] rounded-[15px] bg-brand px-5 py-6 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[304px] md:px-7 md:py-7"
+            className="group relative z-20 my-0 min-h-[260px] rounded-[15px] bg-brand px-5 py-6 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[304px] md:px-7 md:pb-7 md:pt-[42px]"
           >
-            <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-center">
+            <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-stretch">
               <div>
                 <AccentLine light />
                 <h2
