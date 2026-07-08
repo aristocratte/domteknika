@@ -156,6 +156,18 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+  :where(h1, h2, h3, .domtek-text-shadow) {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+  :where(p, li, dd, .domtek-copy) {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+  :where([lang="de"] h1, [lang="de"] h2, [lang="de"] h3, [lang="de"] p, [lang="de"] li) {
+    hyphens: auto;
+  }
   .maplibregl-popup-content {
     @apply bg-transparent! shadow-none! p-0! rounded-none!;
   }
@@ -230,6 +242,15 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .domtek-no-orphan {
+    text-wrap: balance;
+    overflow-wrap: break-word;
   }
 }
 

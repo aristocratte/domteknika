@@ -438,7 +438,7 @@ function AddedValueSection() {
 
           <Reveal
             delay={0.1}
-            className="relative aspect-square transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] sm:aspect-auto md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
+            className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
           >
             <div
               className="pointer-events-none absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-white/28 md:left-7 md:right-7"
@@ -458,7 +458,7 @@ function AddedValueSection() {
                     key={stat.key}
                     className={`group flex min-w-0 flex-col justify-center ${
                       isWideStat ? "gap-2" : "gap-2.5"
-                    } ${index % 2 === 0 ? "pr-4 sm:pr-6" : "pl-4 sm:pl-6"}`}
+                    } ${index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6"}`}
                   >
                     <Image
                       src={`/assets/${stat.icon}.png`}
@@ -469,15 +469,15 @@ function AddedValueSection() {
                     />
                     <div className="min-w-0">
                       <strong
-                        className={`block whitespace-nowrap font-extrabold leading-none tracking-normal ${
+                        className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(16px,4vw,20px)] sm:text-[clamp(17px,1.7vw,23px)] 2xl:text-[27px]"
-                            : "text-[24px] sm:text-[26px] md:text-[28px] xl:text-[30px]"
+                            ? "text-[clamp(20px,5.2vw,30px)] sm:text-[clamp(22px,2.7vw,30px)] lg:text-[clamp(21px,2vw,27px)] 2xl:text-[30px]"
+                            : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)] lg:text-[clamp(28px,3vw,42px)]"
                         }`}
                       >
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
-                      <span className="mt-1.5 block text-[11px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[12px] md:text-[13px]">
+                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px]">
                         {t(`stats.${stat.key}.label` as never)}
                       </span>
                     </div>

@@ -3213,7 +3213,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       },
       {
         ...STATS[3],
-        label: "Pays servis",
+        label: "Rayonnement",
         value: "International",
       },
     ],
@@ -5670,34 +5670,47 @@ function ProjectsStatsSection({
   return (
     <section className="bg-background py-[28px]" aria-label={ariaLabel}>
       <Container size="wide">
-        <div className="grid border border-border bg-white sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <Reveal
-              as="article"
-              key={`${index}-${stat.label}`}
-              delay={index * 0.05}
-              className={cn(
-                "group/stat relative grid min-h-[94px] transform-gpu grid-cols-[46px_1fr] items-center gap-4 bg-white px-5 py-4 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                index < stats.length - 1 && "border-b border-border lg:border-b-0 lg:border-r",
-              )}
-            >
-              <Image
-                src={stat.icon}
-                alt=""
-                width={stat.width}
-                height={stat.height}
-                className="h-[42px] w-[46px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
-              />
-              <div>
-                <strong className="block text-[25px] font-extrabold leading-none text-foreground">
-                  {stat.value}
-                </strong>
-                <span className="mt-1 block text-[11px] font-medium text-muted-foreground">
-                  {stat.label}
-                </span>
-              </div>
-            </Reveal>
-          ))}
+        <div className="grid grid-cols-2 border border-border bg-white lg:grid-cols-4">
+          {stats.map((stat, index) => {
+            const isLongValue = stat.value.length > 6;
+
+            return (
+              <Reveal
+                as="article"
+                key={`${index}-${stat.label}`}
+                delay={index * 0.05}
+                className={cn(
+                  "group/stat relative flex min-h-[164px] transform-gpu flex-col justify-center gap-3 bg-white px-5 py-6 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 lg:grid lg:min-h-[94px] lg:grid-cols-[46px_1fr] lg:items-center lg:gap-4 lg:px-5 lg:py-4 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  index % 2 === 0 && "border-r border-border lg:border-r-0",
+                  index < 2 && "border-b border-border lg:border-b-0",
+                  index < stats.length - 1 && "lg:border-r lg:border-border",
+                )}
+              >
+                <Image
+                  src={stat.icon}
+                  alt=""
+                  width={stat.width}
+                  height={stat.height}
+                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] lg:h-[42px] lg:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                />
+                <div className="min-w-0">
+                  <strong
+                    className={cn(
+                      "block max-w-full text-balance font-extrabold leading-[1.02] text-foreground lg:text-[25px] lg:leading-none",
+                      isLongValue
+                        ? "text-[clamp(20px,5.2vw,30px)] sm:text-[clamp(22px,2.7vw,30px)]"
+                        : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)]",
+                    )}
+                  >
+                    {stat.value}
+                  </strong>
+                  <span className="mt-2 block text-[14px] font-medium leading-tight text-muted-foreground sm:text-[16px] lg:mt-1 lg:text-[11px]">
+                    {stat.label}
+                  </span>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Container>
     </section>

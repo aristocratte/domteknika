@@ -35,18 +35,31 @@
 }
 
 .domtek-card-swap-side-fade {
-  width: clamp(82px, 16vw, 132px);
+  left: -26px;
+  width: clamp(46px, 7vw, 72px);
   background: linear-gradient(
     to right,
     #fff 0%,
-    rgba(255, 255, 255, 0.98) 34%,
-    rgba(255, 255, 255, 0.78) 58%,
+    rgba(255, 255, 255, 0.92) 32%,
+    rgba(255, 255, 255, 0.42) 68%,
     rgba(255, 255, 255, 0) 100%
   );
-  -webkit-backdrop-filter: blur(1.2px);
-  backdrop-filter: blur(1.2px);
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 100%);
+  -webkit-backdrop-filter: blur(0.35px);
+  backdrop-filter: blur(0.35px);
+}
+
+.domtek-card-swap-side-fade-right {
+  right: -26px;
+  width: clamp(46px, 7vw, 72px);
+  background: linear-gradient(
+    to left,
+    #fff 0%,
+    rgba(255, 255, 255, 0.92) 32%,
+    rgba(255, 255, 255, 0.42) 68%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-backdrop-filter: blur(0.35px);
+  backdrop-filter: blur(0.35px);
 }
 
 .domtek-card-swap .card {
@@ -66,7 +79,17 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(42%, 49%);
+    transform: translate(39%, 49%);
+  }
+
+  .domtek-card-swap-side-fade {
+    left: -29px;
+    width: 52px;
+  }
+
+  .domtek-card-swap-side-fade-right {
+    right: -18px;
+    width: 58px;
   }
 }
 
@@ -76,12 +99,20 @@
   }
 
   .domtek-card-swap .card-swap-container {
-    transform: translate(49%, 50%);
+    transform: translate(46%, 50%);
   }
 
   .domtek-card-swap-side-fade {
-    width: clamp(104px, 34vw, 156px);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    left: -5px;
+    width: 20px;
+    -webkit-backdrop-filter: blur(0.45px);
+    backdrop-filter: blur(0.45px);
+  }
+
+  .domtek-card-swap-side-fade-right {
+    right: -18px;
+    width: 64px;
+    -webkit-backdrop-filter: blur(0.45px);
+    backdrop-filter: blur(0.45px);
   }
 }

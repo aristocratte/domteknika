@@ -38,7 +38,7 @@ const DEFAULT_SWAP_SIZE = {
 const BRAINSTORMING_CARDS = [
   {
     image:
-      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-01.jpg",
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-01-landscape.jpg",
     title: "Porte et tringle",
   },
   {
@@ -53,23 +53,23 @@ const BRAINSTORMING_CARDS = [
   },
   {
     image:
-      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-04.jpg",
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-04-landscape.jpg",
     title: "Attache trois points",
   },
   {
     image:
-      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-05.jpg",
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-05-landscape.jpg",
     title: "Loquet souple",
   },
   {
     image:
-      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-06.jpg",
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-06-landscape.jpg",
     title: "Déverrouillage mécanique",
   },
   {
     image:
-      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-07.jpg",
-    title: "Rotation 90 degrés",
+      "/assets/expertise-page/brainstorming/softcar-locks/softcar-lock-brainstorming-07-landscape.jpg",
+    title: "Rotation à 90 degrés",
   },
   {
     image:
@@ -90,10 +90,10 @@ export function BrainstormingCardSwap() {
 
     const updateSize = () => {
       const availableWidth = node.getBoundingClientRect().width;
-      const widthRatio = availableWidth < 480 ? 0.92 : availableWidth < 900 ? 0.78 : 0.72;
+      const widthRatio = availableWidth < 480 ? 0.84 : availableWidth < 900 ? 0.76 : 0.72;
       const minWidth = availableWidth < 340 ? 250 : 286;
       const width = Math.round(Math.min(460, Math.max(minWidth, availableWidth * widthRatio)));
-      const height = Math.round(width * 0.78);
+      const height = Math.round(width * (availableWidth < 480 ? 0.84 : 0.78));
       const cardDistance = Math.round(width * (availableWidth < 480 ? 0.055 : 0.14));
       const verticalDistance = Math.round(width * (availableWidth < 480 ? 0.06 : 0.1));
 
@@ -138,7 +138,8 @@ export function BrainstormingCardSwap() {
       }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12px_12px,rgba(227,6,19,0.08)_1.2px,transparent_1.3px)] bg-[length:28px_28px] opacity-45" />
-      <div className="domtek-card-swap-side-fade pointer-events-none absolute inset-y-0 left-0 z-20" />
+      <div className="domtek-card-swap-side-fade pointer-events-none absolute inset-y-0 z-20" />
+      <div className="domtek-card-swap-side-fade-right pointer-events-none absolute inset-y-0 z-20" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-white to-transparent" />
 
@@ -149,7 +150,7 @@ export function BrainstormingCardSwap() {
         verticalDistance={swapSize.verticalDistance}
         delay={3200}
         manualSwapSignal={manualSwapSignal}
-        skewAmount={3}
+        skewAmount={0}
         easing="elastic"
       >
         {BRAINSTORMING_CARDS.map((item) => (
