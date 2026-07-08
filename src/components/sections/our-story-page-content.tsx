@@ -1162,12 +1162,9 @@ function TimelineMedia({
               className="h-auto w-full object-contain"
             />
           </div>
-          <figcaption className="flex items-center justify-between gap-3 border-t border-border bg-white px-3 py-2.5">
-            <span className="min-w-0 truncate text-[11px] font-extrabold leading-none text-foreground sm:text-[12px]">
+          <figcaption className="border-t border-border bg-white px-3 py-2.5">
+            <span className="block min-w-0 truncate text-[11px] font-extrabold leading-none text-foreground sm:text-[12px]">
               {image.title}
-            </span>
-            <span className="shrink-0 text-[10px] font-bold leading-none text-brand sm:text-[11px]">
-              {image.meta}
             </span>
           </figcaption>
         </figure>

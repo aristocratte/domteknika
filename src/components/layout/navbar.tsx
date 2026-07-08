@@ -23,11 +23,17 @@ const NAV_ITEMS = [
   { key: "story", href: "/our-story" },
 ] as const;
 
+const CONTACT_BUBBLE_IMAGES = [
+  "/assets/contact-bubble-button-mask.png",
+  "/assets/contact-bubble-button-mask-inverted.png",
+] as const;
+
 export function Navbar() {
   const t = useTranslations("Nav");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileNavVisible, setMobileNavVisible] = useState(true);
+  const [contactBubbleReady, setContactBubbleReady] = useState(false);
   const [hoveredNavKey, setHoveredNavKey] = useState<
     (typeof NAV_ITEMS)[number]["key"] | null
   >(null);
@@ -100,6 +106,25 @@ export function Navbar() {
   useEffect(() => {
     if (isContactPage) return;
 
+    let cancelled = false;
+
+    Promise.all(CONTACT_BUBBLE_IMAGES.map(preloadImage))
+      .then(waitForNextPaint)
+      .then(() => {
+        if (!cancelled) setContactBubbleReady(true);
+      })
+      .catch(() => {
+        if (!cancelled) setContactBubbleReady(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isContactPage]);
+
+  useEffect(() => {
+    if (isContactPage) return;
+
     let animationFrame = 0;
 
     const updateContactBubbleColor = () => {
@@ -152,6 +177,8 @@ export function Navbar() {
       window.removeEventListener("resize", scheduleUpdate);
     };
   }, [isContactPage]);
+
+  const contactBubbleVisible = contactBubbleReady && mobileNavVisible && !mobileOpen;
 
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
@@ -280,16 +307,16 @@ export function Navbar() {
           ref={contactBubbleRef}
           className={cn(
             "fixed bottom-[calc(env(safe-area-inset-bottom)+30px)] right-5 z-[905] min-[810px]:hidden",
-            (!mobileNavVisible || mobileOpen) && "pointer-events-none",
+            !contactBubbleVisible && "pointer-events-none",
           )}
           style={
             { "--contact-invert-progress": 0 } as CSSProperties
           }
           initial={{ y: 74, opacity: 0, scale: 0.92 }}
           animate={{
-            y: mobileNavVisible && !mobileOpen ? 0 : 74,
-            opacity: mobileNavVisible && !mobileOpen ? 1 : 0,
-            scale: mobileNavVisible && !mobileOpen ? 1 : 0.92,
+            y: contactBubbleVisible ? 0 : 74,
+            opacity: contactBubbleVisible ? 1 : 0,
+            scale: contactBubbleVisible ? 1 : 0.92,
           }}
           transition={{
             y: { duration: 0.52, ease: [0.16, 1, 0.3, 1] },
@@ -306,6 +333,7 @@ export function Navbar() {
               src="/assets/contact-bubble-button-mask.png"
               alt=""
               fill
+              unoptimized
               sizes="60px"
               className="pointer-events-none object-contain drop-shadow-[0_8px_12px_rgba(227,6,19,0.34)] transition-[filter,opacity] duration-200 group-hover/contact-bubble:drop-shadow-[0_10px_16px_rgba(227,6,19,0.42)]"
               style={
@@ -319,6 +347,7 @@ export function Navbar() {
               src="/assets/contact-bubble-button-mask-inverted.png"
               alt=""
               fill
+              unoptimized
               sizes="60px"
               className="pointer-events-none object-contain drop-shadow-[0_8px_12px_rgba(227,6,19,0.18)] transition-[filter,opacity] duration-200 group-hover/contact-bubble:drop-shadow-[0_10px_16px_rgba(227,6,19,0.24)]"
               style={
@@ -469,6 +498,32 @@ function parseCssRgb(color: string) {
     blue: Number(match[3]),
     alpha: match[4] === undefined ? 1 : Number(match[4]),
   };
+}
+
+function preloadImage(src: string) {
+  return new Promise<void>((resolve, reject) => {
+    const image = new window.Image();
+
+    image.onload = () => {
+      if (typeof image.decode !== "function") {
+        resolve();
+        return;
+      }
+
+      image.decode().then(resolve).catch(resolve);
+    };
+
+    image.onerror = () => reject(new Error(`Unable to preload ${src}`));
+    image.src = src;
+  });
+}
+
+function waitForNextPaint() {
+  return new Promise<void>((resolve) => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => resolve());
+    });
+  });
 }
 
 function NavLink({
