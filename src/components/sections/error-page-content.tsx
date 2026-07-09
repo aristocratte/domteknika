@@ -1,0 +1,348 @@
+"use client";
+
+import { ArrowRight, Home, RefreshCw } from "lucide-react";
+import { usePathname } from "next/navigation";
+
+import { Container } from "@/components/layout/container";
+import { Logo } from "@/components/layout/logo";
+import { cn } from "@/lib/utils";
+import { locales, type Locale } from "@/i18n/routing";
+
+type ErrorCopy = {
+  eyebrow: string;
+  lead: string;
+  home: string;
+  contact: string;
+  retry: string;
+  reload: string;
+  statusLabels: Partial<Record<number, string>>;
+};
+
+const ERROR_COPY: Record<Locale, ErrorCopy> = {
+  fr: {
+    eyebrow: "Page d'erreur",
+    lead:
+      "Le lien demandé ne mène pas au bon endroit, ou un service n'a pas répondu correctement. Vous pouvez revenir à l'accueil ou relancer la page.",
+    home: "Retour à l'accueil",
+    contact: "Contact",
+    retry: "Réessayer",
+    reload: "Recharger",
+    statusLabels: {
+      400: "Requête incorrecte",
+      401: "Accès non authentifié",
+      403: "Accès refusé",
+      404: "Page introuvable",
+      405: "Méthode non autorisée",
+      408: "Temps d'attente dépassé",
+      409: "Conflit de requête",
+      410: "Ressource supprimée",
+      413: "Requête trop volumineuse",
+      414: "URL trop longue",
+      415: "Format non supporté",
+      422: "Données impossibles à traiter",
+      429: "Trop de requêtes",
+      451: "Accès indisponible",
+      500: "Erreur interne",
+      501: "Fonction non disponible",
+      502: "Réponse serveur invalide",
+      503: "Service indisponible",
+      504: "Réponse trop lente",
+      505: "Version HTTP non supportée",
+    },
+  },
+  en: {
+    eyebrow: "Error page",
+    lead:
+      "The requested link does not lead to the right place, or a service did not respond correctly. You can return home or reload the page.",
+    home: "Back home",
+    contact: "Contact",
+    retry: "Try again",
+    reload: "Reload",
+    statusLabels: {
+      400: "Bad request",
+      401: "Authentication required",
+      403: "Access denied",
+      404: "Page not found",
+      405: "Method not allowed",
+      408: "Request timeout",
+      409: "Request conflict",
+      410: "Resource gone",
+      413: "Request too large",
+      414: "URL too long",
+      415: "Unsupported format",
+      422: "Unprocessable data",
+      429: "Too many requests",
+      451: "Unavailable access",
+      500: "Internal error",
+      501: "Feature unavailable",
+      502: "Invalid server response",
+      503: "Service unavailable",
+      504: "Server response timeout",
+      505: "HTTP version unsupported",
+    },
+  },
+  de: {
+    eyebrow: "Fehlerseite",
+    lead:
+      "Der angeforderte Link führt nicht an die richtige Stelle, oder ein Dienst hat nicht korrekt geantwortet. Sie können zur Startseite zurückkehren oder die Seite neu laden.",
+    home: "Zur Startseite",
+    contact: "Kontakt",
+    retry: "Erneut versuchen",
+    reload: "Neu laden",
+    statusLabels: {
+      400: "Fehlerhafte Anfrage",
+      401: "Authentifizierung erforderlich",
+      403: "Zugriff verweigert",
+      404: "Seite nicht gefunden",
+      405: "Methode nicht erlaubt",
+      408: "Zeitüberschreitung",
+      409: "Anfragekonflikt",
+      410: "Ressource entfernt",
+      413: "Anfrage zu gross",
+      414: "URL zu lang",
+      415: "Format nicht unterstützt",
+      422: "Daten nicht verarbeitbar",
+      429: "Zu viele Anfragen",
+      451: "Zugriff nicht verfügbar",
+      500: "Interner Fehler",
+      501: "Funktion nicht verfügbar",
+      502: "Ungültige Serverantwort",
+      503: "Dienst nicht verfügbar",
+      504: "Serverantwort zu langsam",
+      505: "HTTP-Version nicht unterstützt",
+    },
+  },
+  es: {
+    eyebrow: "Página de error",
+    lead:
+      "El enlace solicitado no lleva al lugar correcto, o un servicio no respondió correctamente. Puedes volver al inicio o recargar la página.",
+    home: "Volver al inicio",
+    contact: "Contacto",
+    retry: "Intentar de nuevo",
+    reload: "Recargar",
+    statusLabels: {
+      400: "Solicitud incorrecta",
+      401: "Autenticación requerida",
+      403: "Acceso denegado",
+      404: "Página no encontrada",
+      405: "Método no permitido",
+      408: "Tiempo de espera agotado",
+      409: "Conflicto de solicitud",
+      410: "Recurso eliminado",
+      413: "Solicitud demasiado grande",
+      414: "URL demasiado larga",
+      415: "Formato no compatible",
+      422: "Datos no procesables",
+      429: "Demasiadas solicitudes",
+      451: "Acceso no disponible",
+      500: "Error interno",
+      501: "Función no disponible",
+      502: "Respuesta inválida del servidor",
+      503: "Servicio no disponible",
+      504: "Respuesta demasiado lenta",
+      505: "Versión HTTP no compatible",
+    },
+  },
+  ko: {
+    eyebrow: "오류 페이지",
+    lead:
+      "요청한 링크가 올바른 위치로 연결되지 않았거나 서비스가 정상적으로 응답하지 않았습니다. 홈으로 돌아가거나 페이지를 새로고침할 수 있습니다.",
+    home: "홈으로 돌아가기",
+    contact: "문의",
+    retry: "다시 시도",
+    reload: "새로고침",
+    statusLabels: {
+      400: "잘못된 요청",
+      401: "인증 필요",
+      403: "접근 거부",
+      404: "페이지 없음",
+      405: "허용되지 않은 메서드",
+      408: "요청 시간 초과",
+      409: "요청 충돌",
+      410: "리소스 삭제됨",
+      413: "요청이 너무 큼",
+      414: "URL이 너무 김",
+      415: "지원하지 않는 형식",
+      422: "처리할 수 없는 데이터",
+      429: "요청이 너무 많음",
+      451: "접근 불가",
+      500: "내부 오류",
+      501: "기능 사용 불가",
+      502: "잘못된 서버 응답",
+      503: "서비스 사용 불가",
+      504: "서버 응답 시간 초과",
+      505: "지원하지 않는 HTTP 버전",
+    },
+  },
+  zh: {
+    eyebrow: "错误页面",
+    lead:
+      "请求的链接没有指向正确位置，或服务未能正确响应。你可以返回首页，或重新加载页面。",
+    home: "返回首页",
+    contact: "联系",
+    retry: "重试",
+    reload: "重新加载",
+    statusLabels: {
+      400: "错误请求",
+      401: "需要认证",
+      403: "访问被拒绝",
+      404: "页面未找到",
+      405: "方法不允许",
+      408: "请求超时",
+      409: "请求冲突",
+      410: "资源已移除",
+      413: "请求过大",
+      414: "URL 过长",
+      415: "格式不支持",
+      422: "数据无法处理",
+      429: "请求过多",
+      451: "访问不可用",
+      500: "内部错误",
+      501: "功能不可用",
+      502: "服务器响应无效",
+      503: "服务不可用",
+      504: "服务器响应超时",
+      505: "HTTP 版本不支持",
+    },
+  },
+};
+
+interface ErrorPageContentProps {
+  statusCode?: number;
+  locale?: string;
+  standalone?: boolean;
+  resetAction?: () => void;
+  reloadAction?: () => void;
+}
+
+export function ErrorPageContent({
+  statusCode = 500,
+  locale,
+  standalone = false,
+  resetAction,
+  reloadAction,
+}: ErrorPageContentProps) {
+  const pathname = usePathname();
+  const activeLocale = getLocale(locale, pathname);
+  const copy = ERROR_COPY[activeLocale];
+  const normalizedCode = normalizeStatusCode(statusCode);
+  const statusTitle = getStatusTitle(copy, normalizedCode);
+  const homeHref = `/${activeLocale}`;
+  const contactHref = `/${activeLocale}/contact`;
+
+  return (
+    <section
+      className={cn(
+        "relative isolate overflow-hidden bg-background px-0 text-center",
+        standalone
+          ? "min-h-screen"
+          : "min-h-[calc(100svh-180px)] pb-16 pt-[112px] sm:pb-20 sm:pt-[132px]",
+      )}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/assets/project-page/hero-sketch.png')] bg-[length:920px_auto] bg-[center_28px] bg-no-repeat opacity-[0.055]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[280px] bg-[radial-gradient(circle_at_50%_0%,rgba(227,6,19,0.08),transparent_62%)]"
+        aria-hidden
+      />
+
+      <Container
+        size="wide"
+        className={cn(
+          "flex min-h-[inherit] items-center justify-center py-12 sm:py-16",
+          standalone && "min-h-screen",
+        )}
+      >
+        <div className="mx-auto max-w-[820px]">
+          {standalone && (
+            <a
+              href={homeHref}
+              className="mb-10 inline-flex rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+              aria-label="DOMTEKNIKA"
+            >
+              <Logo className="w-[150px] sm:w-[170px]" />
+            </a>
+          )}
+
+          <div className="mb-7 inline-flex items-center justify-center gap-4 text-[14px] font-medium text-muted-foreground sm:text-[16px]">
+            <span className="h-[3px] w-11 bg-brand" aria-hidden />
+            {copy.eyebrow}
+          </div>
+
+          <p className="text-[clamp(82px,18vw,170px)] font-extrabold leading-[0.82] text-brand/95">
+            {normalizedCode}
+          </p>
+
+          <h1 className="domtek-text-shadow mx-auto mt-7 max-w-[760px] text-[clamp(40px,7vw,76px)] font-extrabold leading-[0.96] text-foreground">
+            {statusTitle}
+            <span className="text-brand">.</span>
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-[650px] text-[17px] font-medium leading-[1.5] text-muted-foreground sm:text-[21px]">
+            {copy.lead}
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={homeHref}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] bg-brand px-5 text-[15px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.24)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+            >
+              <Home className="size-4" aria-hidden />
+              {copy.home}
+            </a>
+            <a
+              href={contactHref}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
+            >
+              {copy.contact}
+              <ArrowRight className="size-4 text-brand" aria-hidden />
+            </a>
+            {resetAction && (
+              <button
+                type="button"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
+                onClick={resetAction}
+              >
+                <RefreshCw className="size-4 text-brand" aria-hidden />
+                {copy.retry}
+              </button>
+            )}
+            <button
+              type="button"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
+              onClick={reloadAction ?? (() => window.location.reload())}
+            >
+              <RefreshCw className="size-4 text-brand" aria-hidden />
+              {copy.reload}
+            </button>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function getLocale(locale: string | undefined, pathname: string | null): Locale {
+  if (isLocale(locale)) return locale;
+
+  const pathLocale = pathname?.split("/")[1];
+  if (isLocale(pathLocale)) return pathLocale;
+
+  return "en";
+}
+
+function isLocale(value: string | undefined): value is Locale {
+  return Boolean(value && locales.includes(value as Locale));
+}
+
+function normalizeStatusCode(statusCode: number) {
+  if (!Number.isFinite(statusCode)) return 500;
+  if (statusCode < 100 || statusCode > 599) return 500;
+  return Math.trunc(statusCode);
+}
+
+function getStatusTitle(copy: ErrorCopy, statusCode: number) {
+  return copy.statusLabels[statusCode] ?? `HTTP ${statusCode}`;
+}
