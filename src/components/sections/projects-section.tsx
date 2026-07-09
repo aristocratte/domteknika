@@ -223,6 +223,7 @@ function ProjectCard({
           <Image
             src={project.image}
             alt=""
+            fill
             loading="lazy"
             decoding="async"
             sizes="(min-width: 2400px) 450px, (min-width: 1800px) 390px, 274px"
