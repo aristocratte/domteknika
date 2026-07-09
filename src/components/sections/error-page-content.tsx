@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Home, RefreshCw } from "lucide-react";
+import { ArrowRight, RefreshCw } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { Container } from "@/components/layout/container";
@@ -11,10 +11,8 @@ import { locales, type Locale } from "@/i18n/routing";
 type ErrorCopy = {
   eyebrow: string;
   lead: string;
-  home: string;
   contact: string;
   retry: string;
-  reload: string;
   statusLabels: Partial<Record<number, string>>;
 };
 
@@ -22,11 +20,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   fr: {
     eyebrow: "Page d'erreur",
     lead:
-      "Le lien demandé ne mène pas au bon endroit, ou un service n'a pas répondu correctement. Vous pouvez revenir à l'accueil ou relancer la page.",
-    home: "Retour à l'accueil",
+      "La page n'a pas pu être affichée correctement. Relancez la demande ou contactez-nous si le problème persiste.",
     contact: "Contact",
     retry: "Réessayer",
-    reload: "Recharger",
     statusLabels: {
       400: "Requête incorrecte",
       401: "Accès non authentifié",
@@ -53,11 +49,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   en: {
     eyebrow: "Error page",
     lead:
-      "The requested link does not lead to the right place, or a service did not respond correctly. You can return home or reload the page.",
-    home: "Back home",
+      "This page could not be displayed correctly. Try again, or contact us if the issue persists.",
     contact: "Contact",
     retry: "Try again",
-    reload: "Reload",
     statusLabels: {
       400: "Bad request",
       401: "Authentication required",
@@ -84,11 +78,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   de: {
     eyebrow: "Fehlerseite",
     lead:
-      "Der angeforderte Link führt nicht an die richtige Stelle, oder ein Dienst hat nicht korrekt geantwortet. Sie können zur Startseite zurückkehren oder die Seite neu laden.",
-    home: "Zur Startseite",
+      "Diese Seite konnte nicht korrekt angezeigt werden. Versuchen Sie es erneut oder kontaktieren Sie uns, falls das Problem bestehen bleibt.",
     contact: "Kontakt",
     retry: "Erneut versuchen",
-    reload: "Neu laden",
     statusLabels: {
       400: "Fehlerhafte Anfrage",
       401: "Authentifizierung erforderlich",
@@ -115,11 +107,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   es: {
     eyebrow: "Página de error",
     lead:
-      "El enlace solicitado no lleva al lugar correcto, o un servicio no respondió correctamente. Puedes volver al inicio o recargar la página.",
-    home: "Volver al inicio",
+      "Esta página no se pudo mostrar correctamente. Inténtalo de nuevo o contáctanos si el problema continúa.",
     contact: "Contacto",
     retry: "Intentar de nuevo",
-    reload: "Recargar",
     statusLabels: {
       400: "Solicitud incorrecta",
       401: "Autenticación requerida",
@@ -146,11 +136,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   ko: {
     eyebrow: "오류 페이지",
     lead:
-      "요청한 링크가 올바른 위치로 연결되지 않았거나 서비스가 정상적으로 응답하지 않았습니다. 홈으로 돌아가거나 페이지를 새로고침할 수 있습니다.",
-    home: "홈으로 돌아가기",
+      "이 페이지를 올바르게 표시할 수 없습니다. 다시 시도하거나 문제가 계속되면 문의해 주세요.",
     contact: "문의",
     retry: "다시 시도",
-    reload: "새로고침",
     statusLabels: {
       400: "잘못된 요청",
       401: "인증 필요",
@@ -177,11 +165,9 @@ const ERROR_COPY: Record<Locale, ErrorCopy> = {
   zh: {
     eyebrow: "错误页面",
     lead:
-      "请求的链接没有指向正确位置，或服务未能正确响应。你可以返回首页，或重新加载页面。",
-    home: "返回首页",
+      "此页面无法正确显示。请重试；如果问题仍然存在，请联系我们。",
     contact: "联系",
     retry: "重试",
-    reload: "重新加载",
     statusLabels: {
       400: "错误请求",
       401: "需要认证",
@@ -212,7 +198,6 @@ interface ErrorPageContentProps {
   locale?: string;
   standalone?: boolean;
   resetAction?: () => void;
-  reloadAction?: () => void;
 }
 
 export function ErrorPageContent({
@@ -220,15 +205,14 @@ export function ErrorPageContent({
   locale,
   standalone = false,
   resetAction,
-  reloadAction,
 }: ErrorPageContentProps) {
   const pathname = usePathname();
   const activeLocale = getLocale(locale, pathname);
   const copy = ERROR_COPY[activeLocale];
   const normalizedCode = normalizeStatusCode(statusCode);
   const statusTitle = getStatusTitle(copy, normalizedCode);
-  const homeHref = `/${activeLocale}`;
   const contactHref = `/${activeLocale}/contact`;
+  const retryAction = resetAction ?? (() => window.location.reload());
 
   return (
     <section
@@ -258,7 +242,7 @@ export function ErrorPageContent({
         <div className="mx-auto max-w-[820px]">
           {standalone && (
             <a
-              href={homeHref}
+              href={`/${activeLocale}`}
               className="mb-10 inline-flex rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
               aria-label="DOMTEKNIKA"
             >
@@ -285,13 +269,14 @@ export function ErrorPageContent({
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={homeHref}
+            <button
+              type="button"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] bg-brand px-5 text-[15px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.24)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
+              onClick={retryAction}
             >
-              <Home className="size-4" aria-hidden />
-              {copy.home}
-            </a>
+              <RefreshCw className="size-4" aria-hidden />
+              {copy.retry}
+            </button>
             <a
               href={contactHref}
               className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
@@ -299,24 +284,6 @@ export function ErrorPageContent({
               {copy.contact}
               <ArrowRight className="size-4 text-brand" aria-hidden />
             </a>
-            {resetAction && (
-              <button
-                type="button"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
-                onClick={resetAction}
-              >
-                <RefreshCw className="size-4 text-brand" aria-hidden />
-                {copy.retry}
-              </button>
-            )}
-            <button
-              type="button"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-[7px] border border-border bg-white px-5 text-[15px] font-extrabold text-foreground transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/25"
-              onClick={reloadAction ?? (() => window.location.reload())}
-            >
-              <RefreshCw className="size-4 text-brand" aria-hidden />
-              {copy.reload}
-            </button>
           </div>
         </div>
       </Container>
