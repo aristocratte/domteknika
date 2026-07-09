@@ -14,7 +14,11 @@ export const metadata: Metadata = {
 
 export default function RootNotFound() {
   return (
-    <html lang="en" className={`${domtekSans.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${domtekSans.variable} h-full antialiased`}
+    >
       <body className="min-h-screen bg-background font-sans text-foreground">
         <ErrorPageContent statusCode={404} locale="en" standalone />
       </body>

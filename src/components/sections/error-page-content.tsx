@@ -227,10 +227,6 @@ export function ErrorPageContent({
         className="pointer-events-none absolute inset-0 -z-10 bg-[url('/assets/project-page/hero-sketch.png')] bg-[length:920px_auto] bg-[center_28px] bg-no-repeat opacity-[0.055]"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[280px] bg-[radial-gradient(circle_at_50%_0%,rgba(227,6,19,0.08),transparent_62%)]"
-        aria-hidden
-      />
 
       <Container
         size="wide"
@@ -250,16 +246,16 @@ export function ErrorPageContent({
             </a>
           )}
 
-          <div className="mb-7 inline-flex items-center justify-center gap-4 text-[14px] font-medium text-muted-foreground sm:text-[16px]">
-            <span className="h-[3px] w-11 bg-brand" aria-hidden />
+          <p className="domtek-text-shadow mx-auto max-w-[760px] text-[clamp(40px,7vw,76px)] font-extrabold leading-[0.96] text-foreground">
             {copy.eyebrow}
-          </div>
+            <span className="text-brand">.</span>
+          </p>
 
-          <p className="text-[clamp(82px,18vw,170px)] font-extrabold leading-[0.82] text-brand/95">
+          <p className="mt-6 text-[clamp(76px,16vw,150px)] font-extrabold leading-[0.82] text-brand/95">
             {normalizedCode}
           </p>
 
-          <h1 className="domtek-text-shadow mx-auto mt-7 max-w-[760px] text-[clamp(40px,7vw,76px)] font-extrabold leading-[0.96] text-foreground">
+          <h1 className="mx-auto mt-6 max-w-[760px] text-[clamp(30px,4vw,48px)] font-extrabold leading-[1.02] text-foreground">
             {statusTitle}
             <span className="text-brand">.</span>
           </h1>

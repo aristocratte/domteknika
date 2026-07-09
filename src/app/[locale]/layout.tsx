@@ -55,7 +55,11 @@ export default async function LocaleLayout({
   const htmlLang = locale === "zh" ? "zh-Hans" : locale;
 
   return (
-    <html lang={htmlLang} className={`${domtekSans.variable} h-full antialiased`}>
+    <html
+      lang={htmlLang}
+      data-scroll-behavior="smooth"
+      className={`${domtekSans.variable} h-full antialiased`}
+    >
       <body className="min-h-full bg-background font-sans text-foreground">
         <NextIntlClientProvider>
           <SmoothScrollProvider>
