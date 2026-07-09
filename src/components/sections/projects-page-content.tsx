@@ -5447,7 +5447,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               aria-hidden
             />
             <Image
-              src="/assets/projects/aventor/aventor-hero-3w-improve-u-top.webp"
+              src="/assets/projects/aventor/aventor-hero-3w-sans-sponsor-top.webp"
               alt=""
               fill
               priority
