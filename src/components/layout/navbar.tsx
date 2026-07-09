@@ -202,6 +202,7 @@ export function Navbar() {
               redOffset={0}
               greenOffset={0}
               blueOffset={0}
+              fallbackVariant="svg-like"
               className="[&>div:last-child]:p-0"
             />
           </div>

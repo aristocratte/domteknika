@@ -70,6 +70,7 @@ export function HeroSection() {
             src="/assets/rv01-hero.png"
             alt=""
             fill
+            priority
             sizes="(max-width: 1024px) 82vw, 1040px"
             className="object-contain object-bottom"
           />

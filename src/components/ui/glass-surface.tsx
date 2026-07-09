@@ -45,6 +45,7 @@ export interface GlassSurfaceProps {
     | "luminosity"
     | "plus-darker"
     | "plus-lighter";
+  fallbackVariant?: "default" | "svg-like";
   className?: string;
   style?: React.CSSProperties;
 }
@@ -89,6 +90,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   xChannel = "R",
   yChannel = "G",
   mixBlendMode = "difference",
+  fallbackVariant = "default",
   className = "",
   style = {},
 }) => {
@@ -243,6 +245,34 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       "--glass-frost": backgroundOpacity,
       "--glass-saturation": saturation,
     } as React.CSSProperties;
+
+    if (!svgSupported && fallbackVariant === "svg-like") {
+      return {
+        ...baseStyles,
+        background: isDarkMode
+          ? `hsl(0 0% 0% / ${backgroundOpacity})`
+          : `hsl(0 0% 100% / ${backgroundOpacity})`,
+        backdropFilter: `saturate(${saturation})`,
+        WebkitBackdropFilter: `saturate(${saturation})`,
+        boxShadow: isDarkMode
+          ? `0 0 2px 1px color-mix(in oklch, white, transparent 65%) inset,
+             0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,
+             0px 4px 16px rgba(17, 17, 26, 0.05),
+             0px 8px 24px rgba(17, 17, 26, 0.05),
+             0px 16px 56px rgba(17, 17, 26, 0.05),
+             0px 4px 16px rgba(17, 17, 26, 0.05) inset,
+             0px 8px 24px rgba(17, 17, 26, 0.05) inset,
+             0px 16px 56px rgba(17, 17, 26, 0.05) inset`
+          : `0 0 2px 1px color-mix(in oklch, black, transparent 85%) inset,
+             0 0 10px 4px color-mix(in oklch, black, transparent 90%) inset,
+             0px 4px 16px rgba(17, 17, 26, 0.05),
+             0px 8px 24px rgba(17, 17, 26, 0.05),
+             0px 16px 56px rgba(17, 17, 26, 0.05),
+             0px 4px 16px rgba(17, 17, 26, 0.05) inset,
+             0px 8px 24px rgba(17, 17, 26, 0.05) inset,
+             0px 16px 56px rgba(17, 17, 26, 0.05) inset`,
+      };
+    }
 
     if (svgSupported) {
       return {

@@ -13,7 +13,6 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Container } from "@/components/layout/container";
-import { Reveal } from "@/components/providers/reveal";
 import {
   type Project,
   getProjectsPageCopy,
@@ -23,8 +22,17 @@ import {
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-const HOME_PROJECTS_REVEAL_SCROLL_Y = 24;
 const PINNED_HOME_PROJECT_ID = "aventor";
+const HOME_PROJECTS_IMAGE_WARMUP_COUNT = 8;
+
+type IdleWindow = Window &
+  typeof globalThis & {
+    requestIdleCallback?: (
+      callback: IdleRequestCallback,
+      options?: IdleRequestOptions,
+    ) => number;
+    cancelIdleCallback?: (handle: number) => void;
+  };
 
 function shuffleHomeProjects(projects: Project[]) {
   const pinnedProject = projects.find(
@@ -43,6 +51,16 @@ function shuffleHomeProjects(projects: Project[]) {
   }
 
   return pinnedProject ? [pinnedProject, ...shuffledProjects] : shuffledProjects;
+}
+
+function warmProjectImages(projects: Project[]) {
+  projects
+    .slice(0, HOME_PROJECTS_IMAGE_WARMUP_COUNT)
+    .forEach((project) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = project.image;
+    });
 }
 
 export function ProjectsSection() {
@@ -75,6 +93,22 @@ export function ProjectsSection() {
     return () => window.cancelAnimationFrame(frameId);
   }, [projects]);
 
+  useEffect(() => {
+    const scheduleWarmup = () => warmProjectImages(homeProjects);
+    const idleWindow = window as IdleWindow;
+
+    if (typeof idleWindow.requestIdleCallback === "function") {
+      const idleId = idleWindow.requestIdleCallback(scheduleWarmup, {
+        timeout: 2400,
+      });
+
+      return () => idleWindow.cancelIdleCallback?.(idleId);
+    }
+
+    const timerId = idleWindow.setTimeout(scheduleWarmup, 1800);
+    return () => idleWindow.clearTimeout(timerId);
+  }, [homeProjects]);
+
   return (
     <section
       id="projects"
@@ -82,13 +116,7 @@ export function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <Container size="wide">
-        <Reveal
-          minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
-          minimumScrollYDesktopOnly
-          disabledOnMobile
-          disabledAtMinWidth={1800}
-          className="relative"
-        >
+        <div className="relative">
           <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between">
             <h2
               id="projects-title"
@@ -157,7 +185,7 @@ export function ProjectsSection() {
               <ChevronRight className="size-8" aria-hidden />
             </ProjectArrow>
           </div>
-        </Reveal>
+        </div>
       </Container>
       {selectedProject ? (
         <ProjectDetailsDialog
@@ -196,6 +224,8 @@ function ProjectCard({
             src={project.image}
             alt=""
             fill
+            loading="lazy"
+            decoding="async"
             sizes="274px"
             className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
           />
