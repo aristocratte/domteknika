@@ -790,15 +790,14 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
       aria-labelledby="our-story-title"
     >
       <Image
-        src="/assets/our-story/background/technical-linkage-arm.png"
+        src="/assets/our-story/background/technical-front-flange.png"
         alt=""
-        width={705}
-        height={475}
+        width={1448}
+        height={1086}
         priority
-        sizes="(max-width: 768px) 78vw, 520px"
-        className="pointer-events-none absolute right-[-24vw] top-[112px] z-0 w-[78vw] max-w-[620px] rotate-[-8deg] opacity-[0.2] sm:right-[-12vw] md:right-[2vw] md:top-[96px] md:w-[40vw]"
+        sizes="(max-width: 768px) 84vw, 520px"
+        className="pointer-events-none absolute right-[-34vw] top-[82px] z-0 w-[84vw] max-w-[600px] rotate-[-10deg] opacity-[0.13] sm:right-[-20vw] sm:w-[78vw] md:right-[-1vw] md:top-[64px] md:w-[42vw]"
       />
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[430px] bg-gradient-to-r from-white via-white/82 to-white/35" />
       <OurStoryBackgroundSketches />
 
       <Container size="wide" className="relative z-10 pb-14 md:pb-[72px]">
