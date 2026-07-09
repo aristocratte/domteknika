@@ -546,8 +546,8 @@ const FILTERS: ProjectFilterOption[] = [
     key: "medical",
     label: "Medical",
     icon: `${PATENT_ASSET_BASE}/icon-medical.png`,
-    width: 39,
-    height: 34,
+    width: 32,
+    height: 28,
   },
   {
     key: "energy",
@@ -572,6 +572,15 @@ const FILTERS: ProjectFilterOption[] = [
   },
 ];
 
+function projectFiltersWithLabels(
+  labels: Partial<Record<FilterKey, string>>,
+): ProjectFilterOption[] {
+  return FILTERS.map((filter) => ({
+    ...filter,
+    label: labels[filter.key] ?? filter.label,
+  }));
+}
+
 export const FEATURED_PROJECT: Project = {
   id: "stajvelo-rv01",
   category: "Mobility",
@@ -579,8 +588,8 @@ export const FEATURED_PROJECT: Project = {
   title: "STAJVELO RV01",
   description:
     "Urban e-bike architecture built around injected composite design, distinctive wheels and premium industrial detailing.",
-  image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp",
-  imageAlt: "STAJVELO RV01 electric bicycle render",
+  image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-leclerc-road.webp",
+  imageAlt: "STAJVELO RV01 electric bicycle on a road circuit",
   tags: ["#2017", "#E-bike", "#Polymer"],
   overview:
     "DOMTEKNIKA supported the polymer conception and structural development of this urban e-bike, from early architecture and wheel engineering to manufacturable product definition.",
@@ -642,7 +651,7 @@ export const PROJECTS: Project[] = [
     title: "SAM CREE",
     description:
       "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
-    image: "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp",
+    image: "/assets/projects/sam-cree/sam-cree-03-workshop.webp",
     imageAlt: "Orange SAM CREE electric three-wheeler with open canopy",
     tags: ["#1996", "#EV", "#ThreeWheeler"],
     overview:
@@ -1165,7 +1174,7 @@ const STATS: ProjectStat[] = [
     height: 50,
   },
   {
-    label: "Countries served",
+    label: "International projects",
     value: "Worldwide",
     icon: "/assets/project-page/stat-worldwide.png",
     width: 51,
@@ -1178,7 +1187,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilité",
     description:
       "Architecture de vélo urbain électrique autour d'une conception composite injectée, de roues distinctives et de détails industriels premium.",
-    imageAlt: "Rendu du vélo électrique STAJVELO RV01",
+    imageAlt: "Vélo électrique STAJVELO RV01 sur circuit",
     overview:
       "DOMTEKNIKA a accompagné la conception polymère et le développement structurel de ce vélo électrique urbain, depuis l'architecture initiale et l'ingénierie des roues jusqu'à la définition industrialisable du produit.",
   },
@@ -1594,7 +1603,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilität",
     description:
       "Urbanes Elektrofahrrad, entwickelt rund um injizierte Verbundbauweise, markante Räder und hochwertige Industriedetails.",
-    imageAlt: "Rendering des elektrischen Fahrrads STAJVELO RV01",
+    imageAlt: "STAJVELO RV01 Elektrofahrrad auf einer Rennstrecke",
     overview:
       "DOMTEKNIKA unterstützte die Polymerkonzeption und Strukturentwicklung dieses urbanen Elektrofahrrads, von der frühen Architektur und Radentwicklung bis zur herstellbaren Produktdefinition.",
   },
@@ -1890,7 +1899,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Movilidad",
     description:
       "Bicicleta eléctrica urbana desarrollada alrededor de diseño composite inyectado, ruedas distintivas y detalles industriales premium.",
-    imageAlt: "Render de la bicicleta eléctrica STAJVELO RV01",
+    imageAlt: "Bicicleta eléctrica STAJVELO RV01 en circuito",
     overview:
       "DOMTEKNIKA acompañó la concepción polimérica y el desarrollo estructural de esta bicicleta eléctrica urbana, desde la arquitectura inicial y la ingeniería de ruedas hasta la definición fabricable del producto.",
   },
@@ -2185,7 +2194,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "모빌리티",
     description:
       "사출 복합재 설계, 독특한 휠, 프리미엄 산업 디테일을 중심으로 한 도심형 전기자전거 아키텍처.",
-    imageAlt: "STAJVELO RV01 전기자전거 렌더",
+    imageAlt: "도로 서킷 위의 STAJVELO RV01 전기자전거",
     overview:
       "DOMTEKNIKA는 초기 아키텍처와 휠 엔지니어링부터 제조 가능한 제품 정의까지 이 도심형 전기자전거의 폴리머 설계와 구조 개발을 지원했습니다.",
   },
@@ -2474,7 +2483,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "出行",
     description:
       "围绕注塑复合材料设计、独特车轮和高端工业细节打造的城市电动自行车架构。",
-    imageAlt: "STAJVELO RV01 电动自行车渲染图",
+    imageAlt: "赛道上的 STAJVELO RV01 电动自行车",
     overview:
       "DOMTEKNIKA 支持了这款城市电动自行车的聚合物构思和结构开发，从早期架构、车轮工程到可制造的产品定义。",
   },
@@ -3310,51 +3319,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       rest: "pour des résultats concrets.",
       lead: "Découvrez une sélection de projets où nous transformons des défis complexes en produits performants.",
     },
-    filters: withActiveProjectFilters([
-      { key: "all", label: "Tous" },
-      {
-        key: "mobility",
-        label: "Mobilité",
-        icon: `${PATENT_ASSET_BASE}/icon-mobility.png`,
-        width: 28,
-        height: 25,
-      },
-      {
-        key: "industrial",
-        label: "Industrie",
-        icon: `${PATENT_ASSET_BASE}/icon-industrial.png`,
-        width: 30,
-        height: 32,
-      },
-      {
-        key: "medical",
-        label: "Médical",
-        icon: `${PATENT_ASSET_BASE}/icon-medical.png`,
-        width: 39,
-        height: 34,
-      },
-      {
-        key: "energy",
-        label: "Énergie",
-        icon: `${PATENT_ASSET_BASE}/icon-energy.png`,
-        width: 23,
-        height: 35,
-      },
-      {
-        key: "materials",
-        label: "Matériaux",
-        icon: `${PATENT_ASSET_BASE}/icon-materials.png`,
-        width: 34,
-        height: 33,
-      },
-      {
-        key: "digital",
-        label: "Digital",
-        icon: `${PATENT_ASSET_BASE}/icon-digital.png`,
-        width: 37,
-        height: 35,
-      },
-    ]),
+    filters: withActiveProjectFilters(
+      projectFiltersWithLabels({
+        all: "Tous",
+        mobility: "Mobilité",
+        industrial: "Industrie",
+        medical: "Médical",
+        energy: "Énergie",
+        materials: "Matériaux",
+        digital: "Digital",
+      }),
+    ),
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, FR_PROJECT_OVERRIDES),
       "fr",
@@ -3368,8 +3343,8 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       },
       {
         ...STATS[1],
-        label: "Accompagnement projet",
-        value: "De bout en bout",
+        label: "Accompagnement",
+        value: "Bout en bout",
       },
       {
         ...STATS[2],
@@ -3378,8 +3353,8 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       },
       {
         ...STATS[3],
-        label: "Pays servis",
-        value: "Projets internationaux",
+        label: "Projets internationaux",
+        value: "International",
       },
     ],
     statsLabel: "Statistiques des projets",
@@ -3436,15 +3411,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       rest: "für Ergebnisse in der realen Welt.",
       lead: "Entdecken Sie eine Auswahl von Projekten, in denen wir komplexe Herausforderungen in leistungsfähige Produkte verwandeln.",
     },
-    filters: withActiveProjectFilters([
-      { key: "all", label: "Alle Projekte" },
-      { key: "mobility", label: "Mobilität" },
-      { key: "medical", label: "Medizin" },
-      { key: "industrial", label: "Industrie" },
-      { key: "energy", label: "Energie" },
-      { key: "materials", label: "Materialien" },
-      { key: "digital", label: "Digital" },
-    ]),
+    filters: withActiveProjectFilters(
+      projectFiltersWithLabels({
+        all: "Alle",
+        mobility: "Mobilität",
+        medical: "Medizin",
+        industrial: "Industrie",
+        energy: "Energie",
+        materials: "Materialien",
+        digital: "Digital",
+      }),
+    ),
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, DE_PROJECT_OVERRIDES),
       "de",
@@ -3454,7 +3431,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       { ...STATS[0], label: "Gelieferte Projekte", value: "60+" },
       { ...STATS[1], label: "Projektbegleitung", value: "Durchgängig" },
       { ...STATS[2], label: "Kernbranchen", value: "6+" },
-      { ...STATS[3], label: "Bediente Länder", value: "Weltweit" },
+      { ...STATS[3], label: "Internationale Projekte", value: "Weltweit" },
     ],
     statsLabel: "Projektstatistiken",
     selectedTitle: "Ausgewählte Projekte",
@@ -3463,7 +3440,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     sort: {
       label: "Sortieren",
       options: [
-        { key: "default", label: "Standardreihenfolge" },
+        { key: "default", label: "Standard" },
         { key: "date-desc", label: "Neueste zuerst" },
         { key: "date-asc", label: "Älteste zuerst" },
         { key: "title-asc", label: "Titel A-Z" },
@@ -3510,15 +3487,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       rest: "para resultados reales.",
       lead: "Explora una selección de proyectos en los que convertimos retos complejos en productos de alto rendimiento.",
     },
-    filters: withActiveProjectFilters([
-      { key: "all", label: "Todos los proyectos" },
-      { key: "mobility", label: "Movilidad" },
-      { key: "medical", label: "Médico" },
-      { key: "industrial", label: "Industrial" },
-      { key: "energy", label: "Energía" },
-      { key: "materials", label: "Materiales" },
-      { key: "digital", label: "Digital" },
-    ]),
+    filters: withActiveProjectFilters(
+      projectFiltersWithLabels({
+        all: "Todos",
+        mobility: "Movilidad",
+        medical: "Médico",
+        industrial: "Industrial",
+        energy: "Energía",
+        materials: "Materiales",
+        digital: "Digital",
+      }),
+    ),
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, ES_PROJECT_OVERRIDES),
       "es",
@@ -3526,9 +3505,9 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     projects: getProjectsForLocale("es"),
     stats: [
       { ...STATS[0], label: "Proyectos entregados", value: "60+" },
-      { ...STATS[1], label: "Acompañamiento de proyecto", value: "Integral" },
+      { ...STATS[1], label: "Acompañamiento", value: "Integral" },
       { ...STATS[2], label: "Industrias clave", value: "6+" },
-      { ...STATS[3], label: "Países atendidos", value: "Internacional" },
+      { ...STATS[3], label: "Proyectos globales", value: "Internacional" },
     ],
     statsLabel: "Estadísticas de proyectos",
     selectedTitle: "Proyectos seleccionados",
@@ -3584,15 +3563,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       rest: "으로 현실적인 결과를 만듭니다.",
       lead: "복잡한 과제를 고성능 제품으로 바꾼 프로젝트를 살펴보세요.",
     },
-    filters: withActiveProjectFilters([
-      { key: "all", label: "전체 프로젝트" },
-      { key: "mobility", label: "모빌리티" },
-      { key: "medical", label: "의료" },
-      { key: "industrial", label: "산업" },
-      { key: "energy", label: "에너지" },
-      { key: "materials", label: "소재" },
-      { key: "digital", label: "디지털" },
-    ]),
+    filters: withActiveProjectFilters(
+      projectFiltersWithLabels({
+        all: "전체",
+        mobility: "모빌리티",
+        medical: "의료",
+        industrial: "산업",
+        energy: "에너지",
+        materials: "소재",
+        digital: "디지털",
+      }),
+    ),
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, KO_PROJECT_OVERRIDES),
       "ko",
@@ -3602,7 +3583,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       { ...STATS[0], label: "완료한 프로젝트", value: "60+" },
       { ...STATS[1], label: "프로젝트 지원", value: "전 과정" },
       { ...STATS[2], label: "핵심 산업", value: "6+" },
-      { ...STATS[3], label: "서비스 국가", value: "전 세계" },
+      { ...STATS[3], label: "글로벌 프로젝트", value: "전 세계" },
     ],
     statsLabel: "프로젝트 통계",
     selectedTitle: "선정 프로젝트",
@@ -3658,15 +3639,17 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       rest: "带来真实结果。",
       lead: "探索一组选定项目，了解我们如何把复杂挑战转化为高性能产品。",
     },
-    filters: withActiveProjectFilters([
-      { key: "all", label: "全部项目" },
-      { key: "mobility", label: "出行" },
-      { key: "medical", label: "医疗" },
-      { key: "industrial", label: "工业" },
-      { key: "energy", label: "能源" },
-      { key: "materials", label: "材料" },
-      { key: "digital", label: "数字化" },
-    ]),
+    filters: withActiveProjectFilters(
+      projectFiltersWithLabels({
+        all: "全部",
+        mobility: "出行",
+        medical: "医疗",
+        industrial: "工业",
+        energy: "能源",
+        materials: "材料",
+        digital: "数字化",
+      }),
+    ),
     featuredProject: withProjectScope(
       localizeProject(FEATURED_PROJECT, ZH_PROJECT_OVERRIDES),
       "zh",
@@ -3676,7 +3659,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       { ...STATS[0], label: "交付项目", value: "60+" },
       { ...STATS[1], label: "项目支持", value: "端到端" },
       { ...STATS[2], label: "核心行业", value: "6+" },
-      { ...STATS[3], label: "服务国家", value: "全球" },
+      { ...STATS[3], label: "国际项目", value: "全球" },
     ],
     statsLabel: "项目统计",
     selectedTitle: "精选项目",
@@ -5878,7 +5861,7 @@ function ProjectsStatsSection({
   return (
     <section className="bg-background py-[28px]" aria-label={ariaLabel}>
       <Container size="wide">
-        <div className="grid grid-cols-2 border border-border bg-white xl:grid-cols-4">
+        <div className="grid grid-cols-2 border border-border bg-white min-[1180px]:grid-cols-4">
           {stats.map((stat, index) => {
             const isLongValue = stat.value.length > 6;
 
@@ -5888,10 +5871,13 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[164px] transform-gpu flex-col justify-center gap-3 bg-white px-5 py-6 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 xl:grid xl:min-h-[94px] xl:grid-cols-[46px_1fr] xl:items-center xl:gap-4 xl:px-5 xl:py-4 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index % 2 === 0 && "border-r border-border xl:border-r-0",
-                  index < 2 && "border-b border-border xl:border-b-0",
-                  index < stats.length - 1 && "xl:border-r xl:border-border",
+                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  index % 2 === 0 && "border-r border-border min-[1180px]:border-r-0",
+                  index < 2 && "border-b border-border min-[1180px]:border-b-0",
+                  index < stats.length - 1 &&
+                    "min-[1180px]:border-r min-[1180px]:border-border",
+                  index === stats.length - 1 &&
+                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:40px_minmax(0,1fr)]",
                 )}
               >
                 <Image
@@ -5899,20 +5885,20 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] xl:h-[42px] xl:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
                     className={cn(
-                      "block max-w-full text-balance font-extrabold leading-[1.02] text-foreground xl:text-[25px] xl:leading-none",
+                      "block max-w-full text-balance font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
                       isLongValue
-                        ? "text-[clamp(19px,4.9vw,28px)] sm:text-[clamp(21px,2.6vw,28px)]"
-                        : "text-[clamp(28px,7.8vw,42px)] sm:text-[clamp(30px,4.4vw,46px)]",
+                        ? "!text-[22px] min-[1180px]:!text-[22px] 2xl:!text-[25px]"
+                        : "!text-[34px] min-[1180px]:!text-[30px] 2xl:!text-[34px]",
                     )}
                   >
                     {stat.value}
                   </strong>
-                  <span className="mt-2 block text-[14px] font-medium leading-tight text-muted-foreground sm:text-[16px] xl:mt-1 xl:text-[11px]">
+                  <span className="mt-1.5 block text-[14px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-1 min-[1180px]:text-[13px] 2xl:text-[14px]">
                     {stat.label}
                   </span>
                 </div>

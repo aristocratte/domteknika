@@ -88,11 +88,6 @@ function detectPreferredLocale(request: NextRequest) {
   const countryLocale = getLocaleFromCountry(request);
   if (countryLocale) return countryLocale;
 
-  const browserLocale = getLocaleFromAcceptLanguage(
-    request.headers.get("accept-language"),
-  );
-  if (browserLocale) return browserLocale;
-
   return routing.defaultLocale;
 }
 
@@ -107,24 +102,6 @@ function getLocaleFromCountry(request: NextRequest) {
   }
 
   return null;
-}
-
-function getLocaleFromAcceptLanguage(acceptLanguage: string | null) {
-  if (!acceptLanguage) return null;
-
-  return acceptLanguage
-    .split(",")
-    .map((entry) => {
-      const [languageRange, qValue] = entry.trim().split(";q=");
-      return {
-        language: languageRange.toLowerCase(),
-        priority: qValue ? Number.parseFloat(qValue) : 1,
-      };
-    })
-    .filter(({ language, priority }) => language && Number.isFinite(priority))
-    .sort((a, b) => b.priority - a.priority)
-    .map(({ language }) => language.split("-")[0])
-    .find(isSupportedLocale);
 }
 
 function isSupportedLocale(locale: string | undefined): locale is (typeof routing.locales)[number] {

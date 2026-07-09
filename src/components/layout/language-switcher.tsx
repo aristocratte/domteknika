@@ -93,6 +93,13 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   function switchTo(next: Locale) {
     setOpen(false);
     if (next === current) return;
+    window.sessionStorage.setItem(
+      "domtek:preserve-scroll-on-route",
+      JSON.stringify({
+        left: window.scrollX,
+        top: window.scrollY,
+      }),
+    );
     startTransition(() => {
       router.push(pathname, { locale: next });
     });

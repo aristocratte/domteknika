@@ -415,7 +415,7 @@ function AddedValueSection() {
                     as="article"
                     key={item.key}
                     delay={index * 0.04}
-                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-3 py-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_28px_rgba(0,0,0,0.06)] sm:px-5 sm:py-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none first:lg:border-l-0 first:lg:pl-0"
+                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-3 py-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_18px_24px_-18px_rgba(0,0,0,0.22)] sm:px-5 sm:py-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none"
                   >
                     <Image
                       src={`/assets/${item.icon}.png`}

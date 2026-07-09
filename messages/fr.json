@@ -40,7 +40,7 @@
         "description": "Vélo électrique urbain autour d'une architecture polymère et de roues distinctives."
       },
       "5": {
-        "title": "Alicoffee",
+        "title": "Machine à café",
         "description": "Machine à café avec capsule double passage et logique fluidique."
       }
     },
@@ -78,7 +78,7 @@
       "email": {
         "title": "Nous écrire",
         "body": "info@domteknika.ch",
-        "action": "Ecrire un email"
+        "action": "Écrire un email"
       },
       "phone": {
         "title": "Nous appeler",
@@ -91,12 +91,12 @@
       "firstName": "Prénom",
       "lastName": "Nom",
       "company": "Entreprise",
-      "email": "Email",
-      "phone": "Téléphone (optionnel)",
+      "email": "E-mail",
+      "phone": "Téléphone (facultatif)",
       "message": "Votre message...",
       "submit": "Envoyer le message",
       "secure": "Vos informations sont sécurisées et ne seront jamais partagées.",
-      "success": "Votre message est prêt. L'envoi par email sera finalisé prochainement."
+      "success": "Votre message est prêt à être envoyé. Nous vous répondrons dès que possible."
     },
     "Map": {
       "eyebrow": "Nous trouver",
@@ -112,11 +112,11 @@
     "processTitle": "Le processus",
     "processBody": "De l'étude de faisabilité à la conception CAO, du prototypage à la production en série, nous gardons un processus agile et confidentiel.",
     "productTitle": "Le produit",
-    "productBody": "Une pièce prête pour la production, fiable et fonctionnelle. Les clients industriels réduisent leur délai de mise sur le marché. Les innovateurs transforment leur première idée en produit testable et fabricable.",
+    "productBody": "Une pièce prête pour la production, fiable et fonctionnelle. Les clients industriels réduisent leur délai de mise sur le marché. Les innovateurs transforment leur première idée en produit testable et industrialisable.",
     "stats": {
       "years": {
         "value": "+25 ans",
-        "label": "D'expérience"
+        "label": "d'expérience"
       },
       "sectors": {
         "value": "Multi-secteurs",
@@ -141,12 +141,12 @@
     "Services": {
       "eyebrow": "Ce que nous faisons",
       "title": "Une expertise de bout en bout à chaque étape",
-      "intro": "Du prototype unique à la production industrielle, nous aidons les entreprises et les inventeurs à concevoir, valider et produire leurs idées.",
+      "intro": "Du prototype unique à la production industrielle, nous accompagnons entreprises et inventeurs pour concevoir, valider et produire leurs idées.",
       "brainstorming": {
         "eyebrow": "Brainstorming",
         "title": "Transformer un problème en piste claire",
-        "lead": "Avant de figer une solution, nous ouvrons le champ des possibles: contraintes d'usage, mécanique, matériaux, coûts, fabrication et risques sont mis sur la table.",
-        "body": "Cette phase nous permet de faire émerger des idées, de comparer plusieurs architectures et d'identifier rapidement les solutions réellement pertinentes pour le projet.",
+        "lead": "Avant de choisir une direction, nous analysons le problème sous tous les angles: usage, mécanique, matériaux, coûts, fabrication et risques.",
+        "body": "Cette étape fait émerger plusieurs pistes concrètes, permet de comparer les architectures et de retenir rapidement les solutions les plus pertinentes.",
         "cards": {
           "doorRod": "Porte et tringle",
           "springLock": "Verrou à ressort",
@@ -161,7 +161,7 @@
       "items": {
         "creativity": {
           "title": "Créativité & Innovation",
-          "description": "Nous transformons les concepts bruts en opportunités neuves grâce à l'idéation stratégique et aux solutions de premier principe."
+          "description": "Nous partons du besoin, des contraintes et de l'usage pour imaginer des solutions nouvelles, réalistes et techniquement solides."
         },
         "design": {
           "title": "Design produit",
@@ -173,7 +173,7 @@
         },
         "simulation": {
           "title": "Simulation & Analyse",
-          "description": "Simulation et analyse avancées pour prédire les performances, optimiser les designs et fiabiliser."
+          "description": "Simulation et analyse avancées pour prédire les performances, optimiser les conceptions et fiabiliser les choix techniques."
         },
         "polymer": {
           "title": "Polymères & Injection",
@@ -181,7 +181,7 @@
         },
         "electronics": {
           "title": "Intégration électronique",
-          "description": "Conception et intégration électronique intelligente pour des produits connectés, fiables et intelligents."
+          "description": "Conception et intégration électronique pour des produits connectés, fiables et prêts à l'usage."
         }
       }
     },
@@ -217,11 +217,11 @@
         },
         "years": {
           "value": "+25 ans",
-          "label": "D'expérience"
+          "label": "d'expérience"
         },
         "worldwide": {
           "value": "International",
-          "label": "Pays servis"
+          "label": "Projets internationaux"
         },
         "industries": {
           "value": "6+",
@@ -253,7 +253,7 @@
   "Cta": {
     "eyebrow": "Construisons ensemble",
     "title": "Façonnons votre prochaine idée",
-    "subtitle": "Présentez-nous votre défi. Nous le concevrons, le prototyperons et le préparerons pour le monde réel, depuis notre atelier en Suisse.",
+    "subtitle": "Présentez-nous votre défi. Nous le concevrons, le prototyperons et le préparerons pour le monde réel, depuis nos locaux en Suisse.",
     "cta": "Démarrer votre projet"
   },
   "Footer": {

@@ -76,7 +76,7 @@ export function SwissBannerSection() {
                     alt=""
                     width={46}
                     height={46}
-                    className="size-4 shrink-0 object-contain md:size-6 lg:size-[34px]"
+                    className="size-5 shrink-0 object-contain opacity-100 brightness-110 saturate-150 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] md:size-7 lg:size-9"
                   />
                   <strong className="min-w-0 text-[11px] font-extrabold leading-tight text-white md:text-[14px] lg:text-[16px] lg:leading-none">
                     {t(`values.${value.key}` as never)}

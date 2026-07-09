@@ -40,7 +40,7 @@
         "description": "Arquitectura de bicicleta eléctrica urbana con ingeniería de polímeros y ruedas distintivas."
       },
       "5": {
-        "title": "Alicoffee",
+        "title": "Cafetera",
         "description": "Concepto de cafetera con circuito fluídico de cápsula de doble paso."
       }
     },
@@ -78,7 +78,7 @@
       "email": {
         "title": "Escríbenos",
         "body": "info@domteknika.ch",
-        "action": "Enviar un email"
+        "action": "Escribir un email"
       },
       "phone": {
         "title": "Llámanos",
@@ -96,7 +96,7 @@
       "message": "Tu mensaje...",
       "submit": "Enviar mensaje",
       "secure": "Tu información está segura y nunca será compartida.",
-      "success": "Tu mensaje está listo. El envío por email se finalizará próximamente."
+      "success": "Tu mensaje está listo para enviarse. Te responderemos lo antes posible."
     },
     "Map": {
       "eyebrow": "Dónde encontrarnos",
@@ -112,7 +112,7 @@
     "processTitle": "El proceso",
     "processBody": "Desde el estudio de viabilidad y el diseño CAD hasta el prototipado y la producción en serie, mantenemos todo el proceso ágil y confidencial.",
     "productTitle": "El producto",
-    "productBody": "Una pieza lista para producción que funciona. Los clientes industriales reducen su tiempo de salida al mercado. Los innovadores ven cómo su primera idea se convierte en un producto fabricable y testeable.",
+    "productBody": "Una pieza lista para producción que funciona. Los clientes industriales reducen su tiempo de salida al mercado. Los innovadores ven cómo su primera idea se convierte en un producto fabricable y validable.",
     "stats": {
       "years": {
         "value": "+25 años",
@@ -145,8 +145,8 @@
       "brainstorming": {
         "eyebrow": "Brainstorming",
         "title": "Convertir un problema en una dirección clara",
-        "lead": "Antes de fijar una solución, abrimos el campo de posibilidades: uso, mecánica, materiales, costes, fabricación y riesgos se analizan juntos.",
-        "body": "Esta fase permite generar ideas sólidas, comparar varias arquitecturas e identificar pronto las soluciones que realmente encajan con el proyecto.",
+        "lead": "Antes de elegir una dirección, analizamos el problema desde todos los ángulos: uso, mecánica, materiales, costes, fabricación y riesgos.",
+        "body": "Esta fase convierte las preguntas abiertas en caminos concretos, compara arquitecturas posibles y selecciona pronto las soluciones más pertinentes.",
         "cards": {
           "doorRod": "Puerta y varilla",
           "springLock": "Cierre de resorte",
@@ -161,7 +161,7 @@
       "items": {
         "creativity": {
           "title": "Creatividad e innovación",
-          "description": "Convertimos conceptos iniciales en nuevas oportunidades mediante ideación estratégica y soluciones de primeros principios."
+          "description": "Partimos de la necesidad, las restricciones y el uso real para crear soluciones nuevas, realistas y técnicamente sólidas."
         },
         "design": {
           "title": "Diseño de producto",
@@ -221,7 +221,7 @@
         },
         "worldwide": {
           "value": "Internacional",
-          "label": "Países atendidos"
+          "label": "Proyectos internacionales"
         },
         "industries": {
           "value": "6+",

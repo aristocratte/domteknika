@@ -29,9 +29,14 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     const frameId = window.requestAnimationFrame(() => {
       const root = document.documentElement;
       const previousScrollBehavior = root.style.scrollBehavior;
+      const preservedScroll = readPreservedRouteScroll();
 
       root.style.scrollBehavior = "auto";
-      window.scrollTo({ left: 0, top: 0, behavior: "auto" });
+      window.scrollTo({
+        left: preservedScroll?.left ?? 0,
+        top: preservedScroll?.top ?? 0,
+        behavior: "auto",
+      });
       window.dispatchEvent(new Event("domtek:scroll-resize"));
 
       restoreFrameId = window.requestAnimationFrame(() => {
@@ -46,4 +51,30 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return <>{children}</>;
+}
+
+function readPreservedRouteScroll() {
+  const rawValue = window.sessionStorage.getItem(
+    "domtek:preserve-scroll-on-route",
+  );
+  if (!rawValue) return null;
+
+  window.sessionStorage.removeItem("domtek:preserve-scroll-on-route");
+
+  try {
+    const parsed = JSON.parse(rawValue) as {
+      left?: unknown;
+      top?: unknown;
+    };
+    if (
+      typeof parsed.left !== "number" ||
+      typeof parsed.top !== "number"
+    ) {
+      return null;
+    }
+
+    return { left: parsed.left, top: parsed.top };
+  } catch {
+    return null;
+  }
 }

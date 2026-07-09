@@ -158,7 +158,7 @@ const projects = [
       "181017 - Jante - Déplacements.jpg",
     ],
     labels: {
-      "STAJleclerc.jpg": "staj-cover",
+      "STAJleclerc.jpg": "leclerc-road",
       "DSC01762.JPG": "prototype-side",
       "IMG-20180608-WA0002.jpg": "ride-view",
       "RV01-01 1.png": "studio-render",

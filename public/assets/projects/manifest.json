@@ -239,19 +239,19 @@
   {
     "slug": "sam-cree",
     "sourceFolder": "SAM CREE",
-    "cover": "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp",
+    "cover": "/assets/projects/sam-cree/sam-cree-03-workshop.webp",
     "images": [
       {
-        "source": "SAM CREE/s727078908517165717_p271_i6_w750.jpeg",
-        "output": "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp"
+        "source": "SAM CREE/Cree_SAM_IMG_0346-20140108.jpg",
+        "output": "/assets/projects/sam-cree/sam-cree-03-workshop.webp"
       },
       {
         "source": "SAM CREE/cree-sam-vorserien-elektrofahrzeug-made-in-switzerland.jpeg",
         "output": "/assets/projects/sam-cree/sam-cree-02-prototype.webp"
       },
       {
-        "source": "SAM CREE/Cree_SAM_IMG_0346-20140108.jpg",
-        "output": "/assets/projects/sam-cree/sam-cree-03-workshop.webp"
+        "source": "SAM CREE/s727078908517165717_p271_i6_w750.jpeg",
+        "output": "/assets/projects/sam-cree/sam-cree-01-sunset-cover.webp"
       },
       {
         "source": "SAM CREE/s727078908517165717_p271_i1_w600.jpeg",
@@ -587,11 +587,11 @@
   {
     "slug": "stajvelo-rv01",
     "sourceFolder": "stajv",
-    "cover": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp",
+    "cover": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-leclerc-road.webp",
     "images": [
       {
         "source": "stajv/STAJleclerc.jpg",
-        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-staj-cover.webp"
+        "output": "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-leclerc-road.webp"
       },
       {
         "source": "stajv/DSC01762.JPG",

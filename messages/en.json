@@ -40,7 +40,7 @@
         "description": "Urban e-bike architecture with polymer engineering and distinctive wheels."
       },
       "5": {
-        "title": "Alicoffee",
+        "title": "Coffee Machine",
         "description": "Coffee machine concept with a double-pass capsule fluid circuit."
       }
     },
@@ -96,7 +96,7 @@
       "message": "Your message...",
       "submit": "Send message",
       "secure": "Your information is secure and will never be shared.",
-      "success": "Message ready. We'll connect this form to your inbox next."
+      "success": "Your message is ready to send. We will get back to you as soon as possible."
     },
     "Map": {
       "eyebrow": "Find us",
@@ -116,7 +116,7 @@
     "stats": {
       "years": {
         "value": "+ 25 Years",
-        "label": "Of Experiences"
+        "label": "of experience"
       },
       "sectors": {
         "value": "Multi-Sectors",
@@ -145,8 +145,8 @@
       "brainstorming": {
         "eyebrow": "Brainstorming",
         "title": "Turning a problem into a clear direction",
-        "lead": "Before locking a solution, we open the field: user constraints, mechanics, materials, costs, manufacturing and risks are put on the table.",
-        "body": "This phase helps us surface strong ideas, compare several architectures and quickly identify the solutions that truly fit the project.",
+        "lead": "Before choosing a direction, we look at the problem from every angle: use, mechanics, materials, costs, manufacturing and risks.",
+        "body": "This phase turns open questions into concrete routes, compares possible architectures and quickly selects the most relevant solutions.",
         "cards": {
           "doorRod": "Door and rod",
           "springLock": "Spring lock",
@@ -161,7 +161,7 @@
       "items": {
         "creativity": {
           "title": "Creativity & Innovation",
-          "description": "We turn raw concepts into new opportunities with strategic ideation and first-principle solutions."
+          "description": "We start from the need, the constraints and the use case to create new, realistic and technically sound solutions."
         },
         "design": {
           "title": "Product Design",
@@ -217,11 +217,11 @@
         },
         "years": {
           "value": "+25 Years",
-          "label": "Of experience"
+          "label": "of experience"
         },
         "worldwide": {
           "value": "Worldwide",
-          "label": "Countries served"
+          "label": "International projects"
         },
         "industries": {
           "value": "6+",

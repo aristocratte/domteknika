@@ -40,7 +40,7 @@
         "description": "Urbanes Elektrofahrrad mit Polymerentwicklung und markanten Rädern."
       },
       "5": {
-        "title": "Alicoffee",
+        "title": "Kaffeemaschine",
         "description": "Kaffeemaschinenkonzept mit doppeltem Kapsel-Fluidkreislauf."
       }
     },
@@ -96,7 +96,7 @@
       "message": "Ihre Nachricht...",
       "submit": "Nachricht senden",
       "secure": "Ihre Informationen sind sicher und werden niemals weitergegeben.",
-      "success": "Ihre Nachricht ist bereit. Der E-Mail-Versand wird als Nächstes finalisiert."
+      "success": "Ihre Nachricht ist bereit zum Senden. Wir melden uns so schnell wie möglich."
     },
     "Map": {
       "eyebrow": "So finden Sie uns",
@@ -145,8 +145,8 @@
       "brainstorming": {
         "eyebrow": "Brainstorming",
         "title": "Aus einem Problem eine klare Richtung machen",
-        "lead": "Bevor wir eine Lösung festlegen, öffnen wir den Lösungsraum: Nutzung, Mechanik, Materialien, Kosten, Fertigung und Risiken werden gemeinsam betrachtet.",
-        "body": "So entstehen belastbare Ideen, mehrere Architekturen können verglichen werden und die wirklich passenden Lösungen werden früh sichtbar.",
+        "lead": "Bevor wir eine Richtung wählen, betrachten wir das Problem aus allen Blickwinkeln: Nutzung, Mechanik, Materialien, Kosten, Fertigung und Risiken.",
+        "body": "Aus offenen Fragen entstehen konkrete Ansätze, mögliche Architekturen werden verglichen und die passendsten Lösungen früh ausgewählt.",
         "cards": {
           "doorRod": "Tür und Gestänge",
           "springLock": "Federschloss",
@@ -161,7 +161,7 @@
       "items": {
         "creativity": {
           "title": "Kreativität & Innovation",
-          "description": "Wir verwandeln rohe Konzepte durch strategische Ideenfindung und First-Principles-Lösungen in neue Chancen."
+          "description": "Wir gehen von Bedarf, Randbedingungen und Anwendung aus, um neue, realistische und technisch belastbare Lösungen zu entwickeln."
         },
         "design": {
           "title": "Produktdesign",
@@ -221,7 +221,7 @@
         },
         "worldwide": {
           "value": "Weltweit",
-          "label": "Bediente Länder"
+          "label": "Internationale Projekte"
         },
         "industries": {
           "value": "6+",
