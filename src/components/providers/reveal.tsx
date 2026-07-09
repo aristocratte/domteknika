@@ -26,6 +26,8 @@ interface RevealProps {
   minimumScrollYDesktopOnly?: boolean;
   /** Render visible without reveal animation on mobile screens. */
   disabledOnMobile?: boolean;
+  /** Render visible without reveal animation when the viewport is at least this wide. */
+  disabledAtMinWidth?: number;
   /** Render as a different element. */
   as?: "article" | "div" | "section" | "li" | "span";
 }
@@ -42,6 +44,7 @@ export function Reveal({
   minimumScrollY = 0,
   minimumScrollYDesktopOnly = false,
   disabledOnMobile = false,
+  disabledAtMinWidth,
   as = "div",
 }: RevealProps) {
   const MotionTag = motion[as];
@@ -101,11 +104,24 @@ export function Reveal({
     [disabledOnMobile],
   );
 
+  const isDisabledOnCurrentWideScreen = useCallback(
+    () =>
+      typeof disabledAtMinWidth === "number" &&
+      window.matchMedia(`(min-width: ${disabledAtMinWidth}px)`).matches,
+    [disabledAtMinWidth],
+  );
+
+  const isDisabledOnCurrentScreen = useCallback(
+    () =>
+      isDisabledOnCurrentMobileScreen() || isDisabledOnCurrentWideScreen(),
+    [isDisabledOnCurrentMobileScreen, isDisabledOnCurrentWideScreen],
+  );
+
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
-    if (isDisabledOnCurrentMobileScreen()) {
+    if (isDisabledOnCurrentScreen()) {
       setStateImmediately("visible");
       return;
     }
@@ -122,7 +138,7 @@ export function Reveal({
     setStateImmediately(shouldStartVisible ? "visible" : "hidden");
   }, [
     getEffectiveMinimumScrollY,
-    isDisabledOnCurrentMobileScreen,
+    isDisabledOnCurrentScreen,
     setStateImmediately,
   ]);
 
@@ -130,7 +146,7 @@ export function Reveal({
     const revealIfAlreadyVisible = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
-      if (isDisabledOnCurrentMobileScreen()) {
+      if (isDisabledOnCurrentScreen()) {
         setStateImmediately("visible");
         return;
       }
@@ -154,18 +170,18 @@ export function Reveal({
     };
   }, [
     getEffectiveMinimumScrollY,
-    isDisabledOnCurrentMobileScreen,
+    isDisabledOnCurrentScreen,
     requestState,
     setStateImmediately,
   ]);
 
   useEffect(() => {
-    if (!minimumScrollY && !disabledOnMobile) return;
+    if (!minimumScrollY && !disabledOnMobile && !disabledAtMinWidth) return;
 
     const revealAfterScrollStarts = () => {
       const element = elementRef.current;
       if (!element || currentStateRef.current === "visible") return;
-      if (isDisabledOnCurrentMobileScreen()) {
+      if (isDisabledOnCurrentScreen()) {
         setStateImmediately("visible");
         return;
       }
@@ -183,9 +199,10 @@ export function Reveal({
     window.addEventListener("scroll", revealAfterScrollStarts, { passive: true });
     return () => window.removeEventListener("scroll", revealAfterScrollStarts);
   }, [
+    disabledAtMinWidth,
     disabledOnMobile,
     getEffectiveMinimumScrollY,
-    isDisabledOnCurrentMobileScreen,
+    isDisabledOnCurrentScreen,
     minimumScrollY,
     requestState,
     setStateImmediately,
@@ -202,7 +219,7 @@ export function Reveal({
       animate={controls}
       viewport={{ once: true, margin: "-80px" }}
       onViewportEnter={() => {
-        if (isDisabledOnCurrentMobileScreen()) {
+        if (isDisabledOnCurrentScreen()) {
           setStateImmediately("visible");
           return;
         }

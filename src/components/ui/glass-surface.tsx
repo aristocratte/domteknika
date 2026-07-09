@@ -251,6 +251,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
           ? `hsl(0 0% 0% / ${backgroundOpacity})`
           : `hsl(0 0% 100% / ${backgroundOpacity})`,
         backdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        WebkitBackdropFilter: `url(#${filterId}) saturate(${saturation})`,
         boxShadow: isDarkMode
           ? `0 0 2px 1px color-mix(in oklch, white, transparent 65%) inset,
              0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,

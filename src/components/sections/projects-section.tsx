@@ -78,7 +78,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pt-[86px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
@@ -86,6 +86,7 @@ export function ProjectsSection() {
           minimumScrollY={HOME_PROJECTS_REVEAL_SCROLL_Y}
           minimumScrollYDesktopOnly
           disabledOnMobile
+          disabledAtMinWidth={1800}
           className="relative"
         >
           <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between">

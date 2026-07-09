@@ -2,8 +2,8 @@ import { type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const sizes = {
-  default: "max-w-[1040px]",
-  wide: "max-w-[1160px]",
+  default: "max-w-[1040px] min-[1800px]:max-w-[1320px] min-[2400px]:max-w-[1500px]",
+  wide: "max-w-[1160px] min-[1800px]:max-w-[1680px] min-[2400px]:max-w-[1900px]",
   narrow: "max-w-[820px]",
 } as const;
 

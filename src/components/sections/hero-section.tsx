@@ -48,7 +48,7 @@ export function HeroSection() {
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/62 to-white/8 md:via-white/76 md:to-white/16" />
       <div
-        className="pointer-events-none absolute z-[1] hidden max-w-none md:bottom-[28px] md:right-[-8vw] md:top-auto md:block md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-14vw] xl:right-[-12vw] 2xl:right-[-6vw]"
+        className="pointer-events-none absolute z-[1] hidden max-w-none md:bottom-[28px] md:right-[-8vw] md:top-auto md:block md:h-[520px] md:w-[74vw] md:max-w-[1040px] md:opacity-100 lg:right-[-14vw] xl:right-[-12vw] 2xl:right-[-6vw] min-[1800px]:!right-[calc((100vw-1680px)/2+20px)] min-[2400px]:!right-[calc((100vw-1900px)/2+40px)]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.12) 5%, black 16%, black 83%, rgb(0 0 0 / 0.18) 94%, transparent 100%)",
