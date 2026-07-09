@@ -15,7 +15,7 @@ export function SwissBannerSection() {
   const t = useTranslations("SwissBanner");
 
   return (
-    <section className="relative min-h-[142px] overflow-hidden bg-alps md:min-h-[190px] lg:min-h-[236px]">
+    <section className="relative min-h-[142px] overflow-hidden bg-alps md:min-h-[190px] lg:min-h-[236px] min-[1800px]:min-h-[500px] min-[2400px]:min-h-[580px]">
       <Image
         src="/assets/alps-background.png"
         alt=""
@@ -47,38 +47,38 @@ export function SwissBannerSection() {
 
       <Container
         size="wide"
-        className="relative z-10 flex min-h-[142px] max-w-none items-center py-3 md:min-h-[190px] md:py-5 lg:min-h-[236px] lg:py-8"
+        className="relative z-10 flex min-h-[142px] max-w-none items-center py-3 md:min-h-[190px] md:py-5 lg:min-h-[236px] lg:py-8 min-[1800px]:min-h-[500px] min-[1800px]:max-w-none min-[1800px]:px-[120px] min-[1800px]:py-20 min-[2400px]:min-h-[580px] min-[2400px]:px-[170px]"
       >
-        <Reveal className="flex flex-col gap-2 md:gap-5 xl:flex-row xl:items-center xl:gap-9">
+        <Reveal className="flex flex-col gap-2 md:gap-5 xl:flex-row xl:items-center xl:gap-9 min-[1800px]:gap-14">
           <Image
             src="/assets/flag-switzerland.webp"
             alt=""
             width={88}
             height={88}
-            className="size-[34px] object-contain md:size-[54px] lg:size-[76px]"
+            className="size-[34px] object-contain md:size-[54px] lg:size-[76px] min-[1800px]:size-[170px] min-[2400px]:size-[196px]"
           />
 
           <div>
-            <h2 className="max-w-[500px] text-[16px] font-extrabold uppercase leading-[1.08] tracking-wide text-white md:text-[22px] md:leading-[1.12] lg:text-[26px] lg:leading-[1.16]">
+            <h2 className="max-w-[500px] text-[16px] font-extrabold uppercase leading-[1.08] tracking-wide text-white md:text-[22px] md:leading-[1.12] lg:text-[26px] lg:leading-[1.16] min-[1800px]:max-w-[1120px] min-[1800px]:text-[64px] min-[2400px]:text-[74px]">
               {t("titleLineOne")}
               <br />
               {t("titleLineTwo")}
             </h2>
 
-            <div className="mt-2 grid grid-cols-2 gap-x-5 gap-y-2 md:mt-5 md:max-w-[620px] md:gap-x-8 md:gap-y-3 xl:mt-7 xl:flex xl:max-w-none xl:items-center xl:gap-0">
+            <div className="mt-2 grid grid-cols-2 gap-x-5 gap-y-2 md:mt-5 md:max-w-[620px] md:gap-x-8 md:gap-y-3 xl:mt-7 xl:flex xl:max-w-none xl:items-center xl:gap-0 min-[1800px]:mt-12">
               {VALUES.map((value, index) => (
                 <div
                   key={value.key}
-                  className="flex min-w-0 items-center gap-2 md:gap-3 xl:min-w-[205px] xl:border-l xl:border-white/80 xl:px-5 first:xl:border-l-0 first:xl:pl-0"
+                  className="flex min-w-0 items-center gap-2 md:gap-3 xl:min-w-[205px] xl:border-l xl:border-white/80 xl:px-5 first:xl:border-l-0 first:xl:pl-0 min-[1800px]:min-w-[430px] min-[1800px]:px-12"
                 >
                   <Image
                     src={`/assets/${value.icon}.png`}
                     alt=""
                     width={46}
                     height={46}
-                    className="size-5 shrink-0 object-contain opacity-100 brightness-110 saturate-150 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] md:size-7 lg:size-9"
+                    className="size-5 shrink-0 object-contain opacity-100 brightness-110 saturate-150 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] md:size-7 lg:size-9 min-[1800px]:size-[74px] min-[2400px]:size-[84px]"
                   />
-                  <strong className="min-w-0 text-[11px] font-extrabold leading-tight text-white md:text-[14px] lg:text-[16px] lg:leading-none">
+                  <strong className="min-w-0 text-[11px] font-extrabold leading-tight text-white md:text-[14px] lg:text-[16px] lg:leading-none min-[1800px]:text-[35px] min-[2400px]:text-[40px]">
                     {t(`values.${value.key}` as never)}
                   </strong>
                   {index === VALUES.length - 1 && (

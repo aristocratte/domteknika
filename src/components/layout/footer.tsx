@@ -7,15 +7,15 @@ export function Footer() {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="border-t border-brand/35 bg-background py-6 sm:py-9 md:py-16">
+    <footer className="border-t border-brand/35 bg-background py-6 sm:py-9 md:py-16 min-[1800px]:!py-36 min-[2200px]:max-[2399px]:!py-48 min-[2400px]:!pb-8 min-[2400px]:!pt-16">
       <Container
         size="wide"
-        className="grid items-start gap-5 sm:gap-6"
+        className="grid items-start gap-5 sm:gap-6 min-[1800px]:!gap-16 min-[2200px]:max-[2399px]:!gap-[5.5rem] min-[2400px]:!gap-8"
       >
-        <Logo variant="footer" className="w-[86px] sm:w-[96px] md:w-[132px]" />
+        <Logo variant="footer" className="w-[86px] sm:w-[96px] md:w-[132px] min-[1800px]:!w-[300px] min-[2200px]:max-[2399px]:!w-[380px] min-[2400px]:!w-[204px]" />
 
-        <div className="grid min-w-0 grid-cols-2 items-start gap-x-6 gap-y-4 sm:gap-x-8 md:gap-x-12">
-          <address className="grid min-w-0 gap-1 not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55]">
+        <div className="grid min-w-0 grid-cols-2 items-start gap-x-6 gap-y-4 sm:gap-x-8 md:gap-x-12 min-[1800px]:!gap-x-36 min-[1800px]:!gap-y-14 min-[2200px]:max-[2399px]:!gap-x-48 min-[2400px]:!gap-x-32 min-[2400px]:!gap-y-5">
+          <address className="grid min-w-0 gap-1 not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!gap-4 min-[1800px]:!text-[30px] min-[2200px]:max-[2399px]:!gap-5 min-[2200px]:max-[2399px]:!text-[38px] min-[2400px]:!gap-1.5 min-[2400px]:!text-[20px]">
             <span className="font-extrabold text-foreground">
               {t("addressLabel")}
             </span>
@@ -23,7 +23,7 @@ export function Footer() {
             <span>2520, La Neuveville, {t("country")}</span>
           </address>
 
-          <address className="grid min-w-0 gap-1 text-right not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55]">
+          <address className="grid min-w-0 gap-1 text-right not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!gap-4 min-[1800px]:!text-[30px] min-[2200px]:max-[2399px]:!gap-5 min-[2200px]:max-[2399px]:!text-[38px] min-[2400px]:!gap-1.5 min-[2400px]:!text-[20px]">
             <span className="font-extrabold text-foreground">
               {t("contactLabel")}
             </span>
@@ -38,7 +38,7 @@ export function Footer() {
             </a>
           </address>
 
-          <p className="col-span-2 border-t border-border/70 pt-4 text-center text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55]">
+          <p className="col-span-2 border-t border-border/70 pt-4 text-center text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!pt-14 min-[1800px]:!text-[28px] min-[2200px]:max-[2399px]:!pt-16 min-[2200px]:max-[2399px]:!text-[36px] min-[2400px]:!pt-5 min-[2400px]:!text-[19px]">
             © 2026 DOMTEKNIKA
             <br />
             {t("rights")}

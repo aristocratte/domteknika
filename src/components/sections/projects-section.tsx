@@ -112,21 +112,21 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pt-[86px]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pb-[178px] min-[1800px]:pt-[146px] min-[2400px]:pb-[210px] min-[2400px]:pt-[172px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide">
         <div className="relative">
-          <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between min-[1800px]:mb-[70px] min-[2400px]:mb-[82px]">
             <h2
               id="projects-title"
-              className="text-[20px] font-extrabold leading-none text-foreground"
+              className="text-[20px] font-extrabold leading-none text-foreground min-[1800px]:text-[40px] min-[2400px]:text-[46px]"
             >
               {t("title")}
             </h2>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px]"
+              className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px] min-[1800px]:text-[25px] min-[2400px]:text-[28px]"
             >
               {t("viewAll")}
               <ArrowRight className="size-5 text-brand" aria-hidden />
@@ -135,7 +135,7 @@ export function ProjectsSection() {
 
           <div
             data-projects-carousel
-            className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20"
+            className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20 min-[1800px]:pb-[104px] min-[2400px]:pb-[122px]"
           >
             <Carousel
               setApi={setApi}
@@ -153,7 +153,7 @@ export function ProjectsSection() {
                 {carouselProjects.map((project, index) => (
                   <CarouselItem
                     key={`${project.id}-${index}`}
-                    className="basis-[min(340px,82vw)] pl-4 md:basis-[274px]"
+                    className="basis-[min(340px,82vw)] pl-4 md:basis-[274px] min-[1800px]:!basis-[560px] min-[2400px]:!basis-[650px]"
                   >
                     <ProjectCard
                       project={project}
@@ -213,31 +213,30 @@ function ProjectCard({
   return (
     <button
       type="button"
-      className="group block h-[334px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30"
+      className="group block h-[334px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:h-[630px] min-[2400px]:h-[730px]"
       aria-haspopup="dialog"
       aria-label={`${openDetailsLabel}: ${project.title}`}
       onClick={() => onOpen(project)}
     >
       <article className="h-full">
-        <div className="relative h-[148px] bg-muted">
+        <div className="relative h-[148px] bg-muted min-[1800px]:h-[300px] min-[2400px]:h-[350px]">
           <Image
             src={project.image}
             alt=""
-            fill
             loading="lazy"
             decoding="async"
-            sizes="274px"
-            className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035]"
+            sizes="(min-width: 2400px) 450px, (min-width: 1800px) 390px, 274px"
+            className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035] min-[1800px]:p-8 min-[2400px]:p-10"
           />
         </div>
-        <div className="flex h-[186px] flex-col px-4 pb-4 pt-4">
-          <h3 className="text-[14px] font-extrabold leading-tight text-foreground">
+        <div className="flex h-[186px] flex-col px-4 pb-4 pt-4 min-[1800px]:h-[330px] min-[1800px]:px-10 min-[1800px]:pb-10 min-[1800px]:pt-9 min-[2400px]:h-[380px] min-[2400px]:px-11">
+          <h3 className="text-[14px] font-extrabold leading-tight text-foreground min-[1800px]:text-[26px] min-[2400px]:text-[30px]">
             {project.title}
           </h3>
-          <p className="mt-2 text-[12.5px] font-medium leading-[1.24] text-muted-foreground">
+          <p className="mt-2 text-[12.5px] font-medium leading-[1.24] text-muted-foreground min-[1800px]:mt-5 min-[1800px]:text-[20px] min-[1800px]:leading-[1.34] min-[2400px]:text-[23px]">
             {project.description}
           </p>
-          <p className="mt-auto text-[12px] font-extrabold leading-none text-brand">
+          <p className="mt-auto text-[12px] font-extrabold leading-none text-brand min-[1800px]:text-[20px] min-[2400px]:text-[23px]">
             {tag}
           </p>
         </div>
@@ -266,7 +265,7 @@ function ProjectArrow({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "absolute bottom-0 z-50 grid size-11 place-items-center rounded-[4px] text-brand transition-[background-color,transform] hover:scale-110 hover:bg-brand/5 disabled:pointer-events-none disabled:opacity-40 md:size-12",
+        "absolute bottom-0 z-50 grid size-11 place-items-center rounded-[4px] text-brand transition-[background-color,transform] hover:scale-110 hover:bg-brand/5 disabled:pointer-events-none disabled:opacity-40 md:size-12 min-[1800px]:size-14",
         className,
       )}
     >

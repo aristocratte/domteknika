@@ -3827,15 +3827,19 @@ function sortProjects(
 function centeredPanelRect(): PanelRect {
   const isMobile = window.innerWidth <= 640;
   const pad = isMobile ? 14 : 34;
-  const width = Math.min(880, window.innerWidth - pad * 2);
-  const height = Math.min(720, window.innerHeight - pad * 2);
+  const maxWidth =
+    window.innerWidth >= 2400 ? 2040 : window.innerWidth >= 1800 ? 1680 : 880;
+  const maxHeight =
+    window.innerWidth >= 2400 ? 1180 : window.innerWidth >= 1800 ? 980 : 720;
+  const width = Math.min(maxWidth, window.innerWidth - pad * 2);
+  const height = Math.min(maxHeight, window.innerHeight - pad * 2);
 
   return {
     left: (window.innerWidth - width) / 2,
     top: (window.innerHeight - height) / 2,
     width,
     height,
-    radius: isMobile ? "16px" : "22px",
+    radius: isMobile ? "16px" : window.innerWidth >= 1800 ? "26px" : "22px",
   };
 }
 
@@ -4626,25 +4630,25 @@ export function ProjectDetailsDialog({
           <button
             type="button"
             className={cn(
-              "absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-border bg-white/95 text-foreground transition duration-200 hover:rotate-6 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand/30",
+              "absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-border bg-white/95 text-foreground transition duration-200 hover:rotate-6 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:right-8 min-[1800px]:top-8 min-[1800px]:size-14 min-[2400px]:size-16",
               contentVisible ? "opacity-100" : "opacity-0",
             )}
             aria-label={modal.close}
             onClick={closeProject}
           >
-            <X className="size-4" aria-hidden />
+            <X className="size-4 min-[1800px]:size-6 min-[2400px]:size-7" aria-hidden />
           </button>
 
           <div
             className={cn(
-              "grid h-full md:grid-cols-[46%_54%]",
+              "grid h-full md:grid-cols-[46%_54%] min-[1800px]:grid-cols-[48%_52%]",
               !contentVisible && "pointer-events-none",
             )}
           >
             <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
               <button
                 type="button"
-                className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35"
+                className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35 min-[1800px]:min-h-[620px] min-[2400px]:min-h-[740px]"
                 aria-label={modal.openImage}
                 onClick={() =>
                   setExpandedImageIndex(
@@ -4659,28 +4663,28 @@ export function ProjectDetailsDialog({
                   src={activeGalleryImage}
                   alt={project.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 460px"
-                  className="object-contain p-6 md:p-7"
+                  sizes="(min-width: 2400px) 980px, (min-width: 1800px) 820px, (max-width: 768px) 100vw, 460px"
+                  className="object-contain p-6 md:p-7 min-[1800px]:p-12 min-[2400px]:p-14"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
               </button>
 
               {projectGallery.length > 1 && (
                 <div
-                  className="border-t border-border bg-white/[0.92] p-3"
+                  className="border-t border-border bg-white/[0.92] p-3 min-[1800px]:p-6 min-[2400px]:p-7"
                   aria-label={modal.gallery}
                 >
                   <div
                     data-project-dialog-horizontal-scroll
                     data-lenis-prevent
-                    className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1"
+                    className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1 min-[1800px]:gap-4"
                   >
                     {projectGallery.map((image, index) => (
                       <button
                         key={image}
                         type="button"
                         className={cn(
-                          "relative h-[54px] w-[76px] shrink-0 overflow-hidden rounded-[4px] border bg-muted transition-[border-color,opacity,transform] duration-200 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/30",
+                          "relative h-[54px] w-[76px] shrink-0 overflow-hidden rounded-[4px] border bg-muted transition-[border-color,opacity,transform] duration-200 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:h-[92px] min-[1800px]:w-[132px] min-[2400px]:h-[108px] min-[2400px]:w-[156px]",
                           activeGalleryIndex === index
                             ? "border-brand opacity-100"
                             : "border-border opacity-70 hover:opacity-100",
@@ -4693,7 +4697,7 @@ export function ProjectDetailsDialog({
                           src={image}
                           alt=""
                           fill
-                          sizes="76px"
+                          sizes="(min-width: 2400px) 156px, (min-width: 1800px) 132px, 76px"
                           className="object-cover"
                         />
                       </button>
@@ -4706,36 +4710,36 @@ export function ProjectDetailsDialog({
             <div
               data-project-dialog-scroll
               data-lenis-prevent
-              className="min-h-0 overflow-y-auto overscroll-contain px-5 py-7 md:px-9 md:py-10"
+              className="min-h-0 overflow-y-auto overscroll-contain px-5 py-7 md:px-9 md:py-10 min-[1800px]:px-16 min-[1800px]:py-16 min-[2400px]:px-20 min-[2400px]:py-[72px]"
             >
-              <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
+              <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand min-[1800px]:text-[17px] min-[2400px]:text-[19px]">
                 {project.category}
               </span>
               <h2
                 id="project-dialog-title"
-                className="mt-3 max-w-[500px] text-[34px] font-extrabold leading-[0.98] tracking-[-0.02em] text-foreground md:text-[48px]"
+                className="mt-4 max-w-[500px] text-[34px] font-extrabold leading-[0.98] tracking-[-0.02em] text-foreground md:text-[48px] min-[1800px]:max-w-[840px] min-[1800px]:text-[78px] min-[2400px]:max-w-[980px] min-[2400px]:text-[92px]"
               >
                 {project.title}
               </h2>
-              <p className="mt-4 max-w-[500px] text-[16px] font-medium leading-[1.45] text-muted-foreground md:text-[17px]">
+              <p className="mt-6 max-w-[500px] text-[16px] font-medium leading-[1.45] text-muted-foreground md:text-[17px] min-[1800px]:max-w-[860px] min-[1800px]:text-[26px] min-[2400px]:max-w-[980px] min-[2400px]:text-[30px]">
                 {project.description}
               </p>
 
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div className="mt-8 grid gap-6 md:grid-cols-2 min-[1800px]:mt-14 min-[1800px]:gap-12 min-[2400px]:mt-16">
                 <section>
-                  <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                  <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                     {modal.overview}
                   </h3>
-                  <p className="mt-3 text-[14px] font-medium leading-[1.65] text-muted-foreground">
+                  <p className="mt-4 text-[14px] font-medium leading-[1.65] text-muted-foreground min-[1800px]:text-[21px] min-[2400px]:text-[24px]">
                     {project.overview}
                   </p>
                 </section>
                 {project.scope?.length ? (
                   <section>
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                       {modal.scope}
                     </h3>
-                    <ul className="mt-3 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground">
+                    <ul className="mt-4 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:gap-4 min-[1800px]:text-[20px] min-[2400px]:text-[23px]">
                       {project.scope.map((item) => (
                         <li key={item} className="flex gap-2">
                           <span
@@ -4749,14 +4753,14 @@ export function ProjectDetailsDialog({
                   </section>
                 ) : null}
                 <section>
-                  <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                  <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                     {modal.tags}
                   </h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                        className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground min-[1800px]:px-5 min-[1800px]:py-2.5 min-[1800px]:text-[17px] min-[2400px]:text-[19px]"
                       >
                         {tag}
                       </span>
@@ -4766,9 +4770,9 @@ export function ProjectDetailsDialog({
               </div>
 
               {project.relatedPatents?.length ? (
-                <section className="mt-8 border border-border bg-white">
-                  <div className="border-b border-border px-4 py-3">
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                <section className="mt-8 border border-border bg-white min-[1800px]:mt-14">
+                  <div className="border-b border-border px-4 py-3 min-[1800px]:px-7 min-[1800px]:py-6">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                       {modal.relatedPatents}
                     </h3>
                   </div>
@@ -4777,17 +4781,17 @@ export function ProjectDetailsDialog({
                       <button
                         key={patent.publication}
                         type="button"
-                        className="group/patentLink grid gap-1 px-4 py-3 text-left transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
+                        className="group/patentLink grid gap-1 px-4 py-3 text-left transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:gap-3 min-[1800px]:px-7 min-[1800px]:py-6"
                         aria-haspopup="dialog"
                         onClick={() => openRelatedPatent(patent.patentId)}
                       >
-                        <span className="text-[11px] font-extrabold text-brand">
+                        <span className="text-[11px] font-extrabold text-brand min-[1800px]:text-[17px] min-[2400px]:text-[19px]">
                           {patent.publication}
                         </span>
-                        <span className="text-[14px] font-extrabold leading-tight text-foreground transition-colors group-hover/patentLink:text-brand">
+                        <span className="text-[14px] font-extrabold leading-tight text-foreground transition-colors group-hover/patentLink:text-brand min-[1800px]:text-[22px] min-[2400px]:text-[25px]">
                           {patent.title}
                         </span>
-                        <span className="text-[12px] font-medium leading-[1.45] text-muted-foreground">
+                        <span className="text-[12px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                           {patent.note}
                         </span>
                       </button>
@@ -4924,18 +4928,18 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
     <div className={wrapperClassName}>
       <details data-project-sort-details className={sortClassName}>
         <summary
-          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-2 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:px-2 md:px-3 xl:px-4 [&::-webkit-details-marker]:hidden"
+          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-2 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:px-2 md:px-3 xl:px-4 min-[2400px]:!h-[74px] min-[2400px]:!gap-4 min-[2400px]:!rounded-[7px] min-[2400px]:!px-6 min-[2400px]:!text-[20px] [&::-webkit-details-marker]:hidden"
           aria-label={copy.sort.label}
         >
           <span className="inline-flex min-w-0 items-center gap-2">
-            <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+            <ArrowDownUp className="size-4 shrink-0 text-brand min-[2400px]:!size-6" aria-hidden />
             <span className="shrink-0">{copy.sort.label}</span>
           </span>
-          <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground min-[520px]:max-w-[48px] md:max-w-[74px] xl:max-w-[110px]">
+          <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground min-[520px]:max-w-[48px] md:max-w-[74px] xl:max-w-[110px] min-[2400px]:!max-w-[190px] min-[2400px]:!text-[18px]">
             {activeSortLabel}
           </span>
         </summary>
-        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] min-[2400px]:top-[calc(100%+14px)] min-[2400px]:min-w-[360px] min-[2400px]:rounded-[12px] min-[2400px]:p-2">
           {copy.sort.options.map((option) => {
             const active = option.key === sortKey;
 
@@ -4944,7 +4948,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 key={option.key}
                 type="button"
                 className={cn(
-                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none min-[2400px]:rounded-[8px] min-[2400px]:px-5 min-[2400px]:py-4 min-[2400px]:text-[20px]",
                   active && "bg-brand text-white hover:bg-brand",
                 )}
                 aria-pressed={active}
@@ -4957,7 +4961,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               >
                 <span>{option.label}</span>
                 {active ? (
-                  <Check className="size-4 shrink-0" aria-hidden />
+                  <Check className="size-4 shrink-0 min-[2400px]:size-6" aria-hidden />
                 ) : null}
               </button>
             );
@@ -4968,7 +4972,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
       <label className={searchClassName}>
         <span className="sr-only">{copy.searchLabel}</span>
         <Search
-          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground min-[2400px]:!left-6 min-[2400px]:!size-6"
           aria-hidden
         />
         <input
@@ -4976,7 +4980,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           value={searchQuery}
           onChange={(event) => setSearchQuery(event.target.value)}
           placeholder={copy.searchPlaceholder}
-          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)] min-[2400px]:!h-[74px] min-[2400px]:!rounded-[7px] min-[2400px]:!pl-[58px] min-[2400px]:!pr-6 min-[2400px]:!text-[20px]"
         />
       </label>
     </div>
@@ -5403,7 +5407,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   return (
     <>
       <section
-        className="relative min-h-[540px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[590px] md:pt-[152px]"
+        className="relative min-h-[540px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[590px] md:pt-[152px] min-[2400px]:!min-h-[1060px] min-[2400px]:!pt-[152px]"
         aria-labelledby="projects-page-title"
       >
         <Image
@@ -5412,11 +5416,11 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           fill
           priority
           sizes="100vw"
-          className="pointer-events-none absolute inset-0 z-0 object-contain object-right-top opacity-[0.82]"
+          className="pointer-events-none absolute inset-0 z-0 object-contain object-right-top opacity-[0.82] min-[2400px]:scale-[1.18] min-[2400px]:opacity-90"
         />
         <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white/55 via-white/15 to-transparent" />
         <div
-          className="pointer-events-none absolute bottom-[-22px] right-[-44vw] z-[1] hidden h-[430px] w-[96vw] max-w-none opacity-95 md:block lg:bottom-[-36px] lg:right-[-31vw] lg:h-[520px] lg:w-[86vw] xl:right-[-24vw] 2xl:right-[-15vw] min-[1800px]:!right-[calc((100vw-1680px)/2-170px)] min-[1800px]:!w-[min(72vw,1640px)] min-[2400px]:!right-[calc((100vw-1900px)/2-220px)] min-[2400px]:!w-[1580px]"
+          className="pointer-events-none absolute bottom-[-22px] right-[-44vw] z-[1] hidden h-[430px] w-[96vw] max-w-none opacity-95 md:block lg:bottom-[-36px] lg:right-[-31vw] lg:h-[520px] lg:w-[86vw] xl:right-[-24vw] 2xl:right-[-15vw] min-[1800px]:!right-[calc((100vw-1680px)/2-170px)] min-[1800px]:!w-[min(72vw,1640px)] min-[2400px]:!bottom-[-64px] min-[2400px]:!right-[calc((100vw-1900px)/2-330px)] min-[2400px]:!h-[860px] min-[2400px]:!w-[1900px]"
           style={{
             WebkitMaskImage:
               "linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.18) 7%, black 18%, black 82%, rgb(0 0 0 / 0.24) 93%, transparent 100%)",
@@ -5467,25 +5471,25 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
         <Container
           size="wide"
-          className="relative z-10 flex min-h-[410px] items-start pb-10"
+          className="relative z-10 flex min-h-[410px] items-start pb-10 min-[2400px]:!min-h-[780px] min-[2400px]:!pb-20"
         >
-          <Reveal className="max-w-[560px] pb-5 md:pb-0">
-            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
+          <Reveal className="max-w-[560px] pb-5 md:pb-0 min-[2400px]:!max-w-[1080px]">
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
               {copy.hero.eyebrow}
             </div>
             <h1
               id="projects-page-title"
-              className="domtek-text-shadow mt-[38px] max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
+              className="domtek-text-shadow mt-[38px] max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
             >
               {copy.hero.title}
               <span className="text-brand">.</span>
             </h1>
-            <p className="mt-8 max-w-[500px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px]">
+            <p className="mt-8 max-w-[500px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] min-[2400px]:!mt-12 min-[2400px]:!max-w-[860px] min-[2400px]:!text-[26px]">
               <strong className="font-extrabold">{copy.hero.strong}</strong>{" "}
               {copy.hero.rest}
             </p>
-            <p className="mt-5 max-w-[470px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] sm:leading-[1.32]">
+            <p className="mt-5 max-w-[470px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] sm:leading-[1.32] min-[2400px]:!mt-8 min-[2400px]:!max-w-[820px] min-[2400px]:!text-[25px]">
               {copy.hero.lead}
             </p>
           </Reveal>
@@ -5496,19 +5500,19 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
       <section
         id="projects"
-        className="bg-background py-[48px] md:py-[56px]"
+        className="bg-background py-[48px] md:py-[56px] min-[2400px]:!py-[96px]"
         aria-labelledby="selected-projects"
       >
         <Container size="wide">
-          <Reveal className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <Reveal className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end md:justify-between min-[2400px]:gap-8">
             <div className="min-w-0 shrink-0">
               <h2
                 id="selected-projects"
-                className="text-[22px] font-extrabold leading-none text-foreground"
+                className="text-[22px] font-extrabold leading-none text-foreground min-[2400px]:!text-[40px]"
               >
                 {copy.selectedTitle}
               </h2>
-              <p className="mt-3 text-[12px] font-medium text-muted-foreground">
+              <p className="mt-3 text-[12px] font-medium text-muted-foreground min-[2400px]:!mt-5 min-[2400px]:!text-[20px]">
                 {visibleProjects.length} / {copy.projects.length}{" "}
                 {copy.resultsLabel}
               </p>
@@ -5521,8 +5525,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
             })}
           </Reveal>
 
-          <Reveal delay={0.06} className="mb-7 mt-7" as="div">
-            <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px]">
+          <Reveal delay={0.06} className="mb-7 mt-7 min-[2400px]:mb-12 min-[2400px]:mt-12" as="div">
+              <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px] min-[2400px]:!grid-cols-[136px_repeat(3,236px)_280px_420px] min-[2400px]:!gap-5">
               <div
                 className="contents"
                 role="group"
@@ -5542,7 +5546,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       key={filter.key}
                       type="button"
                       className={cn(
-                        "group/filter grid h-11 min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 [transition-timing-function:var(--ease-smooth)]",
+                        "group/filter grid h-11 min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 min-[2400px]:!h-[74px] min-[2400px]:!gap-4 min-[2400px]:!rounded-[7px] min-[2400px]:!px-6 [transition-timing-function:var(--ease-smooth)]",
                         filter.icon
                           ? "grid-cols-[auto_1fr]"
                           : "place-items-center text-center",
@@ -5560,7 +5564,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                           height={filter.height}
                           unoptimized
                           className={cn(
-                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 min-[520px]:max-h-7 min-[520px]:max-w-7 md:max-h-none md:max-w-none [transition-timing-function:var(--ease-smooth)]",
+                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 min-[520px]:max-h-7 min-[520px]:max-w-7 md:max-h-none md:max-w-none min-[2400px]:!max-h-11 min-[2400px]:!max-w-11 [transition-timing-function:var(--ease-smooth)]",
                             active && "brightness-0 invert",
                           )}
                         />
@@ -5571,13 +5575,13 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                           !filter.icon && "place-items-center text-center",
                         )}
                       >
-                        <strong className="truncate text-[12px] font-extrabold leading-none min-[520px]:text-[11px] md:text-[12px]">
+                        <strong className="truncate text-[12px] font-extrabold leading-none min-[520px]:text-[11px] md:text-[12px] min-[2400px]:!text-[20px]">
                           {filter.label}
                         </strong>
                         {filter.key !== "all" && (
                           <span
                             className={cn(
-                              "mt-1 truncate text-[9px] font-medium leading-none text-muted-foreground",
+                              "mt-1 truncate text-[9px] font-medium leading-none text-muted-foreground min-[2400px]:!mt-2 min-[2400px]:!text-[15px]",
                               active && "text-white/85",
                             )}
                           >
@@ -5599,7 +5603,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visibleProjects.length > 0 ? (
-            <div className="grid items-stretch gap-4 md:grid-cols-2">
+            <div className="grid items-stretch gap-4 md:grid-cols-2 min-[2400px]:gap-8">
               {visibleProjects.map((project) => (
                 <div key={project.id} className="h-full">
                   <ProjectCard
@@ -5652,25 +5656,25 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
             <button
               type="button"
               className={cn(
-                "absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-border bg-white/95 text-foreground transition duration-200 hover:rotate-6 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand/30",
+                "absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-border bg-white/95 text-foreground transition duration-200 hover:rotate-6 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:right-8 min-[1800px]:top-8 min-[1800px]:size-14 min-[2400px]:size-16",
                 contentVisible ? "opacity-100" : "opacity-0",
               )}
               aria-label={copy.modal.close}
               onClick={closeProject}
             >
-              <X className="size-4" aria-hidden />
+              <X className="size-4 min-[1800px]:size-6 min-[2400px]:size-7" aria-hidden />
             </button>
 
             <div
               className={cn(
-                "grid h-full md:grid-cols-[46%_54%]",
+                "grid h-full md:grid-cols-[46%_54%] min-[1800px]:grid-cols-[48%_52%]",
                 !contentVisible && "pointer-events-none",
               )}
             >
               <div className="flex min-h-[280px] flex-col overflow-hidden bg-muted md:min-h-0">
                 <button
                   type="button"
-                  className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35"
+                  className="relative min-h-[210px] flex-1 cursor-zoom-in overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand/35 min-[1800px]:min-h-[620px] min-[2400px]:min-h-[740px]"
                   aria-label={copy.modal.openImage}
                   onClick={() =>
                     setExpandedGalleryIndex(
@@ -5685,28 +5689,28 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                     src={activeGalleryImage ?? selectedProject.image}
                     alt={selectedProject.imageAlt}
                     fill
-                    sizes="(max-width: 768px) 100vw, 460px"
-                    className="object-contain p-6 md:p-7"
+                    sizes="(min-width: 2400px) 980px, (min-width: 1800px) 820px, (max-width: 768px) 100vw, 460px"
+                    className="object-contain p-6 md:p-7 min-[1800px]:p-12 min-[2400px]:p-14"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
                 </button>
 
                 {selectedProjectGallery.length > 1 && (
                   <div
-                    className="border-t border-border bg-white/[0.92] p-3"
+                    className="border-t border-border bg-white/[0.92] p-3 min-[1800px]:p-6 min-[2400px]:p-7"
                     aria-label={copy.modal.gallery}
                   >
                     <div
                       data-project-dialog-horizontal-scroll
                       data-lenis-prevent
-                      className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1"
+                      className="flex touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1 min-[1800px]:gap-4"
                     >
                       {selectedProjectGallery.map((image, index) => (
                         <button
                           key={image}
                           type="button"
                           className={cn(
-                            "relative h-[54px] w-[76px] shrink-0 overflow-hidden rounded-[4px] border bg-muted transition-[border-color,opacity,transform] duration-200 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/30",
+                            "relative h-[54px] w-[76px] shrink-0 overflow-hidden rounded-[4px] border bg-muted transition-[border-color,opacity,transform] duration-200 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:h-[92px] min-[1800px]:w-[132px] min-[2400px]:h-[108px] min-[2400px]:w-[156px]",
                             activeGalleryIndex === index
                               ? "border-brand opacity-100"
                               : "border-border opacity-70 hover:opacity-100",
@@ -5719,7 +5723,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                             src={image}
                             alt=""
                             fill
-                            sizes="76px"
+                            sizes="(min-width: 2400px) 156px, (min-width: 1800px) 132px, 76px"
                             className="object-cover"
                           />
                         </button>
@@ -5732,36 +5736,36 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               <div
                 data-project-dialog-scroll
                 data-lenis-prevent
-                className="min-h-0 overflow-y-auto overscroll-contain px-5 py-7 md:px-9 md:py-10"
+                className="min-h-0 overflow-y-auto overscroll-contain px-5 py-7 md:px-9 md:py-10 min-[1800px]:px-16 min-[1800px]:py-16 min-[2400px]:px-20 min-[2400px]:py-[72px]"
               >
-                <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
+                <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand min-[1800px]:text-[17px] min-[2400px]:text-[19px]">
                   {selectedProject.category}
                 </span>
                 <h2
                   id="project-dialog-title"
-                  className="mt-3 max-w-[500px] text-[34px] font-extrabold leading-[0.98] tracking-[-0.02em] text-foreground md:text-[48px]"
+                  className="mt-4 max-w-[500px] text-[34px] font-extrabold leading-[0.98] tracking-[-0.02em] text-foreground md:text-[48px] min-[1800px]:max-w-[840px] min-[1800px]:text-[78px] min-[2400px]:max-w-[980px] min-[2400px]:text-[92px]"
                 >
                   {selectedProject.title}
                 </h2>
-                <p className="mt-4 max-w-[500px] text-[16px] font-medium leading-[1.45] text-muted-foreground md:text-[17px]">
+                <p className="mt-6 max-w-[500px] text-[16px] font-medium leading-[1.45] text-muted-foreground md:text-[17px] min-[1800px]:max-w-[860px] min-[1800px]:text-[26px] min-[2400px]:max-w-[980px] min-[2400px]:text-[30px]">
                   {selectedProject.description}
                 </p>
 
-                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <div className="mt-8 grid gap-6 md:grid-cols-2 min-[1800px]:mt-14 min-[1800px]:gap-12 min-[2400px]:mt-16">
                   <section>
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                       {copy.modal.overview}
                     </h3>
-                    <p className="mt-3 text-[14px] font-medium leading-[1.65] text-muted-foreground">
+                    <p className="mt-4 text-[14px] font-medium leading-[1.65] text-muted-foreground min-[1800px]:text-[21px] min-[2400px]:text-[24px]">
                       {selectedProject.overview}
                     </p>
                   </section>
                   {selectedProject.scope?.length ? (
                     <section>
-                      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                      <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                         {copy.modal.scope}
                       </h3>
-                      <ul className="mt-3 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground">
+                      <ul className="mt-4 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:gap-4 min-[1800px]:text-[20px] min-[2400px]:text-[23px]">
                         {selectedProject.scope.map((item) => (
                           <li key={item} className="flex gap-2">
                             <span
@@ -5775,14 +5779,14 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                     </section>
                   ) : null}
                   <section>
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                       {copy.modal.tags}
                     </h3>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {selectedProject.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                          className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground min-[1800px]:px-5 min-[1800px]:py-2.5 min-[1800px]:text-[17px] min-[2400px]:text-[19px]"
                         >
                           {tag}
                         </span>
@@ -5792,9 +5796,9 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 </div>
 
                 {selectedProject.relatedPatents?.length ? (
-                  <section className="mt-8 border border-border bg-white">
-                    <div className="border-b border-border px-4 py-3">
-                      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+                  <section className="mt-8 border border-border bg-white min-[1800px]:mt-14">
+                    <div className="border-b border-border px-4 py-3 min-[1800px]:px-7 min-[1800px]:py-6">
+                      <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                         {copy.modal.relatedPatents}
                       </h3>
                     </div>
@@ -5803,17 +5807,17 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                         <button
                           key={patent.publication}
                           type="button"
-                          className="group/patentLink grid gap-1 px-4 py-3 text-left transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30"
+                          className="group/patentLink grid gap-1 px-4 py-3 text-left transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:gap-3 min-[1800px]:px-7 min-[1800px]:py-6"
                           aria-haspopup="dialog"
                           onClick={() => openRelatedPatent(patent.patentId)}
                         >
-                          <span className="text-[11px] font-extrabold text-brand">
+                          <span className="text-[11px] font-extrabold text-brand min-[1800px]:text-[17px] min-[2400px]:text-[19px]">
                             {patent.publication}
                           </span>
-                          <span className="text-[14px] font-extrabold leading-tight text-foreground transition-colors group-hover/patentLink:text-brand">
+                          <span className="text-[14px] font-extrabold leading-tight text-foreground transition-colors group-hover/patentLink:text-brand min-[1800px]:text-[22px] min-[2400px]:text-[25px]">
                             {patent.title}
                           </span>
-                          <span className="text-[12px] font-medium leading-[1.45] text-muted-foreground">
+                          <span className="text-[12px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                             {patent.note}
                           </span>
                         </button>
@@ -5859,7 +5863,7 @@ function ProjectsStatsSection({
   ariaLabel: string;
 }) {
   return (
-    <section className="bg-background py-[28px]" aria-label={ariaLabel}>
+    <section className="bg-background py-[28px] min-[2400px]:!py-[56px]" aria-label={ariaLabel}>
       <Container size="wide">
         <div className="grid grid-cols-2 border border-border bg-white min-[1180px]:grid-cols-4">
           {stats.map((stat, index) => {
@@ -5871,13 +5875,15 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index % 2 === 0 && "border-r border-border min-[1180px]:border-r-0",
-                  index < 2 && "border-b border-border min-[1180px]:border-b-0",
+                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left min-[2400px]:!min-h-[152px] min-[2400px]:!grid-cols-[76px_1fr] min-[2400px]:!gap-7 min-[2400px]:!px-8 min-[2400px]:!py-6 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  index % 2 === 0 &&
+                    "border-r border-border min-[1180px]:border-r-0",
+                  index < 2 &&
+                    "border-b border-border min-[1180px]:border-b-0",
                   index < stats.length - 1 &&
                     "min-[1180px]:border-r min-[1180px]:border-border",
                   index === stats.length - 1 &&
-                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:40px_minmax(0,1fr)]",
+                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:40px_minmax(0,1fr)] min-[2400px]:!gap-7 min-[2400px]:![grid-template-columns:76px_minmax(0,1fr)]",
                 )}
               >
                 <Image
@@ -5885,20 +5891,20 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] min-[2400px]:!h-[70px] min-[2400px]:!w-[76px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
                     className={cn(
                       "block max-w-full text-balance font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
                       isLongValue
-                        ? "!text-[22px] min-[1180px]:!text-[22px] 2xl:!text-[25px]"
-                        : "!text-[34px] min-[1180px]:!text-[30px] 2xl:!text-[34px]",
+                        ? "!text-[22px] min-[1180px]:!text-[22px] 2xl:!text-[25px] min-[2400px]:!text-[36px]"
+                        : "!text-[34px] min-[1180px]:!text-[30px] 2xl:!text-[34px] min-[2400px]:!text-[50px]",
                     )}
                   >
                     {stat.value}
                   </strong>
-                  <span className="mt-1.5 block text-[14px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-1 min-[1180px]:text-[13px] 2xl:text-[14px]">
+                  <span className="mt-1.5 block text-[14px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-1 min-[1180px]:text-[13px] 2xl:text-[14px] min-[2400px]:!mt-2 min-[2400px]:!text-[18px]">
                     {stat.label}
                   </span>
                 </div>
@@ -5925,7 +5931,7 @@ function ProjectCard({
   return (
     <article
       data-project-origin
-      className="group h-full overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)]"
+      className="group h-full overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)] min-[2400px]:rounded-[10px]"
     >
       <button
         type="button"
@@ -5934,42 +5940,42 @@ function ProjectCard({
         aria-label={`${openDetailsLabel}: ${project.title}`}
         onClick={() => onOpen(project)}
       >
-        <span className="relative block h-[220px] overflow-hidden bg-muted">
+        <span className="relative block h-[220px] overflow-hidden bg-muted min-[2400px]:h-[390px]">
           <Image
             src={project.image}
             alt={project.imageAlt}
             fill
-            sizes="(max-width: 768px) 100vw, 560px"
+            sizes="(min-width: 2400px) 900px, (max-width: 768px) 100vw, 560px"
             className="object-contain transition-transform duration-500 group-hover:scale-[1.035]"
           />
           <span
-            className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white transition-colors duration-300 group-hover:bg-brand"
+            className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white transition-colors duration-300 group-hover:bg-brand min-[2400px]:right-7 min-[2400px]:top-7 min-[2400px]:size-14"
             aria-hidden
           >
-            <ArrowUpRight className="size-4" />
+            <ArrowUpRight className="size-4 min-[2400px]:size-7" />
           </span>
         </span>
 
-        <span className="flex min-h-[150px] flex-1 flex-col px-5 pb-5 pt-5">
-          <span className="text-[11px] font-extrabold text-brand">
+        <span className="flex min-h-[150px] flex-1 flex-col px-5 pb-5 pt-5 min-[2400px]:min-h-[285px] min-[2400px]:px-9 min-[2400px]:pb-9 min-[2400px]:pt-8">
+          <span className="text-[11px] font-extrabold text-brand min-[2400px]:text-[18px]">
             {project.category}
           </span>
-          <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground">
+          <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground min-[2400px]:mt-4 min-[2400px]:text-[32px]">
             {project.title}
           </strong>
-          <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground">
+          <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground min-[2400px]:mt-4 min-[2400px]:text-[21px]">
             {project.description}
           </span>
 
-          <span className="mt-auto flex items-end justify-between gap-4 pt-6">
-            <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground">
+          <span className="mt-auto flex items-end justify-between gap-4 pt-6 min-[2400px]:gap-8 min-[2400px]:pt-11">
+            <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground min-[2400px]:gap-8 min-[2400px]:text-[20px]">
               {ctaLabel}
               <ArrowRight
-                className="size-4 text-brand transition-transform duration-300 group-hover:translate-x-1"
+                className="size-4 text-brand transition-transform duration-300 group-hover:translate-x-1 min-[2400px]:size-6"
                 aria-hidden
               />
             </span>
-            <span className="text-right text-[10px] font-medium text-muted-foreground">
+            <span className="text-right text-[10px] font-medium text-muted-foreground min-[2400px]:text-[16px]">
               {project.tags.join(" ")}
             </span>
           </span>
@@ -5986,7 +5992,7 @@ export function ProjectsPageCta({ locale }: { locale: string }) {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-border bg-white py-16 md:min-h-[310px] md:py-20"
+      className="relative overflow-hidden border-t border-border bg-white py-16 md:min-h-[310px] md:py-20 min-[2400px]:!min-h-[650px] min-[2400px]:!py-[192px]"
       aria-labelledby="projects-cta-title"
     >
       <Image
@@ -5995,34 +6001,34 @@ export function ProjectsPageCta({ locale }: { locale: string }) {
         width={874}
         height={398}
         quality={100}
-        sizes="(max-width: 1024px) 100vw, 700px"
+        sizes="(min-width: 2400px) 70vw, (max-width: 1024px) 100vw, 700px"
         unoptimized
-        className="pointer-events-none absolute bottom-0 right-0 hidden w-[46vw] max-w-[700px] opacity-35 md:block"
+        className="pointer-events-none absolute bottom-0 right-0 hidden w-[46vw] max-w-[700px] opacity-35 md:block min-[2400px]:bottom-[-40px] min-[2400px]:right-[-6vw] min-[2400px]:w-[70vw] min-[2400px]:max-w-[1640px] min-[2400px]:opacity-45"
       />
 
       <Container size="wide" className="relative z-10">
-        <Reveal className="max-w-[590px]">
-          <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
-            <span className="h-[2px] w-[26px] bg-brand" aria-hidden />
+        <Reveal className="max-w-[590px] min-[2400px]:!max-w-[1160px]">
+          <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
+            <span className="h-[2px] w-[26px] bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
             {copy.eyebrow}
           </div>
           <h2
             id="projects-cta-title"
-            className="domtek-text-shadow mt-8 text-[36px] font-extrabold leading-[1.05] text-foreground sm:text-[48px]"
+            className="domtek-text-shadow mt-8 text-[36px] font-extrabold leading-[1.05] text-foreground sm:text-[48px] min-[2400px]:!mt-[82px] min-[2400px]:!max-w-[1100px] min-[2400px]:!text-[96px]"
           >
             <span className="text-brand">.</span>
             {copy.title} <span className="text-brand">?</span>
           </h2>
-          <p className="mt-6 max-w-[560px] text-[16px] font-medium leading-[1.35] text-muted-foreground">
+          <p className="mt-6 max-w-[560px] text-[16px] font-medium leading-[1.35] text-muted-foreground min-[2400px]:!mt-10 min-[2400px]:!max-w-[900px] min-[2400px]:!text-[29px]">
             <strong className="font-extrabold">{copy.bodyStrong}</strong>{" "}
             {copy.body}
           </p>
           <a
             href={`mailto:info@domteknika.ch?subject=${mailSubject}`}
-            className="mt-8 inline-flex h-10 items-center justify-center gap-6 rounded-[7px] bg-brand px-5 text-[14px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/35"
+            className="mt-8 inline-flex h-10 items-center justify-center gap-6 rounded-[7px] bg-brand px-5 text-[14px] font-extrabold text-white shadow-[0_4px_10px_rgba(0,0,0,0.28)] transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand/35 min-[2400px]:!mt-14 min-[2400px]:!h-[82px] min-[2400px]:!gap-8 min-[2400px]:!rounded-[10px] min-[2400px]:!px-14 min-[2400px]:!text-[29px]"
           >
             {copy.button}
-            <ArrowRight className="size-4" aria-hidden />
+            <ArrowRight className="size-4 min-[2400px]:!size-9" aria-hidden />
           </a>
         </Reveal>
       </Container>
