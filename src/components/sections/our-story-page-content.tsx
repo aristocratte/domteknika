@@ -644,13 +644,13 @@ const MEDIA: Record<
     className: "gap-3 sm:flex-row md:flex-col xl:flex-row xl:gap-4",
     images: [
       {
-        src: "/assets/our-story/smart-bottle.png",
+        src: "/assets/our-story/smart-bottle-ethimedix.png",
         alt: "Smart Bottle concept render",
         title: "Smart Bottle",
         meta: "2011",
-        width: 290,
-        height: 268,
-        className: "w-[150px] rotate-[-5deg] sm:w-[170px]",
+        width: 600,
+        height: 900,
+        className: "w-[120px] rotate-[-5deg] sm:w-[140px]",
       },
       {
         src: "/assets/our-story/personal-injector.png",
