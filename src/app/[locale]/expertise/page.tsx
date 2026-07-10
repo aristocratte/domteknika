@@ -81,7 +81,7 @@ export default async function ExpertisePage({
       <ExpertiseGrid />
       <ExpertiseSwissBanner />
       <AddedValueSection />
-      <TrustedBy />
+      <TrustedBy density="compact" />
       <ExpertiseCta />
     </>
   );
@@ -92,7 +92,7 @@ function ExpertiseHero() {
 
   return (
     <section
-      className="relative overflow-visible bg-background pb-[42px] pt-[132px] md:min-h-[376px] md:pb-[46px] md:pt-[152px]"
+      className="relative overflow-visible bg-background pb-[42px] pt-[132px] md:min-h-[376px] md:pb-[46px] md:pt-[152px] min-[1800px]:!min-h-[520px] min-[1800px]:!pb-[60px] min-[2400px]:!min-h-[700px] min-[2400px]:!pb-20 min-[2400px]:!pt-[152px]"
       aria-labelledby="expertise-hero-title"
     >
       <Image
@@ -102,21 +102,21 @@ function ExpertiseHero() {
         height={421}
         priority
         sizes="100vw"
-        className="pointer-events-none absolute left-1/2 top-[112px] z-0 h-auto w-[58vw] max-w-[728px] -translate-x-1/2 opacity-100"
+        className="pointer-events-none absolute left-1/2 top-[112px] z-0 h-auto w-[58vw] max-w-[728px] -translate-x-1/2 opacity-100 min-[1800px]:!top-[128px] min-[1800px]:!w-[48vw] min-[1800px]:!max-w-[920px]"
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white/70 via-white/45 to-white/15" />
 
       <Container size="wide" className="relative z-10">
         <div className="relative grid gap-12 md:block">
           <Reveal>
-            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
               {t("eyebrow")}
             </div>
 
             <h1
               id="expertise-hero-title"
-              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[1800px]:!text-[74px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
             >
               {t("title")}
               <span className="text-brand">.</span>
@@ -125,21 +125,21 @@ function ExpertiseHero() {
 
           <Reveal
             delay={0.1}
-            className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-0 md:top-[-32px] md:min-h-0 md:w-[52%] lg:right-[-36px] lg:top-[-48px] lg:w-[54%] xl:right-[-84px] xl:w-[58%] 2xl:right-[-148px] 2xl:w-[60%]"
+            className="min-h-[326px] sm:min-h-[356px] md:absolute md:right-0 md:top-[-32px] md:min-h-0 md:w-[52%] lg:right-[-36px] lg:top-[-48px] lg:w-[54%] xl:right-[-84px] xl:w-[58%] 2xl:right-[-148px] 2xl:w-[60%] min-[1800px]:!right-[40px] min-[1800px]:!top-[-24px] min-[1800px]:!w-[55%] min-[2300px]:!right-[80px] min-[2400px]:!top-[-10px]"
           >
-            <div className="relative left-1/2 w-[min(calc(100vw-28px),380px)] -translate-x-1/2 pt-1 sm:w-[min(100%,520px)] md:left-auto md:ml-auto md:mr-0 md:w-full md:max-w-[520px] md:translate-x-0 lg:max-w-[580px] xl:max-w-[640px] 2xl:max-w-[660px]">
+            <div className="relative left-1/2 w-[min(calc(100vw-28px),380px)] -translate-x-1/2 pt-1 sm:w-[min(100%,520px)] md:left-auto md:ml-auto md:mr-0 md:w-full md:max-w-[520px] md:translate-x-0 lg:max-w-[580px] xl:max-w-[640px] 2xl:max-w-[660px] min-[1800px]:!max-w-[800px] min-[2400px]:!max-w-[880px]">
               <div className="mx-auto mb-4 flex w-fit flex-col items-center gap-1">
-                <p className="text-center text-[17px] font-medium leading-none text-muted-foreground md:text-[15px]">
+                <p className="text-center text-[17px] font-medium leading-none text-muted-foreground md:text-[15px] min-[1800px]:!text-[20px] min-[2400px]:!text-[22px]">
                   {t("team")}
                 </p>
-                <span className="h-px w-16 bg-brand/55" aria-hidden />
+                <span className="h-px w-16 bg-brand/55 min-[1800px]:!w-24 min-[2400px]:!w-28" aria-hidden />
               </div>
 
               <div
                 className="pointer-events-none absolute left-1/2 top-12 h-[272px] w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(227,6,19,0.065),rgba(255,255,255,0)_72%)] sm:h-[292px] md:top-11 md:h-[238px] lg:h-[266px]"
                 aria-hidden
               />
-              <div className="relative mx-auto flex max-w-[292px] items-start justify-center gap-1 min-[360px]:max-w-[326px] min-[390px]:max-w-[366px] min-[390px]:gap-1.5 sm:max-w-[520px] sm:gap-3 md:max-w-[520px] md:gap-2 lg:max-w-[560px] lg:gap-4 xl:max-w-[620px] xl:gap-5">
+              <div className="relative mx-auto flex max-w-[292px] items-start justify-center gap-1 min-[360px]:max-w-[326px] min-[390px]:max-w-[366px] min-[390px]:gap-1.5 sm:max-w-[520px] sm:gap-3 md:max-w-[520px] md:gap-2 lg:max-w-[560px] lg:gap-4 xl:max-w-[620px] xl:gap-5 min-[1800px]:!max-w-[720px] min-[2300px]:!max-w-[760px] min-[2400px]:!max-w-[820px]">
                 {TEAM_MEMBERS.slice(0, 4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -153,7 +153,7 @@ function ExpertiseHero() {
                   />
                 ))}
               </div>
-              <div className="relative mx-auto mt-4 flex max-w-[258px] items-start justify-center gap-3 min-[360px]:max-w-[284px] min-[390px]:max-w-[328px] sm:max-w-[428px] md:max-w-[408px] lg:mt-3 lg:max-w-[440px] lg:gap-5 xl:max-w-[470px]">
+              <div className="relative mx-auto mt-4 flex max-w-[258px] items-start justify-center gap-3 min-[360px]:max-w-[284px] min-[390px]:max-w-[328px] sm:max-w-[428px] md:max-w-[408px] lg:mt-3 lg:max-w-[440px] lg:gap-5 xl:max-w-[470px] min-[1800px]:!max-w-[540px] min-[2300px]:!max-w-[570px] min-[2400px]:!max-w-[610px]">
                 {TEAM_MEMBERS.slice(4).map((member, index) => (
                   <TeamPortrait
                     key={member.name}
@@ -180,7 +180,7 @@ function TeamPortrait({
   return (
     <figure
       className={cn(
-        "group relative isolate aspect-[196/269] w-[70px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[360px]:w-[78px] min-[390px]:w-[88px] sm:w-[108px] md:w-[112px] lg:w-[122px] xl:w-[134px] 2xl:w-[142px]",
+        "group relative isolate aspect-[196/269] w-[70px] shrink-0 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(255,255,255,0.045)_38%,rgba(10,10,10,0.10)_100%)] p-[5px] shadow-[0_14px_30px_rgba(0,0,0,0.16)] backdrop-blur-[12px] transition duration-300 before:pointer-events-none before:absolute before:-inset-[5px] before:-z-10 before:rounded-full before:bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.46),transparent_28%),radial-gradient(circle_at_78%_92%,rgba(0,0,0,0.10),transparent_34%)] before:blur-[6px] after:pointer-events-none after:absolute after:inset-[1px] after:z-20 after:rounded-full after:shadow-[inset_0_1px_2px_rgba(255,255,255,0.34),inset_0_-10px_16px_rgba(0,0,0,0.13),inset_0_0_0_1px_rgba(255,255,255,0.16)] hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(0,0,0,0.19)] min-[360px]:w-[78px] min-[390px]:w-[88px] sm:w-[108px] md:w-[112px] lg:w-[122px] xl:w-[134px] 2xl:w-[142px] min-[1800px]:!w-[152px] min-[2300px]:!w-[160px] min-[2400px]:!w-[170px]",
         className,
       )}
     >
@@ -189,7 +189,7 @@ function TeamPortrait({
           src={member.image}
           alt={member.name}
           fill
-          sizes="(max-width: 640px) 76px, (max-width: 768px) 88px, (max-width: 1024px) 108px, (max-width: 1280px) 124px, 136px"
+          sizes="(max-width: 640px) 76px, (max-width: 768px) 88px, (max-width: 1024px) 108px, (max-width: 1280px) 124px, (max-width: 1799px) 142px, (max-width: 2299px) 152px, (max-width: 2399px) 160px, 170px"
           className="scale-[1.025] object-cover object-center opacity-[0.99] saturate-[0.98] transition duration-300 group-hover:scale-[1.055] group-hover:opacity-100 group-hover:saturate-100"
         />
       </div>
@@ -201,24 +201,24 @@ function ExpertiseGrid() {
   const t = useTranslations("ExpertisePage.Services");
 
   return (
-    <section className="bg-background pb-[118px]" aria-labelledby="expertise-services">
+    <section className="bg-background pb-[118px] min-[1800px]:!pb-[140px] min-[2400px]:!pb-[160px]" aria-labelledby="expertise-services">
       <Container size="wide">
-        <div className="mx-auto max-w-[1080px]">
+        <div className="mx-auto max-w-[1080px] min-[1800px]:!max-w-[1480px] min-[2400px]:!max-w-[1600px]">
           <Reveal>
-            <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground">
-              <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+            <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[18px]">
+              <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
               {t("eyebrow")}
             </div>
 
             <h2
               id="expertise-services"
-              className="domtek-text-shadow mt-8 max-w-[320px] text-[30px] font-extrabold leading-[1.06] text-foreground sm:max-w-[560px] sm:text-[44px] md:text-[52px]"
+              className="domtek-text-shadow mt-8 max-w-[320px] text-[30px] font-extrabold leading-[1.06] text-foreground sm:max-w-[560px] sm:text-[44px] md:text-[52px] min-[1800px]:!max-w-[680px] min-[1800px]:!text-[58px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[66px]"
             >
               {t("title")}
               <span className="text-brand">.</span>
             </h2>
 
-            <p className="mt-7 max-w-[320px] text-[15px] font-medium leading-[1.42] text-muted-foreground sm:max-w-[610px]">
+            <p className="mt-7 max-w-[320px] text-[15px] font-medium leading-[1.42] text-muted-foreground sm:max-w-[610px] min-[1800px]:!max-w-[760px] min-[1800px]:!text-[17px] min-[2400px]:!text-[19px]">
               {t("intro")}
             </p>
           </Reveal>
@@ -241,7 +241,7 @@ function ExpertiseServiceCards({
   const t = useTranslations("ExpertisePage.Services");
 
   return (
-    <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+    <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 min-[1800px]:!gap-6 min-[2400px]:!mt-12">
       {items.map((item, index) => {
         const Icon = item.icon;
 
@@ -250,16 +250,16 @@ function ExpertiseServiceCards({
             as="article"
             key={item.key}
             delay={(startIndex + index) * 0.05}
-            className="group flex min-h-[220px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-3 py-6 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[246px] sm:px-6 sm:py-8"
+            className="group flex min-h-[220px] flex-col items-center justify-center rounded-[7px] border border-border bg-white px-3 py-6 text-center transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[246px] sm:px-6 sm:py-8 min-[1800px]:!min-h-[270px] min-[1800px]:!px-8 min-[2400px]:!min-h-[292px]"
           >
             <Icon
-              className="size-9 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1 sm:size-10"
+              className="size-9 stroke-[1.8] text-brand transition-transform duration-300 group-hover:-translate-y-1 sm:size-10 min-[1800px]:!size-12 min-[2400px]:!size-[52px]"
               aria-hidden
             />
-            <h3 className="mt-6 text-[14px] font-extrabold leading-tight text-foreground sm:mt-8 sm:text-[16px]">
+            <h3 className="mt-6 text-[14px] font-extrabold leading-tight text-foreground sm:mt-8 sm:text-[16px] min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
               {t(`items.${item.key}.title` as never)}
             </h3>
-            <p className="mt-5 max-w-[250px] text-[12.5px] font-medium leading-[1.28] text-muted-foreground sm:mt-8 sm:text-[14px]">
+            <p className="mt-5 max-w-[250px] text-[12.5px] font-medium leading-[1.28] text-muted-foreground sm:mt-8 sm:text-[14px] min-[1800px]:!max-w-[320px] min-[1800px]:!text-[15px] min-[1800px]:!leading-[1.35] min-[2400px]:!text-[16px]">
               {t(`items.${item.key}.description` as never)}
             </p>
           </Reveal>
@@ -273,25 +273,25 @@ function BrainstormingSection() {
   const t = useTranslations("ExpertisePage.Services.brainstorming");
 
   return (
-    <Reveal className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+    <Reveal className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center min-[1800px]:!my-24 min-[1800px]:!grid-cols-[0.95fr_1.05fr] min-[1800px]:!gap-12">
       <div className="relative">
-        <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground">
-          <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+        <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[17px]">
+          <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
           {t("title")}
         </div>
-        <h3 className="domtek-text-shadow mt-7 max-w-[520px] text-[42px] font-extrabold leading-none text-foreground sm:text-[58px]">
+        <h3 className="domtek-text-shadow mt-7 max-w-[520px] text-[42px] font-extrabold leading-none text-foreground sm:text-[58px] min-[1800px]:!max-w-[700px] min-[1800px]:!text-[68px] min-[2400px]:!text-[74px]">
           {t("eyebrow")}
           <span className="text-brand">.</span>
         </h3>
-        <p className="mt-6 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground">
+        <p className="mt-6 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
           {t("lead")}
         </p>
-        <p className="mt-4 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground">
+        <p className="mt-4 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
           {t("body")}
         </p>
       </div>
 
-      <div className="lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24">
+      <div className="lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24 min-[1800px]:!translate-x-0 min-[1800px]:justify-self-center">
         <BrainstormingCardSwap />
       </div>
     </Reveal>
@@ -311,7 +311,7 @@ function ExpertiseSwissBanner() {
       : [titleLineTwo];
 
   return (
-    <section className="relative h-[176px] overflow-hidden bg-alps md:h-[236px]">
+    <section className="relative h-[176px] overflow-hidden bg-alps md:h-[236px] min-[1800px]:!h-[280px] min-[2400px]:!h-[320px]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
           src="/assets/expertise-alps-cows.png"
@@ -364,7 +364,7 @@ function ExpertiseSwissBanner() {
       >
         <Reveal className="flex w-full min-w-0 items-center justify-end gap-3 md:w-auto md:justify-start md:gap-6">
           <h2
-            className="min-w-0 max-w-[calc(100vw-104px)] text-right text-[15px] font-extrabold uppercase leading-[1.05] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[17px] sm:max-w-[560px] sm:text-[22px] md:max-w-[660px] md:text-left md:text-[26px] md:leading-[1.16]"
+            className="min-w-0 max-w-[calc(100vw-104px)] text-right text-[15px] font-extrabold uppercase leading-[1.05] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.42)] min-[390px]:text-[17px] sm:max-w-[560px] sm:text-[22px] md:max-w-[660px] md:text-left md:text-[26px] md:leading-[1.16] min-[1800px]:!max-w-[780px] min-[1800px]:!text-[32px] min-[2400px]:!text-[36px]"
             aria-label={t("title")}
           >
             <span className="block whitespace-nowrap" aria-hidden>
@@ -384,7 +384,7 @@ function ExpertiseSwissBanner() {
             alt=""
             width={88}
             height={88}
-            className="size-[38px] shrink-0 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.28)] sm:size-[42px] md:size-[52px] lg:size-[58px]"
+            className="size-[38px] shrink-0 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.28)] sm:size-[42px] md:size-[52px] lg:size-[58px] min-[1800px]:!size-[64px] min-[2400px]:!size-[72px]"
           />
         </Reveal>
       </Container>
@@ -396,15 +396,15 @@ function AddedValueSection() {
   const t = useTranslations("ExpertisePage.AddedValue");
 
   return (
-    <section className="bg-background py-[78px] md:py-[92px]">
+    <section className="bg-background py-[78px] md:py-[92px] min-[1800px]:!py-[96px] min-[2400px]:!py-[112px]">
       <Container
         size="wide"
-        className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6"
+        className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6 min-[1800px]:!max-w-[1560px]"
       >
-        <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch">
+        <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch min-[1800px]:!grid-cols-[1.25fr_1fr] min-[1800px]:!gap-8">
           <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
-            <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground">
-              <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+            <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground min-[1800px]:!text-[18px]">
+              <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
               {t("eyebrow")}
             </div>
 
@@ -422,12 +422,12 @@ function AddedValueSection() {
                       alt=""
                       width={item.width}
                       height={item.height}
-                      className="h-9 w-9 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:h-11 sm:w-11"
+                      className="h-9 w-9 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:h-11 sm:w-11 min-[1800px]:!size-12 min-[2400px]:!size-[52px]"
                     />
-                    <h3 className="mt-4 min-h-[2.5em] text-[13px] font-extrabold leading-tight text-foreground sm:mt-5 sm:text-[15px] lg:text-[16px]">
+                    <h3 className="mt-4 min-h-[2.5em] text-[13px] font-extrabold leading-tight text-foreground sm:mt-5 sm:text-[15px] lg:text-[16px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
                       {t(`values.${item.key}.title` as never)}
                     </h3>
-                    <p className="mt-3 text-[11.5px] font-medium leading-[1.34] text-muted-foreground sm:mt-4 sm:text-[14px] sm:leading-[1.38]">
+                    <p className="mt-3 text-[11.5px] font-medium leading-[1.34] text-muted-foreground sm:mt-4 sm:text-[14px] sm:leading-[1.38] min-[1800px]:!text-[15px] min-[1800px]:!leading-[1.42] min-[2400px]:!text-[16px]">
                       {t(`values.${item.key}.description` as never)}
                     </p>
                   </Reveal>
@@ -470,19 +470,19 @@ function AddedValueSection() {
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[48px]"
+                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[48px] min-[1800px]:!size-[54px] min-[2400px]:!size-[60px]"
                     />
                     <div className="min-w-0">
                       <strong
                         className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(18px,4.3vw,26px)] sm:text-[clamp(20px,2.25vw,26px)] lg:text-[clamp(20px,1.55vw,25px)] 2xl:text-[27px]"
-                            : "text-[clamp(24px,6.2vw,34px)] sm:text-[clamp(26px,3.25vw,36px)] lg:text-[clamp(26px,2.35vw,34px)]"
+                            ? "text-[clamp(18px,4.3vw,26px)] sm:text-[clamp(20px,2.25vw,26px)] lg:text-[clamp(20px,1.55vw,25px)] 2xl:text-[27px] min-[1800px]:!text-[30px] min-[2400px]:!text-[34px]"
+                            : "text-[clamp(24px,6.2vw,34px)] sm:text-[clamp(26px,3.25vw,36px)] lg:text-[clamp(26px,2.35vw,34px)] min-[1800px]:!text-[40px] min-[2400px]:!text-[44px]"
                         }`}
                       >
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
-                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px]">
+                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[16px] min-[2400px]:!text-[17px]">
                         {t(`stats.${stat.key}.label` as never)}
                       </span>
                     </div>
@@ -503,7 +503,7 @@ function ExpertiseCta() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-b border-brand/35 bg-white py-20 md:min-h-[360px] md:py-24"
+      className="relative overflow-hidden border-b border-brand/35 bg-white py-20 md:min-h-[360px] md:py-24 min-[1800px]:!min-h-[440px] min-[1800px]:!py-[120px] min-[2400px]:!min-h-[520px] min-[2400px]:!py-[140px]"
       aria-labelledby="expertise-cta-title"
     >
       <Image
@@ -514,19 +514,19 @@ function ExpertiseCta() {
         quality={100}
         sizes="(max-width: 1024px) 100vw, 720px"
         unoptimized
-        className="pointer-events-none absolute right-[-120px] top-12 hidden w-[52vw] max-w-[760px] opacity-60 md:block"
+        className="pointer-events-none absolute right-[-120px] top-12 hidden w-[52vw] max-w-[760px] opacity-60 md:block min-[1800px]:!right-[4vw] min-[1800px]:!w-[44vw] min-[1800px]:!max-w-[900px] min-[2400px]:!max-w-[1000px]"
       />
 
-      <Container size="wide" className="relative z-10">
-        <Reveal className="max-w-[560px]">
-          <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground">
-            <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+      <Container size="wide" className="relative z-10 min-[1800px]:!max-w-[1600px] min-[2400px]:!max-w-[1900px]">
+        <Reveal className="max-w-[560px] min-[1800px]:!max-w-[720px]">
+          <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[18px]">
+            <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
             {t("eyebrow")}
           </div>
 
           <h2
             id="expertise-cta-title"
-            className="domtek-text-shadow mt-8 text-[34px] font-extrabold leading-[1.05] text-foreground sm:text-[46px] md:text-[52px]"
+            className="domtek-text-shadow mt-8 text-[34px] font-extrabold leading-[1.05] text-foreground sm:text-[46px] md:text-[52px] min-[1800px]:!text-[62px] min-[2400px]:!text-[72px]"
           >
             <span className="text-brand">.</span>
             {t("title")}
@@ -534,13 +534,13 @@ function ExpertiseCta() {
             <span className="text-brand">?</span>
           </h2>
 
-          <p className="mt-5 max-w-[450px] text-[14px] font-medium leading-[1.4] text-muted-foreground">
+          <p className="mt-5 max-w-[450px] text-[14px] font-medium leading-[1.4] text-muted-foreground min-[1800px]:!max-w-[600px] min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
             {t("subtitle")}
           </p>
 
           <Button
             nativeButton={false}
-            className="mt-8 h-10 rounded-[7px] border-0 px-5 text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform has-data-[icon=inline-end]:pr-5 hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
+            className="mt-8 h-10 rounded-[7px] border-0 px-5 text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform has-data-[icon=inline-end]:pr-5 hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!h-[52px] min-[1800px]:!px-7 min-[1800px]:!text-[17px] min-[2400px]:!h-[58px] min-[2400px]:!text-[18px]"
             render={<Link href="/contact" />}
           >
             {t("button")}

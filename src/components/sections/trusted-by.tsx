@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
+import { cn } from "@/lib/utils";
 
 const LOGOS = [
   { name: "Aventor", src: "logo-aventor", width: 251, height: 42 },
@@ -16,15 +17,39 @@ const LOGOS = [
   { name: "GIN Kiteboarding", src: "logo-gin", width: 169, height: 113 },
 ] as const;
 
-export function TrustedBy() {
+export function TrustedBy({ density = "default" }: { density?: "default" | "compact" }) {
   const t = useTranslations("TrustedBy");
   const logos = [...LOGOS, ...LOGOS];
+  const compact = density === "compact";
 
   return (
-    <section className="bg-background py-8 md:py-[72px] canvas-lg:py-[160px] canvas-xl:py-[184px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-4 md:mb-8 canvas-lg:mb-20">
+    <section
+      className={cn(
+        "bg-background py-8 md:py-[72px]",
+        compact
+          ? "min-[1800px]:!py-[96px] min-[2300px]:!py-[112px]"
+          : "min-[1800px]:py-[160px] min-[2300px]:!py-[184px]",
+      )}
+      aria-label={t("label")}
+    >
+      <Container
+        size="wide"
+        className={cn(
+          "mb-4 md:mb-8",
+          compact
+            ? "min-[1800px]:!mb-10 min-[1800px]:!max-w-[1600px] min-[2300px]:!mb-12"
+            : "min-[1800px]:mb-20 min-[2300px]:!max-w-[1900px]",
+        )}
+      >
         <Reveal>
-          <h2 className="text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px] canvas-lg:text-[46px] canvas-xl:text-[54px]">
+          <h2
+            className={cn(
+              "text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px]",
+              compact
+                ? "min-[1800px]:!text-[32px] min-[2300px]:!text-[35px]"
+                : "min-[1800px]:text-[46px] min-[2300px]:!text-[54px]",
+            )}
+          >
             {t("label")}
           </h2>
         </Reveal>
@@ -51,14 +76,32 @@ export function TrustedBy() {
               const wideLogoBoxHeight = Math.min(Math.round(logo.height * 2.05), 180);
               const ultraLogoBoxWidth = Math.min(Math.round(logo.width * 2.35), 530);
               const ultraLogoBoxHeight = Math.min(Math.round(logo.height * 2.35), 210);
+              const compactLogoBoxWidth = Math.min(
+                Math.round(logo.width * 1.45),
+                320,
+              );
+              const compactLogoBoxHeight = Math.min(
+                Math.round(logo.height * 1.45),
+                120,
+              );
 
               return (
                 <div
                   key={`${logo.name}-${index}`}
-                  className="flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px] canvas-lg:h-[220px] canvas-lg:w-[520px] canvas-xl:h-[250px] canvas-xl:w-[590px]"
+                  className={cn(
+                    "flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px]",
+                    compact
+                      ? "min-[1800px]:!h-[150px] min-[1800px]:!w-[360px] min-[2300px]:!h-[160px] min-[2300px]:!w-[380px]"
+                      : "min-[1800px]:h-[220px] min-[1800px]:w-[520px] min-[2300px]:!h-[250px] min-[2300px]:!w-[590px]",
+                  )}
                 >
                   <div
-                    className="relative h-[var(--logo-height-mobile)] w-[var(--logo-width-mobile)] md:h-[var(--logo-height)] md:w-[var(--logo-width)] canvas-lg:h-[var(--logo-height-wide)] canvas-lg:w-[var(--logo-width-wide)] canvas-xl:h-[var(--logo-height-ultra)] canvas-xl:w-[var(--logo-width-ultra)]"
+                    className={cn(
+                      "relative h-[var(--logo-height-mobile)] w-[var(--logo-width-mobile)] md:h-[var(--logo-height)] md:w-[var(--logo-width)]",
+                      compact
+                        ? "min-[1800px]:!h-[var(--logo-height-compact)] min-[1800px]:!w-[var(--logo-width-compact)]"
+                        : "min-[1800px]:h-[var(--logo-height-wide)] min-[1800px]:w-[var(--logo-width-wide)] min-[2300px]:!h-[var(--logo-height-ultra)] min-[2300px]:!w-[var(--logo-width-ultra)]",
+                    )}
                     style={{
                       "--logo-width-mobile": `${mobileLogoBoxWidth}px`,
                       "--logo-height-mobile": `${mobileLogoBoxHeight}px`,
@@ -68,13 +111,15 @@ export function TrustedBy() {
                       "--logo-height-wide": `${wideLogoBoxHeight}px`,
                       "--logo-width-ultra": `${ultraLogoBoxWidth}px`,
                       "--logo-height-ultra": `${ultraLogoBoxHeight}px`,
+                      "--logo-width-compact": `${compactLogoBoxWidth}px`,
+                      "--logo-height-compact": `${compactLogoBoxHeight}px`,
                     } as CSSProperties}
                   >
                     <Image
                       src={`/assets/${logo.src}.png`}
                       alt={logo.name}
                       fill
-                      sizes={`${logoBoxWidth}px`}
+                      sizes={`${compact ? compactLogoBoxWidth : logoBoxWidth}px`}
                       className="object-contain"
                     />
                   </div>

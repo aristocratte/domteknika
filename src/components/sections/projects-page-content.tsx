@@ -6073,23 +6073,23 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           size="wide"
           className="relative z-10 flex min-h-[410px] items-start pb-10 min-[2400px]:!min-h-[780px] min-[2400px]:!pb-20"
         >
-          <Reveal className="max-w-[560px] pb-5 md:pb-0 min-[2400px]:!max-w-[1080px]">
+          <Reveal className="max-w-[560px] pb-5 md:pb-0 min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
               <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
               {copy.hero.eyebrow}
             </div>
             <h1
               id="projects-page-title"
-              className="domtek-text-shadow mt-[38px] max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
+              className="domtek-text-shadow mt-[38px] max-w-full text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[1800px]:!text-[74px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
             >
               {copy.hero.title}
               <span className="text-brand">.</span>
             </h1>
-            <p className="mt-8 max-w-[500px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] min-[2400px]:!mt-12 min-[2400px]:!max-w-[860px] min-[2400px]:!text-[26px]">
+            <p className="mt-8 max-w-[430px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[21px]">
               <strong className="font-extrabold">{copy.hero.strong}</strong>{" "}
               {copy.hero.rest}
             </p>
-            <p className="mt-5 max-w-[470px] text-[16px] leading-[1.35] text-muted-foreground sm:text-[17px] sm:leading-[1.32] min-[2400px]:!mt-8 min-[2400px]:!max-w-[820px] min-[2400px]:!text-[25px]">
+            <p className="mt-5 max-w-[430px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[21px]">
               {copy.hero.lead}
             </p>
           </Reveal>

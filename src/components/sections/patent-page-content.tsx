@@ -1203,18 +1203,18 @@ export function PatentPageContent({ locale }: { locale: string }) {
     <div className={wrapperClassName}>
       <details data-patent-sort-details className={sortClassName}>
         <summary
-          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden"
+          className="flex h-11 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-[4px] border border-border bg-white px-4 text-[13px] font-extrabold text-foreground shadow-[0_2px_7px_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/35 focus-visible:ring-2 focus-visible:ring-brand/35 [&::-webkit-details-marker]:hidden min-[1800px]:!h-[52px] min-[1800px]:!px-5 min-[1800px]:!text-[15px] min-[2400px]:!h-[58px] min-[2400px]:!text-[17px]"
           aria-label={copy.sort.label}
         >
           <span className="inline-flex min-w-0 items-center gap-2">
-            <ArrowDownUp className="size-4 shrink-0 text-brand" aria-hidden />
+            <ArrowDownUp className="size-4 shrink-0 text-brand min-[1800px]:!size-5 min-[2400px]:!size-6" aria-hidden />
             <span className="shrink-0">{copy.sort.label}</span>
           </span>
-          <span className="max-w-[92px] truncate text-[12px] font-medium text-muted-foreground">
+          <span className="max-w-[92px] truncate text-[12px] font-medium text-muted-foreground min-[1800px]:!max-w-[128px] min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]">
             {activeSortLabel}
           </span>
         </summary>
-        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)]">
+        <div className="absolute left-0 top-[calc(100%+8px)] grid min-w-[220px] rounded-[7px] border border-border bg-white p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] min-[1800px]:!min-w-[270px] min-[1800px]:!p-1.5">
           {copy.sort.options.map((option) => {
             const active = option.key === sortKey;
 
@@ -1223,7 +1223,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 key={option.key}
                 type="button"
                 className={cn(
-                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none",
+                  "flex items-center justify-between gap-4 rounded-[5px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none min-[1800px]:!px-4 min-[1800px]:!py-3 min-[1800px]:!text-[15px] min-[2400px]:!text-[17px]",
                   active && "bg-brand text-white hover:bg-brand",
                 )}
                 aria-pressed={active}
@@ -1246,14 +1246,14 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
       <label className={searchClassName}>
         <Search
-          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground min-[1800px]:!left-5 min-[1800px]:!size-5 min-[2400px]:!size-6"
           aria-hidden
         />
         <input
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
           placeholder={copy.searchPlaceholder}
-          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+          className="h-11 w-full rounded-[4px] border border-border bg-white pl-11 pr-4 text-[13px] font-medium text-foreground outline-none shadow-[0_2px_7px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/75 focus:border-brand/50 focus:shadow-[0_10px_24px_rgba(0,0,0,0.08)] min-[1800px]:!h-[52px] min-[1800px]:!pl-14 min-[1800px]:!pr-5 min-[1800px]:!text-[15px] min-[2400px]:!h-[58px] min-[2400px]:!text-[17px]"
           type="search"
         />
       </label>
@@ -1737,7 +1737,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
   return (
     <>
       <section
-        className="relative min-h-[560px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[620px] md:pt-[152px]"
+        className="relative min-h-[560px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[620px] md:pt-[152px] min-[1800px]:!min-h-[700px] min-[2400px]:!min-h-[820px] min-[2400px]:!pt-[152px]"
         aria-labelledby="patent-page-title"
       >
         <Image
@@ -1748,31 +1748,31 @@ export function PatentPageContent({ locale }: { locale: string }) {
           priority
           quality={100}
           unoptimized
-          sizes="(max-width: 768px) 92vw, 800px"
-          className="pointer-events-none absolute right-[-250px] top-[66px] z-0 hidden w-[61vw] max-w-[800px] opacity-[0.82] md:block lg:right-[-54px] xl:right-0"
+          sizes="(max-width: 768px) 92vw, (max-width: 1799px) 800px, (max-width: 2399px) 1040px, 1200px"
+          className="pointer-events-none absolute right-[-250px] top-[66px] z-0 hidden w-[61vw] max-w-[800px] opacity-[0.82] md:block lg:right-[-54px] xl:right-0 min-[1800px]:!right-[4vw] min-[1800px]:!top-[84px] min-[1800px]:!w-[52vw] min-[1800px]:!max-w-[1040px] min-[2400px]:!right-[6vw] min-[2400px]:!max-w-[1200px]"
         />
         <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/42 to-transparent" />
 
         <Container
           size="wide"
-          className="relative z-10 grid min-h-[440px] items-start"
+          className="relative z-10 grid min-h-[440px] items-start min-[1800px]:!min-h-[540px] min-[2400px]:!min-h-[660px]"
         >
-          <Reveal className="max-w-[515px]">
-            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
+          <Reveal className="max-w-[515px] min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
               {copy.hero.eyebrow}
             </div>
             <h1
               id="patent-page-title"
-              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[1800px]:!text-[74px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
             >
               {copy.hero.title}
               <span className="text-brand">.</span>
             </h1>
-            <p className="mt-10 max-w-[430px] text-[15px] font-medium leading-[1.15] text-muted-foreground sm:text-[16px]">
+            <p className="mt-8 max-w-[430px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[21px]">
               {copy.hero.leadOne}
             </p>
-            <p className="mt-5 max-w-[430px] text-[15px] font-medium leading-[1.15] text-muted-foreground sm:text-[16px]">
+            <p className="mt-5 max-w-[430px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[21px]">
               {copy.hero.leadTwo}
             </p>
           </Reveal>
@@ -1782,7 +1782,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
       </section>
 
       <section
-        className="bg-background pb-[64px] pt-[116px] md:pb-[58px] md:pt-[98px]"
+        className="bg-background pb-[64px] pt-[116px] md:pb-[58px] md:pt-[98px] min-[1800px]:!pb-[96px] min-[1800px]:!pt-[120px] min-[2400px]:!pb-[112px] min-[2400px]:!pt-[140px]"
         aria-labelledby="patent-archive-title"
       >
         <Container size="wide">
@@ -1790,17 +1790,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
             <div className="min-w-0 shrink-0">
               <h2
                 id="patent-archive-title"
-                className="text-[22px] font-extrabold leading-none text-foreground"
+                className="text-[22px] font-extrabold leading-none text-foreground min-[1800px]:!text-[28px] min-[2400px]:!text-[32px]"
               >
                 {copy.archiveTitle}
               </h2>
-              <p className="mt-3 text-[12px] font-medium text-muted-foreground">
+              <p className="mt-3 text-[12px] font-medium text-muted-foreground min-[1800px]:!text-[14px] min-[2400px]:!text-[16px]">
                 {visiblePatents.length} / {PATENTS.length} {copy.resultsLabel}
               </p>
             </div>
             {renderPatentControls({
               wrapperClassName:
-                "hidden w-full min-w-0 gap-3 sm:grid sm:grid-cols-[minmax(150px,210px)_minmax(0,1fr)] min-[860px]:w-auto min-[860px]:grid-cols-[180px_320px] min-[860px]:justify-end lg:grid-cols-[210px_360px]",
+                "hidden w-full min-w-0 gap-3 sm:grid sm:grid-cols-[minmax(150px,210px)_minmax(0,1fr)] min-[860px]:w-auto min-[860px]:grid-cols-[180px_320px] min-[860px]:justify-end lg:grid-cols-[210px_360px] min-[1800px]:!grid-cols-[250px_440px] min-[1800px]:!gap-4 min-[2400px]:!grid-cols-[280px_500px]",
               sortClassName: "relative z-30 min-w-0",
               searchClassName: "relative block min-w-0",
             })}
@@ -1812,7 +1812,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
             as="div"
           >
             <div
-              className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))]"
+              className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-[82px_repeat(6,minmax(0,1fr))] min-[1800px]:!grid-cols-[110px_repeat(6,minmax(0,1fr))] min-[1800px]:!gap-5 min-[2400px]:!grid-cols-[128px_repeat(6,minmax(0,1fr))] min-[2400px]:!gap-6"
               role="group"
               aria-label={copy.filtersLabel}
             >
@@ -1824,7 +1824,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                     key={filter.key}
                     type="button"
                     className={cn(
-                      "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]",
+                      "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)] min-[1800px]:!h-[58px] min-[1800px]:!px-5 min-[2400px]:!h-[64px] min-[2400px]:!px-6",
                       filter.icon
                         ? "grid-cols-[auto_1fr]"
                         : "place-items-center text-center",
@@ -1853,13 +1853,13 @@ export function PatentPageContent({ locale }: { locale: string }) {
                         !filter.icon && "place-items-center text-center",
                       )}
                     >
-                      <strong className="text-[12px] font-extrabold leading-none">
+                      <strong className="text-[12px] font-extrabold leading-none min-[1800px]:!text-[14px] min-[2400px]:!text-[16px]">
                         {filter.label}
                       </strong>
                       {filter.key !== "all" && (
                         <span
                           className={cn(
-                            "mt-1 text-[9px] font-medium leading-none text-muted-foreground",
+                            "mt-1 text-[9px] font-medium leading-none text-muted-foreground min-[1800px]:!text-[10px] min-[2400px]:!text-[12px]",
                             active && "text-white/85",
                           )}
                         >
@@ -1882,7 +1882,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visiblePatents.length > 0 ? (
-            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            <div className="mt-10 grid gap-5 lg:grid-cols-2 min-[1800px]:!mt-12 min-[1800px]:!gap-6 min-[2400px]:!mt-16 min-[2400px]:!gap-8">
               {visiblePatents.map((patent) => (
                 <div key={patent.id}>
                   <PatentCard
@@ -2262,19 +2262,19 @@ function PatentStatsBar({ stats }: { stats: PatentStat[] }) {
   return (
     <Reveal
       delay={0.1}
-      className="relative z-20 mx-auto mt-10 w-full max-w-[720px] md:absolute md:bottom-9 md:left-1/2 md:mt-0 md:-translate-x-1/2"
+      className="relative z-20 mx-auto mt-10 w-full max-w-[720px] md:absolute md:bottom-9 md:left-1/2 md:mt-0 md:-translate-x-1/2 min-[1800px]:!bottom-12 min-[1800px]:!max-w-[1000px] min-[2400px]:!bottom-14 min-[2400px]:!max-w-[1180px]"
     >
       <div className="grid overflow-hidden rounded-[9px] border border-border/80 bg-white shadow-[0_7px_14px_rgba(0,0,0,0.20)] sm:grid-cols-3">
         {stats.map((stat, index) => (
           <article
             key={stat.label}
             className={cn(
-              "group/stat grid min-h-[74px] grid-cols-[34px_1fr] items-center gap-3 px-5 py-3 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.08)] [transition-timing-function:var(--ease-smooth)]",
+              "group/stat grid min-h-[74px] grid-cols-[34px_1fr] items-center gap-3 px-5 py-3 transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.08)] [transition-timing-function:var(--ease-smooth)] min-[1800px]:!min-h-[90px] min-[1800px]:!grid-cols-[44px_1fr] min-[1800px]:!gap-4 min-[1800px]:!px-7 min-[1800px]:!py-4 min-[2400px]:!min-h-[104px] min-[2400px]:!grid-cols-[50px_1fr] min-[2400px]:!px-8",
               index < stats.length - 1 &&
                 "border-b border-border sm:border-b-0 sm:border-r",
             )}
           >
-            <span className="grid size-8 place-items-center transition-transform duration-500 group-hover/stat:-translate-y-1 [transition-timing-function:var(--ease-smooth)]">
+            <span className="grid size-8 place-items-center transition-transform duration-500 group-hover/stat:-translate-y-1 [transition-timing-function:var(--ease-smooth)] min-[1800px]:!size-10 min-[2400px]:!size-12">
               <Image
                 src={stat.icon}
                 alt=""
@@ -2285,10 +2285,10 @@ function PatentStatsBar({ stats }: { stats: PatentStat[] }) {
               />
             </span>
             <div className="min-w-0">
-              <strong className="block text-[24px] font-extrabold leading-none text-foreground">
+              <strong className="block text-[24px] font-extrabold leading-none text-foreground min-[1800px]:!text-[30px] min-[2400px]:!text-[34px]">
                 {stat.value}
               </strong>
-              <span className="mt-1 block text-[10px] font-extrabold leading-none text-foreground/80">
+              <span className="mt-1 block text-[10px] font-extrabold leading-none text-foreground/80 min-[1800px]:!mt-2 min-[1800px]:!text-[13px] min-[2400px]:!text-[15px]">
                 {stat.label}
               </span>
             </div>
@@ -3237,7 +3237,7 @@ function PatentCard({
   };
 
   return (
-    <article className="group/patent relative z-0 flex h-[312px] w-full origin-center transform-gpu flex-row overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[390px]:h-[306px] sm:h-[292px] lg:h-[286px] xl:h-[268px] [transition-timing-function:var(--ease-smooth)]">
+    <article className="group/patent relative z-0 flex h-[312px] w-full origin-center transform-gpu flex-row overflow-hidden rounded-[5px] border border-border bg-white text-left shadow-[0_4px_7px_rgba(0,0,0,0.18)] outline-none transition-[scale,box-shadow,border-color] duration-[1100ms] will-change-transform hover:z-10 hover:scale-[1.025] hover:border-brand/25 hover:shadow-[0_16px_34px_rgba(0,0,0,0.15)] focus-within:z-10 focus-within:scale-[1.025] focus-within:border-brand/25 focus-within:shadow-[0_16px_34px_rgba(0,0,0,0.15)] motion-reduce:transition-none min-[390px]:h-[306px] sm:h-[292px] lg:h-[286px] xl:h-[268px] min-[1800px]:!h-[310px] min-[2400px]:!h-[340px] [transition-timing-function:var(--ease-smooth)]">
       <button
         type="button"
         className="absolute inset-0 z-10 cursor-pointer rounded-[5px] outline-none focus-visible:ring-2 focus-visible:ring-brand/35"
@@ -3252,7 +3252,7 @@ function PatentCard({
             src={activeImage.href}
             alt=""
             fill
-            sizes="(max-width: 768px) 36vw, (max-width: 1024px) 38vw, 220px"
+            sizes="(max-width: 768px) 36vw, (max-width: 1024px) 38vw, (max-width: 1799px) 220px, (max-width: 2399px) 300px, 340px"
             quality={100}
             unoptimized
             className="object-contain p-2.5 transition-transform duration-700 group-hover/patent:scale-105 min-[390px]:p-3 [transition-timing-function:var(--ease-smooth)]"
@@ -3273,7 +3273,7 @@ function PatentCard({
           <>
             <button
               type="button"
-              className="pointer-events-auto absolute left-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]"
+              className="pointer-events-auto absolute left-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)] min-[1800px]:!left-4 min-[1800px]:!size-8 min-[2400px]:!size-9"
               aria-label={previousDrawingLabel}
               onClick={(event) => {
                 event.stopPropagation();
@@ -3284,7 +3284,7 @@ function PatentCard({
             </button>
             <button
               type="button"
-              className="pointer-events-auto absolute right-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)]"
+              className="pointer-events-auto absolute right-3 top-1/2 z-30 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_6px_16px_rgba(0,0,0,0.13)] transition-[transform,background-color,color] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 [transition-timing-function:var(--ease-smooth)] min-[1800px]:!right-4 min-[1800px]:!size-8 min-[2400px]:!size-9"
               aria-label={nextDrawingLabel}
               onClick={(event) => {
                 event.stopPropagation();
@@ -3293,17 +3293,17 @@ function PatentCard({
             >
               <ChevronRight className="size-3.5" aria-hidden />
             </button>
-            <span className="absolute bottom-2 right-2 rounded-full bg-white/95 px-2 py-1 text-[9px] font-extrabold text-muted-foreground shadow-[0_5px_12px_rgba(0,0,0,0.08)]">
+            <span className="absolute bottom-2 right-2 rounded-full bg-white/95 px-2 py-1 text-[9px] font-extrabold text-muted-foreground shadow-[0_5px_12px_rgba(0,0,0,0.08)] min-[1800px]:!bottom-3 min-[1800px]:!right-3 min-[1800px]:!text-[10px] min-[2400px]:!text-[12px]">
               {safeActiveImageIndex + 1} / {patent.images.length}
             </span>
           </>
         )}
       </span>
 
-      <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-3 py-3 min-[390px]:px-4 min-[390px]:py-4">
-        <span className="grid grid-cols-[24px_1fr_auto] items-start gap-2 min-[390px]:grid-cols-[28px_1fr_auto] min-[390px]:gap-3">
+      <span className="pointer-events-none relative z-20 flex min-w-0 flex-1 flex-col px-3 py-3 min-[390px]:px-4 min-[390px]:py-4 min-[1800px]:!px-6 min-[1800px]:!py-5 min-[2400px]:!px-7 min-[2400px]:!py-6">
+        <span className="grid grid-cols-[24px_1fr_auto] items-start gap-2 min-[390px]:grid-cols-[28px_1fr_auto] min-[390px]:gap-3 min-[1800px]:!grid-cols-[32px_1fr_auto] min-[1800px]:!gap-4 min-[2400px]:!grid-cols-[36px_1fr_auto]">
           <span
-            className="grid size-6 place-items-center min-[390px]:size-7"
+            className="grid size-6 place-items-center min-[390px]:size-7 min-[1800px]:!size-8 min-[2400px]:!size-9"
             aria-hidden
           >
             <Image
@@ -3315,20 +3315,20 @@ function PatentCard({
               className="object-contain transition-transform duration-500 group-hover/patent:scale-110 group-focus-within/patent:scale-110 [transition-timing-function:var(--ease-smooth)]"
             />
           </span>
-          <span className="max-w-none text-[12px] font-extrabold leading-none text-brand min-[390px]:text-[13px] lg:text-[14px]">
+          <span className="max-w-none text-[12px] font-extrabold leading-none text-brand min-[390px]:text-[13px] lg:text-[14px] min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]">
             {patent.publication}
             <span className="ml-2 inline-block size-1.5 translate-y-[-1px] rounded-full bg-brand" />
           </span>
           <ArrowUpRight
-            className="size-[16px] text-muted-foreground transition-transform duration-500 group-hover/patent:translate-x-0.5 group-hover/patent:-translate-y-0.5 group-focus-within/patent:translate-x-0.5 group-focus-within/patent:-translate-y-0.5 [transition-timing-function:var(--ease-smooth)]"
+            className="size-[16px] text-muted-foreground transition-transform duration-500 group-hover/patent:translate-x-0.5 group-hover/patent:-translate-y-0.5 group-focus-within/patent:translate-x-0.5 group-focus-within/patent:-translate-y-0.5 [transition-timing-function:var(--ease-smooth)] min-[1800px]:!size-5 min-[2400px]:!size-6"
             aria-hidden
           />
         </span>
 
-        <span className="mt-3 max-w-none overflow-hidden text-[12px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-4 min-[390px]:text-[13px] lg:text-[14px]">
+        <span className="mt-3 max-w-none overflow-hidden text-[12px] font-extrabold leading-[1.08] text-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] min-[390px]:mt-4 min-[390px]:text-[13px] lg:text-[14px] min-[1800px]:!text-[16px] min-[1800px]:!leading-[1.15] min-[2400px]:!text-[18px]">
           {patent.title}
         </span>
-        <span className="mt-2 h-[68px] max-w-none overflow-hidden text-[9px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] min-[390px]:mt-3 min-[390px]:h-[72px] min-[390px]:text-[10px] sm:h-[62px] sm:[-webkit-line-clamp:4] lg:h-[54px] xl:h-[50px]">
+        <span className="mt-2 h-[68px] max-w-none overflow-hidden text-[9px] font-medium leading-[1.35] text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] min-[390px]:mt-3 min-[390px]:h-[72px] min-[390px]:text-[10px] sm:h-[62px] sm:[-webkit-line-clamp:4] lg:h-[54px] xl:h-[50px] min-[1800px]:!mt-4 min-[1800px]:!h-[68px] min-[1800px]:!text-[12px] min-[1800px]:!leading-[1.42] min-[2400px]:!h-[78px] min-[2400px]:!text-[14px]">
           {patent.abstract}
         </span>
 
@@ -3339,7 +3339,7 @@ function PatentCard({
               {patent.tags.map((tag, index) => (
                 <span
                   key={tag}
-                  className="flex max-w-[116px] items-center gap-2.5 truncate text-[9px] font-extrabold leading-none text-muted-foreground"
+                  className="flex max-w-[116px] items-center gap-2.5 truncate text-[9px] font-extrabold leading-none text-muted-foreground min-[1800px]:!max-w-[150px] min-[1800px]:!text-[10px] min-[2400px]:!max-w-[180px] min-[2400px]:!text-[12px]"
                 >
                   {tag}
                   {index < patent.tags.length - 1 && (
@@ -3351,7 +3351,7 @@ function PatentCard({
                 </span>
               ))}
             </span>
-            <span className="shrink-0 text-[10px] font-medium leading-none text-muted-foreground">
+            <span className="shrink-0 text-[10px] font-medium leading-none text-muted-foreground min-[1800px]:!text-[12px] min-[2400px]:!text-[14px]">
               {depositedLabel} {patent.date}
             </span>
           </span>
@@ -3367,7 +3367,7 @@ export function PatentPageCta({ locale }: { locale: string }) {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-white pb-[112px] pt-[72px] md:min-h-[430px] md:pb-[126px] md:pt-[86px]"
+      className="relative overflow-hidden bg-white pb-[112px] pt-[72px] md:min-h-[430px] md:pb-[126px] md:pt-[86px] min-[1800px]:!min-h-[500px] min-[1800px]:!pb-[140px] min-[1800px]:!pt-[110px] min-[2400px]:!min-h-[580px] min-[2400px]:!pb-[160px] min-[2400px]:!pt-[130px]"
       aria-labelledby="patent-cta-title"
     >
       <Image
@@ -3377,19 +3377,19 @@ export function PatentPageCta({ locale }: { locale: string }) {
         height={415}
         quality={100}
         unoptimized
-        sizes="(max-width: 1024px) 100vw, 620px"
-        className="pointer-events-none absolute bottom-[70px] right-[6%] hidden w-[43vw] max-w-[620px] opacity-35 md:block"
+        sizes="(max-width: 1024px) 100vw, (max-width: 1799px) 620px, (max-width: 2399px) 900px, 1040px"
+        className="pointer-events-none absolute bottom-[70px] right-[6%] hidden w-[43vw] max-w-[620px] opacity-35 md:block min-[1800px]:!bottom-[76px] min-[1800px]:!right-[5vw] min-[1800px]:!max-w-[900px] min-[2400px]:!max-w-[1040px]"
       />
 
       <Container size="wide" className="relative z-10">
-        <Reveal className="max-w-[620px] md:pl-[72px]">
-          <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-foreground">
-            <span className="h-[3px] w-[34px] bg-brand" aria-hidden />
+        <Reveal className="max-w-[620px] md:pl-[72px] min-[1800px]:!max-w-[820px] min-[2400px]:!max-w-[940px]">
+          <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[17px] min-[2400px]:!text-[19px]">
+            <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px] min-[2400px]:!h-1 min-[2400px]:!w-[52px]" aria-hidden />
             {copy.eyebrow}
           </div>
           <h2
             id="patent-cta-title"
-            className="domtek-text-shadow mt-10 text-[38px] font-extrabold leading-[1.02] text-foreground sm:text-[54px]"
+            className="domtek-text-shadow mt-10 text-[38px] font-extrabold leading-[1.02] text-foreground sm:text-[54px] min-[1800px]:!text-[62px] min-[2400px]:!text-[72px]"
           >
             <span className="text-brand">{copy.titlePrefix}</span>
             {copy.title}
@@ -3397,12 +3397,12 @@ export function PatentPageCta({ locale }: { locale: string }) {
               &nbsp;{copy.titleQuestion}
             </span>
           </h2>
-          <p className="mt-8 max-w-[560px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px]">
+          <p className="mt-8 max-w-[560px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[680px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[780px] min-[2400px]:!text-[20px]">
             {copy.body}
           </p>
           <Button
             nativeButton={false}
-            className="mt-8 h-11 rounded-[4px] border-0 px-7 text-[14px] font-extrabold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35"
+            className="mt-8 h-11 rounded-[4px] border-0 px-7 text-[14px] font-extrabold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!h-[52px] min-[1800px]:!px-8 min-[1800px]:!text-[16px] min-[2400px]:!h-[58px] min-[2400px]:!text-[18px]"
             render={<Link href="/contact" />}
           >
             {copy.button}
