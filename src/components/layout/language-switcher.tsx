@@ -54,7 +54,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
     const viewportWidth = window.innerWidth;
     const minWidth = Math.max(
-      viewportWidth >= 2400 ? 340 : viewportWidth >= 2200 ? 360 : 144,
+      viewportWidth >= 2200 ? 220 : 144,
       rect.width,
     );
     setMenuPosition({
@@ -115,7 +115,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           <div
             ref={menuRef}
             role="menu"
-            className="fixed z-[950] rounded-[10px] border border-white/80 bg-white/90 p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] backdrop-blur-2xl min-[1800px]:!rounded-[14px] min-[1800px]:!p-1.5 min-[2200px]:max-[2399px]:!rounded-[22px] min-[2200px]:max-[2399px]:!p-3 min-[2400px]:!rounded-[18px] min-[2400px]:!p-2"
+              className="fixed z-[950] rounded-[10px] border border-white/80 bg-white/90 p-1 shadow-[0_16px_34px_rgba(0,0,0,0.14)] backdrop-blur-2xl min-[1800px]:!rounded-[12px] min-[1800px]:!p-1.5"
             style={{
               left: menuPosition.left,
               minWidth: menuPosition.minWidth,
@@ -136,13 +136,13 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   disabled={isPending}
                   onClick={() => switchTo(locale)}
                   className={cn(
-                    "flex w-full items-center justify-between gap-4 rounded-[7px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none disabled:opacity-60 min-[1800px]:!gap-6 min-[1800px]:!rounded-[10px] min-[1800px]:!px-4 min-[1800px]:!py-3 min-[1800px]:!text-[16px] min-[2200px]:max-[2399px]:!gap-10 min-[2200px]:max-[2399px]:!rounded-[15px] min-[2200px]:max-[2399px]:!px-7 min-[2200px]:max-[2399px]:!py-5 min-[2200px]:max-[2399px]:!text-[26px] min-[2400px]:!gap-8 min-[2400px]:!rounded-[13px] min-[2400px]:!px-6 min-[2400px]:!py-4 min-[2400px]:!text-[24px]",
+                    "flex w-full items-center justify-between gap-4 rounded-[7px] px-3 py-2 text-left text-[13px] font-bold text-foreground transition-colors hover:bg-brand/10 focus-visible:bg-brand/10 focus-visible:outline-none disabled:opacity-60 min-[1800px]:!gap-4 min-[1800px]:!rounded-[9px] min-[1800px]:!px-3 min-[1800px]:!py-2 min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]",
                     active && "bg-brand text-white hover:bg-brand",
                   )}
                 >
                   <span>{LANGUAGE_NAMES[locale]}</span>
                   {showBadge ? (
-                    <span className="text-[11px] min-[1800px]:!text-[14px] min-[2200px]:max-[2399px]:!text-[21px] min-[2400px]:!text-[19px]">{badge}</span>
+                    <span className="text-[11px] min-[1800px]:!text-[12px] min-[2400px]:!text-[13px]">{badge}</span>
                   ) : null}
                 </button>
               );
@@ -158,7 +158,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen((value) => !value)}
         disabled={isPending}
-        className="inline-flex h-[42px] min-w-[64px] items-center justify-center gap-1.5 rounded-[10px] border border-white/75 bg-white/[0.72] px-3 text-[13px] font-extrabold text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_16px_rgba(0,0,0,0.08)] backdrop-blur-2xl transition-[background-color,transform] hover:bg-white/[0.92] active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:opacity-60 min-[1800px]:!h-[52px] min-[1800px]:!min-w-[96px] min-[1800px]:!gap-2.5 min-[1800px]:!rounded-[12px] min-[1800px]:!px-5 min-[1800px]:!text-[18px] min-[2200px]:max-[2399px]:!h-[80px] min-[2200px]:max-[2399px]:!min-w-[138px] min-[2200px]:max-[2399px]:!gap-4 min-[2200px]:max-[2399px]:!rounded-[20px] min-[2200px]:max-[2399px]:!px-8 min-[2200px]:max-[2399px]:!text-[28px] min-[2400px]:!h-[70px] min-[2400px]:!min-w-[138px] min-[2400px]:!gap-3 min-[2400px]:!rounded-[18px] min-[2400px]:!px-6 min-[2400px]:!text-[26px]"
+        className="inline-flex h-[42px] min-w-[64px] items-center justify-center gap-1.5 rounded-[10px] border border-white/75 bg-white/[0.72] px-3 text-[13px] font-extrabold text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_16px_rgba(0,0,0,0.08)] backdrop-blur-2xl transition-[background-color,transform] hover:bg-white/[0.92] active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:opacity-60 min-[1800px]:!h-[44px] min-[1800px]:!min-w-[76px] min-[1800px]:!gap-2 min-[1800px]:!rounded-[9px] min-[1800px]:!px-3 min-[1800px]:!text-[14px] min-[2400px]:!h-[48px] min-[2400px]:!min-w-[82px] min-[2400px]:!gap-2 min-[2400px]:!rounded-[10px] min-[2400px]:!px-3.5 min-[2400px]:!text-[15px]"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label={t("switch")}
@@ -166,7 +166,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         {LANGUAGE_BADGES[current]}
         <ChevronDown
           className={cn(
-            "size-3.5 transition-transform duration-200 min-[1800px]:!size-[18px] min-[2200px]:max-[2399px]:!size-7 min-[2400px]:!size-6",
+            "size-3.5 transition-transform duration-200 min-[1800px]:!size-4 min-[2400px]:!size-[18px]",
             open && "rotate-180",
           )}
           aria-hidden

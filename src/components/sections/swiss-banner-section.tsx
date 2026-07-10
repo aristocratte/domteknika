@@ -65,7 +65,7 @@ export function SwissBannerSection() {
               {t("titleLineTwo")}
             </h2>
 
-            <div className="mt-2 grid max-w-[520px] grid-cols-2 justify-start gap-x-5 gap-y-2 text-left md:mt-3 md:max-w-[600px] md:gap-x-7 md:gap-y-2.5 lg:mt-4 lg:max-w-[680px] min-[1800px]:!mt-4 min-[1800px]:!max-w-[900px] min-[1800px]:!gap-x-10 min-[1800px]:!gap-y-3.5 min-[2300px]:!max-w-[960px]">
+            <div className="mt-2 grid max-w-[520px] grid-cols-2 justify-start gap-x-5 gap-y-2 text-left md:mt-3 md:max-w-[600px] md:gap-x-7 md:gap-y-2.5 lg:mt-4 lg:max-w-[820px] lg:grid-cols-4 lg:gap-x-5 lg:gap-y-0 min-[1800px]:!mt-4 min-[1800px]:!max-w-[900px] min-[1800px]:!gap-x-8 min-[1800px]:!gap-y-0 min-[2300px]:!max-w-[960px]">
               {VALUES.map((value, index) => (
                 <div
                   key={value.key}

@@ -168,6 +168,14 @@ export function ProjectsSection() {
                 ))}
               </CarouselContent>
             </Carousel>
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-10 bg-gradient-to-r from-background via-background/90 to-transparent sm:w-14 lg:w-20"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-10 bg-gradient-to-l from-background via-background/90 to-transparent sm:w-14 lg:w-20"
+              aria-hidden
+            />
             <ProjectArrow
               label={t("previous")}
               className="left-[calc(50%-58px)]"

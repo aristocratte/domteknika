@@ -46,7 +46,7 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
             className={cn(
               "text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px]",
               compact
-                ? "min-[1800px]:!text-[32px] min-[2300px]:!text-[35px]"
+                ? "min-[1800px]:!text-[22px] min-[2300px]:!text-[24px]"
                 : "min-[1800px]:text-[46px] min-[2300px]:!text-[40px]",
             )}
           >
