@@ -21,7 +21,7 @@ export function SwissBannerSection() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover min-[1800px]:object-top"
       />
 
       <div
