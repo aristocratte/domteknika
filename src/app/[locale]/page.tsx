@@ -20,7 +20,7 @@ export default async function HomePage({
       <HeroSection />
       <ProjectsSection />
       <ProcessSection />
-      <TrustedBy />
+      <TrustedBy density="compact" />
       <SwissBannerSection />
       <CtaSection />
     </>

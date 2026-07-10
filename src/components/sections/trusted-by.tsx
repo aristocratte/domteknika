@@ -28,7 +28,7 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
         "bg-background py-8 md:py-[72px]",
         compact
           ? "min-[1800px]:!py-[96px] min-[2300px]:!py-[112px]"
-          : "min-[1800px]:py-[160px] min-[2300px]:!py-[184px]",
+          : "min-[1800px]:py-[160px] min-[2300px]:!py-[120px]",
       )}
       aria-label={t("label")}
     >
@@ -38,7 +38,7 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
           "mb-4 md:mb-8",
           compact
             ? "min-[1800px]:!mb-10 min-[1800px]:!max-w-[1600px] min-[2300px]:!mb-12"
-            : "min-[1800px]:mb-20 min-[2300px]:!max-w-[1900px]",
+            : "min-[1800px]:mb-20 min-[2300px]:!mb-14 min-[2300px]:!max-w-[1900px]",
         )}
       >
         <Reveal>
@@ -47,7 +47,7 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
               "text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px]",
               compact
                 ? "min-[1800px]:!text-[32px] min-[2300px]:!text-[35px]"
-                : "min-[1800px]:text-[46px] min-[2300px]:!text-[54px]",
+                : "min-[1800px]:text-[46px] min-[2300px]:!text-[40px]",
             )}
           >
             {t("label")}
@@ -74,8 +74,8 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
               );
               const wideLogoBoxWidth = Math.min(Math.round(logo.width * 2.05), 460);
               const wideLogoBoxHeight = Math.min(Math.round(logo.height * 2.05), 180);
-              const ultraLogoBoxWidth = Math.min(Math.round(logo.width * 2.35), 530);
-              const ultraLogoBoxHeight = Math.min(Math.round(logo.height * 2.35), 210);
+              const ultraLogoBoxWidth = Math.min(Math.round(logo.width * 1.75), 390);
+              const ultraLogoBoxHeight = Math.min(Math.round(logo.height * 1.75), 150);
               const compactLogoBoxWidth = Math.min(
                 Math.round(logo.width * 1.45),
                 320,
@@ -92,7 +92,7 @@ export function TrustedBy({ density = "default" }: { density?: "default" | "comp
                     "flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px]",
                     compact
                       ? "min-[1800px]:!h-[150px] min-[1800px]:!w-[360px] min-[2300px]:!h-[160px] min-[2300px]:!w-[380px]"
-                      : "min-[1800px]:h-[220px] min-[1800px]:w-[520px] min-[2300px]:!h-[250px] min-[2300px]:!w-[590px]",
+                      : "min-[1800px]:h-[220px] min-[1800px]:w-[520px] min-[2300px]:!h-[190px] min-[2300px]:!w-[440px]",
                   )}
                 >
                   <div

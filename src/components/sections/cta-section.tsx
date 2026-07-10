@@ -15,7 +15,7 @@ export function CtaSection() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden bg-white py-20 md:min-h-[320px] md:py-24 min-[1800px]:min-h-[560px] min-[1800px]:py-[164px] min-[2300px]:!min-h-[650px] min-[2300px]:!py-[192px]"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-20 md:min-h-[320px] md:py-24 min-[1800px]:min-h-[480px] min-[1800px]:py-[120px] min-[2300px]:!min-h-[500px] min-[2300px]:!py-[125px]"
       aria-labelledby="cta-title"
     >
       <Image
@@ -26,35 +26,35 @@ export function CtaSection() {
         quality={100}
         sizes="(max-width: 1024px) 100vw, 1123px"
         unoptimized
-        className="pointer-events-none absolute right-0 top-8 hidden w-[50vw] max-w-[960px] opacity-60 md:block min-[1800px]:max-w-[1320px] min-[2300px]:!right-[-6vw] min-[2300px]:!top-0 min-[2300px]:!w-[72vw] min-[2300px]:!max-w-[1760px]"
+        className="pointer-events-none absolute right-0 top-8 hidden w-[50vw] max-w-[960px] opacity-60 md:block min-[1800px]:!w-[55vw] min-[1800px]:!max-w-[1100px] min-[2300px]:!right-[-2vw] min-[2300px]:!top-6 min-[2300px]:!w-[56vw] min-[2300px]:!max-w-[1250px]"
       />
 
       <Container
         size="wide"
         className="relative z-10 min-[2300px]:!max-w-[1900px]"
       >
-        <Reveal className="max-w-[920px] min-[1800px]:max-w-[1420px]">
-          <div className="flex items-center gap-3 text-[16px] font-medium text-muted-foreground min-[1800px]:gap-5 min-[1800px]:text-[28px]">
-            <span className="h-[3px] w-[34px] bg-brand min-[1800px]:h-1 min-[1800px]:w-[72px]" aria-hidden />
+        <Reveal className="max-w-[920px] min-[1800px]:max-w-[1000px] min-[2300px]:!max-w-[1040px]">
+          <div className="flex items-center gap-3 text-[16px] font-medium text-muted-foreground min-[1800px]:gap-4 min-[1800px]:text-[20px] min-[2300px]:!gap-4 min-[2300px]:!text-[20px]">
+            <span className="h-[3px] w-[34px] bg-brand min-[1800px]:h-[3px] min-[1800px]:w-[52px] min-[2300px]:!h-[3px] min-[2300px]:!w-[52px]" aria-hidden />
             {t("eyebrow")}
           </div>
 
           <h2
             id="cta-title"
-            className="domtek-text-shadow mt-6 max-w-[860px] text-[32px] font-extrabold leading-[1.08] text-foreground sm:text-[42px] lg:text-[48px] min-[1800px]:max-w-[1360px] min-[1800px]:text-[84px] min-[2300px]:!text-[96px]"
+            className="domtek-text-shadow mt-6 max-w-[860px] text-[32px] font-extrabold leading-[1.08] text-foreground sm:text-[42px] lg:text-[48px] min-[1800px]:max-w-[1000px] min-[1800px]:text-[66px] min-[2300px]:!max-w-[1020px] min-[2300px]:!text-[68px]"
           >
             <span className="text-brand">.</span>
             {t("title")}
             <span className="whitespace-nowrap text-brand">&nbsp;?</span>
           </h2>
 
-          <p className="mt-7 max-w-[500px] text-[15px] font-medium leading-[1.34] text-muted-foreground min-[1800px]:max-w-[860px] min-[1800px]:text-[26px] min-[2300px]:!text-[29px]">
+          <p className="mt-7 max-w-[500px] text-[15px] font-medium leading-[1.34] text-muted-foreground min-[1800px]:max-w-[650px] min-[1800px]:text-[19px] min-[2300px]:!max-w-[680px] min-[2300px]:!text-[20px]">
             {t("subtitle")}
           </p>
 
           <Button
             nativeButton={false}
-            className="mt-8 inline-flex h-10 items-center justify-center gap-2 rounded-[7px] border-0 px-5 text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:mt-14 min-[1800px]:h-[72px] min-[1800px]:gap-4 min-[1800px]:px-12 min-[1800px]:text-[25px] min-[1800px]:[&_svg]:size-8 min-[2300px]:!h-[82px] min-[2300px]:!px-14 min-[2300px]:!text-[29px] min-[2300px]:[&_svg]:!size-9"
+            className="mt-8 inline-flex h-10 items-center justify-center gap-2 rounded-[7px] border-0 px-5 text-[13px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:mt-10 min-[1800px]:h-[54px] min-[1800px]:gap-3 min-[1800px]:px-8 min-[1800px]:text-[18px] min-[1800px]:[&_svg]:size-6 min-[2300px]:!mt-10 min-[2300px]:!h-[54px] min-[2300px]:!gap-3 min-[2300px]:!px-8 min-[2300px]:!text-[19px] min-[2300px]:[&_svg]:!size-6"
             render={<Link href="/contact" />}
           >
             {t("cta")}

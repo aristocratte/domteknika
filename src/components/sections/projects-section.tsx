@@ -112,21 +112,21 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pb-[178px] min-[1800px]:pt-[146px] min-[2300px]:!pb-[210px] min-[2300px]:!pt-[172px]"
+      className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pb-[140px] min-[1800px]:pt-[120px] min-[2300px]:!pb-[140px] min-[2300px]:!pt-[120px]"
       aria-labelledby="projects-title"
     >
       <Container size="wide" className="min-[2300px]:!max-w-[1900px]">
         <div className="relative">
-          <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between min-[1800px]:mb-[70px] min-[2300px]:!mb-[82px]">
+          <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between min-[1800px]:mb-[50px] min-[2300px]:!mb-[50px]">
             <h2
               id="projects-title"
-              className="text-[20px] font-extrabold leading-none text-foreground min-[1800px]:text-[40px] min-[2300px]:!text-[46px]"
+              className="text-[20px] font-extrabold leading-none text-foreground min-[1800px]:text-[32px] min-[2300px]:!text-[34px]"
             >
               {t("title")}
             </h2>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px] min-[1800px]:text-[25px] min-[2300px]:!text-[28px]"
+              className="inline-flex items-center gap-2 text-[13px] font-extrabold text-foreground transition-colors hover:text-brand sm:gap-6 sm:text-[15px] min-[1800px]:text-[19px] min-[2300px]:!text-[20px]"
             >
               {t("viewAll")}
               <ArrowRight className="size-5 text-brand" aria-hidden />
@@ -135,7 +135,7 @@ export function ProjectsSection() {
 
           <div
             data-projects-carousel
-            className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20 min-[1800px]:pb-[104px] min-[2300px]:!pb-[122px]"
+            className="relative -mx-7 overflow-hidden pb-14 sm:-mx-10 lg:-mx-14 lg:px-14 xl:-mx-20 xl:px-20 min-[1800px]:pb-[80px] min-[2300px]:!pb-[82px]"
           >
             <Carousel
               setApi={setApi}
@@ -153,7 +153,7 @@ export function ProjectsSection() {
                 {carouselProjects.map((project, index) => (
                   <CarouselItem
                     key={`${project.id}-${index}`}
-                    className="basis-[min(340px,82vw)] pl-4 md:basis-[274px] min-[1800px]:!basis-[560px] min-[2300px]:!basis-[650px]"
+                    className="basis-[min(340px,82vw)] pl-4 md:basis-[274px] min-[1800px]:!basis-[470px] min-[2300px]:!basis-[490px]"
                   >
                     <ProjectCard
                       project={project}
@@ -213,31 +213,31 @@ function ProjectCard({
   return (
     <button
       type="button"
-      className="group block h-[334px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:h-[630px] min-[2300px]:!h-[730px]"
+      className="group block h-[334px] w-full overflow-hidden rounded-[7px] border border-border bg-white text-left outline-none transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-brand/30 min-[1800px]:h-[500px] min-[2300px]:!h-[510px]"
       aria-haspopup="dialog"
       aria-label={`${openDetailsLabel}: ${project.title}`}
       onClick={() => onOpen(project)}
     >
       <article className="h-full">
-        <div className="relative h-[148px] bg-muted min-[1800px]:h-[300px] min-[2300px]:!h-[350px]">
+        <div className="relative h-[148px] bg-muted min-[1800px]:h-[230px] min-[2300px]:!h-[235px]">
           <Image
             src={project.image}
             alt=""
             fill
             loading="lazy"
             decoding="async"
-            sizes="(min-width: 2300px) 450px, (min-width: 1800px) 390px, 274px"
-            className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035] min-[1800px]:p-8 min-[2300px]:!p-10"
+            sizes="(min-width: 2300px) 490px, (min-width: 1800px) 470px, 274px"
+            className="object-contain p-4 transition-transform duration-500 ease-smooth group-hover:scale-[1.035] min-[1800px]:p-7 min-[2300px]:!p-7"
           />
         </div>
-        <div className="flex h-[186px] flex-col px-4 pb-4 pt-4 min-[1800px]:h-[330px] min-[1800px]:px-10 min-[1800px]:pb-10 min-[1800px]:pt-9 min-[2300px]:!h-[380px] min-[2300px]:!px-11">
-          <h3 className="text-[14px] font-extrabold leading-tight text-foreground min-[1800px]:text-[26px] min-[2300px]:!text-[30px]">
+        <div className="flex h-[186px] flex-col px-4 pb-4 pt-4 min-[1800px]:h-[270px] min-[1800px]:px-7 min-[1800px]:pb-7 min-[1800px]:pt-7 min-[2300px]:!h-[275px] min-[2300px]:!px-8 min-[2300px]:!pb-7 min-[2300px]:!pt-7">
+          <h3 className="text-[14px] font-extrabold leading-tight text-foreground min-[1800px]:text-[21px] min-[2300px]:!text-[22px]">
             {project.title}
           </h3>
-          <p className="mt-2 text-[12.5px] font-medium leading-[1.24] text-muted-foreground min-[1800px]:mt-5 min-[1800px]:text-[20px] min-[1800px]:leading-[1.34] min-[2300px]:!text-[23px]">
+          <p className="mt-2 text-[12.5px] font-medium leading-[1.24] text-muted-foreground min-[1800px]:mt-4 min-[1800px]:text-[16px] min-[1800px]:leading-[1.34] min-[2300px]:!mt-4 min-[2300px]:!text-[16px]">
             {project.description}
           </p>
-          <p className="mt-auto text-[12px] font-extrabold leading-none text-brand min-[1800px]:text-[20px] min-[2300px]:!text-[23px]">
+          <p className="mt-auto text-[12px] font-extrabold leading-none text-brand min-[1800px]:text-[16px] min-[2300px]:!text-[16px]">
             {tag}
           </p>
         </div>

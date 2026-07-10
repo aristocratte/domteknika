@@ -6203,7 +6203,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           </Reveal>
 
           {visibleProjects.length > 0 ? (
-            <div className="grid items-stretch gap-4 md:grid-cols-2 min-[2400px]:gap-8">
+            <div className="grid items-stretch gap-4 md:grid-cols-2 min-[2400px]:!grid-cols-3 min-[2400px]:!gap-6">
               {visibleProjects.map((project) => (
                 <div key={project.id} className="h-full">
                   <ProjectCard
@@ -6531,7 +6531,7 @@ function ProjectCard({
   return (
     <article
       data-project-origin
-      className="group h-full overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)] min-[2400px]:rounded-[10px]"
+      className="group h-full overflow-hidden rounded-[7px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_16px_34px_rgba(0,0,0,0.07)] min-[2400px]:rounded-[8px]"
     >
       <button
         type="button"
@@ -6540,42 +6540,42 @@ function ProjectCard({
         aria-label={`${openDetailsLabel}: ${project.title}`}
         onClick={() => onOpen(project)}
       >
-        <span className="relative block h-[220px] overflow-hidden bg-muted min-[2400px]:h-[390px]">
+        <span className="relative block h-[220px] overflow-hidden bg-muted min-[2400px]:!h-[260px]">
           <Image
             src={project.image}
             alt={project.imageAlt}
             fill
-            sizes="(min-width: 2400px) 900px, (max-width: 768px) 100vw, 560px"
+            sizes="(min-width: 2400px) 580px, (max-width: 768px) 100vw, 560px"
             className="object-contain transition-transform duration-500 group-hover:scale-[1.035]"
           />
           <span
-            className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white transition-colors duration-300 group-hover:bg-brand min-[2400px]:right-7 min-[2400px]:top-7 min-[2400px]:size-14"
+            className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-foreground/80 text-white transition-colors duration-300 group-hover:bg-brand min-[2400px]:!right-5 min-[2400px]:!top-5 min-[2400px]:!size-10"
             aria-hidden
           >
-            <ArrowUpRight className="size-4 min-[2400px]:size-7" />
+            <ArrowUpRight className="size-4 min-[2400px]:!size-5" />
           </span>
         </span>
 
-        <span className="flex min-h-[150px] flex-1 flex-col px-5 pb-5 pt-5 min-[2400px]:min-h-[285px] min-[2400px]:px-9 min-[2400px]:pb-9 min-[2400px]:pt-8">
-          <span className="text-[11px] font-extrabold text-brand min-[2400px]:text-[18px]">
+        <span className="flex min-h-[150px] flex-1 flex-col px-5 pb-5 pt-5 min-[2400px]:!min-h-[210px] min-[2400px]:!px-6 min-[2400px]:!pb-6 min-[2400px]:!pt-6">
+          <span className="text-[11px] font-extrabold text-brand min-[2400px]:!text-[14px]">
             {project.category}
           </span>
-          <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground min-[2400px]:mt-4 min-[2400px]:text-[32px]">
+          <strong className="mt-2 text-[19px] font-extrabold leading-tight text-foreground min-[2400px]:!mt-3 min-[2400px]:!text-[24px]">
             {project.title}
           </strong>
-          <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground min-[2400px]:mt-4 min-[2400px]:text-[21px]">
+          <span className="mt-2 text-[13px] font-medium leading-[1.4] text-muted-foreground min-[2400px]:!mt-3 min-[2400px]:!text-[16px]">
             {project.description}
           </span>
 
-          <span className="mt-auto flex items-end justify-between gap-4 pt-6 min-[2400px]:gap-8 min-[2400px]:pt-11">
-            <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground min-[2400px]:gap-8 min-[2400px]:text-[20px]">
+          <span className="mt-auto flex items-end justify-between gap-4 pt-6 min-[2400px]:!gap-5 min-[2400px]:!pt-7">
+            <span className="inline-flex items-center gap-5 text-[12px] font-extrabold text-foreground min-[2400px]:!gap-5 min-[2400px]:!text-[15px]">
               {ctaLabel}
               <ArrowRight
-                className="size-4 text-brand transition-transform duration-300 group-hover:translate-x-1 min-[2400px]:size-6"
+                className="size-4 text-brand transition-transform duration-300 group-hover:translate-x-1 min-[2400px]:!size-5"
                 aria-hidden
               />
             </span>
-            <span className="text-right text-[10px] font-medium text-muted-foreground min-[2400px]:text-[16px]">
+            <span className="text-right text-[10px] font-medium text-muted-foreground min-[2400px]:!text-[12px]">
               {project.tags.join(" ")}
             </span>
           </span>
