@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
   },
+  // Type checking runs separately via `npm run typecheck`. Keeping it out of
+  // the production build avoids exceeding constrained hosting build memory.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   turbopack: {
     // Explicit root so Next.js doesn't misdetect the workspace root
     // (a stray lockfile exists in a parent directory).
