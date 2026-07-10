@@ -635,6 +635,7 @@ const MEDIA: Record<
       width: number;
       height: number;
       className?: string;
+      projectId?: string;
     }>;
     className?: string;
   }
@@ -677,6 +678,7 @@ const MEDIA: Record<
         width: 600,
         height: 900,
         className: "w-[120px] rotate-[-5deg] sm:w-[140px] min-[1800px]:!w-[160px] min-[2400px]:!w-[176px]",
+        projectId: "smart-bottle",
       },
       {
         src: "/assets/our-story/personal-injector.png",
@@ -686,6 +688,7 @@ const MEDIA: Record<
         width: 265,
         height: 142,
         className: "w-[210px] sm:w-[250px] min-[1800px]:!w-[288px] min-[2400px]:!w-[315px]",
+        projectId: "personal-injector",
       },
     ],
   },
@@ -1220,8 +1223,6 @@ function TimelineMedia({
   onOpenProject: (projectId: string) => void;
   onOpenLocationMap?: () => void;
 }) {
-  const isInteractive = Boolean(projectId || onOpenLocationMap);
-
   return (
     <div
       className={cn(
@@ -1230,17 +1231,21 @@ function TimelineMedia({
         media.className,
       )}
     >
-      {media.images.map((image) => (
-        <figure
-          key={image.src}
-          className={cn(
-            "relative max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
-            isInteractive &&
-              "group/location transition-shadow duration-300 hover:shadow-[0_20px_42px_rgba(0,0,0,0.14)]",
-            image.className,
-          )}
-        >
-          <div className="relative bg-muted/30 px-2 pt-2 min-[1800px]:!px-3 min-[1800px]:!pt-3 min-[2400px]:!px-4 min-[2400px]:!pt-4">
+      {media.images.map((image) => {
+        const imageProjectId = image.projectId ?? projectId;
+        const isInteractive = Boolean(imageProjectId || onOpenLocationMap);
+
+        return (
+          <figure
+            key={image.src}
+            className={cn(
+              "relative max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
+              isInteractive &&
+                "group/location transition-shadow duration-300 hover:shadow-[0_20px_42px_rgba(0,0,0,0.14)]",
+              image.className,
+            )}
+          >
+            <div className="relative bg-muted/30 px-2 pt-2 min-[1800px]:!px-3 min-[1800px]:!pt-3 min-[2400px]:!px-4 min-[2400px]:!pt-4">
             <Image
               src={image.src}
               alt={image.alt}
@@ -1269,12 +1274,13 @@ function TimelineMedia({
                   onOpenLocationMap();
                   return;
                 }
-                if (projectId) onOpenProject(projectId);
+                if (imageProjectId) onOpenProject(imageProjectId);
               }}
             />
           )}
-        </figure>
-      ))}
+          </figure>
+        );
+      })}
     </div>
   );
 }

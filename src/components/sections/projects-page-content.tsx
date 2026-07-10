@@ -6463,7 +6463,7 @@ function ProjectsStatsSection({
   ariaLabel: string;
 }) {
   return (
-    <section className="bg-background py-[28px] min-[2400px]:!py-[56px]" aria-label={ariaLabel}>
+    <section className="bg-background py-[28px] min-[2400px]:!py-[32px]" aria-label={ariaLabel}>
       <Container size="wide">
         <div className="grid grid-cols-2 border border-border bg-white min-[1180px]:grid-cols-4">
           {stats.map((stat, index) => {
@@ -6475,7 +6475,7 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left min-[2400px]:!min-h-[152px] min-[2400px]:!grid-cols-[76px_1fr] min-[2400px]:!gap-7 min-[2400px]:!px-8 min-[2400px]:!py-6 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[178px] sm:px-7 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left min-[2400px]:!min-h-[104px] min-[2400px]:!grid-cols-[66px_1fr] min-[2400px]:!gap-5 min-[2400px]:!px-8 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
                   index % 2 === 0 &&
                     "border-r border-border min-[1180px]:border-r-0",
                   index < 2 &&
@@ -6491,7 +6491,7 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] min-[2400px]:!h-[70px] min-[2400px]:!w-[76px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] min-[2400px]:!h-[60px] min-[2400px]:!w-[66px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
