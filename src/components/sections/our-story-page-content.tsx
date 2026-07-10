@@ -649,7 +649,7 @@ const MEDIA: Record<
         meta: "Suisse",
         width: 799,
         height: 533,
-        className: "w-[280px] sm:w-[340px] md:w-[300px] xl:w-[340px]",
+        className: "w-[280px] sm:w-[340px] md:w-[300px] xl:w-[340px] min-[1800px]:!w-[390px] min-[2400px]:!w-[425px]",
       },
     ],
   },
@@ -662,12 +662,12 @@ const MEDIA: Record<
         meta: "2001",
         width: 338,
         height: 223,
-        className: "w-[260px] sm:w-[330px] md:w-[290px] xl:w-[330px]",
+        className: "w-[260px] sm:w-[330px] md:w-[290px] xl:w-[330px] min-[1800px]:!w-[380px] min-[2400px]:!w-[415px]",
       },
     ],
   },
   startupProducts: {
-    className: "gap-3 sm:flex-row md:flex-col xl:flex-row xl:gap-4",
+    className: "gap-3 sm:flex-row md:flex-col xl:flex-row xl:gap-4 min-[1800px]:!gap-5 min-[2400px]:!gap-6",
     images: [
       {
         src: "/assets/our-story/smart-bottle-ethimedix.png",
@@ -676,7 +676,7 @@ const MEDIA: Record<
         meta: "2011",
         width: 600,
         height: 900,
-        className: "w-[120px] rotate-[-5deg] sm:w-[140px]",
+        className: "w-[120px] rotate-[-5deg] sm:w-[140px] min-[1800px]:!w-[160px] min-[2400px]:!w-[176px]",
       },
       {
         src: "/assets/our-story/personal-injector.png",
@@ -685,7 +685,7 @@ const MEDIA: Record<
         meta: "2013",
         width: 265,
         height: 142,
-        className: "w-[210px] sm:w-[250px]",
+        className: "w-[210px] sm:w-[250px] min-[1800px]:!w-[288px] min-[2400px]:!w-[315px]",
       },
     ],
   },
@@ -698,7 +698,7 @@ const MEDIA: Record<
         meta: "2013",
         width: 1600,
         height: 1066,
-        className: "w-[280px] sm:w-[370px] md:w-[320px] xl:w-[370px]",
+        className: "w-[280px] sm:w-[370px] md:w-[320px] xl:w-[370px] min-[1800px]:!w-[425px] min-[2400px]:!w-[465px]",
       },
     ],
   },
@@ -711,7 +711,7 @@ const MEDIA: Record<
         meta: "2015",
         width: 452,
         height: 202,
-        className: "w-[300px] sm:w-[390px] md:w-[310px] lg:w-[340px] xl:w-[390px]",
+        className: "w-[300px] sm:w-[390px] md:w-[310px] lg:w-[340px] xl:w-[390px] min-[1800px]:!w-[448px] min-[2400px]:!w-[490px]",
       },
     ],
   },
@@ -724,7 +724,7 @@ const MEDIA: Record<
         meta: "2016",
         width: 1200,
         height: 800,
-        className: "w-[260px] sm:w-[340px] md:w-[300px] xl:w-[340px]",
+        className: "w-[260px] sm:w-[340px] md:w-[300px] xl:w-[340px] min-[1800px]:!w-[390px] min-[2400px]:!w-[425px]",
       },
     ],
   },
@@ -737,7 +737,7 @@ const MEDIA: Record<
         meta: "2009",
         width: 856,
         height: 552,
-        className: "w-[230px] sm:w-[300px] md:w-[260px] xl:w-[300px]",
+        className: "w-[230px] sm:w-[300px] md:w-[260px] xl:w-[300px] min-[1800px]:!w-[345px] min-[2400px]:!w-[380px]",
       },
     ],
   },
@@ -750,7 +750,7 @@ const MEDIA: Record<
         meta: "2017",
         width: 249,
         height: 184,
-        className: "w-[220px] sm:w-[248px]",
+        className: "w-[220px] sm:w-[248px] min-[1800px]:!w-[285px] min-[2400px]:!w-[315px]",
       },
     ],
   },
@@ -763,7 +763,7 @@ const MEDIA: Record<
         meta: "2018",
         width: 359,
         height: 204,
-        className: "w-[285px] sm:w-[355px] md:w-[300px] lg:w-[330px] xl:w-[355px]",
+        className: "w-[285px] sm:w-[355px] md:w-[300px] lg:w-[330px] xl:w-[355px] min-[1800px]:!w-[410px] min-[2400px]:!w-[450px]",
       },
     ],
   },
@@ -776,7 +776,7 @@ const MEDIA: Record<
         meta: "2024",
         width: 275,
         height: 183,
-        className: "w-[245px] sm:w-[275px] md:w-[240px] xl:w-[275px]",
+        className: "w-[245px] sm:w-[275px] md:w-[240px] xl:w-[275px] min-[1800px]:!w-[318px] min-[2400px]:!w-[350px]",
       },
     ],
   },
@@ -839,25 +839,25 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
         height={1086}
         priority
         sizes="(max-width: 768px) 84vw, 520px"
-        className="pointer-events-none absolute right-[-34vw] top-[82px] z-0 w-[84vw] max-w-[600px] rotate-[-10deg] opacity-[0.13] sm:right-[-20vw] sm:w-[78vw] md:right-[-1vw] md:top-[64px] md:w-[42vw]"
+        className="pointer-events-none absolute right-[-34vw] top-[82px] z-0 w-[84vw] max-w-[600px] rotate-[-10deg] opacity-[0.13] sm:right-[-20vw] sm:w-[78vw] md:right-[-1vw] md:top-[64px] md:w-[42vw] min-[1800px]:!right-[4vw] min-[1800px]:!top-[84px] min-[1800px]:!max-w-[900px] min-[2400px]:!right-[6vw] min-[2400px]:!max-w-[1050px]"
       />
       <OurStoryBackgroundSketches />
 
-      <Container size="wide" className="relative z-10 pb-14 md:pb-[72px]">
-        <div className="max-w-[540px]">
+      <Container size="wide" className="relative z-10 pb-14 md:pb-[72px] min-[1800px]:!pb-[100px] min-[2400px]:!pb-[120px]">
+        <div className="max-w-[540px] min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
           <Reveal>
-            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
+            <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
+              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
               {copy.eyebrow}
             </div>
             <h1
               id="our-story-title"
-              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px]"
+              className="domtek-text-shadow mt-[38px] text-[42px] font-extrabold leading-none text-foreground sm:text-[60px] md:mt-[52px] md:text-[66px] min-[1800px]:!text-[74px] min-[2400px]:!mt-[82px] min-[2400px]:!text-[96px]"
             >
               {copy.title}
               <span className="text-brand">.</span>
             </h1>
-            <p className="mt-5 max-w-[500px] text-[13px] font-medium leading-[1.4] text-muted-foreground sm:text-[14px]">
+            <p className="mt-8 max-w-[430px] text-[15px] font-medium leading-[1.35] text-muted-foreground sm:text-[16px] min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!max-w-[760px] min-[2400px]:!text-[21px]">
               {copy.intro}
             </p>
           </Reveal>
@@ -1049,8 +1049,8 @@ function TimelineRow({
 }) {
   return (
     <OurStoryTimelineStep
-      className="relative grid grid-cols-[28px_minmax(0,1fr)] gap-x-4 gap-y-5 md:grid-cols-[minmax(0,1fr)_36px_minmax(0,1fr)] md:gap-x-6"
-      dotClassName="relative z-10 col-start-1 row-span-2 flex justify-center pt-8 md:col-start-2 md:pt-10"
+      className="relative grid grid-cols-[28px_minmax(0,1fr)] gap-x-4 gap-y-5 md:grid-cols-[minmax(0,1fr)_36px_minmax(0,1fr)] md:gap-x-6 min-[1800px]:!grid-cols-[minmax(0,1fr)_44px_minmax(0,1fr)] min-[1800px]:!gap-x-8 min-[2400px]:!grid-cols-[minmax(0,1fr)_50px_minmax(0,1fr)] min-[2400px]:!gap-x-10"
+      dotClassName="relative z-10 col-start-1 row-span-2 flex justify-center pt-8 md:col-start-2 md:pt-10 min-[1800px]:!pt-12 min-[2400px]:!pt-14"
     >
       {row.left ? (
         <OurStoryTimelineBlock className="col-start-2 row-start-1 md:col-start-1">
@@ -1142,24 +1142,24 @@ function TimelineCard({
 }) {
   const isInteractive = Boolean(projectId || opensLocationMap);
   const className = cn(
-    "group/card relative grid min-h-[112px] w-full max-w-[500px] grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:items-center md:min-h-[116px] md:max-w-[460px] md:px-5 md:py-4 lg:max-w-[470px]",
+    "group/card relative grid min-h-[112px] w-full max-w-[500px] grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:items-center md:min-h-[116px] md:max-w-[460px] md:px-5 md:py-4 lg:max-w-[470px] min-[1800px]:!min-h-[140px] min-[1800px]:!max-w-[560px] min-[1800px]:!gap-4 min-[1800px]:!px-7 min-[1800px]:!py-6 min-[2400px]:!min-h-[156px] min-[2400px]:!max-w-[620px] min-[2400px]:!px-8 min-[2400px]:!py-7",
     side === "left" ? "md:justify-self-end" : "md:justify-self-start",
     isInteractive &&
-      "cursor-pointer pr-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-11",
+      "cursor-pointer pr-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-11 min-[1800px]:!pr-16 min-[2400px]:!pr-20",
     card.awards &&
-      "gap-4 pr-12 sm:grid-cols-1 sm:items-start sm:pr-12 lg:grid-cols-[minmax(0,1fr)_176px] lg:pr-5",
+      "gap-4 pr-12 sm:grid-cols-1 sm:items-start sm:pr-12 lg:grid-cols-[minmax(0,1fr)_176px] lg:pr-5 min-[1800px]:!grid-cols-[minmax(0,1fr)_200px] min-[1800px]:!pr-7 min-[2400px]:!grid-cols-[minmax(0,1fr)_220px] min-[2400px]:!pr-8",
   );
 
   const content = (
     <>
       <div className="min-w-0">
-        <span className="block text-[13px] font-extrabold leading-none text-brand md:text-[14px]">
+        <span className="block text-[13px] font-extrabold leading-none text-brand md:text-[14px] min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]">
           {card.year}
         </span>
-        <h3 className="mt-3 text-[16px] font-extrabold leading-tight text-foreground md:text-[17px]">
+        <h3 className="mt-3 text-[16px] font-extrabold leading-tight text-foreground md:text-[17px] min-[1800px]:!text-[20px] min-[2400px]:!text-[22px]">
           {card.title}
         </h3>
-        <p className="mt-2.5 text-[12px] font-medium leading-[1.5] text-muted-foreground md:text-[13px]">
+        <p className="mt-2.5 text-[12px] font-medium leading-[1.5] text-muted-foreground md:text-[13px] min-[1800px]:!mt-3 min-[1800px]:!text-[15px] min-[2400px]:!text-[17px]">
           {card.description}
         </p>
       </div>
@@ -1170,15 +1170,15 @@ function TimelineCard({
           alt=""
           width={218}
           height={76}
-          className="pointer-events-none w-[126px] self-start justify-self-start invert hue-rotate-180 sm:w-[140px] lg:col-start-2 lg:row-start-1 lg:w-[150px] lg:justify-self-center"
+          className="pointer-events-none w-[126px] self-start justify-self-start invert hue-rotate-180 sm:w-[140px] lg:col-start-2 lg:row-start-1 lg:w-[150px] lg:justify-self-center min-[1800px]:!w-[176px] min-[2400px]:!w-[194px]"
         />
       )}
       {isInteractive && (
         <span
-          className="absolute right-3 top-3 grid size-6 place-items-center text-muted-foreground/70 transition-[color,transform] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-muted-foreground"
+          className="absolute right-3 top-3 grid size-6 place-items-center text-muted-foreground/70 transition-[color,transform] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-muted-foreground min-[1800px]:!right-4 min-[1800px]:!top-4 min-[1800px]:!size-8 min-[2400px]:!size-9"
           aria-hidden
         >
-          <ArrowUpRight className="size-4" />
+          <ArrowUpRight className="size-4 min-[1800px]:!size-5 min-[2400px]:!size-6" />
         </span>
       )}
     </>
@@ -1225,8 +1225,8 @@ function TimelineMedia({
   return (
     <div
       className={cn(
-        "flex min-w-0 flex-col items-center justify-center py-2",
-        side === "left" ? "md:items-end md:pr-4" : "md:items-start md:pl-4",
+        "flex min-w-0 flex-col items-center justify-center py-2 min-[1800px]:!py-3",
+        side === "left" ? "md:items-end md:pr-4 min-[1800px]:!pr-6" : "md:items-start md:pl-4 min-[1800px]:!pl-6",
         media.className,
       )}
     >
@@ -1240,18 +1240,18 @@ function TimelineMedia({
             image.className,
           )}
         >
-          <div className="relative bg-muted/30 px-2 pt-2">
+          <div className="relative bg-muted/30 px-2 pt-2 min-[1800px]:!px-3 min-[1800px]:!pt-3 min-[2400px]:!px-4 min-[2400px]:!pt-4">
             <Image
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
-              sizes="(max-width: 768px) 76vw, 390px"
+              sizes="(max-width: 768px) 76vw, (max-width: 1799px) 390px, (max-width: 2399px) 490px, 540px"
               className="h-auto w-full object-contain"
             />
           </div>
-          <figcaption className="border-t border-border bg-white px-3 py-2.5">
-            <span className="block min-w-0 truncate text-[11px] font-extrabold leading-none text-foreground sm:text-[12px]">
+          <figcaption className="border-t border-border bg-white px-3 py-2.5 min-[1800px]:!px-4 min-[1800px]:!py-3.5 min-[2400px]:!px-5 min-[2400px]:!py-4">
+            <span className="block min-w-0 truncate text-[11px] font-extrabold leading-none text-foreground sm:text-[12px] min-[1800px]:!text-[14px] min-[2400px]:!text-[16px]">
               {image.title}
             </span>
           </figcaption>
@@ -1305,7 +1305,7 @@ function OurStoryLocationDialog({
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-[120] grid place-items-center p-4 sm:p-6" role="presentation">
+    <div className="fixed inset-0 z-[120] grid place-items-center p-4 sm:p-6 min-[1800px]:!p-[34px]" role="presentation">
       <button
         type="button"
         className="absolute inset-0 bg-black/35 backdrop-blur-[2px]"
@@ -1318,45 +1318,45 @@ function OurStoryLocationDialog({
         role="dialog"
         aria-modal="true"
         aria-labelledby="our-story-location-title"
-        className="relative z-10 w-full max-w-[860px] overflow-hidden rounded-[10px] border border-border bg-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] outline-none"
+        className="relative z-10 flex w-full max-w-[860px] flex-col overflow-hidden rounded-[10px] border border-border bg-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] outline-none min-[1800px]:!h-[min(980px,calc(100vh-68px))] min-[1800px]:!max-w-[1680px] min-[1800px]:!rounded-[26px] min-[2400px]:!h-[min(1180px,calc(100vh-68px))] min-[2400px]:!max-w-[2040px]"
       >
-        <div className="flex items-start justify-between gap-5 border-b border-border px-5 py-4 sm:px-7 sm:py-5">
+        <div className="flex shrink-0 items-start justify-between gap-5 border-b border-border px-5 py-4 sm:px-7 sm:py-5 min-[1800px]:!gap-8 min-[1800px]:!px-10 min-[1800px]:!py-8 min-[2400px]:!px-12 min-[2400px]:!py-10">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
+            <p className="text-[11px] font-extrabold uppercase tracking-wide text-brand min-[1800px]:!text-[15px] min-[2400px]:!text-[17px]">
               {copy.eyebrow}
             </p>
             <h2
               id="our-story-location-title"
-              className="mt-1 text-[22px] font-extrabold leading-tight text-foreground sm:text-[28px]"
+              className="mt-1 text-[22px] font-extrabold leading-tight text-foreground sm:text-[28px] min-[1800px]:!mt-2 min-[1800px]:!text-[36px] min-[2400px]:!text-[42px]"
             >
               {copy.title}
             </h2>
           </div>
           <button
             type="button"
-            className="grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35"
+            className="grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!size-12 min-[2400px]:!size-14"
             aria-label={copy.close}
             onClick={onClose}
           >
-            <X className="size-4" aria-hidden />
+            <X className="size-4 min-[1800px]:!size-5 min-[2400px]:!size-6" aria-hidden />
           </button>
         </div>
-        <div className="grid gap-4 p-4 sm:p-5 md:grid-cols-[minmax(0,1fr)_190px]">
-          <div className="h-[300px] overflow-hidden rounded-[7px] border border-border sm:h-[390px]">
+        <div className="grid gap-4 p-4 sm:p-5 md:grid-cols-[minmax(0,1fr)_190px] min-[1800px]:!min-h-0 min-[1800px]:!flex-1 min-[1800px]:!grid-cols-[minmax(0,1fr)_360px] min-[1800px]:!gap-6 min-[1800px]:!p-7 min-[2400px]:!grid-cols-[minmax(0,1fr)_420px] min-[2400px]:!gap-8 min-[2400px]:!p-8">
+          <div className="h-[300px] overflow-hidden rounded-[7px] border border-border sm:h-[390px] min-[1800px]:!h-full min-[1800px]:!min-h-0 min-[1800px]:!rounded-[14px] min-[2400px]:!rounded-[16px]">
             <ContactMap label="DOMTEKNIKA" />
           </div>
-          <div className="flex flex-col justify-between rounded-[7px] border border-border bg-muted/30 p-4 sm:p-5">
-            <p className="whitespace-pre-line text-[14px] font-medium leading-[1.5] text-muted-foreground">
+          <div className="flex min-h-0 flex-col justify-between rounded-[7px] border border-border bg-muted/30 p-4 sm:p-5 min-[1800px]:!rounded-[14px] min-[1800px]:!p-8 min-[2400px]:!rounded-[16px] min-[2400px]:!p-10">
+            <p className="whitespace-pre-line text-[14px] font-medium leading-[1.5] text-muted-foreground min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]">
               {copy.address}
             </p>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Chemin%20de%20Saint-Joux%2016B%2C%202520%20La%20Neuveville%2C%20Switzerland"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-3 self-start text-[13px] font-extrabold text-foreground transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand/35"
+              className="mt-6 inline-flex items-center gap-3 self-start text-[13px] font-extrabold text-foreground transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!gap-4 min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]"
             >
               {copy.openMaps}
-              <ArrowUpRight className="size-4 text-brand" aria-hidden />
+              <ArrowUpRight className="size-4 text-brand min-[1800px]:!size-5 min-[2400px]:!size-6" aria-hidden />
             </a>
           </div>
         </div>

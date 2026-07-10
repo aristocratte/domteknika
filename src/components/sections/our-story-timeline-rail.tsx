@@ -72,9 +72,9 @@ export function OurStoryTimelineRail({ children }: OurStoryTimelineRailProps) {
 
   return (
     <railContext.Provider value={{ progress: scaleY, railRef: ref }}>
-      <div ref={ref} className="relative mt-7 md:mt-9">
+      <div ref={ref} className="relative mt-7 md:mt-9 min-[1800px]:!mt-14 min-[2400px]:!mt-16">
         <div
-          className="pointer-events-none absolute bottom-0 left-[13px] top-1 z-0 w-[3px] overflow-hidden rounded-full md:left-1/2 md:-translate-x-1/2"
+          className="pointer-events-none absolute bottom-0 left-[13px] top-1 z-0 w-[3px] overflow-hidden rounded-full md:left-1/2 md:-translate-x-1/2 min-[1800px]:!w-1"
           aria-hidden
         >
           <motion.div
@@ -84,7 +84,7 @@ export function OurStoryTimelineRail({ children }: OurStoryTimelineRailProps) {
           />
         </div>
 
-        <div className="relative z-10 grid gap-y-7 md:gap-y-8">{children}</div>
+        <div className="relative z-10 grid gap-y-7 md:gap-y-8 min-[1800px]:!gap-y-12 min-[2400px]:!gap-y-16">{children}</div>
       </div>
     </railContext.Provider>
   );
@@ -174,7 +174,7 @@ export function OurStoryTimelineStep({
           <span
             ref={dotRef}
             data-our-story-timeline-dot
-            className="block size-[15px] rounded-full border-[3px] border-brand bg-white"
+            className="block size-[15px] rounded-full border-[3px] border-brand bg-white min-[1800px]:!size-[19px] min-[1800px]:!border-4 min-[2400px]:!size-[22px]"
           />
         </div>
         {children}
