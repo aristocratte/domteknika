@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
+import { useEffect } from "react";
 
 import {
   Map,
@@ -8,6 +9,7 @@ import {
   MapMarker,
   MarkerContent,
   MarkerTooltip,
+  useMap,
 } from "@/components/ui/map";
 
 const DOMTEKNIKA_COORDS = {
@@ -15,19 +17,37 @@ const DOMTEKNIKA_COORDS = {
   longitude: 7.1069847,
 } as const;
 
+function CollapsedMapAttribution() {
+  const { map, isLoaded } = useMap();
+
+  useEffect(() => {
+    if (!map || !isLoaded) return;
+
+    const attribution = map
+      .getContainer()
+      .querySelector<HTMLElement>(".maplibregl-ctrl-attrib");
+
+    attribution?.classList.remove("maplibregl-compact-show");
+    attribution?.removeAttribute("open");
+  }, [isLoaded, map]);
+
+  return null;
+}
+
 export function ContactMap({ label }: { label: string }) {
   return (
     <Map
       center={[DOMTEKNIKA_COORDS.longitude, DOMTEKNIKA_COORDS.latitude]}
-      zoom={15.4}
-      minZoom={2}
+      zoom={7.4}
+      minZoom={0}
       maxZoom={18}
       theme="light"
       scrollZoom={false}
       dragRotate={false}
       touchPitch={false}
-      className="rounded-[10px]"
+      className="domtek-contact-map rounded-[10px]"
     >
+      <CollapsedMapAttribution />
       <MapControls
         position="top-right"
         showCompass={false}

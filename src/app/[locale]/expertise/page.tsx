@@ -273,7 +273,7 @@ function BrainstormingSection() {
   const t = useTranslations("ExpertisePage.Services.brainstorming");
 
   return (
-    <Reveal className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center min-[1800px]:!my-24 min-[1800px]:!grid-cols-[0.95fr_1.05fr] min-[1800px]:!gap-12">
+    <div className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center min-[1800px]:!my-24 min-[1800px]:!grid-cols-[0.95fr_1.05fr] min-[1800px]:!gap-12">
       <div className="relative">
         <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[17px]">
           <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
@@ -294,7 +294,7 @@ function BrainstormingSection() {
       <div className="lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24 min-[1800px]:!translate-x-0 min-[1800px]:justify-self-center">
         <BrainstormingCardSwap />
       </div>
-    </Reveal>
+    </div>
   );
 }
 

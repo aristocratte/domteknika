@@ -3892,7 +3892,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     sort: {
       label: "Sort",
       options: [
-        { key: "default", label: "Default order" },
+        { key: "default", label: "Default" },
         { key: "date-desc", label: "Newest first" },
         { key: "date-asc", label: "Oldest first" },
         { key: "title-asc", label: "Title A-Z" },
@@ -3984,7 +3984,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     sort: {
       label: "Trier",
       options: [
-        { key: "default", label: "Ordre initial" },
+        { key: "default", label: "Initial" },
         { key: "date-desc", label: "Plus récents" },
         { key: "date-asc", label: "Plus anciens" },
         { key: "title-asc", label: "Titre A-Z" },
@@ -4136,7 +4136,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     sort: {
       label: "Ordenar",
       options: [
-        { key: "default", label: "Orden inicial" },
+        { key: "default", label: "Inicial" },
         { key: "date-desc", label: "Más recientes" },
         { key: "date-asc", label: "Más antiguos" },
         { key: "title-asc", label: "Título A-Z" },
@@ -6166,7 +6166,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       key={filter.key}
                       type="button"
                       className={cn(
-                        "group/filter grid h-11 min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 min-[2400px]:!h-[74px] min-[2400px]:!gap-4 min-[2400px]:!rounded-[7px] min-[2400px]:!px-6 [transition-timing-function:var(--ease-smooth)]",
+                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 min-[1800px]:!h-[58px] min-[1800px]:!gap-3 min-[1800px]:!px-5 min-[2400px]:!h-[64px] min-[2400px]:!gap-4 min-[2400px]:!px-6 [transition-timing-function:var(--ease-smooth)]",
                         filter.icon
                           ? "grid-cols-[auto_1fr]"
                           : "place-items-center text-center",
