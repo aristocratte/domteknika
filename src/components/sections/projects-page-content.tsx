@@ -6483,7 +6483,7 @@ function ProjectsStatsSection({
   ariaLabel: string;
 }) {
   return (
-    <section className="bg-background py-[28px] min-[2400px]:!py-[32px]" aria-label={ariaLabel}>
+    <section className="bg-background py-[28px] min-[1180px]:pb-5 min-[1180px]:pt-[52px] min-[2400px]:!pb-6 min-[2400px]:!pt-14" aria-label={ariaLabel}>
       <Container size="wide">
         <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-4">
           {stats.map((stat, index) => {
@@ -6495,7 +6495,7 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[126px] transform-gpu flex-col items-center justify-center gap-1.5 bg-white px-5 py-3 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[100px] sm:gap-1 sm:px-7 sm:py-2 min-[1180px]:grid min-[1180px]:min-h-[80px] min-[1180px]:grid-cols-[40px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-3 min-[1180px]:px-5 min-[1180px]:py-3 min-[1180px]:text-left min-[2400px]:!min-h-[96px] min-[2400px]:!grid-cols-[60px_1fr] min-[2400px]:!gap-4 min-[2400px]:!px-7 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  "group/stat relative flex min-h-[116px] transform-gpu flex-col items-center justify-center gap-1 bg-white px-5 py-2.5 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[92px] sm:px-7 sm:py-1.5 min-[1180px]:grid min-[1180px]:min-h-[68px] min-[1180px]:grid-cols-[34px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-2 min-[1180px]:px-5 min-[1180px]:py-2 min-[1180px]:text-left min-[2400px]:!min-h-[86px] min-[2400px]:!grid-cols-[54px_1fr] min-[2400px]:!gap-4 min-[2400px]:!px-7 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
                   index % 2 === 0 &&
                     "border-r border-border min-[1180px]:border-r-0",
                   index < 2 &&
@@ -6503,7 +6503,7 @@ function ProjectsStatsSection({
                   index < stats.length - 1 &&
                     "min-[1180px]:border-r min-[1180px]:border-border",
                   index === stats.length - 1 &&
-                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:36px_minmax(0,1fr)] min-[2400px]:!gap-5 min-[2400px]:![grid-template-columns:60px_minmax(0,1fr)]",
+                    "min-[1180px]:gap-2 min-[1180px]:[grid-template-columns:32px_minmax(0,1fr)] min-[2400px]:!gap-4 min-[2400px]:![grid-template-columns:54px_minmax(0,1fr)]",
                 )}
               >
                 <Image
@@ -6511,20 +6511,20 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[38px] w-[42px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[44px] sm:w-[48px] min-[1180px]:h-[36px] min-[1180px]:w-[40px] min-[2400px]:!h-[54px] min-[2400px]:!w-[60px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[36px] w-[40px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[40px] sm:w-[44px] min-[1180px]:h-[32px] min-[1180px]:w-[36px] min-[2400px]:!h-[50px] min-[2400px]:!w-[54px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
                     className={cn(
                       "block max-w-full text-balance font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
                       isLongValue
-                        ? "!text-[19px] sm:!text-[20px] min-[1180px]:!text-[20px] 2xl:!text-[23px] min-[2400px]:!text-[32px]"
-                        : "!text-[28px] sm:!text-[30px] min-[1180px]:!text-[27px] 2xl:!text-[31px] min-[2400px]:!text-[44px]",
+                        ? "!text-[18px] sm:!text-[19px] min-[1180px]:!text-[18px] 2xl:!text-[20px] min-[2400px]:!text-[30px]"
+                        : "!text-[26px] sm:!text-[28px] min-[1180px]:!text-[24px] 2xl:!text-[26px] min-[2400px]:!text-[40px]",
                     )}
                   >
                     {stat.value}
                   </strong>
-                  <span className="mt-1 block text-[12px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-0.5 min-[1180px]:text-[12px] 2xl:text-[13px] min-[2400px]:!mt-1 min-[2400px]:!text-[16px]">
+                  <span className="mt-0.5 block text-[12px] font-medium leading-tight text-muted-foreground min-[1180px]:text-[11px] 2xl:text-[12px] min-[2400px]:!mt-1 min-[2400px]:!text-[15px]">
                     {stat.label}
                   </span>
                 </div>
