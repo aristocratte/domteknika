@@ -169,11 +169,11 @@ export function ProjectsSection() {
               </CarouselContent>
             </Carousel>
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-10 bg-gradient-to-r from-background via-background/90 to-transparent sm:w-14 lg:w-20"
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-[min(14vw,170px)] bg-gradient-to-r from-background via-background/95 to-transparent"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-10 bg-gradient-to-l from-background via-background/90 to-transparent sm:w-14 lg:w-20"
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-[min(14vw,170px)] bg-gradient-to-l from-background via-background/95 to-transparent"
               aria-hidden
             />
             <ProjectArrow
