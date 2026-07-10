@@ -470,19 +470,19 @@ function AddedValueSection() {
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[48px] min-[1800px]:!size-[54px] min-[2400px]:!size-[60px]"
+                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[46px] min-[1800px]:!size-[48px] min-[2400px]:!size-[54px]"
                     />
                     <div className="min-w-0">
                       <strong
                         className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(18px,4.3vw,26px)] sm:text-[clamp(20px,2.25vw,26px)] lg:text-[clamp(20px,1.55vw,25px)] 2xl:text-[27px] min-[1800px]:!text-[30px] min-[2400px]:!text-[34px]"
-                            : "text-[clamp(24px,6.2vw,34px)] sm:text-[clamp(26px,3.25vw,36px)] lg:text-[clamp(26px,2.35vw,34px)] min-[1800px]:!text-[40px] min-[2400px]:!text-[44px]"
+                            ? "text-[clamp(18px,4.3vw,24px)] sm:text-[clamp(20px,2.25vw,24px)] lg:text-[clamp(20px,1.55vw,24px)] 2xl:text-[25px] min-[1800px]:!text-[27px] min-[2400px]:!text-[30px]"
+                            : "text-[clamp(24px,6.2vw,30px)] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
                         }`}
                       >
                         {t(`stats.${stat.key}.value` as never)}
                       </strong>
-                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[16px] min-[2400px]:!text-[17px]">
+                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]">
                         {t(`stats.${stat.key}.label` as never)}
                       </span>
                     </div>

@@ -2791,10 +2791,10 @@ function localizeRelatedPatents(
 
 const PINNED_PROJECT_IDS = [
   "aventor",
-  "sam-cree",
+  "special-t-machine",
   "stajvelo-rv01",
   "softcar",
-  "angel-interceptor",
+  "sam-cree",
 ];
 
 const PROJECT_SORT_YEARS: Partial<Record<string, number>> = {
@@ -2809,6 +2809,26 @@ const FILTER_PROJECT_PRIORITY_IDS: Partial<
   medical: ["airsmile"],
 };
 
+const PROJECT_SOURCE_POSITIONS = new Map(
+  [FEATURED_PROJECT, ...PROJECTS].map((project, index) => [project.id, index]),
+);
+
+const PROJECT_INITIAL_POSITION_OVERRIDES: Partial<Record<string, number>> = {
+  "folding-bike-scooter": PROJECT_SOURCE_POSITIONS.get("ikitty"),
+  ikitty: PROJECT_SOURCE_POSITIONS.get("folding-bike-scooter"),
+  weebot: PROJECT_SOURCE_POSITIONS.get("angel-interceptor"),
+  "angel-interceptor": PROJECT_SOURCE_POSITIONS.get("vacheron-watch-mechanics"),
+  "vacheron-watch-mechanics": PROJECT_SOURCE_POSITIONS.get("weebot"),
+};
+
+function getInitialProjectPosition(projectId: string) {
+  return (
+    PROJECT_INITIAL_POSITION_OVERRIDES[projectId] ??
+    PROJECT_SOURCE_POSITIONS.get(projectId) ??
+    Number.MAX_SAFE_INTEGER
+  );
+}
+
 export const ALL_PROJECTS = [FEATURED_PROJECT, ...PROJECTS].sort((a, b) => {
   const aIndex = PINNED_PROJECT_IDS.indexOf(a.id);
   const bIndex = PINNED_PROJECT_IDS.indexOf(b.id);
@@ -2817,7 +2837,7 @@ export const ALL_PROJECTS = [FEATURED_PROJECT, ...PROJECTS].sort((a, b) => {
     return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex);
   }
 
-  return 0;
+  return getInitialProjectPosition(a.id) - getInitialProjectPosition(b.id);
 });
 
 const PROJECT_SCOPES: Record<
@@ -6465,7 +6485,7 @@ function ProjectsStatsSection({
   return (
     <section className="bg-background py-[28px] min-[2400px]:!py-[32px]" aria-label={ariaLabel}>
       <Container size="wide">
-        <div className="grid grid-cols-2 border border-border bg-white min-[1180px]:grid-cols-4">
+        <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-4">
           {stats.map((stat, index) => {
             const isLongValue = stat.value.length > 6;
 
@@ -6475,7 +6495,7 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[164px] transform-gpu flex-col items-center justify-center gap-3 bg-white px-5 py-6 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[124px] sm:gap-2 sm:px-7 sm:py-2 min-[1180px]:grid min-[1180px]:min-h-[94px] min-[1180px]:grid-cols-[46px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-4 min-[1180px]:px-5 min-[1180px]:py-4 min-[1180px]:text-left min-[2400px]:!min-h-[104px] min-[2400px]:!grid-cols-[66px_1fr] min-[2400px]:!gap-5 min-[2400px]:!px-8 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  "group/stat relative flex min-h-[126px] transform-gpu flex-col items-center justify-center gap-1.5 bg-white px-5 py-3 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[100px] sm:gap-1 sm:px-7 sm:py-2 min-[1180px]:grid min-[1180px]:min-h-[80px] min-[1180px]:grid-cols-[40px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-3 min-[1180px]:px-5 min-[1180px]:py-3 min-[1180px]:text-left min-[2400px]:!min-h-[96px] min-[2400px]:!grid-cols-[60px_1fr] min-[2400px]:!gap-4 min-[2400px]:!px-7 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
                   index % 2 === 0 &&
                     "border-r border-border min-[1180px]:border-r-0",
                   index < 2 &&
@@ -6483,7 +6503,7 @@ function ProjectsStatsSection({
                   index < stats.length - 1 &&
                     "min-[1180px]:border-r min-[1180px]:border-border",
                   index === stats.length - 1 &&
-                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:40px_minmax(0,1fr)] min-[2400px]:!gap-7 min-[2400px]:![grid-template-columns:76px_minmax(0,1fr)]",
+                    "min-[1180px]:gap-3 min-[1180px]:[grid-template-columns:36px_minmax(0,1fr)] min-[2400px]:!gap-5 min-[2400px]:![grid-template-columns:60px_minmax(0,1fr)]",
                 )}
               >
                 <Image
@@ -6491,20 +6511,20 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[50px] w-[54px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[58px] sm:w-[62px] min-[1180px]:h-[42px] min-[1180px]:w-[46px] min-[2400px]:!h-[60px] min-[2400px]:!w-[66px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[38px] w-[42px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[44px] sm:w-[48px] min-[1180px]:h-[36px] min-[1180px]:w-[40px] min-[2400px]:!h-[54px] min-[2400px]:!w-[60px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
                   <strong
                     className={cn(
                       "block max-w-full text-balance font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
                       isLongValue
-                        ? "!text-[22px] min-[1180px]:!text-[22px] 2xl:!text-[25px] min-[2400px]:!text-[36px]"
-                        : "!text-[34px] min-[1180px]:!text-[30px] 2xl:!text-[34px] min-[2400px]:!text-[50px]",
+                        ? "!text-[19px] sm:!text-[20px] min-[1180px]:!text-[20px] 2xl:!text-[23px] min-[2400px]:!text-[32px]"
+                        : "!text-[28px] sm:!text-[30px] min-[1180px]:!text-[27px] 2xl:!text-[31px] min-[2400px]:!text-[44px]",
                     )}
                   >
                     {stat.value}
                   </strong>
-                  <span className="mt-1.5 block text-[14px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-1 min-[1180px]:text-[13px] 2xl:text-[14px] min-[2400px]:!mt-2 min-[2400px]:!text-[18px]">
+                  <span className="mt-1 block text-[12px] font-medium leading-tight text-muted-foreground min-[1180px]:mt-0.5 min-[1180px]:text-[12px] 2xl:text-[13px] min-[2400px]:!mt-1 min-[2400px]:!text-[16px]">
                     {stat.label}
                   </span>
                 </div>
