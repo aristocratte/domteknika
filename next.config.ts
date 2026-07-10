@@ -12,11 +12,6 @@ const localDevOrigins = Object.values(networkInterfaces())
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   allowedDevOrigins: localDevOrigins,
-  experimental: {
-    cpus: 1,
-    webpackBuildWorker: true,
-    webpackMemoryOptimizations: true,
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
