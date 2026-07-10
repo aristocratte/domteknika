@@ -71,13 +71,19 @@ export function SwissBannerSection() {
                   key={value.key}
                   className="flex min-w-0 items-center gap-2 md:gap-3 xl:min-w-[205px] xl:border-l xl:border-white/80 xl:px-5 first:xl:border-l-0 first:xl:pl-0 min-[1800px]:min-w-[430px] min-[1800px]:px-12"
                 >
-                  <Image
-                    src={`/assets/${value.icon}.png`}
-                    alt=""
-                    width={46}
-                    height={46}
-                    className="size-5 shrink-0 object-contain opacity-100 brightness-110 saturate-150 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] md:size-7 lg:size-9 min-[1800px]:size-[74px] min-[2300px]:!size-[84px]"
-                  />
+                  <span className="relative grid size-5 shrink-0 place-items-center md:size-7 lg:size-9 min-[1800px]:size-[74px] min-[2300px]:!size-[84px]">
+                    <span
+                      aria-hidden
+                      className="absolute inset-[12%] rounded-full bg-white/80 blur-[3px] md:blur-[4px]"
+                    />
+                    <Image
+                      src={`/assets/${value.icon}.png`}
+                      alt=""
+                      width={46}
+                      height={46}
+                      className="relative z-10 size-full object-contain opacity-100 brightness-110 saturate-150"
+                    />
+                  </span>
                   <strong className="min-w-0 text-[11px] font-extrabold leading-tight text-white md:text-[14px] lg:text-[16px] lg:leading-none min-[1800px]:text-[35px] min-[2300px]:!text-[40px]">
                     {t(`values.${value.key}` as never)}
                   </strong>
