@@ -21,10 +21,10 @@ export function TrustedBy() {
   const logos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-background py-8 md:py-[72px] min-[1800px]:py-[160px] min-[2400px]:py-[184px]" aria-label={t("label")}>
-      <Container size="wide" className="mb-4 md:mb-8 min-[1800px]:mb-20">
+    <section className="bg-background py-8 md:py-[72px] canvas-lg:py-[160px] canvas-xl:py-[184px]" aria-label={t("label")}>
+      <Container size="wide" className="mb-4 md:mb-8 canvas-lg:mb-20">
         <Reveal>
-          <h2 className="text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px] min-[1800px]:text-[46px] min-[2400px]:text-[54px]">
+          <h2 className="text-[14px] font-normal uppercase leading-none tracking-normal text-foreground md:text-[18px] canvas-lg:text-[46px] canvas-xl:text-[54px]">
             {t("label")}
           </h2>
         </Reveal>
@@ -55,10 +55,10 @@ export function TrustedBy() {
               return (
                 <div
                   key={`${logo.name}-${index}`}
-                  className="flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px] min-[1800px]:h-[220px] min-[1800px]:w-[520px] min-[2400px]:h-[250px] min-[2400px]:w-[590px]"
+                  className="flex h-[64px] w-[150px] shrink-0 items-center justify-center md:h-[100px] md:w-[230px] canvas-lg:h-[220px] canvas-lg:w-[520px] canvas-xl:h-[250px] canvas-xl:w-[590px]"
                 >
                   <div
-                    className="relative h-[var(--logo-height-mobile)] w-[var(--logo-width-mobile)] md:h-[var(--logo-height)] md:w-[var(--logo-width)] min-[1800px]:h-[var(--logo-height-wide)] min-[1800px]:w-[var(--logo-width-wide)] min-[2400px]:h-[var(--logo-height-ultra)] min-[2400px]:w-[var(--logo-width-ultra)]"
+                    className="relative h-[var(--logo-height-mobile)] w-[var(--logo-width-mobile)] md:h-[var(--logo-height)] md:w-[var(--logo-width)] canvas-lg:h-[var(--logo-height-wide)] canvas-lg:w-[var(--logo-width-wide)] canvas-xl:h-[var(--logo-height-ultra)] canvas-xl:w-[var(--logo-width-ultra)]"
                     style={{
                       "--logo-width-mobile": `${mobileLogoBoxWidth}px`,
                       "--logo-height-mobile": `${mobileLogoBoxHeight}px`,

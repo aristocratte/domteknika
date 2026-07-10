@@ -10,23 +10,23 @@ export function ProcessSection() {
   return (
     <section
       id="expertise"
-      className="scroll-mt-28 bg-white py-10 md:py-[112px] min-[1800px]:py-[210px] min-[2400px]:py-[246px]"
+      className="scroll-mt-28 bg-white py-10 md:py-[112px] canvas-lg:py-[210px] canvas-xl:py-[246px]"
       aria-labelledby="process-title"
     >
       <Container
         size="wide"
-        className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-4 min-[1800px]:max-w-[1880px] min-[2200px]:max-[2399px]:max-w-[2200px] min-[2200px]:max-[2399px]:px-1 min-[2400px]:max-w-[2520px] min-[2400px]:px-3"
+        className="max-w-[1560px] px-4 py-0 sm:px-6 lg:px-4 xl:px-4 canvas-lg:max-w-[1880px] canvas-mid:max-w-[2200px] canvas-mid:px-1 canvas-xl:max-w-[2520px] canvas-xl:px-3"
       >
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch min-[1800px]:gap-9 min-[2400px]:gap-11">
+        <div className="grid gap-6 lg:grid-cols-[1.08fr_1.58fr_1.52fr] lg:items-stretch canvas-lg:gap-9 canvas-xl:gap-11">
           <Reveal
             as="article"
-            className="group flex min-h-[248px] flex-col justify-start rounded-[15px] border border-border bg-white p-5 pt-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] md:p-6 md:pt-[42px] min-[1800px]:min-h-[680px] min-[1800px]:rounded-[22px] min-[1800px]:p-16 min-[1800px]:pt-20 min-[2400px]:min-h-[760px] min-[2400px]:p-[72px]"
+            className="group flex min-h-[248px] flex-col justify-start rounded-[15px] border border-border bg-white p-5 pt-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] md:p-6 md:pt-[42px] canvas-lg:min-h-[680px] canvas-lg:rounded-[22px] canvas-lg:p-16 canvas-lg:pt-20 canvas-xl:min-h-[760px] canvas-xl:p-[72px]"
           >
             <AccentLine />
-            <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground min-[1800px]:text-[40px] min-[2400px]:text-[46px]">
+            <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground canvas-lg:text-[40px] canvas-xl:text-[46px]">
               {t("ideaTitle")}
             </h2>
-            <div className="mt-7 max-w-[390px] text-[16px] font-medium leading-[1.24] text-foreground min-[1800px]:max-w-[680px] min-[1800px]:text-[25px] min-[2400px]:text-[28px]">
+            <div className="mt-7 max-w-[390px] text-[16px] font-medium leading-[1.24] text-foreground canvas-lg:max-w-[680px] canvas-lg:text-[25px] canvas-xl:text-[28px]">
               <p>{t("ideaIntro")}</p>
               <p className="mt-7">
                 {t.rich("ideaBody", {
@@ -41,23 +41,23 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.08}
-            className="group relative z-20 my-0 min-h-[260px] rounded-[15px] bg-brand px-5 py-6 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[304px] md:px-7 md:pb-7 md:pt-[42px] min-[1800px]:min-h-[720px] min-[1800px]:rounded-[22px] min-[1800px]:px-16 min-[1800px]:pb-16 min-[1800px]:pt-20 min-[2400px]:min-h-[800px] min-[2400px]:px-[72px]"
+            className="group relative z-20 my-0 min-h-[260px] rounded-[15px] bg-brand px-5 py-6 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[304px] md:px-7 md:pb-7 md:pt-[42px] canvas-lg:min-h-[720px] canvas-lg:rounded-[22px] canvas-lg:px-16 canvas-lg:pb-16 canvas-lg:pt-20 canvas-xl:min-h-[800px] canvas-xl:px-[72px]"
           >
             <div className="grid h-full gap-5 md:grid-cols-[0.82fr_1.38fr] md:items-stretch">
               <div>
                 <AccentLine light />
                 <h2
                   id="process-title"
-                  className="mt-4 text-[24px] font-extrabold leading-tight min-[1800px]:text-[42px] min-[2400px]:text-[48px]"
+                  className="mt-4 text-[24px] font-extrabold leading-tight canvas-lg:text-[42px] canvas-xl:text-[48px]"
                 >
                   {t("processTitle")}
                 </h2>
-                <p className="mt-7 text-[17px] font-medium leading-[1.22] min-[1800px]:text-[26px] min-[2400px]:text-[29px]">
+                <p className="mt-7 text-[17px] font-medium leading-[1.22] canvas-lg:text-[26px] canvas-xl:text-[29px]">
                   {t("processBody")}
                 </p>
               </div>
 
-              <div className="relative h-full min-h-[190px] border-white/70 md:min-h-[250px] md:border-l min-[1800px]:min-h-[600px] min-[2400px]:min-h-[680px]">
+              <div className="relative h-full min-h-[190px] border-white/70 md:min-h-[250px] md:border-l canvas-lg:min-h-[600px] canvas-xl:min-h-[680px]">
                 <div className="absolute inset-y-0 left-7 right-0 md:left-8">
                   <Image
                     src="/assets/schema-process.png"
@@ -74,14 +74,14 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.16}
-            className="group flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] min-[1800px]:min-h-[680px] min-[1800px]:rounded-[22px] min-[2400px]:min-h-[760px]"
+            className="group flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[304px] canvas-lg:min-h-[680px] canvas-lg:rounded-[22px] canvas-xl:min-h-[760px]"
           >
-            <div className="px-5 pb-0 pt-6 md:px-6 md:pt-[42px] min-[1800px]:px-12 min-[1800px]:pt-16">
+            <div className="px-5 pb-0 pt-6 md:px-6 md:pt-[42px] canvas-lg:px-12 canvas-lg:pt-16">
               <AccentLine />
-              <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground min-[1800px]:text-[40px] min-[2400px]:text-[46px]">
+              <h2 className="mt-4 text-[22px] font-extrabold leading-tight text-foreground canvas-lg:text-[40px] canvas-xl:text-[46px]">
                 {t("productTitle")}
               </h2>
-              <p className="mt-6 max-w-[760px] text-[16px] font-medium leading-[1.24] text-foreground min-[1800px]:text-[25px] min-[2400px]:text-[28px]">
+              <p className="mt-6 max-w-[760px] text-[16px] font-medium leading-[1.24] text-foreground canvas-lg:text-[25px] canvas-xl:text-[28px]">
                 {t("productBody")}
               </p>
             </div>
@@ -131,14 +131,14 @@ function Stat({
 }) {
   return (
     <div
-      className={`relative min-h-[66px] px-4 py-3 lg:min-h-[92px] lg:border-t-0 lg:px-3 lg:py-4 xl:px-4 min-[1800px]:min-h-[150px] min-[1800px]:px-9 min-[1800px]:py-7 min-[2400px]:min-h-[170px] ${
+      className={`relative min-h-[66px] px-4 py-3 lg:min-h-[92px] lg:border-t-0 lg:px-3 lg:py-4 xl:px-4 canvas-lg:min-h-[150px] canvas-lg:px-9 canvas-lg:py-7 canvas-xl:min-h-[170px] ${
         divider
           ? "border-t border-border lg:border-t-0 lg:before:absolute lg:before:bottom-4 lg:before:left-0 lg:before:top-4 lg:before:w-px lg:before:bg-border"
           : "pt-4"
       }`}
     >
       <div className={withFlag ? "flex items-start justify-between gap-2" : undefined}>
-        <strong className="block text-[22px] font-extrabold leading-[1.08] text-brand lg:text-[20px] xl:text-[21px] min-[1800px]:text-[42px] min-[2400px]:text-[48px]">
+        <strong className="block text-[22px] font-extrabold leading-[1.08] text-brand lg:text-[20px] xl:text-[21px] canvas-lg:text-[42px] canvas-xl:text-[48px]">
           {value}
         </strong>
         {withFlag && (
@@ -147,11 +147,11 @@ function Stat({
             alt=""
             width={37}
             height={37}
-            className="size-6 shrink-0 lg:size-[26px] min-[1800px]:size-[50px] min-[2400px]:size-[56px]"
+            className="size-6 shrink-0 lg:size-[26px] canvas-lg:size-[50px] canvas-xl:size-[56px]"
           />
         )}
       </div>
-      <span className="mt-2 block text-[15px] font-normal leading-[1.12] text-brand lg:text-[14px] xl:text-[15px] min-[1800px]:text-[26px] min-[2400px]:text-[29px]">
+      <span className="mt-2 block text-[15px] font-normal leading-[1.12] text-brand lg:text-[14px] xl:text-[15px] canvas-lg:text-[26px] canvas-xl:text-[29px]">
         {label}
       </span>
     </div>

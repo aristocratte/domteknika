@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { ArrowUpRight, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Container } from "@/components/layout/container";
+import { ContactMap } from "@/components/sections/contact-map";
 import { Reveal } from "@/components/providers/reveal";
 import {
   OurStoryTimelineBlock,
@@ -40,6 +41,7 @@ type MediaKey =
   | "startupCar"
   | "totalCar"
   | "boneFixation"
+  | "airsmile"
   | "softcar"
   | "stajvelo"
   | "softcarReveal";
@@ -70,6 +72,7 @@ interface TimelineRow {
 
 const STORY_CARD_PROJECT_IDS: Partial<Record<CardKey, string>> = {
   cree: "sam-cree",
+  swissbiomed: "airsmile",
   startup: "smart-bottle",
   totalCar: "totalcar-concept",
   aventor: "aventor",
@@ -77,6 +80,29 @@ const STORY_CARD_PROJECT_IDS: Partial<Record<CardKey, string>> = {
   softcar: "softcar",
   stajvelo: "stajvelo-rv01",
   softcarReveal: "softcar",
+};
+
+const STORY_MEDIA_PROJECT_IDS: Partial<Record<MediaKey, string>> = {
+  cree: "sam-cree",
+  startupCar: "totalcar-concept",
+  totalCar: "aventor",
+  boneFixation: "biome-staple-applicator",
+  airsmile: "airsmile",
+  softcar: "softcar",
+  stajvelo: "stajvelo-rv01",
+  softcarReveal: "softcar",
+};
+
+const LOCATION_DIALOG_COPY: Record<
+  StoryLocale,
+  { eyebrow: string; title: string; address: string; openMaps: string; close: string }
+> = {
+  en: { eyebrow: "Our location", title: "DOMTEKNIKA in La Neuveville", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\nSwitzerland", openMaps: "Open in Google Maps", close: "Close map" },
+  fr: { eyebrow: "Notre adresse", title: "DOMTEKNIKA à La Neuveville", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\nSuisse", openMaps: "Ouvrir dans Google Maps", close: "Fermer la carte" },
+  de: { eyebrow: "Unser Standort", title: "DOMTEKNIKA in La Neuveville", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\nSchweiz", openMaps: "In Google Maps öffnen", close: "Karte schließen" },
+  es: { eyebrow: "Nuestra dirección", title: "DOMTEKNIKA en La Neuveville", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\nSuiza", openMaps: "Abrir en Google Maps", close: "Cerrar el mapa" },
+  ko: { eyebrow: "회사 주소", title: "La Neuveville의 DOMTEKNIKA", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\n스위스", openMaps: "Google 지도에서 열기", close: "지도 닫기" },
+  zh: { eyebrow: "公司地址", title: "位于 La Neuveville 的 DOMTEKNIKA", address: "Chem. de Saint-Joux 16B\n2520 La Neuveville\n瑞士", openMaps: "在 Google 地图中打开", close: "关闭地图" },
 };
 
 const STORY_COPY: Record<StoryLocale, StoryCopy> = {
@@ -170,13 +196,13 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     eyebrow: "Notre parcours depuis 1998",
     title: "Notre histoire",
     intro:
-      "Fondée en 1998 par Jean-Luc Thuliez, ingénieur visionnaire, DOMTEKNIKA transforme depuis plus de 25 ans des défis techniques complexes en solutions fiables. Des premiers concepts aux prototypes, de la simulation à l'électronique et au développement industriel, nous aidons les idées à devenir des produits qui fonctionnent. Découvrez une sélection de projets qui reflètent notre expertise et notre expérience.",
+      "Fondée en 1998 par Jean-Luc Thuliez, ingénieur visionnaire, DOMTEKNIKA transforme depuis plus de 25 ans des défis techniques complexes en solutions fiables. Des premiers concepts aux prototypes, de la simulation à l'électronique et au développement industriel, nous faisons évoluer les idées vers des produits concrets, performants et industrialisables. Découvrez une sélection de projets qui reflètent notre expertise et notre expérience.",
     cards: {
       founded: {
         year: "1998",
-        title: "Création à La Neuveville - Suisse",
+        title: "Création à La Neuveville, en Suisse",
         description:
-          "DOMTEKNIKA est née à La Neuveville avec une ambition claire: combiner créativité, ingénierie mécanique et expertise polymère pour transformer les idées en solutions concrètes.",
+          "DOMTEKNIKA est née à La Neuveville avec une ambition claire : combiner créativité, ingénierie mécanique et expertise polymère pour transformer les idées en solutions concrètes.",
         icon: "box",
       },
       cree: {
@@ -195,9 +221,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       startup: {
         year: "2011-2013",
-        title: "Innovations startup primées 3 ans de suite",
+        title: "Innovations de startup primées trois années de suite",
         description:
-          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts startup ambitieux en innovations récompensées dans les produits intelligents, les technologies beauté et les dispositifs médicaux.",
+          "De Smart Bottle à Skin Care et Personal Injector, DOMTEKNIKA a transformé des concepts de startup ambitieux en innovations primées dans les produits connectés, les technologies de beauté et les dispositifs médicaux.",
         icon: "document",
         awards: true,
       },
@@ -245,9 +271,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       today: {
         year: "Aujourd'hui",
-        title: "Ingénierie pour ce qui vient ensuite",
+        title: "Concevoir les solutions de demain",
         description:
-          "DOMTEKNIKA continue d'accompagner les innovateurs industriels, médicaux et mobilité, de l'idée au prototype.",
+          "DOMTEKNIKA continue d'accompagner les entreprises et les équipes d'innovation dans l'industrie, le médical et la mobilité, de l'idée jusqu'au prototype et à l'industrialisation.",
         icon: "document",
       },
     },
@@ -256,11 +282,11 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     eyebrow: "Unser Weg seit 1998",
     title: "Unsere Geschichte",
     intro:
-      "1998 vom visionären Ingenieur Jean-Luc Thuliez gegründet, verwandelt DOMTEKNIKA seit mehr als 25 Jahren komplexe technische Herausforderungen in zuverlässige Engineering-Lösungen. Von ersten Konzepten und Prototypen bis zu Simulation, Elektronik und industrieller Entwicklung helfen wir Ideen, zu funktionierenden Produkten zu werden. Entdecken Sie eine Auswahl von Projekten, die unsere Expertise und Erfahrung zeigen.",
+      "1998 vom visionären Ingenieur Jean-Luc Thuliez gegründet, verwandelt DOMTEKNIKA seit mehr als 25 Jahren komplexe technische Herausforderungen in zuverlässige Engineering-Lösungen. Von ersten Konzepten und Prototypen bis zu Simulation, Elektronik und industrieller Entwicklung machen wir aus Ideen konkrete, leistungsfähige und industrialisierbare Produkte. Entdecken Sie Projekte, die unsere Kompetenz und langjährige Erfahrung sichtbar machen.",
     cards: {
       founded: {
         year: "1998",
-        title: "Gründung in La Neuveville - Schweiz",
+        title: "Gründung in La Neuveville, Schweiz",
         description:
           "DOMTEKNIKA entstand in La Neuveville mit einer klaren Ambition: Kreativität, Maschinenbau und Polymerkompetenz zu verbinden, um Ideen in konkrete Lösungen zu verwandeln.",
         icon: "box",
@@ -283,7 +309,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2011-2013",
         title: "Prämierte Startup-Innovationen in drei aufeinanderfolgenden Jahren",
         description:
-          "Von Smart Bottle bis Skin Care und Personal Injector verwandelte DOMTEKNIKA ambitionierte Startup-Konzepte in ausgezeichnete Innovationen für smarte Produkte, Beauty-Technologie und Medizintechnik.",
+          "Von Smart Bottle bis Skin Care und Personal Injector entwickelte DOMTEKNIKA ambitionierte Startup-Konzepte zu prämierten Innovationen für vernetzte Produkte, Beauty-Technologie und Medizintechnik.",
         icon: "document",
         awards: true,
       },
@@ -296,7 +322,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       aventor: {
         year: "2014",
-        title: "Aventor - Leistung als Prüfstand",
+        title: "Aventor - Hochleistung als Entwicklungsprüfstand",
         description:
           "Aventor führte Elektromobilität in ein Hochleistungsformat und nutzte Geschwindigkeit und Beschleunigung, um Materialien und Architekturen zu validieren.",
         icon: "document",
@@ -331,9 +357,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       today: {
         year: "Heute",
-        title: "Entwicklung für das, was als Nächstes kommt",
+        title: "Engineering für die Lösungen von morgen",
         description:
-          "DOMTEKNIKA begleitet weiterhin Innovatoren aus Industrie, Medizintechnik und Mobilität von der Idee bis zum Prototyp.",
+          "DOMTEKNIKA begleitet Unternehmen und Innovationsteams aus Industrie, Medizintechnik und Mobilität von der Idee über den Prototyp bis zur Industrialisierung.",
         icon: "document",
       },
     },
@@ -342,11 +368,11 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     eyebrow: "Nuestro recorrido desde 1998",
     title: "Nuestra historia",
     intro:
-      "Fundada en 1998 por Jean-Luc Thuliez, ingeniero visionario, DOMTEKNIKA lleva más de 25 años convirtiendo retos técnicos complejos en soluciones de ingeniería fiables. De los primeros conceptos y prototipos a la simulación, la electrónica y el desarrollo industrial, ayudamos a que las ideas se conviertan en productos que funcionan. Descubre una selección de proyectos que reflejan nuestra experiencia.",
+      "Fundada en 1998 por Jean-Luc Thuliez, ingeniero visionario, DOMTEKNIKA lleva más de 25 años convirtiendo retos técnicos complejos en soluciones de ingeniería fiables. Desde los primeros conceptos y prototipos hasta la simulación, la electrónica y el desarrollo industrial, hacemos que las ideas evolucionen hacia productos concretos, eficaces e industrializables. Descubre una selección de proyectos que refleja nuestra capacidad técnica y trayectoria.",
     cards: {
       founded: {
         year: "1998",
-        title: "Fundación en La Neuveville - Suiza",
+        title: "Fundación en La Neuveville, Suiza",
         description:
           "DOMTEKNIKA nació en La Neuveville con una ambición clara: combinar creatividad, ingeniería mecánica y experiencia en polímeros para transformar ideas en soluciones concretas.",
         icon: "box",
@@ -369,7 +395,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2011-2013",
         title: "Innovaciones startup premiadas durante tres años seguidos",
         description:
-          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos startup ambiciosos en innovaciones premiadas en productos inteligentes, tecnología de belleza y tecnología médica.",
+          "De Smart Bottle a Skin Care y Personal Injector, DOMTEKNIKA convirtió conceptos de startup ambiciosos en innovaciones premiadas para productos conectados, tecnología de belleza y dispositivos médicos.",
         icon: "document",
         awards: true,
       },
@@ -405,7 +431,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2018",
         title: "Stajvelo - innovación polimérica sobre dos ruedas",
         description:
-          "DOMTEKNIKA aplicó su experiencia en polímeros a Stajvelo, una bicicleta eléctrica urbana construida alrededor de estructuras integradas, confort y diseño.",
+          "DOMTEKNIKA aplicó su experiencia en polímeros a Stajvelo, una bicicleta eléctrica urbana concebida a partir de estructuras integradas, confort y diseño.",
         icon: "document",
       },
       softcarReveal: {
@@ -417,18 +443,18 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       today: {
         year: "Hoy",
-        title: "Ingeniería para lo que viene",
+        title: "Ingeniería para las soluciones del mañana",
         description:
-          "DOMTEKNIKA sigue acompañando a innovadores industriales, de tecnología médica y de movilidad desde la idea hasta el prototipo.",
+          "DOMTEKNIKA sigue acompañando a empresas y equipos de innovación de la industria, la tecnología médica y la movilidad, desde la idea hasta el prototipo y la industrialización.",
         icon: "document",
       },
     },
   },
   ko: {
     eyebrow: "1998년부터 이어진 여정",
-    title: "회사 이야기",
+    title: "회사 연혁",
     intro:
-      "1998년 비전 있는 엔지니어 Jean-Luc Thuliez가 설립한 DOMTEKNIKA는 25년 넘게 복잡한 기술 과제를 신뢰할 수 있는 엔지니어링 솔루션으로 바꿔 왔습니다. 초기 콘셉트와 프로토타입부터 시뮬레이션, 전자, 산업 개발까지 아이디어가 작동하는 제품이 되도록 돕습니다. 우리의 전문성과 경험을 보여 주는 프로젝트를 살펴보세요.",
+      "1998년 선구적인 엔지니어 Jean-Luc Thuliez가 설립한 DOMTEKNIKA는 25년 넘게 복잡한 기술 과제를 신뢰할 수 있는 엔지니어링 솔루션으로 전환해 왔습니다. 초기 콘셉트와 프로토타입부터 시뮬레이션, 전자 시스템, 산업화 개발까지 아이디어를 구체적이고 성능과 양산성을 갖춘 제품으로 발전시킵니다. 우리의 전문성과 경험을 보여 주는 프로젝트를 살펴보세요.",
     cards: {
       founded: {
         year: "1998",
@@ -468,7 +494,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       aventor: {
         year: "2014",
-        title: "Aventor - 성능을 검증 무대로",
+        title: "Aventor - 고성능을 개발 검증의 장으로",
         description:
           "Aventor는 전기 모빌리티를 고성능 형식으로 확장하며 속도와 가속을 통해 소재와 아키텍처를 검증했습니다.",
         icon: "document",
@@ -498,14 +524,14 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2024",
         title: "Softcar V1 공개",
         description:
-          "Softcar V1은 경량 엔지니어링과 순환 모빌리티 연구를 실제 제품으로 보여 주는 새로운 세대의 깨끗한 도시형 차량입니다.",
+          "Softcar V1은 수십 년간 축적한 경량 엔지니어링과 순환 모빌리티 연구를 구현한 차세대 저환경 도시형 차량입니다.",
         icon: "globe",
       },
       today: {
         year: "오늘",
-        title: "다음을 위한 엔지니어링",
+        title: "미래를 위한 엔지니어링",
         description:
-          "DOMTEKNIKA는 산업, 의료기술, 모빌리티 혁신가가 아이디어에서 프로토타입으로 나아가도록 계속 지원합니다.",
+          "DOMTEKNIKA는 산업, 의료기술, 모빌리티 분야의 기업과 혁신팀을 아이디어부터 프로토타입, 산업화까지 지원합니다.",
         icon: "document",
       },
     },
@@ -514,7 +540,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     eyebrow: "自 1998 年以来的历程",
     title: "我们的故事",
     intro:
-      "DOMTEKNIKA 于 1998 年由富有远见的工程师 Jean-Luc Thuliez 创立。25 年多来，我们一直把复杂技术挑战转化为可靠的工程解决方案。从早期概念和原型，到仿真、电子和工业开发，我们帮助想法成为真正可运行的产品。探索一组选定项目，了解我们的专业能力和长期经验。",
+      "DOMTEKNIKA 于 1998 年由富有远见的工程师 Jean-Luc Thuliez 创立。25 年多来，我们持续将复杂技术挑战转化为可靠的工程解决方案。从早期概念和原型，到仿真、电子系统与工业化开发，我们让创意成长为具体、可靠且可工业化的产品。通过这些代表项目，了解我们的专业能力与长期积累。",
     cards: {
       founded: {
         year: "1998",
@@ -541,7 +567,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2011-2013",
         title: "连续三年获奖的 startup 创新",
         description:
-          "从 Smart Bottle 到 Skin Care 和 Personal Injector，DOMTEKNIKA 将智能产品、美妆科技和医疗技术领域的雄心 startup 概念转化为获奖创新。",
+          "从 Smart Bottle 到 Skin Care 和 Personal Injector，DOMTEKNIKA 将智能产品、美妆科技和医疗技术领域具有突破性的 startup 概念转化为获奖创新。",
         icon: "document",
         awards: true,
       },
@@ -584,14 +610,14 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2024",
         title: "Softcar V1 发布",
         description:
-          "Softcar V1 展示了新一代清洁城市车辆，把数十年的轻量化工程和循环出行研究变成具体产品。",
+          "Softcar V1 展示了新一代低环境影响城市车辆，将数十年的轻量化工程与循环出行研究转化为具体产品。",
         icon: "globe",
       },
       today: {
         year: "今天",
         title: "面向未来的工程",
         description:
-          "DOMTEKNIKA 继续支持工业、医疗技术和出行领域的创新者，从想法走向原型。",
+          "DOMTEKNIKA 继续支持工业、医疗技术和出行领域的企业与创新团队，从创意、原型一路走向工业化。",
         icon: "document",
       },
     },
@@ -617,12 +643,12 @@ const MEDIA: Record<
     className: "md:pt-5",
     images: [
       {
-        src: "/assets/our-story/lake-workshop.png",
+        src: "/assets/our-story/la-neuveville.jpg",
         alt: "Lake Biel landscape near La Neuveville",
         title: "La Neuveville",
         meta: "Suisse",
-        width: 382,
-        height: 170,
+        width: 799,
+        height: 533,
         className: "w-[280px] sm:w-[340px] md:w-[300px] xl:w-[340px]",
       },
     ],
@@ -702,6 +728,19 @@ const MEDIA: Record<
       },
     ],
   },
+  airsmile: {
+    images: [
+      {
+        src: "/assets/projects/airsmile/airsmile-01-cover.webp",
+        alt: "AirSmile handheld dental care device render",
+        title: "AirSmile",
+        meta: "2009",
+        width: 856,
+        height: 552,
+        className: "w-[230px] sm:w-[300px] md:w-[260px] xl:w-[300px]",
+      },
+    ],
+  },
   softcar: {
     images: [
       {
@@ -746,7 +785,10 @@ const MEDIA: Record<
 const TIMELINE_ROWS: TimelineRow[] = [
   { left: { type: "card", key: "founded" }, right: { type: "media", key: "lake" } },
   { left: { type: "media", key: "cree" }, right: { type: "card", key: "cree" } },
-  { left: { type: "card", key: "swissbiomed" } },
+  {
+    left: { type: "card", key: "swissbiomed" },
+    right: { type: "media", key: "airsmile" },
+  },
   { left: { type: "media", key: "startupProducts" }, right: { type: "card", key: "startup" } },
   { left: { type: "card", key: "totalCar" }, right: { type: "media", key: "startupCar" } },
   { left: { type: "media", key: "totalCar" }, right: { type: "card", key: "aventor" } },
@@ -773,6 +815,7 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
     [locale],
   );
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [locationMapOpen, setLocationMapOpen] = useState(false);
 
   const openProject = useCallback(
     (projectId: string) => {
@@ -828,6 +871,7 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
               row={row}
               copy={copy}
               onOpenProject={openProject}
+              onOpenLocationMap={() => setLocationMapOpen(true)}
             />
           ))}
         </OurStoryTimelineRail>
@@ -839,6 +883,12 @@ export function OurStoryPageContent({ locale }: { locale: string }) {
           modal={projectModalCopy}
           project={selectedProject}
           onClosed={() => setSelectedProject(null)}
+        />
+      )}
+      {locationMapOpen && (
+        <OurStoryLocationDialog
+          locale={locale as StoryLocale}
+          onClose={() => setLocationMapOpen(false)}
         />
       )}
     </section>
@@ -990,10 +1040,12 @@ function TimelineRow({
   row,
   copy,
   onOpenProject,
+  onOpenLocationMap,
 }: {
   row: TimelineRow;
   copy: StoryCopy;
   onOpenProject: (projectId: string) => void;
+  onOpenLocationMap: () => void;
 }) {
   return (
     <OurStoryTimelineStep
@@ -1002,11 +1054,12 @@ function TimelineRow({
     >
       {row.left ? (
         <OurStoryTimelineBlock className="col-start-2 row-start-1 md:col-start-1">
-          <StoryBlock
-            block={row.left}
-            copy={copy}
-            side="left"
-            onOpenProject={onOpenProject}
+        <StoryBlock
+          block={row.left}
+          copy={copy}
+          side="left"
+          onOpenProject={onOpenProject}
+          onOpenLocationMap={onOpenLocationMap}
           />
         </OurStoryTimelineBlock>
       ) : (
@@ -1025,6 +1078,7 @@ function TimelineRow({
             copy={copy}
             side="right"
             onOpenProject={onOpenProject}
+            onOpenLocationMap={onOpenLocationMap}
           />
         </OurStoryTimelineBlock>
       ) : (
@@ -1039,41 +1093,58 @@ function StoryBlock({
   copy,
   side,
   onOpenProject,
+  onOpenLocationMap,
 }: {
   block: TimelineBlock;
   copy: StoryCopy;
   side: "left" | "right";
   onOpenProject: (projectId: string) => void;
+  onOpenLocationMap: () => void;
 }) {
   if (block.type === "card") {
     return (
       <TimelineCard
         card={copy.cards[block.key]}
         projectId={STORY_CARD_PROJECT_IDS[block.key]}
+        opensLocationMap={block.key === "founded"}
         side={side}
         onOpenProject={onOpenProject}
+        onOpenLocationMap={onOpenLocationMap}
       />
     );
   }
 
-  return <TimelineMedia media={MEDIA[block.key]} side={side} />;
+  return (
+    <TimelineMedia
+      media={MEDIA[block.key]}
+      side={side}
+      projectId={STORY_MEDIA_PROJECT_IDS[block.key]}
+      onOpenProject={onOpenProject}
+      onOpenLocationMap={block.key === "lake" ? onOpenLocationMap : undefined}
+    />
+  );
 }
 
 function TimelineCard({
   card,
   projectId,
+  opensLocationMap,
   side,
   onOpenProject,
+  onOpenLocationMap,
 }: {
   card: StoryCard;
   projectId?: string;
+  opensLocationMap?: boolean;
   side: "left" | "right";
   onOpenProject: (projectId: string) => void;
+  onOpenLocationMap: () => void;
 }) {
+  const isInteractive = Boolean(projectId || opensLocationMap);
   const className = cn(
     "group/card relative grid min-h-[112px] w-full max-w-[500px] grid-cols-1 gap-3 rounded-[7px] border border-border bg-white px-4 py-4 text-left shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)] sm:items-center md:min-h-[116px] md:max-w-[460px] md:px-5 md:py-4 lg:max-w-[470px]",
     side === "left" ? "md:justify-self-end" : "md:justify-self-start",
-    projectId &&
+    isInteractive &&
       "cursor-pointer pr-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 sm:pr-11",
     card.awards &&
       "gap-4 pr-12 sm:grid-cols-1 sm:items-start sm:pr-12 lg:grid-cols-[minmax(0,1fr)_176px] lg:pr-5",
@@ -1102,7 +1173,7 @@ function TimelineCard({
           className="pointer-events-none w-[126px] self-start justify-self-start invert hue-rotate-180 sm:w-[140px] lg:col-start-2 lg:row-start-1 lg:w-[150px] lg:justify-self-center"
         />
       )}
-      {projectId && (
+      {isInteractive && (
         <span
           className="absolute right-3 top-3 grid size-6 place-items-center text-muted-foreground/70 transition-[color,transform] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-muted-foreground"
           aria-hidden
@@ -1125,16 +1196,32 @@ function TimelineCard({
     );
   }
 
+  if (opensLocationMap) {
+    return (
+      <button type="button" className={className} onClick={onOpenLocationMap}>
+        {content}
+      </button>
+    );
+  }
+
   return <article className={className}>{content}</article>;
 }
 
 function TimelineMedia({
   media,
   side,
+  projectId,
+  onOpenProject,
+  onOpenLocationMap,
 }: {
   media: (typeof MEDIA)[MediaKey];
   side: "left" | "right";
+  projectId?: string;
+  onOpenProject: (projectId: string) => void;
+  onOpenLocationMap?: () => void;
 }) {
+  const isInteractive = Boolean(projectId || onOpenLocationMap);
+
   return (
     <div
       className={cn(
@@ -1147,7 +1234,9 @@ function TimelineMedia({
         <figure
           key={image.src}
           className={cn(
-            "max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
+            "relative max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
+            isInteractive &&
+              "group/location transition-shadow duration-300 hover:shadow-[0_20px_42px_rgba(0,0,0,0.14)]",
             image.className,
           )}
         >
@@ -1166,8 +1255,112 @@ function TimelineMedia({
               {image.title}
             </span>
           </figcaption>
+          {isInteractive && (
+            <button
+              type="button"
+              className="absolute inset-0 cursor-pointer rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+              aria-label={
+                onOpenLocationMap
+                  ? "Open DOMTEKNIKA location map"
+                  : `Open project: ${image.title}`
+              }
+              onClick={() => {
+                if (onOpenLocationMap) {
+                  onOpenLocationMap();
+                  return;
+                }
+                if (projectId) onOpenProject(projectId);
+              }}
+            />
+          )}
         </figure>
       ))}
+    </div>
+  );
+}
+
+function OurStoryLocationDialog({
+  locale,
+  onClose,
+}: {
+  locale: StoryLocale;
+  onClose: () => void;
+}) {
+  const copy = LOCATION_DIALOG_COPY[locale] ?? LOCATION_DIALOG_COPY.en;
+  const dialogRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const previousActiveElement = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus({ preventScroll: true });
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previousActiveElement?.focus?.({ preventScroll: true });
+    };
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-[120] grid place-items-center p-4 sm:p-6" role="presentation">
+      <button
+        type="button"
+        className="absolute inset-0 bg-black/35 backdrop-blur-[2px]"
+        aria-label={copy.close}
+        onClick={onClose}
+      />
+      <section
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="our-story-location-title"
+        className="relative z-10 w-full max-w-[860px] overflow-hidden rounded-[10px] border border-border bg-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] outline-none"
+      >
+        <div className="flex items-start justify-between gap-5 border-b border-border px-5 py-4 sm:px-7 sm:py-5">
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
+              {copy.eyebrow}
+            </p>
+            <h2
+              id="our-story-location-title"
+              className="mt-1 text-[22px] font-extrabold leading-tight text-foreground sm:text-[28px]"
+            >
+              {copy.title}
+            </h2>
+          </div>
+          <button
+            type="button"
+            className="grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/35"
+            aria-label={copy.close}
+            onClick={onClose}
+          >
+            <X className="size-4" aria-hidden />
+          </button>
+        </div>
+        <div className="grid gap-4 p-4 sm:p-5 md:grid-cols-[minmax(0,1fr)_190px]">
+          <div className="h-[300px] overflow-hidden rounded-[7px] border border-border sm:h-[390px]">
+            <ContactMap label="DOMTEKNIKA" />
+          </div>
+          <div className="flex flex-col justify-between rounded-[7px] border border-border bg-muted/30 p-4 sm:p-5">
+            <p className="whitespace-pre-line text-[14px] font-medium leading-[1.5] text-muted-foreground">
+              {copy.address}
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Chemin%20de%20Saint-Joux%2016B%2C%202520%20La%20Neuveville%2C%20Switzerland"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-3 self-start text-[13px] font-extrabold text-foreground transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand/35"
+            >
+              {copy.openMaps}
+              <ArrowUpRight className="size-4 text-brand" aria-hidden />
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

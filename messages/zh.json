@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "DOMTEKNIKA - 产品工程与原型开发",
-    "description": "DOMTEKNIKA 在瑞士为工业企业与创新者连接工程、原型开发和生产。"
+    "description": "DOMTEKNIKA 立足瑞士，为工业企业和创新团队提供贯穿工程设计、原型开发与生产的完整支持。"
   },
   "Nav": {
     "home": "首页",
@@ -14,12 +14,12 @@
     "closeMenu": "关闭菜单"
   },
   "Hero": {
-    "eyebrow": "把想法转化为真实解决方案",
+    "eyebrow": "把想法转化为可落地的解决方案",
     "engineering": "Engineering",
     "prototyping": "Prototyping",
     "producing": "Producing",
     "shape": "Shape your dreams",
-    "lead": "从最初的灵感到批量生产，<brand>DOMTEKNIKA</brand> 为工业企业和创新者连接工程与制造。机械工程、定制工业方案和精密原型开发，<strong>源自瑞士。</strong>",
+    "lead": "从最初的灵感到批量生产，<brand>DOMTEKNIKA</brand> 为工业企业和创新团队贯通工程开发与制造。机械工程、定制工业方案和精密原型开发，<strong>源自瑞士。</strong>",
     "ctaPrimary": "联系我们",
     "ctaSecondary": "了解专长"
   },
@@ -65,9 +65,9 @@
       "description": "联系位于瑞士 La Neuveville 的 DOMTEKNIKA，讨论工程、原型开发和生产项目。"
     },
     "Hero": {
-      "eyebrow": "让我们联系",
+      "eyebrow": "欢迎交流",
       "title": "联系",
-      "lead": "有问题、有项目想法，或想了解我们如何合作？我们随时乐意协助。"
+      "lead": "您有问题、项目构想，或想了解双方如何合作？我们随时乐意协助。"
     },
     "Cards": {
       "location": {
@@ -93,14 +93,14 @@
       "company": "公司",
       "email": "邮箱",
       "phone": "电话（可选）",
-      "message": "请输入你的留言...",
+      "message": "请输入您的留言...",
       "submit": "发送留言",
-      "secure": "你的信息会被安全保存，绝不会被分享。",
+      "secure": "您的信息会被安全保存，绝不会对外分享。",
       "success": "您的留言已准备发送。我们会尽快回复您。"
     },
     "Map": {
       "eyebrow": "找到我们",
-      "title": "参观我们的工作室",
+      "title": "欢迎到访 DOMTEKNIKA",
       "body": "我们的办公室和工作室位于 La Neuveville，坐落在比尔湖与汝拉山麓之间。",
       "marker": "DOMTEKNIKA SA"
     }
@@ -108,11 +108,11 @@
   "Process": {
     "ideaTitle": "想法",
     "ideaIntro": "每一件优秀产品都始于一个想法、一张草图、一个待解决的问题，或一个需要改进的系统。",
-    "ideaBody": "无论你是工业企业还是首次创新者，<strong>我们都会帮助你把构想变成真实可行的成果。</strong>",
+    "ideaBody": "无论您是工业企业，还是首次推动产品创意落地的团队，<strong>我们都能帮助您把构想发展为切实可行的成果。</strong>",
     "processTitle": "流程",
-    "processBody": "从可行性研究、CAD 设计到原型开发和批量生产，我们让整个流程保持敏捷并严格保密。",
+    "processBody": "从可行性研究、CAD 设计到原型开发和批量生产，我们以敏捷方式推进全程，并严格保护项目机密。",
     "productTitle": "产品",
-    "productBody": "一个可投产、能可靠运行的部件。工业客户缩短上市时间，创新者则看到最初的想法变成可制造、可测试的产品。",
+    "productBody": "一套可靠、实用并可投入量产的解决方案。工业客户得以缩短上市周期，初步构想也能发展为可制造、可验证的产品。",
     "stats": {
       "years": {
         "value": "+25 年",
@@ -134,14 +134,14 @@
       "description": "了解 DOMTEKNIKA 源自瑞士的创新、产品设计、原型开发、仿真、聚合物和电子集成专长。"
     },
     "Hero": {
-      "eyebrow": "把想法转化为真实解决方案",
+      "eyebrow": "把想法转化为可落地的解决方案",
       "team": "我们的团队",
       "title": "专长"
     },
     "Services": {
       "eyebrow": "我们做什么",
-      "title": "覆盖每一步的端到端专长",
-      "intro": "从一次性原型到工业规模生产，我们帮助个人和企业设计、工程化并制造他们的想法。",
+      "title": "贯穿每个阶段的工程专长",
+      "intro": "从单件原型到工业化生产，我们帮助企业和发明者完成设计、工程开发，并将创意转化为可制造的产品。",
       "brainstorming": {
         "eyebrow": "头脑风暴",
         "title": "把问题转化为清晰方向",
@@ -181,33 +181,33 @@
         },
         "electronics": {
           "title": "电子集成",
-          "description": "为互联、可靠、智能的产品提供智能电子设计与集成。"
+        "description": "为互联、可靠且高性能的产品提供电子系统设计与集成。"
         }
       }
     },
     "Swiss": {
-      "title": "植根瑞士。我们让你的想法成形。",
+      "title": "植根瑞士。我们让您的想法成形。",
       "titleLineOne": "植根瑞士。",
-      "titleLineTwo": "我们让你的想法成形。"
+      "titleLineTwo": "我们让您的想法成形。"
     },
     "AddedValue": {
-      "eyebrow": "我们的附加价值",
+      "eyebrow": "我们的优势",
       "values": {
         "partner": {
-          "title": "端到端伙伴",
+          "title": "全流程合作伙伴",
           "description": "从概念到工业化，我们全程负责。"
         },
         "agile": {
           "title": "敏捷且响应迅速",
-          "description": "我们行动迅速、快速适应，并始终贴近你。"
+          "description": "我们行动迅速、灵活应变，并与客户保持紧密协作。"
         },
         "confidential": {
           "title": "保密",
-          "description": "你的想法在我们这里始终安全。"
+          "description": "您的创意在我们这里始终受到严格保护。"
         },
         "quality": {
           "title": "瑞士品质",
-          "description": "符合瑞士标准的精密工程与高端质量。"
+          "description": "符合瑞士标准的精密工程与高品质。"
         }
       },
       "stats": {
@@ -230,31 +230,31 @@
       }
     },
     "Cta": {
-      "eyebrow": "一起打造",
-      "title": "有我们可以解决的挑战吗",
-      "subtitle": "我们与具有前瞻性的企业合作，将复杂挑战转化为智能、可制造的解决方案。",
-      "button": "启动你的项目"
+      "eyebrow": "携手开发",
+      "title": "有需要我们共同解决的工程挑战吗",
+      "subtitle": "我们与具有前瞻性的企业合作，将复杂挑战转化为切实可行且可制造的解决方案。",
+      "button": "启动您的项目"
     }
   },
   "TrustedBy": {
-    "label": "客户信任"
+    "label": "深受客户信赖"
   },
   "SwissBanner": {
     "titleLineOne": "瑞士制造。",
     "titleLineTwo": "面向世界设计。",
     "values": {
       "swissQuality": "瑞士品质",
-      "endToEnd": "端到端伙伴",
+      "endToEnd": "全流程合作伙伴",
       "agile": "敏捷灵活",
       "confidential": "保密"
     },
-    "end": "瑞士价值结束"
+    "end": "瑞士价值展示结束"
   },
   "Cta": {
-    "eyebrow": "一起打造",
-    "title": "塑造你的下一个想法",
-    "subtitle": "告诉我们你的挑战。我们将在瑞士工作室完成设计、原型开发，并让它准备好进入真实世界。",
-    "cta": "启动你的项目"
+    "eyebrow": "携手开发",
+    "title": "让您的下一个构想成形",
+    "subtitle": "告诉我们您面临的挑战。我们将在瑞士完成方案设计与原型验证，并为后续工业化做好准备。",
+    "cta": "启动您的项目"
   },
   "Footer": {
     "addressLabel": "地址",

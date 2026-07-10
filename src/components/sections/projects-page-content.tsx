@@ -1186,7 +1186,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "stajvelo-rv01": {
     category: "Mobilité",
     description:
-      "Architecture de vélo urbain électrique autour d'une conception composite injectée, de roues distinctives et de détails industriels premium.",
+      "Architecture de vélo urbain électrique fondée sur une structure composite injectée, des roues distinctives et un niveau de finition haut de gamme.",
     imageAlt: "Vélo électrique STAJVELO RV01 sur circuit",
     overview:
       "DOMTEKNIKA a accompagné la conception polymère et le développement structurel de ce vélo électrique urbain, depuis l'architecture initiale et l'ingénierie des roues jusqu'à la définition industrialisable du produit.",
@@ -1227,7 +1227,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     title: "SAM CREE",
     description:
       "Trois-roues électrique suisse ultra-léger autour de sièges en tandem, d'un châssis central et d'une autonomie urbaine compacte.",
-    imageAlt: "Trois-roues électrique orange SAM CREE avec canopy ouvert",
+    imageAlt: "Véhicule électrique à trois roues SAM CREE avec verrière ouverte",
     overview:
       "SAM CREE regroupe les premiers travaux de véhicule routier électrique ultra-léger, avec châssis poutre central, implantation des sièges en tandem et intégration des composants pour une mobilité urbaine efficiente.",
     relatedPatents: [
@@ -1318,7 +1318,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   airsmile: {
     category: "Médical",
     description:
-      "Concept de dispositif dentaire développé depuis le style produit jusqu'à l'intégration fonctionnelle et aux familles de prototypes.",
+      "Concept de dispositif dentaire développé de la définition esthétique à l'intégration fonctionnelle, puis décliné en plusieurs prototypes.",
     imageAlt: "Rendu du dispositif dentaire portatif AirSmile",
     overview:
       "AirSmile demandait une architecture produit portative propre, des composants amovibles et un détail ergonomique adapté à un usage de soin dentaire.",
@@ -1359,7 +1359,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Développement d'implant et d'instrumentation rachidienne avec rendu produit et simulation mécanique.",
     imageAlt: "Rendu d'un kit d'implants Paradigm Spine",
     overview:
-      "Projet d'implant médical combinant conception de pièces de précision, présentation de kit et analyse par éléments finis pour du matériel spinal chargé mécaniquement.",
+      "Projet d'implant rachidien combinant conception de pièces de précision, présentation du kit et analyse par éléments finis de composants soumis à de fortes contraintes mécaniques.",
     relatedPatents: [
       relatedPatent(
         "US2016000570A1",
@@ -1488,7 +1488,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Concept de parapluie pliant au format téléphone, avec études d'étui, géométrie de pliage et détails de prototype fonctionnel.",
     imageAlt: "Prototype de parapluie pliant de poche jaune",
     overview:
-      "Le projet explore une nouvelle architecture de parapluie pliant conçue pour tenir dans une poche une fois fermé, proche de l'encombrement d'un smartphone. Le travail couvre les coupes d'étui, les études mécanisme et les prototypes physiques.",
+      "Le projet explore une nouvelle architecture de parapluie pliant conçue pour tenir dans une poche une fois fermé, avec un encombrement proche de celui d'un smartphone. Le travail couvre les études en coupe de l'étui, la conception du mécanisme et les prototypes physiques.",
     relatedPatents: [
       relatedPatent(
         "US2022338602A1",
@@ -1554,7 +1554,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     title: "Distributeur de café soluble",
     description:
       "Prototype d'appareil pour dosage de café soluble, testé avec emballages grand public et maquettes physiques.",
-    imageAlt: "Prototype de distributeur de café soluble en interaction main",
+    imageAlt: "Prototype de distributeur de café soluble manipulé à la main",
     overview:
       "Projet prototype centré sur la manipulation du café soluble, l'ergonomie de dosage et un format d'appareil compact.",
     relatedPatents: [
@@ -2835,6 +2835,26 @@ const PROJECT_SCOPES: Record<
       "Études roues, cadre et intégration composants pour une identité produit distinctive.",
       "Affinage CAO vers des surfaces industrialisables et interfaces mécaniques robustes.",
     ],
+    de: [
+      "Polymer- und Spritzverbundarchitektur für ein hochwertiges urbanes E-Bike.",
+      "Studien zur Integration von Rädern, Rahmen und Komponenten für eine eigenständige Produktidentität.",
+      "CAD-Verfeinerung hin zu fertigbaren Oberflächen und robusten mechanischen Schnittstellen.",
+    ],
+    es: [
+      "Arquitectura en polímero y composite inyectado para una bicicleta eléctrica urbana de gama alta.",
+      "Estudios de integración de ruedas, cuadro y componentes para una identidad de producto propia.",
+      "Perfeccionamiento CAD orientado a superficies industrializables e interfaces mecánicas robustas.",
+    ],
+    ko: [
+      "고급 도심형 전기자전거를 위한 폴리머 및 사출 복합재 구조 설계.",
+      "차별화된 제품 정체성을 위한 휠, 프레임, 부품 통합 연구.",
+      "양산 가능한 표면과 견고한 기계 인터페이스를 위한 CAD 정교화.",
+    ],
+    zh: [
+      "为高端城市电动自行车开发聚合物与注塑复合材料架构。",
+      "研究车轮、车架与组件集成，建立鲜明的产品识别度。",
+      "深化 CAD 设计，使表面可工业化制造并确保机械接口可靠。",
+    ],
   },
   aventor: {
     en: [
@@ -2846,6 +2866,26 @@ const PROJECT_SCOPES: Record<
       "Implantation du véhicule électrique autour d'une carrosserie légère et de l'ergonomie conducteur.",
       "Études composite et structurelles pour une plateforme compacte performante.",
       "Boucle prototype et essais piste pour affiner proportions et implantation mécanique.",
+    ],
+    de: [
+      "Fahrzeuglayout rund um eine leichte Karosserie und eine ergonomische Fahrerposition.",
+      "Verbundwerkstoff- und Strukturstudien für eine kompakte Hochleistungsplattform.",
+      "Iterationen aus Prototypen und Streckentests zur Optimierung von Proportionen und Mechaniklayout.",
+    ],
+    es: [
+      "Arquitectura del vehículo eléctrico en torno a una carrocería ligera y a la ergonomía del conductor.",
+      "Estudios estructurales y de composite para una plataforma compacta de alto rendimiento.",
+      "Iteraciones entre prototipo y pruebas en pista para afinar proporciones e implantación mecánica.",
+    ],
+    ko: [
+      "경량 차체와 운전자 인체공학을 중심으로 한 전기차 패키징 설계.",
+      "컴팩트 고성능 플랫폼을 위한 복합재 및 구조 연구.",
+      "프로토타입과 주행 시험을 반복해 비례와 기계 배치를 최적화.",
+    ],
+    zh: [
+      "围绕轻量化车身与驾驶者人体工学完成电动车总体布置。",
+      "为紧凑型高性能平台开展复合材料与结构研究。",
+      "结合原型与赛道测试反馈，优化比例和机械布局。",
     ],
   },
   weebot: {
@@ -2859,6 +2899,26 @@ const PROJECT_SCOPES: Record<
       "Itérations prototype pour tester traction, posture et usage extérieur.",
       "Études CAO et visuelles pour passer du principe brut à une forme produit cohérente.",
     ],
+    de: [
+      "Kompakte Schneemobilitätsarchitektur unter Berücksichtigung mechanischer Anforderungen und der Nutzung.",
+      "Prototypeniterationen zur Prüfung von Traktion, Fahrposition und Outdoor-Handling.",
+      "CAD- und Designstudien vom ersten Funktionsnachweis bis zu einer schlüssigen Produktform.",
+    ],
+    es: [
+      "Arquitectura compacta de movilidad sobre nieve considerando requisitos mecánicos y de uso.",
+      "Iteraciones de prototipo para evaluar tracción, postura y comportamiento en exteriores.",
+      "Estudios CAD y visuales para evolucionar desde la prueba de concepto hasta una forma de producto coherente.",
+    ],
+    ko: [
+      "기계적 요구와 사용자 조건을 반영한 컴팩트 설상 모빌리티 구조.",
+      "구동력, 탑승 자세, 야외 조작성을 검증하기 위한 프로토타입 반복.",
+      "초기 개념을 일관된 제품 형태로 발전시키는 CAD 및 디자인 연구.",
+    ],
+    zh: [
+      "在机械与用户需求约束下设计紧凑型雪地出行架构。",
+      "通过多轮原型测试牵引力、姿态与户外操控表现。",
+      "利用 CAD 与造型研究，将初步概念发展为完整产品形态。",
+    ],
   },
   "totalcar-concept": {
     en: [
@@ -2870,6 +2930,26 @@ const PROJECT_SCOPES: Record<
       "Concept de petit véhicule électrique urbain autour d'une structure légère et d'un assemblage simple.",
       "Études d'implantation du véhicule pour faciliter l'accès à l'habitacle et réduire l'encombrement.",
       "Stratégie mobilité reliée à une production à faible impact et une architecture recyclable.",
+    ],
+    de: [
+      "Konzept eines kompakten urbanen Elektrofahrzeugs mit leichter Struktur und einfacher Montage.",
+      "Layoutstudien für guten Kabinenzugang und einen möglichst kleinen Platzbedarf.",
+      "Mobilitätskonzept für ressourcenschonende Produktion und eine recyclingfähige Architektur.",
+    ],
+    es: [
+      "Concepto de vehículo eléctrico urbano compacto con estructura ligera y montaje simplificado.",
+      "Estudios de implantación para facilitar el acceso al habitáculo y reducir el espacio ocupado.",
+      "Estrategia de movilidad vinculada a una producción de bajo impacto y una arquitectura reciclable.",
+    ],
+    ko: [
+      "경량 구조와 단순 조립을 중심으로 한 컴팩트 도심형 전기차 콘셉트.",
+      "실내 접근성을 높이고 차량 점유 공간을 줄이기 위한 레이아웃 연구.",
+      "저환경부하 생산과 재활용 가능한 구조를 연계한 모빌리티 전략.",
+    ],
+    zh: [
+      "围绕轻量化结构与简化装配开发紧凑型城市电动车概念。",
+      "研究整车布局，改善座舱进出并减小车辆占用空间。",
+      "将低影响生产方式与可回收架构纳入整体出行策略。",
     ],
   },
   "sam-cree": {
@@ -2883,6 +2963,26 @@ const PROJECT_SCOPES: Record<
       "Implantation en tandem des passagers, des batteries et de la chaîne de traction pour réduire l'encombrement urbain.",
       "Contexte brevets châssis et refroidissement regroupé sous le projet SAM CREE.",
     ],
+    de: [
+      "Ultraleichte elektrische Straßenfahrzeugarchitektur mit zentralem Strukturträger.",
+      "Tandemlayout für Insassen, Batterien und Antrieb zur Reduzierung des Platzbedarfs im Stadtverkehr.",
+      "Patentrelevante Arbeiten an Fahrgestell und Kühlsystem im Rahmen des SAM-CREE-Projekts.",
+    ],
+    es: [
+      "Arquitectura de vehículo eléctrico ultraligero basada en una viga estructural central.",
+      "Disposición en tándem de ocupantes, baterías y cadena cinemática para reducir la huella urbana.",
+      "Trabajos patentados sobre chasis y refrigeración reunidos en el proyecto SAM CREE.",
+    ],
+    ko: [
+      "중앙 구조 빔을 중심으로 한 초경량 전기 도로 차량 아키텍처.",
+      "도심 점유 공간을 줄이기 위한 탑승자, 배터리, 구동계의 탠덤 배치.",
+      "SAM CREE 프로젝트에 포함된 섀시 및 냉각 시스템 관련 특허 기술.",
+    ],
+    zh: [
+      "以中央结构梁为核心的超轻量电动道路车辆架构。",
+      "采用乘员、电池和动力系统纵向布置，减少城市道路占用空间。",
+      "SAM CREE 项目涵盖底盘与冷却系统相关专利技术。",
+    ],
   },
   "angel-interceptor": {
     en: [
@@ -2894,6 +2994,26 @@ const PROJECT_SCOPES: Record<
       "Exploration d'architecture trois-roues et d'aménagement du poste de conduite.",
       "Études CAO pour protection de carrosserie, sièges tandem et implantation roues.",
       "Visualisation orientée prototype pour clarifier proportions et interfaces mécaniques.",
+    ],
+    de: [
+      "Untersuchung der Dreiradarchitektur und des Cockpitlayouts.",
+      "CAD-Studien zu Karosserieschutz, Tandemsitzen und Radanordnung.",
+      "Prototypenorientierte Visualisierung zur Klärung von Proportionen und mechanischen Schnittstellen.",
+    ],
+    es: [
+      "Exploración de la arquitectura de tres ruedas y de la disposición del puesto de conducción.",
+      "Estudios CAD de protección de carrocería, asientos en tándem y posición de las ruedas.",
+      "Visualización orientada al prototipo para definir proporciones e interfaces mecánicas.",
+    ],
+    ko: [
+      "삼륜 차량 구조와 운전석 패키징 탐구.",
+      "차체 보호, 탠덤 시트, 휠 배치를 위한 CAD 연구.",
+      "비례와 기계 인터페이스를 명확히 하기 위한 프로토타입 중심 시각화.",
+    ],
+    zh: [
+      "探索三轮车辆架构与驾驶舱布置。",
+      "通过 CAD 研究车身防护、纵列座椅与车轮布局。",
+      "面向原型进行可视化，明确比例与机械接口。",
     ],
   },
   softcar: {
@@ -2907,6 +3027,26 @@ const PROJECT_SCOPES: Record<
       "Travail sous-systèmes sur tableau de bord, porte, volant et pièces rotomoulées.",
       "Logique d'industrialisation liée à l'assemblage simplifié et à la production bas carbone.",
     ],
+    de: [
+      "Städtische Elektrofahrzeugarchitektur mit geringem Ressourcenbedarf und recyclingfähigen Karosserie- und Innenraumsystemen.",
+      "Subsystementwicklung für Armaturenbrett, Tür, Lenkrad und rotationsgeformte Karosserieteile.",
+      "Industrialisierung mit vereinfachter Montage und CO₂-armer Fahrzeugproduktion.",
+    ],
+    es: [
+      "Arquitectura de vehículo urbano de bajo impacto con carrocería y sistemas interiores reciclables.",
+      "Desarrollo de subsistemas para salpicadero, puerta, volante y piezas rotomoldeadas.",
+      "Industrialización orientada al montaje simplificado y a una producción de vehículos con bajas emisiones.",
+    ],
+    ko: [
+      "재활용 가능한 차체와 실내 시스템을 갖춘 저환경부하 도심형 전기차 구조.",
+      "대시보드, 도어, 스티어링 휠, 회전성형 차체 부품의 하위 시스템 개발.",
+      "단순 조립과 저탄소 차량 생산을 고려한 산업화 설계.",
+    ],
+    zh: [
+      "采用可回收车身与内饰系统的低环境负荷城市电动车架构。",
+      "开发仪表板、车门、方向盘及滚塑车身部件等子系统。",
+      "围绕简化装配与低碳车辆生产制定工业化方案。",
+    ],
   },
   "folding-bike-scooter": {
     en: [
@@ -2918,6 +3058,26 @@ const PROJECT_SCOPES: Record<
       "Études de géométrie pliante pour rangement et transport compacts.",
       "Concepts charnières, cadre et position de conduite pour petite mobilité électrique.",
       "Itérations visuelles et mécaniques sur formats vélo et scooter.",
+    ],
+    de: [
+      "Studien zur Faltgeometrie für kompakte Lagerung und einfachen Transport.",
+      "Konzepte für Gelenke, Rahmen und Fahrposition bei kleinen Elektrofahrzeugen.",
+      "Gestalterische und mechanische Iterationen für Fahrrad- und Scooterformate.",
+    ],
+    es: [
+      "Estudios de geometría plegable para facilitar el almacenamiento y el transporte.",
+      "Conceptos de bisagras, cuadro y posición de conducción para micromovilidad eléctrica.",
+      "Iteraciones visuales y mecánicas en formatos de bicicleta y patinete.",
+    ],
+    ko: [
+      "컴팩트한 보관과 운반을 위한 폴딩 지오메트리 연구.",
+      "소형 전기 모빌리티를 위한 힌지, 프레임, 주행 자세 콘셉트.",
+      "자전거와 스쿠터 형식에 대한 디자인 및 기계 구조 반복 개발.",
+    ],
+    zh: [
+      "研究折叠几何结构，实现紧凑收纳与便捷运输。",
+      "为小型电动出行工具开发铰链、车架与骑行姿态方案。",
+      "针对自行车与滑板车形态进行造型和机械结构迭代。",
     ],
   },
   "aventor-drone": {
@@ -2931,6 +3091,26 @@ const PROJECT_SCOPES: Record<
       "Assemblage prototype pour valider proportions, bras et positionnement charge utile.",
       "Itérations terrain reliant intention CAO et comportement physique.",
     ],
+    de: [
+      "Studien zu leichtem Drohnenrahmen und Komponentenintegration.",
+      "Prototypenmontage zur Prüfung von Proportionen, Auslegern und Nutzlastposition.",
+      "Feldtestiterationen zur Abstimmung von CAD-Konzept und realem Flugverhalten.",
+    ],
+    es: [
+      "Estudios de bastidor ligero e integración de componentes para una plataforma dron.",
+      "Montaje de prototipos para validar proporciones, brazos y posición de la carga útil.",
+      "Iteraciones de campo para relacionar la intención CAD con el comportamiento físico.",
+    ],
+    ko: [
+      "경량 드론 프레임과 부품 통합 연구.",
+      "비례, 암, 탑재물 위치를 검증하기 위한 프로토타입 조립.",
+      "CAD 설계 의도와 실제 거동을 연결하는 현장 시험 반복.",
+    ],
+    zh: [
+      "研究轻量化无人机机架与组件集成。",
+      "组装原型，验证比例、机臂与载荷位置。",
+      "通过现场测试迭代，使 CAD 设计与实际表现相匹配。",
+    ],
   },
   airsmile: {
     en: [
@@ -2942,6 +3122,26 @@ const PROJECT_SCOPES: Record<
       "Format de dispositif dentaire portatif avec style propre et accessible.",
       "Intégration interne des composants amovibles et des consommables.",
       "Famille de prototypes pour tester ergonomie et variantes visuelles.",
+    ],
+    de: [
+      "Handliches Dentalgerät mit klarer, vertrauenswürdiger Formensprache.",
+      "Interne Integration von abnehmbaren Komponenten und Verbrauchsteilen.",
+      "Prototypenfamilie zur Prüfung von Ergonomie und Gestaltungsvarianten.",
+    ],
+    es: [
+      "Formato portátil para un dispositivo dental con un diseño claro y accesible.",
+      "Integración interna de componentes extraíbles y consumibles.",
+      "Familia de prototipos para evaluar la ergonomía y distintas variantes visuales.",
+    ],
+    ko: [
+      "깔끔하고 친근한 디자인의 휴대형 치과 기기 폼팩터.",
+      "분리형 부품과 소모품 인터페이스의 내부 패키징.",
+      "인체공학과 디자인 변형을 검증하기 위한 프로토타입 제품군.",
+    ],
+    zh: [
+      "打造外观简洁、亲和的手持式口腔护理设备。",
+      "完成可拆卸组件与耗材接口的内部集成。",
+      "通过系列原型验证人体工学与不同造型方案。",
     ],
   },
   brossadent: {
@@ -2955,6 +3155,26 @@ const PROJECT_SCOPES: Record<
       "Intégration du mécanisme et des consommables dans un produit dentaire compact.",
       "Visualisation produit pour présentation, validation et alignement design.",
     ],
+    de: [
+      "Zahnbürstenarchitektur mit integrierten O2-Cosmetics-Kartuschen.",
+      "Integration von Mechanik und Verbrauchsteilen in ein kompaktes Zahnpflegeprodukt.",
+      "Produktvisualisierung für Präsentation, Validierung und Designabstimmung.",
+    ],
+    es: [
+      "Arquitectura del cuerpo del cepillo con integración de cartuchos O2 Cosmetics.",
+      "Integración del mecanismo y los consumibles en un producto dental compacto.",
+      "Visualización de producto para presentación, validación y coherencia de diseño.",
+    ],
+    ko: [
+      "O2 Cosmetics 카트리지를 통합한 칫솔 본체 구조.",
+      "컴팩트 구강 관리 제품 내부에 메커니즘과 소모품을 통합.",
+      "프레젠테이션, 검증, 디자인 정합성을 위한 제품 시각화.",
+    ],
+    zh: [
+      "开发集成 O2 Cosmetics 替换胶囊的牙刷主体架构。",
+      "在紧凑型口腔护理产品中整合机构与耗材。",
+      "通过产品可视化支持展示、验证与设计统一。",
+    ],
   },
   "insulin-pen": {
     en: [
@@ -2966,6 +3186,26 @@ const PROJECT_SCOPES: Record<
       "Boîtier de stylo médical fin avec enveloppe mécanisme interne précise.",
       "Travail facteurs humains sur prise en main, lisibilité et manipulation contrôlée.",
       "Langage design industriel propre adapté à la présentation d'un dispositif médical.",
+    ],
+    de: [
+      "Schlankes Gehäuse für einen medizinischen Pen mit präzise definiertem Bauraum der Mechanik.",
+      "Human-Factors-Arbeit zu Griff, Ablesbarkeit und kontrollierter Handhabung.",
+      "Klare industrielle Formensprache für die Präsentation eines Medizinprodukts.",
+    ],
+    es: [
+      "Carcasa esbelta para un dispositivo médico tipo pluma con un volumen interno definido con precisión.",
+      "Estudio de factores humanos en agarre, legibilidad y manipulación controlada.",
+      "Lenguaje de diseño industrial limpio y adecuado para un dispositivo médico.",
+    ],
+    ko: [
+      "정밀한 내부 메커니즘 공간을 갖춘 슬림형 의료용 펜 하우징.",
+      "그립, 가독성, 안정적인 조작을 고려한 휴먼팩터 설계.",
+      "의료기기에 적합한 깔끔한 산업 디자인 언어.",
+    ],
+    zh: [
+      "为医疗注射笔设计纤细外壳，并精确定义内部机构空间。",
+      "围绕握持、可读性与受控操作开展人因研究。",
+      "建立适合医疗器械呈现的简洁工业设计语言。",
     ],
   },
   "paradigm-spine": {
@@ -2979,6 +3219,26 @@ const PROJECT_SCOPES: Record<
       "Support cas de charge et éléments finis pour pièces mécaniques critiques.",
       "Implantation de composants de précision reliant validation ingénierie et usage médical.",
     ],
+    de: [
+      "Visualisierung von Wirbelsäulenimplantaten und Instrumentensets für die technische Präsentation.",
+      "Lastfall- und Finite-Elemente-Analysen für mechanisch kritische Komponenten.",
+      "Präzises Komponentenlayout als Verbindung zwischen technischer Validierung und medizinischer Anwendung.",
+    ],
+    es: [
+      "Visualización de implantes e instrumental de columna para presentación técnica.",
+      "Análisis de casos de carga y elementos finitos para componentes mecánicos críticos.",
+      "Disposición precisa de componentes que une validación de ingeniería y uso médico.",
+    ],
+    ko: [
+      "기술 검토를 위한 척추 임플란트 및 수술 기구 세트 시각화.",
+      "핵심 기계 부품의 하중 조건 및 유한요소해석 지원.",
+      "엔지니어링 검증과 의료 사용성을 연결하는 정밀 부품 배치.",
+    ],
+    zh: [
+      "为技术展示完成脊柱植入物与器械套件可视化。",
+      "针对关键机械部件开展载荷工况与有限元分析。",
+      "通过精密组件布局连接工程验证与临床使用需求。",
+    ],
   },
   "flex-drill": {
     en: [
@@ -2990,6 +3250,26 @@ const PROJECT_SCOPES: Record<
       "Concept de guide de perçage courbe pour accès contraint et direction d'outil contrôlée.",
       "Vérifications de contraintes mécaniques pour soutenir géométrie et choix matière.",
       "Itérations prototype et rendu pour communiquer clairement le principe.",
+    ],
+    de: [
+      "Gebogenes Bohrführungskonzept für schwer zugängliche Bereiche und kontrollierte Werkzeugrichtung.",
+      "Mechanische Spannungsanalysen zur Absicherung von Geometrie und Materialwahl.",
+      "Prototypen- und Renderingiterationen zur verständlichen Darstellung des Funktionsprinzips.",
+    ],
+    es: [
+      "Concepto de guía de perforación curva para accesos limitados y dirección controlada de la herramienta.",
+      "Verificaciones de tensiones mecánicas para respaldar la geometría y la elección del material.",
+      "Iteraciones de prototipo y render para comunicar con claridad el principio de funcionamiento.",
+    ],
+    ko: [
+      "제한된 접근 공간과 공구 방향 제어를 위한 곡선형 드릴 가이드 콘셉트.",
+      "형상과 소재 선택을 뒷받침하는 기계 응력 검토.",
+      "작동 원리를 명확히 전달하기 위한 프로토타입 및 렌더링 반복.",
+    ],
+    zh: [
+      "为受限操作空间与可控工具方向开发弯曲钻孔导向概念。",
+      "通过机械应力校核支持几何结构与材料选择。",
+      "迭代原型与渲染图，清晰呈现工作原理。",
     ],
   },
   "biome-staple-applicator": {
@@ -3003,6 +3283,26 @@ const PROJECT_SCOPES: Record<
       "Vérifications structurelles et prototypes imprimés pour mécanisme biomédical.",
       "Affinage produit autour de la prise, de l'actionnement et de la présentation médicale.",
     ],
+    de: [
+      "Ergonomie eines Handapplikators vom ersten Entwurf bis zum CAD-Layout.",
+      "Strukturprüfungen und gedruckte Prototypen für einen biomedizinischen Mechanismus.",
+      "Produktverfeinerung bei Griff, Betätigung und medizintechnischer Gestaltung.",
+    ],
+    es: [
+      "Ergonomía de un aplicador manual desde el boceto hasta la definición CAD.",
+      "Verificaciones estructurales y prototipos impresos para un mecanismo biomédico.",
+      "Perfeccionamiento del producto en agarre, accionamiento y presentación médica.",
+    ],
+    ko: [
+      "스케치부터 CAD 레이아웃까지 이어진 휴대형 어플리케이터 인체공학 설계.",
+      "바이오메디컬 메커니즘을 위한 구조 검토와 3D 프린팅 프로토타입.",
+      "그립, 작동 방식, 의료 제품 표현을 중심으로 한 제품 정교화.",
+    ],
+    zh: [
+      "从草图到 CAD 布局完善手持式施用器的人体工学设计。",
+      "通过结构校核与打印原型验证生物医疗机构。",
+      "围绕握持、驱动方式与医疗产品表达深化设计。",
+    ],
   },
   cliris: {
     en: [
@@ -3014,6 +3314,26 @@ const PROJECT_SCOPES: Record<
       "Architecture d'appareil grand public compact avec chambre de nettoyage à tiroir.",
       "Études surfaces, ouverture et langage produit pour un objet visible raffiné.",
       "Intégration fonctionnelle autour du nettoyage hygiénique des lunettes.",
+    ],
+    de: [
+      "Kompakte Konsumgerätearchitektur mit schubladenbasierter Reinigungskammer.",
+      "Studien zu Oberflächen, Öffnungsbewegung und Formensprache für ein hochwertiges sichtbares Produkt.",
+      "Funktionale Integration für eine hygienische und zuverlässige Brillenreinigung.",
+    ],
+    es: [
+      "Arquitectura compacta de electrodoméstico con cámara de limpieza tipo cajón.",
+      "Estudios de superficies, apertura y lenguaje formal para un producto visible y cuidado.",
+      "Integración funcional orientada a una limpieza higiénica y fiable de las gafas.",
+    ],
+    ko: [
+      "서랍형 세척 챔버를 적용한 컴팩트 소비자 가전 구조.",
+      "정제된 외관을 위한 표면, 개폐 방식, 제품 디자인 언어 연구.",
+      "안전하고 위생적인 안경 세척을 위한 기능 통합.",
+    ],
+    zh: [
+      "采用抽屉式清洁腔体的紧凑型消费电器架构。",
+      "研究表面、开启方式与产品语言，打造精致的可视化产品。",
+      "围绕卫生、可靠的眼镜清洁体验完成功能集成。",
     ],
   },
   "filter-carafe": {
@@ -3027,6 +3347,26 @@ const PROJECT_SCOPES: Record<
       "Principe de suivi de cartouche intégré au couvercle et lié à l'état d'utilisation du filtre.",
       "Contexte brevets de design autour du corps de carafe et de l'accessoire filtrant.",
     ],
+    de: [
+      "Entwicklung einer Filterkaraffe und ihres Zubehörs als stimmiges Produktsystem.",
+      "Im Deckel integriertes Prinzip zur Überwachung der Filterkartusche anhand ihres Nutzungszustands.",
+      "Berücksichtigung des Designschutzes für Karaffenkörper und Filterzubehör.",
+    ],
+    es: [
+      "Diseño de una jarra filtrante y sus accesorios como un sistema de producto coherente.",
+      "Principio de control del cartucho integrado en la tapa y vinculado al estado de uso del filtro.",
+      "Desarrollo respaldado por la protección de diseño de la jarra y del accesorio filtrante.",
+    ],
+    ko: [
+      "필터 카라페와 액세서리를 하나의 일관된 제품 시스템으로 설계.",
+      "필터 사용 상태를 확인할 수 있도록 뚜껑에 카트리지 모니터링 원리를 통합.",
+      "카라페 본체와 필터 액세서리의 디자인 권리를 고려한 제품 개발.",
+    ],
+    zh: [
+      "将滤水壶与配套附件设计为协调统一的产品系统。",
+      "在壶盖中集成滤芯状态监测原理，直观反映使用情况。",
+      "在开发中统筹考虑壶体与过滤附件的外观设计保护。",
+    ],
   },
   ikitty: {
     en: [
@@ -3038,6 +3378,26 @@ const PROJECT_SCOPES: Record<
       "Architecture de produit animalier autour de l'insertion de capsules et du mécanisme de distribution.",
       "Langage produit doux et reconnaissable équilibré avec l'intégration fonctionnelle interne.",
       "Vues coupe et prototypes pour valider recharges, accès et comportement produit.",
+    ],
+    de: [
+      "Produktarchitektur für ein Tierwohl-System mit Kapselaufnahme und Ausgabemechanik.",
+      "Freundliche, eigenständige Formensprache in Einklang mit der internen Funktionstechnik.",
+      "Schnittmodelle und Prototypen zur Prüfung von Nachfüllung, Zugang und Produktverhalten.",
+    ],
+    es: [
+      "Arquitectura de producto para mascotas basada en la inserción de cápsulas y el mecanismo de dispensación.",
+      "Lenguaje formal amable y reconocible, equilibrado con la integración funcional interna.",
+      "Vistas en sección y prototipos para validar las recargas, el acceso y el funcionamiento del producto.",
+    ],
+    ko: [
+      "캡슐 삽입과 급여 메커니즘을 중심으로 한 반려동물 제품 구조 설계.",
+      "내부 기능 통합과 조화를 이루는 부드럽고 인지하기 쉬운 제품 디자인.",
+      "리필, 접근성, 제품 작동을 검증하기 위한 단면 모델과 프로토타입.",
+    ],
+    zh: [
+      "围绕胶囊装载与定量投放机构构建宠物产品架构。",
+      "在内部功能集成的基础上，塑造亲和且易于识别的产品语言。",
+      "通过剖面图与原型验证补充方式、操作路径和产品运行逻辑。",
     ],
   },
   "smart-bottle": {
@@ -3051,6 +3411,26 @@ const PROJECT_SCOPES: Record<
       "Contraintes biométriques et anti-effraction intégrées dans un boîtier produit compact.",
       "Organisation de la poche, du module et des composants autour d'une distribution sûre du médicament.",
     ],
+    de: [
+      "Architektur eines medizinischen Spenders für kontrollierte Opioiddosierung und sicheren Patientenzugang.",
+      "Biometrische Zugangs- und Manipulationsschutzfunktionen in einem kompakten Gehäuse integriert.",
+      "Anordnung von Medikamentenbeutel, Modul und Komponenten für eine sichere Ausgabe.",
+    ],
+    es: [
+      "Arquitectura de un dispensador médico para dosificación controlada de opioides y acceso seguro del paciente.",
+      "Funciones biométricas y antimanipulación integradas en una carcasa compacta.",
+      "Disposición de la bolsa, el módulo y los componentes orientada a una administración segura del medicamento.",
+    ],
+    ko: [
+      "오피오이드 용량을 제어하고 환자 접근을 보호하는 의료용 디스펜서 구조.",
+      "컴팩트한 하우징에 생체 인증과 무단 조작 방지 조건을 통합.",
+      "안전한 약물 투여를 중심으로 약물 파우치, 모듈, 부품을 배치.",
+    ],
+    zh: [
+      "构建医疗给药设备架构，实现阿片类药物的剂量控制与患者安全访问。",
+      "在紧凑外壳中集成生物识别与防篡改功能。",
+      "围绕安全给药合理布置药袋、功能模块与内部组件。",
+    ],
   },
   "personal-injector": {
     en: [
@@ -3062,6 +3442,26 @@ const PROJECT_SCOPES: Record<
       "Architecture d'auto-injection compacte avec contraintes d'objet connecté.",
       "Cinématique réduite pour éviter la manipulation directe de l'aiguille.",
       "Intégration d'une seringue à usage unique autour de la compatibilité et d'un usage patient plus sûr.",
+    ],
+    de: [
+      "Kompakte Architektur für einen Selbstinjektor unter Berücksichtigung vernetzter Funktionen.",
+      "Reduzierte Kinematik, damit die Nadel nicht direkt gehandhabt werden muss.",
+      "Integration einer Einwegspritze mit Fokus auf Kompatibilität und sichere Anwendung durch Patienten.",
+    ],
+    es: [
+      "Arquitectura compacta de autoinyección compatible con las necesidades de un dispositivo conectado.",
+      "Cinemática simplificada para evitar la manipulación directa de la aguja.",
+      "Integración de una jeringa desechable centrada en la compatibilidad y la seguridad del paciente.",
+    ],
+    ko: [
+      "연결형 기기 요구사항을 반영한 컴팩트 자가 주사기 구조.",
+      "바늘을 직접 다루지 않도록 단순화한 구동 메커니즘.",
+      "호환성과 환자 안전을 중심으로 일회용 주사기를 통합.",
+    ],
+    zh: [
+      "结合联网设备需求，构建紧凑型自助注射器架构。",
+      "简化运动机构，避免患者直接接触和操作针头。",
+      "以兼容性与患者安全为核心，集成一次性注射器。",
     ],
   },
   "acetabular-reamer-holder": {
@@ -3075,6 +3475,26 @@ const PROJECT_SCOPES: Record<
       "Calculs éléments finis et choix matière autour de la rigidité et de la manipulation chirurgicale.",
       "Faisabilité injection liée à une architecture d'outil chirurgical hygiénique.",
     ],
+    de: [
+      "Entwicklung von Griff und Abdeckung aus PEEK für ein Instrument zur Hüftpfannenbearbeitung.",
+      "Finite-Elemente-Berechnungen und Materialwahl im Hinblick auf Steifigkeit und chirurgische Handhabung.",
+      "Bewertung der Spritzgießbarkeit für eine hygienegerechte Instrumentenarchitektur.",
+    ],
+    es: [
+      "Diseño de una empuñadura y una cubierta de PEEK para instrumental de fresado acetabular.",
+      "Cálculos por elementos finitos y selección de material según la rigidez y la manipulación quirúrgica.",
+      "Estudio de viabilidad de inyección para una arquitectura de instrumental higiénica.",
+    ],
+    ko: [
+      "비구 리머 기구용 PEEK 손잡이와 커버 설계.",
+      "강성과 수술 조작성을 고려한 유한요소해석 및 소재 선정.",
+      "위생적인 수술 기구 구조를 위한 사출 성형 가능성 검토.",
+    ],
+    zh: [
+      "为髋臼铰刀器械设计 PEEK 手柄与护盖。",
+      "结合刚度与手术操作需求开展有限元分析和材料选择。",
+      "针对卫生型手术器械架构评估注塑成型可行性。",
+    ],
   },
   "single-use-turbine": {
     en: [
@@ -3086,6 +3506,26 @@ const PROJECT_SCOPES: Record<
       "Concept de turbine médicale jetable centré sur une géométrie compacte.",
       "Priorités de développement autour de la réduction de taille, de poids et de coût.",
       "Exploration matière et forme pour un composant médical à usage unique.",
+    ],
+    de: [
+      "Konzept einer medizinischen Einwegturbine mit besonders kompakter Geometrie.",
+      "Entwicklung mit Fokus auf geringere Abmessungen, weniger Gewicht und niedrigere Kosten.",
+      "Material- und Formstudien für eine medizinische Einwegkomponente.",
+    ],
+    es: [
+      "Concepto de turbina médica desechable con una geometría especialmente compacta.",
+      "Desarrollo centrado en reducir el tamaño, el peso y el coste.",
+      "Exploración de materiales y formas para un componente médico de un solo uso.",
+    ],
+    ko: [
+      "컴팩트한 형상에 초점을 맞춘 일회용 의료용 터빈 콘셉트.",
+      "크기, 무게, 비용 절감을 중심으로 한 개발.",
+      "일회용 의료 부품을 위한 소재와 형상 연구.",
+    ],
+    zh: [
+      "开发以紧凑结构为核心的一次性医疗涡轮概念。",
+      "围绕减小尺寸、降低重量与控制成本推进设计。",
+      "针对一次性医疗组件探索合适的材料与形态。",
     ],
   },
   "glove-helmet-dryer": {
@@ -3099,6 +3539,26 @@ const PROJECT_SCOPES: Record<
       "Boucle CAO-prototype pour proportions gants, casque et station.",
       "Tests physiques pour évaluer l'usage, la stabilité et l'efficacité du séchage.",
     ],
+    de: [
+      "Luftführungs- und Halterungsarchitektur zum Trocknen von Sportausrüstung.",
+      "CAD- und Prototypeniterationen zur Abstimmung von Handschuh-, Helm- und Stationsproportionen.",
+      "Physische Tests zu Bedienbarkeit, Stabilität und Trocknungsleistung.",
+    ],
+    es: [
+      "Arquitectura de circulación de aire y soportes para secar equipamiento deportivo.",
+      "Iteraciones CAD y de prototipo para ajustar las proporciones de guantes, casco y estación.",
+      "Pruebas físicas para evaluar el uso, la estabilidad y la eficacia de secado.",
+    ],
+    ko: [
+      "스포츠 장비 건조를 위한 공기 흐름과 지지 구조 설계.",
+      "장갑, 헬멧, 스테이션 비례를 조정하는 CAD 및 프로토타입 반복.",
+      "사용성, 안정성, 건조 성능을 평가하는 실물 시험.",
+    ],
+    zh: [
+      "为运动装备烘干设计气流路径与支撑结构。",
+      "通过 CAD 与原型迭代调整手套、头盔和底座的比例。",
+      "利用实物测试评估易用性、稳定性与烘干效率。",
+    ],
   },
   "folding-umbrella": {
     en: [
@@ -3110,6 +3570,26 @@ const PROJECT_SCOPES: Record<
       "Études mécanisme pliage et étui pour un parapluie au format téléphone.",
       "Coupes et prototypes physiques pour clarifier la séquence d'ouverture.",
       "Logique produit de protection météo liée au rangement de poche et à la robustesse.",
+    ],
+    de: [
+      "Studien zu Faltmechanik und Hülle für einen Regenschirm im Smartphone-Format.",
+      "Schnittdarstellungen und physische Prototypen zur Klärung der Öffnungssequenz.",
+      "Wetterschutzkonzept mit Fokus auf Taschentauglichkeit und Robustheit.",
+    ],
+    es: [
+      "Estudio del mecanismo plegable y del estuche para un paraguas del tamaño de un teléfono.",
+      "Secciones y prototipos físicos para definir con claridad la secuencia de apertura.",
+      "Diseño orientado a la protección frente al clima, el almacenamiento en el bolsillo y la robustez.",
+    ],
+    ko: [
+      "스마트폰 크기로 수납되는 우산의 접이식 메커니즘과 케이스 연구.",
+      "개방 순서를 명확히 하기 위한 단면 설계와 실물 프로토타입.",
+      "휴대성과 내구성을 함께 고려한 날씨 보호 제품 설계.",
+    ],
+    zh: [
+      "研究可收纳至手机大小的雨伞折叠机构与外壳。",
+      "通过剖面方案和实物原型明确展开顺序。",
+      "兼顾防风雨性能、口袋收纳与产品耐用性。",
     ],
   },
   "skincare-applicator": {
@@ -3123,6 +3603,26 @@ const PROJECT_SCOPES: Record<
       "Concept de distribution fluide équilibré avec les codes visuels beauté.",
       "Vues prototype et principe pour expliquer usage, recharge et architecture interne.",
     ],
+    de: [
+      "Ergonomisches Handstück und Kartuschenintegration für einen dermokosmetischen Applikator.",
+      "Entwicklung der Flüssigkeitsabgabe im Einklang mit der Formensprache hochwertiger Kosmetikprodukte.",
+      "Prototypen und Prinzipdarstellungen zur Erklärung von Anwendung, Nachfüllung und Innenaufbau.",
+    ],
+    es: [
+      "Pieza de mano ergonómica e integración del cartucho para un aplicador dermocosmético.",
+      "Concepto de dispensación de fluido en armonía con los códigos visuales del sector de la belleza.",
+      "Prototipos y vistas de principio para explicar el uso, la recarga y la arquitectura interna.",
+    ],
+    ko: [
+      "더모코스메틱 어플리케이터를 위한 인체공학적 핸드피스와 카트리지 통합.",
+      "뷰티 제품의 시각적 언어와 조화를 이루는 유체 토출 콘셉트.",
+      "사용, 리필, 내부 구조를 설명하는 프로토타입과 원리 시각화.",
+    ],
+    zh: [
+      "为皮肤护理施用器设计符合人体工学的手持部件并集成料盒。",
+      "在实现稳定流体输送的同时，延续美容产品的视觉语言。",
+      "通过原型与原理图说明使用方式、补充流程和内部架构。",
+    ],
   },
   "alicoffee-machine": {
     en: [
@@ -3134,6 +3634,26 @@ const PROJECT_SCOPES: Record<
       "Circuit capsule de machine à café basé sur un chemin d'eau double passage.",
       "L'eau fait un aller-retour dans la capsule pendant l'extraction.",
       "La description du projet reste volontairement limitée à ce principe fluidique.",
+    ],
+    de: [
+      "Kapselsystem einer Kaffeemaschine mit zweifachem Wasserdurchlauf.",
+      "Während der Extraktion wird das Wasser durch die Kapsel hin- und zurückgeführt.",
+      "Die Projektbeschreibung beschränkt sich bewusst auf dieses Strömungsprinzip.",
+    ],
+    es: [
+      "Circuito de cápsula para cafetera basado en un doble paso del agua.",
+      "Durante la extracción, el agua recorre la cápsula en ambos sentidos.",
+      "La descripción del proyecto se limita deliberadamente a este principio de circulación.",
+    ],
+    ko: [
+      "물이 두 번 통과하는 캡슐 유로를 적용한 커피 머신 구조.",
+      "추출 과정에서 물이 캡슐 내부를 왕복하도록 설계.",
+      "프로젝트 설명은 이 유체 원리에 한정해 제공합니다.",
+    ],
+    zh: [
+      "开发采用双程水路的咖啡机胶囊系统。",
+      "萃取过程中，水流在胶囊内完成往返循环。",
+      "项目介绍有意仅聚焦于这一流体原理。",
     ],
   },
   "special-t-machine": {
@@ -3147,6 +3667,26 @@ const PROJECT_SCOPES: Record<
       "Validation du maintien, de l'ouverture, de la détection, de l'éjection et du flux boisson.",
       "Support présérie et composant à vortex relié au brevet WO2009135899.",
     ],
+    de: [
+      "Entwicklung der Brüheinheit für eine Teekapselmaschine.",
+      "Validierung von Kapselaufnahme, Öffnung, Erkennung, Auswurf und Getränkefluss.",
+      "Unterstützung der Vorserie und Entwicklung einer Wirbelkomponente im Zusammenhang mit WO2009135899.",
+    ],
+    es: [
+      "Desarrollo de la unidad de infusión para una máquina de cápsulas de té.",
+      "Validación de la sujeción, apertura, detección y expulsión de la cápsula, así como del flujo de bebida.",
+      "Apoyo a la preserie y desarrollo de un componente de vórtice relacionado con WO2009135899.",
+    ],
+    ko: [
+      "티 캡슐 머신의 추출 유닛 개발.",
+      "캡슐 고정, 개방, 감지, 배출과 음료 흐름 검증.",
+      "WO2009135899와 관련된 와류 부품 개발 및 파일럿 생산 지원.",
+    ],
+    zh: [
+      "开发茶胶囊机的冲泡单元。",
+      "验证胶囊固定、开启、识别、弹出以及饮品流动过程。",
+      "支持试生产，并开发与 WO2009135899 相关的涡流部件。",
+    ],
   },
   "instant-coffee-dispenser": {
     en: [
@@ -3158,6 +3698,26 @@ const PROJECT_SCOPES: Record<
       "Architecture de dosage café soluble avec prototypes physiques d'interaction utilisateur.",
       "Format d'appareil compact équilibrant manipulation de la poudre et ergonomie grand public.",
       "Contexte brevet flux, air et mélange pour préparation de boissons solubles.",
+    ],
+    de: [
+      "Dosierarchitektur für löslichen Kaffee mit physischen Prototypen zur Prüfung der Bedienung.",
+      "Kompaktes Geräteformat, das Pulverhandling und intuitive Nutzung miteinander verbindet.",
+      "Patentkontext zu Strömung, Luftführung und Mischung bei der Zubereitung löslicher Getränke.",
+    ],
+    es: [
+      "Arquitectura de dosificación para café soluble con prototipos físicos de interacción.",
+      "Formato compacto que combina la manipulación del polvo con una ergonomía intuitiva.",
+      "Contexto de patentes sobre flujo, aire y mezcla para preparar bebidas solubles.",
+    ],
+    ko: [
+      "사용자 조작을 검증하는 실물 프로토타입을 포함한 인스턴트 커피 정량 공급 구조.",
+      "분말 취급과 직관적인 사용성을 조화시킨 컴팩트 기기 형식.",
+      "분말 음료 제조를 위한 유동, 공기, 혼합 관련 특허 기술 반영.",
+    ],
+    zh: [
+      "开发速溶咖啡定量供给架构，并通过实物原型验证人机交互。",
+      "以紧凑设备形态兼顾粉料处理与直观操作体验。",
+      "结合速溶饮品制备中的流体、空气与混合相关专利技术。",
     ],
   },
   "vacheron-watch-mechanics": {
@@ -3171,6 +3731,26 @@ const PROJECT_SCOPES: Record<
       "Études d'implantation mécanique et de composants pour présentation de mouvement.",
       "Contexte brevet optique et structurel autour d'éléments de mouvement cachés ou raffinés.",
     ],
+    de: [
+      "Präzise Visualisierung komplexer Uhrwerksmechanismen auf kleinstem Raum.",
+      "Studien zu mechanischer Anordnung und Komponenten für die Präsentation des Uhrwerks.",
+      "Optischer und konstruktiver Patentkontext für verborgene oder besonders fein ausgeführte Uhrwerkselemente.",
+    ],
+    es: [
+      "Visualización relojera de precisión para mecanismos complejos a pequeña escala.",
+      "Estudios de disposición mecánica y componentes para presentar el movimiento.",
+      "Contexto de patentes ópticas y estructurales para elementos ocultos o refinados del mecanismo.",
+    ],
+    ko: [
+      "소형 복합 메커니즘을 위한 정밀 시계 구조 시각화.",
+      "무브먼트 표현을 위한 기계 배치와 부품 연구.",
+      "숨겨지거나 정교하게 구현된 무브먼트 요소의 광학 및 구조 특허 기술 반영.",
+    ],
+    zh: [
+      "为微型复杂机构提供精密制表可视化。",
+      "研究机械布局与组件关系，清晰呈现机芯结构。",
+      "结合隐藏式或精细化机芯部件的光学与结构专利背景。",
+    ],
   },
   "velum-sky-screen": {
     en: [
@@ -3182,6 +3762,26 @@ const PROJECT_SCOPES: Record<
       "Présentation de mécanisme architectural pour écran ou système de protection.",
       "Logique d'assemblage de précision autour du mouvement, de la rigidité cadre et du détail propre.",
       "Contexte brevet lié aux boîtiers et cadres de protection pluie/soleil.",
+    ],
+    de: [
+      "Darstellung eines architektonischen Mechanismus für ein Sichtschutz- oder Schutzsystem.",
+      "Präzisionsmontage mit Fokus auf Bewegung, Rahmensteifigkeit und saubere Detaillierung.",
+      "Patentkontext für Gehäuse und Rahmen zum Schutz vor Witterung und Sonne.",
+    ],
+    es: [
+      "Presentación de un mecanismo arquitectónico para una pantalla o sistema de protección.",
+      "Montaje de precisión centrado en el movimiento, la rigidez del marco y la calidad de los detalles.",
+      "Contexto de patentes para carcasas y marcos de protección frente al clima y al sol.",
+    ],
+    ko: [
+      "스크린 또는 차양 시스템을 위한 건축용 메커니즘 설계 표현.",
+      "움직임, 프레임 강성, 깔끔한 디테일을 고려한 정밀 조립 설계.",
+      "비와 햇빛을 막는 하우징 및 프레임 관련 특허 기술 반영.",
+    ],
+    zh: [
+      "呈现用于遮挡或防护系统的建筑机械结构。",
+      "围绕运动方式、框架刚度与细节品质开展精密装配设计。",
+      "结合防雨与遮阳外壳、框架相关的专利背景。",
     ],
   },
 };
@@ -3398,7 +3998,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       eyebrow: "Construisons ensemble",
       title: "Let's build what's next",
       bodyStrong: "Vous avez un défi en tête ?",
-      body: "Nous accompagnons les entreprises visionnaires pour concevoir, prototyper et livrer des solutions à impact réel.",
+      body: "Nous accompagnons les entreprises visionnaires pour concevoir, prototyper et concrétiser des solutions à fort impact.",
       button: "Démarrer un projet",
       subject: "Demande de projet",
     },
@@ -3408,7 +4008,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       eyebrow: "Unsere Arbeit in der Praxis",
       title: "Projekte",
       strong: "Schweizer Präzisionstechnik",
-      rest: "für Ergebnisse in der realen Welt.",
+      rest: "für messbare Ergebnisse.",
       lead: "Entdecken Sie eine Auswahl von Projekten, in denen wir komplexe Herausforderungen in leistungsfähige Produkte verwandeln.",
     },
     filters: withActiveProjectFilters(
@@ -3429,7 +4029,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     projects: getProjectsForLocale("de"),
     stats: [
       { ...STATS[0], label: "Gelieferte Projekte", value: "60+" },
-      { ...STATS[1], label: "Projektbegleitung", value: "Durchgängig" },
+      { ...STATS[1], label: "Projektbegleitung", value: "Ganzheitlich" },
       { ...STATS[2], label: "Kernbranchen", value: "6+" },
       { ...STATS[3], label: "Internationale Projekte", value: "Weltweit" },
     ],
@@ -3463,7 +4063,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       overview: "Projektübersicht",
       scope: "Unser Beitrag",
       tags: "Projekt-Tags",
-      relatedPatents: "Verwandte Patente",
+      relatedPatents: "Verknüpfte Patente",
       area: "Bereich",
       focus: "Fokus",
       output: "Ergebnis",
@@ -3471,8 +4071,8 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "Prototyp",
     },
     cta: {
-      eyebrow: "Lassen Sie uns bauen",
-      title: "Bauen wir, was als Nächstes kommt",
+      eyebrow: "Gemeinsam Neues entwickeln",
+      title: "Entwickeln wir die nächste Lösung",
       bodyStrong: "Haben Sie eine Herausforderung im Kopf?",
       body: "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um Lösungen zu entwerfen, zu prototypisieren und zu liefern, die echte Wirkung entfalten.",
       button: "Projekt starten",
@@ -3548,7 +4148,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     cta: {
       eyebrow: "Construyamos juntos",
-      title: "Construyamos lo que viene",
+      title: "Demos forma al próximo proyecto",
       bodyStrong: "¿Tienes un reto en mente?",
       body: "Colaboramos con empresas visionarias para diseñar, prototipar y entregar soluciones con impacto real.",
       button: "Iniciar un proyecto",
@@ -3557,10 +4157,10 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   ko: {
     hero: {
-      eyebrow: "실제로 구현된 작업",
+      eyebrow: "엔지니어링이 실현된 프로젝트",
       title: "프로젝트",
       strong: "스위스 정밀 엔지니어링",
-      rest: "으로 현실적인 결과를 만듭니다.",
+      rest: "으로 실질적인 성과를 만듭니다.",
       lead: "복잡한 과제를 고성능 제품으로 바꾼 프로젝트를 살펴보세요.",
     },
     filters: withActiveProjectFilters(
@@ -3587,7 +4187,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ],
     statsLabel: "프로젝트 통계",
     selectedTitle: "선정 프로젝트",
-    resultsLabel: "개 프로젝트 표시",
+    resultsLabel: "개 프로젝트",
     filtersLabel: "프로젝트 필터",
     sort: {
       label: "정렬",
@@ -3624,9 +4224,9 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     },
     cta: {
       eyebrow: "함께 만들어 갑시다",
-      title: "다음을 함께 만듭시다",
+      title: "다음 솔루션을 함께 개발합니다",
       bodyStrong: "구상 중인 과제가 있으신가요?",
-      body: "저희는 미래지향적인 기업과 함께 실제 영향을 만드는 솔루션을 설계하고 프로토타입으로 검증하며 전달합니다.",
+      body: "미래지향적인 기업과 함께 실질적인 가치를 만드는 솔루션을 설계하고 프로토타입으로 검증해 실현합니다.",
       button: "프로젝트 시작",
       subject: "프로젝트 문의",
     },
@@ -3636,7 +4236,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       eyebrow: "我们的实践成果",
       title: "项目",
       strong: "瑞士精密工程",
-      rest: "带来真实结果。",
+      rest: "成就可靠成果。",
       lead: "探索一组选定项目，了解我们如何把复杂挑战转化为高性能产品。",
     },
     filters: withActiveProjectFilters(
@@ -3657,13 +4257,13 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     projects: getProjectsForLocale("zh"),
     stats: [
       { ...STATS[0], label: "交付项目", value: "60+" },
-      { ...STATS[1], label: "项目支持", value: "端到端" },
+      { ...STATS[1], label: "项目支持", value: "全流程" },
       { ...STATS[2], label: "核心行业", value: "6+" },
       { ...STATS[3], label: "国际项目", value: "全球" },
     ],
     statsLabel: "项目统计",
     selectedTitle: "精选项目",
-    resultsLabel: "个项目显示",
+    resultsLabel: "个项目",
     filtersLabel: "筛选项目",
     sort: {
       label: "排序",
@@ -3699,8 +4299,8 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "原型",
     },
     cta: {
-      eyebrow: "一起打造",
-      title: "一起打造下一步",
+      eyebrow: "携手开发",
+      title: "共同开发下一项解决方案",
       bodyStrong: "有想解决的挑战吗？",
       body: "我们与具有前瞻性的企业合作，设计、原型验证并交付真正产生影响的解决方案。",
       button: "启动项目",

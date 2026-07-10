@@ -703,11 +703,11 @@ const COPY: Record<
         { key: "title", label: "Titre A-Z" },
       ],
     },
-    deposited: "Publié:",
+    deposited: "Publié :",
     details: {
       close: "Fermer le détail du brevet",
       eyebrow: "Innovation protégée",
-      overview: "Vue du brevet",
+      overview: "Synthèse du brevet",
       tags: "Tags du brevet",
       category: "Catégorie",
       publication: "Publication",
@@ -747,18 +747,18 @@ const COPY: Record<
     cta: {
       eyebrow: "Construisons ensemble",
       titlePrefix: ".",
-      title: "Un projet que nous pouvons réaliser pour vous",
+      title: "Un défi à relever ensemble",
       titleQuestion: "?",
-      body: "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions intelligentes et fabricables.",
+      body: "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions pertinentes et industrialisables.",
       button: "Démarrer votre projet",
     },
   },
   de: {
     hero: {
-      eyebrow: "Unsere geschützte Innovation",
+      eyebrow: "Innovation mit Patentschutz",
       title: "Patente",
       leadOne:
-        "Unser Patentportfolio spiegelt Jahre der Forschung, Engineering-Exzellenz und das Engagement für komplexe Herausforderungen wider.",
+        "Unser Patentportfolio steht für langjährige Forschung, hohe Ingenieurskompetenz und den Anspruch, komplexe Herausforderungen zu lösen.",
       leadTwo:
         "Entdecken Sie unsere geschützten Innovationen, die mehrere Branchen mitgestalten.",
     },
@@ -819,11 +819,11 @@ const COPY: Record<
       openDetails: "Patentdetails öffnen",
     },
     cta: {
-      eyebrow: "Lassen Sie uns bauen",
+      eyebrow: "Gemeinsam Neues entwickeln",
       titlePrefix: ".",
-      title: "Etwas, das wir für Sie entwickeln können",
+      title: "Eine Herausforderung, die wir gemeinsam lösen können",
       titleQuestion: "?",
-      body: "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um komplexe Herausforderungen in intelligente, herstellbare Lösungen zu verwandeln.",
+      body: "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um komplexe Herausforderungen in durchdachte, industrialisierbare Lösungen zu verwandeln.",
       button: "Projekt starten",
     },
   },
@@ -895,26 +895,26 @@ const COPY: Record<
     cta: {
       eyebrow: "Construyamos juntos",
       titlePrefix: ".",
-      title: "Algo que podamos construir para ti",
+      title: "Un reto que podamos resolver juntos",
       titleQuestion: "?",
-      body: "Colaboramos con empresas visionarias para convertir retos complejos en soluciones inteligentes y fabricables.",
+      body: "Colaboramos con empresas visionarias para convertir retos complejos en soluciones pertinentes y listas para industrializar.",
       button: "Iniciar tu proyecto",
     },
   },
   ko: {
     hero: {
-      eyebrow: "보호받는 혁신",
+      eyebrow: "특허로 보호된 혁신",
       title: "특허",
       leadOne:
         "특허 포트폴리오는 수년간의 연구, 엔지니어링 우수성, 복잡한 과제를 해결하려는 의지를 보여 줍니다.",
-      leadTwo: "여러 산업의 미래를 만들어 가는 보호된 혁신을 살펴보세요.",
+      leadTwo: "특허로 보호된 기술이 여러 산업의 발전에 어떻게 기여하는지 살펴보세요.",
     },
     archiveTitle: "혁신 아카이브",
     filtersLabel: "특허 필터",
     noResults: "이 카테고리에 맞는 특허가 없습니다.",
     searchPlaceholder: "제목, 발명자, 출원인, 공개번호 검색...",
-    resultsLabel: "개 특허 표시",
-    filterCountLabel: "개 특허",
+    resultsLabel: "건의 특허",
+    filterCountLabel: "건",
     sort: {
       label: "정렬",
       options: [
@@ -968,25 +968,25 @@ const COPY: Record<
     cta: {
       eyebrow: "함께 만들어 갑시다",
       titlePrefix: ".",
-      title: "우리가 만들어 드릴 수 있는 것이 있나요",
+      title: "함께 해결할 과제가 있으신가요",
       titleQuestion: "?",
-      body: "저희는 미래지향적인 기업과 협력해 복잡한 과제를 스마트하고 제조 가능한 솔루션으로 바꿉니다.",
+      body: "저희는 미래지향적인 기업과 협력해 복잡한 과제를 실용적이고 양산 가능한 솔루션으로 전환합니다.",
       button: "프로젝트 시작하기",
     },
   },
   zh: {
     hero: {
-      eyebrow: "我们的创新，受到保护",
+      eyebrow: "以专利保护创新成果",
       title: "专利",
       leadOne:
         "我们的专利组合体现了多年研究、卓越工程能力，以及解决复杂挑战的持续投入。",
-      leadTwo: "探索我们在多个行业中塑造未来的受保护创新。",
+      leadTwo: "了解我们如何以受专利保护的技术推动多个行业持续发展。",
     },
     archiveTitle: "创新档案",
     filtersLabel: "筛选专利",
     noResults: "没有符合该类别的专利。",
     searchPlaceholder: "搜索标题、发明人、申请人、公布号...",
-    resultsLabel: "项专利显示",
+    resultsLabel: "项专利",
     filterCountLabel: "项专利",
     sort: {
       label: "排序",
@@ -997,7 +997,7 @@ const COPY: Record<
         { key: "title", label: "标题 A-Z" },
       ],
     },
-    deposited: "公开:",
+    deposited: "公开：",
     details: {
       close: "关闭专利详情",
       eyebrow: "受保护创新",
@@ -1039,12 +1039,12 @@ const COPY: Record<
       openDetails: "打开专利详情",
     },
     cta: {
-      eyebrow: "一起打造",
+      eyebrow: "携手开发",
       titlePrefix: ".",
-      title: "有什么可以由我们为你打造",
+      title: "有需要我们共同解决的项目吗",
       titleQuestion: "?",
-      body: "我们与具有前瞻性的企业合作，将复杂挑战转化为智能、可制造的解决方案。",
-      button: "启动你的项目",
+      body: "我们与具有前瞻性的企业合作，将复杂挑战转化为切实可行且可制造的解决方案。",
+      button: "启动您的项目",
     },
   },
 };

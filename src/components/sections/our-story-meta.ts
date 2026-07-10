@@ -22,7 +22,7 @@ const metaCopy = {
       "Descubre el recorrido de DOMTEKNIKA desde 1998 a través de hitos en ingeniería de producto, movilidad, tecnología médica y prototipado.",
   },
   ko: {
-    title: "DOMTEKNIKA - 회사 이야기",
+    title: "DOMTEKNIKA - 회사 연혁",
     description:
       "1998년부터 이어진 DOMTEKNIKA의 제품 엔지니어링, 모빌리티, 의료기술, 프로토타이핑 여정을 살펴보세요.",
   },

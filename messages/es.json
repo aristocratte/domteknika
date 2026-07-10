@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "DOMTEKNIKA - Ingeniería de producto y prototipado",
-    "description": "DOMTEKNIKA conecta ingeniería, prototipado y producción para empresas industriales e innovadores desde Suiza."
+    "description": "Desde Suiza, DOMTEKNIKA integra ingeniería, prototipado y producción para empresas industriales y equipos innovadores."
   },
   "Nav": {
     "home": "Inicio",
@@ -19,7 +19,7 @@
     "prototyping": "Prototyping",
     "producing": "Producing",
     "shape": "Shape your dreams",
-    "lead": "Desde la primera chispa de una idea hasta la producción en serie, <brand>DOMTEKNIKA</brand> conecta ingeniería y fabricación para industriales e innovadores. Ingeniería mecánica, soluciones industriales a medida y prototipos de precisión <strong>hechos en Suiza.</strong>",
+    "lead": "Desde la primera chispa de una idea hasta la producción en serie, <brand>DOMTEKNIKA</brand> conecta ingeniería y fabricación para empresas industriales y equipos innovadores. Ingeniería mecánica, soluciones industriales a medida y prototipos de precisión <strong>hechos en Suiza.</strong>",
     "ctaPrimary": "Contacto",
     "ctaSecondary": "Nuestra experiencia"
   },
@@ -100,7 +100,7 @@
     },
     "Map": {
       "eyebrow": "Dónde encontrarnos",
-      "title": "Visita nuestro taller",
+      "title": "Visita nuestras instalaciones",
       "body": "Nuestra oficina y taller están en La Neuveville, entre el lago de Biel y las estribaciones del Jura.",
       "marker": "DOMTEKNIKA SA"
     }
@@ -108,11 +108,11 @@
   "Process": {
     "ideaTitle": "La idea",
     "ideaIntro": "Todo gran producto empieza con una idea, un boceto, un problema por resolver o un sistema por mejorar.",
-    "ideaBody": "Tanto si eres una empresa industrial como un innovador primerizo, <strong>te ayudamos a convertir tus ideas en algo real.</strong>",
+    "ideaBody": "Tanto si eres una empresa industrial como un equipo con su primera idea de producto, <strong>te ayudamos a convertir esa visión en una solución concreta.</strong>",
     "processTitle": "El proceso",
-    "processBody": "Desde el estudio de viabilidad y el diseño CAD hasta el prototipado y la producción en serie, mantenemos todo el proceso ágil y confidencial.",
+    "processBody": "Desde el estudio de viabilidad y el diseño CAD hasta el prototipado y la producción en serie, gestionamos todo el proyecto con agilidad y absoluta confidencialidad.",
     "productTitle": "El producto",
-    "productBody": "Una pieza lista para producción que funciona. Los clientes industriales reducen su tiempo de salida al mercado. Los innovadores ven cómo su primera idea se convierte en un producto fabricable y validable.",
+    "productBody": "Una solución fiable, funcional y lista para producir. Las empresas industriales acortan el tiempo de lanzamiento, mientras las primeras ideas se convierten en productos industrializables y verificables.",
     "stats": {
       "years": {
         "value": "+25 años",
@@ -140,13 +140,13 @@
     },
     "Services": {
       "eyebrow": "Qué hacemos",
-      "title": "Experiencia de extremo a extremo en cada etapa",
-      "intro": "Desde prototipos únicos hasta producción industrial, ayudamos a personas y empresas a diseñar, desarrollar y fabricar sus ideas.",
+      "title": "Experiencia integral en cada etapa",
+      "intro": "Desde prototipos únicos hasta producción industrial, ayudamos a empresas e inventores a diseñar, desarrollar y fabricar sus ideas.",
       "brainstorming": {
         "eyebrow": "Brainstorming",
-        "title": "Convertir un problema en una dirección clara",
+        "title": "Del problema a una dirección de desarrollo clara",
         "lead": "Antes de elegir una dirección, analizamos el problema desde todos los ángulos: uso, mecánica, materiales, costes, fabricación y riesgos.",
-        "body": "Esta fase convierte las preguntas abiertas en caminos concretos, compara arquitecturas posibles y selecciona pronto las soluciones más pertinentes.",
+        "body": "Esta fase transforma las preguntas abiertas en líneas de solución concretas, compara distintas arquitecturas y permite seleccionar pronto las opciones más pertinentes.",
         "cards": {
           "doorRod": "Puerta y varilla",
           "springLock": "Cierre de resorte",
@@ -181,7 +181,7 @@
         },
         "electronics": {
           "title": "Integración electrónica",
-          "description": "Diseño e integración de electrónica inteligente para productos conectados, fiables e inteligentes."
+          "description": "Diseño e integración electrónica avanzada para productos conectados, fiables y funcionales."
         }
       }
     },
@@ -195,19 +195,19 @@
       "values": {
         "partner": {
           "title": "Socio integral",
-          "description": "Del concepto a la industrialización, nos ocupamos de todo."
+          "description": "Del concepto a la industrialización, acompañamos y gestionamos cada etapa."
         },
         "agile": {
-          "title": "Ágiles y receptivos",
-          "description": "Avanzamos rápido, nos adaptamos con rapidez y permanecemos cerca de ti."
+          "title": "Ágiles y cercanos",
+          "description": "Avanzamos con rapidez, nos adaptamos y mantenemos una colaboración cercana."
         },
         "confidential": {
           "title": "Confidencial",
-          "description": "Tus ideas están seguras con nosotros. Siempre."
+          "description": "Tus ideas permanecen siempre bajo estricta confidencialidad."
         },
         "quality": {
           "title": "Calidad suiza",
-          "description": "Ingeniería de precisión y calidad premium según estándares suizos."
+          "description": "Ingeniería de precisión y máxima calidad según estándares suizos."
         }
       },
       "stats": {
@@ -232,7 +232,7 @@
     "Cta": {
       "eyebrow": "Construyamos juntos",
       "title": "¿Tienes un reto que podamos resolver?",
-      "subtitle": "Colaboramos con empresas visionarias para convertir retos complejos en soluciones inteligentes y fabricables.",
+      "subtitle": "Colaboramos con empresas visionarias para convertir retos complejos en soluciones pertinentes y listas para industrializar.",
       "button": "Iniciar tu proyecto"
     }
   },
@@ -240,20 +240,20 @@
     "label": "Confían en nosotros"
   },
   "SwissBanner": {
-    "titleLineOne": "Construido en Suiza.",
-    "titleLineTwo": "Diseñado para el mundo.",
+    "titleLineOne": "Desarrollado en Suiza.",
+    "titleLineTwo": "Pensado para el mundo.",
     "values": {
       "swissQuality": "Calidad suiza",
       "endToEnd": "Socio integral",
       "agile": "Ágil y flexible",
       "confidential": "Confidencial"
     },
-    "end": "Fin de los valores suizos"
+    "end": "Fin de la presentación de nuestros valores"
   },
   "Cta": {
     "eyebrow": "Construyamos juntos",
     "title": "Demos forma a tu próxima idea",
-    "subtitle": "Cuéntanos tu reto. Lo diseñaremos, lo prototiparemos y lo prepararemos para el mundo real desde nuestro taller en Suiza.",
+    "subtitle": "Cuéntanos tu reto. Diseñaremos y prototiparemos la solución y la prepararemos para su industrialización desde nuestro taller en Suiza.",
     "cta": "Iniciar tu proyecto"
   },
   "Footer": {

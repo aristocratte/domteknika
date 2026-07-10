@@ -185,7 +185,7 @@ const PATENT_DIALOG_COPY: Record<PatentLocale, PatentDialogCopy> = {
   fr: {
     close: "Fermer le détail du brevet",
     eyebrow: "Innovation protégée",
-    overview: "Vue du brevet",
+    overview: "Synthèse du brevet",
     tags: "Tags du brevet",
     category: "Catégorie",
     publication: "Publication",
@@ -219,7 +219,7 @@ const PATENT_DIALOG_COPY: Record<PatentLocale, PatentDialogCopy> = {
   },
   de: {
     close: "Patentdetails schließen",
-    eyebrow: "Geschützte Innovation",
+    eyebrow: "Innovation mit Patentschutz",
     overview: "Patentübersicht",
     tags: "Patent-Tags",
     category: "Kategorie",
@@ -289,7 +289,7 @@ const PATENT_DIALOG_COPY: Record<PatentLocale, PatentDialogCopy> = {
   },
   ko: {
     close: "특허 상세 닫기",
-    eyebrow: "보호된 혁신",
+    eyebrow: "특허로 보호된 혁신",
     overview: "특허 개요",
     tags: "특허 태그",
     category: "카테고리",
@@ -324,7 +324,7 @@ const PATENT_DIALOG_COPY: Record<PatentLocale, PatentDialogCopy> = {
   },
   zh: {
     close: "关闭专利详情",
-    eyebrow: "受保护创新",
+    eyebrow: "专利保护的创新成果",
     overview: "专利概览",
     tags: "专利标签",
     category: "类别",

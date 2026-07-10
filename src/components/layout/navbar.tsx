@@ -183,7 +183,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[900]">
       <nav
-        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] min-[810px]:block min-[1800px]:h-[108px] min-[1800px]:max-w-[1580px] min-[2400px]:h-[124px] min-[2400px]:max-w-[1880px]"
+        className="relative isolate mx-auto hidden h-[80px] max-w-[1180px] rounded-b-[50px] min-[810px]:block canvas-lg:h-[108px] canvas-lg:max-w-[1580px] canvas-xl:h-[124px] canvas-xl:max-w-[1880px]"
         aria-label="Primary"
       >
         <div
@@ -209,18 +209,18 @@ export function Navbar() {
         </div>
         <Container
           size="wide"
-          className="relative z-10 grid h-full grid-cols-[132px_minmax(0,1fr)_210px] items-center gap-2 px-4 sm:px-4 md:px-4 min-[880px]:px-6 lg:grid-cols-[132px_minmax(0,1fr)_220px] lg:gap-3 lg:px-8 xl:px-10 min-[1400px]:grid-cols-[150px_minmax(0,1fr)_360px] min-[1400px]:px-10 min-[1800px]:grid-cols-[190px_minmax(0,1fr)_470px] min-[1800px]:px-16 min-[2400px]:grid-cols-[220px_minmax(0,1fr)_560px] min-[2400px]:px-20"
+          className="relative z-10 grid h-full grid-cols-[132px_minmax(0,1fr)_210px] items-center gap-2 px-4 sm:px-4 md:px-4 min-[880px]:px-6 lg:grid-cols-[132px_minmax(0,1fr)_220px] lg:gap-3 lg:px-8 xl:px-10 min-[1400px]:grid-cols-[150px_minmax(0,1fr)_360px] min-[1400px]:px-10 canvas-lg:grid-cols-[190px_minmax(0,1fr)_470px] canvas-lg:px-16 canvas-xl:grid-cols-[220px_minmax(0,1fr)_560px] canvas-xl:px-20"
         >
           <Link
             href="/"
             className="inline-flex w-fit rounded-[7px] outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             aria-label="DOMTEKNIKA home"
           >
-            <Logo className="w-[132px] min-[1800px]:w-[190px] min-[2400px]:w-[220px]" />
+            <Logo className="w-[132px] canvas-lg:w-[190px] canvas-xl:w-[220px]" />
           </Link>
 
           <ul
-            className="hidden min-w-0 items-center justify-center gap-6 md:flex min-[1800px]:gap-12 min-[2400px]:gap-16"
+            className="hidden min-w-0 items-center justify-center gap-6 md:flex canvas-lg:gap-12 canvas-xl:gap-16"
             onMouseLeave={() => setHoveredNavKey(null)}
           >
             {NAV_ITEMS.map((item) => {
@@ -249,11 +249,11 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="flex min-w-0 items-center justify-end gap-2 lg:gap-4 xl:gap-7 min-[1400px]:gap-8 min-[1800px]:gap-10 min-[2400px]:gap-12">
+          <div className="flex min-w-0 items-center justify-end gap-2 lg:gap-4 xl:gap-7 min-[1400px]:gap-8 canvas-lg:gap-10 canvas-xl:gap-12">
             <Button
               nativeButton={false}
               size="lg"
-              className="domtek-nav-contact-cta hidden h-10 rounded-[7px] border-0 px-3 text-[12px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform has-data-[icon=inline-end]:gap-2 hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex lg:px-[14px] lg:text-[13px] 2xl:px-4 2xl:text-[14px] min-[2200px]:max-[2399px]:!h-[58px] min-[2200px]:max-[2399px]:!min-w-[170px] min-[2200px]:max-[2399px]:!gap-3 min-[2200px]:max-[2399px]:!rounded-[14px] min-[2200px]:max-[2399px]:!pl-7 min-[2200px]:max-[2399px]:!pr-6 min-[2200px]:max-[2399px]:!text-[20px] min-[2200px]:max-[2399px]:!leading-none min-[2200px]:max-[2399px]:[&_svg]:!size-5 min-[2400px]:!h-[70px] min-[2400px]:!min-w-[190px] min-[2400px]:!gap-4 min-[2400px]:!rounded-[18px] min-[2400px]:!pl-8 min-[2400px]:!pr-7 min-[2400px]:!text-[22px] min-[2400px]:!leading-none min-[2400px]:[&_svg]:!size-6"
+              className="domtek-nav-contact-cta hidden h-10 rounded-[7px] border-0 px-3 text-[12px] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.28)] outline-none ring-0 transition-transform has-data-[icon=inline-end]:gap-2 hover:-translate-y-0.5 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-brand/35 md:inline-flex lg:px-[14px] lg:text-[13px] 2xl:px-4 2xl:text-[14px] canvas-mid:!h-[58px] canvas-mid:!min-w-[170px] canvas-mid:!gap-3 canvas-mid:!rounded-[14px] canvas-mid:!pl-7 canvas-mid:!pr-6 canvas-mid:!text-[20px] canvas-mid:!leading-none canvas-mid:[&_svg]:!size-5 canvas-xl:!h-[70px] canvas-xl:!min-w-[190px] canvas-xl:!gap-4 canvas-xl:!rounded-[18px] canvas-xl:!pl-8 canvas-xl:!pr-7 canvas-xl:!text-[22px] canvas-xl:!leading-none canvas-xl:[&_svg]:!size-6"
               render={<Link href="/contact" />}
             >
               {t("cta")}
@@ -543,7 +543,7 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   const className = cn(
-    "relative inline-flex whitespace-nowrap text-[16px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand min-[1800px]:text-[22px] min-[2400px]:text-[25px]",
+    "relative inline-flex whitespace-nowrap text-[16px] font-bold text-foreground transition-colors duration-300 hover:text-brand focus-visible:text-brand canvas-lg:text-[22px] canvas-xl:text-[25px]",
     disabled && "cursor-not-allowed opacity-80 hover:text-foreground",
     mobile &&
       "w-full items-center rounded-[7px] px-4 py-3 text-[18px] hover:bg-muted",

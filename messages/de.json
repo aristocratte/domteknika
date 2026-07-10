@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "DOMTEKNIKA - Produktentwicklung und Prototyping",
-    "description": "DOMTEKNIKA verbindet Engineering, Prototyping und Produktion für Industrieunternehmen und Innovatoren aus der Schweiz."
+    "description": "Von der Schweiz aus verbindet DOMTEKNIKA Entwicklung, Prototyping und Produktion für Industrieunternehmen und Innovationsteams."
   },
   "Nav": {
     "home": "Startseite",
@@ -19,7 +19,7 @@
     "prototyping": "Prototyping",
     "producing": "Producing",
     "shape": "Shape your dreams",
-    "lead": "Vom ersten Funken einer Idee bis zur Serienproduktion verbindet <brand>DOMTEKNIKA</brand> Entwicklung und Fertigung für Industrieunternehmen und Innovatoren. Maschinenbau, maßgeschneiderte Industrielösungen und Präzisionsprototypen <strong>aus der Schweiz.</strong>",
+    "lead": "Vom ersten Funken einer Idee bis zur Serienproduktion verbindet <brand>DOMTEKNIKA</brand> Entwicklung und Fertigung für Industrieunternehmen und Innovationsteams. Maschinenbau, maßgeschneiderte Industrielösungen und Präzisionsprototypen <strong>aus der Schweiz.</strong>",
     "ctaPrimary": "Kontakt",
     "ctaSecondary": "Unsere Expertise"
   },
@@ -100,7 +100,7 @@
     },
     "Map": {
       "eyebrow": "So finden Sie uns",
-      "title": "Besuchen Sie unsere Werkstatt",
+      "title": "Besuchen Sie uns",
       "body": "Unser Büro und unsere Werkstatt befinden sich in La Neuveville, zwischen Bielersee und Jurafuß.",
       "marker": "DOMTEKNIKA SA"
     }
@@ -108,18 +108,18 @@
   "Process": {
     "ideaTitle": "Die Idee",
     "ideaIntro": "Jedes starke Produkt beginnt mit einer Idee, einer Skizze, einem zu lösenden Problem oder einem System, das verbessert werden soll.",
-    "ideaBody": "Ob Industrieunternehmen oder Erstinnovator: <strong>Wir helfen Ihnen, Ihre Vorstellungen in etwas Reales zu verwandeln.</strong>",
+    "ideaBody": "Ob Industrieunternehmen oder Team mit einer ersten Produktidee: <strong>Wir machen aus Ihrer Vision eine konkrete, umsetzbare Lösung.</strong>",
     "processTitle": "Der Prozess",
-    "processBody": "Von Machbarkeitsstudie und CAD-Konstruktion über Prototyping bis zur Serienproduktion halten wir den gesamten Prozess agil und vertraulich.",
+    "processBody": "Von der Machbarkeitsstudie und CAD-Konstruktion über das Prototyping bis zur Serienproduktion führen wir das gesamte Projekt agil und vertraulich.",
     "productTitle": "Das Produkt",
-    "productBody": "Ein produktionsreifes Teil, das funktioniert. Industriekunden verkürzen ihre Markteinführungszeit. Innovatoren sehen, wie aus der ersten Idee ein herstellbares und testbares Produkt wird.",
+    "productBody": "Eine zuverlässige, funktionsfähige und serienreife Lösung. Industriekunden verkürzen ihre Markteinführungszeit, während aus ersten Ideen herstellbare und prüfbare Produkte entstehen.",
     "stats": {
       "years": {
         "value": "+25 Jahre",
         "label": "Erfahrung"
       },
       "sectors": {
-        "value": "Mehrere Branchen",
+        "value": "Branchenübergreifend",
         "label": "Expertise"
       },
       "swiss": {
@@ -140,11 +140,11 @@
     },
     "Services": {
       "eyebrow": "Was wir tun",
-      "title": "End-to-End-Expertise in jedem Schritt",
-      "intro": "Vom Einzelprototyp bis zur industriellen Serienproduktion helfen wir Privatpersonen und Unternehmen, Ideen zu entwerfen, zu entwickeln und herzustellen.",
+      "title": "Durchgängige Expertise in jeder Projektphase",
+      "intro": "Vom Einzelprototyp bis zur industriellen Serienproduktion unterstützen wir Unternehmen und Erfinder dabei, Ideen zu entwickeln, technisch auszuarbeiten und zu fertigen.",
       "brainstorming": {
         "eyebrow": "Brainstorming",
-        "title": "Aus einem Problem eine klare Richtung machen",
+        "title": "Vom Problem zur klaren Entwicklungsrichtung",
         "lead": "Bevor wir eine Richtung wählen, betrachten wir das Problem aus allen Blickwinkeln: Nutzung, Mechanik, Materialien, Kosten, Fertigung und Risiken.",
         "body": "Aus offenen Fragen entstehen konkrete Ansätze, mögliche Architekturen werden verglichen und die passendsten Lösungen früh ausgewählt.",
         "cards": {
@@ -181,7 +181,7 @@
         },
         "electronics": {
           "title": "Elektronik-Integration",
-          "description": "Intelligente Elektronikentwicklung und Integration für vernetzte, zuverlässige und smarte Produkte."
+          "description": "Elektronikentwicklung und -integration für vernetzte, zuverlässige und leistungsfähige Produkte."
         }
       }
     },
@@ -195,19 +195,19 @@
       "values": {
         "partner": {
           "title": "End-to-End-Partner",
-          "description": "Vom Konzept bis zur Industrialisierung übernehmen wir den gesamten Weg."
+          "description": "Vom Konzept bis zur Industrialisierung begleiten und steuern wir jede Projektphase."
         },
         "agile": {
           "title": "Agil & reaktionsschnell",
-          "description": "Wir bewegen uns schnell, passen uns rasch an und bleiben nah bei Ihnen."
+          "description": "Wir arbeiten schnell, reagieren flexibel und stimmen uns eng mit Ihnen ab."
         },
         "confidential": {
           "title": "Vertraulich",
-          "description": "Ihre Ideen sind bei uns sicher. Immer."
+          "description": "Ihre Ideen bleiben bei uns jederzeit vertraulich."
         },
         "quality": {
           "title": "Schweizer Qualität",
-          "description": "Präzisionstechnik und Premiumqualität nach Schweizer Maßstäben."
+          "description": "Präzisionstechnik und höchste Qualität nach Schweizer Maßstäben."
         }
       },
       "stats": {
@@ -230,30 +230,30 @@
       }
     },
     "Cta": {
-      "eyebrow": "Lassen Sie uns bauen",
+      "eyebrow": "Gemeinsam Neues entwickeln",
       "title": "Haben Sie eine Herausforderung für uns",
-      "subtitle": "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um komplexe Herausforderungen in intelligente, herstellbare Lösungen zu verwandeln.",
+      "subtitle": "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um komplexe Herausforderungen in durchdachte, industrialisierbare Lösungen zu verwandeln.",
       "button": "Projekt starten"
     }
   },
   "TrustedBy": {
-    "label": "Vertraut von"
+    "label": "Diese Unternehmen vertrauen uns"
   },
   "SwissBanner": {
-    "titleLineOne": "Gebaut in der Schweiz.",
-    "titleLineTwo": "Entwickelt für die Welt.",
+    "titleLineOne": "Entwickelt in der Schweiz.",
+    "titleLineTwo": "Bereit für die Welt.",
     "values": {
       "swissQuality": "Schweizer Qualität",
       "endToEnd": "End-to-End-Partner",
       "agile": "Agil & flexibel",
       "confidential": "Vertraulich"
     },
-    "end": "Ende der Schweizer Werte"
+    "end": "Ende der Präsentation unserer Werte"
   },
   "Cta": {
-    "eyebrow": "Lassen Sie uns bauen",
-    "title": "Formen wir Ihre nächste Idee",
-    "subtitle": "Erzählen Sie uns von Ihrer Herausforderung. Wir entwerfen, prototypisieren und bereiten sie in unserer Schweizer Werkstatt für die reale Welt vor.",
+    "eyebrow": "Gemeinsam Neues entwickeln",
+    "title": "Bringen wir Ihre nächste Idee in Form",
+    "subtitle": "Schildern Sie uns Ihre Herausforderung. Wir entwickeln und prototypisieren die Lösung und bereiten sie in unserer Schweizer Werkstatt auf die Industrialisierung vor.",
     "cta": "Projekt starten"
   },
   "Footer": {

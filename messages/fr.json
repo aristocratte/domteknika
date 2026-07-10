@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "DOMTEKNIKA - Ingénierie produit et prototypage",
-    "description": "DOMTEKNIKA relie ingénierie, prototypage et production pour les entreprises industrielles et les innovateurs depuis la Suisse."
+    "description": "Depuis la Suisse, DOMTEKNIKA réunit ingénierie, prototypage et production au service des entreprises industrielles et des équipes d'innovation."
   },
   "Nav": {
     "home": "Accueil",
@@ -108,11 +108,11 @@
   "Process": {
     "ideaTitle": "L'idée",
     "ideaIntro": "Chaque grand produit commence par une idée, un croquis, un problème à résoudre ou un système à améliorer.",
-    "ideaBody": "Que vous soyez une entreprise industrielle ou un innovateur indépendant, <strong>nous vous aidons à transformer vos ambitions en solutions concrètes.</strong>",
+    "ideaBody": "Que vous soyez une entreprise industrielle ou un porteur de projet, <strong>nous vous aidons à transformer vos ambitions en solutions concrètes.</strong>",
     "processTitle": "Le processus",
-    "processBody": "De l'étude de faisabilité à la conception CAO, du prototypage à la production en série, nous gardons un processus agile et confidentiel.",
+    "processBody": "De l'étude de faisabilité à la conception CAO, du prototypage à la production en série, nous menons chaque étape avec agilité et dans la plus stricte confidentialité.",
     "productTitle": "Le produit",
-    "productBody": "Une pièce prête pour la production, fiable et fonctionnelle. Les clients industriels réduisent leur délai de mise sur le marché. Les innovateurs transforment leur première idée en produit testable et industrialisable.",
+    "productBody": "Une solution fiable, fonctionnelle et prête à produire. Les industriels réduisent leur délai de mise sur le marché, tandis que les porteurs de projet voient leur idée devenir un produit testable et industrialisable.",
     "stats": {
       "years": {
         "value": "+25 ans",
@@ -131,7 +131,7 @@
   "ExpertisePage": {
     "Meta": {
       "title": "DOMTEKNIKA - Expertise industrielle",
-      "description": "Découvrez l'expertise DOMTEKNIKA: innovation, design produit, prototypage, simulation, polymères et intégration électronique depuis la Suisse."
+      "description": "Découvrez l'expertise de DOMTEKNIKA : innovation, design produit, prototypage, simulation, polymères et intégration électronique, depuis la Suisse."
     },
     "Hero": {
       "eyebrow": "Transformer les idées en solutions réelles",
@@ -144,9 +144,9 @@
       "intro": "Du prototype unique à la production industrielle, nous accompagnons entreprises et inventeurs pour concevoir, valider et produire leurs idées.",
       "brainstorming": {
         "eyebrow": "Brainstorming",
-        "title": "Transformer un problème en piste claire",
-        "lead": "Avant de choisir une direction, nous analysons le problème sous tous les angles: usage, mécanique, matériaux, coûts, fabrication et risques.",
-        "body": "Cette étape fait émerger plusieurs pistes concrètes, permet de comparer les architectures et de retenir rapidement les solutions les plus pertinentes.",
+        "title": "Du problème à une direction de développement claire",
+        "lead": "Avant de retenir une solution, nous analysons le problème sous tous les angles : usage, mécanique, matériaux, coûts, fabrication et risques.",
+        "body": "Cette étape fait émerger des pistes concrètes, permet de comparer plusieurs architectures et d'identifier rapidement les solutions les plus pertinentes pour le projet.",
         "cards": {
           "doorRod": "Porte et tringle",
           "springLock": "Verrou à ressort",
@@ -195,19 +195,19 @@
       "values": {
         "partner": {
           "title": "Partenaire de bout en bout",
-          "description": "Du concept à l'industrialisation, nous gérons tout."
+          "description": "Du concept à l'industrialisation, nous prenons en charge chaque étape."
         },
         "agile": {
-          "title": "Agile & réactif",
-          "description": "Nous avançons vite, nous adaptons vite et restons proches de vous."
+          "title": "Agilité & réactivité",
+          "description": "Nous avançons rapidement, nous nous adaptons et restons proches de vous."
         },
         "confidential": {
           "title": "Confidentiel",
-          "description": "Vos idées sont en sécurité chez nous. Toujours."
+          "description": "Vos idées restent confidentielles, sans exception."
         },
         "quality": {
           "title": "Qualité suisse",
-          "description": "Ingénierie précise et qualité premium selon les standards suisses."
+          "description": "Ingénierie de précision et haut niveau de qualité selon les standards suisses."
         }
       },
       "stats": {
@@ -232,7 +232,7 @@
     "Cta": {
       "eyebrow": "Construisons ensemble",
       "title": "Vous avez un défi que nous pouvons résoudre",
-      "subtitle": "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions intelligentes et fabricables.",
+      "subtitle": "Nous accompagnons les entreprises visionnaires pour transformer des défis complexes en solutions pertinentes et industrialisables.",
       "button": "Démarrer votre projet"
     }
   },
@@ -248,12 +248,12 @@
       "agile": "Agile & flexible",
       "confidential": "Confidentiel"
     },
-    "end": "Fin des valeurs suisses"
+    "end": "Fin de la présentation de nos valeurs"
   },
   "Cta": {
     "eyebrow": "Construisons ensemble",
     "title": "Façonnons votre prochaine idée",
-    "subtitle": "Présentez-nous votre défi. Nous le concevrons, le prototyperons et le préparerons pour le monde réel, depuis nos locaux en Suisse.",
+    "subtitle": "Présentez-nous votre défi. Nous le concevrons, le prototyperons et le préparerons à l'industrialisation, depuis nos locaux en Suisse.",
     "cta": "Démarrer votre projet"
   },
   "Footer": {
