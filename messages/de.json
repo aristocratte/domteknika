@@ -260,7 +260,33 @@
     "addressLabel": "Adresse",
     "contactLabel": "Kontakt",
     "country": "Schweiz",
+    "navigationLabel": "Navigation",
+    "legalLabel": "Rechtliches",
+    "legalNotice": "Impressum",
+    "privacyPolicy": "Datenschutzerklärung",
     "rights": "Alle Rechte vorbehalten"
+  },
+  "LegalPages": {
+    "legalNotice": {
+      "metaTitle": "DOMTEKNIKA - Impressum",
+      "metaDescription": "Rechtliche Informationen zur Website von DOMTEKNIKA.",
+      "eyebrow": "Rechtliche Informationen",
+      "title": "Impressum",
+      "intro": "Diese Seite enthält vorläufigen Blindtext und muss vor der Veröffentlichung geprüft und durch die endgültigen rechtlichen Angaben ersetzt werden.",
+      "publisher": "Websitebetreiber",
+      "hosting": "Hosting",
+      "intellectualProperty": "Geistiges Eigentum"
+    },
+    "privacyPolicy": {
+      "metaTitle": "DOMTEKNIKA - Datenschutzerklärung",
+      "metaDescription": "Vorläufige Datenschutzerklärung der Website von DOMTEKNIKA.",
+      "eyebrow": "Datenschutz",
+      "title": "Datenschutzerklärung",
+      "intro": "Diese Seite enthält vorläufigen Blindtext und muss vor der Inbetriebnahme des Kontaktformulars geprüft und durch die endgültige Datenschutzerklärung ersetzt werden.",
+      "dataCollection": "Erhobene Daten",
+      "dataUse": "Verwendung der Daten",
+      "rights": "Aufbewahrung und Ihre Rechte"
+    }
   },
   "Language": {
     "switch": "Sprache wechseln",

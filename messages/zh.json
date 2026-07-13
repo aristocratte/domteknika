@@ -260,7 +260,33 @@
     "addressLabel": "地址",
     "contactLabel": "联系方式",
     "country": "瑞士",
+    "navigationLabel": "导航",
+    "legalLabel": "法律信息",
+    "legalNotice": "法律声明",
+    "privacyPolicy": "隐私政策",
     "rights": "保留所有权利"
+  },
+  "LegalPages": {
+    "legalNotice": {
+      "metaTitle": "DOMTEKNIKA - 法律声明",
+      "metaDescription": "与 DOMTEKNIKA 网站相关的法律信息。",
+      "eyebrow": "法律信息",
+      "title": "法律声明",
+      "intro": "本页面包含临时占位内容，发布前必须完成审核并替换为最终法律信息。",
+      "publisher": "网站运营方",
+      "hosting": "网站托管",
+      "intellectualProperty": "知识产权"
+    },
+    "privacyPolicy": {
+      "metaTitle": "DOMTEKNIKA - 隐私政策",
+      "metaDescription": "DOMTEKNIKA 网站的临时隐私政策。",
+      "eyebrow": "数据保护",
+      "title": "隐私政策",
+      "intro": "本页面包含临时占位内容，在联系表单正式上线前必须完成审核并替换为最终隐私政策。",
+      "dataCollection": "收集的数据",
+      "dataUse": "数据用途",
+      "rights": "保存期限与您的权利"
+    }
   },
   "Language": {
     "switch": "切换语言",

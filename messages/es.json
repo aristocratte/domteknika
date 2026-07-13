@@ -260,7 +260,33 @@
     "addressLabel": "Dirección",
     "contactLabel": "Contacto",
     "country": "Suiza",
+    "navigationLabel": "Navegación",
+    "legalLabel": "Información legal",
+    "legalNotice": "Aviso legal",
+    "privacyPolicy": "Política de privacidad",
     "rights": "Todos los derechos reservados"
+  },
+  "LegalPages": {
+    "legalNotice": {
+      "metaTitle": "DOMTEKNIKA - Aviso legal",
+      "metaDescription": "Información legal relativa al sitio web de DOMTEKNIKA.",
+      "eyebrow": "Información legal",
+      "title": "Aviso legal",
+      "intro": "Esta página contiene texto provisional que deberá revisarse y sustituirse por la información legal definitiva antes de su publicación.",
+      "publisher": "Editor del sitio",
+      "hosting": "Alojamiento",
+      "intellectualProperty": "Propiedad intelectual"
+    },
+    "privacyPolicy": {
+      "metaTitle": "DOMTEKNIKA - Política de privacidad",
+      "metaDescription": "Política de privacidad provisional del sitio web de DOMTEKNIKA.",
+      "eyebrow": "Protección de datos",
+      "title": "Política de privacidad",
+      "intro": "Esta página contiene texto provisional que deberá revisarse y sustituirse por la política de privacidad definitiva antes de poner en producción el formulario de contacto.",
+      "dataCollection": "Datos recopilados",
+      "dataUse": "Uso de los datos",
+      "rights": "Conservación y sus derechos"
+    }
   },
   "Language": {
     "switch": "Cambiar idioma",

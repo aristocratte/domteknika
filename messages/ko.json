@@ -260,7 +260,33 @@
     "addressLabel": "주소",
     "contactLabel": "문의",
     "country": "스위스",
+    "navigationLabel": "메뉴",
+    "legalLabel": "법적 정보",
+    "legalNotice": "법적 고지",
+    "privacyPolicy": "개인정보 처리방침",
     "rights": "모든 권리 보유"
+  },
+  "LegalPages": {
+    "legalNotice": {
+      "metaTitle": "DOMTEKNIKA - 법적 고지",
+      "metaDescription": "DOMTEKNIKA 웹사이트의 법적 정보입니다.",
+      "eyebrow": "법적 정보",
+      "title": "법적 고지",
+      "intro": "이 페이지는 임시 문구를 포함하고 있으며, 게시 전에 검토하여 최종 법적 정보로 교체해야 합니다.",
+      "publisher": "사이트 운영자",
+      "hosting": "호스팅",
+      "intellectualProperty": "지식재산권"
+    },
+    "privacyPolicy": {
+      "metaTitle": "DOMTEKNIKA - 개인정보 처리방침",
+      "metaDescription": "DOMTEKNIKA 웹사이트의 임시 개인정보 처리방침입니다.",
+      "eyebrow": "개인정보 보호",
+      "title": "개인정보 처리방침",
+      "intro": "이 페이지는 임시 문구를 포함하고 있으며, 문의 양식을 실제 운영하기 전에 검토하여 최종 개인정보 처리방침으로 교체해야 합니다.",
+      "dataCollection": "수집하는 데이터",
+      "dataUse": "데이터 이용 목적",
+      "rights": "보관 기간 및 이용자 권리"
+    }
   },
   "Language": {
     "switch": "언어 변경",

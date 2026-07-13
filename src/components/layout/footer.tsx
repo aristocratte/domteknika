@@ -2,49 +2,127 @@ import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
+import { Link } from "@/i18n/navigation";
+
+const FOOTER_NAV_ITEMS = [
+  { key: "home", href: "/" },
+  { key: "projects", href: "/projects" },
+  { key: "expertise", href: "/expertise" },
+  { key: "patent", href: "/patent" },
+  { key: "story", href: "/our-story" },
+  { key: "cta", href: "/contact" },
+] as const;
 
 export function Footer() {
   const t = useTranslations("Footer");
+  const nav = useTranslations("Nav");
 
   return (
-    <footer className="border-t border-brand/35 bg-background py-6 sm:py-9 md:py-16 min-[1800px]:!pb-8 min-[1800px]:!pt-16 min-[2400px]:!pb-8 min-[2400px]:!pt-16">
-      <Container
-        size="wide"
-        className="grid items-start gap-5 sm:gap-6 min-[1800px]:!gap-8"
-      >
-        <Logo variant="footer" className="w-[86px] sm:w-[96px] md:w-[132px] min-[1800px]:!w-[180px] min-[2400px]:!w-[204px]" />
-
-        <div className="grid min-w-0 grid-cols-2 items-start gap-x-6 gap-y-4 sm:gap-x-8 md:gap-x-12 min-[1800px]:!gap-x-24 min-[1800px]:!gap-y-5 min-[2400px]:!gap-x-32">
-          <address className="grid min-w-0 gap-1 not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!gap-1.5 min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
-            <span className="font-extrabold text-foreground">
-              {t("addressLabel")}
-            </span>
-            <span>Chem. de Saint-Joux 16B</span>
-            <span>2520, La Neuveville, {t("country")}</span>
-          </address>
-
-          <address className="grid min-w-0 gap-1 text-right not-italic text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!gap-1.5 min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
-            <span className="font-extrabold text-foreground">
-              {t("contactLabel")}
-            </span>
-            <a className="transition-colors hover:text-brand" href="tel:+41327517146">
-              +41 32 751 71 46
-            </a>
-            <a
-              className="transition-colors hover:text-brand"
-              href="mailto:info@domteknika.ch"
+    <footer className="border-t border-brand/35 bg-background py-8 sm:py-10 md:py-14 min-[1800px]:!py-16 min-[2400px]:!py-16">
+      <Container size="wide">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-[1.25fr_1fr_1fr_1fr] md:gap-10 min-[1800px]:!gap-16 min-[2400px]:!gap-20">
+          <div className="sm:col-span-2 md:col-span-1">
+            <Link
+              href="/"
+              aria-label={nav("home")}
+              className="inline-flex rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 focus-visible:ring-offset-4"
             >
-              info@domteknika.ch
-            </a>
+              <Logo
+                variant="footer"
+                className="w-[96px] md:w-[132px] min-[1800px]:!w-[168px] min-[2400px]:!w-[180px]"
+              />
+            </Link>
+            <p className="mt-4 text-[13px] font-extrabold text-foreground min-[1800px]:!mt-5 min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
+              DOMTEKNIKA SA
+            </p>
+            <address className="mt-2 grid gap-1 not-italic text-[12px] font-medium leading-[1.5] text-muted-foreground md:text-[13px] min-[1800px]:!mt-3 min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]">
+              <span>Chem. de Saint-Joux 16B</span>
+              <span>2520 La Neuveville, {t("country")}</span>
+            </address>
+          </div>
+
+          <nav aria-label={t("navigationLabel")}>
+            <FooterHeading>{t("navigationLabel")}</FooterHeading>
+            <div className="mt-3 grid gap-2 min-[1800px]:!mt-4 min-[1800px]:!gap-3">
+              {FOOTER_NAV_ITEMS.map((item) => (
+                <FooterLink key={item.key} href={item.href}>
+                  {nav(item.key)}
+                </FooterLink>
+              ))}
+            </div>
+          </nav>
+
+          <address className="not-italic">
+            <FooterHeading>{t("contactLabel")}</FooterHeading>
+            <div className="mt-3 grid gap-2 min-[1800px]:!mt-4 min-[1800px]:!gap-3">
+              <FooterAnchor href="tel:+41327517146">
+                +41 32 751 71 46
+              </FooterAnchor>
+              <FooterAnchor href="mailto:info@domteknika.ch">
+                info@domteknika.ch
+              </FooterAnchor>
+            </div>
           </address>
 
-          <p className="col-span-2 border-t border-border/70 pt-4 text-center text-[12px] font-medium leading-[1.4] text-muted-foreground md:text-[13px] md:leading-[1.55] min-[1800px]:!pt-5 min-[1800px]:!text-[17px] min-[2400px]:!text-[19px]">
-            © 2026 DOMTEKNIKA
-            <br />
-            {t("rights")}
-          </p>
+          <nav aria-label={t("legalLabel")}>
+            <FooterHeading>{t("legalLabel")}</FooterHeading>
+            <div className="mt-3 grid gap-2 min-[1800px]:!mt-4 min-[1800px]:!gap-3">
+              <FooterLink href="/legal-notice">
+                {t("legalNotice")}
+              </FooterLink>
+              <FooterLink href="/privacy-policy">
+                {t("privacyPolicy")}
+              </FooterLink>
+            </div>
+          </nav>
         </div>
+
+        <p className="mt-8 border-t border-border/70 pt-5 text-[12px] font-medium leading-[1.5] text-muted-foreground md:mt-10 md:text-[13px] min-[1800px]:!mt-12 min-[1800px]:!pt-6 min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]">
+          © 2026 DOMTEKNIKA SA · {t("rights")}
+        </p>
       </Container>
     </footer>
+  );
+}
+
+function FooterHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-[13px] font-extrabold leading-none text-foreground md:text-[14px] min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
+      {children}
+    </h2>
+  );
+}
+
+function FooterLink({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="w-fit text-[12px] font-medium leading-[1.5] text-muted-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function FooterAnchor({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      className="w-fit text-[12px] font-medium leading-[1.5] text-muted-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/35 min-[1800px]:!text-[16px] min-[2400px]:!text-[18px]"
+    >
+      {children}
+    </a>
   );
 }
