@@ -115,7 +115,10 @@ export function ProjectsSection() {
       className="relative overflow-hidden scroll-mt-24 bg-background pb-10 pt-9 md:pb-[116px] md:pt-[clamp(118px,8.5vw,150px)] min-[1800px]:pb-[140px] min-[1800px]:pt-[120px] min-[2300px]:!pb-[140px] min-[2300px]:!pt-[120px]"
       aria-labelledby="projects-title"
     >
-      <Container size="wide" className="min-[2300px]:!max-w-[1900px]">
+      <Container
+        size="wide"
+        className="xl:max-w-[1280px] min-[1800px]:!max-w-[1780px] min-[2300px]:!max-w-[2100px]"
+      >
         <div className="relative">
           <div className="mb-5 flex flex-col items-start gap-3 md:mb-[38px] md:gap-4 lg:flex-row lg:items-center lg:justify-between min-[1800px]:mb-[50px] min-[2300px]:!mb-[50px]">
             <h2
