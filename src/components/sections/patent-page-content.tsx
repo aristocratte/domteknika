@@ -94,8 +94,24 @@ const MODAL_CLOSE_FALLBACK_MS = 360;
 function centeredPatentPanelRect(): PanelRect {
   const isMobile = window.innerWidth <= 640;
   const pad = isMobile ? 12 : 24;
-  const width = Math.min(1180, window.innerWidth - pad * 2);
-  const height = Math.min(780, window.innerHeight - pad * 2);
+  const maxWidth =
+    window.innerWidth >= 2400
+      ? 1680
+      : window.innerWidth >= 1800
+        ? 1480
+        : window.innerWidth >= 1440
+          ? 1320
+          : 1180;
+  const maxHeight =
+    window.innerWidth >= 2400
+      ? 980
+      : window.innerWidth >= 1800
+        ? 900
+        : window.innerWidth >= 1440
+          ? 840
+          : 780;
+  const width = Math.min(maxWidth, window.innerWidth - pad * 2);
+  const height = Math.min(maxHeight, window.innerHeight - pad * 2);
 
   return {
     left: (window.innerWidth - width) / 2,
@@ -2010,7 +2026,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   </>
                 )}
                 {selectedPatentImages.length > 0 && (
-                  <div className="absolute right-16 top-6 z-20 rounded-full bg-white/95 px-3 py-2 text-[11px] font-extrabold text-foreground shadow-[0_8px_20px_rgba(0,0,0,0.12)] md:right-6">
+                  <div className="absolute right-16 top-[34px] z-20 rounded-full bg-white/95 px-3 py-2 text-[11px] font-extrabold text-foreground shadow-[0_8px_20px_rgba(0,0,0,0.12)] md:right-6">
                     {safeModalImageIndex + 1} / {selectedPatentImages.length}
                   </div>
                 )}

@@ -41,7 +41,7 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.08}
-            className="group relative z-20 my-0 min-h-[210px] overflow-hidden rounded-[15px] bg-brand p-4 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[220px] md:p-5 md:pt-6 min-[1800px]:!min-h-[260px] min-[1800px]:!rounded-[18px] min-[1800px]:!p-6 min-[2300px]:!min-h-[300px] min-[2300px]:!p-7"
+            className="group relative z-20 my-0 min-h-[210px] overflow-hidden rounded-[15px] bg-brand p-4 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[220px] md:p-5 md:pt-6 xl:min-h-[290px] min-[1800px]:!min-h-[310px] min-[1800px]:!rounded-[18px] min-[1800px]:!p-6 min-[2300px]:!min-h-[350px] min-[2300px]:!p-7"
           >
             <div className="grid h-full gap-3 md:grid-cols-[0.82fr_1.38fr] md:items-stretch min-[1800px]:!gap-3 min-[2300px]:!gap-4">
               <div>
@@ -58,13 +58,13 @@ export function ProcessSection() {
               </div>
 
               <div className="relative h-full min-h-[150px] border-white/70 md:min-h-[150px] md:border-l min-[1800px]:!min-h-[180px] min-[2300px]:!min-h-[200px]">
-                <div className="absolute inset-y-0 left-7 right-0 md:left-8">
+                <div className="absolute inset-y-0 left-7 right-0 md:left-8 xl:left-3">
                   <Image
                     src="/assets/schema-process.png"
                     alt=""
                     fill
                     sizes="(min-width: 2300px) 400px, (min-width: 1800px) 360px, 320px"
-                    className="scale-100 object-contain object-center md:scale-[1.06] lg:scale-[1.1]"
+                    className="scale-100 object-contain object-center md:scale-[1.06] lg:scale-[1.1] xl:scale-[1.2] min-[1800px]:scale-[1.22] min-[2300px]:scale-[1.24]"
                   />
                 </div>
               </div>
