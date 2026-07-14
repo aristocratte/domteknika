@@ -45,8 +45,8 @@ const STATS = [
 
 const TEAM_MEMBERS = [
   { name: "Etienne", image: "/assets/team/etienne.png" },
-  { name: "Guillaume", image: "/assets/team/guillaume.png" },
   { name: "Nicole", image: "/assets/team/nicole.png" },
+  { name: "Guillaume", image: "/assets/team/guillaume.png" },
   { name: "Nicolas", image: "/assets/team/nicolas.png" },
   { name: "Hector", image: "/assets/team/hector.png" },
   { name: "Quentin", image: "/assets/team/quentin-c.png" },

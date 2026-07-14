@@ -2084,12 +2084,12 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   />
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wide text-brand">
-                    {selectedPatentCategory}
-                  </span>
-                  <strong className="mt-2 block max-w-[360px] text-[25px] font-extrabold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
+                  <strong className="block max-w-[360px] text-[25px] font-extrabold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
                     {selectedPatent.publication}
                   </strong>
+                  <span className="mt-2 block text-[11px] font-extrabold uppercase tracking-wide text-brand">
+                    {selectedPatentCategory}
+                  </span>
                 </div>
               </div>
 
