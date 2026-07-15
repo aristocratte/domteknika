@@ -74,31 +74,35 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.16}
-            className="group flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[220px] min-[1800px]:!min-h-[260px] min-[1800px]:!rounded-[18px] min-[2300px]:!min-h-[300px]"
+            className="group min-h-[210px] overflow-hidden rounded-[15px] border border-border bg-white transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:min-h-[220px] min-[1800px]:!min-h-[260px] min-[1800px]:!rounded-[18px] min-[2300px]:!min-h-[300px]"
           >
-            <div className="px-4 pb-0 pt-4 md:px-5 md:pt-6 min-[1800px]:!px-6 min-[1800px]:!pt-6 min-[2300px]:!px-7 min-[2300px]:!pt-7">
-              <AccentLine />
-              <h2 className="mt-3 text-[18px] font-extrabold leading-tight text-foreground md:text-[19px] min-[1800px]:!text-[24px] min-[2300px]:!text-[27px]">
-                {t("productTitle")}
-              </h2>
-              <p className="mt-3 max-w-[760px] text-[13px] font-medium leading-[1.3] text-foreground md:text-[14px] min-[1800px]:!mt-3 min-[1800px]:!text-[16px] min-[2300px]:!mt-4 min-[2300px]:!text-[17px]">
-                {t("productBody")}
-              </p>
-            </div>
+            <div className="grid h-full grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:flex lg:min-h-[inherit] lg:flex-col lg:justify-between">
+              <div className="px-4 pb-4 pt-4 md:px-5 md:pt-6 lg:pb-0 min-[1800px]:!px-6 min-[1800px]:!pt-6 min-[2300px]:!px-7 min-[2300px]:!pt-7">
+                <AccentLine />
+                <h2 className="mt-3 text-[18px] font-extrabold leading-tight text-foreground md:text-[19px] min-[1800px]:!text-[24px] min-[2300px]:!text-[27px]">
+                  {t("productTitle")}
+                </h2>
+                <p className="mt-4 text-left text-[13px] font-medium leading-[1.3] text-foreground md:text-[14px] lg:mt-3 lg:max-w-[760px] min-[1800px]:!text-[16px] min-[2300px]:!mt-4 min-[2300px]:!text-[17px]">
+                  {t("productBody")}
+                </p>
+              </div>
 
-            <div className="relative mt-3 grid bg-white before:absolute before:left-4 before:right-4 before:top-0 before:h-px before:bg-border sm:before:left-5 sm:before:right-5 lg:grid-cols-3">
-              <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
-              <Stat
-                label={t("stats.sectors.label")}
-                value={t("stats.sectors.value")}
-                divider
-              />
-              <Stat
-                label={t("stats.swiss.label")}
-                value={t("stats.swiss.value")}
-                withFlag
-                divider
-              />
+              <div className="flex min-w-0 flex-col border-l border-border lg:flex-1 lg:border-l-0">
+                <div className="relative grid h-full grid-rows-3 bg-white before:absolute before:left-3 before:right-3 before:top-0 before:hidden before:h-px before:bg-border sm:before:left-4 sm:before:right-4 lg:mb-4 lg:mt-auto lg:h-auto lg:grid-cols-3 lg:grid-rows-none lg:before:left-5 lg:before:right-5 lg:before:block min-[1800px]:!mb-5">
+                  <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
+                  <Stat
+                    label={t("stats.sectors.label")}
+                    value={t("stats.sectors.value")}
+                    divider
+                  />
+                  <Stat
+                    label={t("stats.swiss.label")}
+                    value={t("stats.swiss.value")}
+                    withFlag
+                    divider
+                  />
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

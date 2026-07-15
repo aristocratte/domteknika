@@ -6512,8 +6512,6 @@ function ProjectsStatsSection({
       <Container size="wide">
         <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-5">
           {stats.map((stat, index) => {
-            const isLongValue = stat.value.length > 6;
-
             return (
               <Reveal
                 as="article"
@@ -6551,12 +6549,7 @@ function ProjectsStatsSection({
                   ) : (
                     <>
                       <strong
-                        className={cn(
-                          "block max-w-full whitespace-nowrap font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
-                          isLongValue
-                            ? "!text-[18px] sm:!text-[19px] min-[1180px]:!text-[18px] 2xl:!text-[20px] min-[2400px]:!text-[30px]"
-                            : "!text-[26px] sm:!text-[28px] min-[1180px]:!text-[24px] 2xl:!text-[26px] min-[2400px]:!text-[40px]",
-                        )}
+                        className="block max-w-full whitespace-nowrap text-[18px] font-extrabold leading-none text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]"
                       >
                         {stat.value}
                       </strong>

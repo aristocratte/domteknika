@@ -489,7 +489,7 @@ function AddedValueSection() {
                       <div
                         className={cn(
                           stat.key === "industries" &&
-                            "flex flex-wrap items-baseline gap-x-2 gap-y-0.5",
+                            "flex flex-nowrap items-baseline gap-x-2",
                         )}
                       >
                         <strong
@@ -507,7 +507,7 @@ function AddedValueSection() {
                           className={cn(
                             "block font-medium text-white/88",
                             stat.key === "industries"
-                              ? "text-[11px] font-semibold leading-tight sm:text-[13px] md:text-[14px]"
+                              ? "whitespace-nowrap text-[23px] font-extrabold leading-[0.96] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
                               : "mt-1.5 text-[12px] leading-tight sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]",
                           )}
                         >
