@@ -5,7 +5,6 @@
   transform: translate(5%, 20%);
   transform-origin: bottom right;
 
-  perspective: 900px;
   overflow: visible;
 }
 
@@ -16,11 +15,10 @@
   border-radius: 12px;
   border: 1px solid #fff;
   background: #000;
-
-  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
   will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  visibility: visible;
+  opacity: 1;
 }
 
 .domtek-card-swap .card-swap-container {
@@ -30,8 +28,8 @@
 }
 
 .domtek-card-swap {
-  contain: paint;
-  overflow: clip;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .domtek-card-swap-side-fade {

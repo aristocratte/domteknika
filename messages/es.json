@@ -14,7 +14,7 @@
     "closeMenu": "Cerrar menú"
   },
   "Hero": {
-    "eyebrow": "Convertimos ideas en soluciones reales",
+    "eyebrow": "Turning ideas into real-world solutions",
     "engineering": "Engineering",
     "prototyping": "Prototyping",
     "producing": "Producing",
@@ -65,7 +65,7 @@
       "description": "Contacta con DOMTEKNIKA en La Neuveville, Suiza, para hablar de proyectos de ingeniería, prototipado y producción."
     },
     "Hero": {
-      "eyebrow": "Hablemos",
+      "eyebrow": "Let's connect",
       "title": "Contacto",
       "lead": "¿Tienes una pregunta, un proyecto en mente o quieres explorar cómo podemos trabajar juntos? Estamos aquí para ayudarte."
     },
@@ -103,7 +103,7 @@
       "error": "No se ha podido enviar el mensaje. Inténtalo de nuevo más tarde."
     },
     "Map": {
-      "eyebrow": "Dónde encontrarnos",
+      "eyebrow": "Find us",
       "title": "Visita nuestras instalaciones",
       "body": "Nuestra oficina y taller están en La Neuveville, entre el lago de Biel y las estribaciones del Jura.",
       "marker": "DOMTEKNIKA SA"
@@ -138,17 +138,17 @@
       "description": "Explora la experiencia de DOMTEKNIKA: innovación, diseño de producto, prototipado, simulación, polímeros e integración electrónica desde Suiza."
     },
     "Hero": {
-      "eyebrow": "Convertimos ideas en soluciones reales",
+      "eyebrow": "From engineering challenges to industrial solutions",
       "team": "Nuestro equipo",
       "title": "Experiencia"
     },
     "Services": {
-      "eyebrow": "Qué hacemos",
+      "eyebrow": "What we do",
       "title": "Experiencia integral en cada etapa",
       "intro": "Desde prototipos únicos hasta producción industrial, ayudamos a empresas e inventores a diseñar, desarrollar y fabricar sus ideas.",
       "brainstorming": {
         "eyebrow": "Brainstorming",
-        "title": "Del problema a una dirección de desarrollo clara",
+        "title": "Turning a problem into a clear direction",
         "lead": "Antes de elegir una dirección, analizamos el problema desde todos los ángulos: uso, mecánica, materiales, costes, fabricación y riesgos.",
         "body": "Esta fase transforma las preguntas abiertas en líneas de solución concretas, compara distintas arquitecturas y permite seleccionar pronto las opciones más pertinentes.",
         "cards": {
@@ -195,7 +195,7 @@
       "titleLineTwo": "Damos forma a tus ideas."
     },
     "AddedValue": {
-      "eyebrow": "Nuestro valor añadido",
+      "eyebrow": "Our added value",
       "values": {
         "partner": {
           "title": "Socio integral",
@@ -216,7 +216,7 @@
       },
       "stats": {
         "projects": {
-          "value": "+60",
+          "value": "100+",
           "label": "Proyectos entregados"
         },
         "years": {
@@ -229,19 +229,20 @@
         },
         "industries": {
           "value": "6+",
-          "label": "Industrias clave"
+          "label": "Sectores clave",
+          "detail": "Medicina · Movilidad · Industria · Productos de consumo · Foodtech · Relojería"
         }
       }
     },
     "Cta": {
-      "eyebrow": "Construyamos juntos",
+      "eyebrow": "Let's build together",
       "title": "¿Tienes un reto que podamos resolver?",
       "subtitle": "Colaboramos con empresas visionarias para convertir retos complejos en soluciones pertinentes y listas para industrializar.",
       "button": "Iniciar tu proyecto"
     }
   },
   "TrustedBy": {
-    "label": "Confían en nosotros"
+    "label": "Trusted by"
   },
   "SwissBanner": {
     "titleLineOne": "Desarrollado en Suiza.",
@@ -255,7 +256,7 @@
     "end": "Fin de la presentación de nuestros valores"
   },
   "Cta": {
-    "eyebrow": "Construyamos juntos",
+    "eyebrow": "Let's build together",
     "title": "Demos forma a tu próxima idea",
     "subtitle": "Cuéntanos tu reto. Diseñaremos y prototiparemos la solución y la prepararemos para su industrialización desde nuestro taller en Suiza.",
     "cta": "Iniciar tu proyecto"
@@ -274,19 +275,19 @@
     "legalNotice": {
       "metaTitle": "DOMTEKNIKA - Aviso legal",
       "metaDescription": "Información legal relativa al sitio web de DOMTEKNIKA.",
-      "eyebrow": "Información legal",
+      "eyebrow": "Legal information",
       "title": "Aviso legal",
-      "intro": "Esta página contiene texto provisional que deberá revisarse y sustituirse por la información legal definitiva antes de su publicación.",
+      "intro": "Información de la empresa y condiciones de uso del sitio web de DOMTEKNIKA.",
       "publisher": "Editor del sitio",
       "hosting": "Alojamiento",
       "intellectualProperty": "Propiedad intelectual"
     },
     "privacyPolicy": {
       "metaTitle": "DOMTEKNIKA - Política de privacidad",
-      "metaDescription": "Política de privacidad provisional del sitio web de DOMTEKNIKA.",
-      "eyebrow": "Protección de datos",
+      "metaDescription": "Tratamiento y protección de los datos personales en el sitio web de DOMTEKNIKA.",
+      "eyebrow": "Data protection",
       "title": "Política de privacidad",
-      "intro": "Esta página contiene texto provisional que deberá revisarse y sustituirse por la política de privacidad definitiva antes de poner en producción el formulario de contacto.",
+      "intro": "Cómo tratamos y protegemos sus datos personales cuando utiliza el sitio web o se pone en contacto con nosotros.",
       "dataCollection": "Datos recopilados",
       "dataUse": "Uso de los datos",
       "rights": "Conservación y sus derechos"

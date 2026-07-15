@@ -138,7 +138,7 @@
       "description": "Explore DOMTEKNIKA expertise: innovation, product design, prototyping, simulation, polymers and electronics integration from Switzerland."
     },
     "Hero": {
-      "eyebrow": "Turning ideas into real-world solutions",
+      "eyebrow": "From engineering challenges to industrial solutions",
       "team": "Our Team",
       "title": "Expertise"
     },
@@ -216,7 +216,7 @@
       },
       "stats": {
         "projects": {
-          "value": "+60",
+          "value": "100+",
           "label": "Projects delivered"
         },
         "years": {
@@ -229,7 +229,8 @@
         },
         "industries": {
           "value": "6+",
-          "label": "Core industries"
+          "label": "Core industries",
+          "detail": "Medical · Mobility · Industry · Consumer products · Foodtech · Watchmaking"
         }
       }
     },
@@ -276,17 +277,17 @@
       "metaDescription": "Legal information relating to the DOMTEKNIKA website.",
       "eyebrow": "Legal information",
       "title": "Legal notice",
-      "intro": "This page contains placeholder text and must be reviewed and replaced with definitive legal information before publication.",
+      "intro": "Company information and conditions governing use of the DOMTEKNIKA website.",
       "publisher": "Website publisher",
       "hosting": "Hosting",
       "intellectualProperty": "Intellectual property"
     },
     "privacyPolicy": {
       "metaTitle": "DOMTEKNIKA - Privacy policy",
-      "metaDescription": "Placeholder privacy policy for the DOMTEKNIKA website.",
+      "metaDescription": "How DOMTEKNIKA processes and protects personal data on its website.",
       "eyebrow": "Data protection",
       "title": "Privacy policy",
-      "intro": "This page contains placeholder text and must be reviewed and replaced with the definitive privacy policy before the contact form is put into production.",
+      "intro": "How DOMTEKNIKA processes and protects personal data when you use the website or contact us.",
       "dataCollection": "Data collected",
       "dataUse": "Use of data",
       "rights": "Retention and your rights"

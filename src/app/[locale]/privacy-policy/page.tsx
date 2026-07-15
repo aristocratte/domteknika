@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import {
-  LEGAL_PLACEHOLDER_BODIES,
-  LegalDocumentPage,
-} from "@/components/sections/legal-document-page";
+import { LegalDocumentPage } from "@/components/sections/legal-document-page";
+import { getLegalPages } from "@/data/legal-pages";
 
 export async function generateMetadata({
   params,
@@ -31,17 +29,16 @@ export default async function PrivacyPolicyPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("LegalPages.privacyPolicy");
+  const content = getLegalPages(locale).privacyPolicy;
 
   return (
     <LegalDocumentPage
       eyebrow={t("eyebrow")}
       title={t("title")}
-      intro={t("intro")}
-      sections={[
-        { title: t("dataCollection"), body: LEGAL_PLACEHOLDER_BODIES[0] },
-        { title: t("dataUse"), body: LEGAL_PLACEHOLDER_BODIES[1] },
-        { title: t("rights"), body: LEGAL_PLACEHOLDER_BODIES[2] },
-      ]}
+      intro={content.intro}
+      updatedLabel={content.updatedLabel}
+      updated={content.updated}
+      sections={content.sections}
     />
   );
 }

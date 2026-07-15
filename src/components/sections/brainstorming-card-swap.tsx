@@ -122,10 +122,14 @@ export function BrainstormingCardSwap() {
 
     updateSize();
 
-    const observer = new ResizeObserver(updateSize);
-    observer.observe(node);
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(updateSize);
+      observer.observe(node);
+      return () => observer.disconnect();
+    }
 
-    return () => observer.disconnect();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
   return (

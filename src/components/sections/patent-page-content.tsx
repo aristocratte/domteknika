@@ -697,7 +697,7 @@ const COPY: Record<
   },
   fr: {
     hero: {
-      eyebrow: "Notre innovation, protégée",
+      eyebrow: "Our innovation, protected",
       title: "Brevets",
       leadOne:
         "Notre portefeuille de brevets reflète des années de recherche, d'excellence en ingénierie et d'engagement à résoudre des défis complexes.",
@@ -761,7 +761,7 @@ const COPY: Record<
       openDetails: "Ouvrir le détail du brevet",
     },
     cta: {
-      eyebrow: "Construisons ensemble",
+      eyebrow: "Let's build together",
       titlePrefix: ".",
       title: "Un défi à relever ensemble",
       titleQuestion: "?",
@@ -771,7 +771,7 @@ const COPY: Record<
   },
   de: {
     hero: {
-      eyebrow: "Innovation mit Patentschutz",
+      eyebrow: "Our innovation, protected",
       title: "Patente",
       leadOne:
         "Unser Patentportfolio steht für langjährige Forschung, hohe Ingenieurskompetenz und den Anspruch, komplexe Herausforderungen zu lösen.",
@@ -835,7 +835,7 @@ const COPY: Record<
       openDetails: "Patentdetails öffnen",
     },
     cta: {
-      eyebrow: "Gemeinsam Neues entwickeln",
+      eyebrow: "Let's build together",
       titlePrefix: ".",
       title: "Eine Herausforderung, die wir gemeinsam lösen können",
       titleQuestion: "?",
@@ -845,7 +845,7 @@ const COPY: Record<
   },
   es: {
     hero: {
-      eyebrow: "Nuestra innovación, protegida",
+      eyebrow: "Our innovation, protected",
       title: "Patentes",
       leadOne:
         "Nuestra cartera de patentes refleja años de investigación, excelencia en ingeniería y compromiso con la resolución de retos complejos.",
@@ -909,7 +909,7 @@ const COPY: Record<
       openDetails: "Abrir detalles de la patente",
     },
     cta: {
-      eyebrow: "Construyamos juntos",
+      eyebrow: "Let's build together",
       titlePrefix: ".",
       title: "Un reto que podamos resolver juntos",
       titleQuestion: "?",
@@ -919,7 +919,7 @@ const COPY: Record<
   },
   ko: {
     hero: {
-      eyebrow: "특허로 보호된 혁신",
+      eyebrow: "Our innovation, protected",
       title: "특허",
       leadOne:
         "특허 포트폴리오는 수년간의 연구, 엔지니어링 우수성, 복잡한 과제를 해결하려는 의지를 보여 줍니다.",
@@ -982,7 +982,7 @@ const COPY: Record<
       openDetails: "특허 상세 열기",
     },
     cta: {
-      eyebrow: "함께 만들어 갑시다",
+      eyebrow: "Let's build together",
       titlePrefix: ".",
       title: "함께 해결할 과제가 있으신가요",
       titleQuestion: "?",
@@ -992,7 +992,7 @@ const COPY: Record<
   },
   zh: {
     hero: {
-      eyebrow: "以专利保护创新成果",
+      eyebrow: "Our innovation, protected",
       title: "专利",
       leadOne:
         "我们的专利组合体现了多年研究、卓越工程能力，以及解决复杂挑战的持续投入。",
@@ -1055,7 +1055,7 @@ const COPY: Record<
       openDetails: "打开专利详情",
     },
     cta: {
-      eyebrow: "携手开发",
+      eyebrow: "Let's build together",
       titlePrefix: ".",
       title: "有需要我们共同解决的项目吗",
       titleQuestion: "?",

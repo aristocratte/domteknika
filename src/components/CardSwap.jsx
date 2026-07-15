@@ -12,20 +12,20 @@ Card.displayName = 'Card';
 const makeSlot = (i, distX, distY, total) => ({
   x: i * distX,
   y: -i * distY,
-  z: -i * distX * 1.5,
+  scale: Math.max(0.9, 1 - i * 0.012),
   zIndex: total - i
 });
 const placeNow = (el, slot, skew) =>
   gsap.set(el, {
     x: slot.x,
     y: slot.y,
-    z: slot.z,
+    scale: slot.scale,
     xPercent: -50,
     yPercent: -50,
     skewY: skew,
     transformOrigin: 'center center',
     zIndex: slot.zIndex,
-    force3D: true
+    force3D: false
   });
 
 const CardSwap = ({
@@ -118,7 +118,7 @@ const CardSwap = ({
           {
             x: slot.x,
             y: slot.y,
-            z: slot.z,
+            scale: slot.scale,
             duration: activeConfig.durMove,
             ease: activeConfig.ease
           },
@@ -140,7 +140,7 @@ const CardSwap = ({
         {
           x: backSlot.x,
           y: backSlot.y,
-          z: backSlot.z,
+          scale: backSlot.scale,
           duration: activeConfig.durReturn,
           ease: activeConfig.ease
         },
@@ -193,6 +193,7 @@ const CardSwap = ({
 
     return () => {
       clearInterval(intervalRef.current);
+      tlRef.current?.kill();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing, height]);

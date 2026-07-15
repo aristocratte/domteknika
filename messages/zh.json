@@ -14,7 +14,7 @@
     "closeMenu": "关闭菜单"
   },
   "Hero": {
-    "eyebrow": "把想法转化为可落地的解决方案",
+    "eyebrow": "Turning ideas into real-world solutions",
     "engineering": "Engineering",
     "prototyping": "Prototyping",
     "producing": "Producing",
@@ -65,7 +65,7 @@
       "description": "联系位于瑞士 La Neuveville 的 DOMTEKNIKA，讨论工程、原型开发和生产项目。"
     },
     "Hero": {
-      "eyebrow": "欢迎交流",
+      "eyebrow": "Let's connect",
       "title": "联系",
       "lead": "您有问题、项目构想，或想了解双方如何合作？我们随时乐意协助。"
     },
@@ -103,7 +103,7 @@
       "error": "留言未能发送，请稍后重试。"
     },
     "Map": {
-      "eyebrow": "找到我们",
+      "eyebrow": "Find us",
       "title": "欢迎到访 DOMTEKNIKA",
       "body": "我们的办公室和工作室位于 La Neuveville，坐落在比尔湖与汝拉山麓之间。",
       "marker": "DOMTEKNIKA SA"
@@ -138,17 +138,17 @@
       "description": "了解 DOMTEKNIKA 源自瑞士的创新、产品设计、原型开发、仿真、聚合物和电子集成专长。"
     },
     "Hero": {
-      "eyebrow": "把想法转化为可落地的解决方案",
+      "eyebrow": "From engineering challenges to industrial solutions",
       "team": "我们的团队",
       "title": "专长"
     },
     "Services": {
-      "eyebrow": "我们做什么",
+      "eyebrow": "What we do",
       "title": "贯穿每个阶段的工程专长",
       "intro": "从单件原型到工业化生产，我们帮助企业和发明者完成设计、工程开发，并将创意转化为可制造的产品。",
       "brainstorming": {
         "eyebrow": "头脑风暴",
-        "title": "把问题转化为清晰方向",
+        "title": "Turning a problem into a clear direction",
         "lead": "在选择方向之前，我们从各个角度分析问题：使用场景、机械结构、材料、成本、制造方式和风险。",
         "body": "这一阶段把开放问题转化为具体方案，比较不同架构，并尽早选出最适合项目的解决路径。",
         "cards": {
@@ -195,7 +195,7 @@
       "titleLineTwo": "我们让您的想法成形。"
     },
     "AddedValue": {
-      "eyebrow": "我们的优势",
+      "eyebrow": "Our added value",
       "values": {
         "partner": {
           "title": "全流程合作伙伴",
@@ -216,7 +216,7 @@
       },
       "stats": {
         "projects": {
-          "value": "+60",
+          "value": "100+",
           "label": "交付项目"
         },
         "years": {
@@ -229,19 +229,20 @@
         },
         "industries": {
           "value": "6+",
-          "label": "核心行业"
+          "label": "核心行业",
+          "detail": "医疗 · 出行 · 工业 · 消费品 · 食品科技 · 制表"
         }
       }
     },
     "Cta": {
-      "eyebrow": "携手开发",
+      "eyebrow": "Let's build together",
       "title": "有需要我们共同解决的工程挑战吗",
       "subtitle": "我们与具有前瞻性的企业合作，将复杂挑战转化为切实可行且可制造的解决方案。",
       "button": "启动您的项目"
     }
   },
   "TrustedBy": {
-    "label": "深受客户信赖"
+    "label": "Trusted by"
   },
   "SwissBanner": {
     "titleLineOne": "瑞士制造。",
@@ -255,7 +256,7 @@
     "end": "瑞士价值展示结束"
   },
   "Cta": {
-    "eyebrow": "携手开发",
+    "eyebrow": "Let's build together",
     "title": "让您的下一个构想成形",
     "subtitle": "告诉我们您面临的挑战。我们将在瑞士完成方案设计与原型验证，并为后续工业化做好准备。",
     "cta": "启动您的项目"
@@ -274,19 +275,19 @@
     "legalNotice": {
       "metaTitle": "DOMTEKNIKA - 法律声明",
       "metaDescription": "与 DOMTEKNIKA 网站相关的法律信息。",
-      "eyebrow": "法律信息",
+      "eyebrow": "Legal information",
       "title": "法律声明",
-      "intro": "本页面包含临时占位内容，发布前必须完成审核并替换为最终法律信息。",
+      "intro": "DOMTEKNIKA 网站的公司信息与使用条件。",
       "publisher": "网站运营方",
       "hosting": "网站托管",
       "intellectualProperty": "知识产权"
     },
     "privacyPolicy": {
       "metaTitle": "DOMTEKNIKA - 隐私政策",
-      "metaDescription": "DOMTEKNIKA 网站的临时隐私政策。",
-      "eyebrow": "数据保护",
+      "metaDescription": "DOMTEKNIKA 网站处理和保护个人数据的方式。",
+      "eyebrow": "Data protection",
       "title": "隐私政策",
-      "intro": "本页面包含临时占位内容，在联系表单正式上线前必须完成审核并替换为最终隐私政策。",
+      "intro": "说明您使用网站或联系我们时，个人数据如何被处理和保护。",
       "dataCollection": "收集的数据",
       "dataUse": "数据用途",
       "rights": "保存期限与您的权利"

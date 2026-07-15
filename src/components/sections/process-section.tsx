@@ -41,30 +41,30 @@ export function ProcessSection() {
           <Reveal
             as="article"
             delay={0.08}
-            className="group relative z-20 my-0 min-h-[210px] overflow-hidden rounded-[15px] bg-brand p-4 text-white shadow-[0_24px_42px_rgba(0,0,0,0.24)] transition-shadow duration-300 hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] md:min-h-[220px] md:p-5 md:pt-6 xl:min-h-[290px] min-[1800px]:!min-h-[310px] min-[1800px]:!rounded-[18px] min-[1800px]:!p-6 min-[2300px]:!min-h-[350px] min-[2300px]:!p-7"
+            className="group relative z-20 my-0 min-h-[210px] overflow-hidden rounded-[15px] bg-brand p-4 text-white transition-shadow duration-300 md:min-h-[250px] md:p-6 lg:min-h-[220px] lg:p-5 lg:pt-6 lg:shadow-[0_24px_42px_rgba(0,0,0,0.24)] lg:hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] xl:min-h-[290px] min-[1800px]:!min-h-[310px] min-[1800px]:!rounded-[18px] min-[1800px]:!p-6 min-[2300px]:!min-h-[350px] min-[2300px]:!p-7"
           >
-            <div className="grid h-full gap-3 md:grid-cols-[0.82fr_1.38fr] md:items-stretch min-[1800px]:!gap-3 min-[2300px]:!gap-4">
+            <div className="grid h-full gap-3 md:grid-cols-[0.72fr_1.28fr] md:items-stretch lg:grid-cols-[0.82fr_1.38fr] min-[1800px]:!gap-3 min-[2300px]:!gap-4">
               <div>
                 <AccentLine light />
                 <h2
                   id="process-title"
-                  className="mt-3 text-[20px] font-extrabold leading-tight min-[1800px]:!text-[26px] min-[2300px]:!text-[29px]"
+                  className="mt-3 text-[20px] font-extrabold leading-tight md:text-[22px] lg:text-[20px] min-[1800px]:!text-[26px] min-[2300px]:!text-[29px]"
                 >
                   {t("processTitle")}
                 </h2>
-                <p className="mt-4 text-[13px] font-medium leading-[1.28] min-[1800px]:!mt-3 min-[1800px]:!text-[16px] min-[2300px]:!mt-4 min-[2300px]:!text-[17px]">
+                <p className="mt-4 text-[13px] font-medium leading-[1.28] md:text-[15px] lg:text-[13px] min-[1800px]:!mt-3 min-[1800px]:!text-[16px] min-[2300px]:!mt-4 min-[2300px]:!text-[17px]">
                   {t("processBody")}
                 </p>
               </div>
 
-              <div className="relative h-full min-h-[150px] border-white/70 md:min-h-[150px] md:border-l min-[1800px]:!min-h-[180px] min-[2300px]:!min-h-[200px]">
-                <div className="absolute inset-y-0 left-7 right-0 md:left-8 xl:left-3">
+              <div className="relative h-full min-h-[150px] border-white/70 md:min-h-[190px] md:border-l lg:min-h-[150px] min-[1800px]:!min-h-[180px] min-[2300px]:!min-h-[200px]">
+                <div className="absolute inset-y-0 left-7 right-0 md:left-2 lg:left-8 xl:left-3">
                   <Image
                     src="/assets/schema-process.png"
                     alt=""
                     fill
                     sizes="(min-width: 2300px) 400px, (min-width: 1800px) 360px, 320px"
-                    className="scale-100 object-contain object-center md:scale-[1.06] lg:scale-[1.1] xl:scale-[1.2] min-[1800px]:scale-[1.22] min-[2300px]:scale-[1.24]"
+                    className="scale-100 object-contain object-center md:scale-[1.2] lg:scale-[1.1] xl:scale-[1.2] min-[1800px]:scale-[1.22] min-[2300px]:scale-[1.24]"
                   />
                 </div>
               </div>
@@ -86,7 +86,7 @@ export function ProcessSection() {
               </p>
             </div>
 
-            <div className="relative mt-3 grid bg-white before:absolute before:left-5 before:right-5 before:top-0 before:h-px before:bg-border lg:grid-cols-3">
+            <div className="relative mt-3 grid bg-white before:absolute before:left-4 before:right-4 before:top-0 before:h-px before:bg-border sm:before:left-5 sm:before:right-5 lg:grid-cols-3">
               <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
               <Stat
                 label={t("stats.sectors.label")}
@@ -131,29 +131,31 @@ function Stat({
 }) {
   return (
     <div
-      className={`relative min-h-[52px] px-3 py-2 lg:min-h-[64px] lg:border-t-0 lg:px-3 lg:py-2 xl:px-3 min-[1800px]:min-h-[84px] min-[1800px]:px-5 min-[1800px]:py-3 min-[2300px]:!min-h-[88px] min-[2300px]:!px-5 min-[2300px]:!py-3 ${
+      className={`relative flex min-h-[58px] items-center px-4 py-2.5 lg:block lg:min-h-[64px] lg:border-t-0 lg:px-3 lg:py-2 xl:px-3 min-[1800px]:min-h-[84px] min-[1800px]:px-5 min-[1800px]:py-3 min-[2300px]:!min-h-[88px] min-[2300px]:!px-5 min-[2300px]:!py-3 ${
         divider
           ? "border-t border-border lg:border-t-0 lg:before:absolute lg:before:bottom-4 lg:before:left-0 lg:before:top-4 lg:before:w-px lg:before:bg-border"
-          : "pt-4"
+          : "pt-3 lg:pt-4"
       }`}
     >
-      <div className={withFlag ? "flex items-start justify-between gap-2" : undefined}>
-        <strong className="block text-[18px] font-extrabold leading-[1.08] text-brand lg:text-[18px] xl:text-[19px] min-[1800px]:text-[27px] min-[2300px]:!text-[29px]">
-          {value}
-        </strong>
+      <div className="flex w-full items-center justify-between gap-4 lg:block">
+        <div>
+          <strong className="block text-[18px] font-extrabold leading-[1.08] text-brand lg:text-[18px] xl:text-[19px] min-[1800px]:text-[27px] min-[2300px]:!text-[29px]">
+            {value}
+          </strong>
+          <span className="mt-0.5 block text-[12px] font-normal leading-[1.12] text-brand lg:mt-1 lg:text-[11px] xl:text-[12px] min-[1800px]:text-[15px] min-[2300px]:!text-[16px]">
+            {label}
+          </span>
+        </div>
         {withFlag && (
           <Image
             src="/assets/flag-switzerland.webp"
             alt=""
             width={37}
             height={37}
-            className="size-[18px] shrink-0 lg:size-5 min-[1800px]:size-[32px] min-[2300px]:!size-[34px]"
+            className="size-7 shrink-0 lg:absolute lg:right-3 lg:top-1/2 lg:size-5 lg:-translate-y-1/2 min-[1800px]:right-5 min-[1800px]:size-[32px] min-[2300px]:!right-5 min-[2300px]:!size-[34px]"
           />
         )}
       </div>
-      <span className="mt-1 block text-[12px] font-normal leading-[1.12] text-brand lg:text-[11px] xl:text-[12px] min-[1800px]:text-[15px] min-[2300px]:!text-[16px]">
-        {label}
-      </span>
     </div>
   );
 }

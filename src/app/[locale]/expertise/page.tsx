@@ -464,11 +464,15 @@ function AddedValueSection() {
                     key={stat.key}
                     className={cn(
                       "group flex min-w-0 flex-col justify-center",
-                      isWideStat ? "gap-2" : "gap-2.5",
+                      isWideStat
+                        ? "gap-2"
+                        : stat.key === "industries"
+                          ? "gap-1 sm:gap-2.5"
+                          : "gap-2.5",
                       index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
                       index < 2
-                        ? "sm:pb-8 md:pb-9"
-                        : "sm:pt-8 md:pt-9",
+                        ? "pb-4 sm:pb-8 md:pb-9"
+                        : "pt-4 sm:pt-8 md:pt-9",
                     )}
                   >
                     <Image
@@ -476,21 +480,45 @@ function AddedValueSection() {
                       alt=""
                       width={stat.width}
                       height={stat.height}
-                      className="size-[36px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[46px] min-[1800px]:!size-[48px] min-[2400px]:!size-[54px]"
+                      className={cn(
+                        "shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[46px] min-[1800px]:!size-[48px] min-[2400px]:!size-[54px]",
+                        stat.key === "industries" ? "size-[32px]" : "size-[36px]",
+                      )}
                     />
                     <div className="min-w-0">
-                      <strong
-                        className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
+                      <div
+                        className={cn(
+                          stat.key === "industries" &&
+                            "flex flex-wrap items-baseline gap-x-2 gap-y-0.5",
+                        )}
+                      >
+                        <strong
+                          className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
                             ? "text-[clamp(18px,4.3vw,24px)] sm:text-[clamp(20px,2.25vw,24px)] lg:text-[clamp(20px,1.55vw,24px)] 2xl:text-[25px] min-[1800px]:!text-[27px] min-[2400px]:!text-[30px]"
+                            : stat.key === "industries"
+                              ? "text-[23px] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
                             : "text-[clamp(24px,6.2vw,30px)] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
                         }`}
-                      >
-                        {t(`stats.${stat.key}.value` as never)}
-                      </strong>
-                      <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]">
-                        {t(`stats.${stat.key}.label` as never)}
-                      </span>
+                        >
+                          {t(`stats.${stat.key}.value` as never)}
+                        </strong>
+                        <span
+                          className={cn(
+                            "block font-medium text-white/88",
+                            stat.key === "industries"
+                              ? "text-[11px] font-semibold leading-tight sm:text-[13px] md:text-[14px]"
+                              : "mt-1.5 text-[12px] leading-tight sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]",
+                          )}
+                        >
+                          {t(`stats.${stat.key}.label` as never)}
+                        </span>
+                      </div>
+                      {stat.key === "industries" && (
+                        <span className="mt-2 block max-w-[30ch] text-[8px] font-medium leading-[1.35] text-white/82 sm:text-[9px] md:text-[10px] min-[1800px]:!text-[11px] min-[2400px]:!text-[12px]">
+                          {t("stats.industries.detail")}
+                        </span>
+                      )}
                     </div>
                   </div>
                 );
@@ -524,7 +552,7 @@ function ExpertiseCta() {
       />
 
       <Container size="wide" className="relative z-10 min-[1800px]:!max-w-[1600px] min-[2400px]:!max-w-[1900px]">
-        <Reveal className="max-w-[560px] min-[1800px]:!max-w-[720px]">
+        <Reveal className="max-w-[560px] md:max-w-[860px] min-[1800px]:!max-w-[1040px] min-[2400px]:!max-w-[1200px]">
           <div className="flex items-center gap-3 text-[14px] font-medium text-muted-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[18px]">
             <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
             {t("eyebrow")}

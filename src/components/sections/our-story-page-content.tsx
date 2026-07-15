@@ -193,7 +193,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     },
   },
   fr: {
-    eyebrow: "Notre parcours depuis 1998",
+    eyebrow: "Our journey since 1998",
     title: "Notre histoire",
     intro:
       "Fondée en 1998 par Jean-Luc Thuliez, ingénieur visionnaire, DOMTEKNIKA transforme depuis plus de 25 ans des défis techniques complexes en solutions fiables. Des premiers concepts aux prototypes, de la simulation à l'électronique et au développement industriel, nous faisons évoluer les idées vers des produits concrets, performants et industrialisables. Découvrez une sélection de projets qui reflètent notre expertise et notre expérience.",
@@ -279,7 +279,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     },
   },
   de: {
-    eyebrow: "Unser Weg seit 1998",
+    eyebrow: "Our journey since 1998",
     title: "Unsere Geschichte",
     intro:
       "1998 vom visionären Ingenieur Jean-Luc Thuliez gegründet, verwandelt DOMTEKNIKA seit mehr als 25 Jahren komplexe technische Herausforderungen in zuverlässige Engineering-Lösungen. Von ersten Konzepten und Prototypen bis zu Simulation, Elektronik und industrieller Entwicklung machen wir aus Ideen konkrete, leistungsfähige und industrialisierbare Produkte. Entdecken Sie Projekte, die unsere Kompetenz und langjährige Erfahrung sichtbar machen.",
@@ -365,7 +365,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     },
   },
   es: {
-    eyebrow: "Nuestro recorrido desde 1998",
+    eyebrow: "Our journey since 1998",
     title: "Nuestra historia",
     intro:
       "Fundada en 1998 por Jean-Luc Thuliez, ingeniero visionario, DOMTEKNIKA lleva más de 25 años convirtiendo retos técnicos complejos en soluciones de ingeniería fiables. Desde los primeros conceptos y prototipos hasta la simulación, la electrónica y el desarrollo industrial, hacemos que las ideas evolucionen hacia productos concretos, eficaces e industrializables. Descubre una selección de proyectos que refleja nuestra capacidad técnica y trayectoria.",
@@ -451,7 +451,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     },
   },
   ko: {
-    eyebrow: "1998년부터 이어진 여정",
+    eyebrow: "Our journey since 1998",
     title: "회사 연혁",
     intro:
       "1998년 선구적인 엔지니어 Jean-Luc Thuliez가 설립한 DOMTEKNIKA는 25년 넘게 복잡한 기술 과제를 신뢰할 수 있는 엔지니어링 솔루션으로 전환해 왔습니다. 초기 콘셉트와 프로토타입부터 시뮬레이션, 전자 시스템, 산업화 개발까지 아이디어를 구체적이고 성능과 양산성을 갖춘 제품으로 발전시킵니다. 우리의 전문성과 경험을 보여 주는 프로젝트를 살펴보세요.",
@@ -537,7 +537,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
     },
   },
   zh: {
-    eyebrow: "自 1998 年以来的历程",
+    eyebrow: "Our journey since 1998",
     title: "我们的故事",
     intro:
       "DOMTEKNIKA 于 1998 年由富有远见的工程师 Jean-Luc Thuliez 创立。25 年多来，我们持续将复杂技术挑战转化为可靠的工程解决方案。从早期概念和原型，到仿真、电子系统与工业化开发，我们让创意成长为具体、可靠且可工业化的产品。通过这些代表项目，了解我们的专业能力与长期积累。",

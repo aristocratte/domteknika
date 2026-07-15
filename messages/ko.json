@@ -14,7 +14,7 @@
     "closeMenu": "메뉴 닫기"
   },
   "Hero": {
-    "eyebrow": "아이디어를 실현 가능한 솔루션으로",
+    "eyebrow": "Turning ideas into real-world solutions",
     "engineering": "Engineering",
     "prototyping": "Prototyping",
     "producing": "Producing",
@@ -65,7 +65,7 @@
       "description": "엔지니어링, 프로토타이핑, 생산 프로젝트를 논의하려면 스위스 라 뇌브빌의 DOMTEKNIKA에 문의하세요."
     },
     "Hero": {
-      "eyebrow": "프로젝트를 함께 논의해 보세요",
+      "eyebrow": "Let's connect",
       "title": "문의",
       "lead": "질문이 있거나 프로젝트를 구상 중이거나 협업 가능성을 알아보고 싶으신가요? 저희가 도와드리겠습니다."
     },
@@ -103,7 +103,7 @@
       "error": "메시지를 전송하지 못했습니다. 나중에 다시 시도해 주세요."
     },
     "Map": {
-      "eyebrow": "찾아오시는 길",
+      "eyebrow": "Find us",
       "title": "DOMTEKNIKA 방문",
       "body": "저희 사무실과 워크숍은 비엘 호수와 쥐라 산기슭 사이의 라 뇌브빌에 있습니다.",
       "marker": "DOMTEKNIKA SA"
@@ -138,17 +138,17 @@
       "description": "스위스 기반 DOMTEKNIKA의 혁신, 제품 디자인, 프로토타이핑, 시뮬레이션, 폴리머, 전자 통합 전문성을 살펴보세요."
     },
     "Hero": {
-      "eyebrow": "아이디어를 실현 가능한 솔루션으로",
+      "eyebrow": "From engineering challenges to industrial solutions",
       "team": "우리 팀",
       "title": "전문성"
     },
     "Services": {
-      "eyebrow": "우리가 하는 일",
+      "eyebrow": "What we do",
       "title": "전 과정에 걸친 엔지니어링 전문성",
       "intro": "단일 프로토타입부터 산업 규모 생산까지, 기업과 발명가가 아이디어를 설계하고 검증해 양산 가능한 제품으로 발전시키도록 지원합니다.",
       "brainstorming": {
         "eyebrow": "브레인스토밍",
-        "title": "문제를 명확한 방향으로 바꾸는 과정",
+        "title": "Turning a problem into a clear direction",
         "lead": "방향을 정하기 전에 사용 조건, 기계 구조, 소재, 비용, 제조 방식과 리스크를 모든 관점에서 검토합니다.",
         "body": "이 단계에서 열린 질문을 구체적인 방향으로 정리하고 여러 구조를 비교해 프로젝트에 가장 맞는 솔루션을 빠르게 선택합니다.",
         "cards": {
@@ -195,7 +195,7 @@
       "titleLineTwo": "아이디어에 형태를 더합니다."
     },
     "AddedValue": {
-      "eyebrow": "DOMTEKNIKA의 강점",
+      "eyebrow": "Our added value",
       "values": {
         "partner": {
           "title": "엔드투엔드 파트너",
@@ -216,7 +216,7 @@
       },
       "stats": {
         "projects": {
-          "value": "+60",
+          "value": "100+",
           "label": "완료한 프로젝트"
         },
         "years": {
@@ -229,19 +229,20 @@
         },
         "industries": {
           "value": "6+",
-          "label": "핵심 산업"
+          "label": "핵심 산업",
+          "detail": "의료 · 모빌리티 · 산업 · 소비재 · 푸드테크 · 시계"
         }
       }
     },
     "Cta": {
-      "eyebrow": "함께 만들어 갑시다",
+      "eyebrow": "Let's build together",
       "title": "해결할 과제가 있으신가요",
       "subtitle": "미래지향적인 기업과 협력해 복잡한 과제를 실용적이고 양산 가능한 솔루션으로 전환합니다.",
       "button": "프로젝트 시작하기"
     }
   },
   "TrustedBy": {
-    "label": "함께한 고객사"
+    "label": "Trusted by"
   },
   "SwissBanner": {
     "titleLineOne": "스위스에서 개발합니다.",
@@ -255,7 +256,7 @@
     "end": "스위스 가치 섹션 끝"
   },
   "Cta": {
-    "eyebrow": "함께 만들어 갑시다",
+    "eyebrow": "Let's build together",
     "title": "다음 아이디어를 현실로",
     "subtitle": "과제를 들려주세요. 스위스 워크숍에서 솔루션을 설계하고 프로토타입으로 검증해 양산 준비까지 지원하겠습니다.",
     "cta": "프로젝트 시작하기"
@@ -274,19 +275,19 @@
     "legalNotice": {
       "metaTitle": "DOMTEKNIKA - 법적 고지",
       "metaDescription": "DOMTEKNIKA 웹사이트의 법적 정보입니다.",
-      "eyebrow": "법적 정보",
+      "eyebrow": "Legal information",
       "title": "법적 고지",
-      "intro": "이 페이지는 임시 문구를 포함하고 있으며, 게시 전에 검토하여 최종 법적 정보로 교체해야 합니다.",
+      "intro": "DOMTEKNIKA 웹사이트의 회사 정보 및 이용 조건입니다.",
       "publisher": "사이트 운영자",
       "hosting": "호스팅",
       "intellectualProperty": "지식재산권"
     },
     "privacyPolicy": {
       "metaTitle": "DOMTEKNIKA - 개인정보 처리방침",
-      "metaDescription": "DOMTEKNIKA 웹사이트의 임시 개인정보 처리방침입니다.",
-      "eyebrow": "개인정보 보호",
+      "metaDescription": "DOMTEKNIKA 웹사이트의 개인정보 처리 및 보호에 관한 안내입니다.",
+      "eyebrow": "Data protection",
       "title": "개인정보 처리방침",
-      "intro": "이 페이지는 임시 문구를 포함하고 있으며, 문의 양식을 실제 운영하기 전에 검토하여 최종 개인정보 처리방침으로 교체해야 합니다.",
+      "intro": "웹사이트 이용 또는 문의 과정에서 개인정보를 처리하고 보호하는 방법을 안내합니다.",
       "dataCollection": "수집하는 데이터",
       "dataUse": "데이터 이용 목적",
       "rights": "보관 기간 및 이용자 권리"

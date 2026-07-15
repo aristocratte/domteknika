@@ -66,24 +66,28 @@ export function SwissBannerSection() {
               {t("titleLineTwo")}
             </h2>
 
-            <div className="mt-2 grid max-w-[520px] grid-cols-2 justify-start gap-x-0 gap-y-2 text-left md:mt-3 md:max-w-[580px] md:gap-y-2.5 lg:mt-4 lg:max-w-[760px] lg:grid-cols-4 lg:gap-y-0 min-[1800px]:!mt-4 min-[1800px]:!max-w-[860px] min-[1800px]:!gap-y-0 min-[2300px]:!max-w-[900px]">
+            <div className="mt-2 grid w-full max-w-[560px] grid-cols-2 text-left md:mt-3 md:max-w-[640px] lg:mt-4 lg:max-w-[780px] lg:grid-cols-4 min-[1800px]:!mt-4 min-[1800px]:!max-w-[920px] min-[2300px]:!max-w-[960px]">
               {VALUES.map((value, index) => (
                 <div
                   key={value.key}
-                  className="relative flex min-w-0 items-center justify-center gap-2 px-2 text-left md:gap-2.5 md:px-2 min-[1800px]:!gap-3 min-[1800px]:!px-3"
+                  className={`relative grid min-w-0 grid-cols-[24px_minmax(0,1fr)] items-center gap-2 px-2 py-1.5 text-left md:grid-cols-[28px_minmax(0,1fr)] md:gap-2.5 md:px-3 md:py-2 lg:grid-cols-[30px_minmax(0,1fr)] lg:py-1 min-[1800px]:!grid-cols-[38px_minmax(0,1fr)] min-[1800px]:!gap-3 min-[1800px]:!px-4 ${
+                    index >= 2
+                      ? "border-t border-white/45 lg:border-t-0"
+                      : ""
+                  }`}
                 >
                   {index > 0 && (
                     <span
-                      className={`${index % 2 === 1 ? "block" : "hidden"} absolute left-0 top-1/2 h-7 w-px -translate-y-1/2 rounded-full bg-white/75 lg:block min-[1800px]:!h-9`}
+                      className={`${index % 2 === 1 ? "block" : "hidden"} absolute left-0 top-1/2 h-[58%] w-px -translate-y-1/2 rounded-full bg-white/75 lg:block lg:h-[64%]`}
                       aria-hidden
                     />
                   )}
                   <value.Icon
                     aria-hidden
                     strokeWidth={1.8}
-                    className="size-5 shrink-0 text-brand md:size-6 lg:size-7 min-[1800px]:size-[34px] min-[2300px]:!size-9"
+                    className="size-5 justify-self-center text-brand md:size-6 lg:size-7 min-[1800px]:size-[34px] min-[2300px]:!size-9"
                   />
-                  <strong className="min-w-0 text-left text-[9.5px] font-extrabold leading-tight text-white md:text-[11px] lg:whitespace-nowrap lg:text-[10.5px] lg:leading-none min-[1800px]:text-[12px] min-[2300px]:!text-[13px]">
+                  <strong className="min-w-0 text-left text-[9.5px] font-extrabold leading-[1.2] text-white md:text-[11px] lg:whitespace-nowrap lg:text-[10.5px] min-[1800px]:text-[12px] min-[2300px]:!text-[13px]">
                     {t(`values.${value.key}` as never)}
                   </strong>
                   {index === VALUES.length - 1 && (

@@ -453,6 +453,7 @@ const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
 type ProjectStat = {
   label: string;
   value: string;
+  detail?: string;
   icon: string;
   width: number;
   height: number;
@@ -1154,7 +1155,7 @@ export const PROJECTS: Project[] = [
 const STATS: ProjectStat[] = [
   {
     label: "Projects delivered",
-    value: "60+",
+    value: "100+",
     icon: "/assets/project-page/stat-projects-delivered.png",
     width: 49,
     height: 55,
@@ -1167,8 +1168,8 @@ const STATS: ProjectStat[] = [
     height: 52,
   },
   {
-    label: "Core industries",
-    value: "6+",
+    label: "Engineering expertise",
+    value: "Multi-sector",
     icon: "/assets/project-page/stat-core-industries.png",
     width: 53,
     height: 50,
@@ -1179,6 +1180,13 @@ const STATS: ProjectStat[] = [
     icon: "/assets/project-page/stat-worldwide.png",
     width: 51,
     height: 50,
+  },
+  {
+    label: "Swiss engineering",
+    value: "Since 1998",
+    icon: "/assets/patent-page/icon-calendar.png",
+    width: 49,
+    height: 47,
   },
 ];
 
@@ -3933,7 +3941,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   fr: {
     hero: {
-      eyebrow: "Nos réalisations en action",
+      eyebrow: "Our work in action",
       title: "Projets",
       strong: "Ingénierie suisse de précision",
       rest: "pour des résultats concrets.",
@@ -3959,22 +3967,19 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       {
         ...STATS[0],
         label: "Projets livrés",
-        value: "60+",
+        value: "100+",
       },
-      {
-        ...STATS[1],
-        label: "Accompagnement",
-        value: "Bout en bout",
-      },
-      {
-        ...STATS[2],
-        label: "Industries clés",
-        value: "6+",
-      },
+      { ...STATS[1] },
+      { ...STATS[2] },
       {
         ...STATS[3],
         label: "Projets internationaux",
         value: "International",
+      },
+      {
+        ...STATS[4],
+        label: "Ingénierie suisse",
+        value: "Depuis 1998",
       },
     ],
     statsLabel: "Statistiques des projets",
@@ -4015,7 +4020,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "Prototype",
     },
     cta: {
-      eyebrow: "Construisons ensemble",
+      eyebrow: "Let's build together",
       title: "Let's build what's next",
       bodyStrong: "Vous avez un défi en tête ?",
       body: "Nous accompagnons les entreprises visionnaires pour concevoir, prototyper et concrétiser des solutions à fort impact.",
@@ -4025,7 +4030,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   de: {
     hero: {
-      eyebrow: "Unsere Arbeit in der Praxis",
+      eyebrow: "Our work in action",
       title: "Projekte",
       strong: "Schweizer Präzisionstechnik",
       rest: "für messbare Ergebnisse.",
@@ -4048,10 +4053,15 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ),
     projects: getProjectsForLocale("de"),
     stats: [
-      { ...STATS[0], label: "Gelieferte Projekte", value: "60+" },
-      { ...STATS[1], label: "Projektbegleitung", value: "Ganzheitlich" },
-      { ...STATS[2], label: "Kernbranchen", value: "6+" },
+      { ...STATS[0], label: "Gelieferte Projekte", value: "100+" },
+      { ...STATS[1] },
+      { ...STATS[2] },
       { ...STATS[3], label: "Internationale Projekte", value: "Weltweit" },
+      {
+        ...STATS[4],
+        label: "Schweizer Ingenieurskunst",
+        value: "Seit 1998",
+      },
     ],
     statsLabel: "Projektstatistiken",
     selectedTitle: "Ausgewählte Projekte",
@@ -4091,7 +4101,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "Prototyp",
     },
     cta: {
-      eyebrow: "Gemeinsam Neues entwickeln",
+      eyebrow: "Let's build together",
       title: "Entwickeln wir die nächste Lösung",
       bodyStrong: "Haben Sie eine Herausforderung im Kopf?",
       body: "Wir arbeiten mit zukunftsorientierten Unternehmen zusammen, um Lösungen zu entwerfen, zu prototypisieren und zu liefern, die echte Wirkung entfalten.",
@@ -4101,7 +4111,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   es: {
     hero: {
-      eyebrow: "Nuestro trabajo en acción",
+      eyebrow: "Our work in action",
       title: "Proyectos",
       strong: "Ingeniería suiza de precisión",
       rest: "para resultados reales.",
@@ -4124,10 +4134,15 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ),
     projects: getProjectsForLocale("es"),
     stats: [
-      { ...STATS[0], label: "Proyectos entregados", value: "60+" },
-      { ...STATS[1], label: "Acompañamiento", value: "Integral" },
-      { ...STATS[2], label: "Industrias clave", value: "6+" },
+      { ...STATS[0], label: "Proyectos entregados", value: "100+" },
+      { ...STATS[1] },
+      { ...STATS[2] },
       { ...STATS[3], label: "Proyectos globales", value: "Internacional" },
+      {
+        ...STATS[4],
+        label: "Ingeniería suiza",
+        value: "Desde 1998",
+      },
     ],
     statsLabel: "Estadísticas de proyectos",
     selectedTitle: "Proyectos seleccionados",
@@ -4167,7 +4182,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "Prototipo",
     },
     cta: {
-      eyebrow: "Construyamos juntos",
+      eyebrow: "Let's build together",
       title: "Demos forma al próximo proyecto",
       bodyStrong: "¿Tienes un reto en mente?",
       body: "Colaboramos con empresas visionarias para diseñar, prototipar y entregar soluciones con impacto real.",
@@ -4177,7 +4192,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   ko: {
     hero: {
-      eyebrow: "엔지니어링이 실현된 프로젝트",
+      eyebrow: "Our work in action",
       title: "프로젝트",
       strong: "스위스 정밀 엔지니어링",
       rest: "으로 실질적인 성과를 만듭니다.",
@@ -4200,10 +4215,15 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ),
     projects: getProjectsForLocale("ko"),
     stats: [
-      { ...STATS[0], label: "완료한 프로젝트", value: "60+" },
-      { ...STATS[1], label: "프로젝트 지원", value: "전 과정" },
-      { ...STATS[2], label: "핵심 산업", value: "6+" },
+      { ...STATS[0], label: "완료한 프로젝트", value: "100+" },
+      { ...STATS[1] },
+      { ...STATS[2] },
       { ...STATS[3], label: "글로벌 프로젝트", value: "전 세계" },
+      {
+        ...STATS[4],
+        label: "스위스 엔지니어링",
+        value: "1998년부터",
+      },
     ],
     statsLabel: "프로젝트 통계",
     selectedTitle: "선정 프로젝트",
@@ -4243,7 +4263,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "프로토타입",
     },
     cta: {
-      eyebrow: "함께 만들어 갑시다",
+      eyebrow: "Let's build together",
       title: "다음 솔루션을 함께 개발합니다",
       bodyStrong: "구상 중인 과제가 있으신가요?",
       body: "미래지향적인 기업과 함께 실질적인 가치를 만드는 솔루션을 설계하고 프로토타입으로 검증해 실현합니다.",
@@ -4253,7 +4273,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
   },
   zh: {
     hero: {
-      eyebrow: "我们的实践成果",
+      eyebrow: "Our work in action",
       title: "项目",
       strong: "瑞士精密工程",
       rest: "成就可靠成果。",
@@ -4276,10 +4296,15 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
     ),
     projects: getProjectsForLocale("zh"),
     stats: [
-      { ...STATS[0], label: "交付项目", value: "60+" },
-      { ...STATS[1], label: "项目支持", value: "全流程" },
-      { ...STATS[2], label: "核心行业", value: "6+" },
+      { ...STATS[0], label: "交付项目", value: "100+" },
+      { ...STATS[1] },
+      { ...STATS[2] },
       { ...STATS[3], label: "国际项目", value: "全球" },
+      {
+        ...STATS[4],
+        label: "瑞士工程",
+        value: "始于 1998",
+      },
     ],
     statsLabel: "项目统计",
     selectedTitle: "精选项目",
@@ -4319,7 +4344,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       prototype: "原型",
     },
     cta: {
-      eyebrow: "携手开发",
+      eyebrow: "Let's build together",
       title: "共同开发下一项解决方案",
       bodyStrong: "有想解决的挑战吗？",
       body: "我们与具有前瞻性的企业合作，设计、原型验证并交付真正产生影响的解决方案。",
@@ -6485,7 +6510,7 @@ function ProjectsStatsSection({
   return (
     <section className="bg-background py-[28px] min-[1180px]:pb-5 min-[1180px]:pt-[52px] min-[2400px]:!pb-6 min-[2400px]:!pt-14" aria-label={ariaLabel}>
       <Container size="wide">
-        <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-4">
+        <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-5">
           {stats.map((stat, index) => {
             const isLongValue = stat.value.length > 6;
 
@@ -6495,15 +6520,15 @@ function ProjectsStatsSection({
                 key={`${index}-${stat.label}`}
                 delay={index * 0.05}
                 className={cn(
-                  "group/stat relative flex min-h-[116px] transform-gpu flex-col items-center justify-center gap-1 bg-white px-5 py-2.5 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[92px] sm:px-7 sm:py-1.5 min-[1180px]:grid min-[1180px]:min-h-[68px] min-[1180px]:grid-cols-[34px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-2 min-[1180px]:px-5 min-[1180px]:py-2 min-[1180px]:text-left min-[2400px]:!min-h-[86px] min-[2400px]:!grid-cols-[54px_1fr] min-[2400px]:!gap-4 min-[2400px]:!px-7 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index % 2 === 0 &&
+                  "group/stat relative flex min-h-[116px] transform-gpu flex-col items-center justify-center gap-1 bg-white px-5 py-2.5 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[92px] sm:px-7 sm:py-1.5 min-[1180px]:grid min-[1180px]:min-h-[76px] min-[1180px]:grid-cols-[32px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-2 min-[1180px]:px-3 min-[1180px]:py-2 min-[1180px]:text-left min-[2400px]:!min-h-[90px] min-[2400px]:!grid-cols-[48px_1fr] min-[2400px]:!gap-3 min-[2400px]:!px-5 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
+                  index % 2 === 0 && index < stats.length - 1 &&
                     "border-r border-border min-[1180px]:border-r-0",
-                  index < 2 &&
+                  index < stats.length - 1 &&
                     "border-b border-border min-[1180px]:border-b-0",
                   index < stats.length - 1 &&
                     "min-[1180px]:border-r min-[1180px]:border-border",
                   index === stats.length - 1 &&
-                    "min-[1180px]:gap-2 min-[1180px]:[grid-template-columns:32px_minmax(0,1fr)] min-[2400px]:!gap-4 min-[2400px]:![grid-template-columns:54px_minmax(0,1fr)]",
+                    "col-span-2 min-[1180px]:col-span-1",
                 )}
               >
                 <Image
@@ -6511,22 +6536,40 @@ function ProjectsStatsSection({
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="h-[36px] w-[40px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[40px] sm:w-[44px] min-[1180px]:h-[32px] min-[1180px]:w-[36px] min-[2400px]:!h-[50px] min-[2400px]:!w-[54px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
+                  className="h-[36px] w-[40px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[40px] sm:w-[44px] min-[1180px]:h-[30px] min-[1180px]:w-[32px] min-[2400px]:!h-[46px] min-[2400px]:!w-[48px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
                 <div className="min-w-0">
-                  <strong
-                    className={cn(
-                      "block max-w-full text-balance font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
-                      isLongValue
-                        ? "!text-[18px] sm:!text-[19px] min-[1180px]:!text-[18px] 2xl:!text-[20px] min-[2400px]:!text-[30px]"
-                        : "!text-[26px] sm:!text-[28px] min-[1180px]:!text-[24px] 2xl:!text-[26px] min-[2400px]:!text-[40px]",
-                    )}
-                  >
-                    {stat.value}
-                  </strong>
-                  <span className="mt-0.5 block text-[12px] font-medium leading-tight text-muted-foreground min-[1180px]:text-[11px] 2xl:text-[12px] min-[2400px]:!mt-1 min-[2400px]:!text-[15px]">
-                    {stat.label}
-                  </span>
+                  {stat.detail ? (
+                    <div className="flex flex-col items-center min-[1180px]:items-start">
+                      <strong className="block whitespace-nowrap text-[18px] font-extrabold leading-[1.02] text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]">
+                        {stat.value}
+                      </strong>
+                      <strong className="block whitespace-nowrap text-[18px] font-extrabold leading-[1.02] text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]">
+                        {stat.label}
+                      </strong>
+                    </div>
+                  ) : (
+                    <>
+                      <strong
+                        className={cn(
+                          "block max-w-full whitespace-nowrap font-extrabold leading-[0.92] text-foreground min-[1180px]:leading-[0.98]",
+                          isLongValue
+                            ? "!text-[18px] sm:!text-[19px] min-[1180px]:!text-[18px] 2xl:!text-[20px] min-[2400px]:!text-[30px]"
+                            : "!text-[26px] sm:!text-[28px] min-[1180px]:!text-[24px] 2xl:!text-[26px] min-[2400px]:!text-[40px]",
+                        )}
+                      >
+                        {stat.value}
+                      </strong>
+                      <span className="mt-0.5 block max-w-full break-words text-[12px] font-medium leading-tight text-muted-foreground [hyphens:auto] min-[1180px]:text-[11px] 2xl:text-[12px] min-[2400px]:!mt-1 min-[2400px]:!text-[15px]">
+                        {stat.label}
+                      </span>
+                    </>
+                  )}
+                  {stat.detail && (
+                    <span className="mt-1 block text-[9px] font-medium leading-[1.3] text-muted-foreground sm:text-[10px] min-[1180px]:text-[8px] 2xl:text-[9px] min-[2400px]:!text-[11px]">
+                      {stat.detail}
+                    </span>
+                  )}
                 </div>
               </Reveal>
             );

@@ -1,58 +1,88 @@
 import { Container } from "@/components/layout/container";
+import type { LegalSection } from "@/data/legal-pages";
 
-type LegalSection = {
-  title: string;
-  body: string;
-};
-
-export const LEGAL_PLACEHOLDER_BODIES = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
-] as const;
+function isExternalLink(href: string) {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
 
 export function LegalDocumentPage({
   eyebrow,
   title,
   intro,
+  updatedLabel,
+  updated,
   sections,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  updatedLabel: string;
+  updated: string;
   sections: LegalSection[];
 }) {
   return (
-    <section className="bg-background pb-20 pt-[132px] md:pb-28 md:pt-[152px] min-[1800px]:!pb-36 min-[2400px]:!pb-44">
+    <section className="bg-background pb-20 pt-[132px] md:pb-28 md:pt-[152px]">
       <Container size="default">
-        <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[22px]">
-          <span
-            className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[64px]"
-            aria-hidden
-          />
-          {eyebrow}
-        </div>
+        <div className="mx-auto max-w-[920px]">
+          <div className="flex items-center gap-3 text-[14px] font-medium leading-none text-muted-foreground md:text-[15px]">
+            <span className="h-[3px] w-[34px] shrink-0 bg-brand" aria-hidden />
+            {eyebrow}
+          </div>
 
-        <h1 className="domtek-text-shadow mt-[38px] text-balance text-[42px] font-extrabold leading-[1.02] text-foreground sm:text-[56px] md:mt-[52px] md:text-[64px] min-[1800px]:!text-[72px] min-[2400px]:!mt-[72px] min-[2400px]:!text-[86px]">
-          {title}
-          <span className="text-brand">.</span>
-        </h1>
+          <h1 className="mt-9 text-balance text-[36px] font-extrabold leading-[1.05] text-foreground sm:text-[44px] md:mt-11 md:text-[50px]">
+            {title}
+            <span className="text-brand">.</span>
+          </h1>
 
-        <p className="mt-8 max-w-[720px] text-pretty rounded-[8px] border border-brand/20 bg-brand/[0.035] px-5 py-4 text-[14px] font-medium leading-[1.6] text-muted-foreground md:text-[16px] min-[1800px]:!max-w-[900px] min-[1800px]:!px-6 min-[1800px]:!py-5 min-[1800px]:!text-[18px] min-[2400px]:!max-w-[1080px] min-[2400px]:!text-[20px]">
-          {intro}
-        </p>
+          <p className="mt-5 max-w-[780px] text-pretty text-[14px] leading-[1.7] text-muted-foreground md:text-[15px]">
+            {intro}
+          </p>
+          <p className="mt-3 text-[12px] font-medium text-muted-foreground/80 md:text-[13px]">
+            {updatedLabel}: {updated}
+          </p>
 
-        <div className="mt-10 grid max-w-[820px] gap-8 md:mt-14 md:gap-10 min-[1800px]:!max-w-[1040px] min-[1800px]:!gap-12 min-[2400px]:!max-w-[1240px] min-[2400px]:!gap-14">
-          {sections.map((section) => (
-            <article key={section.title}>
-              <h2 className="text-balance text-[22px] font-extrabold leading-tight text-foreground md:text-[28px] min-[1800px]:!text-[34px] min-[2400px]:!text-[40px]">
-                {section.title}
-              </h2>
-              <p className="mt-3 text-pretty text-[14px] font-medium leading-[1.75] text-muted-foreground md:text-[16px] min-[1800px]:!mt-4 min-[1800px]:!text-[18px] min-[2400px]:!text-[20px]">
-                {section.body}
-              </p>
-            </article>
-          ))}
+          <div className="mt-10 grid gap-9 border-t border-border pt-9 md:mt-12 md:gap-11 md:pt-11">
+            {sections.map((section) => (
+              <article key={section.title} className="max-w-[820px]">
+                <h2 className="text-balance text-[19px] font-extrabold leading-[1.25] text-foreground md:text-[21px]">
+                  {section.title}
+                </h2>
+
+                {section.paragraphs?.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-3 whitespace-pre-line text-pretty text-[13px] leading-[1.75] text-muted-foreground md:text-[14px]"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+
+                {section.items && (
+                  <ul className="mt-3 grid list-disc gap-1.5 pl-5 text-[13px] leading-[1.7] text-muted-foreground marker:text-brand md:text-[14px]">
+                    {section.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.links && (
+                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px] font-semibold md:text-[14px]">
+                    {section.links.map((link) => (
+                      <a
+                        key={`${link.href}-${link.label}`}
+                        href={link.href}
+                        className="text-brand underline decoration-brand/35 underline-offset-4 transition-colors hover:text-brand/75"
+                        target={isExternalLink(link.href) ? "_blank" : undefined}
+                        rel={isExternalLink(link.href) ? "noreferrer" : undefined}
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
