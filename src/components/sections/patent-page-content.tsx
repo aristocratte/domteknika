@@ -1156,7 +1156,11 @@ export function PatentPageContent({ locale }: { locale: string }) {
     pointerId: number;
     x: number;
     y: number;
+    startX: number;
+    startY: number;
+    moved: boolean;
   } | null>(null);
+  const modalImageClickSuppressedRef = useRef(false);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const lockedScrollYRef = useRef(0);
@@ -1436,13 +1440,17 @@ export function PatentPageContent({ locale }: { locale: string }) {
 
   const handleModalImagePanStart = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
-      if (modalImageZoom <= 1) return;
       if ((event.target as HTMLElement).closest("button, a")) return;
+      modalImageClickSuppressedRef.current = false;
+      if (modalImageZoom <= 1) return;
       event.preventDefault();
       modalImagePanRef.current = {
         pointerId: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        startX: event.clientX,
+        startY: event.clientY,
+        moved: false,
       };
       event.currentTarget.setPointerCapture(event.pointerId);
     },
@@ -1461,6 +1469,12 @@ export function PatentPageContent({ locale }: { locale: string }) {
         ...pan,
         x: event.clientX,
         y: event.clientY,
+        moved:
+          pan.moved ||
+          Math.hypot(
+            event.clientX - pan.startX,
+            event.clientY - pan.startY,
+          ) > 5,
       };
       setModalImageOffset((current) => ({
         x: current.x + deltaX,
@@ -1474,6 +1488,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
     (event: PointerEvent<HTMLDivElement>) => {
       const pan = modalImagePanRef.current;
       if (!pan || pan.pointerId !== event.pointerId) return;
+      modalImageClickSuppressedRef.current = pan.moved;
       modalImagePanRef.current = null;
       if (event.currentTarget.hasPointerCapture(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
@@ -1974,8 +1989,20 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   "relative min-h-[240px] touch-none overflow-hidden bg-[#f7f7f7] md:min-h-0",
                   modalImageZoom > 1
                     ? "cursor-grab active:cursor-grabbing"
-                    : "cursor-default",
+                    : modalImage
+                      ? "cursor-zoom-in"
+                      : "cursor-default",
                 )}
+                data-patent-image-preview
+                onClick={(event) => {
+                  if (!modalImage) return;
+                  if ((event.target as HTMLElement).closest("button, a")) return;
+                  if (modalImageClickSuppressedRef.current) {
+                    modalImageClickSuppressedRef.current = false;
+                    return;
+                  }
+                  showDrawing(safeModalImageIndex);
+                }}
                 onPointerDown={handleModalImagePanStart}
                 onPointerMove={handleModalImagePanMove}
                 onPointerUp={handleModalImagePanEnd}
@@ -2031,7 +2058,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                   </div>
                 )}
                 {modalImageHref && (
-                  <div className="absolute bottom-12 right-5 z-20 flex items-center gap-2 md:right-6">
+                  <div className="absolute bottom-5 right-5 z-20 flex items-center gap-2 md:right-6">
                     <button
                       type="button"
                       className="grid size-9 place-items-center rounded-full bg-white/95 text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-[transform,background-color,color,opacity] duration-500 hover:scale-110 hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-45 [transition-timing-function:var(--ease-smooth)]"
@@ -2083,7 +2110,7 @@ export function PatentPageContent({ locale }: { locale: string }) {
                     className="object-contain"
                   />
                 </div>
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute bottom-20 left-6 right-6">
                   <strong className="block max-w-[360px] text-[25px] font-extrabold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
                     {selectedPatent.publication}
                   </strong>

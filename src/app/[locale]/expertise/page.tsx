@@ -271,6 +271,11 @@ function ExpertiseServiceCards({
 
 function BrainstormingSection() {
   const t = useTranslations("ExpertisePage.Services.brainstorming");
+  const lead = t("lead");
+  const separatorIndex = Math.max(lead.indexOf(":"), lead.indexOf("："));
+  const emphasizedLead =
+    separatorIndex >= 0 ? lead.slice(0, separatorIndex + 1) : lead;
+  const remainingLead = separatorIndex >= 0 ? lead.slice(separatorIndex + 1) : "";
 
   return (
     <div className="my-14 grid gap-8 md:my-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-center min-[1800px]:!my-24 min-[1800px]:!grid-cols-[0.95fr_1.05fr] min-[1800px]:!gap-12">
@@ -284,7 +289,8 @@ function BrainstormingSection() {
           <span className="text-brand">.</span>
         </h3>
         <p className="mt-6 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
-          {t("lead")}
+          <span className="font-extrabold">{emphasizedLead}</span>
+          {remainingLead}
         </p>
         <p className="mt-4 max-w-[470px] text-[15px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:!max-w-[620px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
           {t("body")}
