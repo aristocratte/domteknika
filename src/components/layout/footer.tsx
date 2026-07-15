@@ -8,7 +8,7 @@ const FOOTER_NAV_ITEMS = [
   { key: "home", href: "/" },
   { key: "projects", href: "/projects" },
   { key: "expertise", href: "/expertise" },
-  { key: "patent", href: "/patent" },
+  { key: "patent", href: "/patents" },
   { key: "story", href: "/our-story" },
   { key: "cta", href: "/contact" },
 ] as const;

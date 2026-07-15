@@ -5,7 +5,6 @@ import {
   ProjectsPageContent,
   ProjectsPageCta,
 } from "@/components/sections/projects-page-content";
-import { TrustedBy } from "@/components/sections/trusted-by";
 
 export async function generateMetadata({
   params,
@@ -32,7 +31,6 @@ export default async function ProjectsPage({
   return (
     <>
       <ProjectsPageContent locale={locale} />
-      <TrustedBy />
       <ProjectsPageCta locale={locale} />
     </>
   );

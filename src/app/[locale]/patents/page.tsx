@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { PatentPageContent, PatentPageCta } from "@/components/sections/patent-page-content";
-import { TrustedBy } from "@/components/sections/trusted-by";
 
 export async function generateMetadata({
   params,
@@ -29,7 +28,6 @@ export default async function PatentPage({
   return (
     <>
       <PatentPageContent locale={locale} />
-      <TrustedBy />
       <PatentPageCta locale={locale} />
     </>
   );

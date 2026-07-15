@@ -19,7 +19,7 @@ const NAV_ITEMS = [
   { key: "home", href: "/" },
   { key: "projects", href: "/projects" },
   { key: "expertise", href: "/expertise" },
-  { key: "patent", href: "/patent" },
+  { key: "patent", href: "/patents" },
   { key: "story", href: "/our-story" },
 ] as const;
 
@@ -46,7 +46,7 @@ export function Navbar() {
       ? "projects"
       : pathname === "/expertise"
         ? "expertise"
-        : pathname === "/patent"
+        : pathname === "/patents"
           ? "patent"
           : pathname === "/our-story"
             ? "story"

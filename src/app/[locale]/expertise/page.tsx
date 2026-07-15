@@ -15,7 +15,6 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
 import { BrainstormingCardSwap } from "@/components/sections/brainstorming-card-swap";
-import { TrustedBy } from "@/components/sections/trusted-by";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -81,7 +80,6 @@ export default async function ExpertisePage({
       <ExpertiseGrid />
       <ExpertiseSwissBanner />
       <AddedValueSection />
-      <TrustedBy density="compact" />
       <ExpertiseCta />
     </>
   );
@@ -467,7 +465,7 @@ function AddedValueSection() {
                       "group grid min-w-0 content-start grid-rows-[46px_auto] gap-2 sm:grid-rows-[50px_auto]",
                       index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
                       index < 2
-                        ? "pb-4 sm:pb-8 md:pb-9"
+                        ? "-translate-y-2 pb-4 sm:pb-8 md:pb-9"
                         : "pt-0",
                     )}
                   >

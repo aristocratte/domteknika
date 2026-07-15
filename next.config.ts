@@ -76,6 +76,15 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   allowedDevOrigins: localDevOrigins,
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|fr|de|es|ko|zh)/patent",
+        destination: "/:locale/patents",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

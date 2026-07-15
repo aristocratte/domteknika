@@ -178,9 +178,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Softcar V1 Reveal",
+        title: "Softcar Reveal",
         description:
-          "The Softcar V1 revealed a new generation of clean urban vehicle, bringing decades of lightweight engineering and circular mobility research into a tangible product.",
+          "Softcar revealed a new generation of clean urban vehicle, bringing decades of lightweight engineering and circular mobility research into a tangible product.",
         icon: "globe",
       },
       today: {
@@ -264,9 +264,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Présentation de Softcar V1",
+        title: "Présentation de Softcar",
         description:
-          "Softcar V1 révèle une nouvelle génération de véhicule urbain propre, concrétisant des décennies d'ingénierie légère et de mobilité circulaire.",
+          "Softcar révèle une nouvelle génération de véhicule urbain propre, concrétisant des décennies d'ingénierie légère et de mobilité circulaire.",
         icon: "globe",
       },
       today: {
@@ -350,9 +350,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Vorstellung des Softcar V1",
+        title: "Vorstellung des Softcar",
         description:
-          "Softcar V1 zeigte eine neue Generation sauberer urbaner Fahrzeuge und machte Jahrzehnte leichter Ingenieurarbeit und Kreislaufmobilität greifbar.",
+          "Softcar zeigte eine neue Generation sauberer urbaner Fahrzeuge und machte Jahrzehnte leichter Ingenieurarbeit und Kreislaufmobilität greifbar.",
         icon: "globe",
       },
       today: {
@@ -436,9 +436,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Presentación de Softcar V1",
+        title: "Presentación de Softcar",
         description:
-          "Softcar V1 reveló una nueva generación de vehículo urbano limpio, materializando décadas de ingeniería ligera y movilidad circular.",
+          "Softcar reveló una nueva generación de vehículo urbano limpio, materializando décadas de ingeniería ligera y movilidad circular.",
         icon: "globe",
       },
       today: {
@@ -522,9 +522,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Softcar V1 공개",
+        title: "Softcar 공개",
         description:
-          "Softcar V1은 수십 년간 축적한 경량 엔지니어링과 순환 모빌리티 연구를 구현한 차세대 저환경 도시형 차량입니다.",
+          "Softcar는 수십 년간 축적한 경량 엔지니어링과 순환 모빌리티 연구를 구현한 차세대 저환경 도시형 차량입니다.",
         icon: "globe",
       },
       today: {
@@ -608,9 +608,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       softcarReveal: {
         year: "2024",
-        title: "Softcar V1 发布",
+        title: "Softcar 发布",
         description:
-          "Softcar V1 展示了新一代低环境影响城市车辆，将数十年的轻量化工程与循环出行研究转化为具体产品。",
+          "Softcar 展示了新一代低环境影响城市车辆，将数十年的轻量化工程与循环出行研究转化为具体产品。",
         icon: "globe",
       },
       today: {
@@ -774,8 +774,8 @@ const MEDIA: Record<
     images: [
       {
         src: "/assets/our-story/softcar-v1.png",
-        alt: "Yellow Softcar V1 reveal vehicle",
-        title: "Softcar V1",
+        alt: "Yellow Softcar reveal vehicle",
+        title: "Softcar",
         meta: "2024",
         width: 275,
         height: 183,
@@ -1239,9 +1239,9 @@ function TimelineMedia({
           <figure
             key={image.src}
             className={cn(
-              "relative max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)]",
+              "relative max-w-full overflow-hidden rounded-[7px] border border-border bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] focus-within:-translate-y-0.5 focus-within:border-brand/30 focus-within:shadow-[0_18px_42px_rgba(0,0,0,0.07)] [transition-timing-function:var(--ease-smooth)]",
               isInteractive &&
-                "group/location transition-shadow duration-300 hover:shadow-[0_20px_42px_rgba(0,0,0,0.14)]",
+                "group/location",
               image.className,
             )}
           >
