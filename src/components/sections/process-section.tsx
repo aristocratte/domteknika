@@ -43,7 +43,7 @@ export function ProcessSection() {
             delay={0.08}
             className="group relative z-20 my-0 min-h-[210px] overflow-hidden rounded-[15px] bg-brand p-4 text-white transition-shadow duration-300 md:min-h-[250px] md:p-6 lg:min-h-[220px] lg:p-5 lg:pt-6 lg:shadow-[0_24px_42px_rgba(0,0,0,0.24)] lg:hover:shadow-[0_34px_70px_rgba(0,0,0,0.28)] xl:min-h-[290px] min-[1800px]:!min-h-[310px] min-[1800px]:!rounded-[18px] min-[1800px]:!p-6 min-[2300px]:!min-h-[350px] min-[2300px]:!p-7"
           >
-            <div className="grid h-full gap-3 md:grid-cols-[0.72fr_1.28fr] md:items-stretch lg:grid-cols-[0.82fr_1.38fr] min-[1800px]:!gap-3 min-[2300px]:!gap-4">
+            <div className="grid h-full grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-stretch gap-2 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] sm:gap-3 md:grid-cols-[0.72fr_1.28fr] lg:grid-cols-[0.82fr_1.38fr] min-[1800px]:!gap-3 min-[2300px]:!gap-4">
               <div>
                 <AccentLine light />
                 <h2
@@ -57,14 +57,14 @@ export function ProcessSection() {
                 </p>
               </div>
 
-              <div className="relative h-full min-h-[150px] border-white/70 md:min-h-[190px] md:border-l lg:min-h-[150px] min-[1800px]:!min-h-[180px] min-[2300px]:!min-h-[200px]">
-                <div className="absolute inset-y-0 left-7 right-0 md:left-2 lg:left-8 xl:left-3">
+              <div className="relative h-full min-h-[180px] border-l border-white/70 sm:min-h-[190px] lg:min-h-[150px] min-[1800px]:!min-h-[180px] min-[2300px]:!min-h-[200px]">
+                <div className="absolute inset-y-0 left-0 right-0 sm:left-1 md:left-2 lg:left-8 xl:left-3">
                   <Image
                     src="/assets/schema-process.png"
                     alt=""
                     fill
                     sizes="(min-width: 2300px) 400px, (min-width: 1800px) 360px, 320px"
-                    className="scale-100 object-contain object-center md:scale-[1.2] lg:scale-[1.1] xl:scale-[1.2] min-[1800px]:scale-[1.22] min-[2300px]:scale-[1.24]"
+                    className="scale-[1.28] object-contain object-center sm:scale-[1.24] md:scale-[1.2] lg:scale-[1.1] xl:scale-[1.2] min-[1800px]:scale-[1.22] min-[2300px]:scale-[1.24]"
                   />
                 </div>
               </div>
