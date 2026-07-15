@@ -6052,7 +6052,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
   return (
     <>
       <section
-        className="relative min-h-[540px] overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[590px] md:pt-[152px] min-[2400px]:!min-h-[1060px] min-[2400px]:!pt-[152px]"
+        className="relative overflow-hidden border-b border-border bg-background pt-[132px] md:min-h-[590px] md:pt-[152px] min-[2400px]:!min-h-[1060px] min-[2400px]:!pt-[152px]"
         aria-labelledby="projects-page-title"
       >
         <Image
@@ -6116,7 +6116,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
         <Container
           size="wide"
-          className="relative z-10 flex min-h-[410px] items-start pb-10 min-[2400px]:!min-h-[780px] min-[2400px]:!pb-20"
+          className="relative z-10 flex items-start pb-14 md:min-h-[410px] md:pb-10 min-[2400px]:!min-h-[780px] min-[2400px]:!pb-20"
         >
           <Reveal className="max-w-[560px] pb-5 md:pb-0 min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">

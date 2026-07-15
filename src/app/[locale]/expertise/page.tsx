@@ -443,79 +443,81 @@ function AddedValueSection() {
           <div className="relative lg:min-h-0">
             <Reveal
               delay={0.1}
-              className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 lg:absolute lg:inset-0 lg:h-full motion-safe:hover:-translate-y-1"
+              className="relative transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] md:px-7 md:py-7 lg:absolute lg:inset-0 lg:h-full motion-safe:hover:-translate-y-1"
             >
-            <div
-              className="pointer-events-none absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-white/28 md:left-7 md:right-7"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute bottom-5 left-1/2 top-5 w-px -translate-x-1/2 bg-white/28 md:bottom-7 md:top-7"
-              aria-hidden
-            />
+              <div className="relative lg:h-full">
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-1/2 z-10 h-px -translate-y-1/2 bg-white/28"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-1/2 z-10 w-px -translate-x-1/2 bg-white/28"
+                  aria-hidden
+                />
 
-            <div className="relative grid h-full grid-cols-2 grid-rows-2">
-              {STATS.map((stat, index) => {
-                const isIndustries = stat.key === "industries";
+                <div className="relative grid grid-cols-2 auto-rows-fr lg:h-full lg:grid-rows-2">
+                  {STATS.map((stat, index) => {
+                    const isIndustries = stat.key === "industries";
 
-                return (
-                  <div
-                    key={stat.key}
-                    className={cn(
-                      "group grid min-w-0 content-start grid-rows-[46px_auto] gap-2 sm:grid-rows-[50px_auto]",
-                      index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
-                      index < 2
-                        ? "-translate-y-2 pb-4 sm:pb-8 md:pb-9"
-                        : "pt-0",
-                    )}
-                  >
-                    <div className="flex h-[46px] items-center sm:h-[50px]">
-                      <Image
-                        src={`/assets/${stat.icon}.png`}
-                        alt=""
-                        width={stat.width}
-                        height={stat.height}
-                        className="size-[38px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[44px] min-[1800px]:!size-[46px] min-[2400px]:!size-[50px]"
-                      />
-                    </div>
-                    <div className="min-w-0 self-start">
+                    return (
                       <div
+                        key={stat.key}
                         className={cn(
-                          isIndustries &&
-                            "flex items-baseline gap-1.5 whitespace-nowrap sm:gap-2",
+                          "group flex min-h-[122px] min-w-0 flex-col justify-center gap-1.5 py-4 sm:min-h-[138px] sm:gap-2 sm:py-5 lg:grid lg:min-h-0 lg:content-start lg:grid-rows-[50px_auto] lg:justify-stretch lg:py-0",
+                          index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
+                          index < 2
+                            ? "lg:-translate-y-2 lg:pb-9"
+                            : "lg:pt-0",
                         )}
                       >
-                        <strong
-                          className={cn(
-                            "block max-w-full font-extrabold leading-none tracking-normal",
-                            isIndustries
-                              ? "text-[clamp(16px,4.1vw,21px)] sm:text-[clamp(18px,2.2vw,22px)] lg:text-[20px] min-[1800px]:!text-[22px] min-[2400px]:!text-[24px]"
-                              : "text-[clamp(21px,5.2vw,26px)] sm:text-[clamp(22px,2.7vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]",
-                          )}
-                        >
-                          {t(`stats.${stat.key}.value` as never)}
+                        <div className="flex h-[40px] items-center sm:h-[46px] lg:h-[50px]">
+                          <Image
+                            src={`/assets/${stat.icon}.png`}
+                            alt=""
+                            width={stat.width}
+                            height={stat.height}
+                            className="size-[34px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[40px] md:size-[42px] lg:size-[44px] min-[1800px]:!size-[46px] min-[2400px]:!size-[50px]"
+                          />
+                        </div>
+                        <div className="min-w-0 self-start">
+                          <div
+                            className={cn(
+                              isIndustries &&
+                                "flex items-baseline gap-1.5 whitespace-nowrap sm:gap-2",
+                            )}
+                          >
+                            <strong
+                              className={cn(
+                                "block max-w-full font-extrabold leading-none tracking-normal",
+                                isIndustries
+                                  ? "text-[clamp(14px,3.8vw,18px)] sm:text-[clamp(17px,2.2vw,21px)] lg:text-[20px] min-[1800px]:!text-[22px] min-[2400px]:!text-[24px]"
+                                  : "text-[clamp(20px,5vw,24px)] sm:text-[clamp(22px,2.7vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]",
+                              )}
+                            >
+                              {t(`stats.${stat.key}.value` as never)}
+                              {isIndustries && (
+                                <span className="ml-1.5 sm:ml-2">
+                                  {t(`stats.${stat.key}.label` as never)}
+                                </span>
+                              )}
+                            </strong>
+                            {!isIndustries && (
+                              <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[13px] min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]">
+                                {t(`stats.${stat.key}.label` as never)}
+                              </span>
+                            )}
+                          </div>
                           {isIndustries && (
-                            <span className="ml-1.5 sm:ml-2">
-                              {t(`stats.${stat.key}.label` as never)}
+                            <span className="mt-1.5 block max-w-[31ch] text-[10px] font-medium leading-[1.16] text-white/88 sm:mt-2 sm:text-[12px] md:text-[12px] min-[1800px]:!text-[13px] min-[2400px]:!text-[14px]">
+                              {t("stats.industries.detail")}
                             </span>
                           )}
-                        </strong>
-                        {!isIndustries && (
-                          <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[13px] min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]">
-                            {t(`stats.${stat.key}.label` as never)}
-                          </span>
-                        )}
+                        </div>
                       </div>
-                      {isIndustries && (
-                        <span className="mt-1.5 block max-w-[31ch] text-[11.5px] font-medium leading-[1.18] text-white/88 sm:mt-2 sm:text-[12px] md:text-[12px] min-[1800px]:!text-[13px] min-[2400px]:!text-[14px]">
-                          {t("stats.industries.detail")}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                    );
+                  })}
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
