@@ -185,6 +185,7 @@ export function BrainstormingCardSwap() {
                     src={item.image}
                     alt={title}
                     fill
+                    loading="eager"
                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 420px, 460px"
                     className="object-contain"
                     draggable={false}

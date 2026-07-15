@@ -17,6 +17,8 @@
   background: #000;
   transform: translate(-50%, -50%);
   will-change: transform;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
   visibility: visible;
   opacity: 1;
 }

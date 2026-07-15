@@ -207,19 +207,29 @@ const CardSwap = ({
   // eslint-disable-next-line react-hooks/refs
   const rendered = childArr.map((child, i) =>
     isValidElement(child)
-      ? cloneElement(child, {
-          key: i,
-          ref: node => {
-            refs[i].current = node;
-          },
-          style: { width, height, ...(child.props.style ?? {}) },
-          onPointerDown: e => {
-            e.stopPropagation();
-            child.props.onPointerDown?.(e);
-            onCardClick?.(i);
-            manualSwapRef.current?.();
-          }
-        })
+      ? (() => {
+          const slot = makeSlot(i, cardDistance, verticalDistance, childArr.length);
+
+          return cloneElement(child, {
+            key: i,
+            ref: node => {
+              refs[i].current = node;
+            },
+            style: {
+              width,
+              height,
+              zIndex: slot.zIndex,
+              transform: `translate(-50%, -50%) translate(${slot.x}px, ${slot.y}px) scale(${slot.scale}) skewY(${skewAmount}deg)`,
+              ...(child.props.style ?? {})
+            },
+            onPointerDown: e => {
+              e.stopPropagation();
+              child.props.onPointerDown?.(e);
+              onCardClick?.(i);
+              manualSwapRef.current?.();
+            }
+          });
+        })()
       : child
   );
 
