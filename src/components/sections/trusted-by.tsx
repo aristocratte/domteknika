@@ -17,7 +17,17 @@ const LOGOS = [
   { name: "GIN Kiteboarding", src: "logo-gin", width: 169, height: 113 },
 ] as const;
 
-export function TrustedBy({ density = "default" }: { density?: "default" | "compact" }) {
+const TRUSTED_BY_ENABLED = false;
+
+type TrustedByProps = {
+  density?: "default" | "compact";
+};
+
+export function TrustedBy(props: TrustedByProps) {
+  return TRUSTED_BY_ENABLED ? <TrustedByContent {...props} /> : null;
+}
+
+function TrustedByContent({ density = "default" }: TrustedByProps) {
   const t = useTranslations("TrustedBy");
   const logos = [...LOGOS, ...LOGOS];
   const compact = density === "compact";

@@ -6536,33 +6536,14 @@ function ProjectsStatsSection({
                   height={stat.height}
                   className="h-[36px] w-[40px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[40px] sm:w-[44px] min-[1180px]:h-[30px] min-[1180px]:w-[32px] min-[2400px]:!h-[46px] min-[2400px]:!w-[48px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
-                <div className="min-w-0 min-[1180px]:min-h-[44px] min-[2400px]:!min-h-[58px]">
-                  {stat.detail ? (
-                    <div className="flex flex-col items-center min-[1180px]:items-start">
-                      <strong className="block whitespace-nowrap text-[18px] font-extrabold leading-[1.02] text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]">
-                        {stat.value}
-                      </strong>
-                      <strong className="block whitespace-nowrap text-[18px] font-extrabold leading-[1.02] text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]">
-                        {stat.label}
-                      </strong>
-                    </div>
-                  ) : (
-                    <>
-                      <strong
-                        className="block max-w-full whitespace-nowrap text-[18px] font-extrabold leading-none text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]"
-                      >
-                        {stat.value}
-                      </strong>
-                      <span className="mt-0.5 block max-w-full break-words text-[12px] font-medium leading-tight text-muted-foreground [hyphens:auto] min-[1180px]:text-[11px] 2xl:text-[12px] min-[2400px]:!mt-1 min-[2400px]:!text-[15px]">
-                        {stat.label}
-                      </span>
-                    </>
-                  )}
-                  {stat.detail && (
-                    <span className="mt-1 block text-[9px] font-medium leading-[1.3] text-muted-foreground sm:text-[10px] min-[1180px]:text-[8px] 2xl:text-[9px] min-[2400px]:!text-[11px]">
-                      {stat.detail}
-                    </span>
-                  )}
+                <div className="min-w-0 min-[1180px]:grid min-[1180px]:h-[48px] min-[1180px]:grid-rows-[22px_26px] min-[1180px]:content-center min-[2400px]:!h-[60px] min-[2400px]:!grid-rows-[28px_32px]">
+                  <strong className="block max-w-full whitespace-nowrap text-[18px] font-extrabold leading-none text-foreground sm:text-[19px] min-[1180px]:flex min-[1180px]:h-[22px] min-[1180px]:items-center min-[1180px]:text-[17px] min-[1180px]:leading-[22px] 2xl:text-[18px] min-[2400px]:!h-[28px] min-[2400px]:!text-[22px] min-[2400px]:!leading-[28px]">
+                    {stat.value}
+                  </strong>
+                  <span className="mt-0.5 block max-w-full break-words text-[12px] font-medium leading-tight text-muted-foreground [hyphens:auto] min-[1180px]:mt-0 min-[1180px]:flex min-[1180px]:h-[26px] min-[1180px]:items-start min-[1180px]:text-[11px] min-[1180px]:leading-[14px] 2xl:text-[12px] min-[2400px]:!h-[32px] min-[2400px]:!text-[15px] min-[2400px]:!leading-[17px]">
+                    {stat.label}
+                    {stat.detail ? ` ${stat.detail}` : null}
+                  </span>
                 </div>
               </Reveal>
             );

@@ -177,30 +177,6 @@ export function ProjectsSection() {
                 ))}
               </CarouselContent>
             </Carousel>
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-[min(14vw,170px)]"
-              style={{
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                maskImage:
-                  "linear-gradient(90deg, black 0%, rgb(0 0 0 / 0.82) 28%, rgb(0 0 0 / 0.35) 70%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(90deg, black 0%, rgb(0 0 0 / 0.82) 28%, rgb(0 0 0 / 0.35) 70%, transparent 100%)",
-              }}
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-[min(14vw,170px)]"
-              style={{
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                maskImage:
-                  "linear-gradient(270deg, black 0%, rgb(0 0 0 / 0.82) 28%, rgb(0 0 0 / 0.35) 70%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(270deg, black 0%, rgb(0 0 0 / 0.82) 28%, rgb(0 0 0 / 0.35) 70%, transparent 100%)",
-              }}
-              aria-hidden
-            />
             <ProjectArrow
               label={t("previous")}
               className="left-[calc(50%-58px)]"

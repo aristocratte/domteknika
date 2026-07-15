@@ -408,20 +408,20 @@ function AddedValueSection() {
         className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6 min-[1800px]:!max-w-[1560px]"
       >
         <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch min-[1800px]:!grid-cols-[1.25fr_1fr] min-[1800px]:!gap-8">
-          <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-7">
+          <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-5 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-6">
             <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground min-[1800px]:!text-[18px]">
               <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
               {t("eyebrow")}
             </div>
 
-            <div className="mt-7 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0">
               {VALUE_ITEMS.map((item, index) => {
                 return (
                   <Reveal
                     as="article"
                     key={item.key}
                     delay={index * 0.04}
-                    className="group transform-gpu rounded-[7px] border border-border bg-background/45 px-3 py-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_18px_24px_-18px_rgba(0,0,0,0.22)] sm:px-5 sm:py-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none"
+                    className="group flex transform-gpu flex-col items-center rounded-[7px] border border-border bg-background/45 px-3 py-4 text-center transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_18px_24px_-18px_rgba(0,0,0,0.22)] sm:px-5 sm:py-5 lg:border-y-0 lg:border-r-0 lg:border-l lg:border-border lg:bg-transparent lg:px-7 lg:py-1 lg:shadow-none"
                   >
                     <Image
                       src={`/assets/${item.icon}.png`}
@@ -442,10 +442,11 @@ function AddedValueSection() {
             </div>
           </Reveal>
 
-          <Reveal
-            delay={0.1}
-            className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 lg:h-[360px] min-[1800px]:!h-[380px] min-[2400px]:!h-[420px] motion-safe:hover:-translate-y-1"
-          >
+          <div className="relative lg:min-h-0">
+            <Reveal
+              delay={0.1}
+              className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 lg:absolute lg:inset-0 lg:h-full motion-safe:hover:-translate-y-1"
+            >
             <div
               className="pointer-events-none absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-white/28 md:left-7 md:right-7"
               aria-hidden
@@ -457,65 +458,58 @@ function AddedValueSection() {
 
             <div className="relative grid h-full grid-cols-2 grid-rows-2">
               {STATS.map((stat, index) => {
-                const isWideStat = stat.key === "worldwide";
+                const isIndustries = stat.key === "industries";
 
                 return (
                   <div
                     key={stat.key}
                     className={cn(
-                      "group flex min-w-0 flex-col justify-center",
-                      isWideStat
-                        ? "gap-2"
-                        : stat.key === "industries"
-                          ? "gap-1 sm:gap-2.5"
-                          : "gap-2.5",
+                      "group grid min-w-0 content-start grid-rows-[46px_auto] gap-2 sm:grid-rows-[50px_auto]",
                       index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
                       index < 2
                         ? "pb-4 sm:pb-8 md:pb-9"
-                        : "pt-4 sm:pt-8 md:pt-9",
+                        : "pt-0",
                     )}
                   >
-                    <Image
-                      src={`/assets/${stat.icon}.png`}
-                      alt=""
-                      width={stat.width}
-                      height={stat.height}
-                      className={cn(
-                        "shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[46px] min-[1800px]:!size-[48px] min-[2400px]:!size-[54px]",
-                        stat.key === "industries" ? "size-[32px]" : "size-[36px]",
-                      )}
-                    />
-                    <div className="min-w-0">
+                    <div className="flex h-[46px] items-center sm:h-[50px]">
+                      <Image
+                        src={`/assets/${stat.icon}.png`}
+                        alt=""
+                        width={stat.width}
+                        height={stat.height}
+                        className="size-[38px] shrink-0 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:size-[42px] md:size-[44px] min-[1800px]:!size-[46px] min-[2400px]:!size-[50px]"
+                      />
+                    </div>
+                    <div className="min-w-0 self-start">
                       <div
                         className={cn(
-                          stat.key === "industries" &&
-                            "flex flex-col items-start gap-1",
+                          isIndustries &&
+                            "flex items-baseline gap-1.5 whitespace-nowrap sm:gap-2",
                         )}
                       >
                         <strong
-                          className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
-                          isWideStat
-                            ? "text-[clamp(18px,4.3vw,23px)] sm:text-[clamp(20px,2.25vw,23px)] lg:text-[22px] min-[1800px]:!text-[24px] min-[2400px]:!text-[27px]"
-                            : stat.key === "industries"
-                              ? "text-[clamp(22px,5.2vw,27px)] sm:text-[clamp(23px,3vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]"
-                            : "text-[clamp(23px,5.8vw,28px)] sm:text-[clamp(24px,3vw,29px)] lg:text-[26px] min-[1800px]:!text-[28px] min-[2400px]:!text-[32px]"
-                        }`}
-                        >
-                          {t(`stats.${stat.key}.value` as never)}
-                        </strong>
-                        <span
                           className={cn(
-                            "block font-medium text-white/88",
-                            stat.key === "industries"
-                              ? "max-w-full text-[clamp(19px,4.6vw,24px)] font-extrabold leading-[1.02] sm:text-[clamp(20px,2.5vw,24px)] lg:text-[22px] min-[1800px]:!text-[24px] min-[2400px]:!text-[27px]"
-                              : "mt-1.5 text-[12px] leading-tight sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]",
+                            "block max-w-full font-extrabold leading-none tracking-normal",
+                            isIndustries
+                              ? "text-[clamp(16px,4.1vw,21px)] sm:text-[clamp(18px,2.2vw,22px)] lg:text-[20px] min-[1800px]:!text-[22px] min-[2400px]:!text-[24px]"
+                              : "text-[clamp(21px,5.2vw,26px)] sm:text-[clamp(22px,2.7vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]",
                           )}
                         >
-                          {t(`stats.${stat.key}.label` as never)}
-                        </span>
+                          {t(`stats.${stat.key}.value` as never)}
+                          {isIndustries && (
+                            <span className="ml-1.5 sm:ml-2">
+                              {t(`stats.${stat.key}.label` as never)}
+                            </span>
+                          )}
+                        </strong>
+                        {!isIndustries && (
+                          <span className="mt-1.5 block text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[13px] min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]">
+                            {t(`stats.${stat.key}.label` as never)}
+                          </span>
+                        )}
                       </div>
-                      {stat.key === "industries" && (
-                        <span className="mt-1.5 block max-w-[30ch] text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]">
+                      {isIndustries && (
+                        <span className="mt-1.5 block max-w-[31ch] text-[11.5px] font-medium leading-[1.18] text-white/88 sm:mt-2 sm:text-[12px] md:text-[12px] min-[1800px]:!text-[13px] min-[2400px]:!text-[14px]">
                           {t("stats.industries.detail")}
                         </span>
                       )}
@@ -524,7 +518,8 @@ function AddedValueSection() {
                 );
               })}
             </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </Container>
     </section>
