@@ -318,13 +318,6 @@ function isTrustedBrowserRequest(request: Request) {
     "https://domteknika.ch",
     "https://www.domteknika.ch",
   ]);
-  const vercelUrl = process.env.VERCEL_URL?.trim();
-  if (vercelUrl) allowedOrigins.add(`https://${vercelUrl}`);
-
-  for (const configuredOrigin of (process.env.CONTACT_ALLOWED_ORIGINS ?? "").split(",")) {
-    const normalizedOrigin = normalizeOrigin(configuredOrigin);
-    if (normalizedOrigin) allowedOrigins.add(normalizedOrigin);
-  }
 
   return allowedOrigins.has(origin.origin);
 }
@@ -336,28 +329,10 @@ function isLocalDevelopmentOrigin(origin: URL) {
   );
 }
 
-function normalizeOrigin(value: string) {
-  const trimmed = value.trim();
-  if (!trimmed) return null;
-
-  try {
-    const url = new URL(trimmed);
-    if (url.protocol !== "https:" && url.protocol !== "http:") return null;
-    if (process.env.NODE_ENV === "production" && url.protocol !== "https:") {
-      return null;
-    }
-    return url.origin;
-  } catch {
-    return null;
-  }
-}
-
 function getClientFingerprint(request: Request) {
-  const ip = getFirstHeaderValue(
-    request.headers.get("x-vercel-forwarded-for") ??
-      request.headers.get("x-real-ip") ??
-      request.headers.get("x-forwarded-for"),
-  );
+  const ip =
+    getLastHeaderValue(request.headers.get("x-forwarded-for")) ||
+    getLastHeaderValue(request.headers.get("x-real-ip"));
   const fallback = [
     request.headers.get("user-agent")?.slice(0, 256) ?? "unknown",
     request.headers.get("accept-language")?.slice(0, 128) ?? "unknown",
@@ -369,8 +344,8 @@ function getClientFingerprint(request: Request) {
     .slice(0, 40);
 }
 
-function getFirstHeaderValue(value: string | null) {
-  return value?.split(",", 1)[0]?.trim().slice(0, 128) ?? "";
+function getLastHeaderValue(value: string | null) {
+  return value?.split(",").at(-1)?.trim().slice(0, 128) ?? "";
 }
 
 function checkRateLimit(key: string, now = Date.now()): RateLimitResult {
