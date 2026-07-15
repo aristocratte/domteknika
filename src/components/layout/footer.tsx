@@ -58,8 +58,8 @@ export function Footer() {
               <FooterAnchor href="tel:+41327517146">
                 +41 32 751 71 46
               </FooterAnchor>
-              <FooterAnchor href="mailto:info@domteknika.ch">
-                info@domteknika.ch
+              <FooterAnchor href="mailto:contact@domteknika.ch">
+                contact@domteknika.ch
               </FooterAnchor>
             </div>
           </address>

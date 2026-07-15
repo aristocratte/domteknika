@@ -77,7 +77,7 @@
       },
       "email": {
         "title": "Email us",
-        "body": "info@domteknika.ch",
+        "body": "contact@domteknika.ch",
         "action": "Write us an email"
       },
       "phone": {
@@ -95,8 +95,12 @@
       "phone": "Phone (optional)",
       "message": "Your message...",
       "submit": "Send message",
-      "secure": "Your information is secure and will never be shared.",
-      "success": "Your message is ready to send. We will get back to you as soon as possible."
+      "sending": "Sending...",
+      "secure": "Your information is transmitted securely and used to process your request.",
+      "success": "Your message has been sent. We will get back to you as soon as possible.",
+      "invalid": "Please check the information you entered.",
+      "rateLimited": "Too many attempts. Please wait a few minutes.",
+      "error": "The message could not be sent. Please try again later."
     },
     "Map": {
       "eyebrow": "Find us",

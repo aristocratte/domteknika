@@ -77,7 +77,7 @@
       },
       "email": {
         "title": "给我们发邮件",
-        "body": "info@domteknika.ch",
+        "body": "contact@domteknika.ch",
         "action": "发送邮件"
       },
       "phone": {
@@ -95,8 +95,12 @@
       "phone": "电话（可选）",
       "message": "请输入您的留言...",
       "submit": "发送留言",
-      "secure": "您的信息会被安全保存，绝不会对外分享。",
-      "success": "您的留言已准备发送。我们会尽快回复您。"
+      "sending": "正在发送...",
+      "secure": "您的信息将被安全传输，并用于处理您的咨询。",
+      "success": "您的留言已成功发送。我们会尽快回复您。",
+      "invalid": "请检查您填写的信息。",
+      "rateLimited": "尝试次数过多，请等待几分钟后重试。",
+      "error": "留言未能发送，请稍后重试。"
     },
     "Map": {
       "eyebrow": "找到我们",

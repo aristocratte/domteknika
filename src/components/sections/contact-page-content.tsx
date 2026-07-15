@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/container";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -21,7 +21,7 @@ const CONTACT_CARDS = [
     icon: "mail",
     width: 44,
     height: 33,
-    href: "mailto:info@domteknika.ch",
+    href: "mailto:contact@domteknika.ch",
     external: false,
   },
   {
@@ -36,6 +36,7 @@ const CONTACT_CARDS = [
 
 export function ContactPageContent() {
   const t = useTranslations("ContactPage");
+  const locale = useLocale();
 
   const formCopy = {
     title: t("Form.title"),
@@ -46,7 +47,11 @@ export function ContactPageContent() {
     phone: t("Form.phone"),
     message: t("Form.message"),
     submit: t("Form.submit"),
+    sending: t("Form.sending"),
     success: t("Form.success"),
+    invalid: t("Form.invalid"),
+    rateLimited: t("Form.rateLimited"),
+    error: t("Form.error"),
   };
 
   return (
@@ -127,7 +132,7 @@ export function ContactPageContent() {
             </div>
 
             <Reveal className="lg:pt-[234px] min-[1800px]:!pt-[260px] min-[2400px]:!pt-[310px]" delay={0.08}>
-              <ContactForm copy={formCopy} />
+              <ContactForm copy={formCopy} locale={locale} />
             </Reveal>
 
             <div className="hidden min-h-[410px] lg:block min-[1800px]:!min-h-[620px] min-[2400px]:!min-h-[720px]" aria-hidden />
