@@ -316,6 +316,7 @@ function isTrustedBrowserRequest(request: Request) {
 
   const allowedOrigins = new Set([
     "https://domteknika.ch",
+    "https://test.domteknika.ch",
     "https://www.domteknika.ch",
   ]);
 
