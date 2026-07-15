@@ -408,13 +408,13 @@ function AddedValueSection() {
         className="max-w-[1440px] px-4 sm:px-6 lg:px-4 xl:px-6 min-[1800px]:!max-w-[1560px]"
       >
         <div className="grid gap-7 lg:grid-cols-[1.4fr_0.95fr] lg:items-stretch min-[1800px]:!grid-cols-[1.25fr_1fr] min-[1800px]:!gap-8">
-          <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-7 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-8">
+          <Reveal className="transform-gpu rounded-[7px] border border-border bg-white px-6 py-6 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] md:px-9 md:py-7">
             <div className="flex items-center gap-4 text-[16px] font-extrabold leading-none text-foreground min-[1800px]:!text-[18px]">
               <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px]" aria-hidden />
               {t("eyebrow")}
             </div>
 
-            <div className="mt-9 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0">
+            <div className="mt-7 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0">
               {VALUE_ITEMS.map((item, index) => {
                 return (
                   <Reveal
@@ -444,7 +444,7 @@ function AddedValueSection() {
 
           <Reveal
             delay={0.1}
-            className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 motion-safe:hover:-translate-y-1"
+            className="relative aspect-[1.03/1] transform-gpu overflow-hidden rounded-[7px] bg-brand px-5 py-5 text-white shadow-[0_18px_38px_rgba(0,0,0,0.16)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.22)] min-[520px]:aspect-auto md:px-7 md:py-7 lg:h-[360px] min-[1800px]:!h-[380px] min-[2400px]:!h-[420px] motion-safe:hover:-translate-y-1"
           >
             <div
               className="pointer-events-none absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-white/28 md:left-7 md:right-7"
@@ -489,16 +489,16 @@ function AddedValueSection() {
                       <div
                         className={cn(
                           stat.key === "industries" &&
-                            "flex flex-nowrap items-baseline gap-x-2",
+                            "flex flex-col items-start gap-1",
                         )}
                       >
                         <strong
                           className={`block max-w-full font-extrabold leading-[0.96] tracking-normal ${
                           isWideStat
-                            ? "text-[clamp(18px,4.3vw,24px)] sm:text-[clamp(20px,2.25vw,24px)] lg:text-[clamp(20px,1.55vw,24px)] 2xl:text-[25px] min-[1800px]:!text-[27px] min-[2400px]:!text-[30px]"
+                            ? "text-[clamp(18px,4.3vw,23px)] sm:text-[clamp(20px,2.25vw,23px)] lg:text-[22px] min-[1800px]:!text-[24px] min-[2400px]:!text-[27px]"
                             : stat.key === "industries"
-                              ? "text-[23px] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
-                            : "text-[clamp(24px,6.2vw,30px)] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
+                              ? "text-[clamp(22px,5.2vw,27px)] sm:text-[clamp(23px,3vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]"
+                            : "text-[clamp(23px,5.8vw,28px)] sm:text-[clamp(24px,3vw,29px)] lg:text-[26px] min-[1800px]:!text-[28px] min-[2400px]:!text-[32px]"
                         }`}
                         >
                           {t(`stats.${stat.key}.value` as never)}
@@ -507,7 +507,7 @@ function AddedValueSection() {
                           className={cn(
                             "block font-medium text-white/88",
                             stat.key === "industries"
-                              ? "whitespace-nowrap text-[23px] font-extrabold leading-[0.96] sm:text-[clamp(24px,3.25vw,32px)] lg:text-[clamp(24px,2.35vw,30px)] min-[1800px]:!text-[34px] min-[2400px]:!text-[38px]"
+                              ? "max-w-full text-[clamp(19px,4.6vw,24px)] font-extrabold leading-[1.02] sm:text-[clamp(20px,2.5vw,24px)] lg:text-[22px] min-[1800px]:!text-[24px] min-[2400px]:!text-[27px]"
                               : "mt-1.5 text-[12px] leading-tight sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]",
                           )}
                         >
@@ -515,7 +515,7 @@ function AddedValueSection() {
                         </span>
                       </div>
                       {stat.key === "industries" && (
-                        <span className="mt-2 block max-w-[30ch] text-[8px] font-medium leading-[1.35] text-white/82 sm:text-[9px] md:text-[10px] min-[1800px]:!text-[11px] min-[2400px]:!text-[12px]">
+                        <span className="mt-1.5 block max-w-[30ch] text-[12px] font-medium leading-tight text-white/88 sm:mt-2 sm:text-[13px] md:text-[14px] min-[1800px]:!text-[15px] min-[2400px]:!text-[16px]">
                           {t("stats.industries.detail")}
                         </span>
                       )}

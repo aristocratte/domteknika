@@ -6536,7 +6536,7 @@ function ProjectsStatsSection({
                   height={stat.height}
                   className="h-[36px] w-[40px] object-contain transition-transform duration-500 group-hover/stat:-translate-y-1 sm:h-[40px] sm:w-[44px] min-[1180px]:h-[30px] min-[1180px]:w-[32px] min-[2400px]:!h-[46px] min-[2400px]:!w-[48px] motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]"
                 />
-                <div className="min-w-0">
+                <div className="min-w-0 min-[1180px]:min-h-[44px] min-[2400px]:!min-h-[58px]">
                   {stat.detail ? (
                     <div className="flex flex-col items-center min-[1180px]:items-start">
                       <strong className="block whitespace-nowrap text-[18px] font-extrabold leading-[1.02] text-foreground sm:text-[19px] min-[1180px]:text-[17px] 2xl:text-[18px] min-[2400px]:!text-[22px]">

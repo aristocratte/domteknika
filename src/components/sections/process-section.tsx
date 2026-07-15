@@ -88,7 +88,7 @@ export function ProcessSection() {
               </div>
 
               <div className="flex min-w-0 flex-col border-l border-border lg:flex-1 lg:border-l-0">
-                <div className="relative grid h-full grid-rows-3 bg-white before:absolute before:left-3 before:right-3 before:top-0 before:hidden before:h-px before:bg-border sm:before:left-4 sm:before:right-4 lg:mb-4 lg:mt-auto lg:h-auto lg:grid-cols-3 lg:grid-rows-none lg:before:left-5 lg:before:right-5 lg:before:block min-[1800px]:!mb-5">
+                <div className="relative grid h-full grid-rows-3 bg-white before:absolute before:left-3 before:right-3 before:top-0 before:hidden before:h-px before:bg-border sm:before:left-4 sm:before:right-4 lg:mt-auto lg:h-auto lg:grid-cols-3 lg:grid-rows-none lg:before:left-5 lg:before:right-5 lg:before:block">
                   <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
                   <Stat
                     label={t("stats.sectors.label")}
@@ -135,14 +135,14 @@ function Stat({
 }) {
   return (
     <div
-      className={`relative flex min-h-[58px] items-center px-4 py-2.5 lg:block lg:min-h-[64px] lg:border-t-0 lg:px-3 lg:py-2 xl:px-3 min-[1800px]:min-h-[84px] min-[1800px]:px-5 min-[1800px]:py-3 min-[2300px]:!min-h-[88px] min-[2300px]:!px-5 min-[2300px]:!py-3 ${
+      className={`relative flex min-h-[58px] items-center px-4 py-2.5 lg:block lg:min-h-[72px] lg:border-t-0 lg:px-3 lg:py-2 xl:px-3 min-[1800px]:min-h-[84px] min-[1800px]:px-5 min-[1800px]:py-3 min-[2300px]:!min-h-[88px] min-[2300px]:!px-5 min-[2300px]:!py-3 ${
         divider
           ? "border-t border-border lg:border-t-0 lg:before:absolute lg:before:bottom-4 lg:before:left-0 lg:before:top-4 lg:before:w-px lg:before:bg-border"
-          : "pt-3 lg:pt-4"
+          : ""
       }`}
     >
       <div className="flex w-full items-center justify-between gap-4 lg:block">
-        <div>
+        <div className="lg:pt-3 min-[1800px]:!pt-4">
           <strong className="block text-[18px] font-extrabold leading-[1.08] text-brand lg:text-[18px] xl:text-[19px] min-[1800px]:text-[27px] min-[2300px]:!text-[29px]">
             {value}
           </strong>
@@ -156,7 +156,7 @@ function Stat({
             alt=""
             width={37}
             height={37}
-            className="size-7 shrink-0 lg:absolute lg:right-3 lg:top-1/2 lg:size-5 lg:-translate-y-1/2 min-[1800px]:right-5 min-[1800px]:size-[32px] min-[2300px]:!right-5 min-[2300px]:!size-[34px]"
+            className="size-7 shrink-0 lg:absolute lg:right-3 lg:top-2 lg:size-7 min-[1800px]:!right-5 min-[1800px]:!top-3 min-[1800px]:!size-[32px] min-[2300px]:!right-5 min-[2300px]:!size-[34px]"
           />
         )}
       </div>
