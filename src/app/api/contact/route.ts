@@ -8,6 +8,7 @@ export const maxDuration = 10;
 
 const CONTACT_ADDRESS = "contact@domteknika.ch";
 const CONTACT_FROM = `DOMTEKNIKA Website <${CONTACT_ADDRESS}>`;
+const CONFIRMATION_FROM = `DOMTEKNIKA <${CONTACT_ADDRESS}>`;
 const MAX_BODY_BYTES = 16 * 1024;
 const RESEND_TIMEOUT_MS = 8_000;
 const RATE_LIMIT_MAX_KEYS = 5_000;
@@ -18,7 +19,8 @@ const RATE_LIMIT_RULES = [
 const MAX_RATE_LIMIT_WINDOW_MS = Math.max(
   ...RATE_LIMIT_RULES.map((rule) => rule.windowMs),
 );
-const ALLOWED_LOCALES = new Set(["de", "en", "es", "fr", "ko", "zh"]);
+const CONTACT_LOCALES = ["de", "en", "es", "fr", "ko", "zh"] as const;
+const ALLOWED_LOCALES = new Set<string>(CONTACT_LOCALES);
 const ALLOWED_FIELDS = new Set([
   "company",
   "email",
@@ -36,12 +38,87 @@ const EMAIL_PATTERN = /^[A-Z0-9.!#$%&'*+/=?^_{}|~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[
 const PHONE_PATTERN = /^[+()\d\s./-]+$/u;
 const UUID_V4_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
 
+type ContactLocale = (typeof CONTACT_LOCALES)[number];
+
+const CONFIRMATION_COPY: Record<
+  ContactLocale,
+  {
+    subject: string;
+    greeting: (firstName: string) => string;
+    message: string;
+    notice: string;
+    closing: string;
+    team: string;
+  }
+> = {
+  de: {
+    subject: "Wir haben Ihre Nachricht erhalten",
+    greeting: (firstName) => `Guten Tag ${firstName},`,
+    message:
+      "Vielen Dank für Ihre Kontaktaufnahme mit DOMTEKNIKA. Wir haben Ihre Nachricht erhalten und werden uns so bald wie möglich bei Ihnen melden.",
+    notice:
+      "Diese automatische Bestätigung wurde gesendet, weil Ihre E-Mail-Adresse im Kontaktformular auf domteknika.ch angegeben wurde. Falls Sie diese Anfrage nicht gesendet haben, können Sie diese Nachricht ignorieren.",
+    closing: "Freundliche Grüsse",
+    team: "Ihr DOMTEKNIKA-Team",
+  },
+  en: {
+    subject: "We have received your message",
+    greeting: (firstName) => `Hello ${firstName},`,
+    message:
+      "Thank you for contacting DOMTEKNIKA. We have received your message and our team will get back to you as soon as possible.",
+    notice:
+      "This automatic confirmation was sent because your email address was entered in the contact form on domteknika.ch. If you did not submit this request, you can ignore this message.",
+    closing: "Best regards,",
+    team: "The DOMTEKNIKA team",
+  },
+  es: {
+    subject: "Hemos recibido su mensaje",
+    greeting: (firstName) => `Hola ${firstName},`,
+    message:
+      "Gracias por ponerse en contacto con DOMTEKNIKA. Hemos recibido su mensaje y nuestro equipo le responderá lo antes posible.",
+    notice:
+      "Esta confirmación automática se envió porque su dirección de correo electrónico se introdujo en el formulario de contacto de domteknika.ch. Si no realizó esta solicitud, puede ignorar este mensaje.",
+    closing: "Un cordial saludo,",
+    team: "El equipo de DOMTEKNIKA",
+  },
+  fr: {
+    subject: "Nous avons bien reçu votre message",
+    greeting: (firstName) => `Bonjour ${firstName},`,
+    message:
+      "Merci d’avoir contacté DOMTEKNIKA. Nous avons bien reçu votre message et notre équipe vous répondra dans les meilleurs délais.",
+    notice:
+      "Cette confirmation automatique vous est envoyée parce que votre adresse e-mail a été saisie dans le formulaire de contact de domteknika.ch. Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer ce message.",
+    closing: "Meilleures salutations,",
+    team: "L’équipe DOMTEKNIKA",
+  },
+  ko: {
+    subject: "문의가 접수되었습니다",
+    greeting: (firstName) => `${firstName}님, 안녕하세요.`,
+    message:
+      "DOMTEKNIKA에 문의해 주셔서 감사합니다. 메시지가 정상적으로 접수되었으며 담당자가 가능한 한 빨리 답변드리겠습니다.",
+    notice:
+      "이 자동 확인 메일은 domteknika.ch 문의 양식에 귀하의 이메일 주소가 입력되어 발송되었습니다. 문의를 제출하지 않으셨다면 이 메일을 무시하셔도 됩니다.",
+    closing: "감사합니다.",
+    team: "DOMTEKNIKA 팀",
+  },
+  zh: {
+    subject: "我们已收到您的留言",
+    greeting: (firstName) => `${firstName}，您好！`,
+    message:
+      "感谢您联系 DOMTEKNIKA。我们已收到您的留言，团队将尽快回复您。",
+    notice:
+      "由于您的电子邮箱地址被填写在 domteknika.ch 的联系表单中，系统向您发送了此自动确认邮件。如果并非您本人提交，请忽略此邮件。",
+    closing: "此致",
+    team: "DOMTEKNIKA 团队",
+  },
+};
+
 type ContactPayload = {
   company: string;
   email: string;
   firstName: string;
   lastName: string;
-  locale: string;
+  locale: ContactLocale;
   message: string;
   phone: string;
   submissionId: string;
@@ -109,11 +186,18 @@ export async function POST(request: Request) {
     return errorResponse("invalid", 422);
   }
 
-  const rateLimit = checkRateLimit(getClientFingerprint(request));
-  if (!rateLimit.allowed) {
-    return errorResponse("rate_limited", 429, {
-      "Retry-After": String(rateLimit.retryAfterSeconds),
-    });
+  const rateLimitKeys = [
+    `client:${getClientFingerprint(request)}`,
+    `recipient:${getRecipientFingerprint(payload.email)}`,
+  ];
+
+  for (const rateLimitKey of rateLimitKeys) {
+    const rateLimit = checkRateLimit(rateLimitKey);
+    if (!rateLimit.allowed) {
+      return errorResponse("rate_limited", 429, {
+        "Retry-After": String(rateLimit.retryAfterSeconds),
+      });
+    }
   }
 
   const apiKey = process.env.RESEND_API_KEY?.trim();
@@ -130,30 +214,48 @@ export async function POST(request: Request) {
   );
 
   try {
+    const confirmation = buildConfirmationEmail(payload);
     const requestOptions = {
       idempotencyKey: `contact-form/${payload.submissionId}`,
+      batchValidation: "strict" as const,
       signal: abortController.signal,
-    } as Parameters<typeof resend.emails.send>[1] & {
+    } as Parameters<typeof resend.batch.send>[1] & {
       signal: AbortSignal;
     };
 
-    const { data, error } = await resend.emails.send(
-      {
-        from: CONTACT_FROM,
-        to: [CONTACT_ADDRESS],
-        replyTo: payload.email,
-        subject: "Nouveau message du site DOMTEKNIKA",
-        text: buildPlainTextEmail(payload),
-        html: buildHtmlEmail(payload),
-        tags: [
-          { name: "source", value: "contact_form" },
-          { name: "locale", value: payload.locale },
-        ],
-      },
+    const { data, error } = await resend.batch.send(
+      [
+        {
+          from: CONTACT_FROM,
+          to: [CONTACT_ADDRESS],
+          replyTo: payload.email,
+          subject: "Nouveau message du site DOMTEKNIKA",
+          text: buildPlainTextEmail(payload),
+          html: buildHtmlEmail(payload),
+          tags: [
+            { name: "source", value: "contact_form" },
+            { name: "kind", value: "internal" },
+            { name: "locale", value: payload.locale },
+          ],
+        },
+        {
+          from: CONFIRMATION_FROM,
+          to: [payload.email],
+          replyTo: CONTACT_ADDRESS,
+          subject: confirmation.subject,
+          text: confirmation.text,
+          html: confirmation.html,
+          tags: [
+            { name: "source", value: "contact_form" },
+            { name: "kind", value: "confirmation" },
+            { name: "locale", value: payload.locale },
+          ],
+        },
+      ],
       requestOptions,
     );
 
-    if (error || !data?.id) {
+    if (error || data?.data.length !== 2) {
       console.error("[contact] Resend delivery failed", {
         name: error?.name ?? "unknown",
         statusCode: error?.statusCode ?? null,
@@ -203,7 +305,7 @@ function parseContactPayload(value: unknown): ContactPayload | null {
   if (
     !EMAIL_PATTERN.test(email) ||
     (phone && !PHONE_PATTERN.test(phone)) ||
-    !ALLOWED_LOCALES.has(locale) ||
+    !isContactLocale(locale) ||
     !UUID_V4_PATTERN.test(submissionId)
   ) {
     return null;
@@ -219,6 +321,10 @@ function parseContactPayload(value: unknown): ContactPayload | null {
     phone,
     submissionId,
   };
+}
+
+function isContactLocale(value: string): value is ContactLocale {
+  return ALLOWED_LOCALES.has(value);
 }
 
 async function readBoundedRequestBody(request: Request) {
@@ -345,6 +451,10 @@ function getClientFingerprint(request: Request) {
     .slice(0, 40);
 }
 
+function getRecipientFingerprint(email: string) {
+  return createHash("sha256").update(email).digest("hex").slice(0, 40);
+}
+
 function getLastHeaderValue(value: string | null) {
   return value?.split(",").at(-1)?.trim().slice(0, 128) ?? "";
 }
@@ -440,6 +550,40 @@ function buildHtmlEmail(payload: ContactPayload) {
     </div>
   </body>
 </html>`;
+}
+
+function buildConfirmationEmail(payload: ContactPayload) {
+  const copy = CONFIRMATION_COPY[payload.locale];
+  const greeting = copy.greeting(payload.firstName);
+
+  return {
+    subject: copy.subject,
+    text: [
+      greeting,
+      "",
+      copy.message,
+      "",
+      copy.closing,
+      copy.team,
+      "",
+      copy.notice,
+    ].join("\n"),
+    html: `<!doctype html>
+<html lang="${payload.locale}">
+  <body style="margin:0;background:#f5f5f5;color:#161616;font-family:Arial,sans-serif;">
+    <div style="max-width:640px;margin:0 auto;padding:32px 20px;">
+      <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:12px;padding:28px;">
+        <p style="margin:0 0 8px;color:#e30613;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">DOMTEKNIKA</p>
+        <h1 style="margin:0 0 24px;font-size:24px;line-height:1.2;">${escapeHtml(copy.subject)}</h1>
+        <p style="margin:0 0 16px;line-height:1.6;">${escapeHtml(greeting)}</p>
+        <p style="margin:0 0 24px;line-height:1.6;">${escapeHtml(copy.message)}</p>
+        <p style="margin:0;line-height:1.6;">${escapeHtml(copy.closing)}<br>${escapeHtml(copy.team)}</p>
+        <p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #eeeeee;color:#666666;font-size:12px;line-height:1.5;">${escapeHtml(copy.notice)}</p>
+      </div>
+    </div>
+  </body>
+</html>`,
+  };
 }
 
 function escapeHtml(value: string) {
