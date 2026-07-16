@@ -114,6 +114,15 @@ const CONFIRMATION_COPY: Record<
   },
 };
 
+const COUNTRY_BY_LOCALE: Record<ContactLocale, string> = {
+  de: "Schweiz",
+  en: "Switzerland",
+  es: "Suiza",
+  fr: "Suisse",
+  ko: "스위스",
+  zh: "瑞士",
+};
+
 type ContactPayload = {
   company: string;
   email: string;
@@ -549,7 +558,7 @@ function buildHtmlEmail(payload: ContactPayload, emailLogoUrl: string) {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:680px;background:#ffffff;border:1px solid #e3e3e3;border-top:4px solid #e30613;border-radius:12px;border-collapse:separate;overflow:hidden;">
             <tr>
               <td style="padding:24px 28px;border-bottom:1px solid #eeeeee;">
-                <img src="${emailLogoUrl}" width="176" alt="DOMTEKNIKA" style="display:block;width:176px;max-width:100%;height:auto;border:0;">
+                <img src="${emailLogoUrl}" width="140" alt="DOMTEKNIKA" style="display:block;width:140px;max-width:100%;height:auto;border:0;">
               </td>
             </tr>
             <tr>
@@ -570,11 +579,6 @@ function buildHtmlEmail(payload: ContactPayload, emailLogoUrl: string) {
                 <div style="padding:18px;background:#f7f7f7;border-left:3px solid #e30613;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;">${escapeHtml(payload.message)}</div>
               </td>
             </tr>
-            <tr>
-              <td style="padding:18px 28px;background:#fafafa;border-top:1px solid #eeeeee;color:#777777;font-size:12px;line-height:1.5;">
-                Message envoyé depuis <a href="https://domteknika.ch" style="color:#e30613;text-decoration:none;">domteknika.ch</a>
-              </td>
-            </tr>
           </table>
         </td>
       </tr>
@@ -588,6 +592,7 @@ function buildConfirmationEmail(
   emailLogoUrl: string,
 ) {
   const copy = CONFIRMATION_COPY[payload.locale];
+  const country = COUNTRY_BY_LOCALE[payload.locale];
   const greeting = copy.greeting(payload.firstName);
 
   return {
@@ -598,7 +603,10 @@ function buildConfirmationEmail(
       copy.message,
       "",
       copy.closing,
-      copy.team,
+      "DOMTEKNIKA Team",
+      "+41 32 751 71 46 · contact@domteknika.ch",
+      "www.domteknika.ch",
+      `Chem. de Saint-Joux 16B · 2520 La Neuveville, ${country}`,
       "",
       copy.notice,
     ].join("\n"),
@@ -610,16 +618,26 @@ function buildConfirmationEmail(
         <td align="center" style="padding:36px 16px;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #e3e3e3;border-top:4px solid #e30613;border-radius:12px;border-collapse:separate;overflow:hidden;">
             <tr>
-              <td style="padding:24px 28px;border-bottom:1px solid #eeeeee;">
-                <img src="${emailLogoUrl}" width="176" alt="DOMTEKNIKA" style="display:block;width:176px;max-width:100%;height:auto;border:0;">
-              </td>
-            </tr>
-            <tr>
               <td style="padding:32px 28px;">
                 <h1 style="margin:0 0 24px;color:#161616;font-size:24px;line-height:1.25;">${escapeHtml(copy.subject)}</h1>
                 <p style="margin:0 0 16px;line-height:1.65;">${escapeHtml(greeting)}</p>
                 <p style="margin:0 0 28px;line-height:1.65;">${escapeHtml(copy.message)}</p>
-                <p style="margin:0;color:#333333;line-height:1.65;">${escapeHtml(copy.closing)}<br><strong>${escapeHtml(copy.team)}</strong></p>
+                <p style="margin:0 0 12px;color:#333333;line-height:1.5;">${escapeHtml(copy.closing)}</p>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                  <tr>
+                    <td valign="middle" style="padding:2px 12px 2px 0;">
+                      <img src="${emailLogoUrl}" width="68" alt="DOMTEKNIKA" style="display:block;width:68px;max-width:100%;height:auto;border:0;">
+                    </td>
+                    <td valign="middle" style="padding:1px 0 1px 12px;border-left:1px solid #e30613;color:#555555;font-size:11px;line-height:1.45;">
+                      <strong style="color:#222222;font-size:13px;">DOMTEKNIKA Team</strong><br>
+                      <a href="tel:+41327517146" style="color:#555555;text-decoration:none;">+41 32 751 71 46</a>
+                      <span style="color:#bbbbbb;"> · </span>
+                      <a href="mailto:${CONTACT_ADDRESS}" style="color:#e30613;text-decoration:none;">${CONTACT_ADDRESS}</a><br>
+                      <a href="https://domteknika.ch" style="color:#555555;text-decoration:none;">www.domteknika.ch</a><br>
+                      Chem. de Saint-Joux 16B · 2520 La Neuveville, ${escapeHtml(country)}
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
             <tr>
