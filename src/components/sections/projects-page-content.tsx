@@ -747,17 +747,32 @@ export const PROJECTS: Project[] = [
       "A set of folding e-bike and scooter concepts focused on hinge mechanisms, compact storage volume, ergonomic riding positions and manufacturable mechanical assemblies.",
   },
   {
-    id: "aventor-drone",
-    category: "Mobility",
-    filter: "mobility",
-    title: "Aventor drone",
+    id: "instant-coffee-dispenser",
+    category: "Industrial",
+    filter: "industrial",
+    title: "Instant coffee dispenser",
     description:
-      "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
-    image: "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
-    imageAlt: "White Aventor drone prototype",
-    tags: ["#2017", "#Drone", "#Prototype"],
+      "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
+    image:
+      "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
+    imageAlt: "Instant coffee dispenser prototype with hand interaction",
+    tags: ["#2006", "#Appliance", "#Prototype"],
     overview:
-      "This drone work combines mechanical layout, payload packaging and prototype validation for a lightweight aerial product platform.",
+      "A physical prototype project focused on soluble coffee handling, dosing ergonomics and a compact appliance form factor.",
+    relatedPatents: [
+      relatedPatent(
+        "EP2000065A1",
+        "Mixing chamber and airflow management for soluble beverage ingredients.",
+      ),
+      relatedPatent(
+        "US2010173057A1",
+        "Frothed soluble-ingredient liquid production method and device.",
+      ),
+      relatedPatent(
+        "US2009320941A1",
+        "Multi-way valve and dosing logic for solvent and solid-substance preparation systems.",
+      ),
+    ],
   },
   {
     id: "totalcar-concept",
@@ -1089,32 +1104,17 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "instant-coffee-dispenser",
-    category: "Industrial",
-    filter: "industrial",
-    title: "Instant coffee dispenser",
+    id: "aventor-drone",
+    category: "Mobility",
+    filter: "mobility",
+    title: "Aventor drone",
     description:
-      "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
-    image:
-      "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
-    imageAlt: "Instant coffee dispenser prototype with hand interaction",
-    tags: ["#2006", "#Appliance", "#Prototype"],
+      "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
+    image: "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
+    imageAlt: "White Aventor drone prototype",
+    tags: ["#2017", "#Drone", "#Prototype"],
     overview:
-      "A physical prototype project focused on soluble coffee handling, dosing ergonomics and a compact appliance form factor.",
-    relatedPatents: [
-      relatedPatent(
-        "EP2000065A1",
-        "Mixing chamber and airflow management for soluble beverage ingredients.",
-      ),
-      relatedPatent(
-        "US2010173057A1",
-        "Frothed soluble-ingredient liquid production method and device.",
-      ),
-      relatedPatent(
-        "US2009320941A1",
-        "Multi-way valve and dosing logic for solvent and solid-substance preparation systems.",
-      ),
-    ],
+      "This drone work combines mechanical layout, payload packaging and prototype validation for a lightweight aerial product platform.",
   },
   {
     id: "vacheron-watch-mechanics",
