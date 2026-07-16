@@ -467,7 +467,7 @@ function AddedValueSection() {
                           index % 2 === 0 ? "pr-3 sm:pr-6" : "pl-3 sm:pl-6",
                           index < 2
                             ? "lg:-translate-y-2 lg:pb-9"
-                            : "lg:pt-0",
+                            : "lg:pt-4",
                         )}
                       >
                         <div className="flex h-[40px] items-center sm:h-[46px] lg:h-[50px]">
@@ -487,12 +487,7 @@ function AddedValueSection() {
                             )}
                           >
                             <strong
-                              className={cn(
-                                "block max-w-full font-extrabold leading-none tracking-normal",
-                                isIndustries
-                                  ? "text-[clamp(14px,3.8vw,18px)] sm:text-[clamp(17px,2.2vw,21px)] lg:text-[20px] min-[1800px]:!text-[22px] min-[2400px]:!text-[24px]"
-                                  : "text-[clamp(20px,5vw,24px)] sm:text-[clamp(22px,2.7vw,27px)] lg:text-[24px] min-[1800px]:!text-[26px] min-[2400px]:!text-[29px]",
-                              )}
+                              className="block max-w-full text-[clamp(14px,3.8vw,18px)] font-extrabold leading-none tracking-normal sm:text-[clamp(17px,2.2vw,21px)] lg:text-[20px] min-[1800px]:!text-[22px] min-[2400px]:!text-[24px]"
                             >
                               {t(`stats.${stat.key}.value` as never)}
                               {isIndustries && (
