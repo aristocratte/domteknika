@@ -91,6 +91,15 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        source: "/assets/logo_DOMTEKNIKA_2023-alpha.png",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "cross-origin",
+          },
+        ],
+      },
     ];
   },
   images: {

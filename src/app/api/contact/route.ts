@@ -9,6 +9,7 @@ export const maxDuration = 10;
 const CONTACT_ADDRESS = "contact@domteknika.ch";
 const CONTACT_FROM = `DOMTEKNIKA Website <${CONTACT_ADDRESS}>`;
 const CONFIRMATION_FROM = `DOMTEKNIKA <${CONTACT_ADDRESS}>`;
+const EMAIL_LOGO_PATH = "/assets/logo_DOMTEKNIKA_2023-alpha.png";
 const MAX_BODY_BYTES = 16 * 1024;
 const RESEND_TIMEOUT_MS = 8_000;
 const RATE_LIMIT_MAX_KEYS = 5_000;
@@ -214,7 +215,8 @@ export async function POST(request: Request) {
   );
 
   try {
-    const confirmation = buildConfirmationEmail(payload);
+    const emailLogoUrl = getEmailLogoUrl(request);
+    const confirmation = buildConfirmationEmail(payload, emailLogoUrl);
     const requestOptions = {
       idempotencyKey: `contact-form/${payload.submissionId}`,
       batchValidation: "strict" as const,
@@ -231,7 +233,7 @@ export async function POST(request: Request) {
           replyTo: payload.email,
           subject: "Nouveau message du site DOMTEKNIKA",
           text: buildPlainTextEmail(payload),
-          html: buildHtmlEmail(payload),
+          html: buildHtmlEmail(payload, emailLogoUrl),
           tags: [
             { name: "source", value: "contact_form" },
             { name: "kind", value: "internal" },
@@ -436,6 +438,17 @@ function isLocalDevelopmentOrigin(origin: URL) {
   );
 }
 
+function getEmailLogoUrl(request: Request) {
+  const requestOrigin = request.headers.get("origin");
+  const assetOrigin =
+    requestOrigin === "https://domteknika.ch" ||
+    requestOrigin === "https://www.domteknika.ch"
+      ? "https://domteknika.ch"
+      : "https://test.domteknika.ch";
+
+  return new URL(EMAIL_LOGO_PATH, assetOrigin).toString();
+}
+
 function getClientFingerprint(request: Request) {
   const ip =
     getLastHeaderValue(request.headers.get("x-forwarded-for")) ||
@@ -518,7 +531,7 @@ function buildPlainTextEmail(payload: ContactPayload) {
   ].join("\n");
 }
 
-function buildHtmlEmail(payload: ContactPayload) {
+function buildHtmlEmail(payload: ContactPayload, emailLogoUrl: string) {
   const rows = [
     ["Nom", `${payload.firstName} ${payload.lastName}`],
     ["Entreprise", payload.company || "Non renseignée"],
@@ -529,30 +542,51 @@ function buildHtmlEmail(payload: ContactPayload) {
 
   return `<!doctype html>
 <html lang="fr">
-  <body style="margin:0;background:#f5f5f5;color:#161616;font-family:Arial,sans-serif;">
-    <div style="max-width:680px;margin:0 auto;padding:32px 20px;">
-      <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:12px;padding:28px;">
-        <p style="margin:0 0 8px;color:#e30613;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Formulaire du site</p>
-        <h1 style="margin:0 0 24px;font-size:24px;line-height:1.2;">Nouveau message DOMTEKNIKA</h1>
-        <table role="presentation" style="width:100%;border-collapse:collapse;">
-          ${rows
-            .map(
-              ([label, value]) => `<tr>
-                <td style="width:130px;padding:8px 12px 8px 0;border-bottom:1px solid #eeeeee;font-weight:700;vertical-align:top;">${escapeHtml(label)}</td>
-                <td style="padding:8px 0;border-bottom:1px solid #eeeeee;vertical-align:top;">${escapeHtml(value)}</td>
-              </tr>`,
-            )
-            .join("")}
-        </table>
-        <h2 style="margin:28px 0 10px;font-size:16px;">Message</h2>
-        <div style="white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;">${escapeHtml(payload.message)}</div>
-      </div>
-    </div>
+  <body style="margin:0;padding:0;background:#f2f2f2;color:#161616;font-family:Arial,sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background:#f2f2f2;border-collapse:collapse;">
+      <tr>
+        <td align="center" style="padding:36px 16px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:680px;background:#ffffff;border:1px solid #e3e3e3;border-top:4px solid #e30613;border-radius:12px;border-collapse:separate;overflow:hidden;">
+            <tr>
+              <td style="padding:24px 28px;border-bottom:1px solid #eeeeee;">
+                <img src="${emailLogoUrl}" width="176" alt="DOMTEKNIKA" style="display:block;width:176px;max-width:100%;height:auto;border:0;">
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px;">
+                <p style="margin:0 0 8px;color:#e30613;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Formulaire du site</p>
+                <h1 style="margin:0 0 24px;color:#161616;font-size:24px;line-height:1.25;">Nouveau message DOMTEKNIKA</h1>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+                  ${rows
+                    .map(
+                      ([label, value]) => `<tr>
+                        <td style="width:130px;padding:10px 12px 10px 0;border-bottom:1px solid #eeeeee;font-weight:700;vertical-align:top;">${escapeHtml(label)}</td>
+                        <td style="padding:10px 0;border-bottom:1px solid #eeeeee;vertical-align:top;overflow-wrap:anywhere;">${escapeHtml(value)}</td>
+                      </tr>`,
+                    )
+                    .join("")}
+                </table>
+                <h2 style="margin:28px 0 10px;font-size:16px;">Message</h2>
+                <div style="padding:18px;background:#f7f7f7;border-left:3px solid #e30613;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;">${escapeHtml(payload.message)}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 28px;background:#fafafa;border-top:1px solid #eeeeee;color:#777777;font-size:12px;line-height:1.5;">
+                Message envoyé depuis <a href="https://domteknika.ch" style="color:#e30613;text-decoration:none;">domteknika.ch</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>`;
 }
 
-function buildConfirmationEmail(payload: ContactPayload) {
+function buildConfirmationEmail(
+  payload: ContactPayload,
+  emailLogoUrl: string,
+) {
   const copy = CONFIRMATION_COPY[payload.locale];
   const greeting = copy.greeting(payload.firstName);
 
@@ -570,17 +604,33 @@ function buildConfirmationEmail(payload: ContactPayload) {
     ].join("\n"),
     html: `<!doctype html>
 <html lang="${payload.locale}">
-  <body style="margin:0;background:#f5f5f5;color:#161616;font-family:Arial,sans-serif;">
-    <div style="max-width:640px;margin:0 auto;padding:32px 20px;">
-      <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:12px;padding:28px;">
-        <p style="margin:0 0 8px;color:#e30613;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">DOMTEKNIKA</p>
-        <h1 style="margin:0 0 24px;font-size:24px;line-height:1.2;">${escapeHtml(copy.subject)}</h1>
-        <p style="margin:0 0 16px;line-height:1.6;">${escapeHtml(greeting)}</p>
-        <p style="margin:0 0 24px;line-height:1.6;">${escapeHtml(copy.message)}</p>
-        <p style="margin:0;line-height:1.6;">${escapeHtml(copy.closing)}<br>${escapeHtml(copy.team)}</p>
-        <p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #eeeeee;color:#666666;font-size:12px;line-height:1.5;">${escapeHtml(copy.notice)}</p>
-      </div>
-    </div>
+  <body style="margin:0;padding:0;background:#f2f2f2;color:#161616;font-family:Arial,sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background:#f2f2f2;border-collapse:collapse;">
+      <tr>
+        <td align="center" style="padding:36px 16px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #e3e3e3;border-top:4px solid #e30613;border-radius:12px;border-collapse:separate;overflow:hidden;">
+            <tr>
+              <td style="padding:24px 28px;border-bottom:1px solid #eeeeee;">
+                <img src="${emailLogoUrl}" width="176" alt="DOMTEKNIKA" style="display:block;width:176px;max-width:100%;height:auto;border:0;">
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:32px 28px;">
+                <h1 style="margin:0 0 24px;color:#161616;font-size:24px;line-height:1.25;">${escapeHtml(copy.subject)}</h1>
+                <p style="margin:0 0 16px;line-height:1.65;">${escapeHtml(greeting)}</p>
+                <p style="margin:0 0 28px;line-height:1.65;">${escapeHtml(copy.message)}</p>
+                <p style="margin:0;color:#333333;line-height:1.65;">${escapeHtml(copy.closing)}<br><strong>${escapeHtml(copy.team)}</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 28px;background:#fafafa;border-top:1px solid #eeeeee;color:#777777;font-size:12px;line-height:1.55;">
+                ${escapeHtml(copy.notice)}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>`,
   };
