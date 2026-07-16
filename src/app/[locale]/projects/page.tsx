@@ -5,6 +5,7 @@ import {
   ProjectsPageContent,
   ProjectsPageCta,
 } from "@/components/sections/projects-page-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -14,10 +15,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ProjectsPage.Meta" });
 
-  return {
-    title: t("title"),
+  return buildPageMetadata({
     description: t("description"),
-  };
+    locale,
+    path: "/projects",
+    title: t("title"),
+  });
 }
 
 export default async function ProjectsPage({

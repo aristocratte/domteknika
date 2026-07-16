@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ContactPageContent } from "@/components/sections/contact-page-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -11,10 +12,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage.Meta" });
 
-  return {
-    title: t("title"),
+  return buildPageMetadata({
     description: t("description"),
-  };
+    locale,
+    path: "/contact",
+    title: t("title"),
+  });
 }
 
 export default async function ContactPage({

@@ -17,6 +17,7 @@ import { Reveal } from "@/components/providers/reveal";
 import { BrainstormingCardSwap } from "@/components/sections/brainstorming-card-swap";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const EXPERTISE_ITEMS = [
@@ -60,10 +61,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ExpertisePage.Meta" });
 
-  return {
-    title: t("title"),
+  return buildPageMetadata({
     description: t("description"),
-  };
+    locale,
+    path: "/expertise",
+    title: t("title"),
+  });
 }
 
 export default async function ExpertisePage({

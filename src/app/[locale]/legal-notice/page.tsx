@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { LegalDocumentPage } from "@/components/sections/legal-document-page";
 import { getLegalPages } from "@/data/legal-pages";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -15,10 +16,12 @@ export async function generateMetadata({
     namespace: "LegalPages.legalNotice",
   });
 
-  return {
-    title: t("metaTitle"),
+  return buildPageMetadata({
     description: t("metaDescription"),
-  };
+    locale,
+    path: "/legal-notice",
+    title: t("metaTitle"),
+  });
 }
 
 export default async function LegalNoticePage({

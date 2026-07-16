@@ -78,7 +78,7 @@ export const config = {
   // - API routes
   // - Next.js internals (_next)
   // - static files (assets, images, favicons…)
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|social-image|.*\\..*).*)"],
 };
 
 function detectPreferredLocale(request: NextRequest) {

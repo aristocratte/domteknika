@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { OurStoryPageContent } from "@/components/sections/our-story-page-content";
 import { getOurStoryMeta } from "@/components/sections/our-story-meta";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const meta = getOurStoryMeta(locale);
 
-  return {
-    title: meta.title,
+  return buildPageMetadata({
     description: meta.description,
-  };
+    locale,
+    path: "/our-story",
+    title: meta.title,
+  });
 }
 
 export default async function OurStoryPage({

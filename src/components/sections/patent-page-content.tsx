@@ -3296,8 +3296,6 @@ function PatentCard({
             alt=""
             fill
             sizes="(max-width: 768px) 36vw, (max-width: 1024px) 38vw, (max-width: 1799px) 220px, (max-width: 2399px) 300px, 340px"
-            quality={100}
-            unoptimized
             className="object-contain p-2.5 transition-transform duration-700 group-hover/patent:scale-105 min-[390px]:p-3 [transition-timing-function:var(--ease-smooth)]"
           />
         ) : (

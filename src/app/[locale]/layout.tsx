@@ -10,6 +10,11 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { RouteRecovery } from "@/components/providers/route-recovery";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
+import {
+  buildPageMetadata,
+  organizationJsonLd,
+  SITE_URL,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -24,14 +29,12 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Meta" });
 
   return {
-    title: t("title"),
-    description: t("description"),
-    metadataBase: new URL("https://domteknika.com"),
-    openGraph: {
-      title: t("title"),
+    metadataBase: SITE_URL,
+    ...buildPageMetadata({
       description: t("description"),
-      type: "website",
-    },
+      locale,
+      title: t("title"),
+    }),
   };
 }
 
@@ -53,6 +56,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const htmlLang = locale === "zh" ? "zh-Hans" : locale;
+  const jsonLd = organizationJsonLd(locale);
 
   return (
     <html
@@ -61,6 +65,12 @@ export default async function LocaleLayout({
       className={`${domtekSans.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <NextIntlClientProvider>
           <SmoothScrollProvider>
             <RouteRecovery />
