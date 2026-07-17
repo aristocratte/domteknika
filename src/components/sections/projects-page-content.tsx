@@ -589,7 +589,7 @@ export const FEATURED_PROJECT: Project = {
   title: "STAJVELO RV01",
   description:
     "Urban e-bike architecture built around injected composite design, distinctive wheels and premium industrial detailing.",
-  image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01-leclerc-road.webp",
+  image: "/assets/projects/stajvelo-rv01/stajvelo-rv01-01.webp",
   imageAlt: "STAJVELO RV01 electric bicycle on a road circuit",
   tags: ["#2017", "#E-bike", "#Polymer"],
   overview:
@@ -620,7 +620,7 @@ export const PROJECTS: Project[] = [
     title: "Aventor",
     description:
       "High-performance electric vehicle platform developed around speed, acceleration and lightweight composite bodywork.",
-    image: "/assets/projects/aventor/aventor-01-cover.webp",
+    image: "/assets/projects/aventor/aventor-01.webp",
     imageAlt: "Green Aventor electric vehicle on a road course",
     tags: ["#2013", "#EV", "#Composite"],
     overview:
@@ -639,7 +639,7 @@ export const PROJECTS: Project[] = [
     title: "Weebot",
     description:
       "Compact electric mobility concept explored through CAD, prototype builds and winter-use product studies.",
-    image: "/assets/projects/weebot/weebot-01-cover.webp",
+    image: "/assets/projects/weebot/weebot-01.webp",
     imageAlt: "Weebot compact snow mobility concept",
     tags: ["#2014", "#Mobility", "#Prototype"],
     overview:
@@ -652,7 +652,7 @@ export const PROJECTS: Project[] = [
     title: "SAM CREE",
     description:
       "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
-    image: "/assets/projects/sam-cree/sam-cree-03-workshop.webp",
+    image: "/assets/projects/sam-cree/sam-cree-01.webp",
     imageAlt: "Orange SAM CREE electric three-wheeler with open canopy",
     tags: ["#1996", "#EV", "#ThreeWheeler"],
     overview:
@@ -679,7 +679,7 @@ export const PROJECTS: Project[] = [
     title: "Angel Interceptor",
     description:
       "High-performance electric three-wheel concept developed through CAD architecture, cockpit packaging and protective body studies.",
-    image: "/assets/projects/angel-interceptor/angel-interceptor-02-cover.webp",
+    image: "/assets/projects/angel-interceptor/angel-interceptor-01.webp",
     imageAlt: "Angel Interceptor three-wheel vehicle side-section CAD study",
     tags: ["#2012", "#Vehicle", "#CAD"],
     overview:
@@ -692,7 +692,7 @@ export const PROJECTS: Project[] = [
     title: "SOFTCAR",
     description:
       "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
-    image: "/assets/projects/softcar/softcar-01-cover.webp",
+    image: "/assets/projects/softcar/softcar-01.webp",
     imageAlt: "Yellow SOFTCAR compact city vehicle with open door",
     tags: ["#2015", "#CityEV", "#Circular"],
     overview:
@@ -740,7 +740,7 @@ export const PROJECTS: Project[] = [
     description:
       "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
     image:
-      "/assets/projects/folding-bike-scooter/folding-bike-scooter-01-cover.webp",
+      "/assets/projects/folding-bike-scooter/folding-bike-scooter-01.webp",
     imageAlt: "Folding electric bicycle concept render",
     tags: ["#2011", "#Folding", "#Mobility"],
     overview:
@@ -754,7 +754,7 @@ export const PROJECTS: Project[] = [
     description:
       "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
     image:
-      "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01-cover.webp",
+      "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01.webp",
     imageAlt: "Instant coffee dispenser prototype with hand interaction",
     tags: ["#2006", "#Appliance", "#Prototype"],
     overview:
@@ -782,7 +782,7 @@ export const PROJECTS: Project[] = [
     description:
       "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
     image:
-      "/assets/projects/totalcar-concept/totalcar-concept-02-prototype-front.webp",
+      "/assets/projects/totalcar-concept/total-car-01.webp",
     imageAlt: "Green Total Car electric vehicle prototype on display",
     tags: ["#2011", "#EV", "#Urban", "#EcoDesign"],
     overview:
@@ -795,7 +795,7 @@ export const PROJECTS: Project[] = [
     title: "AirSmile",
     description:
       "Dental care device concept developed from product styling through functional packaging and prototype families.",
-    image: "/assets/projects/airsmile/airsmile-01-cover.webp",
+    image: "/assets/projects/airsmile/airsmile-01.webp",
     imageAlt: "AirSmile handheld dental care device render",
     tags: ["#2007", "#Dental", "#Device"],
     overview:
@@ -814,7 +814,7 @@ export const PROJECTS: Project[] = [
     title: "O2 Cosmetics toothbrush",
     description:
       "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
-    image: "/assets/projects/brossadent/brossadent-01-cover.webp",
+    image: "/assets/projects/brossadent/o2-cosmetics-toothbrush-01.webp",
     imageAlt: "O2 Cosmetics toothbrush concept with refill cartridges",
     tags: ["#2007", "#Dental", "#Injection"],
     overview:
@@ -833,7 +833,7 @@ export const PROJECTS: Project[] = [
     title: "Insulin pen",
     description:
       "Injection pen housing and mechanism packaging studies for a slim, manufacturable medical device.",
-    image: "/assets/projects/insulin-pen/insulin-pen-01-cover.webp",
+    image: "/assets/projects/insulin-pen/insulin-pen-01.webp",
     imageAlt: "Blue insulin pen product render",
     tags: ["#2017", "#Medical", "#Packaging"],
     overview:
@@ -846,7 +846,7 @@ export const PROJECTS: Project[] = [
     title: "Paradigm Spine",
     description:
       "Spinal implant and instrumentation development supported by product rendering and mechanical simulation.",
-    image: "/assets/projects/paradigm-spine/paradigm-spine-01-cover.webp",
+    image: "/assets/projects/paradigm-spine/paradigm-spine-01.webp",
     imageAlt: "Paradigm Spine implant set render",
     tags: ["#2015", "#Spine", "#Simulation"],
     overview:
@@ -865,7 +865,7 @@ export const PROJECTS: Project[] = [
     title: "Flex Drill",
     description:
       "Flexible drill accessory concept with shaped polymer guide, prototype validation and stress-analysis views.",
-    image: "/assets/projects/flex-drill/flex-drill-01-cover.webp",
+    image: "/assets/projects/flex-drill/flex-drill-01.webp",
     imageAlt: "Blue flexible drill guide concept",
     tags: ["#2014", "#Tooling", "#Analysis"],
     overview:
@@ -879,7 +879,7 @@ export const PROJECTS: Project[] = [
     description:
       "Handheld applicator concept developed through sketches, structural analysis and printed prototypes.",
     image:
-      "/assets/projects/biome-staple-applicator/biome-staple-applicator-01-cover.webp",
+      "/assets/projects/biome-staple-applicator/biome-staple-applicator-01.webp",
     imageAlt: "White and red biomedical staple applicator render",
     tags: ["#2013", "#Medical", "#Prototype"],
     overview:
@@ -898,7 +898,7 @@ export const PROJECTS: Project[] = [
     title: "Cliris",
     description:
       "Automatic eyeglass cleaning device with a compact drawer architecture and refined consumer-product finish.",
-    image: "/assets/projects/cliris/cliris-01-cover.webp",
+    image: "/assets/projects/cliris/cliris-01.webp",
     imageAlt: "Black Cliris automatic eyeglass cleaner open",
     tags: ["#2014", "#Consumer", "#Hygiene"],
     overview:
@@ -911,7 +911,7 @@ export const PROJECTS: Project[] = [
     title: "Filter Carafe",
     description:
       "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
-    image: "/assets/projects/filter-carafe/filter-carafe-01-cover.webp",
+    image: "/assets/projects/filter-carafe/filter-carafe-01.webp",
     imageAlt: "Filtered-water carafe concept with cartridge accessories",
     tags: ["#2008", "#Filtration", "#ProductDesign"],
     overview:
@@ -935,7 +935,7 @@ export const PROJECTS: Project[] = [
     title: "iKitty",
     description:
       "Cat enrichment product with refill capsule architecture, feeder mechanism and soft product styling.",
-    image: "/assets/projects/ikitty/ikitty-01-cover.webp",
+    image: "/assets/projects/ikitty/ikitty-01.webp",
     imageAlt: "iKitty cat enrichment device prototype",
     tags: ["#2023", "#PetTech", "#Mechanism"],
     overview:
@@ -948,7 +948,7 @@ export const PROJECTS: Project[] = [
     title: "Smart Bottle",
     description:
       "Secure medical dispensing bottle for controlled opioid delivery, with biometric access, compact internal packaging and anti-tamper casing.",
-    image: "/assets/projects/smart-bottle/smart-bottle-01-cover.webp",
+    image: "/assets/projects/smart-bottle/smart-bottle-01.webp",
     imageAlt:
       "Smart Bottle medical dispenser concept with blue internal module",
     tags: ["#2014", "#Medical", "#Dosing"],
@@ -962,7 +962,7 @@ export const PROJECTS: Project[] = [
     title: "Personal Injector",
     description:
       "Connected personal-injection device concept focused on compatibility, no needle handling, compact kinematics and a single-use syringe.",
-    image: "/assets/projects/personal-injector/personal-injector-01-cover.webp",
+    image: "/assets/projects/personal-injector/personal-injector-01.webp",
     imageAlt: "Personal injector medical device concept",
     tags: ["#2013", "#Medical", "#Connected"],
     overview:
@@ -976,7 +976,7 @@ export const PROJECTS: Project[] = [
     description:
       "PEEK surgical reamer handle and cover development for acetabular surgery, supported by design, FEA and injection-molding constraints.",
     image:
-      "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01-cover.webp",
+      "/assets/projects/acetabular-reamer-holder/acetabular-reamer-holder-01.webp",
     imageAlt: "Acetabular reamer holder prototype in orange and black PEEK",
     tags: ["#2014", "#PEEK", "#SurgicalTool"],
     overview:
@@ -996,7 +996,7 @@ export const PROJECTS: Project[] = [
     description:
       "Single-use medical turbine concept developed to reduce size, weight and cost through material and geometry optimization.",
     image:
-      "/assets/projects/single-use-turbine/single-use-turbine-01-cover.webp",
+      "/assets/projects/single-use-turbine/single-use-turbine-01.webp",
     imageAlt: "Transparent single-use turbine medical component",
     tags: ["#2011", "#SingleUse", "#Medical"],
     overview:
@@ -1010,7 +1010,7 @@ export const PROJECTS: Project[] = [
     description:
       "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
     image:
-      "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01-cover.webp",
+      "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01.webp",
     imageAlt: "Prototype glove dryer with gloves mounted",
     tags: ["#2015", "#Consumer", "#Prototype"],
     overview:
@@ -1023,7 +1023,7 @@ export const PROJECTS: Project[] = [
     title: "Pocket folding umbrella",
     description:
       "Phone-sized folding umbrella concept with compact case studies, folding geometry and working prototype details.",
-    image: "/assets/projects/folding-umbrella/folding-umbrella-01-cover.webp",
+    image: "/assets/projects/folding-umbrella/pocket-folding-umbrella-01.webp",
     imageAlt: "Yellow pocket folding umbrella prototype",
     tags: ["#2018", "#Mechanism", "#Consumer"],
     overview:
@@ -1047,7 +1047,7 @@ export const PROJECTS: Project[] = [
     description:
       "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
     image:
-      "/assets/projects/skincare-applicator/skincare-applicator-01-idlab-cover.webp",
+      "/assets/projects/skincare-applicator/skincare-applicator-01.webp",
     imageAlt:
       "IDlab skincare applicator with cosmetic cartridges and packaging",
     tags: ["#2012", "#BeautyTech", "#Packaging"],
@@ -1071,7 +1071,7 @@ export const PROJECTS: Project[] = [
     title: "Coffee Machine",
     description:
       "Coffee machine concept built around a double-pass capsule circuit, where water makes an out-and-back path through the capsule.",
-    image: "/assets/projects/alicoffee-machine/alicoffee-machine-01-cover.webp",
+    image: "/assets/projects/alicoffee-machine/coffee-machine-01.webp",
     imageAlt: "Coffee machine countertop concept render",
     tags: ["#2014", "#Coffee", "#Capsule", "#Fluidics"],
     overview:
@@ -1091,7 +1091,7 @@ export const PROJECTS: Project[] = [
     description:
       "Tea-capsule brewing-unit development, from capsule handling and ejection to beverage flow and pilot-series readiness.",
     image:
-      "/assets/projects/special-t-machine/special-t-machine-01-new-cover.webp",
+      "/assets/projects/special-t-machine/tea-machine-01.webp",
     imageAlt: "Tea-machine brewing unit prototype",
     tags: ["#2008", "#Tea", "#BrewingUnit"],
     overview:
@@ -1110,7 +1110,7 @@ export const PROJECTS: Project[] = [
     title: "Aventor drone",
     description:
       "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
-    image: "/assets/projects/aventor-drone/aventor-drone-01-cover.webp",
+    image: "/assets/projects/aventor-drone/aventor-drone-01.webp",
     imageAlt: "White Aventor drone prototype",
     tags: ["#2017", "#Drone", "#Prototype"],
     overview:
@@ -1124,7 +1124,7 @@ export const PROJECTS: Project[] = [
     description:
       "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
     image:
-      "/assets/projects/vacheron-watch-mechanics/vacheron-watch-mechanics-01-cover.webp",
+      "/assets/projects/vacheron-watch-mechanics/watch-mechanics-01.webp",
     imageAlt: "Mechanical watch render with visible movement",
     tags: ["#2014", "#Horology", "#Precision"],
     overview:
@@ -1143,7 +1143,7 @@ export const PROJECTS: Project[] = [
     title: "Velum SKY screen mechanism",
     description:
       "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
-    image: "/assets/projects/velum-sky-screen/velum-sky-screen-01-cover.webp",
+    image: "/assets/projects/velum-sky-screen/velum-sky-screen-mechanism-01.webp",
     imageAlt:
       "Velum SKY mechanical screen prototype on a dark studio background",
     tags: ["#2025", "#Architecture", "#Mechanism"],
@@ -6092,7 +6092,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               aria-hidden
             />
             <Image
-              src="/assets/projects/aventor/aventor-hero-3w-sans-sponsor-top.webp"
+              src="/assets/projects/aventor/aventor-hero.webp"
               alt=""
               fill
               priority

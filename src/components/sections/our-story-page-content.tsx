@@ -739,7 +739,7 @@ const MEDIA: Record<
   airsmile: {
     images: [
       {
-        src: "/assets/projects/airsmile/airsmile-01-cover.webp",
+        src: "/assets/projects/airsmile/airsmile-01.webp",
         alt: "AirSmile handheld dental care device render",
         title: "AirSmile",
         meta: "2009",
