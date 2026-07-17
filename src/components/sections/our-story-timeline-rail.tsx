@@ -48,12 +48,10 @@ const blockVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 24,
-    filter: "blur(4px)",
   },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
   },
 };
 
@@ -100,6 +98,7 @@ export function OurStoryTimelineStep({
   const prefersReducedMotion = useReducedMotion();
   const [isReached, setIsReached] = useState(Boolean(prefersReducedMotion));
   const reachedRef = useRef(Boolean(prefersReducedMotion));
+  const thresholdRef = useRef(1);
 
   if (!rail) {
     throw new Error(
@@ -114,7 +113,7 @@ export function OurStoryTimelineStep({
     setIsReached(nextReached);
   }, []);
 
-  const checkReached = useCallback(() => {
+  const updateThreshold = useCallback(() => {
     if (prefersReducedMotion) {
       setReached(true);
       return;
@@ -125,13 +124,22 @@ export function OurStoryTimelineStep({
     const lineElement = railElement?.querySelector<HTMLElement>(
       "[data-our-story-rail-fill]",
     );
-    if (!railElement || !dotElement || !lineElement) return;
+    const trackElement = lineElement?.parentElement;
+    if (!railElement || !dotElement || !trackElement) return;
 
-    const lineRect = lineElement.getBoundingClientRect();
+    const trackRect = trackElement.getBoundingClientRect();
     const dotRect = dotElement.getBoundingClientRect();
     const dotCenter = dotRect.top + dotRect.height / 2;
+    const threshold =
+      trackRect.height > 0
+        ? Math.min(
+            1,
+            Math.max(0, (dotCenter - trackRect.top) / trackRect.height),
+          )
+        : 1;
 
-    setReached(lineRect.bottom + 1 >= dotCenter);
+    thresholdRef.current = threshold;
+    setReached(rail.progress.get() + 0.002 >= threshold);
   }, [prefersReducedMotion, rail, setReached]);
 
   useEffect(() => {
@@ -143,27 +151,31 @@ export function OurStoryTimelineStep({
     let frame = 0;
     const queueCheck = () => {
       window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(checkReached);
+      frame = window.requestAnimationFrame(updateThreshold);
     };
 
     queueCheck();
     window.addEventListener("resize", queueCheck);
     window.addEventListener("domtek:scroll-resize", queueCheck);
-    window.addEventListener("load", queueCheck);
-    document.addEventListener("load", queueCheck, true);
+
+    const observer =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(queueCheck)
+        : null;
+    if (rail.railRef.current) observer?.observe(rail.railRef.current);
+    if (dotRef.current) observer?.observe(dotRef.current);
 
     return () => {
       window.cancelAnimationFrame(frame);
       window.removeEventListener("resize", queueCheck);
       window.removeEventListener("domtek:scroll-resize", queueCheck);
-      window.removeEventListener("load", queueCheck);
-      document.removeEventListener("load", queueCheck, true);
+      observer?.disconnect();
     };
-  }, [prefersReducedMotion, checkReached, setReached]);
+  }, [prefersReducedMotion, rail, setReached, updateThreshold]);
 
-  useMotionValueEvent(rail.progress, "change", () => {
+  useMotionValueEvent(rail.progress, "change", (latest) => {
     if (!prefersReducedMotion) {
-      checkReached();
+      setReached(latest + 0.002 >= thresholdRef.current);
     }
   });
 
@@ -196,7 +208,7 @@ export function OurStoryTimelineBlock({
       animate={isReached ? "visible" : "hidden"}
       variants={blockVariants}
       transition={{
-        duration: 0.62,
+        duration: 0.45,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={cn(className)}

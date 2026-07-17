@@ -145,6 +145,7 @@ function ExpertiseHero() {
                   <TeamPortrait
                     key={member.name}
                     member={member}
+                    eager
                     className={cn(
                       index === 0 && "mt-2",
                       index === 1 && "mt-0",
@@ -174,9 +175,11 @@ function ExpertiseHero() {
 function TeamPortrait({
   member,
   className,
+  eager = false,
 }: {
   member: (typeof TEAM_MEMBERS)[number];
   className?: string;
+  eager?: boolean;
 }) {
   return (
     <figure
@@ -190,6 +193,8 @@ function TeamPortrait({
           src={member.image}
           alt={member.name}
           fill
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "auto" : "low"}
           sizes="(max-width: 640px) 76px, (max-width: 768px) 88px, (max-width: 1024px) 108px, (max-width: 1280px) 124px, (max-width: 1799px) 142px, (max-width: 2299px) 152px, (max-width: 2399px) 160px, 170px"
           className="scale-[1.025] object-cover object-center opacity-[0.99] saturate-[0.98] transition duration-300 group-hover:scale-[1.055] group-hover:opacity-100 group-hover:saturate-100"
         />
@@ -298,7 +303,7 @@ function BrainstormingSection() {
         </p>
       </div>
 
-      <div className="lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24 min-[1800px]:!translate-x-0 min-[1800px]:justify-self-center">
+      <div className="w-full min-w-0 lg:translate-x-0 xl:translate-x-10 2xl:translate-x-24 min-[1800px]:!translate-x-0 min-[1800px]:justify-self-center">
         <BrainstormingCardSwap />
       </div>
     </div>

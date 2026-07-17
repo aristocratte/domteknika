@@ -651,6 +651,7 @@ const MEDIA: Record<
         meta: "Suisse",
         width: 799,
         height: 533,
+        loading: "eager",
         className: "w-[280px] sm:w-[340px] md:w-[300px] xl:w-[340px] min-[1800px]:!w-[390px] min-[2400px]:!w-[425px]",
       },
     ],
@@ -680,7 +681,6 @@ const MEDIA: Record<
         height: 900,
         className: "w-[120px] rotate-[-5deg] sm:w-[140px] min-[1800px]:!w-[160px] min-[2400px]:!w-[176px]",
         projectId: "smart-bottle",
-        loading: "eager",
       },
       {
         src: "/assets/our-story/personal-injector.png",
@@ -704,7 +704,6 @@ const MEDIA: Record<
         width: 1600,
         height: 1066,
         className: "w-[280px] sm:w-[370px] md:w-[320px] xl:w-[370px] min-[1800px]:!w-[425px] min-[2400px]:!w-[465px]",
-        loading: "eager",
       },
     ],
   },
@@ -718,7 +717,6 @@ const MEDIA: Record<
         width: 452,
         height: 202,
         className: "w-[300px] sm:w-[390px] md:w-[310px] lg:w-[340px] xl:w-[390px] min-[1800px]:!w-[448px] min-[2400px]:!w-[490px]",
-        loading: "eager",
       },
     ],
   },
@@ -732,7 +730,6 @@ const MEDIA: Record<
         width: 1200,
         height: 800,
         className: "w-[260px] sm:w-[340px] md:w-[300px] xl:w-[340px] min-[1800px]:!w-[390px] min-[2400px]:!w-[425px]",
-        loading: "eager",
       },
     ],
   },
@@ -772,7 +769,6 @@ const MEDIA: Record<
         width: 359,
         height: 204,
         className: "w-[285px] sm:w-[355px] md:w-[300px] lg:w-[330px] xl:w-[355px] min-[1800px]:!w-[410px] min-[2400px]:!w-[450px]",
-        loading: "eager",
       },
     ],
   },
@@ -1257,7 +1253,8 @@ function TimelineMedia({
               alt={image.alt}
               width={image.width}
               height={image.height}
-              loading={image.loading}
+              loading={image.loading ?? "lazy"}
+              fetchPriority={image.loading === "eager" ? "auto" : "low"}
               sizes="(max-width: 768px) 76vw, (max-width: 1799px) 390px, (max-width: 2399px) 490px, 540px"
               className="h-auto w-full object-contain"
             />

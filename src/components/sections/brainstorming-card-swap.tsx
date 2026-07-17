@@ -135,7 +135,7 @@ export function BrainstormingCardSwap() {
   return (
     <div
       ref={wrapperRef}
-      className="domtek-card-swap relative h-[440px] cursor-pointer overflow-hidden bg-transparent sm:h-[500px] lg:h-[560px]"
+      className="domtek-card-swap relative h-[440px] w-full min-w-0 cursor-pointer overflow-hidden bg-transparent sm:h-[500px] lg:h-[560px]"
       style={{
         height: `clamp(356px, ${swapSize.height + 144}px, 560px)`,
       }}
@@ -166,7 +166,7 @@ export function BrainstormingCardSwap() {
         skewAmount={0}
         easing="elastic"
       >
-        {BRAINSTORMING_CARDS.map((item) => {
+        {BRAINSTORMING_CARDS.map((item, index) => {
           const title = t(item.titleKey);
 
           return (
@@ -185,7 +185,8 @@ export function BrainstormingCardSwap() {
                     src={item.image}
                     alt={title}
                     fill
-                    loading="eager"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "auto" : "low"}
                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 420px, 460px"
                     className="object-contain"
                     draggable={false}

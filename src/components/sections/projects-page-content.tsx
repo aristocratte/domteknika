@@ -6249,13 +6249,14 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
 
           {visibleProjects.length > 0 ? (
             <div className="grid items-stretch gap-4 md:grid-cols-2 min-[2400px]:!grid-cols-3 min-[2400px]:!gap-6">
-              {visibleProjects.map((project) => (
+              {visibleProjects.map((project, index) => (
                 <div key={project.id} className="h-full">
                   <ProjectCard
                     project={project}
                     onOpen={openProject}
                     ctaLabel={copy.viewCaseStudy}
                     openDetailsLabel={copy.cardOpenDetails}
+                    imageFetchPriority={index < 2 ? "auto" : "low"}
                   />
                 </div>
               ))}
@@ -6559,11 +6560,13 @@ function ProjectCard({
   onOpen,
   ctaLabel,
   openDetailsLabel,
+  imageFetchPriority,
 }: {
   project: Project;
   onOpen: (project: Project) => void;
   ctaLabel: string;
   openDetailsLabel: string;
+  imageFetchPriority: "auto" | "low";
 }) {
   return (
     <article
@@ -6582,6 +6585,8 @@ function ProjectCard({
             src={project.image}
             alt={project.imageAlt}
             fill
+            loading="lazy"
+            fetchPriority={imageFetchPriority}
             sizes="(min-width: 2400px) 580px, (max-width: 768px) 100vw, 560px"
             className="object-contain transition-transform duration-500 group-hover:scale-[1.035]"
           />

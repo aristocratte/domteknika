@@ -44,7 +44,7 @@ export function HeroSection() {
         height={768}
         priority
         sizes="(min-width: 2300px) 70vw, (min-width: 2200px) 72vw, (max-width: 640px) 112vw, (max-width: 767px) 96vw, (max-width: 1024px) 82vw, 56vw"
-        className="pointer-events-none absolute right-[-40vw] top-[108px] z-0 h-auto w-[112vw] max-w-none opacity-[0.82] min-[390px]:right-[-42vw] min-[390px]:w-[116vw] sm:right-[-30vw] sm:top-[100px] sm:w-[96vw] md:right-[-18vw] md:top-[72px] md:w-[82vw] md:opacity-60 lg:right-0 lg:top-[82px] lg:w-[56vw] lg:max-w-[900px] min-[1800px]:right-[calc((100vw-1680px)/2-60px)] min-[1800px]:top-[96px] min-[1800px]:w-[56vw] min-[1800px]:max-w-[1260px] min-[2200px]:max-[2299px]:!right-[calc((100vw-1880px)/2-130px)] min-[2200px]:max-[2299px]:!top-[96px] min-[2200px]:max-[2299px]:!w-[60vw] min-[2200px]:max-[2299px]:!max-w-[1450px] min-[2300px]:!right-[calc((100vw-1900px)/2-110px)] min-[2300px]:!top-[96px] min-[2300px]:!w-[58vw] min-[2300px]:!max-w-[1450px]"
+        className="pointer-events-none absolute right-[-48vw] top-[76px] z-0 h-auto w-[112vw] max-w-none opacity-[0.82] min-[390px]:right-[-50vw] min-[390px]:w-[116vw] sm:right-[-30vw] sm:top-[100px] sm:w-[96vw] md:right-[-18vw] md:top-[72px] md:w-[82vw] md:opacity-60 lg:right-0 lg:top-[82px] lg:w-[56vw] lg:max-w-[900px] min-[1800px]:right-[calc((100vw-1680px)/2-60px)] min-[1800px]:top-[96px] min-[1800px]:w-[56vw] min-[1800px]:max-w-[1260px] min-[2200px]:max-[2299px]:!right-[calc((100vw-1880px)/2-130px)] min-[2200px]:max-[2299px]:!top-[96px] min-[2200px]:max-[2299px]:!w-[60vw] min-[2200px]:max-[2299px]:!max-w-[1450px] min-[2300px]:!right-[calc((100vw-1900px)/2-110px)] min-[2300px]:!top-[96px] min-[2300px]:!w-[58vw] min-[2300px]:!max-w-[1450px]"
       />
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-white via-white/62 to-white/8 md:via-white/76 md:to-white/16" />
       <div
@@ -107,8 +107,12 @@ export function HeroSection() {
               className="mt-[6px] h-[3px] w-[34px] shrink-0 bg-brand md:mt-0 min-[2400px]:!h-1 min-[2400px]:!w-[74px]"
               aria-hidden
             />
-            <span className="min-w-0 max-w-[calc(100vw-150px)] leading-[1.2] md:max-w-none md:leading-none">
-              {t("eyebrow")}
+            <span className="relative isolate min-w-0 max-w-[calc(100vw-150px)] leading-[1.2] md:max-w-none md:leading-none">
+              <span
+                className="pointer-events-none absolute -inset-x-4 -inset-y-2 z-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_58%,rgba(255,255,255,0)_100%)] blur-[3px]"
+                aria-hidden
+              />
+              <span className="relative z-10">{t("eyebrow")}</span>
             </span>
           </motion.div>
 

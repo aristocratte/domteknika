@@ -11,7 +11,7 @@ const variants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -51,41 +51,22 @@ export function Reveal({
   const controls = useAnimationControls();
   const elementRef = useRef<HTMLElement | null>(null);
   const currentStateRef = useRef<RevealState>("hidden");
-  const targetStateRef = useRef<RevealState>("hidden");
-  const isAnimatingRef = useRef(false);
-
-  const runAnimationQueue = useCallback(async () => {
-    if (isAnimatingRef.current) return;
-
-    isAnimatingRef.current = true;
-    try {
-      while (targetStateRef.current !== currentStateRef.current) {
-        const nextState = targetStateRef.current;
-        await controls.start(nextState);
-        currentStateRef.current = nextState;
-      }
-    } finally {
-      isAnimatingRef.current = false;
-    }
-  }, [controls]);
-
-  const requestState = useCallback(
-    (state: RevealState) => {
-      targetStateRef.current = state;
-      void runAnimationQueue();
-    },
-    [runAnimationQueue],
-  );
 
   const setStateImmediately = useCallback(
     (state: RevealState) => {
       controls.stop();
-      targetStateRef.current = state;
       currentStateRef.current = state;
       controls.set(state);
     },
     [controls],
   );
+
+  const reveal = useCallback(() => {
+    if (currentStateRef.current === "visible") return;
+
+    currentStateRef.current = "visible";
+    void controls.start("visible", { delay });
+  }, [controls, delay]);
 
   const getEffectiveMinimumScrollY = useCallback(() => {
     if (
@@ -143,39 +124,6 @@ export function Reveal({
   ]);
 
   useEffect(() => {
-    const revealIfAlreadyVisible = () => {
-      const element = elementRef.current;
-      if (!element || currentStateRef.current === "visible") return;
-      if (isDisabledOnCurrentScreen()) {
-        setStateImmediately("visible");
-        return;
-      }
-      if (window.scrollY < getEffectiveMinimumScrollY()) return;
-
-      const rect = element.getBoundingClientRect();
-      const viewportHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-
-      if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
-        requestState("visible");
-      }
-    };
-
-    const frameId = window.requestAnimationFrame(revealIfAlreadyVisible);
-    const timerId = window.setTimeout(revealIfAlreadyVisible, 450);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-      window.clearTimeout(timerId);
-    };
-  }, [
-    getEffectiveMinimumScrollY,
-    isDisabledOnCurrentScreen,
-    requestState,
-    setStateImmediately,
-  ]);
-
-  useEffect(() => {
     if (!minimumScrollY && !disabledOnMobile && !disabledAtMinWidth) return;
 
     const revealAfterScrollStarts = () => {
@@ -192,7 +140,7 @@ export function Reveal({
         window.innerHeight || document.documentElement.clientHeight;
 
       if (rect.top < viewportHeight + 120 && rect.bottom > -120) {
-        requestState("visible");
+        reveal();
       }
     };
 
@@ -204,7 +152,7 @@ export function Reveal({
     getEffectiveMinimumScrollY,
     isDisabledOnCurrentScreen,
     minimumScrollY,
-    requestState,
+    reveal,
     setStateImmediately,
   ]);
 
@@ -224,7 +172,7 @@ export function Reveal({
           return;
         }
         if (window.scrollY < getEffectiveMinimumScrollY()) return;
-        requestState("visible");
+        reveal();
       }}
       transition={{ delay }}
       className={cn(className)}
