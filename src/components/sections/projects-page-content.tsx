@@ -538,7 +538,7 @@ const FILTERS: ProjectFilterOption[] = [
   },
   {
     key: "industrial",
-    label: "Industrial",
+    label: "Products",
     icon: `${PATENT_ASSET_BASE}/icon-industrial.png`,
     width: 30,
     height: 32,
@@ -633,19 +633,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "weebot",
-    category: "Mobility",
-    filter: "mobility",
-    title: "Weebot",
-    description:
-      "Compact electric mobility concept explored through CAD, prototype builds and winter-use product studies.",
-    image: "/assets/projects/weebot/weebot-01.webp",
-    imageAlt: "Weebot compact snow mobility concept",
-    tags: ["#2014", "#Mobility", "#Prototype"],
-    overview:
-      "The project covers product architecture, mechanical packaging and prototype development for a small electric mobility platform intended for demanding outdoor use cases.",
-  },
-  {
     id: "sam-cree",
     category: "Mobility",
     filter: "mobility",
@@ -654,7 +641,7 @@ export const PROJECTS: Project[] = [
       "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
     image: "/assets/projects/sam-cree/sam-cree-01.webp",
     imageAlt: "Orange SAM CREE electric three-wheeler with open canopy",
-    tags: ["#1996", "#EV", "#ThreeWheeler"],
+    tags: ["#1993", "#EV", "#ThreeWheeler"],
     overview:
       "SAM CREE brings together early ultra-light electric road-vehicle architecture, with a central beam chassis, tandem packaging and component integration focused on efficient urban mobility.",
     relatedPatents: [
@@ -739,8 +726,7 @@ export const PROJECTS: Project[] = [
     title: "Folding bike & scooter",
     description:
       "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
-    image:
-      "/assets/projects/folding-bike-scooter/folding-bike-scooter-01.webp",
+    image: "/assets/projects/folding-bike-scooter/folding-bike-scooter-01.webp",
     imageAlt: "Folding electric bicycle concept render",
     tags: ["#2011", "#Folding", "#Mobility"],
     overview:
@@ -748,7 +734,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "instant-coffee-dispenser",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Instant coffee dispenser",
     description:
@@ -781,8 +767,7 @@ export const PROJECTS: Project[] = [
     title: "Total Car",
     description:
       "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
-    image:
-      "/assets/projects/totalcar-concept/total-car-01.webp",
+    image: "/assets/projects/totalcar-concept/total-car-01.webp",
     imageAlt: "Green Total Car electric vehicle prototype on display",
     tags: ["#2011", "#EV", "#Urban", "#EcoDesign"],
     overview:
@@ -827,38 +812,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "insulin-pen",
-    category: "Medical",
-    filter: "medical",
-    title: "Insulin pen",
-    description:
-      "Injection pen housing and mechanism packaging studies for a slim, manufacturable medical device.",
-    image: "/assets/projects/insulin-pen/insulin-pen-01.webp",
-    imageAlt: "Blue insulin pen product render",
-    tags: ["#2017", "#Medical", "#Packaging"],
-    overview:
-      "This project focuses on a compact pen-style medical product, balancing internal mechanism constraints, user handling and clean industrial design.",
-  },
-  {
-    id: "paradigm-spine",
-    category: "Medical",
-    filter: "medical",
-    title: "Paradigm Spine",
-    description:
-      "Spinal implant and instrumentation development supported by product rendering and mechanical simulation.",
-    image: "/assets/projects/paradigm-spine/paradigm-spine-01.webp",
-    imageAlt: "Paradigm Spine implant set render",
-    tags: ["#2015", "#Spine", "#Simulation"],
-    overview:
-      "A medical implant project combining precision part design, kit presentation and finite element analysis for load-critical spinal hardware.",
-    relatedPatents: [
-      relatedPatent(
-        "US2016000570A1",
-        "Polymer joint implant manufacturing context for medical implant development.",
-      ),
-    ],
-  },
-  {
     id: "flex-drill",
     category: "Medical",
     filter: "medical",
@@ -892,28 +845,15 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "cliris",
-    category: "Industrial",
-    filter: "industrial",
-    title: "Cliris",
-    description:
-      "Automatic eyeglass cleaning device with a compact drawer architecture and refined consumer-product finish.",
-    image: "/assets/projects/cliris/cliris-01.webp",
-    imageAlt: "Black Cliris automatic eyeglass cleaner open",
-    tags: ["#2014", "#Consumer", "#Hygiene"],
-    overview:
-      "Cliris combines a compact cleaning chamber, drawer movement and consumer-facing surfaces in a product designed for reliable, hygienic eyeglass care.",
-  },
-  {
     id: "filter-carafe",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Filter Carafe",
     description:
       "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
     image: "/assets/projects/filter-carafe/filter-carafe-01.webp",
     imageAlt: "Filtered-water carafe concept with cartridge accessories",
-    tags: ["#2008", "#Filtration", "#ProductDesign"],
+    tags: ["#2006", "#Filtration", "#ProductDesign"],
     overview:
       "The carafe project combines the visible vessel and filter accessory design with a control principle for monitoring the quality and use state of the filtration cartridge inside the lid assembly.",
     relatedPatents: [
@@ -930,7 +870,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ikitty",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "iKitty",
     description:
@@ -995,8 +935,7 @@ export const PROJECTS: Project[] = [
     title: "Single Use Turbine",
     description:
       "Single-use medical turbine concept developed to reduce size, weight and cost through material and geometry optimization.",
-    image:
-      "/assets/projects/single-use-turbine/single-use-turbine-01.webp",
+    image: "/assets/projects/single-use-turbine/single-use-turbine-01.webp",
     imageAlt: "Transparent single-use turbine medical component",
     tags: ["#2011", "#SingleUse", "#Medical"],
     overview:
@@ -1004,13 +943,12 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "glove-helmet-dryer",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Glove & helmet dryer",
     description:
       "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
-    image:
-      "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01.webp",
+    image: "/assets/projects/glove-helmet-dryer/glove-helmet-dryer-01.webp",
     imageAlt: "Prototype glove dryer with gloves mounted",
     tags: ["#2015", "#Consumer", "#Prototype"],
     overview:
@@ -1018,7 +956,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "folding-umbrella",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Pocket folding umbrella",
     description:
@@ -1046,8 +984,7 @@ export const PROJECTS: Project[] = [
     title: "Skincare applicator",
     description:
       "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
-    image:
-      "/assets/projects/skincare-applicator/skincare-applicator-01.webp",
+    image: "/assets/projects/skincare-applicator/skincare-applicator-01.webp",
     imageAlt:
       "IDlab skincare applicator with cosmetic cartridges and packaging",
     tags: ["#2012", "#BeautyTech", "#Packaging"],
@@ -1066,7 +1003,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "alicoffee-machine",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Coffee Machine",
     description:
@@ -1085,13 +1022,12 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "special-t-machine",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Tea Machine",
     description:
       "Tea-capsule brewing-unit development, from capsule handling and ejection to beverage flow and pilot-series readiness.",
-    image:
-      "/assets/projects/special-t-machine/tea-machine-01.webp",
+    image: "/assets/projects/special-t-machine/tea-machine-01.webp",
     imageAlt: "Tea-machine brewing unit prototype",
     tags: ["#2008", "#Tea", "#BrewingUnit"],
     overview:
@@ -1104,27 +1040,13 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "aventor-drone",
-    category: "Mobility",
-    filter: "mobility",
-    title: "Aventor drone",
-    description:
-      "Drone platform development with lightweight frame studies, assembled prototypes and field test iterations.",
-    image: "/assets/projects/aventor-drone/aventor-drone-01.webp",
-    imageAlt: "White Aventor drone prototype",
-    tags: ["#2017", "#Drone", "#Prototype"],
-    overview:
-      "This drone work combines mechanical layout, payload packaging and prototype validation for a lightweight aerial product platform.",
-  },
-  {
     id: "vacheron-watch-mechanics",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Watch mechanics",
     description:
       "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
-    image:
-      "/assets/projects/vacheron-watch-mechanics/watch-mechanics-01.webp",
+    image: "/assets/projects/vacheron-watch-mechanics/watch-mechanics-01.webp",
     imageAlt: "Mechanical watch render with visible movement",
     tags: ["#2014", "#Horology", "#Precision"],
     overview:
@@ -1138,12 +1060,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "velum-sky-screen",
-    category: "Industrial",
+    category: "Products",
     filter: "industrial",
     title: "Velum SKY screen mechanism",
     description:
       "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
-    image: "/assets/projects/velum-sky-screen/velum-sky-screen-mechanism-01.webp",
+    image:
+      "/assets/projects/velum-sky-screen/velum-sky-screen-mechanism-01.webp",
     imageAlt:
       "Velum SKY mechanical screen prototype on a dark studio background",
     tags: ["#2025", "#Architecture", "#Mechanism"],
@@ -1213,14 +1136,6 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       ),
     ],
   },
-  weebot: {
-    category: "Mobilité",
-    description:
-      "Concept de mobilité électrique compacte exploré par CAO, prototypes et études produit pour usage hivernal.",
-    imageAlt: "Concept de mobilité neige compact Weebot",
-    overview:
-      "Le projet couvre l'architecture produit, l'intégration mécanique et le développement de prototypes pour une petite plateforme de mobilité électrique destinée à des usages extérieurs exigeants.",
-  },
   "totalcar-concept": {
     category: "Mobilité",
     title: "Total Car",
@@ -1235,7 +1150,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     title: "SAM CREE",
     description:
       "Trois-roues électrique suisse ultra-léger autour de sièges en tandem, d'un châssis central et d'une autonomie urbaine compacte.",
-    imageAlt: "Véhicule électrique à trois roues SAM CREE avec verrière ouverte",
+    imageAlt:
+      "Véhicule électrique à trois roues SAM CREE avec verrière ouverte",
     overview:
       "SAM CREE regroupe les premiers travaux de véhicule routier électrique ultra-léger, avec châssis poutre central, implantation des sièges en tandem et intégration des composants pour une mobilité urbaine efficiente.",
     relatedPatents: [
@@ -1314,15 +1230,6 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "Une série de concepts vélo électrique et scooter pliants centrés sur les mécanismes de charnière, le volume de rangement, l'ergonomie et les assemblages mécaniques fabricables.",
   },
-  "aventor-drone": {
-    category: "Mobilité",
-    title: "Drone Aventor",
-    description:
-      "Développement d'une plateforme drone avec études de châssis léger, prototypes assemblés et itérations terrain.",
-    imageAlt: "Prototype de drone blanc Aventor",
-    overview:
-      "Ce travail drone combine implantation mécanique, intégration de la charge utile et validation prototype pour une plateforme aérienne légère.",
-  },
   airsmile: {
     category: "Médical",
     description:
@@ -1352,29 +1259,6 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       ),
     ],
   },
-  "insulin-pen": {
-    category: "Médical",
-    title: "Stylo à insuline",
-    description:
-      "Études de boîtier et d'intégration du mécanisme pour un dispositif médical fin et industrialisable.",
-    imageAlt: "Rendu de stylo à insuline bleu",
-    overview:
-      "Ce projet se concentre sur un produit médical au format stylo, en équilibrant contraintes de mécanisme interne, prise en main et design industriel épuré.",
-  },
-  "paradigm-spine": {
-    category: "Médical",
-    description:
-      "Développement d'implant et d'instrumentation rachidienne avec rendu produit et simulation mécanique.",
-    imageAlt: "Rendu d'un kit d'implants Paradigm Spine",
-    overview:
-      "Projet d'implant rachidien combinant conception de pièces de précision, présentation du kit et analyse par éléments finis de composants soumis à de fortes contraintes mécaniques.",
-    relatedPatents: [
-      relatedPatent(
-        "US2016000570A1",
-        "Contexte de fabrication d'implants articulaires polymères pour le développement médical.",
-      ),
-    ],
-  },
   "flex-drill": {
     category: "Médical",
     description:
@@ -1398,16 +1282,8 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       ),
     ],
   },
-  cliris: {
-    category: "Industrie",
-    description:
-      "Nettoyeur automatique de lunettes avec architecture compacte à tiroir et finition de produit grand public.",
-    imageAlt: "Nettoyeur de lunettes automatique Cliris noir ouvert",
-    overview:
-      "Cliris combine chambre de nettoyage compacte, mouvement de tiroir et surfaces visibles dans un produit conçu pour un entretien fiable et hygiénique des lunettes.",
-  },
   "filter-carafe": {
-    category: "Industrie",
+    category: "Produits",
     title: "Carafe filtrante",
     description:
       "Système de carafe filtrante combinant design produit, accessoire de cartouche et contrôle électronique de l'état du filtre.",
@@ -1430,7 +1306,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   ikitty: {
-    category: "Industrie",
+    category: "Produits",
     description:
       "Produit d'enrichissement pour chat avec capsule rechargeable, mécanisme de distribution et forme douce.",
     imageAlt: "Prototype de dispositif iKitty pour chat",
@@ -1481,7 +1357,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "La turbine à usage unique est documentée dans le portfolio médical comme un dispositif jetable compact, avec des priorités de développement centrées sur la réduction de taille, de poids, de coût et l'emploi de matériaux innovants.",
   },
   "glove-helmet-dryer": {
-    category: "Industrie",
+    category: "Produits",
     title: "Sèche-gants & casque",
     description:
       "Concept de station de séchage pour équipement sportif, développé des plans CAO aux essais sur prototype physique.",
@@ -1490,7 +1366,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ce produit intègre les chemins d'air et supports pour gants et casques dans une station compacte, avec rendus conceptuels et prototypes physiques.",
   },
   "folding-umbrella": {
-    category: "Industrie",
+    category: "Produits",
     title: "Parapluie pliant de poche",
     description:
       "Concept de parapluie pliant au format téléphone, avec études d'étui, géométrie de pliage et détails de prototype fonctionnel.",
@@ -1528,7 +1404,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "alicoffee-machine": {
-    category: "Industrie",
+    category: "Produits",
     title: "Machine à café",
     description:
       "Concept de machine à café basé sur un circuit capsule double passage, où l'eau fait un aller-retour dans la capsule.",
@@ -1543,7 +1419,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "special-t-machine": {
-    category: "Industrie",
+    category: "Produits",
     title: "Machine à thé",
     description:
       "Développement d'une unité d'extraction pour capsules de thé, de la gestion capsule et l'éjection jusqu'au flux boisson et à la présérie.",
@@ -1558,7 +1434,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "instant-coffee-dispenser": {
-    category: "Industrie",
+    category: "Produits",
     title: "Distributeur de café soluble",
     description:
       "Prototype d'appareil pour dosage de café soluble, testé avec emballages grand public et maquettes physiques.",
@@ -1581,7 +1457,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "vacheron-watch-mechanics": {
-    category: "Industrie",
+    category: "Produits",
     title: "Mécanique horlogère",
     description:
       "Études horlogères de précision combinant implantation mécanique, assemblages rendus et analyse de composants.",
@@ -1596,7 +1472,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "velum-sky-screen": {
-    category: "Industrie",
+    category: "Produits",
     title: "Mécanisme Velum SKY",
     description:
       "Prototype de mécanisme architectural pour écran ou élément de façade, photographié comme assemblage mécanique de précision.",
@@ -1622,14 +1498,6 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Grünes elektrisches Aventor-Fahrzeug auf einer Teststrecke",
     overview:
       "Aventor verbindet Fahrzeugintegration, Verbunddesign, Streckentests und strukturelle Optimierung für eine kompakte elektrische Hochleistungsplattform.",
-  },
-  weebot: {
-    category: "Mobilität",
-    description:
-      "Kompaktes elektrisches Mobilitätskonzept, untersucht mit CAD, Prototypenaufbauten und Produktstudien für den Wintereinsatz.",
-    imageAlt: "Kompaktes Weebot-Schneemobilitätskonzept",
-    overview:
-      "Das Projekt umfasst Produktarchitektur, mechanische Integration und Prototypentwicklung für eine kleine elektrische Mobilitätsplattform für anspruchsvolle Outdoor-Anwendungen.",
   },
   "totalcar-concept": {
     category: "Mobilität",
@@ -1675,15 +1543,6 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "Eine Reihe von Falt-Elektrofahrrad- und Scooter-Konzepten mit Fokus auf Gelenkmechanismen, kompaktes Stauraumvolumen, ergonomische Fahrpositionen und herstellbare mechanische Baugruppen.",
   },
-  "aventor-drone": {
-    category: "Mobilität",
-    title: "Aventor-Drohne",
-    description:
-      "Entwicklung einer Drohnenplattform mit leichten Rahmenstudien, montierten Prototypen und Iterationen im Feldtest.",
-    imageAlt: "Weißer Aventor-Drohnenprototyp",
-    overview:
-      "Diese Drohnenarbeit verbindet mechanische Anordnung, Nutzlastintegration und Prototypvalidierung für eine leichte Luftplattform.",
-  },
   airsmile: {
     category: "Medizin",
     description:
@@ -1700,23 +1559,6 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "O2 Cosmetics Zahnbürstenkonzept mit Nachfüllkartuschen",
     overview:
       "Das Konzept kombiniert einen ergonomischen Zahnbürstenkörper, austauschbare O2-Cosmetics-Verbrauchsteile und den internen Mechanismus in einem kompakten Dentalprodukt.",
-  },
-  "insulin-pen": {
-    category: "Medizin",
-    title: "Insulinpen",
-    description:
-      "Studien zu Gehäuse und Mechanismusintegration für ein schlankes, herstellbares Medizinprodukt im Pen-Format.",
-    imageAlt: "Blaues Produkt-Rendering eines Insulinpens",
-    overview:
-      "Dieses Projekt konzentriert sich auf ein kompaktes medizinisches Pen-Produkt, das interne Mechanik, Nutzerhandhabung und klare Industriegestaltung ausbalanciert.",
-  },
-  "paradigm-spine": {
-    category: "Medizin",
-    description:
-      "Entwicklung von Wirbelsäulenimplantaten und Instrumentierung, unterstützt durch Produktrenderings und mechanische Simulation.",
-    imageAlt: "Rendering eines Paradigm-Spine-Implantatsets",
-    overview:
-      "Ein medizinisches Implantatprojekt, das Präzisionsteiledesign, Kit-Präsentation und Finite-Elemente-Analyse für belastungskritische Wirbelsäulenkomponenten verbindet.",
   },
   "flex-drill": {
     category: "Medizin",
@@ -1735,16 +1577,8 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "Der Applikator zeigt die gesamte Schleife von Ideenskizze und ergonomischem Layout bis zu Finite-Elemente-Prüfungen und Prototypteilen für ein biomedizinisches Handwerkzeug.",
   },
-  cliris: {
-    category: "Industrie",
-    description:
-      "Automatisches Brillenreinigungsgerät mit kompakter Schubladenarchitektur und veredelter Produktoberfläche für Endnutzer.",
-    imageAlt: "Geöffneter schwarzer automatischer Cliris-Brillenreiniger",
-    overview:
-      "Cliris kombiniert eine kompakte Reinigungskammer, Schubladenbewegung und nutzerseitige Oberflächen in einem Produkt für zuverlässige, hygienische Brillenpflege.",
-  },
   "filter-carafe": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Filterkaraffe",
     description:
       "System für gefiltertes Wasser mit Karaffendesign, Filterzubehör und elektronischer Überwachung des Kartuschenzustands.",
@@ -1764,7 +1598,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   ikitty: {
-    category: "Industrie",
+    category: "Produkte",
     description:
       "Produkt zur Beschäftigung von Katzen mit Nachfüllkapsel-Architektur, Füttermechanismus und weicher Produktsprache.",
     imageAlt: "iKitty-Prototyp für Katzenbeschäftigung",
@@ -1816,7 +1650,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Die Single-Use-Turbine ist im medizinischen Portfolio als kompaktes Einweggerät dokumentiert, mit Entwicklungszielen rund um reduzierte Größe, reduziertes Gewicht, geringere Kosten und innovative Materialien.",
   },
   "glove-helmet-dryer": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Handschuh- & Helmtrockner",
     description:
       "Trocknungsstation für Sportausrüstung, entwickelt von der CAD-Auslegung bis zu Tests physischer Prototypen.",
@@ -1825,7 +1659,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Dieses Konsumprodukt integriert Luftführung und Halterungen für Handschuhe und Helme in eine kompakte Dockingstation, mit gerenderten Konzepten und physischen Prototypen.",
   },
   "folding-umbrella": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Taschen-Regenschirm",
     description:
       "Telefonformatiger Faltregenschirm mit Etuistudien, Faltgeometrie und Details funktionsfähiger Prototypen.",
@@ -1843,7 +1677,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ein handgeführtes Hautpflegesystem, das Fluidabgabe, Nutzerergonomie, Produktgestaltung und präsentationsreife Visualisierung verbindet.",
   },
   "alicoffee-machine": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Kaffeemaschine",
     description:
       "Kaffeemaschinenkonzept mit doppeltem Kapselkreislauf, bei dem Wasser in der Kapsel hin und zurück geführt wird.",
@@ -1858,7 +1692,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "special-t-machine": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Teemaschine",
     description:
       "Entwicklung der Brüheinheit für Teekapseln, von Kapselhandling und Auswurf bis zu Getränkefluss und Pilotserie.",
@@ -1873,7 +1707,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "instant-coffee-dispenser": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Instantkaffee-Dispenser",
     description:
       "Prototypgerät für die Dosierung von löslichem Kaffee, getestet mit Endkundenverpackungen und physischen Modellen.",
@@ -1882,7 +1716,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Ein physisches Prototypenprojekt rund um die Handhabung von löslichem Kaffee, Dosierergonomie und ein kompaktes Geräteformat.",
   },
   "vacheron-watch-mechanics": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Uhrenmechanik",
     description:
       "Präzisionsstudien in der Uhrmacherei mit mechanischen Anordnungen, gerenderten Baugruppen und Komponentenanalyse.",
@@ -1891,7 +1725,7 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Dieses Uhrenprojekt konzentriert sich auf Präzisionsmechanik, Werkvisualisierung und strukturelle Bewertung kleiner, hochwertiger Komponenten.",
   },
   "velum-sky-screen": {
-    category: "Industrie",
+    category: "Produkte",
     title: "Velum SKY Bildschirmmechanismus",
     description:
       "Prototyp eines architektonischen Mechanismus für ein Screen- oder Fassadenelement, als präzise mechanische Baugruppe fotografiert.",
@@ -1918,14 +1752,6 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Vehículo eléctrico Aventor verde en circuito",
     overview:
       "Aventor combina implantación del vehículo, diseño composite, pruebas en pista y optimización estructural para una plataforma eléctrica compacta de alto rendimiento.",
-  },
-  weebot: {
-    category: "Movilidad",
-    description:
-      "Concepto compacto de movilidad eléctrica explorado mediante CAD, prototipos y estudios de producto para uso invernal.",
-    imageAlt: "Concepto compacto de movilidad sobre nieve Weebot",
-    overview:
-      "El proyecto cubre arquitectura de producto, integración mecánica y desarrollo de prototipos para una pequeña plataforma eléctrica destinada a usos exteriores exigentes.",
   },
   "totalcar-concept": {
     category: "Movilidad",
@@ -1971,15 +1797,6 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "Conjunto de conceptos de bicicleta eléctrica y scooter plegables centrados en bisagras, volumen compacto de guardado, posiciones ergonómicas y ensamblajes mecánicos fabricables.",
   },
-  "aventor-drone": {
-    category: "Movilidad",
-    title: "Drone Aventor",
-    description:
-      "Desarrollo de plataforma drone con estudios de chasis ligero, prototipos ensamblados e iteraciones de prueba en campo.",
-    imageAlt: "Prototipo de drone blanco Aventor",
-    overview:
-      "Este trabajo con drones combina implantación mecánica, integración de la carga útil y validación de prototipo para una plataforma aérea ligera.",
-  },
   airsmile: {
     category: "Médico",
     description:
@@ -1996,23 +1813,6 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "Concepto de cepillo O2 Cosmetics con cartuchos",
     overview:
       "El concepto combina un cuerpo ergonómico de cepillo, consumibles O2 Cosmetics reemplazables e integración del mecanismo interno en un producto dental compacto.",
-  },
-  "insulin-pen": {
-    category: "Médico",
-    title: "Pluma de insulina",
-    description:
-      "Estudios de carcasa e integración del mecanismo para un dispositivo médico delgado y fabricable.",
-    imageAlt: "Render de producto de pluma de insulina azul",
-    overview:
-      "Este proyecto se centra en un producto médico compacto tipo pluma, equilibrando restricciones de mecanismo interno, manejo por el usuario y diseño industrial limpio.",
-  },
-  "paradigm-spine": {
-    category: "Médico",
-    description:
-      "Desarrollo de implante e instrumentación espinal apoyado por renderizado de producto y simulación mecánica.",
-    imageAlt: "Render de kit de implantes Paradigm Spine",
-    overview:
-      "Proyecto de implante médico que combina diseño de piezas de precisión, presentación de kit y análisis por elementos finitos para hardware espinal sometido a carga.",
   },
   "flex-drill": {
     category: "Médico",
@@ -2031,16 +1831,8 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "El aplicador muestra el ciclo completo desde boceto de ideación y planteamiento ergonómico hasta verificaciones por elementos finitos y piezas prototipo para una herramienta biomédica portátil.",
   },
-  cliris: {
-    category: "Industrial",
-    description:
-      "Dispositivo automático de limpieza de gafas con arquitectura compacta de cajón y acabado refinado de producto de consumo.",
-    imageAlt: "Limpiador automático de gafas Cliris negro abierto",
-    overview:
-      "Cliris combina cámara de limpieza compacta, movimiento de cajón y superficies orientadas al usuario en un producto para cuidado higiénico y fiable de gafas.",
-  },
   "filter-carafe": {
-    category: "Industrial",
+    category: "Productos",
     title: "Jarra filtrante",
     description:
       "Sistema de jarra filtrante que combina diseño de producto, accesorio de cartucho y control electrónico del estado del filtro.",
@@ -2060,7 +1852,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   ikitty: {
-    category: "Industrial",
+    category: "Productos",
     description:
       "Producto de enriquecimiento para gatos con cápsula recargable, mecanismo de alimentación y estilo suave.",
     imageAlt: "Prototipo de dispositivo iKitty para gatos",
@@ -2112,7 +1904,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "La turbina de un solo uso aparece en el portafolio médico como un dispositivo compacto desechable, con prioridades de desarrollo centradas en reducir tamaño, peso y coste mediante materiales innovadores.",
   },
   "glove-helmet-dryer": {
-    category: "Industrial",
+    category: "Productos",
     title: "Secador de guantes y casco",
     description:
       "Concepto de estación de secado para equipamiento deportivo, desarrollado desde planos CAD hasta pruebas con prototipo físico.",
@@ -2121,7 +1913,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Este producto integra rutas de aire y soportes para guantes y cascos en una estación compacta, con conceptos renderizados y prototipos físicos.",
   },
   "folding-umbrella": {
-    category: "Industrial",
+    category: "Productos",
     title: "Paraguas plegable de bolsillo",
     description:
       "Concepto de paraguas plegable en formato teléfono, con estudios de funda, geometría de plegado y detalles de prototipo funcional.",
@@ -2139,7 +1931,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Sistema portátil para el cuidado de la piel que combina entrega de fluido, ergonomía de usuario, estilo de producto y desarrollo visual listo para presentación.",
   },
   "alicoffee-machine": {
-    category: "Industrial",
+    category: "Productos",
     title: "Máquina de café",
     description:
       "Concepto de máquina de café basado en un circuito de cápsula de doble paso, donde el agua hace ida y vuelta dentro de la cápsula.",
@@ -2154,7 +1946,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "special-t-machine": {
-    category: "Industrial",
+    category: "Productos",
     title: "Máquina de té",
     description:
       "Desarrollo de la unidad de extracción para cápsulas de té, desde el manejo y la expulsión de la cápsula hasta el flujo de bebida y la preserie.",
@@ -2169,7 +1961,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "instant-coffee-dispenser": {
-    category: "Industrial",
+    category: "Productos",
     title: "Dispensador de café soluble",
     description:
       "Prototipo de aparato para dosificación de café soluble, probado con envases de consumo y maquetas físicas.",
@@ -2178,7 +1970,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Proyecto de prototipo físico centrado en la manipulación de café soluble, ergonomía de dosificación y un formato compacto de aparato.",
   },
   "vacheron-watch-mechanics": {
-    category: "Industrial",
+    category: "Productos",
     title: "Mecánica relojera",
     description:
       "Estudios de relojería de precisión que combinan implantación mecánica, ensamblajes renderizados y análisis de componentes.",
@@ -2187,7 +1979,7 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Este proyecto relojero se centra en mecánica de precisión, visualización de movimiento y evaluación estructural de pequeños componentes de alto valor.",
   },
   "velum-sky-screen": {
-    category: "Industrial",
+    category: "Productos",
     title: "Mecanismo Velum SKY",
     description:
       "Prototipo de mecanismo arquitectónico para pantalla o elemento de fachada, fotografiado como ensamblaje mecánico de precisión.",
@@ -2213,14 +2005,6 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "트랙 위의 초록색 Aventor 전기차",
     overview:
       "Aventor는 차량 구성, 복합재 설계, 트랙 테스트, 구조 최적화를 결합한 컴팩트 고성능 전기 플랫폼입니다.",
-  },
-  weebot: {
-    category: "모빌리티",
-    description:
-      "CAD, 프로토타입 제작, 겨울 사용 제품 연구를 통해 탐구한 소형 전기 모빌리티 콘셉트.",
-    imageAlt: "Weebot 소형 눈길 모빌리티 콘셉트",
-    overview:
-      "이 프로젝트는 까다로운 야외 사용을 위한 소형 전기 모빌리티 플랫폼의 제품 아키텍처, 기계 통합, 프로토타입 개발을 다룹니다.",
   },
   "totalcar-concept": {
     category: "모빌리티",
@@ -2265,15 +2049,6 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "힌지 메커니즘, 작은 보관 부피, 인체공학적 주행 자세, 제조 가능한 기계 조립에 집중한 접이식 전기자전거와 스쿠터 콘셉트입니다.",
   },
-  "aventor-drone": {
-    category: "모빌리티",
-    title: "Aventor 드론",
-    description:
-      "경량 프레임 연구, 조립 프로토타입, 현장 테스트 반복을 포함한 드론 플랫폼 개발.",
-    imageAlt: "흰색 Aventor 드론 프로토타입",
-    overview:
-      "이 드론 작업은 경량 항공 제품 플랫폼을 위해 기계 배치, 탑재물 통합, 프로토타입 검증을 결합합니다.",
-  },
   airsmile: {
     category: "의료",
     description:
@@ -2290,23 +2065,6 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "리필 카트리지가 있는 O2 Cosmetics 칫솔 콘셉트",
     overview:
       "이 콘셉트는 인체공학적 칫솔 본체, 교체 가능한 O2 Cosmetics 소모품, 내부 메커니즘 통합을 컴팩트한 치과 제품 안에 결합합니다.",
-  },
-  "insulin-pen": {
-    category: "의료",
-    title: "인슐린 펜",
-    description:
-      "슬림하고 제조 가능한 의료기기를 위한 주사 펜 하우징과 메커니즘 통합 연구.",
-    imageAlt: "파란색 인슐린 펜 제품 렌더",
-    overview:
-      "이 프로젝트는 내부 메커니즘 제약, 사용자 조작성, 깔끔한 산업 디자인을 균형 있게 다룬 컴팩트 펜형 의료 제품에 집중합니다.",
-  },
-  "paradigm-spine": {
-    category: "의료",
-    description:
-      "제품 렌더링과 기계 시뮬레이션으로 지원한 척추 임플란트 및 수술 기구 개발.",
-    imageAlt: "Paradigm Spine 임플란트 세트 렌더",
-    overview:
-      "정밀 부품 설계, 키트 프레젠테이션, 하중이 중요한 척추 기구를 위한 유한요소해석을 결합한 의료 임플란트 프로젝트입니다.",
   },
   "flex-drill": {
     category: "의료",
@@ -2325,16 +2083,8 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "이 애플리케이터는 아이디어 스케치와 인체공학적 배치에서 유한요소 검토와 프로토타입 부품까지의 전체 과정을 보여 줍니다.",
   },
-  cliris: {
-    category: "산업",
-    description:
-      "컴팩트한 서랍식 아키텍처와 정제된 소비자 제품 마감을 갖춘 자동 안경 세척 장치.",
-    imageAlt: "열린 검은색 Cliris 자동 안경 세척기",
-    overview:
-      "Cliris는 안경을 위생적이고 안정적으로 관리하기 위해 컴팩트 세척 챔버, 서랍 동작, 사용자에게 보이는 표면을 결합합니다.",
-  },
   "filter-carafe": {
-    category: "산업",
+    category: "제품",
     title: "필터 카라프",
     description:
       "제품 디자인, 필터 카트리지 액세서리, 전자식 카트리지 상태 확인 기능을 결합한 정수 카라프 시스템.",
@@ -2351,7 +2101,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   ikitty: {
-    category: "산업",
+    category: "제품",
     description:
       "리필 캡슐 아키텍처, 급식 메커니즘, 부드러운 제품 스타일을 갖춘 고양이용 제품.",
     imageAlt: "iKitty 고양이 장치 프로토타입",
@@ -2401,7 +2151,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Single Use Turbine은 의료 포트폴리오에서 컴팩트한 일회용 장치로 소개되며, 크기 축소, 무게 절감, 비용 절감, 혁신 소재를 개발 우선순위로 삼았습니다.",
   },
   "glove-helmet-dryer": {
-    category: "산업",
+    category: "제품",
     title: "장갑 및 헬멧 건조기",
     description:
       "CAD 설계부터 물리 프로토타입 테스트까지 개발한 스포츠 장비용 건조 도크 콘셉트.",
@@ -2410,7 +2160,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "공기 흐름 경로와 장갑/헬멧 지지 구조를 컴팩트 도크에 통합한 제품으로, 렌더 콘셉트와 물리 프로토타입을 모두 포함합니다.",
   },
   "folding-umbrella": {
-    category: "산업",
+    category: "제품",
     title: "포켓 접이식 우산",
     description:
       "휴대폰 크기에 가까운 포켓형 접이식 우산 콘셉트로, 케이스 연구와 접힘 기하, 작동 프로토타입 디테일을 포함합니다.",
@@ -2428,7 +2178,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "유체 전달, 사용자 인체공학, 제품 스타일링, 발표에 적합한 시각 개발을 결합한 휴대형 피부 관리 시스템입니다.",
   },
   "alicoffee-machine": {
-    category: "산업",
+    category: "제품",
     title: "커피 머신",
     description:
       "캡슐 안에서 물이 왕복 경로를 만드는 이중 통과 캡슐 회로 기반의 커피 머신 콘셉트.",
@@ -2443,7 +2193,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "special-t-machine": {
-    category: "산업",
+    category: "제품",
     title: "차 머신",
     description:
       "차 캡슐용 브루잉 유닛 개발로, 캡슐 취급과 배출부터 음료 흐름, 파일럿 생산 준비까지 다룹니다.",
@@ -2458,7 +2208,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "instant-coffee-dispenser": {
-    category: "산업",
+    category: "제품",
     title: "인스턴트 커피 디스펜서",
     description:
       "소비자용 포장과 물리 목업으로 테스트한 용해성 커피 투입용 프로토타입 장치.",
@@ -2467,7 +2217,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "용해성 커피 처리, 투입 인체공학, 컴팩트한 기기 형태에 집중한 물리 프로토타입 프로젝트입니다.",
   },
   "vacheron-watch-mechanics": {
-    category: "산업",
+    category: "제품",
     title: "시계 메커니즘",
     description:
       "기계 배치, 렌더 조립체, 부품 분석을 결합한 정밀 시계공학 연구.",
@@ -2476,7 +2226,7 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "이 시계 프로젝트는 정밀 기계, 무브먼트 시각화, 작은 고가치 부품의 구조 평가에 집중합니다.",
   },
   "velum-sky-screen": {
-    category: "산업",
+    category: "제품",
     title: "Velum SKY 스크린 메커니즘",
     description:
       "스크린 또는 파사드 요소를 위한 건축 메커니즘 프로토타입으로, 정밀 기계 조립체로 촬영되었습니다.",
@@ -2501,13 +2251,6 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "赛道上的绿色 Aventor 电动车",
     overview:
       "Aventor 将车辆布局、复合材料设计、赛道测试和结构优化结合起来，形成紧凑的电动性能平台。",
-  },
-  weebot: {
-    category: "出行",
-    description: "通过 CAD、原型制作和冬季使用产品研究探索的紧凑电动出行概念。",
-    imageAlt: "Weebot 紧凑雪地出行概念",
-    overview:
-      "该项目涵盖产品架构、机械集成和原型开发，面向要求较高的户外使用场景的小型电动出行平台。",
   },
   "totalcar-concept": {
     category: "出行",
@@ -2550,14 +2293,6 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "一组折叠电动自行车和滑板车概念，聚焦铰链机构、紧凑收纳体积、人体工学骑行姿态和可制造机械组件。",
   },
-  "aventor-drone": {
-    category: "出行",
-    title: "Aventor 无人机",
-    description: "无人机平台开发，包括轻量框架研究、组装原型和现场测试迭代。",
-    imageAlt: "白色 Aventor 无人机原型",
-    overview:
-      "该无人机工作将机械布局、载荷集成和原型验证结合起来，形成轻量化空中产品平台。",
-  },
   airsmile: {
     category: "医疗",
     description: "牙科护理设备概念，从产品造型到功能集成和原型系列开发。",
@@ -2573,21 +2308,6 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     imageAlt: "带替换胶囊的 O2 Cosmetics 牙刷概念",
     overview:
       "该概念将人体工学牙刷主体、可替换 O2 Cosmetics 消耗件和内部机构整合到紧凑牙科产品中。",
-  },
-  "insulin-pen": {
-    category: "医疗",
-    title: "胰岛素笔",
-    description: "面向纤薄、可制造医疗器械的注射笔外壳和机构集成研究。",
-    imageAlt: "蓝色胰岛素笔产品渲染图",
-    overview:
-      "该项目聚焦紧凑笔形医疗产品，在内部机构限制、用户操作和清晰工业设计之间取得平衡。",
-  },
-  "paradigm-spine": {
-    category: "医疗",
-    description: "脊柱植入物和器械开发，并由产品渲染和机械仿真支持。",
-    imageAlt: "Paradigm Spine 植入套件渲染图",
-    overview:
-      "这是一个医疗植入物项目，结合精密零件设计、套件展示和用于承载关键脊柱硬件的有限元分析。",
   },
   "flex-drill": {
     category: "医疗",
@@ -2605,15 +2325,8 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     overview:
       "该施用器展示了从创意草图和人体工学布置，到有限元检查和原型零件的完整循环。",
   },
-  cliris: {
-    category: "工业",
-    description: "自动眼镜清洁设备，采用紧凑抽屉式架构和精致消费产品表面。",
-    imageAlt: "打开状态的黑色 Cliris 自动眼镜清洁器",
-    overview:
-      "Cliris 将紧凑清洁腔、抽屉运动和面向用户的表面结合在一起，用于可靠、卫生的眼镜护理。",
-  },
   "filter-carafe": {
-    category: "工业",
+    category: "产品",
     title: "滤水壶",
     description: "滤水壶系统，结合产品外观、滤芯附件和电子滤芯状态监测。",
     imageAlt: "带滤芯附件的滤水壶概念",
@@ -2629,7 +2342,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   ikitty: {
-    category: "工业",
+    category: "产品",
     description: "猫咪互动产品，采用可替换胶囊架构、喂食机构和柔和产品造型。",
     imageAlt: "iKitty 猫咪互动设备原型",
     overview:
@@ -2677,7 +2390,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Single Use Turbine 在医疗作品集中作为紧凑一次性装置记录，开发重点是减小尺寸、降低重量、降低成本并使用创新材料。",
   },
   "glove-helmet-dryer": {
-    category: "工业",
+    category: "产品",
     title: "手套与头盔烘干器",
     description: "运动装备烘干底座概念，从 CAD 布置开发到实体原型测试。",
     imageAlt: "装有手套的手套烘干器原型",
@@ -2685,7 +2398,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "该消费产品将手套和头盔的气流路径与支架整合到紧凑底座中，并包含渲染概念与实体原型。",
   },
   "folding-umbrella": {
-    category: "工业",
+    category: "产品",
     title: "口袋折叠伞",
     description:
       "接近手机尺寸的口袋折叠伞概念，包含伞套研究、折叠几何和工作原型细节。",
@@ -2702,7 +2415,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "一套手持护肤系统，结合流体输送、用户人体工学、产品造型和面向产品展示的视觉开发。",
   },
   "alicoffee-machine": {
-    category: "工业",
+    category: "产品",
     title: "咖啡机",
     description: "咖啡机概念，基于双通道胶囊回路，水在胶囊内形成往返路径。",
     imageAlt: "咖啡机概念渲染图",
@@ -2716,7 +2429,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "special-t-machine": {
-    category: "工业",
+    category: "产品",
     title: "茶机",
     description: "茶胶囊冲泡单元开发，从胶囊处理和排出到饮品流动与试生产准备。",
     imageAlt: "茶机冲泡单元原型",
@@ -2730,7 +2443,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     ],
   },
   "instant-coffee-dispenser": {
-    category: "工业",
+    category: "产品",
     title: "速溶咖啡分配器",
     description:
       "用于速溶咖啡计量的原型设备，并通过终端用户包装和实体模型进行测试。",
@@ -2739,7 +2452,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "一个实体原型项目，聚焦速溶咖啡处理、计量人体工学和紧凑设备形态。",
   },
   "vacheron-watch-mechanics": {
-    category: "工业",
+    category: "产品",
     title: "钟表机械",
     description: "精密钟表研究，结合机械布置、渲染装配和组件分析。",
     imageAlt: "可见机芯的机械腕表渲染图",
@@ -2747,7 +2460,7 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "该钟表项目聚焦精密机械、机芯可视化，以及小型高价值组件的结构评估。",
   },
   "velum-sky-screen": {
-    category: "工业",
+    category: "产品",
     title: "Velum SKY 屏幕机构",
     description: "用于屏幕或幕墙元素的建筑机构原型，以精密机械组件形式拍摄。",
     imageAlt: "深色工作室背景下的 Velum SKY 机械屏幕原型",
@@ -2824,9 +2537,6 @@ const PROJECT_SOURCE_POSITIONS = new Map(
 const PROJECT_INITIAL_POSITION_OVERRIDES: Partial<Record<string, number>> = {
   "folding-bike-scooter": PROJECT_SOURCE_POSITIONS.get("ikitty"),
   ikitty: PROJECT_SOURCE_POSITIONS.get("folding-bike-scooter"),
-  weebot: PROJECT_SOURCE_POSITIONS.get("angel-interceptor"),
-  "angel-interceptor": PROJECT_SOURCE_POSITIONS.get("vacheron-watch-mechanics"),
-  "vacheron-watch-mechanics": PROJECT_SOURCE_POSITIONS.get("weebot"),
 };
 
 function getInitialProjectPosition(projectId: string) {
@@ -2914,38 +2624,6 @@ const PROJECT_SCOPES: Record<
       "围绕轻量化车身与驾驶者人体工学完成电动车总体布置。",
       "为紧凑型高性能平台开展复合材料与结构研究。",
       "结合原型与赛道测试反馈，优化比例和机械布局。",
-    ],
-  },
-  weebot: {
-    en: [
-      "Compact snow-mobility product architecture with mechanical and user constraints.",
-      "Prototype iterations to test traction, stance and outdoor handling.",
-      "CAD and visual studies to move from rough proof of concept to coherent product form.",
-    ],
-    fr: [
-      "Architecture de mobilité neige compacte avec contraintes mécaniques et utilisateur.",
-      "Itérations prototype pour tester traction, posture et usage extérieur.",
-      "Études CAO et visuelles pour passer du principe brut à une forme produit cohérente.",
-    ],
-    de: [
-      "Kompakte Schneemobilitätsarchitektur unter Berücksichtigung mechanischer Anforderungen und der Nutzung.",
-      "Prototypeniterationen zur Prüfung von Traktion, Fahrposition und Outdoor-Handling.",
-      "CAD- und Designstudien vom ersten Funktionsnachweis bis zu einer schlüssigen Produktform.",
-    ],
-    es: [
-      "Arquitectura compacta de movilidad sobre nieve considerando requisitos mecánicos y de uso.",
-      "Iteraciones de prototipo para evaluar tracción, postura y comportamiento en exteriores.",
-      "Estudios CAD y visuales para evolucionar desde la prueba de concepto hasta una forma de producto coherente.",
-    ],
-    ko: [
-      "기계적 요구와 사용자 조건을 반영한 컴팩트 설상 모빌리티 구조.",
-      "구동력, 탑승 자세, 야외 조작성을 검증하기 위한 프로토타입 반복.",
-      "초기 개념을 일관된 제품 형태로 발전시키는 CAD 및 디자인 연구.",
-    ],
-    zh: [
-      "在机械与用户需求约束下设计紧凑型雪地出行架构。",
-      "通过多轮原型测试牵引力、姿态与户外操控表现。",
-      "利用 CAD 与造型研究，将初步概念发展为完整产品形态。",
     ],
   },
   "totalcar-concept": {
@@ -3108,38 +2786,6 @@ const PROJECT_SCOPES: Record<
       "针对自行车与滑板车形态进行造型和机械结构迭代。",
     ],
   },
-  "aventor-drone": {
-    en: [
-      "Lightweight drone frame and component packaging studies.",
-      "Prototype assembly work to validate proportions, arms and payload placement.",
-      "Field-test iterations connecting CAD intent with physical behavior.",
-    ],
-    fr: [
-      "Études de châssis drone léger et d'intégration des composants.",
-      "Assemblage prototype pour valider proportions, bras et positionnement charge utile.",
-      "Itérations terrain reliant intention CAO et comportement physique.",
-    ],
-    de: [
-      "Studien zu leichtem Drohnenrahmen und Komponentenintegration.",
-      "Prototypenmontage zur Prüfung von Proportionen, Auslegern und Nutzlastposition.",
-      "Feldtestiterationen zur Abstimmung von CAD-Konzept und realem Flugverhalten.",
-    ],
-    es: [
-      "Estudios de bastidor ligero e integración de componentes para una plataforma dron.",
-      "Montaje de prototipos para validar proporciones, brazos y posición de la carga útil.",
-      "Iteraciones de campo para relacionar la intención CAD con el comportamiento físico.",
-    ],
-    ko: [
-      "경량 드론 프레임과 부품 통합 연구.",
-      "비례, 암, 탑재물 위치를 검증하기 위한 프로토타입 조립.",
-      "CAD 설계 의도와 실제 거동을 연결하는 현장 시험 반복.",
-    ],
-    zh: [
-      "研究轻量化无人机机架与组件集成。",
-      "组装原型，验证比例、机臂与载荷位置。",
-      "通过现场测试迭代，使 CAD 设计与实际表现相匹配。",
-    ],
-  },
   airsmile: {
     en: [
       "Handheld dental-device form factor with clean, approachable styling.",
@@ -3204,70 +2850,6 @@ const PROJECT_SCOPES: Record<
       "通过产品可视化支持展示、验证与设计统一。",
     ],
   },
-  "insulin-pen": {
-    en: [
-      "Slim medical pen housing with precise internal mechanism envelope.",
-      "Human-factor work around grip, readability and controlled handling.",
-      "Clean industrial design language suitable for medical-device presentation.",
-    ],
-    fr: [
-      "Boîtier de stylo médical fin avec enveloppe mécanisme interne précise.",
-      "Travail facteurs humains sur prise en main, lisibilité et manipulation contrôlée.",
-      "Langage design industriel propre adapté à la présentation d'un dispositif médical.",
-    ],
-    de: [
-      "Schlankes Gehäuse für einen medizinischen Pen mit präzise definiertem Bauraum der Mechanik.",
-      "Human-Factors-Arbeit zu Griff, Ablesbarkeit und kontrollierter Handhabung.",
-      "Klare industrielle Formensprache für die Präsentation eines Medizinprodukts.",
-    ],
-    es: [
-      "Carcasa esbelta para un dispositivo médico tipo pluma con un volumen interno definido con precisión.",
-      "Estudio de factores humanos en agarre, legibilidad y manipulación controlada.",
-      "Lenguaje de diseño industrial limpio y adecuado para un dispositivo médico.",
-    ],
-    ko: [
-      "정밀한 내부 메커니즘 공간을 갖춘 슬림형 의료용 펜 하우징.",
-      "그립, 가독성, 안정적인 조작을 고려한 휴먼팩터 설계.",
-      "의료기기에 적합한 깔끔한 산업 디자인 언어.",
-    ],
-    zh: [
-      "为医疗注射笔设计纤细外壳，并精确定义内部机构空间。",
-      "围绕握持、可读性与受控操作开展人因研究。",
-      "建立适合医疗器械呈现的简洁工业设计语言。",
-    ],
-  },
-  "paradigm-spine": {
-    en: [
-      "Spinal implant and instrument kit visualization for technical presentation.",
-      "Load-case and finite-element analysis support for critical mechanical parts.",
-      "Precision component layout connecting engineering validation and medical usability.",
-    ],
-    fr: [
-      "Visualisation de kit implant et instrumentation rachidienne pour présentation technique.",
-      "Support cas de charge et éléments finis pour pièces mécaniques critiques.",
-      "Implantation de composants de précision reliant validation ingénierie et usage médical.",
-    ],
-    de: [
-      "Visualisierung von Wirbelsäulenimplantaten und Instrumentensets für die technische Präsentation.",
-      "Lastfall- und Finite-Elemente-Analysen für mechanisch kritische Komponenten.",
-      "Präzises Komponentenlayout als Verbindung zwischen technischer Validierung und medizinischer Anwendung.",
-    ],
-    es: [
-      "Visualización de implantes e instrumental de columna para presentación técnica.",
-      "Análisis de casos de carga y elementos finitos para componentes mecánicos críticos.",
-      "Disposición precisa de componentes que une validación de ingeniería y uso médico.",
-    ],
-    ko: [
-      "기술 검토를 위한 척추 임플란트 및 수술 기구 세트 시각화.",
-      "핵심 기계 부품의 하중 조건 및 유한요소해석 지원.",
-      "엔지니어링 검증과 의료 사용성을 연결하는 정밀 부품 배치.",
-    ],
-    zh: [
-      "为技术展示完成脊柱植入物与器械套件可视化。",
-      "针对关键机械部件开展载荷工况与有限元分析。",
-      "通过精密组件布局连接工程验证与临床使用需求。",
-    ],
-  },
   "flex-drill": {
     en: [
       "Curved drill-guide concept for constrained access and controlled tool direction.",
@@ -3330,38 +2912,6 @@ const PROJECT_SCOPES: Record<
       "从草图到 CAD 布局完善手持式施用器的人体工学设计。",
       "通过结构校核与打印原型验证生物医疗机构。",
       "围绕握持、驱动方式与医疗产品表达深化设计。",
-    ],
-  },
-  cliris: {
-    en: [
-      "Compact consumer appliance architecture with drawer-based cleaning chamber.",
-      "Surface, opening and product-language studies for a refined visible object.",
-      "Functional packaging around hygienic eyeglass-cleaning use cases.",
-    ],
-    fr: [
-      "Architecture d'appareil grand public compact avec chambre de nettoyage à tiroir.",
-      "Études surfaces, ouverture et langage produit pour un objet visible raffiné.",
-      "Intégration fonctionnelle autour du nettoyage hygiénique des lunettes.",
-    ],
-    de: [
-      "Kompakte Konsumgerätearchitektur mit schubladenbasierter Reinigungskammer.",
-      "Studien zu Oberflächen, Öffnungsbewegung und Formensprache für ein hochwertiges sichtbares Produkt.",
-      "Funktionale Integration für eine hygienische und zuverlässige Brillenreinigung.",
-    ],
-    es: [
-      "Arquitectura compacta de electrodoméstico con cámara de limpieza tipo cajón.",
-      "Estudios de superficies, apertura y lenguaje formal para un producto visible y cuidado.",
-      "Integración funcional orientada a una limpieza higiénica y fiable de las gafas.",
-    ],
-    ko: [
-      "서랍형 세척 챔버를 적용한 컴팩트 소비자 가전 구조.",
-      "정제된 외관을 위한 표면, 개폐 방식, 제품 디자인 언어 연구.",
-      "안전하고 위생적인 안경 세척을 위한 기능 통합.",
-    ],
-    zh: [
-      "采用抽屉式清洁腔体的紧凑型消费电器架构。",
-      "研究表面、开启方式与产品语言，打造精致的可视化产品。",
-      "围绕卫生、可靠的眼镜清洁体验完成功能集成。",
     ],
   },
   "filter-carafe": {
@@ -3951,7 +3501,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "Tous",
         mobility: "Mobilité",
-        industrial: "Industrie",
+        industrial: "Produits",
         medical: "Médical",
         energy: "Énergie",
         materials: "Matériaux",
@@ -4041,7 +3591,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         all: "Alle",
         mobility: "Mobilität",
         medical: "Medizin",
-        industrial: "Industrie",
+        industrial: "Produkte",
         energy: "Energie",
         materials: "Materialien",
         digital: "Digital",
@@ -4122,7 +3672,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         all: "Todos",
         mobility: "Movilidad",
         medical: "Médico",
-        industrial: "Industrial",
+        industrial: "Productos",
         energy: "Energía",
         materials: "Materiales",
         digital: "Digital",
@@ -4203,7 +3753,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         all: "전체",
         mobility: "모빌리티",
         medical: "의료",
-        industrial: "산업",
+        industrial: "제품",
         energy: "에너지",
         materials: "소재",
         digital: "디지털",
@@ -4284,7 +3834,7 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
         all: "全部",
         mobility: "出行",
         medical: "医疗",
-        industrial: "工业",
+        industrial: "产品",
         energy: "能源",
         materials: "材料",
         digital: "数字化",
@@ -5281,7 +4831,10 @@ export function ProjectDetailsDialog({
             aria-label={modal.close}
             onClick={closeProject}
           >
-            <X className="size-4 min-[1800px]:size-6 min-[2400px]:size-7" aria-hidden />
+            <X
+              className="size-4 min-[1800px]:size-6 min-[2400px]:size-7"
+              aria-hidden
+            />
           </button>
 
           <div
@@ -5577,7 +5130,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
           aria-label={copy.sort.label}
         >
           <span className="inline-flex min-w-0 items-center gap-2">
-            <ArrowDownUp className="size-4 shrink-0 text-brand min-[2400px]:!size-6" aria-hidden />
+            <ArrowDownUp
+              className="size-4 shrink-0 text-brand min-[2400px]:!size-6"
+              aria-hidden
+            />
             <span className="shrink-0">{copy.sort.label}</span>
           </span>
           <span className="max-w-[110px] truncate text-[12px] font-medium text-muted-foreground min-[520px]:max-w-[48px] md:max-w-[74px] xl:max-w-[110px] min-[2400px]:!max-w-[190px] min-[2400px]:!text-[18px]">
@@ -5606,7 +5162,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               >
                 <span>{option.label}</span>
                 {active ? (
-                  <Check className="size-4 shrink-0 min-[2400px]:size-6" aria-hidden />
+                  <Check
+                    className="size-4 shrink-0 min-[2400px]:size-6"
+                    aria-hidden
+                  />
                 ) : null}
               </button>
             );
@@ -6120,7 +5679,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
         >
           <Reveal className="max-w-[560px] pb-5 md:pb-0 min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
+              <span
+                className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]"
+                aria-hidden
+              />
               {copy.hero.eyebrow}
             </div>
             <h1
@@ -6170,8 +5732,12 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
             })}
           </Reveal>
 
-          <Reveal delay={0.06} className="mb-7 mt-7 min-[2400px]:mb-12 min-[2400px]:mt-12" as="div">
-              <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px] min-[2400px]:!grid-cols-[136px_repeat(3,236px)_280px_420px] min-[2400px]:!gap-5">
+          <Reveal
+            delay={0.06}
+            className="mb-7 mt-7 min-[2400px]:mb-12 min-[2400px]:mt-12"
+            as="div"
+          >
+            <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px] min-[2400px]:!grid-cols-[136px_repeat(3,236px)_280px_420px] min-[2400px]:!gap-5">
               <div
                 className="contents"
                 role="group"
@@ -6308,7 +5874,10 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               aria-label={copy.modal.close}
               onClick={closeProject}
             >
-              <X className="size-4 min-[1800px]:size-6 min-[2400px]:size-7" aria-hidden />
+              <X
+                className="size-4 min-[1800px]:size-6 min-[2400px]:size-7"
+                aria-hidden
+              />
             </button>
 
             <div
@@ -6509,7 +6078,10 @@ function ProjectsStatsSection({
   ariaLabel: string;
 }) {
   return (
-    <section className="bg-background py-[28px] min-[1180px]:pb-5 min-[1180px]:pt-[52px] min-[2400px]:!pb-6 min-[2400px]:!pt-14" aria-label={ariaLabel}>
+    <section
+      className="bg-background py-[28px] min-[1180px]:pb-5 min-[1180px]:pt-[52px] min-[2400px]:!pb-6 min-[2400px]:!pt-14"
+      aria-label={ariaLabel}
+    >
       <Container size="wide">
         <div className="grid grid-cols-2 overflow-hidden rounded-[7px] border border-border bg-white min-[1180px]:grid-cols-5">
           {stats.map((stat, index) => {
@@ -6520,7 +6092,8 @@ function ProjectsStatsSection({
                 delay={index * 0.05}
                 className={cn(
                   "group/stat relative flex min-h-[116px] transform-gpu flex-col items-center justify-center gap-1 bg-white px-5 py-2.5 text-center transition-shadow duration-500 hover:z-10 hover:shadow-[0_18px_42px_rgba(0,0,0,0.07)] sm:min-h-[92px] sm:px-7 sm:py-1.5 min-[1180px]:grid min-[1180px]:min-h-[76px] min-[1180px]:grid-cols-[32px_minmax(0,1fr)] min-[1180px]:items-center min-[1180px]:gap-2 min-[1180px]:px-3 min-[1180px]:py-2 min-[1180px]:text-left min-[2400px]:!min-h-[90px] min-[2400px]:!grid-cols-[48px_1fr] min-[2400px]:!gap-3 min-[2400px]:!px-5 min-[2400px]:!py-3 motion-reduce:transition-none [transition-timing-function:var(--ease-smooth)]",
-                  index % 2 === 0 && index < stats.length - 1 &&
+                  index % 2 === 0 &&
+                    index < stats.length - 1 &&
                     "border-r border-border min-[1180px]:border-r-0",
                   index < stats.length - 1 &&
                     "border-b border-border min-[1180px]:border-b-0",
@@ -6651,7 +6224,10 @@ export function ProjectsPageCta({ locale }: { locale: string }) {
       <Container size="wide" className="relative z-10">
         <Reveal className="max-w-[590px] min-[2400px]:!max-w-[1160px]">
           <div className="flex items-center gap-3 text-[15px] font-medium text-muted-foreground min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
-            <span className="h-[2px] w-[26px] bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
+            <span
+              className="h-[2px] w-[26px] bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]"
+              aria-hidden
+            />
             {copy.eyebrow}
           </div>
           <h2

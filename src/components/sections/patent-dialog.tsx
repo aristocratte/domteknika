@@ -88,7 +88,11 @@ const CARD_ICON: Record<
   { src: string; width: number; height: number }
 > = {
   mobility: { src: `${ASSET_BASE}/icon-mobility.png`, width: 28, height: 25 },
-  industrial: { src: `${ASSET_BASE}/icon-industrial.png`, width: 30, height: 32 },
+  industrial: {
+    src: `${ASSET_BASE}/icon-industrial.png`,
+    width: 30,
+    height: 32,
+  },
   medical: { src: `${ASSET_BASE}/icon-medical.png`, width: 39, height: 34 },
   energy: { src: `${ASSET_BASE}/icon-energy.png`, width: 23, height: 35 },
   materials: { src: `${ASSET_BASE}/icon-materials.png`, width: 34, height: 33 },
@@ -98,7 +102,7 @@ const CARD_ICON: Record<
 const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   en: {
     mobility: "Mobility",
-    industrial: "Industrial",
+    industrial: "Products",
     medical: "Medical",
     energy: "Energy",
     materials: "Materials",
@@ -106,7 +110,7 @@ const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   },
   fr: {
     mobility: "Mobilité",
-    industrial: "Industrie",
+    industrial: "Produits",
     medical: "Médical",
     energy: "Énergie",
     materials: "Matériaux",
@@ -114,7 +118,7 @@ const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   },
   de: {
     mobility: "Mobilität",
-    industrial: "Industrie",
+    industrial: "Produkte",
     medical: "Medizin",
     energy: "Energie",
     materials: "Materialien",
@@ -122,7 +126,7 @@ const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   },
   es: {
     mobility: "Movilidad",
-    industrial: "Industrial",
+    industrial: "Productos",
     medical: "Médico",
     energy: "Energía",
     materials: "Materiales",
@@ -130,7 +134,7 @@ const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   },
   ko: {
     mobility: "모빌리티",
-    industrial: "산업",
+    industrial: "제품",
     medical: "의료",
     energy: "에너지",
     materials: "소재",
@@ -138,7 +142,7 @@ const CATEGORY_LABELS: Record<PatentLocale, Record<PatentFilterKey, string>> = {
   },
   zh: {
     mobility: "出行",
-    industrial: "工业",
+    industrial: "产品",
     medical: "医疗",
     energy: "能源",
     materials: "材料",
@@ -401,7 +405,9 @@ export function PatentDialog({
   const [panelRect, setPanelRect] = useState<PanelRect | null>(() =>
     typeof window === "undefined" ? null : centeredPatentPanelRect(),
   );
-  const [activeDrawingIndex, setActiveDrawingIndex] = useState<number | null>(null);
+  const [activeDrawingIndex, setActiveDrawingIndex] = useState<number | null>(
+    null,
+  );
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const [modalImageOffset, setModalImageOffset] = useState({ x: 0, y: 0 });
   const [modalImageRotation, setModalImageRotation] = useState(0);
@@ -596,7 +602,8 @@ export function PatentDialog({
 
     fetch(renderedPatent.detailPath)
       .then((response) => {
-        if (!response.ok) throw new Error(`Failed to load ${renderedPatent.detailPath}`);
+        if (!response.ok)
+          throw new Error(`Failed to load ${renderedPatent.detailPath}`);
         return response.json() as Promise<PatentDetail>;
       })
       .then((detail) => {
@@ -682,7 +689,11 @@ export function PatentDialog({
       capture: true,
       passive: true,
     });
-    window.addEventListener("wheel", preventBackgroundScroll, scrollEventOptions);
+    window.addEventListener(
+      "wheel",
+      preventBackgroundScroll,
+      scrollEventOptions,
+    );
     window.addEventListener(
       "touchmove",
       preventBackgroundScroll,
@@ -777,7 +788,8 @@ export function PatentDialog({
         ),
       ).filter(
         (element) =>
-          !element.hasAttribute("disabled") && element.getClientRects().length > 0,
+          !element.hasAttribute("disabled") &&
+          element.getClientRects().length > 0,
       );
 
       if (!focusable.length) return;
@@ -831,7 +843,8 @@ export function PatentDialog({
   const backdropVisible = dialogState === "open";
   const panelVisible = dialogState === "open";
   const selectedPatentCategory =
-    CATEGORY_LABELS[resolvedLocale][renderedPatent.filter] ?? renderedPatent.filter;
+    CATEGORY_LABELS[resolvedLocale][renderedPatent.filter] ??
+    renderedPatent.filter;
   const selectedPatentImages = renderedPatent.images;
   const safeModalImageIndex = selectedPatentImages[modalImageIndex]
     ? modalImageIndex
@@ -1048,28 +1061,62 @@ export function PatentDialog({
                   {copy.tags}
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {[selectedPatentCategory, ...renderedPatent.tags].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {[selectedPatentCategory, ...renderedPatent.tags].map(
+                    (tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ),
+                  )}
                 </div>
               </section>
             </div>
 
             <div className="mt-8 grid border border-border sm:grid-cols-2">
-              <PatentFact label={copy.publication} value={renderedPatent.publication} />
-              <PatentFact label={copy.publicationDate} value={renderedPatent.date} />
-              <PatentFact label={copy.priorityDate} value={renderedPatent.priorityDate} />
-              <PatentFact label={copy.category} value={selectedPatentCategory} />
-              <PatentFact label={copy.inventors} value={renderedPatent.inventors} wide />
-              <PatentFact label={copy.applicants} value={renderedPatent.applicants} wide />
-              <PatentFact label={copy.application} value={renderedPatent.applicationNumber} wide />
-              <PatentFact label={copy.classification} value={renderedPatent.classification} wide />
-              <PatentFact label={copy.alsoPublishedAs} value={renderedPatent.alsoPublishedAs} wide />
+              <PatentFact
+                label={copy.publication}
+                value={renderedPatent.publication}
+              />
+              <PatentFact
+                label={copy.publicationDate}
+                value={renderedPatent.date}
+              />
+              <PatentFact
+                label={copy.priorityDate}
+                value={renderedPatent.priorityDate}
+              />
+              <PatentFact
+                label={copy.category}
+                value={selectedPatentCategory}
+              />
+              <PatentFact
+                label={copy.inventors}
+                value={renderedPatent.inventors}
+                wide
+              />
+              <PatentFact
+                label={copy.applicants}
+                value={renderedPatent.applicants}
+                wide
+              />
+              <PatentFact
+                label={copy.application}
+                value={renderedPatent.applicationNumber}
+                wide
+              />
+              <PatentFact
+                label={copy.classification}
+                value={renderedPatent.classification}
+                wide
+              />
+              <PatentFact
+                label={copy.alsoPublishedAs}
+                value={renderedPatent.alsoPublishedAs}
+                wide
+              />
             </div>
 
             {renderedPatent.images.length > 0 && (
@@ -1082,8 +1129,14 @@ export function PatentDialog({
             )}
 
             <section className="mt-8 grid gap-3 sm:grid-cols-2">
-              <PatentLinkGroup title={copy.sourceLinks} links={renderedPatent.links} />
-              <PatentPdfGroup title={copy.downloadPdfs} pdfs={renderedPatent.pdfs} />
+              <PatentLinkGroup
+                title={copy.sourceLinks}
+                links={renderedPatent.links}
+              />
+              <PatentPdfGroup
+                title={copy.downloadPdfs}
+                pdfs={renderedPatent.pdfs}
+              />
             </section>
 
             <section className="mt-8 grid gap-4">
@@ -1092,7 +1145,10 @@ export function PatentDialog({
                   {copy.unavailable}
                 </p>
               ) : selectedPatentDetails ? (
-                <PatentDetailSections copy={copy} detail={selectedPatentDetails} />
+                <PatentDetailSections
+                  copy={copy}
+                  detail={selectedPatentDetails}
+                />
               ) : (
                 <p className="rounded-[4px] border border-border bg-muted px-4 py-3 text-[13px] font-medium text-muted-foreground">
                   {copy.loading}
@@ -1102,16 +1158,17 @@ export function PatentDialog({
           </div>
         </div>
       </section>
-      {activeDrawingIndex !== null && renderedPatent.images[activeDrawingIndex] && (
-        <PatentDrawingLightbox
-          images={renderedPatent.images}
-          activeIndex={activeDrawingIndex}
-          copy={copy}
-          onClose={closeDrawing}
-          onPrevious={() => cycleDrawing(-1)}
-          onNext={() => cycleDrawing(1)}
-        />
-      )}
+      {activeDrawingIndex !== null &&
+        renderedPatent.images[activeDrawingIndex] && (
+          <PatentDrawingLightbox
+            images={renderedPatent.images}
+            activeIndex={activeDrawingIndex}
+            copy={copy}
+            onClose={closeDrawing}
+            onPrevious={() => cycleDrawing(-1)}
+            onNext={() => cycleDrawing(1)}
+          />
+        )}
     </div>
   );
 }
@@ -1165,7 +1222,9 @@ function PatentLinkGroup({
 
   return (
     <div className="rounded-[4px] border border-border p-4">
-      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">{title}</h3>
+      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+        {title}
+      </h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {entries.map(([label, href]) => (
           <a
@@ -1195,7 +1254,9 @@ function PatentPdfGroup({
 
   return (
     <div className="rounded-[4px] border border-border p-4">
-      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">{title}</h3>
+      <h3 className="text-[12px] font-extrabold uppercase tracking-wide">
+        {title}
+      </h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {pdfs.slice(0, 8).map((pdf, index) => (
           <a
@@ -1468,7 +1529,9 @@ function PatentDrawingGallery({
   const hasMultiple = images.length > 1;
 
   const cycle = (direction: -1 | 1) => {
-    setActiveIndex((current) => (current + direction + images.length) % images.length);
+    setActiveIndex(
+      (current) => (current + direction + images.length) % images.length,
+    );
   };
 
   if (!activeImage) return null;

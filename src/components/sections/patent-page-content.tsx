@@ -275,7 +275,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "Industrial",
+      label: "Products",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -320,7 +320,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "Industrie",
+      label: "Produits",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -365,7 +365,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "Industrie",
+      label: "Produkte",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -410,7 +410,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "Industrial",
+      label: "Productos",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -455,7 +455,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "산업",
+      label: "제품",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -500,7 +500,7 @@ const FILTERS: Record<PatentLocale, PatentFilterOption[]> = {
     },
     {
       key: "industrial",
-      label: "工业",
+      label: "产品",
       icon: `${ASSET_BASE}/icon-industrial.png`,
       width: 30,
       height: 32,
@@ -923,7 +923,8 @@ const COPY: Record<
       title: "특허",
       leadOne:
         "특허 포트폴리오는 수년간의 연구, 엔지니어링 우수성, 복잡한 과제를 해결하려는 의지를 보여 줍니다.",
-      leadTwo: "특허로 보호된 기술이 여러 산업의 발전에 어떻게 기여하는지 살펴보세요.",
+      leadTwo:
+        "특허로 보호된 기술이 여러 산업의 발전에 어떻게 기여하는지 살펴보세요.",
     },
     archiveTitle: "혁신 아카이브",
     filtersLabel: "특허 필터",
@@ -1227,7 +1228,10 @@ export function PatentPageContent({ locale }: { locale: string }) {
           aria-label={copy.sort.label}
         >
           <span className="inline-flex min-w-0 items-center gap-2">
-            <ArrowDownUp className="size-4 shrink-0 text-brand min-[1800px]:!size-5 min-[2400px]:!size-6" aria-hidden />
+            <ArrowDownUp
+              className="size-4 shrink-0 text-brand min-[1800px]:!size-5 min-[2400px]:!size-6"
+              aria-hidden
+            />
             <span className="shrink-0">{copy.sort.label}</span>
           </span>
           <span className="max-w-[92px] truncate text-[12px] font-medium text-muted-foreground min-[1800px]:!max-w-[128px] min-[1800px]:!text-[14px] min-[2400px]:!text-[15px]">
@@ -1471,10 +1475,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
         y: event.clientY,
         moved:
           pan.moved ||
-          Math.hypot(
-            event.clientX - pan.startX,
-            event.clientY - pan.startY,
-          ) > 5,
+          Math.hypot(event.clientX - pan.startX, event.clientY - pan.startY) >
+            5,
       };
       setModalImageOffset((current) => ({
         x: current.x + deltaX,
@@ -1790,7 +1792,10 @@ export function PatentPageContent({ locale }: { locale: string }) {
         >
           <Reveal className="max-w-[515px] min-[1800px]:!max-w-[720px] min-[2400px]:!max-w-[900px]">
             <div className="flex items-center gap-3 text-[15px] font-medium leading-none text-muted-foreground md:text-[16px] min-[2400px]:!gap-5 min-[2400px]:!text-[26px]">
-              <span className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]" aria-hidden />
+              <span
+                className="h-[3px] w-[34px] shrink-0 bg-brand min-[2400px]:!h-1 min-[2400px]:!w-[74px]"
+                aria-hidden
+              />
               {copy.hero.eyebrow}
             </div>
             <h1
@@ -1996,7 +2001,8 @@ export function PatentPageContent({ locale }: { locale: string }) {
                 data-patent-image-preview
                 onClick={(event) => {
                   if (!modalImage) return;
-                  if ((event.target as HTMLElement).closest("button, a")) return;
+                  if ((event.target as HTMLElement).closest("button, a"))
+                    return;
                   if (modalImageClickSuppressedRef.current) {
                     modalImageClickSuppressedRef.current = false;
                     return;
@@ -3425,7 +3431,10 @@ export function PatentPageCta({ locale }: { locale: string }) {
       <Container size="wide" className="relative z-10">
         <Reveal className="max-w-[620px] md:pl-[72px] min-[1800px]:!max-w-[820px] min-[2400px]:!max-w-[940px]">
           <div className="flex items-center gap-3 text-[13px] font-extrabold leading-none text-foreground min-[1800px]:!gap-4 min-[1800px]:!text-[17px] min-[2400px]:!text-[19px]">
-            <span className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px] min-[2400px]:!h-1 min-[2400px]:!w-[52px]" aria-hidden />
+            <span
+              className="h-[3px] w-[34px] bg-brand min-[1800px]:!w-[44px] min-[2400px]:!h-1 min-[2400px]:!w-[52px]"
+              aria-hidden
+            />
             {copy.eyebrow}
           </div>
           <h2

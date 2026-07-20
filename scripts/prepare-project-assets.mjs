@@ -14,7 +14,6 @@ const projects = [
     order: [
       "Aventor9.jpeg",
       "Aventor Rolf Biland 2 July 2015 Lignieres.jpg",
-      "val_6595.jpg",
       "DSC_2737.JPG",
       "v18-vert-dessus.jpg",
       "160721-3w.png",
@@ -22,14 +21,15 @@ const projects = [
     ],
   },
   { folder: "BrossAdent", slug: "brossadent", cover: "Sans titre.png" },
-  { folder: "DroneAventor", slug: "aventor-drone", cover: "1.JPG" },
-  { folder: "EcranVelumSKY", slug: "velum-sky-screen", cover: "_DSC7008-Modifier.jpg" },
-  { folder: "InsulinPen", slug: "insulin-pen", cover: "170831-InsulinPen-3.jpg" },
-  { folder: "MontreVacheron", slug: "vacheron-watch-mechanics", cover: "Watch-3.333.jpg" },
   {
-    folder: "Paradigm (pince pour mettre en deux vertebre)",
-    slug: "paradigm-spine",
-    cover: "set-complet-paradigm-spine.2.jpg",
+    folder: "EcranVelumSKY",
+    slug: "velum-sky-screen",
+    cover: "_DSC7008-Modifier.jpg",
+  },
+  {
+    folder: "MontreVacheron",
+    slug: "vacheron-watch-mechanics",
+    cover: "Watch-3.333.jpg",
   },
   { folder: "Parapluis", slug: "folding-umbrella", cover: "IMG_2957.JPG" },
   {
@@ -62,7 +62,8 @@ const projects = [
       "usine.jpg",
     ],
     labels: {
-      "cree-sam-vorserien-elektrofahrzeug-made-in-switzerland.jpeg": "prototype",
+      "cree-sam-vorserien-elektrofahrzeug-made-in-switzerland.jpeg":
+        "prototype",
       "Cree_SAM_IMG_0346-20140108.jpg": "workshop",
       "s727078908517165717_p271_i1_w600.jpeg": "side-view",
       "s727078908517165717_p271_i6_w750.jpeg": "sunset-cover",
@@ -99,14 +100,29 @@ const projects = [
       "fjf.png": "front-study",
     },
   },
-  { folder: "cliris", slug: "cliris", cover: "Copie de cliris_open_persp_140410.jpg" },
   { folder: "Carafe", slug: "filter-carafe", cover: "Sans titre.jpg" },
-  { folder: "coffeeMachine", slug: "alicoffee-machine", cover: "2.1-Alicoffee-red.jpg" },
+  {
+    folder: "coffeeMachine",
+    slug: "alicoffee-machine",
+    cover: "2.1-Alicoffee-red.jpg",
+  },
   { folder: "flexDrill", slug: "flex-drill", cover: "Flex-drill.10.png" },
   { folder: "iKitty", slug: "ikitty", cover: "Kitty1.png" },
-  { folder: "pistolet agrafebiomes", slug: "biome-staple-applicator", cover: "image 18.png" },
-  { folder: "Personal Injector", slug: "personal-injector", cover: "Sans titre.png" },
-  { folder: "Reamer Holder", slug: "acetabular-reamer-holder", cover: "OffsetC-1.jpg" },
+  {
+    folder: "pistolet agrafebiomes",
+    slug: "biome-staple-applicator",
+    cover: "image 18.png",
+  },
+  {
+    folder: "Personal Injector",
+    slug: "personal-injector",
+    cover: "Sans titre.png",
+  },
+  {
+    folder: "Reamer Holder",
+    slug: "acetabular-reamer-holder",
+    cover: "OffsetC-1.jpg",
+  },
   {
     folder: "seche gant",
     slug: "glove-helmet-dryer",
@@ -119,17 +135,16 @@ const projects = [
       "150813-3d1.JPG",
     ],
   },
-  { folder: "Single use turbine", slug: "single-use-turbine", cover: "Turbine 1.JPG" },
+  {
+    folder: "Single use turbine",
+    slug: "single-use-turbine",
+    cover: "Turbine 1.JPG",
+  },
   {
     folder: "skincare",
     slug: "skincare-applicator",
     cover: "jf.jpg",
-    order: [
-      "jf.jpg",
-      "PC070111.JPG",
-      "principe.jpg",
-      "Sans titre.png",
-    ],
+    order: ["jf.jpg", "PC070111.JPG", "principe.jpg", "Sans titre.png"],
     labels: {
       "jf.jpg": "idlab-cover",
     },
@@ -166,8 +181,11 @@ const projects = [
       "181017 - Jante - Déplacements.jpg": "wheel-analysis",
     },
   },
-  { folder: "velo:scooter", slug: "folding-bike-scooter", cover: "VELO ELECTRIQUE PLIANT copie.jpg" },
-  { folder: "weebot", slug: "weebot", cover: "weebotneige.png" },
+  {
+    folder: "velo:scooter",
+    slug: "folding-bike-scooter",
+    cover: "VELO ELECTRIQUE PLIANT copie.jpg",
+  },
 ];
 
 function slugify(value) {
@@ -216,13 +234,15 @@ for (const project of projects) {
   const fallbackInput = project.fallbackInput
     ? path.resolve(project.fallbackInput)
     : null;
-  const ordered = (project.order ?? [
-    project.cover,
-    ...files.filter(
-      (file) =>
-        file !== project.cover && !(project.exclude ?? []).includes(file),
-    ),
-  ]).filter(
+  const ordered = (
+    project.order ?? [
+      project.cover,
+      ...files.filter(
+        (file) =>
+          file !== project.cover && !(project.exclude ?? []).includes(file),
+      ),
+    ]
+  ).filter(
     (file, index, array) =>
       !(project.exclude ?? []).includes(file) &&
       (files.includes(file) || (file === project.cover && fallbackInput)) &&
@@ -233,7 +253,8 @@ for (const project of projects) {
 
   for (const [index, file] of ordered.entries()) {
     const label =
-      project.labels?.[file] ?? (index === 0 ? "cover" : slugify(path.parse(file).name));
+      project.labels?.[file] ??
+      (index === 0 ? "cover" : slugify(path.parse(file).name));
     const imageIndex = (project.startIndex ?? 1) + index;
     const outputName = `${project.slug}-${String(imageIndex).padStart(2, "0")}-${label}.webp`;
     const input =

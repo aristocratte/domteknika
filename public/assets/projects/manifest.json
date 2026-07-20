@@ -32,24 +32,20 @@
         "output": "/assets/projects/aventor/aventor-02.webp"
       },
       {
-        "source": "Aventor/val_6595.jpg",
+        "source": "Aventor/DSC_2737.JPG",
         "output": "/assets/projects/aventor/aventor-03.webp"
       },
       {
-        "source": "Aventor/DSC_2737.JPG",
+        "source": "Aventor/v18-vert-dessus.jpg",
         "output": "/assets/projects/aventor/aventor-04.webp"
       },
       {
-        "source": "Aventor/v18-vert-dessus.jpg",
+        "source": "Aventor/160721-3w.png",
         "output": "/assets/projects/aventor/aventor-05.webp"
       },
       {
-        "source": "Aventor/160721-3w.png",
-        "output": "/assets/projects/aventor/aventor-06.webp"
-      },
-      {
         "source": "Aventor/Déplacements arceau 2.2.PNG",
-        "output": "/assets/projects/aventor/aventor-07.webp"
+        "output": "/assets/projects/aventor/aventor-06.webp"
       }
     ]
   },
@@ -73,29 +69,6 @@
     ]
   },
   {
-    "slug": "aventor-drone",
-    "sourceFolder": "DroneAventor",
-    "cover": "/assets/projects/aventor-drone/aventor-drone-01.webp",
-    "images": [
-      {
-        "source": "DroneAventor/1.JPG",
-        "output": "/assets/projects/aventor-drone/aventor-drone-01.webp"
-      },
-      {
-        "source": "DroneAventor/20170601_094412279_iOS.jpg",
-        "output": "/assets/projects/aventor-drone/aventor-drone-02.webp"
-      },
-      {
-        "source": "DroneAventor/20170604_170723671_iOS.jpg",
-        "output": "/assets/projects/aventor-drone/aventor-drone-03.webp"
-      },
-      {
-        "source": "DroneAventor/4.JPG",
-        "output": "/assets/projects/aventor-drone/aventor-drone-04.webp"
-      }
-    ]
-  },
-  {
     "slug": "velum-sky-screen",
     "sourceFolder": "EcranVelumSKY",
     "cover": "/assets/projects/velum-sky-screen/velum-sky-screen-mechanism-01.webp",
@@ -103,25 +76,6 @@
       {
         "source": "EcranVelumSKY/_DSC7008-Modifier.jpg",
         "output": "/assets/projects/velum-sky-screen/velum-sky-screen-mechanism-01.webp"
-      }
-    ]
-  },
-  {
-    "slug": "insulin-pen",
-    "sourceFolder": "InsulinPen",
-    "cover": "/assets/projects/insulin-pen/insulin-pen-01.webp",
-    "images": [
-      {
-        "source": "InsulinPen/170831-InsulinPen-3.jpg",
-        "output": "/assets/projects/insulin-pen/insulin-pen-01.webp"
-      },
-      {
-        "source": "InsulinPen/170831-InsulinPen-1.jpg",
-        "output": "/assets/projects/insulin-pen/insulin-pen-02.webp"
-      },
-      {
-        "source": "InsulinPen/170831-InsulinPen-2.jpg",
-        "output": "/assets/projects/insulin-pen/insulin-pen-03.webp"
       }
     ]
   },
@@ -149,25 +103,6 @@
       {
         "source": "MontreVacheron/Sans titre.jpg",
         "output": "/assets/projects/vacheron-watch-mechanics/watch-mechanics-05.webp"
-      }
-    ]
-  },
-  {
-    "slug": "paradigm-spine",
-    "sourceFolder": "Paradigm (pince pour mettre en deux vertebre)",
-    "cover": "/assets/projects/paradigm-spine/paradigm-spine-01.webp",
-    "images": [
-      {
-        "source": "Paradigm (pince pour mettre en deux vertebre)/set-complet-paradigm-spine.2.jpg",
-        "output": "/assets/projects/paradigm-spine/paradigm-spine-01.webp"
-      },
-      {
-        "source": "Paradigm (pince pour mettre en deux vertebre)/Calcul2x-1000N.JPG",
-        "output": "/assets/projects/paradigm-spine/paradigm-spine-02.webp"
-      },
-      {
-        "source": "Paradigm (pince pour mettre en deux vertebre)/mettre sur fond blanc.png",
-        "output": "/assets/projects/paradigm-spine/paradigm-spine-03.webp"
       }
     ]
   },
@@ -310,25 +245,6 @@
       {
         "source": "Angel Interceptor/fjf.png",
         "output": "/assets/projects/angel-interceptor/angel-interceptor-05.webp"
-      }
-    ]
-  },
-  {
-    "slug": "cliris",
-    "sourceFolder": "cliris",
-    "cover": "/assets/projects/cliris/cliris-01.webp",
-    "images": [
-      {
-        "source": "cliris/Copie de cliris_open_persp_140410.jpg",
-        "output": "/assets/projects/cliris/cliris-01.webp"
-      },
-      {
-        "source": "cliris/Copie de cliris_white_closed_2_140410.jpg",
-        "output": "/assets/projects/cliris/cliris-02.webp"
-      },
-      {
-        "source": "cliris/Copie de cliris_white_open_140410.jpg",
-        "output": "/assets/projects/cliris/cliris-03.webp"
       }
     ]
   },
@@ -639,45 +555,6 @@
       {
         "source": "velo:scooter/VAE pliage 4.JPG",
         "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-05.webp"
-      }
-    ]
-  },
-  {
-    "slug": "weebot",
-    "sourceFolder": "weebot",
-    "cover": "/assets/projects/weebot/weebot-01.webp",
-    "images": [
-      {
-        "source": "weebot/weebotneige.png",
-        "output": "/assets/projects/weebot/weebot-01.webp"
-      },
-      {
-        "source": "weebot/de 3-4 sans frein beau.JPG",
-        "output": "/assets/projects/weebot/weebot-02.webp"
-      },
-      {
-        "source": "weebot/DSC04061.JPG",
-        "output": "/assets/projects/weebot/weebot-03.webp"
-      },
-      {
-        "source": "weebot/DSC04066.JPG",
-        "output": "/assets/projects/weebot/weebot-04.webp"
-      },
-      {
-        "source": "weebot/modif 6.JPG",
-        "output": "/assets/projects/weebot/weebot-05.webp"
-      },
-      {
-        "source": "weebot/modif 7.JPG",
-        "output": "/assets/projects/weebot/weebot-06.webp"
-      },
-      {
-        "source": "weebot/weebot.png",
-        "output": "/assets/projects/weebot/weebot-07.webp"
-      },
-      {
-        "source": "weebot/weebotdraw.png",
-        "output": "/assets/projects/weebot/weebot-08.webp"
       }
     ]
   }
