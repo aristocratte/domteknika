@@ -19,6 +19,15 @@ const projects = [
       "160721-3w.png",
       "Déplacements arceau 2.2.PNG",
     ],
+    outputNames: {
+      "Aventor9.jpeg": "aventor-01.webp",
+      "Aventor Rolf Biland 2 July 2015 Lignieres.jpg": "aventor-02.webp",
+      "DSC_2737.JPG": "aventor-03-chassis-road-test.webp",
+      "v18-vert-dessus.jpg": "aventor-04-top-view-render.webp",
+      "160721-3w.png": "aventor-05-green-render.webp",
+      "Déplacements arceau 2.2.PNG":
+        "aventor-06-structural-analysis.webp",
+    },
   },
   { folder: "BrossAdent", slug: "brossadent", cover: "Sans titre.png" },
   {
@@ -256,7 +265,9 @@ for (const project of projects) {
       project.labels?.[file] ??
       (index === 0 ? "cover" : slugify(path.parse(file).name));
     const imageIndex = (project.startIndex ?? 1) + index;
-    const outputName = `${project.slug}-${String(imageIndex).padStart(2, "0")}-${label}.webp`;
+    const outputName =
+      project.outputNames?.[file] ??
+      `${project.slug}-${String(imageIndex).padStart(2, "0")}-${label}.webp`;
     const input =
       fallbackInput && file === project.cover && !files.includes(file)
         ? fallbackInput
