@@ -436,7 +436,7 @@ function AddedValueSection() {
                       height={item.height}
                       className="h-9 w-9 object-contain transition-transform duration-300 group-hover:-translate-y-1 sm:h-11 sm:w-11 min-[1800px]:!size-12 min-[2400px]:!size-[52px]"
                     />
-                    <h3 className="mt-4 min-h-[2.5em] text-[13px] font-extrabold leading-tight text-foreground sm:mt-5 sm:text-[15px] lg:text-[16px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
+                    <h3 className="mt-4 flex min-h-[2.5em] w-full items-center justify-center text-[13px] font-extrabold leading-tight text-foreground sm:mt-5 sm:text-[15px] lg:text-[16px] min-[1800px]:!text-[18px] min-[2400px]:!text-[19px]">
                       {t(`values.${item.key}.title` as never)}
                     </h3>
                     <p className="mt-3 text-[11.5px] font-medium leading-[1.34] text-muted-foreground sm:mt-4 sm:text-[14px] sm:leading-[1.38] min-[1800px]:!text-[15px] min-[1800px]:!leading-[1.42] min-[2400px]:!text-[16px]">
