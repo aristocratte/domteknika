@@ -46,6 +46,7 @@ const PROJECT_IMAGE_ZOOM_SELECTOR = "[data-project-image-zoom]";
 
 export type Project = {
   id: string;
+  hiddenFromCatalog?: boolean;
   category: string;
   filter?: Exclude<FilterKey, "all">;
   title: string;
@@ -619,12 +620,12 @@ export const PROJECTS: Project[] = [
     filter: "mobility",
     title: "Aventor",
     description:
-      "High-performance electric vehicle platform developed around speed, acceleration and lightweight composite bodywork.",
+      "Internal electric vehicle project fully designed and prototyped by DOMTEKNIKA, from the electrical and mechanical architecture to the creation of a dedicated startup.",
     image: "/assets/projects/aventor/aventor-01.webp",
     imageAlt: "Green Aventor electric vehicle on a road course",
-    tags: ["#2013", "#EV", "#Composite"],
+    tags: ["#2012", "#EV", "#Prototype"],
     overview:
-      "Aventor brings together vehicle packaging, composite design, track testing and structural optimization for a compact electric performance platform.",
+      "Started in 2012, Aventor was fully designed and prototyped by DOMTEKNIKA as an internal project. The platform was developed in both three-wheel and four-wheel versions, from the complete electrical and mechanical architecture through physical prototypes, before the work continued in a separate startup.",
     relatedPatents: [
       relatedPatent(
         "EP3261867A2",
@@ -634,16 +635,17 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "sam-cree",
+    hiddenFromCatalog: true,
     category: "Mobility",
     filter: "mobility",
     title: "SAM CREE",
     description:
-      "Swiss ultra-light electric three-wheeler built around tandem seating, a central chassis beam and compact urban autonomy.",
+      "Historic ultra-light electric three-wheeler developed by Jean-Luc Thuliez before he founded DOMTEKNIKA.",
     image: "/assets/projects/sam-cree/sam-cree-01.webp",
     imageAlt: "Orange SAM CREE electric three-wheeler with open canopy",
     tags: ["#1993", "#EV", "#ThreeWheeler"],
     overview:
-      "SAM CREE brings together early ultra-light electric road-vehicle architecture, with a central beam chassis, tandem packaging and component integration focused on efficient urban mobility.",
+      "Before founding DOMTEKNIKA, Jean-Luc Thuliez contributed to SAM CREE while working at another company. The ultra-light electric three-wheeler explored tandem seating, a central beam chassis and compact urban mobility - ideas that later informed his engineering approach.",
     relatedPatents: [
       relatedPatent(
         "US6015022A",
@@ -665,12 +667,12 @@ export const PROJECTS: Project[] = [
     filter: "mobility",
     title: "Angel Interceptor",
     description:
-      "High-performance electric three-wheel concept developed through CAD architecture, cockpit packaging and protective body studies.",
+      "Two-wheel electric vehicle concept fully designed and prototyped by DOMTEKNIKA, covering the complete electrical and mechanical development.",
     image: "/assets/projects/angel-interceptor/angel-interceptor-01.webp",
     imageAlt: "Angel Interceptor three-wheel vehicle side-section CAD study",
-    tags: ["#2012", "#Vehicle", "#CAD"],
+    tags: ["#2008", "#EV", "#TwoWheeler"],
     overview:
-      "Angel Interceptor explores a high-performance electric three-wheel architecture, balancing tandem seating, body protection, wheel layout and mechanical packaging through CAD and prototype-oriented studies.",
+      "Started around 2008, Angel Interceptor was an internal DOMTEKNIKA project covering the complete electrical and mechanical design and prototyping process. Unlike Aventor, it remained within DOMTEKNIKA and did not lead to the creation of a separate startup.",
   },
   {
     id: "softcar",
@@ -678,12 +680,12 @@ export const PROJECTS: Project[] = [
     filter: "mobility",
     title: "SOFTCAR",
     description:
-      "Ultra-low-footprint city EV concept focused on lightweight architecture, compact packaging and ecological urban mobility.",
+      "Compact hybrid vehicle platform, with a possible fully electric configuration, developed through complete electrical and mechanical engineering and prototyping.",
     image: "/assets/projects/softcar/softcar-01.webp",
     imageAlt: "Yellow SOFTCAR compact city vehicle with open door",
-    tags: ["#2015", "#CityEV", "#Circular"],
+    tags: ["#2006", "#Hybrid", "#Ongoing"],
     overview:
-      "SOFTCAR extends the mobility work into compact city electric vehicles, combining lightweight body architecture, simplified assemblies and low ecological footprint transport.",
+      "The first SOFTCAR designs date from 2006-2007. DOMTEKNIKA has led the complete electrical and mechanical design and prototyping as an internal project through the creation of a separate startup. Development is ongoing: the platform is conceived primarily as a hybrid vehicle, with a possible fully electric configuration.",
     relatedPatents: [
       relatedPatent(
         "WO2026078588A1",
@@ -1125,10 +1127,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   aventor: {
     category: "Mobilité",
     description:
-      "Plateforme de véhicule électrique haute performance développée autour de la vitesse, de l'accélération et d'une carrosserie composite légère.",
+      "Projet interne de véhicule électrique entièrement conçu et prototypé par DOMTEKNIKA, de l'architecture électrique et mécanique à la création d'une startup dédiée.",
     imageAlt: "Véhicule électrique vert Aventor sur circuit",
     overview:
-      "Aventor associe implantation véhicule, conception composite, essais sur piste et optimisation structurelle pour une plateforme électrique compacte et performante.",
+      "Lancé en 2012, Aventor a été entièrement conçu et prototypé par DOMTEKNIKA comme projet interne. La plateforme a été développée en versions trois et quatre roues, de l'architecture électrique et mécanique complète aux prototypes physiques, avant que le projet se poursuive au sein d'une startup séparée.",
     relatedPatents: [
       relatedPatent(
         "EP3261867A2",
@@ -1149,43 +1151,29 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilité",
     title: "SAM CREE",
     description:
-      "Trois-roues électrique suisse ultra-léger autour de sièges en tandem, d'un châssis central et d'une autonomie urbaine compacte.",
+      "Trois-roues électrique ultraléger historique auquel Jean-Luc Thuliez a contribué avant de fonder DOMTEKNIKA.",
     imageAlt:
       "Véhicule électrique à trois roues SAM CREE avec verrière ouverte",
     overview:
-      "SAM CREE regroupe les premiers travaux de véhicule routier électrique ultra-léger, avec châssis poutre central, implantation des sièges en tandem et intégration des composants pour une mobilité urbaine efficiente.",
-    relatedPatents: [
-      relatedPatent(
-        "US6015022A",
-        "Architecture de véhicule routier électrique ultra-léger avec châssis poutre central et stratégie d'empattement compact.",
-      ),
-      relatedPatent(
-        "US5584510A",
-        "Principes de châssis automobile pour intégration structurelle et absorption d'énergie.",
-      ),
-      relatedPatent(
-        "US5667030A",
-        "Échangeur thermique de refroidissement intégré à une architecture véhicule légère.",
-      ),
-    ],
+      "Avant de fonder DOMTEKNIKA, Jean-Luc Thuliez a contribué au projet SAM CREE au sein d'une autre entreprise. Ce trois-roues électrique ultraléger explorait les sièges en tandem, un châssis poutre central et une mobilité urbaine compacte - des principes qui nourriront ensuite son approche de l'ingénierie.",
   },
   "angel-interceptor": {
     category: "Mobilité",
     description:
-      "Concept électrique trois-roues haute performance développé par architecture CAO, aménagement du poste de conduite et études de carrosserie protectrice.",
+      "Concept électrique à deux roues entièrement conçu et prototypé par DOMTEKNIKA, couvrant l'ensemble du développement électrique et mécanique.",
     imageAlt:
-      "Étude CAO en coupe latérale du véhicule trois-roues Angel Interceptor",
+      "Étude du concept électrique à deux roues Angel Interceptor",
     overview:
-      "Angel Interceptor explore une architecture électrique trois-roues haute performance, en équilibrant sièges tandem, protection de carrosserie, implantation des roues et intégration mécanique par études CAO.",
+      "Lancé vers 2008, Angel Interceptor est un projet interne de DOMTEKNIKA couvrant la conception électrique et mécanique complète ainsi que le prototypage. Contrairement à Aventor, il est resté au sein de DOMTEKNIKA et n'a pas donné lieu à la création d'une startup séparée.",
   },
   softcar: {
     category: "Mobilité",
     title: "SOFTCAR",
     description:
-      "Concept de véhicule électrique urbain à très faible empreinte, centré sur une architecture légère, une intégration compacte et une mobilité écologique.",
+      "Plateforme de mobilité urbaine compacte conçue autour d'une architecture hybride, avec une déclinaison entièrement électrique possible.",
     imageAlt: "Véhicule urbain compact jaune SOFTCAR avec porte ouverte",
     overview:
-      "SOFTCAR prolonge le travail mobilité vers les véhicules électriques urbains compacts, avec architecture légère, assemblages simplifiés et transport à faible empreinte écologique.",
+      "Les premières études de SOFTCAR remontent à 2006-2007. Né comme projet interne, le véhicule a été entièrement conçu et prototypé par DOMTEKNIKA, de l'architecture électrique à la conception mécanique, avant de donner naissance à une startup indépendante. Son développement se poursuit aujourd'hui autour d'une plateforme principalement hybride.",
     relatedPatents: [
       relatedPatent(
         "WO2026078588A1",
@@ -1494,10 +1482,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   aventor: {
     category: "Mobilität",
     description:
-      "Elektrische Hochleistungsplattform, entwickelt rund um Geschwindigkeit, Beschleunigung und leichte Verbundkarosserie.",
+      "Internes Elektrofahrzeugprojekt, von DOMTEKNIKA vollständig elektrisch und mechanisch entwickelt und prototypisiert, bis zur Gründung eines eigenständigen Startups.",
     imageAlt: "Grünes elektrisches Aventor-Fahrzeug auf einer Teststrecke",
     overview:
-      "Aventor verbindet Fahrzeugintegration, Verbunddesign, Streckentests und strukturelle Optimierung für eine kompakte elektrische Hochleistungsplattform.",
+      "Aventor startete 2012 als internes Projekt und wurde von DOMTEKNIKA vollständig entwickelt und prototypisiert. Die Plattform entstand als Drei- und Vierradversion, von der kompletten elektrischen und mechanischen Architektur bis zu physischen Prototypen, bevor das Projekt in einem eigenständigen Startup weitergeführt wurde.",
   },
   "totalcar-concept": {
     category: "Mobilität",
@@ -1511,28 +1499,28 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilität",
     title: "SAM CREE",
     description:
-      "Schweizer ultraleichter elektrischer Dreiradwagen mit Tandemsitzen, zentralem Trägerchassis und kompakter urbaner Reichweite.",
+      "Historisches ultraleichtes Elektro-Dreirad, an dem Jean-Luc Thuliez vor der Gründung von DOMTEKNIKA mitwirkte.",
     imageAlt:
       "Orangefarbener elektrischer SAM CREE Dreiradwagen mit geöffnetem Dach",
     overview:
-      "SAM CREE bündelt frühe Arbeiten an ultraleichten Elektrostraßenfahrzeugen: zentraler Träger, Tandem-Anordnung und Komponentenintegration für effiziente Stadtmobilität.",
+      "Bevor er DOMTEKNIKA gründete, wirkte Jean-Luc Thuliez bei einem anderen Unternehmen am Projekt SAM CREE mit. Das ultraleichte Elektro-Dreirad untersuchte Tandemsitze, einen zentralen Trägerrahmen und kompakte Stadtmobilität - Prinzipien, die später seinen Entwicklungsansatz prägten.",
   },
   "angel-interceptor": {
     category: "Mobilität",
     title: "Angel Interceptor",
     description:
-      "Elektrisches Hochleistungs-Dreiradkonzept, entwickelt über CAD-Architektur, Cockpit-Package und schützende Karosseriestudien.",
-    imageAlt: "CAD-Seitenstudie des dreirädrigen Angel Interceptor",
+      "Elektrisches Zweiradkonzept, von DOMTEKNIKA vollständig elektrisch und mechanisch entwickelt und prototypisiert.",
+    imageAlt: "Studie des elektrischen Zweiradkonzepts Angel Interceptor",
     overview:
-      "Angel Interceptor untersucht eine elektrische Hochleistungs-Dreiradarchitektur und balanciert Tandemsitze, Karosserieschutz, Radlayout und mechanische Integration in CAD-Studien.",
+      "Angel Interceptor begann um 2008 als internes DOMTEKNIKA-Projekt und umfasste die vollständige elektrische und mechanische Entwicklung sowie den Prototypenbau. Anders als Aventor blieb das Projekt bei DOMTEKNIKA und führte nicht zur Gründung eines separaten Startups.",
   },
   softcar: {
     category: "Mobilität",
     description:
-      "Städtisches Elektrofahrzeugkonzept mit sehr geringem Fußabdruck, leichter Architektur, kompakter Integration und ökologischer Mobilität.",
+      "Kompakte Hybridfahrzeugplattform mit möglicher vollelektrischer Ausführung, entwickelt durch vollständige elektrische und mechanische Konstruktion und Prototypenbau.",
     imageAlt: "Kompaktes elektrisches Stadtfahrzeug SOFTCAR",
     overview:
-      "SOFTCAR führt die Mobilitätsarbeit in kompakte Stadtelektrofahrzeuge weiter und kombiniert leichte Karosseriearchitektur, vereinfachte Baugruppen und Verkehr mit geringem ökologischem Fußabdruck.",
+      "Die ersten SOFTCAR-Entwürfe stammen aus den Jahren 2006-2007. DOMTEKNIKA verantwortet die vollständige elektrische und mechanische Entwicklung sowie den Prototypenbau, vom internen Projekt bis zur Gründung eines eigenständigen Startups. Die Entwicklung läuft weiter: Die Plattform ist primär als Hybridfahrzeug konzipiert, mit einer möglichen vollelektrischen Ausführung.",
   },
   "folding-bike-scooter": {
     category: "Mobilität",
@@ -1748,10 +1736,10 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   aventor: {
     category: "Movilidad",
     description:
-      "Plataforma de vehículo eléctrico de alto rendimiento desarrollada en torno a velocidad, aceleración y carrocería ligera de composite.",
+      "Proyecto interno de vehículo eléctrico diseñado y prototipado íntegramente por DOMTEKNIKA, desde la arquitectura eléctrica y mecánica hasta la creación de una startup independiente.",
     imageAlt: "Vehículo eléctrico Aventor verde en circuito",
     overview:
-      "Aventor combina implantación del vehículo, diseño composite, pruebas en pista y optimización estructural para una plataforma eléctrica compacta de alto rendimiento.",
+      "Iniciado en 2012, Aventor fue diseñado y prototipado íntegramente por DOMTEKNIKA como proyecto interno. La plataforma se desarrolló en versiones de tres y cuatro ruedas, desde la arquitectura eléctrica y mecánica completa hasta los prototipos físicos, antes de continuar en una startup independiente.",
   },
   "totalcar-concept": {
     category: "Movilidad",
@@ -1765,28 +1753,27 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Movilidad",
     title: "SAM CREE",
     description:
-      "Triciclo eléctrico suizo ultraligero con asientos en tándem, viga central de chasis y autonomía urbana compacta.",
+      "Histórico triciclo eléctrico ultraligero en el que Jean-Luc Thuliez participó antes de fundar DOMTEKNIKA.",
     imageAlt: "Triciclo eléctrico naranja SAM CREE con techo abierto",
     overview:
-      "SAM CREE reúne trabajos tempranos sobre vehículos eléctricos ultraligeros: viga central, disposición en tándem e integración de componentes para una movilidad urbana eficiente.",
+      "Antes de fundar DOMTEKNIKA, Jean-Luc Thuliez participó en el proyecto SAM CREE dentro de otra empresa. El triciclo eléctrico ultraligero exploraba asientos en tándem, un chasis de viga central y movilidad urbana compacta, principios que más tarde marcarían su enfoque de ingeniería.",
   },
   "angel-interceptor": {
     category: "Movilidad",
     title: "Angel Interceptor",
     description:
-      "Concepto eléctrico de tres ruedas de alto rendimiento desarrollado mediante arquitectura CAD, paquete de cockpit y estudios de carrocería protectora.",
-    imageAlt:
-      "Estudio CAD lateral del vehículo de tres ruedas Angel Interceptor",
+      "Concepto eléctrico de dos ruedas diseñado y prototipado íntegramente por DOMTEKNIKA, incluyendo todo el desarrollo eléctrico y mecánico.",
+    imageAlt: "Estudio del concepto eléctrico de dos ruedas Angel Interceptor",
     overview:
-      "Angel Interceptor explora una arquitectura eléctrica de tres ruedas de alto rendimiento, equilibrando asientos en tándem, protección de carrocería, implantación de ruedas e integración mecánica.",
+      "Angel Interceptor comenzó alrededor de 2008 como proyecto interno de DOMTEKNIKA. El equipo realizó el diseño eléctrico y mecánico completo, además de los prototipos. A diferencia de Aventor, el proyecto permaneció dentro de DOMTEKNIKA y no dio lugar a una startup independiente.",
   },
   softcar: {
     category: "Movilidad",
     description:
-      "Concepto de vehículo eléctrico urbano de muy baja huella, centrado en arquitectura ligera, integración compacta y movilidad urbana ecológica.",
-    imageAlt: "Concepto SOFTCAR de vehículo eléctrico urbano compacto",
+      "Plataforma compacta de vehículo híbrido, con posibilidad de configuración 100 % eléctrica, desarrollada mediante diseño eléctrico y mecánico completo y prototipado.",
+    imageAlt: "Concepto SOFTCAR de vehículo urbano híbrido compacto",
     overview:
-      "SOFTCAR extiende el trabajo de movilidad hacia vehículos eléctricos urbanos compactos, combinando arquitectura ligera, ensamblajes simplificados y transporte de baja huella ecológica.",
+      "Los primeros diseños de SOFTCAR se remontan a 2006-2007. DOMTEKNIKA se encargó del desarrollo eléctrico y mecánico completo y de los prototipos, desde el proyecto interno hasta la creación de una startup independiente. El desarrollo continúa: la plataforma se concibe ante todo como vehículo híbrido, con una posible versión 100 % eléctrica.",
   },
   "folding-bike-scooter": {
     category: "Movilidad",
@@ -2001,10 +1988,10 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   aventor: {
     category: "모빌리티",
     description:
-      "속도, 가속, 경량 복합재 차체를 중심으로 개발된 고성능 전기차 플랫폼.",
+      "DOMTEKNIKA가 전기·기계 아키텍처부터 전용 스타트업 설립 단계까지 전 과정을 설계하고 시제품으로 구현한 사내 전기차 프로젝트입니다.",
     imageAlt: "트랙 위의 초록색 Aventor 전기차",
     overview:
-      "Aventor는 차량 구성, 복합재 설계, 트랙 테스트, 구조 최적화를 결합한 컴팩트 고성능 전기 플랫폼입니다.",
+      "Aventor는 2012년에 시작된 DOMTEKNIKA의 사내 프로젝트입니다. 전기·기계 설계와 실제 시제품 제작을 모두 수행했으며, 세 바퀴와 네 바퀴 버전을 개발한 뒤 별도의 스타트업으로 이어졌습니다.",
   },
   "totalcar-concept": {
     category: "모빌리티",
@@ -2018,27 +2005,27 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "모빌리티",
     title: "SAM CREE",
     description:
-      "탠덤 좌석, 중앙 빔 섀시, 도심형 컴팩트 주행 거리를 중심으로 한 스위스 초경량 전기 삼륜차입니다.",
+      "Jean-Luc Thuliez가 DOMTEKNIKA 설립 전 다른 회사에서 개발에 참여한 역사적인 초경량 전기 삼륜차입니다.",
     imageAlt: "캐노피가 열린 주황색 SAM CREE 전기 삼륜차",
     overview:
-      "SAM CREE는 중앙 빔 섀시, 탠덤 패키징, 효율적인 도심 이동성을 위한 부품 통합을 중심으로 한 초기 초경량 전기 도로 차량 작업을 모읍니다.",
+      "DOMTEKNIKA를 설립하기 전, Jean-Luc Thuliez는 다른 회사에서 SAM CREE 프로젝트 개발에 참여했습니다. 이 초경량 전기 삼륜차는 탠덤 좌석, 중앙 빔 섀시, 컴팩트한 도심 이동성을 탐구했으며, 이러한 원칙은 훗날 그의 엔지니어링 접근법으로 이어졌습니다.",
   },
   "angel-interceptor": {
     category: "모빌리티",
     title: "Angel Interceptor",
     description:
-      "CAD 아키텍처, 조종석 패키징, 보호 차체 연구를 통해 개발한 고성능 전기 삼륜 콘셉트입니다.",
-    imageAlt: "Angel Interceptor 삼륜 차량 측면 CAD 연구",
+      "DOMTEKNIKA가 전기·기계 설계부터 시제품까지 전 과정을 개발한 전기 이륜 콘셉트입니다.",
+    imageAlt: "Angel Interceptor 전기 이륜 콘셉트 연구",
     overview:
-      "Angel Interceptor는 탠덤 좌석, 차체 보호, 휠 배치, 기계 통합을 CAD 연구 안에서 균형 있게 검토한 고성능 전기 삼륜 아키텍처입니다.",
+      "Angel Interceptor는 약 2008년에 시작된 DOMTEKNIKA의 사내 전기 이륜 프로젝트입니다. 팀이 전기·기계 설계와 시제품 제작을 모두 담당했으며, Aventor와 달리 별도의 스타트업으로 분리되지는 않았습니다.",
   },
   softcar: {
     category: "모빌리티",
     description:
-      "경량 아키텍처, 컴팩트한 구성, 친환경 도심 모빌리티에 초점을 둔 초저영향 도심형 전기차 콘셉트.",
-    imageAlt: "SOFTCAR 소형 도심 전기차 콘셉트",
+      "완전 전기 구성이 가능한 하이브리드 도심 차량 플랫폼으로, 전기·기계 설계와 시제품 제작을 전 과정 수행했습니다.",
+    imageAlt: "SOFTCAR 소형 하이브리드 도심 차량 콘셉트",
     overview:
-      "SOFTCAR는 경량 차체 아키텍처, 단순화된 조립, 낮은 환경 발자국의 교통을 결합해 소형 도심 전기차 작업을 확장합니다.",
+      "SOFTCAR의 초기 디자인은 2006~2007년으로 거슬러 올라갑니다. DOMTEKNIKA는 사내 프로젝트에서 별도 스타트업 설립까지 전기·기계 개발과 시제품 제작을 전담했습니다. 프로젝트는 아직 진행 중이며, 기본적으로 하이브리드 차량으로 설계되었지만 100% 전기 버전도 가능합니다.",
   },
   "folding-bike-scooter": {
     category: "모빌리티",
@@ -2247,10 +2234,11 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   aventor: {
     category: "出行",
-    description: "围绕速度、加速和轻量化复合材料车身开发的高性能电动车平台。",
+    description:
+      "Aventor 是 DOMTEKNIKA 的内部电动车项目，从电气与机械架构到样机均由团队完整设计开发，并最终推动成立独立初创公司。",
     imageAlt: "赛道上的绿色 Aventor 电动车",
     overview:
-      "Aventor 将车辆布局、复合材料设计、赛道测试和结构优化结合起来，形成紧凑的电动性能平台。",
+      "Aventor 始于 2012 年。DOMTEKNIKA 完成了全部电气与机械设计和实体样机，并开发了三轮与四轮版本，之后项目延伸为一家独立初创公司。",
   },
   "totalcar-concept": {
     category: "出行",
@@ -2263,27 +2251,27 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "出行",
     title: "SAM CREE",
     description:
-      "瑞士超轻电动三轮车，围绕串列座椅、中央梁底盘和紧凑城市续航设计。",
+      "Jean-Luc Thuliez 在创立 DOMTEKNIKA 之前，于另一家公司参与开发的历史性超轻型电动三轮车。",
     imageAlt: "打开车顶的橙色 SAM CREE 电动三轮车",
     overview:
-      "SAM CREE 汇集了早期超轻电动道路车辆工作：中央梁底盘、串列布局，以及面向高效城市出行的组件集成。",
+      "在创立 DOMTEKNIKA 之前，Jean-Luc Thuliez 曾在另一家公司参与 SAM CREE 项目。这款超轻型电动三轮车探索了串列座椅、中央梁底盘和紧凑型城市出行，这些原则后来影响了他的工程方法。",
   },
   "angel-interceptor": {
     category: "出行",
     title: "Angel Interceptor",
     description:
-      "高性能电动三轮概念，通过 CAD 架构、驾驶舱布局和防护车身研究开发。",
-    imageAlt: "Angel Interceptor 三轮车辆侧面 CAD 研究",
+      "由 DOMTEKNIKA 完成全部电气、机械设计与样机开发的电动两轮概念。",
+    imageAlt: "Angel Interceptor 电动两轮概念研究",
     overview:
-      "Angel Interceptor 探索高性能电动三轮架构，在 CAD 研究中平衡串列座椅、车身防护、车轮布局和机械集成。",
+      "Angel Interceptor 是约在 2008 年启动的 DOMTEKNIKA 内部电动两轮项目。团队负责完整的电气、机械设计与样机制作；与 Aventor 不同，该项目没有成立独立初创公司。",
   },
   softcar: {
     category: "出行",
     description:
-      "超低足迹城市电动车概念，聚焦轻量架构、紧凑集成和生态城市出行。",
-    imageAlt: "SOFTCAR 紧凑城市电动车概念",
+      "可扩展为纯电配置的混合动力城市车辆平台，由 DOMTEKNIKA 完成全部电气、机械设计与样机开发。",
+    imageAlt: "SOFTCAR 紧凑型混合动力城市车辆概念",
     overview:
-      "SOFTCAR 将出行工作延伸到紧凑城市电动车，结合轻量车身架构、简化组件和低生态足迹交通。",
+      "SOFTCAR 的首批设计可追溯至 2006 至 2007 年。DOMTEKNIKA 从内部项目阶段到独立初创公司成立，负责完整的电气、机械开发与样机制作。项目至今仍在推进，核心定位是混合动力车辆，同时可提供 100% 纯电方案。",
   },
   "folding-bike-scooter": {
     category: "出行",
@@ -2515,12 +2503,11 @@ const PINNED_PROJECT_IDS = [
   "special-t-machine",
   "stajvelo-rv01",
   "softcar",
-  "sam-cree",
 ];
 
 const PROJECT_SORT_YEARS: Partial<Record<string, number>> = {
   "totalcar-concept": 2011,
-  softcar: 2015,
+  softcar: 2006,
 };
 
 const FILTER_PROJECT_PRIORITY_IDS: Partial<
@@ -2596,34 +2583,34 @@ const PROJECT_SCOPES: Record<
   },
   aventor: {
     en: [
-      "Electric vehicle packaging around lightweight bodywork and driver ergonomics.",
-      "Composite body and structural studies for a compact performance platform.",
-      "Prototype and test-track feedback loop to refine proportions and mechanical layout.",
+      "Complete electrical and mechanical architecture developed by DOMTEKNIKA.",
+      "Three-wheel and four-wheel variants explored from 2012 onward.",
+      "Internal prototypes and validation carried through to a separate startup.",
     ],
     fr: [
-      "Implantation du véhicule électrique autour d'une carrosserie légère et de l'ergonomie conducteur.",
-      "Études composite et structurelles pour une plateforme compacte performante.",
-      "Boucle prototype et essais piste pour affiner proportions et implantation mécanique.",
+      "Architecture électrique et mécanique complète développée par DOMTEKNIKA.",
+      "Versions trois et quatre roues étudiées à partir de 2012.",
+      "Prototypes et validations menés en interne jusqu'à la création d'une startup distincte.",
     ],
     de: [
-      "Fahrzeuglayout rund um eine leichte Karosserie und eine ergonomische Fahrerposition.",
-      "Verbundwerkstoff- und Strukturstudien für eine kompakte Hochleistungsplattform.",
-      "Iterationen aus Prototypen und Streckentests zur Optimierung von Proportionen und Mechaniklayout.",
+      "Vollständige elektrische und mechanische Architektur, entwickelt von DOMTEKNIKA.",
+      "Drei- und vierrädrige Varianten, die seit 2012 untersucht wurden.",
+      "Interne Prototypen und Validierung bis zur Gründung eines eigenständigen Startups.",
     ],
     es: [
-      "Arquitectura del vehículo eléctrico en torno a una carrocería ligera y a la ergonomía del conductor.",
-      "Estudios estructurales y de composite para una plataforma compacta de alto rendimiento.",
-      "Iteraciones entre prototipo y pruebas en pista para afinar proporciones e implantación mecánica.",
+      "Arquitectura eléctrica y mecánica completa desarrollada por DOMTEKNIKA.",
+      "Versiones de tres y cuatro ruedas estudiadas desde 2012.",
+      "Prototipos y validación internos hasta la creación de una startup independiente.",
     ],
     ko: [
-      "경량 차체와 운전자 인체공학을 중심으로 한 전기차 패키징 설계.",
-      "컴팩트 고성능 플랫폼을 위한 복합재 및 구조 연구.",
-      "프로토타입과 주행 시험을 반복해 비례와 기계 배치를 최적화.",
+      "DOMTEKNIKA가 개발한 완전한 전기·기계 아키텍처.",
+      "2012년부터 검토한 세 바퀴 및 네 바퀴 버전.",
+      "별도 스타트업 설립 단계까지 이어진 사내 시제품 제작과 검증.",
     ],
     zh: [
-      "围绕轻量化车身与驾驶者人体工学完成电动车总体布置。",
-      "为紧凑型高性能平台开展复合材料与结构研究。",
-      "结合原型与赛道测试反馈，优化比例和机械布局。",
+      "由 DOMTEKNIKA 完整开发电气与机械架构。",
+      "自 2012 年起探索三轮与四轮版本。",
+      "内部样机与验证工作一直推进至独立初创公司成立。",
     ],
   },
   "totalcar-concept": {
@@ -2660,98 +2647,98 @@ const PROJECT_SCOPES: Record<
   },
   "sam-cree": {
     en: [
-      "Ultra-light electric road vehicle architecture centered on a structural central beam.",
-      "Tandem-seat packaging strategy for batteries, drivetrain and reduced urban footprint.",
-      "Vehicle chassis and cooling-system patent context gathered under the SAM CREE project.",
+      "Historic ultra-light electric three-wheeler developed before DOMTEKNIKA was founded.",
+      "Jean-Luc Thuliez contributed to the project while working at another company.",
+      "Tandem seating, a central beam chassis and compact urban packaging shaped this early mobility study.",
     ],
     fr: [
-      "Architecture de véhicule routier électrique ultra-léger centrée sur une poutre structurelle centrale.",
-      "Implantation en tandem des passagers, des batteries et de la chaîne de traction pour réduire l'encombrement urbain.",
-      "Contexte brevets châssis et refroidissement regroupé sous le projet SAM CREE.",
+      "Trois-roues électrique ultraléger historique développé avant la création de DOMTEKNIKA.",
+      "Jean-Luc Thuliez a contribué à ce projet lorsqu'il travaillait au sein d'une autre entreprise.",
+      "Sièges en tandem, châssis à poutre centrale et encombrement urbain réduit caractérisaient cette étude pionnière.",
     ],
     de: [
-      "Ultraleichte elektrische Straßenfahrzeugarchitektur mit zentralem Strukturträger.",
-      "Tandemlayout für Insassen, Batterien und Antrieb zur Reduzierung des Platzbedarfs im Stadtverkehr.",
-      "Patentrelevante Arbeiten an Fahrgestell und Kühlsystem im Rahmen des SAM-CREE-Projekts.",
+      "Historisches ultraleichtes Elektro-Dreirad aus der Zeit vor der Gründung von DOMTEKNIKA.",
+      "Jean-Luc Thuliez wirkte an dem Projekt mit, als er für ein anderes Unternehmen tätig war.",
+      "Tandemsitze, zentraler Trägerrahmen und kompakte Abmessungen prägten diese frühe Mobilitätsstudie.",
     ],
     es: [
-      "Arquitectura de vehículo eléctrico ultraligero basada en una viga estructural central.",
-      "Disposición en tándem de ocupantes, baterías y cadena cinemática para reducir la huella urbana.",
-      "Trabajos patentados sobre chasis y refrigeración reunidos en el proyecto SAM CREE.",
+      "Triciclo eléctrico ultraligero histórico desarrollado antes de la creación de DOMTEKNIKA.",
+      "Jean-Luc Thuliez participó en el proyecto mientras trabajaba en otra empresa.",
+      "Asientos en tándem, chasis de viga central y dimensiones urbanas compactas definieron este estudio pionero.",
     ],
     ko: [
-      "중앙 구조 빔을 중심으로 한 초경량 전기 도로 차량 아키텍처.",
-      "도심 점유 공간을 줄이기 위한 탑승자, 배터리, 구동계의 탠덤 배치.",
-      "SAM CREE 프로젝트에 포함된 섀시 및 냉각 시스템 관련 특허 기술.",
+      "DOMTEKNIKA 설립 이전에 개발된 역사적인 초경량 전기 삼륜차입니다.",
+      "Jean-Luc Thuliez가 다른 회사에서 근무하던 시기에 이 프로젝트에 참여했습니다.",
+      "탠덤 좌석, 중앙 빔 섀시, 컴팩트한 도심형 패키징을 탐구한 초기 모빌리티 연구입니다.",
     ],
     zh: [
-      "以中央结构梁为核心的超轻量电动道路车辆架构。",
-      "采用乘员、电池和动力系统纵向布置，减少城市道路占用空间。",
-      "SAM CREE 项目涵盖底盘与冷却系统相关专利技术。",
+      "在 DOMTEKNIKA 创立之前开发的历史性超轻型电动三轮车。",
+      "Jean-Luc Thuliez 在另一家公司任职期间参与了该项目。",
+      "串列座椅、中央梁底盘与紧凑城市布局构成了这项早期出行研究。",
     ],
   },
   "angel-interceptor": {
     en: [
-      "Three-wheel vehicle architecture and cockpit package exploration.",
-      "CAD studies for body protection, tandem seating and wheel layout.",
-      "Prototype-oriented visualization to clarify proportions and mechanical interfaces.",
+      "Electric two-wheel concept initiated around 2008.",
+      "Complete electrical and mechanical design developed by DOMTEKNIKA.",
+      "Internal prototypes produced without creating a separate startup.",
     ],
     fr: [
-      "Exploration d'architecture trois-roues et d'aménagement du poste de conduite.",
-      "Études CAO pour protection de carrosserie, sièges tandem et implantation roues.",
-      "Visualisation orientée prototype pour clarifier proportions et interfaces mécaniques.",
+      "Concept électrique deux roues lancé autour de 2008.",
+      "Conception électrique et mécanique complète réalisée par DOMTEKNIKA.",
+      "Prototypes développés en interne, sans création d'une startup distincte.",
     ],
     de: [
-      "Untersuchung der Dreiradarchitektur und des Cockpitlayouts.",
-      "CAD-Studien zu Karosserieschutz, Tandemsitzen und Radanordnung.",
-      "Prototypenorientierte Visualisierung zur Klärung von Proportionen und mechanischen Schnittstellen.",
+      "Elektrisches Zweiradkonzept, das um 2008 gestartet wurde.",
+      "Vollständige elektrische und mechanische Entwicklung durch DOMTEKNIKA.",
+      "Interne Prototypenentwicklung ohne Gründung eines separaten Startups.",
     ],
     es: [
-      "Exploración de la arquitectura de tres ruedas y de la disposición del puesto de conducción.",
-      "Estudios CAD de protección de carrocería, asientos en tándem y posición de las ruedas.",
-      "Visualización orientada al prototipo para definir proporciones e interfaces mecánicas.",
+      "Concepto eléctrico de dos ruedas iniciado alrededor de 2008.",
+      "Diseño eléctrico y mecánico completo desarrollado por DOMTEKNIKA.",
+      "Prototipos internos sin creación de una startup independiente.",
     ],
     ko: [
-      "삼륜 차량 구조와 운전석 패키징 탐구.",
-      "차체 보호, 탠덤 시트, 휠 배치를 위한 CAD 연구.",
-      "비례와 기계 인터페이스를 명확히 하기 위한 프로토타입 중심 시각화.",
+      "약 2008년에 시작된 전기 이륜 콘셉트.",
+      "DOMTEKNIKA가 수행한 완전한 전기·기계 설계.",
+      "별도 스타트업 설립 없이 진행한 사내 시제품 개발.",
     ],
     zh: [
-      "探索三轮车辆架构与驾驶舱布置。",
-      "通过 CAD 研究车身防护、纵列座椅与车轮布局。",
-      "面向原型进行可视化，明确比例与机械接口。",
+      "约在 2008 年启动的电动两轮概念。",
+      "由 DOMTEKNIKA 完成全部电气与机械设计。",
+      "内部完成样机开发，未成立独立初创公司。",
     ],
   },
   softcar: {
     en: [
-      "Low-footprint city EV architecture with recyclable body and interior systems.",
-      "Subsystem thinking across dashboard, door, steering wheel and rotomolded body parts.",
-      "Industrialization logic tied to simplified assembly and low-carbon vehicle production.",
+      "Hybrid urban vehicle platform with a possible fully electric configuration.",
+      "Complete electrical and mechanical design and prototyping by DOMTEKNIKA.",
+      "Internal development started in 2006-2007, continued through a separate startup and remains ongoing.",
     ],
     fr: [
-      "Architecture de véhicule urbain à faible empreinte avec carrosserie et systèmes intérieurs recyclables.",
-      "Travail sous-systèmes sur tableau de bord, porte, volant et pièces rotomoulées.",
-      "Logique d'industrialisation liée à l'assemblage simplifié et à la production bas carbone.",
+      "Plateforme de véhicule urbain hybride, avec une configuration 100 % électrique possible.",
+      "Conception électrique et mécanique complète et prototypage réalisés par DOMTEKNIKA.",
+      "Développement interne lancé en 2006-2007, poursuivi via une startup distincte et toujours en cours.",
     ],
     de: [
-      "Städtische Elektrofahrzeugarchitektur mit geringem Ressourcenbedarf und recyclingfähigen Karosserie- und Innenraumsystemen.",
-      "Subsystementwicklung für Armaturenbrett, Tür, Lenkrad und rotationsgeformte Karosserieteile.",
-      "Industrialisierung mit vereinfachter Montage und CO₂-armer Fahrzeugproduktion.",
+      "Hybride Stadtfahrzeugplattform mit möglicher vollelektrischer Konfiguration.",
+      "Vollständige elektrische und mechanische Entwicklung sowie Prototypenbau durch DOMTEKNIKA.",
+      "Interne Entwicklung seit 2006-2007, über ein separates Startup fortgeführt und weiterhin laufend.",
     ],
     es: [
-      "Arquitectura de vehículo urbano de bajo impacto con carrocería y sistemas interiores reciclables.",
-      "Desarrollo de subsistemas para salpicadero, puerta, volante y piezas rotomoldeadas.",
-      "Industrialización orientada al montaje simplificado y a una producción de vehículos con bajas emisiones.",
+      "Plataforma de vehículo urbano híbrido con posible configuración 100 % eléctrica.",
+      "Diseño eléctrico y mecánico completo y prototipado realizados por DOMTEKNIKA.",
+      "Desarrollo interno iniciado en 2006-2007, continuado mediante una startup independiente y todavía en curso.",
     ],
     ko: [
-      "재활용 가능한 차체와 실내 시스템을 갖춘 저환경부하 도심형 전기차 구조.",
-      "대시보드, 도어, 스티어링 휠, 회전성형 차체 부품의 하위 시스템 개발.",
-      "단순 조립과 저탄소 차량 생산을 고려한 산업화 설계.",
+      "100% 전기 구성이 가능한 하이브리드 도심 차량 플랫폼.",
+      "DOMTEKNIKA가 수행한 완전한 전기·기계 설계와 시제품 제작.",
+      "2006~2007년 시작된 사내 개발로, 별도 스타트업을 통해 이어져 현재도 진행 중.",
     ],
     zh: [
-      "采用可回收车身与内饰系统的低环境负荷城市电动车架构。",
-      "开发仪表板、车门、方向盘及滚塑车身部件等子系统。",
-      "围绕简化装配与低碳车辆生产制定工业化方案。",
+      "可采用纯电配置的混合动力城市车辆平台。",
+      "由 DOMTEKNIKA 完成全部电气、机械设计与样机开发。",
+      "内部开发始于 2006 至 2007 年，经独立初创公司延续并仍在推进。",
     ],
   },
   "folding-bike-scooter": {
@@ -3375,11 +3362,14 @@ function withProjectScope(project: Project, locale: ProjectsLocale): Project {
   };
 }
 
-export function getProjectsForLocale(locale: string) {
+export function getProjectsForLocale(
+  locale: string,
+  options?: { includeHidden?: boolean },
+) {
   const resolvedLocale = resolveProjectsLocale(locale);
   const overrides = PROJECT_OVERRIDES[resolvedLocale];
 
-  return ALL_PROJECTS.map((project) => {
+  const localizedProjects = ALL_PROJECTS.map((project) => {
     const localizedProject = localizeProject(project, overrides);
     const projectOverride = overrides[project.id];
     const projectWithLocalizedPatents =
@@ -3395,6 +3385,10 @@ export function getProjectsForLocale(locale: string) {
 
     return withProjectScope(projectWithLocalizedPatents, resolvedLocale);
   });
+
+  return options?.includeHidden
+    ? localizedProjects
+    : localizedProjects.filter((project) => !project.hiddenFromCatalog);
 }
 
 export function getPatentLinkedProjectsForLocale(
@@ -4932,24 +4926,6 @@ export function ProjectDetailsDialog({
                     {project.overview}
                   </p>
                 </section>
-                {project.scope?.length ? (
-                  <section>
-                    <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
-                      {modal.scope}
-                    </h3>
-                    <ul className="mt-4 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:gap-4 min-[1800px]:text-[20px] min-[2400px]:text-[23px]">
-                      {project.scope.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span
-                            className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
-                            aria-hidden
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ) : null}
                 <section>
                   <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                     {modal.tags}
@@ -5975,24 +5951,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       {selectedProject.overview}
                     </p>
                   </section>
-                  {selectedProject.scope?.length ? (
-                    <section>
-                      <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
-                        {copy.modal.scope}
-                      </h3>
-                      <ul className="mt-4 grid gap-2 text-[13px] font-medium leading-[1.45] text-muted-foreground min-[1800px]:gap-4 min-[1800px]:text-[20px] min-[2400px]:text-[23px]">
-                        {selectedProject.scope.map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span
-                              className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
-                              aria-hidden
-                            />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  ) : null}
                   <section>
                     <h3 className="text-[12px] font-extrabold uppercase tracking-wide min-[1800px]:text-[18px] min-[2400px]:text-[20px]">
                       {copy.modal.tags}

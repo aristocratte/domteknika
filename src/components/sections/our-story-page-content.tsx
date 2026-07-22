@@ -121,9 +121,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - Early electric mobility",
+        title: "SAM CREE - Early electric mobility",
         description:
-          "The CREE project opened an early chapter in electric mobility, exploring compact, lightweight urban vehicles long before e-mobility became mainstream.",
+          "Before founding DOMTEKNIKA, Jean-Luc Thuliez contributed to the SAM CREE project while working at another company. This ultra-light electric three-wheeler already reflected the mobility ideas that would later shape his engineering approach.",
         icon: "box",
       },
       swissbiomed: {
@@ -152,7 +152,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - performance as a testbed",
         description:
-          "Aventor pushed electric mobility into a high-performance format, using speed and acceleration to validate new materials, architectures and technical solutions.",
+          "Started in 2012 as an internal DOMTEKNIKA project, Aventor was fully designed and prototyped by the team, from its electrical and mechanical architecture to three- and four-wheel versions, before a separate startup was created.",
         icon: "document",
       },
       boneFixation: {
@@ -166,7 +166,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar brought years of research together in a lightweight, recyclable urban vehicle concept designed around low-impact mobility and simplified production.",
+          "First designed in 2006-2007 and still under development, SOFTCAR is a hybrid vehicle platform that can also be configured as fully electric. DOMTEKNIKA led the complete electrical and mechanical design and prototyping before a separate startup was created.",
         icon: "globe",
       },
       stajvelo: {
@@ -207,9 +207,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - Premiers pas en mobilité électrique",
+        title: "SAM CREE - Aux origines de la mobilité électrique",
         description:
-          "Le projet CREE a ouvert un chapitre précoce de la mobilité électrique, avec des véhicules urbains compacts et légers bien avant l'essor de la mobilité électrique.",
+          "Avant de fonder DOMTEKNIKA, Jean-Luc Thuliez a contribué au projet SAM CREE au sein d'une autre entreprise. Ce trois-roues électrique ultraléger illustrait déjà les principes de mobilité qui nourriront ensuite son approche de l'ingénierie.",
         icon: "box",
       },
       swissbiomed: {
@@ -238,7 +238,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - la haute performance comme banc d'essai",
         description:
-          "Aventor a poussé la mobilité électrique vers un format haute performance, en utilisant vitesse et accélération pour valider matériaux et architectures.",
+          "Lancé en 2012 comme projet interne de DOMTEKNIKA, Aventor a été entièrement conçu et prototypé par l'équipe, de l'architecture électrique et mécanique aux versions trois et quatre roues, avant la création d'une startup indépendante.",
         icon: "document",
       },
       boneFixation: {
@@ -252,7 +252,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar a rassemblé des années de recherche dans un concept urbain léger et recyclable, pensé pour une mobilité à faible impact.",
+          "Imaginée dès 2006-2007 et toujours en développement, SOFTCAR est une plateforme de véhicule hybride pouvant aussi être configurée en 100 % électrique. DOMTEKNIKA a assuré toute la conception électrique et mécanique ainsi que le prototypage avant la création d'une startup indépendante.",
         icon: "globe",
       },
       stajvelo: {
@@ -293,9 +293,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - frühe Schritte in der Elektromobilität",
+        title: "SAM CREE - frühe Elektromobilität",
         description:
-          "Das CREE-Projekt eröffnete ein frühes Kapitel der Elektromobilität mit kompakten, leichten Stadtfahrzeugen, lange bevor Elektromobilität allgemein verbreitet war.",
+          "Bevor er DOMTEKNIKA gründete, wirkte Jean-Luc Thuliez bei einem anderen Unternehmen am Projekt SAM CREE mit. Das ultraleichte Elektro-Dreirad zeigte bereits die Mobilitätsideen, die später seinen Entwicklungsansatz prägen sollten.",
         icon: "box",
       },
       swissbiomed: {
@@ -324,7 +324,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - Hochleistung als Entwicklungsprüfstand",
         description:
-          "Aventor führte Elektromobilität in ein Hochleistungsformat und nutzte Geschwindigkeit und Beschleunigung, um Materialien und Architekturen zu validieren.",
+          "Aventor begann 2012 als internes DOMTEKNIKA-Projekt. Das Team übernahm die vollständige elektrische und mechanische Entwicklung sowie den Prototypenbau für Drei- und Vierradversionen, bevor ein eigenständiges Startup entstand.",
         icon: "document",
       },
       boneFixation: {
@@ -338,7 +338,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar bündelte jahrelange Forschung in einem leichten, recycelbaren Stadtauto-Konzept für Mobilität mit geringer Umweltbelastung.",
+          "SOFTCAR wurde 2006-2007 erstmals entworfen und wird weiterhin entwickelt. Die Hybridplattform kann auch vollelektrisch konfiguriert werden; DOMTEKNIKA verantwortete die vollständige elektrische und mechanische Entwicklung sowie den Prototypenbau vor der Gründung eines eigenständigen Startups.",
         icon: "globe",
       },
       stajvelo: {
@@ -379,9 +379,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - primeros pasos en movilidad eléctrica",
+        title: "SAM CREE - movilidad eléctrica pionera",
         description:
-          "El proyecto CREE abrió un capítulo temprano de movilidad eléctrica con vehículos urbanos compactos y ligeros mucho antes del auge de la movilidad eléctrica.",
+          "Antes de fundar DOMTEKNIKA, Jean-Luc Thuliez participó en el proyecto SAM CREE dentro de otra empresa. Este triciclo eléctrico ultraligero ya reflejaba las ideas de movilidad que más tarde marcarían su enfoque de ingeniería.",
         icon: "box",
       },
       swissbiomed: {
@@ -410,7 +410,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - el rendimiento como banco de pruebas",
         description:
-          "Aventor llevó la movilidad eléctrica a un formato de alto rendimiento, utilizando velocidad y aceleración para validar materiales y arquitecturas.",
+          "Aventor comenzó en 2012 como proyecto interno de DOMTEKNIKA. El equipo realizó todo el diseño eléctrico y mecánico y el prototipado de versiones de tres y cuatro ruedas antes de crear una startup independiente.",
         icon: "document",
       },
       boneFixation: {
@@ -424,7 +424,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar reunió años de investigación en un concepto urbano ligero y reciclable, pensado para una movilidad de bajo impacto.",
+          "Diseñada por primera vez en 2006-2007 y todavía en desarrollo, SOFTCAR es una plataforma de vehículo híbrido que también puede configurarse como totalmente eléctrica. DOMTEKNIKA realizó todo el diseño eléctrico y mecánico y el prototipado antes de crear una startup independiente.",
         icon: "globe",
       },
       stajvelo: {
@@ -465,9 +465,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - 전기 모빌리티의 초기 도전",
+        title: "SAM CREE - 초기 전기 모빌리티",
         description:
-          "CREE 프로젝트는 전기 모빌리티가 대중화되기 훨씬 전, 작고 가벼운 도심형 차량으로 초기 전기차 개발의 장을 열었습니다.",
+          "DOMTEKNIKA를 설립하기 전, Jean-Luc Thuliez는 다른 회사에서 SAM CREE 프로젝트에 참여했습니다. 이 초경량 전기 삼륜차에는 훗날 그의 엔지니어링 접근법으로 이어질 모빌리티 철학이 이미 담겨 있었습니다.",
         icon: "box",
       },
       swissbiomed: {
@@ -496,7 +496,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - 고성능을 개발 검증의 장으로",
         description:
-          "Aventor는 전기 모빌리티를 고성능 형식으로 확장하며 속도와 가속을 통해 소재와 아키텍처를 검증했습니다.",
+          "Aventor는 2012년에 시작된 DOMTEKNIKA의 사내 프로젝트입니다. 팀이 전기·기계 설계와 시제품 제작을 모두 수행하고 세 바퀴와 네 바퀴 버전을 개발한 뒤 별도의 스타트업으로 이어졌습니다.",
         icon: "document",
       },
       boneFixation: {
@@ -510,7 +510,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar는 저영향 모빌리티를 위해 가볍고 재활용 가능한 도시형 차량 콘셉트에 수년간의 연구를 담았습니다.",
+          "SOFTCAR는 2006~2007년에 처음 설계되어 현재도 개발 중인 하이브리드 차량 플랫폼이며 순수 전기 구성도 가능합니다. DOMTEKNIKA가 전기·기계 설계와 시제품 제작 전 과정을 수행한 뒤 별도의 스타트업으로 이어졌습니다.",
         icon: "globe",
       },
       stajvelo: {
@@ -551,9 +551,9 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
       },
       cree: {
         year: "2001",
-        title: "CREE - 电动出行的早期探索",
+        title: "SAM CREE - 早期电动出行探索",
         description:
-          "CREE 项目开启了电动出行的早期篇章，在电动化成为主流之前就探索了紧凑、轻量的城市车辆。",
+          "在创立 DOMTEKNIKA 之前，Jean-Luc Thuliez 曾在另一家公司参与 SAM CREE 项目。这款超轻型电动三轮车已经体现出后来影响其工程方法的出行理念。",
         icon: "box",
       },
       swissbiomed: {
@@ -582,7 +582,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2014",
         title: "Aventor - 以性能作为试验场",
         description:
-          "Aventor 将电动出行推向高性能形态，通过速度和加速度验证材料与架构。",
+          "Aventor 于 2012 年作为 DOMTEKNIKA 内部项目启动。团队完成了全部电气、机械设计与样机开发，并推出三轮和四轮版本，之后成立了独立初创公司。",
         icon: "document",
       },
       boneFixation: {
@@ -596,7 +596,7 @@ const STORY_COPY: Record<StoryLocale, StoryCopy> = {
         year: "2015",
         title: "Softcar Concept",
         description:
-          "Softcar 将多年研究凝聚为轻量、可回收的城市车辆概念，面向低影响出行。",
+          "SOFTCAR 于 2006 至 2007 年首次设计，目前仍在持续开发。这是一款可配置为纯电版本的混合动力车辆平台；DOMTEKNIKA 在成立独立初创公司之前完成了全部电气、机械设计与样机开发。",
         icon: "globe",
       },
       stajvelo: {
@@ -814,7 +814,10 @@ function isStoryLocale(locale: string): locale is StoryLocale {
 
 export function OurStoryPageContent({ locale }: { locale: string }) {
   const copy = getOurStoryCopy(locale);
-  const projects = useMemo(() => getProjectsForLocale(locale), [locale]);
+  const projects = useMemo(
+    () => getProjectsForLocale(locale, { includeHidden: true }),
+    [locale],
+  );
   const projectModalCopy = useMemo(
     () => getProjectsPageCopy(locale).modal,
     [locale],
