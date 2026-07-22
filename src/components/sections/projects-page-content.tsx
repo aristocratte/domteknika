@@ -1173,7 +1173,7 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
       "Plateforme de mobilité urbaine compacte conçue autour d'une architecture hybride, avec une déclinaison entièrement électrique possible.",
     imageAlt: "Véhicule urbain compact jaune SOFTCAR avec porte ouverte",
     overview:
-      "Les premières études de SOFTCAR remontent à 2006-2007. Né comme projet interne, le véhicule a été entièrement conçu et prototypé par DOMTEKNIKA, de l'architecture électrique à la conception mécanique, avant de donner naissance à une startup indépendante. Son développement se poursuit aujourd'hui autour d'une plateforme principalement hybride.",
+      "Les premières études de SOFTCAR remontent à 2008. Né comme projet interne, les premiers prototypes du véhicule ont été entièrement conçus par DOMTEKNIKA, de l'architecture électrique à la conception mécanique, avant de donner naissance à une startup indépendante. Son développement se poursuit aujourd'hui autour d'une plateforme principalement hybride.",
     relatedPatents: [
       relatedPatent(
         "WO2026078588A1",
