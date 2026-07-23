@@ -5,11 +5,19 @@ import {
   ArrowDownUp,
   ArrowRight,
   ArrowUpRight,
+  Building2,
+  CarFront,
   Check,
   ChevronLeft,
   ChevronRight,
+  Dumbbell,
+  HeartPulse,
+  HousePlug,
   Search,
+  Shapes,
+  Watch as WatchIcon,
   X,
+  type LucideIcon,
 } from "lucide-react";
 import {
   type CSSProperties,
@@ -25,19 +33,22 @@ import {
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/providers/reveal";
 import { PatentDialog } from "@/components/sections/patent-dialog";
-import {
-  PATENTS,
-  type PatentFilterKey,
-  type PatentRecord,
-} from "@/data/patents";
+import { PATENTS, type PatentRecord } from "@/data/patents";
 import { cn } from "@/lib/utils";
 import projectAssetManifest from "../../../public/assets/projects/manifest.json";
 
-type FilterKey = "all" | PatentFilterKey;
+type ProjectSectorKey =
+  | "mobility"
+  | "household"
+  | "medical"
+  | "watchmaking"
+  | "building"
+  | "sport"
+  | "others";
+type FilterKey = "all" | ProjectSectorKey;
 type ProjectSortKey =
   "default" | "date-desc" | "date-asc" | "title-asc" | "title-desc";
 
-const PATENT_ASSET_BASE = "/assets/patent-page";
 const PROJECT_LIGHTBOX_FRAME_CLASS =
   "relative h-[min(82vh,620px)] w-[min(92vw,900px)] touch-pan-y md:h-[min(70vh,560px)] md:w-[min(74vw,840px)] lg:w-[min(64vw,820px)]";
 const PROJECT_LIGHTBOX_IMAGE_SIZES =
@@ -463,9 +474,7 @@ type ProjectStat = {
 type ProjectFilterOption = {
   key: FilterKey;
   label: string;
-  icon?: string;
-  width?: number;
-  height?: number;
+  icon?: LucideIcon;
 };
 
 type ProjectSortOption = {
@@ -533,44 +542,37 @@ const FILTERS: ProjectFilterOption[] = [
   {
     key: "mobility",
     label: "Mobility",
-    icon: `${PATENT_ASSET_BASE}/icon-mobility.png`,
-    width: 28,
-    height: 25,
+    icon: CarFront,
   },
   {
-    key: "industrial",
-    label: "Products",
-    icon: `${PATENT_ASSET_BASE}/icon-industrial.png`,
-    width: 30,
-    height: 32,
+    key: "household",
+    label: "Household Appliances",
+    icon: HousePlug,
   },
   {
     key: "medical",
     label: "Medical",
-    icon: `${PATENT_ASSET_BASE}/icon-medical.png`,
-    width: 32,
-    height: 28,
+    icon: HeartPulse,
   },
   {
-    key: "energy",
-    label: "Energy",
-    icon: `${PATENT_ASSET_BASE}/icon-energy.png`,
-    width: 23,
-    height: 35,
+    key: "watchmaking",
+    label: "Watchmaking",
+    icon: WatchIcon,
   },
   {
-    key: "materials",
-    label: "Materials",
-    icon: `${PATENT_ASSET_BASE}/icon-materials.png`,
-    width: 34,
-    height: 33,
+    key: "building",
+    label: "Building Systems",
+    icon: Building2,
   },
   {
-    key: "digital",
-    label: "Digital",
-    icon: `${PATENT_ASSET_BASE}/icon-digital.png`,
-    width: 37,
-    height: 35,
+    key: "sport",
+    label: "Sport & Outdoor",
+    icon: Dumbbell,
+  },
+  {
+    key: "others",
+    label: "Others",
+    icon: Shapes,
   },
 ];
 
@@ -727,17 +729,17 @@ export const PROJECTS: Project[] = [
     filter: "mobility",
     title: "Folding bike & scooter",
     description:
-      "Early folding mobility studies combining compact vehicle architecture, ergonomic mechanisms and transportable formats.",
+      "Internal folding bike and scooter concepts developed around compact mechanisms, everyday ergonomics and reduced transport volume.",
     image: "/assets/projects/folding-bike-scooter/folding-bike-scooter-01.webp",
-    imageAlt: "Folding electric bicycle concept render",
+    imageAlt: "DOMTEKNIKA folding electric bicycle concept",
     tags: ["#2011", "#Folding", "#Mobility"],
     overview:
-      "A set of folding e-bike and scooter concepts focused on hinge mechanisms, compact storage volume, ergonomic riding positions and manufacturable mechanical assemblies.",
+      "DOMTEKNIKA explored several folding mobility architectures, from electric bicycles to scooters, refining hinges, locking systems, riding position and component integration to create compact, transportable and manufacturable concepts.",
   },
   {
     id: "instant-coffee-dispenser",
-    category: "Products",
-    filter: "industrial",
+    category: "Household Appliances",
+    filter: "household",
     title: "Instant coffee dispenser",
     description:
       "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
@@ -768,17 +770,17 @@ export const PROJECTS: Project[] = [
     filter: "mobility",
     title: "Total Car",
     description:
-      "Green electric vehicle prototype work focused on lightweight packaging, cabin access and compact urban mobility.",
+      "Three-wheeled technology demonstrator developed for Hutchinson and the Total group, from the chassis and propulsion electronics to the rotomoulded body panels.",
     image: "/assets/projects/totalcar-concept/total-car-01.webp",
-    imageAlt: "Green Total Car electric vehicle prototype on display",
-    tags: ["#2011", "#EV", "#Urban", "#EcoDesign"],
+    imageAlt: "Green Total Car three-wheeled technology demonstrator on display",
+    tags: ["#2011", "#Demonstrator", "#ThreeWheeler", "#Rotomoulding"],
     overview:
-      "Total Car extends the mobility portfolio with a compact electric vehicle study, combining lightweight bodywork, prototype assembly and practical cabin-access validation for low-footprint transport.",
+      "Commissioned by Hutchinson, then part of the Total group, DOMTEKNIKA developed a complete three-wheeled technology demonstrator. The team designed the chassis, propulsion electronics and rotomoulded body panels.",
   },
   {
     id: "airsmile",
-    category: "Medical",
-    filter: "medical",
+    category: "Household Appliances",
+    filter: "household",
     title: "AirSmile",
     description:
       "Dental care device concept developed from product styling through functional packaging and prototype families.",
@@ -796,8 +798,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "brossadent",
-    category: "Medical",
-    filter: "medical",
+    category: "Household Appliances",
+    filter: "household",
     title: "O2 Cosmetics toothbrush",
     description:
       "Dental-care product concept combining a toothbrush body, O2 Cosmetics refill cartridges and internal mechanism packaging.",
@@ -848,8 +850,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "filter-carafe",
-    category: "Products",
-    filter: "industrial",
+    category: "Household Appliances",
+    filter: "household",
     title: "Filter Carafe",
     description:
       "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
@@ -872,8 +874,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ikitty",
-    category: "Products",
-    filter: "industrial",
+    category: "Household Appliances",
+    filter: "household",
     title: "iKitty",
     description:
       "Cat enrichment product with refill capsule architecture, feeder mechanism and soft product styling.",
@@ -945,8 +947,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "glove-helmet-dryer",
-    category: "Products",
-    filter: "industrial",
+    category: "Sport & Outdoor",
+    filter: "sport",
     title: "Glove & helmet dryer",
     description:
       "Drying dock concept for sports equipment, developed from CAD layout to physical prototype tests.",
@@ -958,8 +960,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "folding-umbrella",
-    category: "Products",
-    filter: "industrial",
+    category: "Others",
+    filter: "others",
     title: "Pocket folding umbrella",
     description:
       "Phone-sized folding umbrella concept with compact case studies, folding geometry and working prototype details.",
@@ -981,8 +983,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "skincare-applicator",
-    category: "Medical",
-    filter: "medical",
+    category: "Household Appliances",
+    filter: "household",
     title: "Skincare applicator",
     description:
       "Dermocosmetic applicator concept with ergonomic handpiece, internal cartridge layout and product presentation.",
@@ -1005,8 +1007,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "alicoffee-machine",
-    category: "Products",
-    filter: "industrial",
+    category: "Household Appliances",
+    filter: "household",
     title: "Coffee Machine",
     description:
       "Coffee machine concept built around a double-pass capsule circuit, where water makes an out-and-back path through the capsule.",
@@ -1024,8 +1026,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "special-t-machine",
-    category: "Products",
-    filter: "industrial",
+    category: "Household Appliances",
+    filter: "household",
     title: "Tea Machine",
     description:
       "Tea-capsule brewing-unit development, from capsule handling and ejection to beverage flow and pilot-series readiness.",
@@ -1043,8 +1045,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "vacheron-watch-mechanics",
-    category: "Products",
-    filter: "industrial",
+    category: "Watchmaking",
+    filter: "watchmaking",
     title: "Watch mechanics",
     description:
       "Precision horology studies combining mechanical layouts, rendered assemblies and component analysis.",
@@ -1062,8 +1064,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "velum-sky-screen",
-    category: "Products",
-    filter: "industrial",
+    category: "Building Systems",
+    filter: "building",
     title: "Velum SKY screen mechanism",
     description:
       "Architectural mechanism prototype for a screen or facade element, photographed as a precision mechanical assembly.",
@@ -1142,10 +1144,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilité",
     title: "Total Car",
     description:
-      "Prototype de véhicule électrique vert centré sur une structure légère, l'accès à l'habitacle et la mobilité urbaine compacte.",
-    imageAlt: "Prototype de véhicule électrique vert Total Car exposé",
+      "Démonstrateur technologique à trois roues développé pour Hutchinson et le groupe Total, du châssis à l'électronique de propulsion jusqu'aux pièces de carrosserie rotomoulées.",
+    imageAlt: "Démonstrateur technologique à trois roues Total Car exposé",
     overview:
-      "Total Car complète le portefeuille mobilité avec une étude de véhicule électrique compact, associant carrosserie légère, assemblage prototype et validation concrète de l'accès habitacle.",
+      "À la demande de Hutchinson, alors filiale du groupe Total, DOMTEKNIKA a développé un démonstrateur technologique complet à trois roues. L'équipe a conçu le châssis, l'électronique de propulsion et les pièces de carrosserie rotomoulées.",
   },
   "sam-cree": {
     category: "Mobilité",
@@ -1213,10 +1215,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilité",
     title: "Vélo & scooter pliants",
     description:
-      "Études de mobilité pliante combinant architecture compacte, mécanismes ergonomiques et formats transportables.",
-    imageAlt: "Rendu de vélo électrique pliant",
+      "Concepts internes de vélo et de scooter pliants, développés autour de mécanismes compacts, de l'ergonomie d'usage et d'un encombrement réduit pour le transport.",
+    imageAlt: "Concept de vélo électrique pliant DOMTEKNIKA",
     overview:
-      "Une série de concepts vélo électrique et scooter pliants centrés sur les mécanismes de charnière, le volume de rangement, l'ergonomie et les assemblages mécaniques fabricables.",
+      "DOMTEKNIKA a étudié plusieurs architectures de mobilité pliante, du vélo électrique au scooter, en travaillant les charnières, le verrouillage, la position de conduite et l'intégration des composants afin d'obtenir des concepts compacts, transportables et réalisables.",
   },
   airsmile: {
     category: "Médical",
@@ -1490,10 +1492,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "totalcar-concept": {
     category: "Mobilität",
     description:
-      "Kompaktes Elektromobilitätskonzept mit Fokus auf leichter Fahrzeugarchitektur und ökologischem Stadtverkehr.",
-    imageAlt: "Ausgestellter grüner Total Car Elektrofahrzeug-Prototyp",
+      "Dreirädriger Technologiedemonstrator für Hutchinson und die Total-Gruppe, vom Fahrgestell und der Antriebselektronik bis zu den rotationsgeformten Karosserieteilen.",
+    imageAlt: "Ausgestellter grüner dreirädriger Total Car Technologiedemonstrator",
     overview:
-      "Total Car erweitert das Mobilitätsportfolio um eine kleine Elektrofahrzeugstudie mit leichter Karosserie, sauberer Produktintegration und geringem urbanem Fußabdruck.",
+      "Im Auftrag von Hutchinson, damals Teil der Total-Gruppe, entwickelte DOMTEKNIKA einen vollständigen dreirädrigen Technologiedemonstrator. Das Team konstruierte das Fahrgestell, die Antriebselektronik und die rotationsgeformten Karosserieteile.",
   },
   "sam-cree": {
     category: "Mobilität",
@@ -1526,10 +1528,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Mobilität",
     title: "Faltfahrrad & Scooter",
     description:
-      "Frühe Studien zu faltbarer Mobilität mit kompakter Fahrzeugarchitektur, ergonomischen Mechanismen und transportfähigen Formaten.",
-    imageAlt: "Rendering eines faltbaren Elektrofahrrads",
+      "Interne Konzepte für Faltfahrräder und Scooter, entwickelt rund um kompakte Mechanismen, alltagstaugliche Ergonomie und ein kleines Transportvolumen.",
+    imageAlt: "DOMTEKNIKA Konzept eines faltbaren Elektrofahrrads",
     overview:
-      "Eine Reihe von Falt-Elektrofahrrad- und Scooter-Konzepten mit Fokus auf Gelenkmechanismen, kompaktes Stauraumvolumen, ergonomische Fahrpositionen und herstellbare mechanische Baugruppen.",
+      "DOMTEKNIKA untersuchte verschiedene faltbare Mobilitätsarchitekturen – vom Elektrofahrrad bis zum Scooter. Gelenke, Verriegelung, Fahrposition und Komponentenintegration wurden gezielt weiterentwickelt, um kompakte, transportfähige und herstellbare Konzepte zu schaffen.",
   },
   airsmile: {
     category: "Medizin",
@@ -1744,10 +1746,10 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "totalcar-concept": {
     category: "Movilidad",
     description:
-      "Concepto compacto de movilidad eléctrica centrado en arquitectura ligera de vehículo y transporte urbano ecológico.",
-    imageAlt: "Prototipo eléctrico verde Total Car en exposición",
+      "Demostrador tecnológico de tres ruedas desarrollado para Hutchinson y el grupo Total, desde el chasis y la electrónica de propulsión hasta las piezas de carrocería rotomoldeadas.",
+    imageAlt: "Demostrador tecnológico verde de tres ruedas Total Car en exposición",
     overview:
-      "Total Car amplía el portafolio de movilidad con un estudio de pequeño vehículo eléctrico, usando carrocería ligera, integración limpia y un enfoque urbano de baja huella.",
+      "Por encargo de Hutchinson, entonces parte del grupo Total, DOMTEKNIKA desarrolló un demostrador tecnológico completo de tres ruedas. El equipo diseñó el chasis, la electrónica de propulsión y las piezas de carrocería rotomoldeadas.",
   },
   "sam-cree": {
     category: "Movilidad",
@@ -1779,10 +1781,10 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Movilidad",
     title: "Bicicleta y scooter plegables",
     description:
-      "Primeros estudios de movilidad plegable que combinan arquitectura compacta, mecanismos ergonómicos y formatos transportables.",
-    imageAlt: "Render de bicicleta eléctrica plegable",
+      "Conceptos internos de bicicleta y scooter plegables, desarrollados en torno a mecanismos compactos, ergonomía de uso y un volumen reducido para el transporte.",
+    imageAlt: "Concepto DOMTEKNIKA de bicicleta eléctrica plegable",
     overview:
-      "Conjunto de conceptos de bicicleta eléctrica y scooter plegables centrados en bisagras, volumen compacto de guardado, posiciones ergonómicas y ensamblajes mecánicos fabricables.",
+      "DOMTEKNIKA estudió distintas arquitecturas de movilidad plegable, desde bicicletas eléctricas hasta scooters, trabajando las bisagras, el bloqueo, la posición de conducción y la integración de componentes para obtener conceptos compactos, transportables y fabricables.",
   },
   airsmile: {
     category: "Médico",
@@ -1996,10 +1998,10 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "totalcar-concept": {
     category: "모빌리티",
     description:
-      "경량 차량 아키텍처와 친환경 도시 교통에 초점을 둔 소형 전기 모빌리티 콘셉트.",
-    imageAlt: "전시된 녹색 Total Car 전기차 프로토타입",
+      "Hutchinson과 Total 그룹을 위해 개발한 3륜 기술 실증 차량으로, 섀시와 구동 전자장치부터 회전성형 차체 부품까지 포함합니다.",
+    imageAlt: "전시된 녹색 Total Car 3륜 기술 실증 차량",
     overview:
-      "Total Car는 가벼운 차체, 깔끔한 제품 통합, 저영향 도시 교통 접근법을 활용한 소형 전기차 연구입니다.",
+      "당시 Total 그룹에 속해 있던 Hutchinson의 의뢰로 DOMTEKNIKA는 3륜 기술 실증 차량을 완전 개발했습니다. 팀은 섀시, 구동 전자장치, 회전성형 차체 부품을 설계했습니다.",
   },
   "sam-cree": {
     category: "모빌리티",
@@ -2031,10 +2033,10 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "모빌리티",
     title: "접이식 자전거와 스쿠터",
     description:
-      "컴팩트 차량 아키텍처, 인체공학적 메커니즘, 휴대 가능한 형식을 결합한 초기 접이식 모빌리티 연구.",
-    imageAlt: "접이식 전기자전거 콘셉트 렌더",
+      "컴팩트한 메커니즘, 사용 편의성, 작은 운반 부피를 중심으로 개발한 사내 접이식 자전거 및 스쿠터 콘셉트입니다.",
+    imageAlt: "DOMTEKNIKA 접이식 전기자전거 콘셉트",
     overview:
-      "힌지 메커니즘, 작은 보관 부피, 인체공학적 주행 자세, 제조 가능한 기계 조립에 집중한 접이식 전기자전거와 스쿠터 콘셉트입니다.",
+      "DOMTEKNIKA는 전기자전거부터 스쿠터까지 다양한 접이식 모빌리티 구조를 연구했습니다. 힌지, 잠금장치, 주행 자세, 부품 통합을 다듬어 컴팩트하고 운반이 쉬우며 제작 가능한 콘셉트를 개발했습니다.",
   },
   airsmile: {
     category: "의료",
@@ -2242,10 +2244,11 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "totalcar-concept": {
     category: "出行",
-    description: "聚焦轻量化车辆架构和生态城市交通的紧凑电动出行概念。",
-    imageAlt: "展出的绿色 Total Car 电动车原型",
+    description:
+      "为 Hutchinson 与 Total 集团开发的三轮技术验证车，涵盖底盘、驱动电子系统和滚塑车身部件。",
+    imageAlt: "展出的绿色 Total Car 三轮技术验证车",
     overview:
-      "Total Car 以小型电动车研究扩展出行组合，使用轻量车身、清晰产品集成和低足迹城市交通方法。",
+      "应当时隶属于 Total 集团的 Hutchinson 委托，DOMTEKNIKA 完整开发了一款三轮技术验证车。团队负责底盘、驱动电子系统和滚塑车身部件的设计。",
   },
   "sam-cree": {
     category: "出行",
@@ -2276,10 +2279,11 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "folding-bike-scooter": {
     category: "出行",
     title: "折叠自行车与滑板车",
-    description: "早期折叠出行研究，结合紧凑车辆架构、人体工学机构和便携形式。",
-    imageAlt: "折叠电动自行车概念渲染图",
+    description:
+      "围绕紧凑机构、使用舒适性和更小运输体积开发的内部折叠自行车与滑板车概念。",
+    imageAlt: "DOMTEKNIKA 折叠电动自行车概念",
     overview:
-      "一组折叠电动自行车和滑板车概念，聚焦铰链机构、紧凑收纳体积、人体工学骑行姿态和可制造机械组件。",
+      "DOMTEKNIKA 研究了从电动自行车到滑板车的多种折叠出行架构，并围绕铰链、锁止机构、骑行姿态和部件集成进行优化，以形成紧凑、便携且可制造的概念方案。",
   },
   airsmile: {
     category: "医疗",
@@ -2615,34 +2619,34 @@ const PROJECT_SCOPES: Record<
   },
   "totalcar-concept": {
     en: [
-      "Compact urban EV concept work around light structure and simple assembly.",
-      "Vehicle layout studies for cabin access, packaging and small footprint.",
-      "Mobility strategy connected to low-impact production and recyclable architecture.",
+      "Three-wheeled technology demonstrator commissioned by Hutchinson for the Total group.",
+      "Complete chassis and propulsion-electronics development by DOMTEKNIKA.",
+      "Rotomoulded body parts designed and integrated into the working demonstrator.",
     ],
     fr: [
-      "Concept de petit véhicule électrique urbain autour d'une structure légère et d'un assemblage simple.",
-      "Études d'implantation du véhicule pour faciliter l'accès à l'habitacle et réduire l'encombrement.",
-      "Stratégie mobilité reliée à une production à faible impact et une architecture recyclable.",
+      "Démonstrateur technologique à trois roues commandé par Hutchinson pour le groupe Total.",
+      "Développement complet du châssis et de l'électronique de propulsion par DOMTEKNIKA.",
+      "Pièces de carrosserie rotomoulées conçues et intégrées au démonstrateur fonctionnel.",
     ],
     de: [
-      "Konzept eines kompakten urbanen Elektrofahrzeugs mit leichter Struktur und einfacher Montage.",
-      "Layoutstudien für guten Kabinenzugang und einen möglichst kleinen Platzbedarf.",
-      "Mobilitätskonzept für ressourcenschonende Produktion und eine recyclingfähige Architektur.",
+      "Dreirädriger Technologiedemonstrator im Auftrag von Hutchinson für die Total-Gruppe.",
+      "Vollständige Entwicklung von Fahrgestell und Antriebselektronik durch DOMTEKNIKA.",
+      "Rotationsgeformte Karosserieteile für den funktionsfähigen Demonstrator entwickelt und integriert.",
     ],
     es: [
-      "Concepto de vehículo eléctrico urbano compacto con estructura ligera y montaje simplificado.",
-      "Estudios de implantación para facilitar el acceso al habitáculo y reducir el espacio ocupado.",
-      "Estrategia de movilidad vinculada a una producción de bajo impacto y una arquitectura reciclable.",
+      "Demostrador tecnológico de tres ruedas encargado por Hutchinson para el grupo Total.",
+      "Desarrollo completo del chasis y de la electrónica de propulsión por DOMTEKNIKA.",
+      "Piezas de carrocería rotomoldeadas diseñadas e integradas en el demostrador funcional.",
     ],
     ko: [
-      "경량 구조와 단순 조립을 중심으로 한 컴팩트 도심형 전기차 콘셉트.",
-      "실내 접근성을 높이고 차량 점유 공간을 줄이기 위한 레이아웃 연구.",
-      "저환경부하 생산과 재활용 가능한 구조를 연계한 모빌리티 전략.",
+      "Hutchinson이 Total 그룹을 위해 의뢰한 3륜 기술 실증 차량.",
+      "DOMTEKNIKA가 수행한 섀시와 구동 전자장치의 전체 개발.",
+      "실제 작동하는 실증 차량에 적용된 회전성형 차체 부품 설계와 통합.",
     ],
     zh: [
-      "围绕轻量化结构与简化装配开发紧凑型城市电动车概念。",
-      "研究整车布局，改善座舱进出并减小车辆占用空间。",
-      "将低影响生产方式与可回收架构纳入整体出行策略。",
+      "Hutchinson 为 Total 集团委托开发的三轮技术验证车。",
+      "由 DOMTEKNIKA 完成底盘与驱动电子系统的整体开发。",
+      "为可运行验证车设计并集成滚塑车身部件。",
     ],
   },
   "sam-cree": {
@@ -3351,11 +3355,83 @@ const PROJECT_SCOPES: Record<
   },
 };
 
+const PROJECT_SECTOR_LABELS: Record<
+  ProjectsLocale,
+  Record<ProjectSectorKey, string>
+> = {
+  en: {
+    mobility: "Mobility",
+    household: "Household Appliances",
+    medical: "Medical",
+    watchmaking: "Watchmaking",
+    building: "Building Systems",
+    sport: "Sport & Outdoor",
+    others: "Others",
+  },
+  fr: {
+    mobility: "Mobilité",
+    household: "Électroménager",
+    medical: "Médical",
+    watchmaking: "Horlogerie",
+    building: "Systèmes du bâtiment",
+    sport: "Sport",
+    others: "Autres",
+  },
+  de: {
+    mobility: "Mobilität",
+    household: "Haushaltsgeräte",
+    medical: "Medizintechnik",
+    watchmaking: "Uhrenindustrie",
+    building: "Gebäudesysteme",
+    sport: "Sport & Outdoor",
+    others: "Sonstiges",
+  },
+  es: {
+    mobility: "Movilidad",
+    household: "Electrodomésticos",
+    medical: "Tecnología médica",
+    watchmaking: "Relojería",
+    building: "Sistemas para edificios",
+    sport: "Deporte y exterior",
+    others: "Otros",
+  },
+  ko: {
+    mobility: "모빌리티",
+    household: "생활가전",
+    medical: "의료기기",
+    watchmaking: "시계 제조",
+    building: "빌딩 시스템",
+    sport: "스포츠·아웃도어",
+    others: "기타",
+  },
+  zh: {
+    mobility: "出行",
+    household: "家用电器",
+    medical: "医疗器械",
+    watchmaking: "制表",
+    building: "建筑系统",
+    sport: "运动与户外",
+    others: "其他",
+  },
+};
+
+const PROJECT_COUNT_LABELS: Record<ProjectsLocale, string> = {
+  en: "projects",
+  fr: "projets",
+  de: "Projekte",
+  es: "proyectos",
+  ko: "개 프로젝트",
+  zh: "个项目",
+};
+
 function withProjectScope(project: Project, locale: ProjectsLocale): Project {
   const localizedScope = PROJECT_SCOPES[project.id]?.[locale];
 
   return {
     ...project,
+    category: project.filter
+      ? PROJECT_SECTOR_LABELS[locale][project.filter]
+      : project.category,
     scope:
       localizedScope ??
       (locale === "en" ? PROJECT_SCOPES[project.id]?.en : undefined),
@@ -3495,11 +3571,12 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "Tous",
         mobility: "Mobilité",
-        industrial: "Produits",
+        household: "Électroménager",
         medical: "Médical",
-        energy: "Énergie",
-        materials: "Matériaux",
-        digital: "Digital",
+        watchmaking: "Horlogerie",
+        building: "Systèmes du bâtiment",
+        sport: "Sport",
+        others: "Autres",
       }),
     ),
     featuredProject: withProjectScope(
@@ -3584,11 +3661,12 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "Alle",
         mobility: "Mobilität",
-        medical: "Medizin",
-        industrial: "Produkte",
-        energy: "Energie",
-        materials: "Materialien",
-        digital: "Digital",
+        household: "Haushaltsgeräte",
+        medical: "Medizintechnik",
+        watchmaking: "Uhrenindustrie",
+        building: "Gebäudesysteme",
+        sport: "Sport & Outdoor",
+        others: "Sonstiges",
       }),
     ),
     featuredProject: withProjectScope(
@@ -3665,11 +3743,12 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "Todos",
         mobility: "Movilidad",
-        medical: "Médico",
-        industrial: "Productos",
-        energy: "Energía",
-        materials: "Materiales",
-        digital: "Digital",
+        household: "Electrodomésticos",
+        medical: "Tecnología médica",
+        watchmaking: "Relojería",
+        building: "Sistemas para edificios",
+        sport: "Deporte y exterior",
+        others: "Otros",
       }),
     ),
     featuredProject: withProjectScope(
@@ -3746,11 +3825,12 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "전체",
         mobility: "모빌리티",
-        medical: "의료",
-        industrial: "제품",
-        energy: "에너지",
-        materials: "소재",
-        digital: "디지털",
+        household: "생활가전",
+        medical: "의료기기",
+        watchmaking: "시계 제조",
+        building: "빌딩 시스템",
+        sport: "스포츠·아웃도어",
+        others: "기타",
       }),
     ),
     featuredProject: withProjectScope(
@@ -3827,11 +3907,12 @@ const PROJECTS_COPY: Record<ProjectsLocale, ProjectsPageCopy> = {
       projectFiltersWithLabels({
         all: "全部",
         mobility: "出行",
-        medical: "医疗",
-        industrial: "产品",
-        energy: "能源",
-        materials: "材料",
-        digital: "数字化",
+        household: "家用电器",
+        medical: "医疗器械",
+        watchmaking: "制表",
+        building: "建筑系统",
+        sport: "运动与户外",
+        others: "其他",
       }),
     ),
     featuredProject: withProjectScope(
@@ -5713,7 +5794,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
             className="mb-7 mt-7 min-[2400px]:mb-12 min-[2400px]:mt-12"
             as="div"
           >
-            <div className="grid grid-cols-2 gap-3 min-[520px]:grid-cols-[82px_repeat(3,minmax(0,1fr))] lg:grid-cols-[82px_repeat(3,136px)_160px_200px] xl:grid-cols-[82px_repeat(3,152px)_180px_254px] min-[2400px]:!grid-cols-[136px_repeat(3,236px)_280px_420px] min-[2400px]:!gap-5">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 min-[1700px]:grid-cols-8 min-[2400px]:!gap-5">
               <div
                 className="contents"
                 role="group"
@@ -5721,6 +5802,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
               >
                 {copy.filters.map((filter) => {
                   const active = activeFilter === filter.key;
+                  const FilterIcon = filter.icon;
                   const count =
                     filter.key === "all"
                       ? copy.projects.length
@@ -5733,8 +5815,8 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       key={filter.key}
                       type="button"
                       className={cn(
-                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 min-[520px]:gap-2 min-[520px]:px-2 md:px-3 xl:px-4 min-[1800px]:!h-[58px] min-[1800px]:!gap-3 min-[1800px]:!px-5 min-[2400px]:!h-[64px] min-[2400px]:!gap-4 min-[2400px]:!px-6 [transition-timing-function:var(--ease-smooth)]",
-                        filter.icon
+                        "group/filter grid h-[48px] min-w-0 items-center gap-3 rounded-[4px] border border-border bg-white px-4 text-left shadow-[0_2px_6px_rgba(0,0,0,0.05)] outline-none transition-[translate,background-color,border-color,box-shadow,color] duration-500 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_12px_26px_rgba(0,0,0,0.09)] focus-visible:ring-2 focus-visible:ring-brand/35 sm:gap-2 sm:px-3 min-[1700px]:h-[58px] min-[1700px]:px-4 min-[2400px]:!h-[64px] min-[2400px]:!gap-4 min-[2400px]:!px-6 [transition-timing-function:var(--ease-smooth)]",
+                        FilterIcon
                           ? "grid-cols-[auto_1fr]"
                           : "place-items-center text-center",
                         active &&
@@ -5743,26 +5825,23 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                       aria-pressed={active}
                       onClick={() => handleFilterChange(filter.key)}
                     >
-                      {filter.icon && (
-                        <Image
-                          src={filter.icon}
-                          alt=""
-                          width={filter.width}
-                          height={filter.height}
-                          unoptimized
+                      {FilterIcon && (
+                        <FilterIcon
+                          aria-hidden="true"
+                          strokeWidth={1.7}
                           className={cn(
-                            "object-contain transition-[filter,transform] duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 min-[520px]:max-h-7 min-[520px]:max-w-7 md:max-h-none md:max-w-none min-[2400px]:!max-h-11 min-[2400px]:!max-w-11 [transition-timing-function:var(--ease-smooth)]",
-                            active && "brightness-0 invert",
+                            "h-7 w-7 shrink-0 text-brand transition-transform duration-500 group-hover/filter:-translate-y-0.5 group-hover/filter:scale-105 min-[2400px]:!h-11 min-[2400px]:!w-11 [transition-timing-function:var(--ease-smooth)]",
+                            active && "text-white",
                           )}
                         />
                       )}
                       <span
                         className={cn(
                           "grid min-w-0",
-                          !filter.icon && "place-items-center text-center",
+                          !FilterIcon && "place-items-center text-center",
                         )}
                       >
-                        <strong className="truncate text-[12px] font-extrabold leading-none min-[520px]:text-[11px] md:text-[12px] min-[2400px]:!text-[20px]">
+                        <strong className="line-clamp-2 text-[12px] font-extrabold leading-[1.05] sm:text-[11px] md:text-[12px] min-[2400px]:!text-[20px]">
                           {filter.label}
                         </strong>
                         {filter.key !== "all" && (
@@ -5773,7 +5852,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                             )}
                           >
                             {count}{" "}
-                            {resolvedLocale === "fr" ? "projets" : "projects"}
+                            {PROJECT_COUNT_LABELS[resolvedLocale]}
                           </span>
                         )}
                       </span>
@@ -5781,12 +5860,12 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                   );
                 })}
               </div>
-              {renderProjectControls({
-                wrapperClassName: "hidden lg:contents",
-                sortClassName: "relative z-30 min-w-0",
-                searchClassName: "relative block w-full min-w-0",
-              })}
             </div>
+            {renderProjectControls({
+              wrapperClassName: "mt-3 hidden justify-end gap-3 lg:flex",
+              sortClassName: "relative z-30 w-[180px]",
+              searchClassName: "relative block w-[320px]",
+            })}
           </Reveal>
 
           {visibleProjects.length > 0 ? (
