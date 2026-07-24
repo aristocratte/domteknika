@@ -89,7 +89,11 @@ export function ProcessSection() {
 
               <div className="flex min-w-0 flex-col border-l border-border lg:flex-1 lg:border-l-0">
                 <div className="relative grid h-full grid-rows-3 bg-white before:absolute before:left-3 before:right-3 before:top-0 before:hidden before:h-px before:bg-border sm:before:left-4 sm:before:right-4 lg:mt-auto lg:h-auto lg:grid-cols-3 lg:grid-rows-none lg:before:left-5 lg:before:right-5 lg:before:block">
-                  <Stat label={t("stats.years.label")} value={t("stats.years.value")} />
+                  <Stat
+                    centerOnDesktop
+                    label={t("stats.years.label")}
+                    value={t("stats.years.value")}
+                  />
                   <Stat
                     label={t("stats.sectors.label")}
                     value={t("stats.sectors.value")}
@@ -127,11 +131,13 @@ function Stat({
   label,
   withFlag,
   divider,
+  centerOnDesktop,
 }: {
   value: string;
   label: string;
   withFlag?: boolean;
   divider?: boolean;
+  centerOnDesktop?: boolean;
 }) {
   return (
     <div
@@ -141,7 +147,11 @@ function Stat({
           : ""
       }`}
     >
-      <div className="flex w-full items-center justify-between gap-4 lg:block">
+      <div
+        className={`flex w-full items-center justify-between gap-4 ${
+          centerOnDesktop ? "lg:-translate-x-3 lg:justify-center" : "lg:block"
+        }`}
+      >
         <div className="lg:pt-3 min-[1800px]:!pt-4">
           <strong className="block text-[18px] font-extrabold leading-[1.08] text-brand lg:text-[18px] xl:text-[19px] min-[1800px]:text-[27px] min-[2300px]:!text-[29px]">
             {value}

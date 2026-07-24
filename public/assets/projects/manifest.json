@@ -541,15 +541,15 @@
         "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-01.webp"
       },
       {
-        "source": "velo:scooter/005 velo axe 1 ergo.jpg",
+        "source": "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-02.png",
         "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-02.webp"
       },
       {
-        "source": "velo:scooter/011 scooter 1.jpg",
+        "source": "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-03.png",
         "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-03.webp"
       },
       {
-        "source": "velo:scooter/015 scooter 1.jpg",
+        "source": "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-04.png",
         "output": "/assets/projects/folding-bike-scooter/folding-bike-scooter-04.webp"
       },
       {

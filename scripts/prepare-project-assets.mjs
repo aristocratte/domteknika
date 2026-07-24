@@ -194,6 +194,28 @@ const projects = [
     folder: "velo:scooter",
     slug: "folding-bike-scooter",
     cover: "VELO ELECTRIQUE PLIANT copie.jpg",
+    order: [
+      "VELO ELECTRIQUE PLIANT copie.jpg",
+      "005 velo axe 1 ergo.jpg",
+      "011 scooter 1.jpg",
+      "015 scooter 1.jpg",
+      "VAE pliage 4.JPG",
+    ],
+    outputNames: {
+      "VELO ELECTRIQUE PLIANT copie.jpg": "folding-bike-scooter-01.webp",
+      "005 velo axe 1 ergo.jpg": "folding-bike-scooter-02.webp",
+      "011 scooter 1.jpg": "folding-bike-scooter-03.webp",
+      "015 scooter 1.jpg": "folding-bike-scooter-04.webp",
+      "VAE pliage 4.JPG": "folding-bike-scooter-05.webp",
+    },
+    sourceOverrides: {
+      "005 velo axe 1 ergo.jpg":
+        "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-02.png",
+      "011 scooter 1.jpg":
+        "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-03.png",
+      "015 scooter 1.jpg":
+        "assets/project-source-overrides/folding-bike-scooter/folding-bike-scooter-04.png",
+    },
   },
 ];
 
@@ -268,10 +290,14 @@ for (const project of projects) {
     const outputName =
       project.outputNames?.[file] ??
       `${project.slug}-${String(imageIndex).padStart(2, "0")}-${label}.webp`;
+    const sourceOverride = project.sourceOverrides?.[file]
+      ? path.resolve(project.sourceOverrides[file])
+      : null;
     const input =
-      fallbackInput && file === project.cover && !files.includes(file)
+      sourceOverride ??
+      (fallbackInput && file === project.cover && !files.includes(file)
         ? fallbackInput
-        : path.join(sourceDir, file);
+        : path.join(sourceDir, file));
     const output = path.join(outputDir, outputName);
 
     await convertImage(input, output);

@@ -270,6 +270,14 @@ type ProjectsLocale = "en" | "fr" | "de" | "es" | "ko" | "zh";
 const RELATED_PATENT_NOTE_TRANSLATIONS: Partial<
   Record<ProjectsLocale, Partial<Record<RelatedPatentId, string>>>
 > = {
+  fr: {
+    US5584510A:
+      "Principes de châssis pour l'intégration structurelle et la gestion de l'énergie d'impact dans un véhicule compact.",
+    US5667030A:
+      "Échangeur thermique de refroidissement intégré à une architecture de véhicule légère.",
+    US6015022A:
+      "Architecture de véhicule routier électrique ultraléger avec châssis à poutre centrale et empattement compact.",
+  },
   de: {
     CH701083B1:
       "Patentkontext für die Zahnreinigung und Aufhellung über eine Kartuschen- und Strahlarchitektur.",
@@ -740,15 +748,15 @@ export const PROJECTS: Project[] = [
     id: "instant-coffee-dispenser",
     category: "Household Appliances",
     filter: "household",
-    title: "Instant coffee dispenser",
+    title: "Soluble Coffee Machine",
     description:
-      "Prototype appliance for soluble coffee dosing, tested with consumer packaging and physical mockups.",
+      "Low-cost soluble-coffee machine designed to deliver an espresso-style cup from a broad range of soluble coffees and other soluble beverages.",
     image:
       "/assets/projects/instant-coffee-dispenser/instant-coffee-dispenser-01.webp",
-    imageAlt: "Instant coffee dispenser prototype with hand interaction",
+    imageAlt: "Soluble coffee machine prototype with hand interaction",
     tags: ["#2006", "#Appliance", "#Prototype"],
     overview:
-      "A physical prototype project focused on soluble coffee handling, dosing ergonomics and a compact appliance form factor.",
+      "DOMTEKNIKA developed the complete machine and carried out an initial industrialization study. Its architecture supports a range of soluble coffees and other soluble beverages. To prepare cappuccinos without contaminating the machine, milk remains fully separated from the internal circuit and never passes through its pipes or components. This design limits residue buildup and simplifies hygiene, cleaning and maintenance. The machine was subsequently brought to market for a major coffee-machine brand.",
     relatedPatents: [
       relatedPatent(
         "EP2000065A1",
@@ -854,12 +862,12 @@ export const PROJECTS: Project[] = [
     filter: "household",
     title: "Filter Carafe",
     description:
-      "Filtered-water carafe system combining product design, cartridge-accessory work and electronic cartridge-quality monitoring.",
+      "Filter-carafe system developed end to end, featuring a low-cost mechanism that measures filtered-water volume and alerts the user when the cartridge should be replaced.",
     image: "/assets/projects/filter-carafe/filter-carafe-01.webp",
     imageAlt: "Filtered-water carafe concept with cartridge accessories",
     tags: ["#2006", "#Filtration", "#ProductDesign"],
     overview:
-      "The carafe project combines the visible vessel and filter accessory design with a control principle for monitoring the quality and use state of the filtration cartridge inside the lid assembly.",
+      "DOMTEKNIKA developed the complete product, from the carafe and filter accessory to a low-cost volume-counting component. By tracking the quantity of water filtered, the system indicates when the user should replace the cartridge.",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -1276,10 +1284,10 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Produits",
     title: "Carafe filtrante",
     description:
-      "Système de carafe filtrante combinant design produit, accessoire de cartouche et contrôle électronique de l'état du filtre.",
+      "Système de carafe filtrante développé de bout en bout, avec un dispositif économique qui mesure le volume d'eau filtré et indique à l'utilisateur quand remplacer la cartouche.",
     imageAlt: "Concept de carafe filtrante avec accessoires de cartouche",
     overview:
-      "Le projet associe la carafe visible et son accessoire filtrant à un principe de contrôle intégré dans le couvercle, capable de suivre l'état d'utilisation de la cartouche de filtration.",
+      "DOMTEKNIKA a développé l'ensemble du produit, de la carafe et son accessoire filtrant jusqu'au composant économique de comptage du volume. En suivant la quantité d'eau filtrée, le système indique à l'utilisateur quand remplacer la cartouche.",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -1425,12 +1433,12 @@ const FR_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "instant-coffee-dispenser": {
     category: "Produits",
-    title: "Distributeur de café soluble",
+    title: "Machine à café soluble",
     description:
-      "Prototype d'appareil pour dosage de café soluble, testé avec emballages grand public et maquettes physiques.",
-    imageAlt: "Prototype de distributeur de café soluble manipulé à la main",
+      "Machine à café soluble économique conçue pour obtenir un résultat en tasse proche d'un espresso à partir de différents cafés solubles et autres boissons solubles.",
+    imageAlt: "Prototype de machine à café soluble manipulé à la main",
     overview:
-      "Projet prototype centré sur la manipulation du café soluble, l'ergonomie de dosage et un format d'appareil compact.",
+      "DOMTEKNIKA a développé l'ensemble de la machine, puis mené une première étude d'industrialisation. Son architecture accepte différents cafés et boissons solubles. Pour préparer des cappuccinos sans contaminer la machine, le lait reste entièrement séparé du circuit interne et ne traverse ni les conduites ni les composants. Cette conception limite les résidus et simplifie l'hygiène, le nettoyage et l'entretien. La machine a ensuite été commercialisée pour une grande marque de machines à café.",
     relatedPatents: [
       relatedPatent(
         "EP2000065A1",
@@ -1571,10 +1579,10 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Produkte",
     title: "Filterkaraffe",
     description:
-      "System für gefiltertes Wasser mit Karaffendesign, Filterzubehör und elektronischer Überwachung des Kartuschenzustands.",
+      "Vollständig entwickelte Filterkaraffe mit einer kostengünstigen Volumenerfassung, die die gefilterte Wassermenge misst und den fälligen Kartuschenwechsel anzeigt.",
     imageAlt: "Konzept einer Filterkaraffe mit Kartuschenzubehör",
     overview:
-      "Das Projekt verbindet die sichtbare Karaffe und das Filterzubehör mit einem im Deckel integrierten Kontrollprinzip, das den Zustand und die Nutzung der Filterkartusche überwacht.",
+      "DOMTEKNIKA entwickelte das gesamte Produkt – von der Karaffe und dem Filterzubehör bis zur kostengünstigen Komponente zur Volumenerfassung. Anhand der gefilterten Wassermenge zeigt das System an, wann die Kartusche gewechselt werden muss.",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -1698,12 +1706,12 @@ const DE_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "instant-coffee-dispenser": {
     category: "Produkte",
-    title: "Instantkaffee-Dispenser",
+    title: "Instantkaffeemaschine",
     description:
-      "Prototypgerät für die Dosierung von löslichem Kaffee, getestet mit Endkundenverpackungen und physischen Modellen.",
-    imageAlt: "Instantkaffee-Dispenser-Prototyp mit Handinteraktion",
+      "Kostengünstige Instantkaffeemaschine für ein espressoähnliches Ergebnis mit unterschiedlichen löslichen Kaffees und weiteren löslichen Getränken.",
+    imageAlt: "Prototyp einer Instantkaffeemaschine mit Handinteraktion",
     overview:
-      "Ein physisches Prototypenprojekt rund um die Handhabung von löslichem Kaffee, Dosierergonomie und ein kompaktes Geräteformat.",
+      "DOMTEKNIKA entwickelte die komplette Maschine und führte eine erste Industrialisierungsstudie durch. Die Architektur verarbeitet unterschiedliche lösliche Kaffees und weitere lösliche Getränke. Für die Zubereitung von Cappuccino bleibt die Milch vollständig vom internen Kreislauf getrennt und gelangt weder in Leitungen noch in interne Komponenten. Dadurch werden Verunreinigungen und Rückstände vermieden sowie Hygiene, Reinigung und Wartung vereinfacht. Anschliessend wurde die Maschine für eine grosse Kaffeemaschinenmarke auf den Markt gebracht.",
   },
   "vacheron-watch-mechanics": {
     category: "Produkte",
@@ -1824,10 +1832,10 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "Productos",
     title: "Jarra filtrante",
     description:
-      "Sistema de jarra filtrante que combina diseño de producto, accesorio de cartucho y control electrónico del estado del filtro.",
+      "Sistema de jarra filtrante desarrollado íntegramente, con un dispositivo económico que mide el volumen de agua filtrada e indica cuándo debe sustituirse el cartucho.",
     imageAlt: "Concepto de jarra filtrante con accesorios de cartucho",
     overview:
-      "El proyecto combina la jarra visible y su accesorio filtrante con un principio de control integrado en la tapa, capaz de supervisar el estado y el uso del cartucho de filtración.",
+      "DOMTEKNIKA desarrolló el producto completo, desde la jarra y el accesorio filtrante hasta el componente económico de medición de volumen. Al contabilizar el agua filtrada, el sistema indica al usuario cuándo debe cambiar el cartucho.",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -1951,12 +1959,12 @@ const ES_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "instant-coffee-dispenser": {
     category: "Productos",
-    title: "Dispensador de café soluble",
+    title: "Máquina de café soluble",
     description:
-      "Prototipo de aparato para dosificación de café soluble, probado con envases de consumo y maquetas físicas.",
-    imageAlt: "Prototipo de dispensador de café soluble con interacción manual",
+      "Máquina de café soluble de bajo coste diseñada para ofrecer un resultado similar al espresso con distintos cafés y otras bebidas solubles.",
+    imageAlt: "Prototipo de máquina de café soluble con interacción manual",
     overview:
-      "Proyecto de prototipo físico centrado en la manipulación de café soluble, ergonomía de dosificación y un formato compacto de aparato.",
+      "DOMTEKNIKA desarrolló íntegramente la máquina y realizó un primer estudio de industrialización. Su arquitectura admite distintos cafés solubles y otras bebidas solubles. Para preparar capuchinos sin contaminar la máquina, la leche se mantiene totalmente separada del circuito interno y no pasa por sus conductos ni componentes. Este diseño limita la acumulación de residuos y simplifica la higiene, la limpieza y el mantenimiento. Posteriormente, la máquina se comercializó para una importante marca de máquinas de café.",
   },
   "vacheron-watch-mechanics": {
     category: "Productos",
@@ -2076,10 +2084,10 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
     category: "제품",
     title: "필터 카라프",
     description:
-      "제품 디자인, 필터 카트리지 액세서리, 전자식 카트리지 상태 확인 기능을 결합한 정수 카라프 시스템.",
+      "제품 전체를 개발한 정수 카라프 시스템으로, 저비용 용량 계측 장치가 정수된 물의 양을 측정해 필터 교체 시점을 알려줍니다.",
     imageAlt: "필터 카트리지 액세서리가 포함된 정수 카라프 콘셉트",
     overview:
-      "이 프로젝트는 눈에 보이는 카라프와 필터 액세서리 디자인을 뚜껑에 통합된 제어 원리와 결합해, 필터 카트리지의 상태와 사용량을 추적합니다.",
+      "DOMTEKNIKA는 카라프와 필터 액세서리부터 저비용 용량 계측 부품까지 제품 전체를 개발했습니다. 정수된 물의 양을 추적해 사용자에게 카트리지 교체 시점을 알려줍니다.",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -2198,12 +2206,12 @@ const KO_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "instant-coffee-dispenser": {
     category: "제품",
-    title: "인스턴트 커피 디스펜서",
+    title: "인스턴트 커피 머신",
     description:
-      "소비자용 포장과 물리 목업으로 테스트한 용해성 커피 투입용 프로토타입 장치.",
-    imageAlt: "손으로 조작하는 인스턴트 커피 디스펜서 프로토타입",
+      "다양한 인스턴트 커피와 기타 용해성 음료로 에스프레소에 가까운 맛을 구현하도록 설계한 저비용 커피 머신.",
+    imageAlt: "손으로 조작하는 인스턴트 커피 머신 프로토타입",
     overview:
-      "용해성 커피 처리, 투입 인체공학, 컴팩트한 기기 형태에 집중한 물리 프로토타입 프로젝트입니다.",
+      "DOMTEKNIKA는 머신 전체를 개발하고 초기 양산화 검토까지 수행했습니다. 다양한 인스턴트 커피와 기타 용해성 음료를 사용할 수 있습니다. 카푸치노를 만들 때 우유가 기계 내부 회로와 완전히 분리되어 배관이나 내부 부품을 통과하지 않도록 설계했습니다. 이를 통해 오염과 잔류물 축적을 줄이고 위생 관리, 세척 및 유지보수를 간소화했습니다. 이후 이 제품은 주요 커피머신 브랜드를 위해 상용화되었습니다.",
   },
   "vacheron-watch-mechanics": {
     category: "제품",
@@ -2320,10 +2328,11 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   "filter-carafe": {
     category: "产品",
     title: "滤水壶",
-    description: "滤水壶系统，结合产品外观、滤芯附件和电子滤芯状态监测。",
+    description:
+      "完整开发的滤水壶系统，通过低成本计量装置统计过滤水量，并提示用户何时更换滤芯。",
     imageAlt: "带滤芯附件的滤水壶概念",
     overview:
-      "该项目将可见的壶身与滤芯附件设计结合，并在壶盖组件中集成控制原理，用于监测滤芯质量和使用状态。",
+      "DOMTEKNIKA 完成了从壶体、过滤附件到低成本水量计量部件的整套产品开发。系统通过累计过滤水量，提示用户何时更换滤芯。",
     relatedPatents: [
       relatedPatent(
         "WO2008017182A1",
@@ -2436,12 +2445,12 @@ const ZH_PROJECT_OVERRIDES: Record<string, Partial<Project>> = {
   },
   "instant-coffee-dispenser": {
     category: "产品",
-    title: "速溶咖啡分配器",
+    title: "速溶咖啡机",
     description:
-      "用于速溶咖啡计量的原型设备，并通过终端用户包装和实体模型进行测试。",
-    imageAlt: "带手部交互的速溶咖啡分配器原型",
+      "面向多种速溶咖啡和其他速溶饮品的低成本咖啡机，旨在实现接近意式浓缩咖啡的杯中效果。",
+    imageAlt: "带手部交互的速溶咖啡机原型",
     overview:
-      "一个实体原型项目，聚焦速溶咖啡处理、计量人体工学和紧凑设备形态。",
+      "DOMTEKNIKA 完成了整机开发，并开展了首轮工业化研究。该架构兼容多种速溶咖啡和其他速溶饮品。制作卡布奇诺时，牛奶与机器内部回路完全隔离，不会流经管路或内部部件，从而减少污染与残留，并简化卫生管理、清洁和维护。该机器随后面向一家大型咖啡机品牌实现商业化。",
   },
   "vacheron-watch-mechanics": {
     category: "产品",
@@ -2907,34 +2916,34 @@ const PROJECT_SCOPES: Record<
   },
   "filter-carafe": {
     en: [
-      "Filtered-water vessel and accessory design for a coherent consumer product system.",
-      "Lid-integrated cartridge monitoring principle linked to filtered-water use state.",
-      "Design-patent context around both the carafe body and filter accessory.",
+      "Complete product development covering the carafe, filter accessory and integrated mechanism.",
+      "Low-cost volume-counting component measuring the quantity of filtered water.",
+      "Clear replacement indication telling the user when the filtration cartridge should be changed.",
     ],
     fr: [
-      "Design de carafe filtrante et d'accessoire pour un système produit cohérent.",
-      "Principe de suivi de cartouche intégré au couvercle et lié à l'état d'utilisation du filtre.",
-      "Contexte brevets de design autour du corps de carafe et de l'accessoire filtrant.",
+      "Développement complet du produit, de la carafe et son accessoire filtrant jusqu'au mécanisme intégré.",
+      "Composant économique de comptage mesurant le volume d'eau réellement filtré.",
+      "Indication claire du moment où l'utilisateur doit remplacer la cartouche.",
     ],
     de: [
-      "Entwicklung einer Filterkaraffe und ihres Zubehörs als stimmiges Produktsystem.",
-      "Im Deckel integriertes Prinzip zur Überwachung der Filterkartusche anhand ihres Nutzungszustands.",
-      "Berücksichtigung des Designschutzes für Karaffenkörper und Filterzubehör.",
+      "Vollständige Produktentwicklung von der Karaffe und dem Filterzubehör bis zum integrierten Mechanismus.",
+      "Kostengünstige Volumenerfassung zur Messung der tatsächlich gefilterten Wassermenge.",
+      "Klare Anzeige, wann die Filterkartusche gewechselt werden muss.",
     ],
     es: [
-      "Diseño de una jarra filtrante y sus accesorios como un sistema de producto coherente.",
-      "Principio de control del cartucho integrado en la tapa y vinculado al estado de uso del filtro.",
-      "Desarrollo respaldado por la protección de diseño de la jarra y del accesorio filtrante.",
+      "Desarrollo completo del producto, desde la jarra y el accesorio filtrante hasta el mecanismo integrado.",
+      "Componente económico de medición del volumen de agua realmente filtrada.",
+      "Indicación clara del momento en que el usuario debe sustituir el cartucho.",
     ],
     ko: [
-      "필터 카라페와 액세서리를 하나의 일관된 제품 시스템으로 설계.",
-      "필터 사용 상태를 확인할 수 있도록 뚜껑에 카트리지 모니터링 원리를 통합.",
-      "카라페 본체와 필터 액세서리의 디자인 권리를 고려한 제품 개발.",
+      "카라페와 필터 액세서리부터 통합 메커니즘까지 제품 전체를 개발.",
+      "실제로 정수된 물의 양을 측정하는 저비용 용량 계측 부품.",
+      "사용자가 카트리지 교체 시점을 명확하게 확인할 수 있는 표시 기능.",
     ],
     zh: [
-      "将滤水壶与配套附件设计为协调统一的产品系统。",
-      "在壶盖中集成滤芯状态监测原理，直观反映使用情况。",
-      "在开发中统筹考虑壶体与过滤附件的外观设计保护。",
+      "完成从壶体、过滤附件到集成机构的整套产品开发。",
+      "采用低成本计量部件，统计实际过滤的水量。",
+      "清晰提示用户何时需要更换滤芯。",
     ],
   },
   ikitty: {
@@ -3259,34 +3268,40 @@ const PROJECT_SCOPES: Record<
   },
   "instant-coffee-dispenser": {
     en: [
-      "Soluble-coffee dosing architecture with physical user-interaction prototypes.",
-      "Compact appliance format balancing powder handling and consumer ergonomics.",
-      "Fluid, airflow and mixing patent context for soluble beverage preparation.",
+      "Complete machine development followed by an initial industrialization study.",
+      "Low-cost architecture compatible with soluble coffees and a broad range of other soluble beverages.",
+      "Espresso-style result and cappuccino preparation with milk kept outside the internal circuit to prevent contamination and residue buildup.",
+      "Subsequently brought to market for a major coffee-machine brand.",
     ],
     fr: [
-      "Architecture de dosage café soluble avec prototypes physiques d'interaction utilisateur.",
-      "Format d'appareil compact équilibrant manipulation de la poudre et ergonomie grand public.",
-      "Contexte brevet flux, air et mélange pour préparation de boissons solubles.",
+      "Développement complet de la machine, suivi d'une première étude d'industrialisation.",
+      "Architecture économique compatible avec différents cafés solubles et de nombreuses autres boissons solubles.",
+      "Résultat proche d'un espresso et préparation de cappuccinos sans passage de lait dans les conduites ni les composants internes, afin d'éviter contamination et résidus.",
+      "Machine ensuite commercialisée pour une grande marque de machines à café.",
     ],
     de: [
-      "Dosierarchitektur für löslichen Kaffee mit physischen Prototypen zur Prüfung der Bedienung.",
-      "Kompaktes Geräteformat, das Pulverhandling und intuitive Nutzung miteinander verbindet.",
-      "Patentkontext zu Strömung, Luftführung und Mischung bei der Zubereitung löslicher Getränke.",
+      "Vollständige Entwicklung der Maschine mit anschließender erster Industrialisierungsstudie.",
+      "Kostengünstige Architektur für unterschiedliche lösliche Kaffees und zahlreiche weitere lösliche Getränke.",
+      "Espressoähnliches Ergebnis und Cappuccino-Zubereitung mit Milch ausserhalb des internen Kreislaufs, um Verunreinigungen und Rückstände zu vermeiden.",
+      "Anschliessend für eine grosse Kaffeemaschinenmarke auf den Markt gebracht.",
     ],
     es: [
-      "Arquitectura de dosificación para café soluble con prototipos físicos de interacción.",
-      "Formato compacto que combina la manipulación del polvo con una ergonomía intuitiva.",
-      "Contexto de patentes sobre flujo, aire y mezcla para preparar bebidas solubles.",
+      "Desarrollo completo de la máquina, seguido de un primer estudio de industrialización.",
+      "Arquitectura de bajo coste compatible con distintos cafés solubles y numerosas bebidas solubles.",
+      "Resultado similar al espresso y preparación de capuchinos manteniendo la leche fuera del circuito interno para evitar contaminación y residuos.",
+      "Posteriormente comercializada para una importante marca de máquinas de café.",
     ],
     ko: [
-      "사용자 조작을 검증하는 실물 프로토타입을 포함한 인스턴트 커피 정량 공급 구조.",
-      "분말 취급과 직관적인 사용성을 조화시킨 컴팩트 기기 형식.",
-      "분말 음료 제조를 위한 유동, 공기, 혼합 관련 특허 기술 반영.",
+      "머신 전체 개발 후 초기 양산화 검토까지 수행.",
+      "다양한 인스턴트 커피와 여러 종류의 용해성 음료를 지원하는 저비용 구조.",
+      "에스프레소에 가까운 결과와 우유를 내부 회로 밖에 유지해 오염과 잔류물을 방지하는 카푸치노 제조 방식.",
+      "이후 주요 커피머신 브랜드를 위해 상용화.",
     ],
     zh: [
-      "开发速溶咖啡定量供给架构，并通过实物原型验证人机交互。",
-      "以紧凑设备形态兼顾粉料处理与直观操作体验。",
-      "结合速溶饮品制备中的流体、空气与混合相关专利技术。",
+      "完成整机开发，并开展首轮工业化研究。",
+      "低成本架构兼容多种速溶咖啡和其他速溶饮品。",
+      "实现接近意式浓缩咖啡的效果，并在制作卡布奇诺时让牛奶保持在内部回路之外，以避免污染和残留物。",
+      "随后面向一家大型咖啡机品牌实现商业化。",
     ],
   },
   "vacheron-watch-mechanics": {
@@ -5783,7 +5798,7 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
             </div>
             {renderProjectControls({
               wrapperClassName:
-                "grid w-full min-w-0 gap-3 min-[520px]:grid-cols-[minmax(138px,180px)_minmax(0,1fr)] md:w-auto md:flex lg:hidden",
+                "grid w-full min-w-0 gap-3 min-[520px]:grid-cols-[minmax(138px,180px)_minmax(0,1fr)] md:w-auto md:flex",
               sortClassName: "relative z-30 min-w-0 md:w-[180px]",
               searchClassName: "relative block min-w-0 md:w-[320px]",
             })}
@@ -5861,11 +5876,6 @@ export function ProjectsPageContent({ locale }: { locale: string }) {
                 })}
               </div>
             </div>
-            {renderProjectControls({
-              wrapperClassName: "mt-3 hidden justify-end gap-3 lg:flex",
-              sortClassName: "relative z-30 w-[180px]",
-              searchClassName: "relative block w-[320px]",
-            })}
           </Reveal>
 
           {visibleProjects.length > 0 ? (
